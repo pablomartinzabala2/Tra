@@ -39,6 +39,7 @@
             this.btnImprimir = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.ChkAltaStock = new System.Windows.Forms.CheckBox();
             this.btnSubirImagen = new System.Windows.Forms.Button();
             this.txt_RutaImagen = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -77,7 +78,8 @@
             this.txt_Patente = new System.Windows.Forms.TextBox();
             this.lblPatente = new System.Windows.Forms.Label();
             this.btnAgregarCiudad = new System.Windows.Forms.Button();
-            this.ChkAltaStock = new System.Windows.Forms.CheckBox();
+            this.cmb_CodColor = new System.Windows.Forms.ComboBox();
+            this.btnNuevoColor = new System.Windows.Forms.Button();
             this.BarraBotones.SuspendLayout();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Imagen)).BeginInit();
@@ -186,7 +188,10 @@
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.btnNuevoColor);
+            this.Grupo.Controls.Add(this.cmb_CodColor);
             this.Grupo.Controls.Add(this.ChkAltaStock);
+            this.Grupo.Controls.Add(this.btnAgregarCiudad);
             this.Grupo.Controls.Add(this.btnSubirImagen);
             this.Grupo.Controls.Add(this.txt_RutaImagen);
             this.Grupo.Controls.Add(this.label13);
@@ -232,9 +237,19 @@
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del vehículo";
             // 
+            // ChkAltaStock
+            // 
+            this.ChkAltaStock.AutoSize = true;
+            this.ChkAltaStock.Location = new System.Drawing.Point(514, 272);
+            this.ChkAltaStock.Name = "ChkAltaStock";
+            this.ChkAltaStock.Size = new System.Drawing.Size(87, 20);
+            this.ChkAltaStock.TabIndex = 56;
+            this.ChkAltaStock.Text = "Alta Stock";
+            this.ChkAltaStock.UseVisualStyleBackColor = true;
+            // 
             // btnSubirImagen
             // 
-            this.btnSubirImagen.Location = new System.Drawing.Point(364, 258);
+            this.btnSubirImagen.Location = new System.Drawing.Point(369, 330);
             this.btnSubirImagen.Name = "btnSubirImagen";
             this.btnSubirImagen.Size = new System.Drawing.Size(75, 34);
             this.btnSubirImagen.TabIndex = 55;
@@ -390,10 +405,11 @@
             // 
             // txt_Color
             // 
-            this.txt_Color.Location = new System.Drawing.Point(504, 140);
+            this.txt_Color.Location = new System.Drawing.Point(513, 320);
             this.txt_Color.Name = "txt_Color";
             this.txt_Color.Size = new System.Drawing.Size(246, 22);
             this.txt_Color.TabIndex = 37;
+            this.txt_Color.Visible = false;
             // 
             // label7
             // 
@@ -443,6 +459,7 @@
             this.button1.Size = new System.Drawing.Size(40, 28);
             this.button1.TabIndex = 18;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtCodAuto
             // 
@@ -556,21 +573,31 @@
             // btnAgregarCiudad
             // 
             this.btnAgregarCiudad.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.btnAgregarCiudad.Location = new System.Drawing.Point(803, 151);
+            this.btnAgregarCiudad.Location = new System.Drawing.Point(761, 102);
             this.btnAgregarCiudad.Name = "btnAgregarCiudad";
             this.btnAgregarCiudad.Size = new System.Drawing.Size(40, 28);
             this.btnAgregarCiudad.TabIndex = 17;
             this.btnAgregarCiudad.UseVisualStyleBackColor = true;
+            this.btnAgregarCiudad.Click += new System.EventHandler(this.btnAgregarCiudad_Click);
             // 
-            // ChkAltaStock
+            // cmb_CodColor
             // 
-            this.ChkAltaStock.AutoSize = true;
-            this.ChkAltaStock.Location = new System.Drawing.Point(514, 272);
-            this.ChkAltaStock.Name = "ChkAltaStock";
-            this.ChkAltaStock.Size = new System.Drawing.Size(87, 20);
-            this.ChkAltaStock.TabIndex = 56;
-            this.ChkAltaStock.Text = "Alta Stock";
-            this.ChkAltaStock.UseVisualStyleBackColor = true;
+            this.cmb_CodColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_CodColor.FormattingEnabled = true;
+            this.cmb_CodColor.Location = new System.Drawing.Point(500, 138);
+            this.cmb_CodColor.Name = "cmb_CodColor";
+            this.cmb_CodColor.Size = new System.Drawing.Size(259, 24);
+            this.cmb_CodColor.TabIndex = 57;
+            // 
+            // btnNuevoColor
+            // 
+            this.btnNuevoColor.Image = global::Concesionaria.Properties.Resources.page_add;
+            this.btnNuevoColor.Location = new System.Drawing.Point(765, 134);
+            this.btnNuevoColor.Name = "btnNuevoColor";
+            this.btnNuevoColor.Size = new System.Drawing.Size(40, 28);
+            this.btnNuevoColor.TabIndex = 58;
+            this.btnNuevoColor.UseVisualStyleBackColor = true;
+            this.btnNuevoColor.Click += new System.EventHandler(this.btnNuevoColor_Click);
             // 
             // FrmAbmAuto
             // 
@@ -580,7 +607,6 @@
             this.ClientSize = new System.Drawing.Size(829, 487);
             this.Controls.Add(this.Grupo);
             this.Controls.Add(this.BarraBotones);
-            this.Controls.Add(this.btnAgregarCiudad);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAbmAuto";
@@ -648,5 +674,7 @@
         private System.Windows.Forms.TextBox txt_RutaImagen;
         private System.Windows.Forms.Button btnSubirImagen;
         private System.Windows.Forms.CheckBox ChkAltaStock;
+        private System.Windows.Forms.ComboBox cmb_CodColor;
+        private System.Windows.Forms.Button btnNuevoColor;
     }
 }

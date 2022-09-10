@@ -69,6 +69,7 @@ namespace Concesionaria
             fun.LlenarCombo(cmbSucursal, "Sucursal", "Nombre", "CodSucursal");
             fun.LlenarCombo(cmbProvincia, "Provincia", "Nombre", "CodProvincia");
             fun.LlenarCombo(cmbProvincia2, "Provincia", "Nombre", "CodProvincia");
+            fun.LlenarCombo(cmbColor, "Color", "Nombre", "CodColor");
             cPapeles papel = new cPapeles();
             DataTable tbPapeles = papel.GetPapeles();
             Lista.DataSource = tbPapeles;
@@ -140,6 +141,7 @@ namespace Concesionaria
             Motor = txtMotor.Text;
             Chasis = txtChasis.Text;
             Int32? CodTipoCombustible = null;
+            int? CodColor = null;
             if (CmbTipoCombustible.SelectedIndex > 0)
                 CodTipoCombustible = Convert.ToInt32(CmbTipoCombustible.SelectedValue);
 
@@ -150,6 +152,8 @@ namespace Concesionaria
                 CodTipoUtilitario = Convert.ToInt32(cmbTipoUtilitario.SelectedValue);
             if (txtRuta.Text != "")
                 RutaImagen = txtRuta.Text;
+            if (cmbColor.SelectedIndex > 0)
+                CodColor = Convert.ToInt32(cmbColor.SelectedValue);
 
             Clases.cAuto auto = new Clases.cAuto();
             Boolean Graba = true;
@@ -159,7 +163,7 @@ namespace Concesionaria
             {
                 //inserto el auto
                 auto.AgregarAutoTransaccion(con, Transaccion, Patente, CodMarca, Descripcion,
-                    Kilometros, CodCiudad, Propio, Concesion, Observacion, Anio, Importe, Motor, Chasis, Color, CodTipoCombustible, CodSucursal, CodTipoUtilitario, RutaImagen);
+                    Kilometros, CodCiudad, Propio, Concesion, Observacion, Anio, Importe, Motor, Chasis, Color, CodTipoCombustible, CodSucursal, CodTipoUtilitario, RutaImagen,CodColor);
                 CodAuto = auto.GetMaxCodAutoTransaccion(con, Transaccion);
                 txtCodAuto.Text = CodAuto.ToString();
 
@@ -697,6 +701,14 @@ namespace Concesionaria
                     case "Marca":
                         fun.LlenarCombo(cmb_CodMarca, "Marca", "Nombre", "CodMarca");
                         cmb_CodMarca.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                        break;
+                    case "Banco":
+                        fun.LlenarCombo(CmbBanco, "Banco", "Nombre", "CodBanco");
+                        CmbBanco.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                        break;
+                    case "Color":  
+                        fun.LlenarCombo(cmbColor, "Color", "Nombre", "CodColor");
+                        cmbColor.SelectedValue = Principal.CampoIdSecundarioGenerado;
                         break;
                     case "Barrio":
                         Int32 CodCity = Convert.ToInt32(cmbCiudad2.SelectedValue);
@@ -1791,10 +1803,10 @@ namespace Concesionaria
         }
 
         private void btnNuevaSucursal_Click(object sender, EventArgs e)
-        {
-            Principal.CampoIdSecundario = "CodSucursal";
+        {  //se cambio por color
+            Principal.CampoIdSecundario = "CodColor";
             Principal.CampoNombreSecundario = "Nombre";
-            Principal.NombreTablaSecundario = "Sucursal";
+            Principal.NombreTablaSecundario = "Color";
             FrmAltaBasica form = new FrmAltaBasica();
             form.FormClosing += new FormClosingEventHandler(form_FormClosing);
             form.ShowDialog();
@@ -2431,6 +2443,17 @@ namespace Concesionaria
             string Cod = GrillaCliente.CurrentRow.Cells[0].Value.ToString();
             tbCliente = fun.EliminarFila(tbCliente, "CodCliente", Cod);
             GrillaCliente.DataSource = tbCliente;
+        }
+
+        private void btnNuevaBanco_Click(object sender, EventArgs e)
+        {
+            Principal.CampoIdSecundario = "CodBanco";
+            Principal.CampoNombreSecundario = "Nombre";
+            Principal.NombreTablaSecundario = "Banco";
+            Principal.CodigoPrincipalAbm = "1";
+            FrmAltaBasica form = new FrmAltaBasica();
+            form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            form.ShowDialog();
         }
     }
 }

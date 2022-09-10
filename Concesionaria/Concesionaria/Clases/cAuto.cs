@@ -250,14 +250,14 @@ namespace Concesionaria.Clases
             Int32? CodCiudad, int Propio, int Concesion,
             string Observacion, string Anio, Double? Importe,
             string Motor, string Chasis, string Color, Int32? CodTipoCombustible
-            ,Int32? CodSucursal,Int32? CodTipoUtilitario,string RutaImagen
+            ,Int32? CodSucursal,Int32? CodTipoUtilitario,string RutaImagen , int? CodColor
             )
         {
             string sql = "Insert into auto(";
             sql = sql + "Patente,CodMarca,Descripcion";
             sql = sql + ",Kilometros,CodCiudad,Propio,Concesion";
             sql = sql + ",Observacion,Anio,Importe,Motor,Chasis,Color,CodTipoCombustible";
-            sql = sql + ",CodSucursal,CodTipoUtilitario,RutaImagen";
+            sql = sql + ",CodSucursal,CodTipoUtilitario,RutaImagen,CodColor";
             sql = sql + ")";
             sql = sql + "Values (";
             sql = sql + "'" + Patente + "'";
@@ -300,6 +300,14 @@ namespace Concesionaria.Clases
             else
                 sql = sql + "," + CodTipoUtilitario.ToString();
             sql = sql + "," + "'" + RutaImagen + "'";
+            if (CodColor !=null)
+            {
+                sql = sql + "," + CodColor.ToString();
+            }
+            else
+            {
+                sql = sql + ",null";
+            }
             sql = sql + ")";
             SqlCommand comand = new SqlCommand();
             comand.Connection = con;

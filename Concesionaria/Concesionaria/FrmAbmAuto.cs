@@ -26,7 +26,8 @@ namespace Concesionaria
             fun.LlenarCombo(cmb_CodTipoCombustible, "TipoCombustible", "Nombre", "Codigo");
             fun.LlenarCombo(cmb_CodTipoUtilitario, "TipoUtilitario", "Nombre", "CodTipo");
             fun.LlenarCombo(cmb_CodSucursal, "Sucursal", "Nombre", "CodSucursal");
-         }
+            fun.LlenarCombo(cmb_CodColor, "Color", "Nombre", "CodColor");
+        }
 
         private void InicializarComponentes()
         {
@@ -143,6 +144,19 @@ namespace Concesionaria
                     return;
                 }
 
+            }
+
+            if (Principal.CampoIdSecundarioGenerado != "")
+            {
+
+                switch (Principal.NombreTablaSecundario)
+                {
+                    case "Color":    
+                        fun.LlenarCombo(cmb_CodColor, "Color", "Nombre", "CodColor");
+                        cmb_CodColor.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                        break;
+                   
+                }
             }
 
 
@@ -498,6 +512,27 @@ namespace Concesionaria
             {
                 txt_RutaImagen.Text = "";
             }
+        }
+
+        private void btnAgregarCiudad_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNuevoColor_Click(object sender, EventArgs e)
+        {
+            Principal.CampoIdSecundario = "CodColor";
+            Principal.CampoNombreSecundario = "Nombre";
+            Principal.NombreTablaSecundario = "Color";
+            Principal.CodigoPrincipalAbm = null;
+            FrmAltaBasica form = new FrmAltaBasica();
+            form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            form.ShowDialog();
         }
     }
 }
