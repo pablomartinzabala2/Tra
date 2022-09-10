@@ -1259,7 +1259,9 @@ namespace Concesionaria
             if (txtTotalGastosRecepcion.Text != "")
             {
                 txtTotalGastosRecepcion.Text = fun.FormatoEnteroMiles(txtTotalGastosRecepcion.Text);
+                txtTotalGasto.Text = txtTotalGastosRecepcion.Text;
             }
+            CalcularTotalCompra();
         }
 
         private void txtImporteGastoRecepcion_KeyPress(object sender, KeyPressEventArgs e)
@@ -2454,6 +2456,15 @@ namespace Concesionaria
             FrmAltaBasica form = new FrmAltaBasica();
             form.FormClosing += new FormClosingEventHandler(form_FormClosing);
             form.ShowDialog();
+        }
+
+        private void txtImporte_TextChanged(object sender, EventArgs e)
+        {
+            Clases.cFunciones fun = new Clases.cFunciones();
+            txtImporte.Text = fun.FormatoEnteroMiles(txtImporte.Text);
+            txtImporte.SelectionStart = txtImporte.Text.Length;
+             txtTotal.Text = txtImporte.Text;
+            CalcularTotalCompra();
         }
     }
 }

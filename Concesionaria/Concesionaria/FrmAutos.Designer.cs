@@ -441,6 +441,7 @@
             this.txtImporte.TabIndex = 9;
             this.txtImporte.ValidatingType = typeof(int);
             this.txtImporte.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtImporte_MaskInputRejected);
+            this.txtImporte.TextChanged += new System.EventHandler(this.txtImporte_TextChanged);
             this.txtImporte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImporte_KeyPress_1);
             this.txtImporte.Layout += new System.Windows.Forms.LayoutEventHandler(this.txtImporte_Layout);
             this.txtImporte.Leave += new System.EventHandler(this.txtImporte_Leave);
@@ -850,7 +851,6 @@
             // txtCelular
             // 
             this.txtCelular.Location = new System.Drawing.Point(232, 70);
-            this.txtCelular.Mask = "000-000-000000";
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(99, 22);
             this.txtCelular.TabIndex = 30;
@@ -858,7 +858,6 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(85, 70);
-            this.txtTelefono.Mask = "(999)0000-0000";
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(96, 22);
             this.txtTelefono.TabIndex = 22;

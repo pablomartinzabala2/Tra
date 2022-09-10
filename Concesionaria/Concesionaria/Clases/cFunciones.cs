@@ -566,8 +566,6 @@ namespace Concesionaria.Clases
 
         public double CalcularTotalGrilla(DataGridView Grilla, string Campo)
         {
-             
-        
             string sImporte = "";
             Clases.cFunciones fun = new Clases.cFunciones();
             double Total = 0;
@@ -578,6 +576,7 @@ namespace Concesionaria.Clases
                 Total = Total + Convert.ToDouble (sImporte.Replace (".",""));
             }
             return Total;
+
         }
 
         public string  ParteEntera(string Nro)
