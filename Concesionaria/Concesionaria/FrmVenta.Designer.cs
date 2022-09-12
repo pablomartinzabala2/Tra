@@ -953,7 +953,6 @@
             // txtCelular
             // 
             this.txtCelular.Location = new System.Drawing.Point(484, 56);
-            this.txtCelular.Mask = "000-000-000000";
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(239, 22);
             this.txtCelular.TabIndex = 30;
@@ -961,7 +960,6 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(121, 56);
-            this.txtTelefono.Mask = "(999)0000-0000";
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(143, 22);
             this.txtTelefono.TabIndex = 22;
