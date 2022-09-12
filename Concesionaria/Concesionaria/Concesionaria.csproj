@@ -110,6 +110,7 @@
     <Compile Include="Clases\cPapeles.cs" />
     <Compile Include="Clases\cPrenda.cs" />
     <Compile Include="Clases\cPrestamo.cs" />
+    <Compile Include="Clases\cPresupuesto.cs" />
     <Compile Include="Clases\cPreVenta.cs" />
     <Compile Include="Clases\cPunitorioCobranza.cs" />
     <Compile Include="Clases\cPunitorioCuota.cs" />
