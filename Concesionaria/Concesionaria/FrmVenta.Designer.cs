@@ -303,6 +303,7 @@
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabarPreVenta = new System.Windows.Forms.Button();
+            this.btnPresupuesto = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -3146,7 +3147,7 @@
             // btnAnular
             // 
             this.btnAnular.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnular.Location = new System.Drawing.Point(470, 526);
+            this.btnAnular.Location = new System.Drawing.Point(332, 526);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(119, 36);
             this.btnAnular.TabIndex = 5;
@@ -3166,12 +3167,24 @@
             this.btnGrabarPreVenta.UseVisualStyleBackColor = true;
             this.btnGrabarPreVenta.Click += new System.EventHandler(this.btnGrabarPreVenta_Click);
             // 
+            // btnPresupuesto
+            // 
+            this.btnPresupuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPresupuesto.Location = new System.Drawing.Point(465, 526);
+            this.btnPresupuesto.Name = "btnPresupuesto";
+            this.btnPresupuesto.Size = new System.Drawing.Size(131, 36);
+            this.btnPresupuesto.TabIndex = 7;
+            this.btnPresupuesto.Text = "Presupuesto";
+            this.btnPresupuesto.UseVisualStyleBackColor = true;
+            this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(888, 574);
+            this.Controls.Add(this.btnPresupuesto);
             this.Controls.Add(this.btnGrabarPreVenta);
             this.Controls.Add(this.btnAnular);
             this.Controls.Add(this.btnGrabar);
@@ -3525,5 +3538,6 @@
         private System.Windows.Forms.TextBox txtRutaImagenCliente;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox txtRutaAuto;
+        private System.Windows.Forms.Button btnPresupuesto;
     }
 }

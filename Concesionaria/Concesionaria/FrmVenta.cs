@@ -4737,6 +4737,53 @@ namespace Concesionaria
             FrmVerFotos frm = new FrmVerFotos();
             frm.ShowDialog();
         }
+
+        private void btnPresupuesto_Click(object sender, EventArgs e)
+        {
+            cFunciones fun = new cFunciones();
+            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+            Int32? CodCliente = null;
+            Int32? CodAuto = null;
+            Double Total = 0;
+            string sTotal = "";
+            Total = fun.ToDouble(txtPrecioVenta.Text);
+            sTotal = txtPrecioVenta.Text;
+            CodAuto = Convert.ToInt32(txtCodAuto.Text);
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = Clases.cConexion.Cadenacon();
+            con.Open();
+            SqlTransaction Transaccion;
+            Transaccion = con.BeginTransaction();
+            SqlCommand Comand = new SqlCommand();
+            Comand.Connection = con;
+            Comand.Transaction = Transaccion;
+            string sqlCLiente = "";
+            try
+            {
+                sqlCLiente = GetSqlClientes();
+                Comand.CommandText = sqlCLiente;
+                Comand.ExecuteNonQuery();
+
+                if (GrabaClienteNuevo == true)
+                {
+                    SqlCommand comand2 = new SqlCommand();
+                    comand2.Connection = con;
+                    comand2.Transaction = Transaccion;
+                    comand2.CommandText = "select max(CodCliente) as CodCliente from Cliente";
+                    txtCodCLiente.Text = comand2.ExecuteScalar().ToString();
+                }
+                Transaccion.Commit();
+                con.Close();
+                CodCliente = Convert.ToInt32(txtCodCLiente.Text);
+                cPresupuesto presupuesto = new cPresupuesto();
+                presupuesto.Insertar(CodAuto, CodCliente, Fecha, Total, sTotal);
+                Mensaje("Presupuesto grabado correctamente");
+            }
+            catch(Exception ex)
+            {
+                Mensaje("Hubo un error en el proceso Grabacion");
+            }
+        }
     }
 };
 
