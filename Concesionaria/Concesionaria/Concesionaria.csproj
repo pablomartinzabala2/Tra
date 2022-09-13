@@ -137,6 +137,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>COPIACONCESIONARIADataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DsReportes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsReportes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1024,6 +1029,7 @@
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="ReporteListado.rdlc" />
+    <EmbeddedResource Include="Reportes\ReportePresupuesto.rdlc" />
     <EmbeddedResource Include="ReporteVentas.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -1052,6 +1058,17 @@
     </None>
     <None Include="COPIACONCESIONARIADataSet.xss">
       <DependentUpon>COPIACONCESIONARIADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DsReportes.xsc">
+      <DependentUpon>DsReportes.xsd</DependentUpon>
+    </None>
+    <None Include="DsReportes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsReportes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsReportes.xss">
+      <DependentUpon>DsReportes.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1114,7 +1131,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
-    <Folder Include="Reportes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
