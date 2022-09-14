@@ -337,6 +337,8 @@ namespace Concesionaria {
             
             private global::System.Data.DataColumn columnMarca;
             
+            private global::System.Data.DataColumn columntipo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -604,6 +606,14 @@ namespace Concesionaria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn tipoColumn {
+                get {
+                    return this.columntipo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -666,7 +676,8 @@ namespace Concesionaria {
                         string RutaImagen, 
                         int CodColor, 
                         string Cliente, 
-                        string Marca) {
+                        string Marca, 
+                        string tipo) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -697,7 +708,8 @@ namespace Concesionaria {
                         RutaImagen,
                         CodColor,
                         Cliente,
-                        Marca};
+                        Marca,
+                        tipo};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -749,6 +761,7 @@ namespace Concesionaria {
                 this.columnCodColor = base.Columns["CodColor"];
                 this.columnCliente = base.Columns["Cliente"];
                 this.columnMarca = base.Columns["Marca"];
+                this.columntipo = base.Columns["tipo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -812,6 +825,8 @@ namespace Concesionaria {
                 base.Columns.Add(this.columnCliente);
                 this.columnMarca = new global::System.Data.DataColumn("Marca", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMarca);
+                this.columntipo = new global::System.Data.DataColumn("tipo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipo);
                 this.columnCodPresupuesto.AutoIncrement = true;
                 this.columnCodPresupuesto.AutoIncrementSeed = -1;
                 this.columnCodPresupuesto.AutoIncrementStep = -1;
@@ -837,6 +852,8 @@ namespace Concesionaria {
                 this.columnCliente.MaxLength = 201;
                 this.columnMarca.ReadOnly = true;
                 this.columnMarca.MaxLength = 250;
+                this.columntipo.ReadOnly = true;
+                this.columntipo.MaxLength = 350;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1433,6 +1450,22 @@ namespace Concesionaria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string tipo {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.tipoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'tipo\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.tipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCodAutoNull() {
                 return this.IsNull(this.tableDataTable1.CodAutoColumn);
             }
@@ -1754,6 +1787,18 @@ namespace Concesionaria {
             public void SetMarcaNull() {
                 this[this.tableDataTable1.MarcaColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstipoNull() {
+                return this.IsNull(this.tableDataTable1.tipoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettipoNull() {
+                this[this.tableDataTable1.tipoColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1944,6 +1989,7 @@ namespace Concesionaria.DsReportesTableAdapters {
             tableMapping.ColumnMappings.Add("CodColor", "CodColor");
             tableMapping.ColumnMappings.Add("Cliente", "Cliente");
             tableMapping.ColumnMappings.Add("Marca", "Marca");
+            tableMapping.ColumnMappings.Add("tipo", "tipo");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1960,10 +2006,10 @@ namespace Concesionaria.DsReportesTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"
-select p.*,a.*,
+            this._commandCollection[0].CommandText = @"select p.*,a.*,
 (c.Apellido + ' ' + c.Nombre) as Cliente,
 (select m.Nombre from Marca m where m.CodMarca = a.CodMarca) as Marca
+,(select tipo.Nombre from TipoUtilitario tipo where tipo.codtipo=a.CodTipoUtilitario) as tipo 
 from presupuesto p , cliente c, auto a 
 where p.CodCliente = c.CodCliente
 and p.CodAuto = a.codauto 

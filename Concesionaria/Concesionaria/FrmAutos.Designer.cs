@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAutos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbColor = new System.Windows.Forms.ComboBox();
             this.btnAgregarProvincia = new System.Windows.Forms.Button();
             this.cmbProvincia = new System.Windows.Forms.ComboBox();
             this.label36 = new System.Windows.Forms.Label();
@@ -181,7 +182,6 @@
             this.label33 = new System.Windows.Forms.Label();
             this.txtTotalGasto = new System.Windows.Forms.TextBox();
             this.label44 = new System.Windows.Forms.Label();
-            this.cmbColor = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCliente)).BeginInit();
@@ -254,6 +254,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del vehículo";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // cmbColor
+            // 
+            this.cmbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbColor.FormattingEnabled = true;
+            this.cmbColor.Location = new System.Drawing.Point(506, 203);
+            this.cmbColor.Name = "cmbColor";
+            this.cmbColor.Size = new System.Drawing.Size(178, 24);
+            this.cmbColor.TabIndex = 47;
             // 
             // btnAgregarProvincia
             // 
@@ -574,9 +583,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(416, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 16);
+            this.label2.Size = new System.Drawing.Size(54, 16);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Descripción";
+            this.label2.Text = "Modelo";
             // 
             // cmb_CodMarca
             // 
@@ -1757,15 +1766,6 @@
             this.label44.Size = new System.Drawing.Size(53, 17);
             this.label44.TabIndex = 53;
             this.label44.Text = "Gastos";
-            // 
-            // cmbColor
-            // 
-            this.cmbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbColor.FormattingEnabled = true;
-            this.cmbColor.Location = new System.Drawing.Point(506, 203);
-            this.cmbColor.Name = "cmbColor";
-            this.cmbColor.Size = new System.Drawing.Size(178, 24);
-            this.cmbColor.TabIndex = 47;
             // 
             // FrmAutos
             // 

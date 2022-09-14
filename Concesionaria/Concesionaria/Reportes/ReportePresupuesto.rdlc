@@ -61,8 +61,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>4.09258cm</Top>
-        <Left>6.39974cm</Left>
+        <Top>3.90208cm</Top>
+        <Left>7.60624cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>2</ZIndex>
@@ -91,7 +91,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>5.87058cm</Top>
+        <Top>4.88633cm</Top>
         <Left>1.47849cm</Left>
         <Height>0.6cm</Height>
         <Width>1.98967cm</Width>
@@ -121,10 +121,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Cliente</rd:DefaultName>
-        <Top>5.86528cm</Top>
+        <Top>4.88103cm</Top>
         <Left>3.46816cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.98708cm</Width>
+        <Width>9.19396cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -151,10 +151,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>6.93635cm</Top>
+        <Top>5.9521cm</Top>
         <Left>1.47849cm</Left>
         <Height>0.6cm</Height>
-        <Width>9.8025cm</Width>
+        <Width>11.54875cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -181,7 +181,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>8.11639cm</Top>
+        <Top>7.13214cm</Top>
         <Left>1.47849cm</Left>
         <Height>0.6cm</Height>
         <Width>1.15062cm</Width>
@@ -211,10 +211,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Marca</rd:DefaultName>
-        <Top>8.11639cm</Top>
+        <Top>7.13214cm</Top>
         <Left>3.38349cm</Left>
         <Height>0.6cm</Height>
-        <Width>5.86021cm</Width>
+        <Width>9.27862cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -241,7 +241,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>9.15885cm</Top>
+        <Top>8.1746cm</Top>
         <Left>1.47849cm</Left>
         <Height>0.6cm</Height>
         <Width>1.49458cm</Width>
@@ -271,41 +271,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Descripcion</rd:DefaultName>
-        <Top>9.15885cm</Top>
+        <Top>8.1746cm</Top>
         <Left>3.38349cm</Left>
         <Height>0.6cm</Height>
-        <Width>6.42333cm</Width>
+        <Width>9.01625cm</Width>
         <ZIndex>9</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox14">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Tipo</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>10.06902cm</Top>
-        <Left>1.51024cm</Left>
-        <Height>0.6cm</Height>
-        <Width>0.89779cm</Width>
-        <ZIndex>10</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -331,11 +301,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>11.00416cm</Top>
+        <Top>10.05166cm</Top>
         <Left>1.47849cm</Left>
         <Height>0.88724cm</Height>
         <Width>0.89779cm</Width>
-        <ZIndex>11</ZIndex>
+        <ZIndex>10</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -361,11 +331,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Anio</rd:DefaultName>
-        <Top>11.00416cm</Top>
+        <Top>10.05166cm</Top>
         <Left>2.71674cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>12</ZIndex>
+        <ZIndex>11</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -392,10 +362,190 @@
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
         <Top>2.58974cm</Top>
-        <Left>9.46891cm</Left>
+        <Left>12.13591cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.66958cm</Width>
+        <Width>3.84937cm</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox16">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Tipo:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>9.02331cm</Top>
+        <Left>1.47849cm</Left>
+        <Height>0.88724cm</Height>
+        <Width>0.89779cm</Width>
         <ZIndex>13</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="tipo">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!tipo.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>tipo</rd:DefaultName>
+        <Top>9.02331cm</Top>
+        <Left>2.6797cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>14</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox17">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Precio:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>12.4019cm</Top>
+        <Left>1.48786cm</Left>
+        <Height>0.88724cm</Height>
+        <Width>1.14125cm</Width>
+        <ZIndex>15</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="sTotal">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!sTotal.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>sTotal</rd:DefaultName>
+        <Top>12.4019cm</Top>
+        <Left>2.85433cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>16</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox18">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Precio:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>11.22715cm</Top>
+        <Left>1.51961cm</Left>
+        <Height>0.88724cm</Height>
+        <Width>1.29471cm</Width>
+        <ZIndex>17</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="sTotal1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!sTotal.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>sTotal1</rd:DefaultName>
+        <Top>11.22715cm</Top>
+        <Left>3.06599cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>18</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -552,6 +702,10 @@
         </Field>
         <Field Name="Marca">
           <DataField>Marca</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tipo">
+          <DataField>tipo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
