@@ -30,13 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DsReportes = new Concesionaria.DsReportes();
             this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DsReportes = new Concesionaria.DsReportes();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.DataTable1TableAdapter = new Concesionaria.DsReportesTableAdapters.DataTable1TableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DsReportes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DsReportes)).BeginInit();
             this.SuspendLayout();
+            // 
+            // DataTable1BindingSource
+            // 
+            this.DataTable1BindingSource.DataMember = "DataTable1";
+            this.DataTable1BindingSource.DataSource = this.DsReportes;
+            // 
+            // DsReportes
+            // 
+            this.DsReportes.DataSetName = "DsReportes";
+            this.DsReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -44,20 +54,10 @@
             reportDataSource1.Value = this.DataTable1BindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Concesionaria.Reportes.ReportePresupuesto.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(12, 12);
+            this.reportViewer1.Location = new System.Drawing.Point(12, 1);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(721, 431);
+            this.reportViewer1.Size = new System.Drawing.Size(721, 493);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // DsReportes
-            // 
-            this.DsReportes.DataSetName = "DsReportes";
-            this.DsReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // DataTable1BindingSource
-            // 
-            this.DataTable1BindingSource.DataMember = "DataTable1";
-            this.DataTable1BindingSource.DataSource = this.DsReportes;
             // 
             // DataTable1TableAdapter
             // 
@@ -67,13 +67,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 473);
+            this.ClientSize = new System.Drawing.Size(735, 506);
             this.Controls.Add(this.reportViewer1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmReportePresupuesto";
-            this.Text = "FrmReportePresupuesto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Reporte de Presupuesto";
             this.Load += new System.EventHandler(this.FrmReportePresupuesto_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DsReportes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DsReportes)).EndInit();
             this.ResumeLayout(false);
 
         }
