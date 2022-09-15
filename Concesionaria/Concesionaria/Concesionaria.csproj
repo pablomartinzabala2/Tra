@@ -148,6 +148,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormularioBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormularioBase.Designer.cs">
+      <DependentUpon>FormularioBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAbmAuto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +255,12 @@
     </Compile>
     <Compile Include="FrmBuscadorGenerico.Designer.cs">
       <DependentUpon>FrmBuscadorGenerico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscarAuto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarAuto.Designer.cs">
+      <DependentUpon>FrmBuscarAuto.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCobroCheque.cs">
       <SubType>Form</SubType>
@@ -514,6 +526,12 @@
     <Compile Include="FrmListadoPrestamo.Designer.cs">
       <DependentUpon>FrmListadoPrestamo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoPresupuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoPresupuesto.Designer.cs">
+      <DependentUpon>FrmListadoPresupuesto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoPreVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -735,6 +753,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormularioBase.resx">
+      <DependentUpon>FormularioBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmAuto.resx">
       <DependentUpon>FrmAbmAuto.cs</DependentUpon>
     </EmbeddedResource>
@@ -785,6 +806,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscadorGenerico.resx">
       <DependentUpon>FrmBuscadorGenerico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscarAuto.resx">
+      <DependentUpon>FrmBuscarAuto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCobroCheque.resx">
       <DependentUpon>FrmCobroCheque.cs</DependentUpon>
@@ -917,6 +941,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoPrestamo.resx">
       <DependentUpon>FrmListadoPrestamo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoPresupuesto.resx">
+      <DependentUpon>FrmListadoPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoPreVenta.resx">
       <DependentUpon>FrmListadoPreVenta.cs</DependentUpon>

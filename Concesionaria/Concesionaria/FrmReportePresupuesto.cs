@@ -18,10 +18,9 @@ namespace Concesionaria
 
         private void FrmReportePresupuesto_Load(object sender, EventArgs e)
         {
-            Int32 CodPresupuesto = 1;
+            Int32 CodPresupuesto =Convert.ToInt32 (Principal.CodPresupuesto);
             // TODO: This line of code loads data into the 'DsReportes.DataTable1' table. You can move, or remove it, as needed.
             this.DataTable1TableAdapter.Fill(this.DsReportes.DataTable1,CodPresupuesto);
-
             this.reportViewer1.RefreshReport();
         }
     }

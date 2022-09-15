@@ -42,6 +42,7 @@
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriaDeGastosDeRecepciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tarjetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.papelesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAgregarCosto = new System.Windows.Forms.ToolStripMenuItem();
@@ -105,7 +106,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.papelesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.presupuestoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -219,6 +220,13 @@
             this.tarjetaToolStripMenuItem.Size = new System.Drawing.Size(292, 22);
             this.tarjetaToolStripMenuItem.Text = "Tarjeta";
             this.tarjetaToolStripMenuItem.Click += new System.EventHandler(this.tarjetaToolStripMenuItem_Click);
+            // 
+            // papelesToolStripMenuItem
+            // 
+            this.papelesToolStripMenuItem.Name = "papelesToolStripMenuItem";
+            this.papelesToolStripMenuItem.Size = new System.Drawing.Size(292, 22);
+            this.papelesToolStripMenuItem.Text = "Papeles";
+            this.papelesToolStripMenuItem.Click += new System.EventHandler(this.papelesToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -353,7 +361,8 @@
             this.anotacionesToolStripMenuItem,
             this.rentabilidadToolStripMenuItem,
             this.preVentasToolStripMenuItem,
-            this.ventasPorTarjetasToolStripMenuItem});
+            this.ventasPorTarjetasToolStripMenuItem,
+            this.presupuestoToolStripMenuItem});
             this.viewMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.viewMenu.Name = "viewMenu";
             this.viewMenu.Size = new System.Drawing.Size(73, 21);
@@ -758,12 +767,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // papelesToolStripMenuItem
+            // presupuestoToolStripMenuItem
             // 
-            this.papelesToolStripMenuItem.Name = "papelesToolStripMenuItem";
-            this.papelesToolStripMenuItem.Size = new System.Drawing.Size(292, 22);
-            this.papelesToolStripMenuItem.Text = "Papeles";
-            this.papelesToolStripMenuItem.Click += new System.EventHandler(this.papelesToolStripMenuItem_Click);
+            this.presupuestoToolStripMenuItem.Name = "presupuestoToolStripMenuItem";
+            this.presupuestoToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.presupuestoToolStripMenuItem.Text = "Presupuesto";
+            this.presupuestoToolStripMenuItem.Click += new System.EventHandler(this.presupuestoToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -868,6 +877,7 @@
         private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton BtnBorrarTablas;
         private System.Windows.Forms.ToolStripMenuItem papelesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem presupuestoToolStripMenuItem;
     }
 }
 

@@ -35,6 +35,7 @@ namespace Concesionaria
         private DataTable tbLista;
         public static Int32? CodAutoSeleccionado;
         public static string RutaImagen;
+        public static Int32? CodPresupuesto;
         public Principal()
         {
             InitializeComponent();
@@ -735,6 +736,10 @@ namespace Concesionaria
             }
         }
 
-        
+        private void presupuestoToolStripMenuItem_Click(object sender, EventArgs e)
+        {  
+            FrmListadoPresupuesto frm = new FrmListadoPresupuesto();
+            frm.Show();
+        }
     }
 }

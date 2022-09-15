@@ -304,6 +304,7 @@
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabarPreVenta = new System.Windows.Forms.Button();
             this.btnPresupuesto = new System.Windows.Forms.Button();
+            this.btnBuscarAuto = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -379,6 +380,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.groupBox2.Controls.Add(this.btnBuscarAuto);
             this.groupBox2.Controls.Add(this.txtRutaAuto);
             this.groupBox2.Controls.Add(this.BtnVerFoto);
             this.groupBox2.Controls.Add(this.button4);
@@ -435,7 +437,7 @@
             // BtnVerFoto
             // 
             this.BtnVerFoto.Image = global::Concesionaria.Properties.Resources.tv;
-            this.BtnVerFoto.Location = new System.Drawing.Point(218, 21);
+            this.BtnVerFoto.Location = new System.Drawing.Point(260, 18);
             this.BtnVerFoto.Name = "BtnVerFoto";
             this.BtnVerFoto.Size = new System.Drawing.Size(34, 28);
             this.BtnVerFoto.TabIndex = 61;
@@ -631,7 +633,7 @@
             // 
             // txtCodAuto
             // 
-            this.txtCodAuto.Location = new System.Drawing.Point(258, 18);
+            this.txtCodAuto.Location = new System.Drawing.Point(300, 22);
             this.txtCodAuto.Name = "txtCodAuto";
             this.txtCodAuto.Size = new System.Drawing.Size(50, 22);
             this.txtCodAuto.TabIndex = 14;
@@ -3176,6 +3178,16 @@
             this.btnPresupuesto.UseVisualStyleBackColor = true;
             this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
             // 
+            // btnBuscarAuto
+            // 
+            this.btnBuscarAuto.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnBuscarAuto.Location = new System.Drawing.Point(219, 17);
+            this.btnBuscarAuto.Name = "btnBuscarAuto";
+            this.btnBuscarAuto.Size = new System.Drawing.Size(40, 27);
+            this.btnBuscarAuto.TabIndex = 64;
+            this.btnBuscarAuto.UseVisualStyleBackColor = true;
+            this.btnBuscarAuto.Click += new System.EventHandler(this.btnBuscarAuto_Click);
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3537,5 +3549,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox txtRutaAuto;
         private System.Windows.Forms.Button btnPresupuesto;
+        private System.Windows.Forms.Button btnBuscarAuto;
     }
 }

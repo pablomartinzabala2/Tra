@@ -119,6 +119,7 @@ namespace Concesionaria
             tbCobranza = new DataTable();
             string ColCob = "Cuota;Importe;FechaVencimiento;FechaPago;Saldo;CodCobranza";
             tbCobranza = fun.CrearTabla(ColCob);
+            Principal.CodPresupuesto = null;
         }
 
         private void txtPatente_TextChanged(object sender, EventArgs e)
@@ -4741,13 +4742,14 @@ namespace Concesionaria
         private void btnPresupuesto_Click(object sender, EventArgs e)
         {
             cFunciones fun = new cFunciones();
+            Int32 CodPresupuesto = 0;
             DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
             Int32? CodCliente = null;
             Int32? CodAuto = null;
             Double Total = 0;
             string sTotal = "";
             Total = fun.ToDouble(txtPrecioVenta.Text);
-            sTotal = txtPrecioVenta.Text;
+            sTotal = "$ " + txtPrecioVenta.Text;
             CodAuto = Convert.ToInt32(txtCodAuto.Text);
             SqlConnection con = new SqlConnection();
             con.ConnectionString = Clases.cConexion.Cadenacon();
@@ -4776,12 +4778,37 @@ namespace Concesionaria
                 con.Close();
                 CodCliente = Convert.ToInt32(txtCodCLiente.Text);
                 cPresupuesto presupuesto = new cPresupuesto();
-                presupuesto.Insertar(CodAuto, CodCliente, Fecha, Total, sTotal);
+                CodPresupuesto = presupuesto.Insertar(CodAuto, CodCliente, Fecha, Total, sTotal);
                 Mensaje("Presupuesto grabado correctamente");
+                Principal.CodPresupuesto = CodPresupuesto;
+                FrmReportePresupuesto form = new FrmReportePresupuesto();
+                form.Show();
             }
             catch(Exception ex)
             {
                 Mensaje("Hubo un error en el proceso Grabacion");
+            }
+        }
+
+        private void btnBuscarAuto_Click(object sender, EventArgs e)
+        {
+            FrmBuscarAuto form = new FrmBuscarAuto();
+            form.FormClosing += new FormClosingEventHandler(formBuscadorAuto_FormClosing);
+            form.ShowDialog();
+        }
+
+        private void formBuscadorAuto_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Int32 CodAuto = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            cAuto auto = new Clases.cAuto();
+            DataTable trdo = auto.GetAutoxCodigo(CodAuto);
+            if (trdo.Rows.Count > 0)
+            {
+                if (trdo.Rows[0]["Patente"].ToString() != "")
+                {
+                    string Patente = trdo.Rows[0]["Patente"].ToString();
+                    txtPatente.Text = Patente;
+                }
             }
         }
     }

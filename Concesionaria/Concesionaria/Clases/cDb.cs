@@ -50,5 +50,11 @@ namespace Concesionaria.Clases
             comand.CommandText = Sql;
             return Convert.ToInt32(comand.ExecuteScalar());
         }
+
+        public static Int32 EjecutarEscalar(string Sql)
+        {
+            Sql = Sql + "select SCOPE_IDENTITY()";
+            return Convert.ToInt32(SqlHelper.ExecuteScalar(cConexion.Cadenacon(), CommandType.Text, Sql));
+        }
     }
 }
