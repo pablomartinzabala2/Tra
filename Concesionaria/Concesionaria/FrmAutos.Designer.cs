@@ -1353,6 +1353,7 @@
             this.tabPage4.Size = new System.Drawing.Size(815, 168);
             this.tabPage4.TabIndex = 2;
             this.tabPage4.Text = "Cheques";
+            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
             // 
             // GrillaCheques
             // 

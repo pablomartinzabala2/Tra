@@ -55,6 +55,7 @@ namespace Concesionaria
             fun.LlenarCombo(cmbTarjeta, "Tarjeta", "Nombre", "CodTarjeta");
             fun.LlenarCombo(CmbTipoCombustible2, "TipoCombustible", "Nombre", "Codigo");
             fun.LlenarCombo(cmbProvincia2, "Provincia", "Nombre", "CodProvincia");
+            fun.LlenarCombo(cmbTipoUtilitario, "TipoUtilitario", "Nombre", "CodTipo");
             fun.LlenarCombo(CmbProvinciaAuto , "Provincia", "Nombre", "CodProvincia");
             CargarVendedor();
             tbTarjeta = fun.CrearTabla("CodTarjeta;Nombre;Importe");
@@ -4741,6 +4742,10 @@ namespace Concesionaria
 
         private void btnPresupuesto_Click(object sender, EventArgs e)
         {
+            if (ValidarPresupuesto()==false)
+            {
+                return;
+            }
             cFunciones fun = new cFunciones();
             Int32 CodPresupuesto = 0;
             DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
@@ -4750,7 +4755,15 @@ namespace Concesionaria
             string sTotal = "";
             Total = fun.ToDouble(txtPrecioVenta.Text);
             sTotal = "$ " + txtPrecioVenta.Text;
-            CodAuto = Convert.ToInt32(txtCodAuto.Text);
+            if (txtCodAuto.Text !="")
+            {
+                CodAuto = Convert.ToInt32(txtCodAuto.Text);
+            }
+            else
+            {
+                CodAuto = GrabarAutoxPresupuesto();
+            }
+            
             SqlConnection con = new SqlConnection();
             con.ConnectionString = Clases.cConexion.Cadenacon();
             con.Open();
@@ -4788,6 +4801,87 @@ namespace Concesionaria
             {
                 Mensaje("Hubo un error en el proceso Grabacion");
             }
+        }
+
+        private Boolean ValidarPresupuesto()
+        {
+            Boolean op = true;
+            if(txtDescripcion.Text =="")
+            {
+                Mensaje("Debe ingresar un modelo para continuar");
+                return false;
+            }
+            if(cmbMarca.SelectedIndex <1)
+            {
+                Mensaje("Debe seleccionar una marca para continuar");
+                return false;
+            }
+            if (txtNombre.Text =="")
+            {
+                Mensaje("Debe ingresar un nombre de un cliente");
+                return false;
+            }
+            if (txtApellido.Text =="")
+            {
+                Mensaje("Debe ingresar un apellido de un cliente para continuar");
+                return false;
+            }
+            return op;
+        }
+
+        private Int32 GrabarAutoxPresupuesto()
+        {
+            cFunciones fun = new cFunciones();
+            cAuto auto = new cAuto();
+            string Patente = "";
+            Int32? CodMarca = null;
+            string Descripcion;
+            Int32? Kilometros = null;
+            Int32? CodCiudad = null;
+            int Propio = 0;
+            int Concesion = 0;
+            string Observacion = "";
+            string Anio = "";
+            Double? Importe = 0;
+            string Motor = "";
+            string Chasis = "";
+            string Color = "";
+            Int32? CodTipoCombustible = null;
+            Int32? CodTipoUtilitario = null;
+            Patente = txtPatente.Text;
+            if (cmbMarca.SelectedIndex >0)
+            {
+                CodMarca = Convert.ToInt32(cmbMarca.SelectedValue);
+            }
+            Descripcion = txtDescripcion.Text;
+            Anio = txtAnio.Text;
+            if (txtKms.Text !="")
+            {
+                Kilometros = Convert.ToInt32(txtKms.Text);
+            }
+            
+            if (cmbCiudad.SelectedIndex >0)
+            {
+                CodCiudad = Convert.ToInt32(cmbCiudad.SelectedValue);
+            }
+            
+            if (txtImporteCompra.Text !="")
+            {
+                Importe = fun.ToDouble(txtImporteCompra.Text);
+            }
+
+            if (cmbTipoUtilitario.SelectedIndex>0)
+            {
+                CodTipoUtilitario = Convert.ToInt32(cmbTipoUtilitario.SelectedValue);
+            }
+            Motor = txtMotor.Text;
+            Chasis = txtChasis.Text;
+            Int32 CodAuto = 0;
+            CodAuto = auto.AgregarAutoId(Patente, CodMarca, Descripcion, Kilometros,
+                CodCiudad, Propio, Concesion, Observacion, Anio, Importe, Motor,
+                Chasis, Color, CodTipoCombustible,CodTipoUtilitario
+                );
+            return CodAuto;
         }
 
         private void btnBuscarAuto_Click(object sender, EventArgs e)

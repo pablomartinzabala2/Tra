@@ -393,5 +393,61 @@ namespace Concesionaria.Clases
             comand.CommandText = sql;
             comand.ExecuteNonQuery();
         }
+
+        public Int32 AgregarAutoId(string Patente, Int32? CodMarca,
+          string Descripcion, Int32? Kilometros,
+          Int32? CodCiudad, int Propio, int Concesion,
+          string Observacion, string Anio, Double? Importe,
+          string Motor, string Chasis, string Color, Int32? CodTipoCombustible,
+          Int32? CodTipoUtilitario
+          )
+        {
+            string sql = "Insert into auto(";
+            sql = sql + "Patente,CodMarca,Descripcion";
+            sql = sql + ",Kilometros,CodCiudad,Propio,Concesion";
+            sql = sql + ",Observacion,Anio,Importe,Motor,Chasis,Color,CodTipoCombustible,CodTipoUtilitario";
+            sql = sql + ")";
+            sql = sql + "Values (";
+            sql = sql + "'" + Patente + "'";
+            if (CodMarca != null)
+                sql = sql + "," + CodMarca.ToString();
+            else
+                sql = sql + ",null";
+
+            sql = sql + "," + "'" + Descripcion + "'";
+            if (Kilometros != null)
+                sql = sql + "," + Kilometros.ToString();
+            else
+                sql = sql + ",null";
+            if (CodCiudad != null)
+                sql = sql + "," + CodCiudad.ToString();
+            else
+                sql = sql + ",null";
+            sql = sql + "," + Propio.ToString();
+            sql = sql + "," + Concesion.ToString();
+            sql = sql + "," + "'" + Observacion + "'";
+            sql = sql + "," + "'" + Anio + "'";
+            if (Importe == null)
+                sql = sql + ",null";
+            else
+                sql = sql + "," + Importe.ToString();
+            sql = sql + "," + "'" + Motor + "'";
+            sql = sql + "," + "'" + Chasis + "'";
+            sql = sql + "," + "'" + Color + "'";
+            if (CodTipoCombustible == null)
+                sql = sql + ",null";
+            else
+                sql = sql + "," + CodTipoCombustible.ToString();
+            if (CodTipoUtilitario!=null)
+            {
+                sql = sql + "," + CodTipoUtilitario.ToString();
+            }
+            else
+            {
+                sql = sql + ",null";
+            }
+            sql = sql + ")";
+            return  cDb.EjecutarEscalar (sql);
+        }
     }
 }

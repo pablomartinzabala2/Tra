@@ -2466,5 +2466,10 @@ namespace Concesionaria
              txtTotal.Text = txtImporte.Text;
             CalcularTotalCompra();
         }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
