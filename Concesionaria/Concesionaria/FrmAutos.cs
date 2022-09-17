@@ -1171,6 +1171,7 @@ namespace Concesionaria
             txtTotalGasto.Text = txtTotalGastosRecepcion.Text;
             txtTotalGastosRecepcion.Text = txtTotalGasto.Text;
             CalcularTotalCompra();
+            CalcularSubtotal();
         }
 
         private void AgregarGastoRecepcion(string Codigo, string Descripcion, string Importe, string Tipo)
@@ -1262,6 +1263,7 @@ namespace Concesionaria
                 txtTotalGasto.Text = txtTotalGastosRecepcion.Text;
             }
             CalcularTotalCompra();
+            CalcularSubtotal();
         }
 
         private void txtImporteGastoRecepcion_KeyPress(object sender, KeyPressEventArgs e)
@@ -1360,6 +1362,7 @@ namespace Concesionaria
             Clases.cFunciones fun = new Clases.cFunciones();
             txtEfectivo.Text = fun.FormatoEnteroMiles(txtEfectivo.Text);
             txtTotalEfectivo.Text = txtEfectivo.Text;
+            CalcularSubtotal();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -1403,6 +1406,7 @@ namespace Concesionaria
             Clases.cFunciones fun = new Clases.cFunciones();
             txtImporteVehiculo2.Text = fun.FormatoEnteroMiles(txtImporteVehiculo2.Text);
             txtTotalVehiculo.Text = txtImporteVehiculo2.Text;
+            CalcularSubtotal();
         }
 
         private void BtnAgregarCheque_Click(object sender, EventArgs e)
@@ -1479,6 +1483,7 @@ namespace Concesionaria
             txtTotalCheque.Text = TotalCheques.ToString();
             //Clases.cFunciones fun = new Clases.cFunciones();
             txtTotalCheque.Text = fun.FormatoEnteroMiles(txtTotalCheque.Text);
+            CalcularSubtotal();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -1533,7 +1538,7 @@ namespace Concesionaria
             txtTotalCheque.Text = TotalCheques.ToString();
             //Clases.cFunciones fun = new Clases.cFunciones();
             txtTotalCheque.Text = fun.FormatoEnteroMiles(txtTotalCheque.Text);
-
+            CalcularSubtotal();
         }
 
         private void GrabarCheques(SqlConnection con, SqlTransaction Transaccion, Int32 CodCompra)
@@ -1739,6 +1744,7 @@ namespace Concesionaria
             Clases.cFunciones fun = new Clases.cFunciones();
             txtEfectivoaPagar.Text = fun.FormatoEnteroMiles(txtEfectivoaPagar.Text);
             txtTotalEfectivosaPagar.Text = txtEfectivoaPagar.Text;
+            CalcularSubtotal();
         }
 
         private void bnAgregarGastosRecepcion_Click_1(object sender, EventArgs e)
@@ -2470,6 +2476,44 @@ namespace Concesionaria
         private void tabPage4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CalcularSubtotal()
+        {
+            cFunciones fun = new cFunciones();
+            Double Efectivo = 0;
+            Double Cheque = 0;
+            Double Vehiculo = 0;
+            Double EfectivoPagar = 0;
+            Double Gastos = 0;
+            Double Subtotal = 0;
+
+            if (txtEfectivo.Text != "")
+                Efectivo = fun.ToDouble(txtEfectivo.Text);
+            if (txtTotalCheque.Text != "")
+                Cheque = fun.ToDouble(txtTotalCheque.Text);
+            if (txtTotalVehiculo.Text != "")
+                Vehiculo = fun.ToDouble(txtTotalVehiculo.Text);
+            if (txtTotalEfectivosaPagar.Text != "")
+                EfectivoPagar = fun.ToDouble(txtTotalEfectivosaPagar.Text);
+            if (txtTotalGasto.Text != "")
+                Gastos = fun.ToDouble(txtTotalGasto.Text);
+
+            Subtotal = Efectivo + Cheque + Vehiculo + EfectivoPagar + Gastos;
+            TxtSubTotal.Text = Subtotal.ToString();
+            TxtSubTotal.Text = fun.FormatoEnteroMiles(TxtSubTotal.Text);
+        }
+
+        private void btnCancelarAuto_Click(object sender, EventArgs e)
+        {
+            txtPatente2.Text = "";
+            txtCodStock2.Text = "";
+            txtCodAuto2.Text = "";
+            txtDescripcion2.Text = "";
+            txtCostoxAuto.Text = "";
+            txtImporteVehiculo2.Text = "";
+            txtTotalVehiculo.Text = "";
+            CalcularSubtotal();
         }
     }
 }

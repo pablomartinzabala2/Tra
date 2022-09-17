@@ -191,6 +191,19 @@
         +AwcsHhxyFqrtlzEbR+5WATbvetqscn0D8RBy4HB6CC2AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btnCancelarAuto.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF7SURBVDhPrZFdSwJBGIX3WtALTSSRok9LsEj6wJIgoa2M
+        kiUqKomIiPqfXnnhDxERFNRdd3dOc0Z3U3ajG1847DjOc94vbe4hEgm4mhYq/jd5Fh5YWAByG8DXi5L4
+        fIL4eIR4v4d4u4OzuQI7Gg038eHvGoRehigUlNx8Xsk5OYJTu8VofQkD+XaCjWMaxrPM2GxCGMYYzOXg
+        VCrqzr6+gP1wCWs1M2vC/lTJzEy414NotxWoYHnmndtoYLSzjZFRRlcyE3xsoPplydWqD6jv1NkqlWAm
+        k7BuTkMM5KD8fqeyBmC5CfPqOMSAU2a/2SwcXQ8YmMUiBvE4+rEYzPODoIH7agRhfr1zq4WhbLEfiSiD
+        zrSBLX9wRfbhnhqUBzArxTPv3Hodg0wKw3Jh1oB9cb9cka2fKROCvGfZzEx4uL+r4G46gU4q9WvA4GPu
+        lyuyttb8flmyUjr5N+xFT5r0lxfVlJVkrxTBf2EvaMIJe2KvvmRVk2fzCk37AXThwA9PGpnqAAAAAElF
+        TkSuQmCC
+</value>
+  </data>
   <data name="bnAgregarGastosRecepcion.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
