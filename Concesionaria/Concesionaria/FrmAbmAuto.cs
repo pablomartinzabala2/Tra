@@ -27,12 +27,16 @@ namespace Concesionaria
             fun.LlenarCombo(cmb_CodTipoUtilitario, "TipoUtilitario", "Nombre", "CodTipo");
             fun.LlenarCombo(cmb_CodSucursal, "Sucursal", "Nombre", "CodSucursal");
             fun.LlenarCombo(cmb_CodColor, "Color", "Nombre", "CodColor");
+            string sql = "select * from Anio order by Nombre Desc";
+            DataTable tbAnio = cDb.ExecuteDataTable(sql);
+            fun.LlenarComboDatatable(cmb_CodAnio, tbAnio, "Nombre", "CodAnio");
         }
 
         private void InicializarComponentes()
         {
             Clases.cFunciones fun = new Clases.cFunciones();
             fun.LlenarCombo(cmb_CodMarca, "Marca", "Nombre", "CodMarca");
+           
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
@@ -50,11 +54,7 @@ namespace Concesionaria
 
         private Boolean Validar()
         {
-            if (txt_Patente.Text == "")
-            {
-                MessageBox.Show("Debe ingresar una patente para continuar", Clases.cMensaje.Mensaje());
-                return false;
-            }
+           
 
             if (txt_Kilometros.Text == "")
                 txt_Kilometros.Text = "0";
@@ -141,7 +141,7 @@ namespace Concesionaria
                         fun.CargarControles(this, "Auto", "CodAuto", txtCodAuto.Text);
                     Grupo.Enabled = false;
                     UbicarProvincia(Convert.ToInt32(txtCodAuto.Text));
-                    return;
+                    
                 }
 
             }
@@ -151,9 +151,20 @@ namespace Concesionaria
 
                 switch (Principal.NombreTablaSecundario)
                 {
+                    case "Marca":
+                        fun.LlenarCombo(cmb_CodMarca, "Marca", "Nombre", "CodMarca");
+                        cmb_CodMarca.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                        break;
                     case "Color":    
                         fun.LlenarCombo(cmb_CodColor, "Color", "Nombre", "CodColor");
                         cmb_CodColor.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                        break;
+                    case "Anio":  
+                        string sql = "select * from Anio order by Nombre desc";
+                        DataTable tbAnio = cDb.ExecuteDataTable(sql);
+
+                        fun.LlenarComboDatatable(cmb_CodAnio, tbAnio, "Nombre", "CodAnio");
+                        cmb_CodAnio.SelectedValue = Principal.CampoIdSecundarioGenerado;
                         break;
                    
                 }
@@ -521,7 +532,13 @@ namespace Concesionaria
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Principal.CampoIdSecundario = "CodMarca";
+            Principal.CampoNombreSecundario = "Nombre";
+            Principal.NombreTablaSecundario = "Marca";
+            Principal.CampoIdSecundarioGenerado = "";
+            FrmAltaBasica form = new FrmAltaBasica();
+            form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            form.ShowDialog();
         }
 
         private void btnNuevoColor_Click(object sender, EventArgs e)
@@ -530,6 +547,17 @@ namespace Concesionaria
             Principal.CampoNombreSecundario = "Nombre";
             Principal.NombreTablaSecundario = "Color";
             Principal.CodigoPrincipalAbm = null;
+            FrmAltaBasica form = new FrmAltaBasica();
+            form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            form.ShowDialog();
+        }
+
+        private void btnAgregarAnio_Click(object sender, EventArgs e)
+        {
+            Principal.CampoIdSecundario = "CodAnio";
+            Principal.CampoNombreSecundario = "Nombre";
+            Principal.NombreTablaSecundario = "Anio";
+            Principal.CampoIdSecundarioGenerado = "";
             FrmAltaBasica form = new FrmAltaBasica();
             form.FormClosing += new FormClosingEventHandler(form_FormClosing);
             form.ShowDialog();

@@ -21,5 +21,19 @@ namespace Concesionaria
             Int32 x = Convert.ToInt32(textBox1.Text);
             textBox1.Text = x.ToString("0N"); 
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime Fecha = dateTimePicker1.Value;
+            textBox1.Text = Fecha.ToShortDateString();
+        }
+
+        private void FrmTest_Load(object sender, EventArgs e)
+        {
+            DateTime Fecha = dateTimePicker1.Value;
+            Fecha = Fecha.AddMonths(1);
+            dateTimePicker1.Value = Fecha;
+
+        }
     }
 }

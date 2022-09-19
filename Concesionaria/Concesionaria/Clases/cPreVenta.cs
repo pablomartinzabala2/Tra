@@ -27,7 +27,8 @@ namespace Concesionaria.Clases
             //sql = sql + " - (select isnull(sum(Importe),0) from Impuesto Imp where Imp.CodVenta = v.CodVenta )";
             sql = sql + " ) as Ganancia";
             sql = sql + ",v.CodCliente";
-            
+            sql = sql + ",'PreVenta' as TpoVenta";
+
             sql = sql + " from PreVenta v,cliente c,auto a,stockauto sa";
             sql = sql + " where v.CodCliente = c.CodCliente";
             sql = sql + " and v.CodAutoVendido=a.CodAuto";

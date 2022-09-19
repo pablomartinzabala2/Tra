@@ -250,7 +250,8 @@ namespace Concesionaria.Clases
             Int32? CodCiudad, int Propio, int Concesion,
             string Observacion, string Anio, Double? Importe,
             string Motor, string Chasis, string Color, Int32? CodTipoCombustible
-            ,Int32? CodSucursal,Int32? CodTipoUtilitario,string RutaImagen , int? CodColor
+            ,Int32? CodSucursal,Int32? CodTipoUtilitario,string RutaImagen , int? CodColor,
+            int? CodAnio
             )
         {
             string sql = "Insert into auto(";
@@ -258,6 +259,7 @@ namespace Concesionaria.Clases
             sql = sql + ",Kilometros,CodCiudad,Propio,Concesion";
             sql = sql + ",Observacion,Anio,Importe,Motor,Chasis,Color,CodTipoCombustible";
             sql = sql + ",CodSucursal,CodTipoUtilitario,RutaImagen,CodColor";
+            sql = sql + ",CodAnio";
             sql = sql + ")";
             sql = sql + "Values (";
             sql = sql + "'" + Patente + "'";
@@ -308,6 +310,12 @@ namespace Concesionaria.Clases
             {
                 sql = sql + ",null";
             }
+
+            if (CodAnio != null)
+                sql = sql + "," + CodAnio.ToString();
+            else
+                sql = sql + ",null";
+
             sql = sql + ")";
             SqlCommand comand = new SqlCommand();
             comand.Connection = con;
@@ -341,7 +349,7 @@ namespace Concesionaria.Clases
           string Descripcion, Int32? Kilometros,
           Int32? CodCiudad, int Propio, int Concesion,
           string Observacion, string Anio, Double? Importe, string Motor, string Chasis, 
-          string Color , Int32? CodSucursal, Int32? CodTipoUtilitario,string RutaImagen)
+          string Color , Int32? CodSucursal, Int32? CodTipoUtilitario,string RutaImagen,int? CodAnio)
         {
             string sql = "";
             sql = "update auto set";
@@ -384,6 +392,11 @@ namespace Concesionaria.Clases
             else
                 sql = sql + ",CodTipoUtilitario =" + CodTipoUtilitario.ToString();
             sql = sql + ",RutaImagen=" + "'" + RutaImagen + "'";
+
+            if (CodAnio ==null)
+                sql = sql + ",CodAnio =null";
+            else
+                sql = sql + ",CodAnio =" + CodAnio.ToString();
 
             sql = sql + " where patente =" + "'" + Patente + "'";
 

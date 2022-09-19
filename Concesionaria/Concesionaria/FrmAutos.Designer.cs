@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAutos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dpFecha = new System.Windows.Forms.DateTimePicker();
+            this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.cmbColor = new System.Windows.Forms.ComboBox();
             this.btnAgregarProvincia = new System.Windows.Forms.Button();
             this.cmbProvincia = new System.Windows.Forms.ComboBox();
@@ -43,8 +45,6 @@
             this.CmbTipoCombustible = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtColor = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtChasis = new System.Windows.Forms.TextBox();
             this.txtMotor = new System.Windows.Forms.TextBox();
@@ -62,7 +62,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtKilometros = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtAnio = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -140,6 +139,7 @@
             this.Imagen = new System.Windows.Forms.PictureBox();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dpFechaVencimiento = new System.Windows.Forms.DateTimePicker();
             this.GrillaCheques = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.BtnAgregarCheque = new System.Windows.Forms.Button();
@@ -147,7 +147,6 @@
             this.CmbBanco = new System.Windows.Forms.ComboBox();
             this.label49 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
-            this.txtFechaVencimiento = new System.Windows.Forms.MaskedTextBox();
             this.txtImporteCheque = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.txtCheque = new System.Windows.Forms.TextBox();
@@ -156,6 +155,7 @@
             this.txtEfectivo = new System.Windows.Forms.MaskedTextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.btnCancelarAuto = new System.Windows.Forms.Button();
             this.txtCodAuto2 = new System.Windows.Forms.TextBox();
             this.txtCostoxAuto = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -184,7 +184,8 @@
             this.label44 = new System.Windows.Forms.Label();
             this.TxtSubTotal = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
-            this.btnCancelarAuto = new System.Windows.Forms.Button();
+            this.cmbAnio = new System.Windows.Forms.ComboBox();
+            this.btnAgregarAnio = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCliente)).BeginInit();
@@ -209,6 +210,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAgregarAnio);
+            this.groupBox1.Controls.Add(this.cmbAnio);
+            this.groupBox1.Controls.Add(this.dpFecha);
+            this.groupBox1.Controls.Add(this.txtFecha);
             this.groupBox1.Controls.Add(this.cmbColor);
             this.groupBox1.Controls.Add(this.btnAgregarProvincia);
             this.groupBox1.Controls.Add(this.cmbProvincia);
@@ -222,8 +227,6 @@
             this.groupBox1.Controls.Add(this.CmbTipoCombustible);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.txtColor);
-            this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.txtFecha);
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.txtChasis);
             this.groupBox1.Controls.Add(this.txtMotor);
@@ -241,7 +244,6 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtKilometros);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtAnio);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.label2);
@@ -252,19 +254,38 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(-9, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(801, 219);
+            this.groupBox1.Size = new System.Drawing.Size(801, 226);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del vehículo";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // dpFecha
+            // 
+            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFecha.Location = new System.Drawing.Point(708, 79);
+            this.dpFecha.Name = "dpFecha";
+            this.dpFecha.Size = new System.Drawing.Size(87, 22);
+            this.dpFecha.TabIndex = 48;
+            this.dpFecha.ValueChanged += new System.EventHandler(this.dpFecha_ValueChanged);
+            // 
+            // txtFecha
+            // 
+            this.txtFecha.Location = new System.Drawing.Point(607, 81);
+            this.txtFecha.Mask = "00/00/0000";
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(22, 22);
+            this.txtFecha.TabIndex = 35;
+            this.txtFecha.ValidatingType = typeof(System.DateTime);
+            this.txtFecha.Visible = false;
+            // 
             // cmbColor
             // 
             this.cmbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbColor.FormattingEnabled = true;
-            this.cmbColor.Location = new System.Drawing.Point(506, 203);
+            this.cmbColor.Location = new System.Drawing.Point(503, 201);
             this.cmbColor.Name = "cmbColor";
-            this.cmbColor.Size = new System.Drawing.Size(178, 24);
+            this.cmbColor.Size = new System.Drawing.Size(258, 24);
             this.cmbColor.TabIndex = 47;
             // 
             // btnAgregarProvincia
@@ -299,7 +320,7 @@
             // btnNuevaSucursal
             // 
             this.btnNuevaSucursal.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.btnNuevaSucursal.Location = new System.Drawing.Point(772, 196);
+            this.btnNuevaSucursal.Location = new System.Drawing.Point(761, 197);
             this.btnNuevaSucursal.Name = "btnNuevaSucursal";
             this.btnNuevaSucursal.Size = new System.Drawing.Size(40, 28);
             this.btnNuevaSucursal.TabIndex = 42;
@@ -310,7 +331,7 @@
             // 
             this.cmbSucursal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSucursal.FormattingEnabled = true;
-            this.cmbSucursal.Location = new System.Drawing.Point(477, 149);
+            this.cmbSucursal.Location = new System.Drawing.Point(361, 21);
             this.cmbSucursal.Name = "cmbSucursal";
             this.cmbSucursal.Size = new System.Drawing.Size(42, 24);
             this.cmbSucursal.TabIndex = 43;
@@ -357,9 +378,9 @@
             // 
             this.CmbTipoCombustible.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbTipoCombustible.FormattingEnabled = true;
-            this.CmbTipoCombustible.Location = new System.Drawing.Point(506, 172);
+            this.CmbTipoCombustible.Location = new System.Drawing.Point(506, 174);
             this.CmbTipoCombustible.Name = "CmbTipoCombustible";
-            this.CmbTipoCombustible.Size = new System.Drawing.Size(289, 24);
+            this.CmbTipoCombustible.Size = new System.Drawing.Size(255, 24);
             this.CmbTipoCombustible.TabIndex = 10;
             // 
             // label16
@@ -373,33 +394,16 @@
             // 
             // txtColor
             // 
-            this.txtColor.Location = new System.Drawing.Point(335, 137);
+            this.txtColor.Location = new System.Drawing.Point(372, 146);
             this.txtColor.Name = "txtColor";
-            this.txtColor.Size = new System.Drawing.Size(91, 22);
+            this.txtColor.Size = new System.Drawing.Size(44, 22);
             this.txtColor.TabIndex = 8;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(432, 143);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(40, 16);
-            this.label23.TabIndex = 36;
-            this.label23.Text = "Color";
-            // 
-            // txtFecha
-            // 
-            this.txtFecha.Location = new System.Drawing.Point(706, 84);
-            this.txtFecha.Mask = "00/00/0000";
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(76, 22);
-            this.txtFecha.TabIndex = 35;
-            this.txtFecha.ValidatingType = typeof(System.DateTime);
+            this.txtColor.Visible = false;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(654, 84);
+            this.label22.Location = new System.Drawing.Point(646, 84);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(46, 16);
             this.label22.TabIndex = 34;
@@ -407,9 +411,9 @@
             // 
             // txtChasis
             // 
-            this.txtChasis.Location = new System.Drawing.Point(684, 143);
+            this.txtChasis.Location = new System.Drawing.Point(507, 146);
             this.txtChasis.Name = "txtChasis";
-            this.txtChasis.Size = new System.Drawing.Size(107, 22);
+            this.txtChasis.Size = new System.Drawing.Size(254, 22);
             this.txtChasis.TabIndex = 33;
             // 
             // txtMotor
@@ -422,7 +426,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(610, 149);
+            this.label19.Location = new System.Drawing.Point(422, 149);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(74, 16);
             this.label19.TabIndex = 31;
@@ -461,7 +465,7 @@
             // button1
             // 
             this.button1.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.button1.Location = new System.Drawing.Point(372, 52);
+            this.button1.Location = new System.Drawing.Point(372, 46);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 28);
             this.button1.TabIndex = 18;
@@ -498,7 +502,7 @@
             // radioConcesion
             // 
             this.radioConcesion.AutoSize = true;
-            this.radioConcesion.Location = new System.Drawing.Point(507, 87);
+            this.radioConcesion.Location = new System.Drawing.Point(497, 87);
             this.radioConcesion.Name = "radioConcesion";
             this.radioConcesion.Size = new System.Drawing.Size(90, 20);
             this.radioConcesion.TabIndex = 13;
@@ -509,7 +513,7 @@
             // 
             this.radioPropio.AutoSize = true;
             this.radioPropio.Checked = true;
-            this.radioPropio.Location = new System.Drawing.Point(419, 85);
+            this.radioPropio.Location = new System.Drawing.Point(425, 86);
             this.radioPropio.Name = "radioPropio";
             this.radioPropio.Size = new System.Drawing.Size(66, 20);
             this.radioPropio.TabIndex = 12;
@@ -529,7 +533,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(412, 116);
+            this.label5.Location = new System.Drawing.Point(422, 115);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 16);
             this.label5.TabIndex = 10;
@@ -553,15 +557,6 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Kms";
             // 
-            // txtAnio
-            // 
-            this.txtAnio.Location = new System.Drawing.Point(120, 84);
-            this.txtAnio.MaxLength = 4;
-            this.txtAnio.Name = "txtAnio";
-            this.txtAnio.Size = new System.Drawing.Size(246, 22);
-            this.txtAnio.TabIndex = 5;
-            this.txtAnio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAnio_KeyPress);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -584,7 +579,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(416, 31);
+            this.label2.Location = new System.Drawing.Point(422, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 16);
             this.label2.TabIndex = 4;
@@ -1339,6 +1334,7 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage4.Controls.Add(this.dpFechaVencimiento);
             this.tabPage4.Controls.Add(this.GrillaCheques);
             this.tabPage4.Controls.Add(this.button2);
             this.tabPage4.Controls.Add(this.BtnAgregarCheque);
@@ -1346,7 +1342,6 @@
             this.tabPage4.Controls.Add(this.CmbBanco);
             this.tabPage4.Controls.Add(this.label49);
             this.tabPage4.Controls.Add(this.label48);
-            this.tabPage4.Controls.Add(this.txtFechaVencimiento);
             this.tabPage4.Controls.Add(this.txtImporteCheque);
             this.tabPage4.Controls.Add(this.label47);
             this.tabPage4.Controls.Add(this.txtCheque);
@@ -1357,6 +1352,14 @@
             this.tabPage4.TabIndex = 2;
             this.tabPage4.Text = "Cheques";
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
+            // 
+            // dpFechaVencimiento
+            // 
+            this.dpFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaVencimiento.Location = new System.Drawing.Point(566, 53);
+            this.dpFechaVencimiento.Name = "dpFechaVencimiento";
+            this.dpFechaVencimiento.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaVencimiento.TabIndex = 58;
             // 
             // GrillaCheques
             // 
@@ -1425,17 +1428,6 @@
             this.label48.Size = new System.Drawing.Size(85, 17);
             this.label48.TabIndex = 51;
             this.label48.Text = "Vencimiento";
-            // 
-            // txtFechaVencimiento
-            // 
-            this.txtFechaVencimiento.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFechaVencimiento.Location = new System.Drawing.Point(564, 53);
-            this.txtFechaVencimiento.Mask = "00/00/0000";
-            this.txtFechaVencimiento.Name = "txtFechaVencimiento";
-            this.txtFechaVencimiento.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtFechaVencimiento.Size = new System.Drawing.Size(80, 23);
-            this.txtFechaVencimiento.TabIndex = 50;
-            this.txtFechaVencimiento.ValidatingType = typeof(System.DateTime);
             // 
             // txtImporteCheque
             // 
@@ -1525,6 +1517,16 @@
             this.tabPage5.Size = new System.Drawing.Size(815, 168);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "Vehículo";
+            // 
+            // btnCancelarAuto
+            // 
+            this.btnCancelarAuto.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarAuto.Image")));
+            this.btnCancelarAuto.Location = new System.Drawing.Point(269, 24);
+            this.btnCancelarAuto.Name = "btnCancelarAuto";
+            this.btnCancelarAuto.Size = new System.Drawing.Size(40, 28);
+            this.btnCancelarAuto.TabIndex = 43;
+            this.btnCancelarAuto.UseVisualStyleBackColor = true;
+            this.btnCancelarAuto.Click += new System.EventHandler(this.btnCancelarAuto_Click);
             // 
             // txtCodAuto2
             // 
@@ -1792,15 +1794,24 @@
             this.label45.TabIndex = 55;
             this.label45.Text = "Subtotal";
             // 
-            // btnCancelarAuto
+            // cmbAnio
             // 
-            this.btnCancelarAuto.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarAuto.Image")));
-            this.btnCancelarAuto.Location = new System.Drawing.Point(269, 24);
-            this.btnCancelarAuto.Name = "btnCancelarAuto";
-            this.btnCancelarAuto.Size = new System.Drawing.Size(40, 28);
-            this.btnCancelarAuto.TabIndex = 43;
-            this.btnCancelarAuto.UseVisualStyleBackColor = true;
-            this.btnCancelarAuto.Click += new System.EventHandler(this.btnCancelarAuto_Click);
+            this.cmbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAnio.FormattingEnabled = true;
+            this.cmbAnio.Location = new System.Drawing.Point(120, 79);
+            this.cmbAnio.Name = "cmbAnio";
+            this.cmbAnio.Size = new System.Drawing.Size(246, 24);
+            this.cmbAnio.TabIndex = 49;
+            // 
+            // btnAgregarAnio
+            // 
+            this.btnAgregarAnio.Image = global::Concesionaria.Properties.Resources.page_add;
+            this.btnAgregarAnio.Location = new System.Drawing.Point(372, 78);
+            this.btnAgregarAnio.Name = "btnAgregarAnio";
+            this.btnAgregarAnio.Size = new System.Drawing.Size(40, 28);
+            this.btnAgregarAnio.TabIndex = 50;
+            this.btnAgregarAnio.UseVisualStyleBackColor = true;
+            this.btnAgregarAnio.Click += new System.EventHandler(this.btnAgregarAnio_Click);
             // 
             // FrmAutos
             // 
@@ -1879,7 +1890,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtKilometros;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtAnio;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbCiudad;
         private System.Windows.Forms.Label label5;
@@ -1920,7 +1930,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.MaskedTextBox txtFecha;
         private System.Windows.Forms.TextBox txtColor;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox CmbTipoCombustible;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TabControl tabControl2;
@@ -1956,7 +1965,6 @@
         private System.Windows.Forms.ComboBox CmbBanco;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.MaskedTextBox txtFechaVencimiento;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtTotalGastosRecepcion;
@@ -2026,5 +2034,9 @@
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.TextBox TxtSubTotal;
         private System.Windows.Forms.Button btnCancelarAuto;
+        private System.Windows.Forms.DateTimePicker dpFecha;
+        private System.Windows.Forms.DateTimePicker dpFechaVencimiento;
+        private System.Windows.Forms.ComboBox cmbAnio;
+        private System.Windows.Forms.Button btnAgregarAnio;
     }
 }

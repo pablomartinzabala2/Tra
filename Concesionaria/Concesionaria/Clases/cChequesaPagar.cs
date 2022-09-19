@@ -77,5 +77,16 @@ namespace Concesionaria.Clases
             sql = sql + " and c.CodCompra=" + CodCompra.ToString ();
             return cDb.ExecuteDataTable(sql);
         }
+
+        public DataTable GetChequesxCodCompra2(Int32 CodCompra)
+        {
+            string sql = "select c.NroCheque as Cheque, c.Importe";
+            sql = sql + ",c.FechaVencimiento,c.CodBanco";
+            sql = sql + ",b.Nombre as Banco";
+            sql = sql + " From ChequesPagar c,Banco b";
+            sql = sql + " where c.CodBanco = b.CodBanco";
+            sql = sql + " and c.CodCompra=" + CodCompra.ToString();
+            return cDb.ExecuteDataTable(sql);
+        }
     }
 }

@@ -32,6 +32,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label80 = new System.Windows.Forms.Label();
+            this.cmbTipoUtilitario = new System.Windows.Forms.ComboBox();
             this.btnBuscarAuto = new System.Windows.Forms.Button();
             this.txtRutaAuto = new System.Windows.Forms.TextBox();
             this.BtnVerFoto = new System.Windows.Forms.Button();
@@ -305,8 +307,6 @@
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabarPreVenta = new System.Windows.Forms.Button();
             this.btnPresupuesto = new System.Windows.Forms.Button();
-            this.cmbTipoUtilitario = new System.Windows.Forms.ComboBox();
-            this.label80 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -429,6 +429,24 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(637, 54);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(36, 16);
+            this.label80.TabIndex = 66;
+            this.label80.Text = "Tipo";
+            // 
+            // cmbTipoUtilitario
+            // 
+            this.cmbTipoUtilitario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoUtilitario.FormattingEnabled = true;
+            this.cmbTipoUtilitario.Location = new System.Drawing.Point(679, 51);
+            this.cmbTipoUtilitario.Name = "cmbTipoUtilitario";
+            this.cmbTipoUtilitario.Size = new System.Drawing.Size(161, 24);
+            this.cmbTipoUtilitario.TabIndex = 65;
             // 
             // btnBuscarAuto
             // 
@@ -3151,7 +3169,7 @@
             // btnGrabar
             // 
             this.btnGrabar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrabar.Location = new System.Drawing.Point(602, 526);
+            this.btnGrabar.Location = new System.Drawing.Point(745, 526);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(131, 36);
             this.btnGrabar.TabIndex = 4;
@@ -3162,7 +3180,7 @@
             // btnAnular
             // 
             this.btnAnular.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnular.Location = new System.Drawing.Point(332, 526);
+            this.btnAnular.Location = new System.Drawing.Point(197, 526);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(119, 36);
             this.btnAnular.TabIndex = 5;
@@ -3174,7 +3192,7 @@
             // btnGrabarPreVenta
             // 
             this.btnGrabarPreVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrabarPreVenta.Location = new System.Drawing.Point(752, 526);
+            this.btnGrabarPreVenta.Location = new System.Drawing.Point(608, 526);
             this.btnGrabarPreVenta.Name = "btnGrabarPreVenta";
             this.btnGrabarPreVenta.Size = new System.Drawing.Size(131, 36);
             this.btnGrabarPreVenta.TabIndex = 6;
@@ -3192,24 +3210,6 @@
             this.btnPresupuesto.Text = "Presupuesto";
             this.btnPresupuesto.UseVisualStyleBackColor = true;
             this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
-            // 
-            // cmbTipoUtilitario
-            // 
-            this.cmbTipoUtilitario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTipoUtilitario.FormattingEnabled = true;
-            this.cmbTipoUtilitario.Location = new System.Drawing.Point(679, 51);
-            this.cmbTipoUtilitario.Name = "cmbTipoUtilitario";
-            this.cmbTipoUtilitario.Size = new System.Drawing.Size(161, 24);
-            this.cmbTipoUtilitario.TabIndex = 65;
-            // 
-            // label80
-            // 
-            this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(637, 54);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(36, 16);
-            this.label80.TabIndex = 66;
-            this.label80.Text = "Tipo";
             // 
             // FrmVenta
             // 

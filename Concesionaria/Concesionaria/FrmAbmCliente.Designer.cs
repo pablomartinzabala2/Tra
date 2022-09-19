@@ -259,6 +259,7 @@
             this.txtCodCLiente.Name = "txtCodCLiente";
             this.txtCodCLiente.Size = new System.Drawing.Size(50, 23);
             this.txtCodCLiente.TabIndex = 29;
+            this.txtCodCLiente.Visible = false;
             // 
             // btnNuevoBarrio
             // 

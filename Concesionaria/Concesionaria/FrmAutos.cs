@@ -85,6 +85,11 @@ namespace Concesionaria
             tbListaPapeles.Columns.Add("FechaVencimiento");
             string ColCliente = "CodCliente;Apellido;Nombre;Nrodocumento;Telefono";
             tbCliente = fun.CrearTabla(ColCliente);
+            DateTime Fecha = dpFecha.Value;
+            txtFecha.Text = Fecha.ToShortDateString();
+            string sql = "select * from anio order by Nombre desc";
+            DataTable tbAnio = cDb.ExecuteDataTable(sql);
+            fun.LlenarComboDatatable(cmbAnio, tbAnio, "Nombre", "CodAnio");
         }
 
         private void GrabarAutos(SqlConnection con, SqlTransaction Transaccion)
@@ -107,6 +112,7 @@ namespace Concesionaria
             Int32? CodTipoUtilitario = null;
             Int32? CodSucursal = null;
             string RutaImagen = "";
+            int? CodAnio = null;
 
             Patente = txtPatente.Text;
             Color = txtColor.Text;
@@ -114,7 +120,7 @@ namespace Concesionaria
                 CodCiudad = Convert.ToInt32(cmbCiudad.SelectedValue);
 
             Descripcion = txtDescripcion.Text;
-            Anio = txtAnio.Text;
+            
             if (txtKilometros.Text != "")
                 Kilometros = Convert.ToInt32(txtKilometros.Text.Replace(".", ""));
             if (cmb_CodMarca.SelectedIndex > 0)
@@ -155,6 +161,9 @@ namespace Concesionaria
             if (cmbColor.SelectedIndex > 0)
                 CodColor = Convert.ToInt32(cmbColor.SelectedValue);
 
+            if (cmbAnio.SelectedIndex > 0)
+                CodAnio = Convert.ToInt32(cmbAnio.SelectedValue);
+
             Clases.cAuto auto = new Clases.cAuto();
             Boolean Graba = true;
             if (txtCodAuto.Text != "")
@@ -163,7 +172,7 @@ namespace Concesionaria
             {
                 //inserto el auto
                 auto.AgregarAutoTransaccion(con, Transaccion, Patente, CodMarca, Descripcion,
-                    Kilometros, CodCiudad, Propio, Concesion, Observacion, Anio, Importe, Motor, Chasis, Color, CodTipoCombustible, CodSucursal, CodTipoUtilitario, RutaImagen,CodColor);
+                    Kilometros, CodCiudad, Propio, Concesion, Observacion, Anio, Importe, Motor, Chasis, Color, CodTipoCombustible, CodSucursal, CodTipoUtilitario, RutaImagen,CodColor,CodAnio);
                 CodAuto = auto.GetMaxCodAutoTransaccion(con, Transaccion);
                 txtCodAuto.Text = CodAuto.ToString();
 
@@ -172,7 +181,7 @@ namespace Concesionaria
             else
             {
                 auto.ModificarAutoTransaccion(con, Transaccion, Patente, CodMarca, Descripcion,
-                    Kilometros, CodCiudad, Propio, Concesion, Observacion, Anio, Importe, Motor, Chasis, Color, CodSucursal, CodTipoUtilitario, RutaImagen);
+                    Kilometros, CodCiudad, Propio, Concesion, Observacion, Anio, Importe, Motor, Chasis, Color, CodSucursal, CodTipoUtilitario, RutaImagen,CodAnio);
             }
             if (txtCodStock.Text == "")
             {
@@ -424,7 +433,6 @@ namespace Concesionaria
                 {
                     b = 1;
                     txtDescripcion.Text = trdo.Rows[0]["Descripcion"].ToString();
-                    txtAnio.Text = trdo.Rows[0]["Anio"].ToString();
                     txtKilometros.Text = trdo.Rows[0]["Kilometros"].ToString();
                     txtChasis.Text = trdo.Rows[0]["Chasis"].ToString();
                     txtColor.Text = trdo.Rows[0]["Color"].ToString();
@@ -533,7 +541,6 @@ namespace Concesionaria
             if (cmb_CodMarca.Items.Count > 0)
                 cmb_CodMarca.SelectedIndex = 0;
             txtDescripcion.Text = "";
-            txtAnio.Text = "";
             txtKilometros.Text = "";
             txtImporte.Text = "";
             txtChasis.Text = "";
@@ -756,6 +763,12 @@ namespace Concesionaria
                         Lista.DataSource = tbPapeles;
                         Lista.DisplayMember = "Nombre";
                         Lista.ValueMember = "CodPapel";
+                        break;
+                    case "Anio":
+                        string sql = "select * from Anio order by Nombre desc";
+                        DataTable tbAnio = cDb.ExecuteDataTable(sql);
+                        fun.LlenarComboDatatable(cmbAnio, tbAnio, "Nombre", "CodAnio");
+                        cmbAnio.SelectedValue = Principal.CampoIdSecundarioGenerado;
                         break;
 
                 }
@@ -1429,7 +1442,7 @@ namespace Concesionaria
                 return;
             }
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (fun.ValidarFecha(txtFechaVencimiento.Text) == false)
+            if (fun.ValidarFecha(dpFechaVencimiento.Value.ToShortDateString()) == false)
             {
                 MessageBox.Show("Debe ingresr una fecha de vencimiento para continuar", Clases.cMensaje.Mensaje());
                 return;
@@ -1463,7 +1476,7 @@ namespace Concesionaria
             DataRow r1 = tbCheques.NewRow();
             r1[0] = txtCheque.Text;
             r1[1] = txtImporteCheque.Text;
-            r1[2] = txtFechaVencimiento.Text;
+            r1[2] = dpFechaVencimiento.Value.ToShortDateString();
             r1[3] = CmbBanco.SelectedValue;
             r1[4] = banco;
             tbCheques.Rows.Add(r1);
@@ -1474,7 +1487,7 @@ namespace Concesionaria
             GrillaCheques.Columns[4].Width = 410;
             txtImporteCheque.Text = "";
             txtCheque.Text = "";
-            txtFechaVencimiento.Text = "";
+         
             double TotalCheques = 0;
             for (i = 0; i < tbCheques.Rows.Count; i++)
             {
@@ -1958,6 +1971,15 @@ namespace Concesionaria
                     BuscarGasto(CodStockEntrada);
                 }
 
+                if (trdo.Rows[0]["Fecha"].ToString ()!="")
+                {
+                    DateTime Fecha = Convert.ToDateTime(trdo.Rows[0]["Fecha"].ToString());
+                    txtFecha.Text = Fecha.ToShortDateString();
+                    dpFecha.Text = txtFecha.Text;
+                }
+
+                BuscarChequexCompra(CodCompra);
+
                 if (trdo.Rows[0]["CodStockSalida"].ToString() != "")
                 {
                     Int32 CodStockSalida = Convert.ToInt32(trdo.Rows[0]["CodStockSalida"].ToString());
@@ -1978,6 +2000,15 @@ namespace Concesionaria
                 }
 
             }
+        }
+
+        private void BuscarChequexCompra(Int32 CodCompra)
+        {
+            cChequesaPagar cheque = new cChequesaPagar();
+            DataTable trdo = cheque.GetChequesxCodCompra2(CodCompra);
+            cFunciones fun = new cFunciones();
+            GrillaCheques.DataSource = trdo;
+            fun.AnchoColumnas(GrillaCheques, "20;20;20;20;20");
         }
 
         private void BuscarGasto(Int32 CodStock)
@@ -2074,7 +2105,6 @@ namespace Concesionaria
                 if (trdo.Rows.Count > 0)
                 {
                     txtDescripcion.Text = trdo.Rows[0]["Descripcion"].ToString();
-                    txtAnio.Text = trdo.Rows[0]["Anio"].ToString();
                     txtKilometros.Text = trdo.Rows[0]["Kilometros"].ToString();
                     txtChasis.Text = trdo.Rows[0]["Chasis"].ToString();
                     txtColor.Text = trdo.Rows[0]["Color"].ToString();
@@ -2514,6 +2544,23 @@ namespace Concesionaria
             txtImporteVehiculo2.Text = "";
             txtTotalVehiculo.Text = "";
             CalcularSubtotal();
+        }
+
+        private void dpFecha_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime Fecha = dpFecha.Value;
+            txtFecha.Text = Fecha.ToShortDateString();
+        }
+
+        private void btnAgregarAnio_Click(object sender, EventArgs e)
+        {
+            Principal.CampoIdSecundario = "CodAnio";
+            Principal.CampoNombreSecundario = "Nombre";
+            Principal.NombreTablaSecundario = "Anio";
+            Principal.CampoIdSecundarioGenerado = "";
+            FrmAltaBasica form = new FrmAltaBasica();
+            form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            form.ShowDialog();
         }
     }
 }

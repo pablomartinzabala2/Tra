@@ -155,6 +155,7 @@ namespace Concesionaria
             Grilla.Columns[11].Width = 80;
             Grilla.Columns[12].Width = 80;
             Grilla.Columns[13].Width = 80;
+            Grilla.Columns[16].Visible = false;
             for (int k = 0; k < Grilla.Rows.Count - 1; k++)
             {
                 if (k >= PosPintar)
@@ -170,7 +171,8 @@ namespace Concesionaria
                 return;
             }
 
-            if (Grilla.CurrentRow.DefaultCellStyle.BackColor == Color.LightGray)
+            string Tipo = Grilla.CurrentRow.Cells[16].Value.ToString();
+            if (Tipo =="PreVenta")
             {
                 string CodPreVenta = Grilla.CurrentRow.Cells[0].Value.ToString();
                 Principal.CodigoPrincipalAbm = null;
@@ -178,7 +180,8 @@ namespace Concesionaria
                 FrmVenta form = new FrmVenta();
                 form.ShowDialog();
             }
-            else
+
+            if (Tipo =="Venta")
             {
                 string CodVenta = Grilla.CurrentRow.Cells[0].Value.ToString();
                 Principal.CodigoPrincipalAbm = CodVenta;
@@ -186,6 +189,8 @@ namespace Concesionaria
                 FrmVenta form = new FrmVenta();
                 form.ShowDialog();
             }
+
+          
             
 
         }
