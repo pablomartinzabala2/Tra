@@ -105,6 +105,15 @@ namespace Concesionaria.Clases
            return cDb.ExecuteDataTable(sql);
         }
 
+        public DataTable GetAutoxCodigoAuto(Int32 CodAuto)
+        {
+            string sql = "select a.* ";
+            sql = sql + ",(select c.CodProvincia from Ciudad c where c.CodCiudad = a.CodCiudad) as CodProvincia";
+            sql = sql + " from auto a ";
+            sql = sql + " where CodAuto=" + CodAuto.ToString();
+            return cDb.ExecuteDataTable(sql);
+        }
+
         public void  ModificarAuto(string Patente, Int32? CodMarca,
             string  Descripcion, Int32? Kilometros,
             Int32? CodCiudad, int Propio, int Concesion,

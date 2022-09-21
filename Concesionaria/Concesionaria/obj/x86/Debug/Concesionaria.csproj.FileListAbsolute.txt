@@ -504,13 +504,12 @@ F:\PROGRAMACION\TRAUTBORRADOR\Concesionaria\Concesionaria\obj\x86\Debug\Concesio
 F:\PROGRAMACION\TRAUTBORRADOR\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.cache
 F:\PROGRAMACION\TRAUTBORRADOR\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.compiled
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\Concesionaria.exe.config
-F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.exe
-F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.pdb
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\Concesionaria.exe
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\Concesionaria.pdb
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.csprojResolveAssemblyReference.cache
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.Form1.resources
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FormularioBase.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmAbmAuto.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmAbmBanco.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmAbmBarrio.resources
@@ -528,6 +527,7 @@ F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesiona
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmAutos.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmBorrarTablas.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmBuscadorGenerico.resources
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmBuscarAuto.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmCobroCheque.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmCobroCheque2.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmCobroCuotas.resources
@@ -572,6 +572,7 @@ F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesiona
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmListadoMovimientos.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmListadoPrenda.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmListadoPrestamo.resources
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmListadoPresupuesto.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmListadoPreVenta.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmListadoTarjeta.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmListadoVentas.resources
@@ -595,6 +596,7 @@ F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesiona
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmRegistrarPrestamo.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReporte.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReporteListaPrecio.resources
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReportePresupuesto.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReporteVenta.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmResumenGanancia.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmSaldarCuotas.resources
@@ -611,7 +613,5 @@ F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesiona
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.csproj.GenerateResource.Cache
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.cache
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.compiled
-F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReportePresupuesto.resources
-F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmBuscarAuto.resources
-F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FormularioBase.resources
-F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmListadoPresupuesto.resources
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.exe
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.pdb

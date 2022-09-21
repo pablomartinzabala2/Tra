@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAutos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAgregarAnio = new System.Windows.Forms.Button();
+            this.cmbAnio = new System.Windows.Forms.ComboBox();
             this.dpFecha = new System.Windows.Forms.DateTimePicker();
             this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.cmbColor = new System.Windows.Forms.ComboBox();
@@ -71,7 +73,7 @@
             this.lblPatente = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.cmbDocumento = new System.Windows.Forms.ComboBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -81,7 +83,7 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
             this.txtFechaNacimiento = new System.Windows.Forms.MaskedTextBox();
-            this.label39 = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
             this.CmbBarrio = new System.Windows.Forms.ComboBox();
             this.btnNuevoBarrio = new System.Windows.Forms.Button();
             this.label38 = new System.Windows.Forms.Label();
@@ -102,7 +104,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtNroDoc = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -184,8 +186,10 @@
             this.label44 = new System.Windows.Forms.Label();
             this.TxtSubTotal = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
-            this.cmbAnio = new System.Windows.Forms.ComboBox();
-            this.btnAgregarAnio = new System.Windows.Forms.Button();
+            this.txtCuit1 = new System.Windows.Forms.TextBox();
+            this.txtCuit2 = new System.Windows.Forms.TextBox();
+            this.lblGuion1 = new System.Windows.Forms.Label();
+            this.lblGuion2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCliente)).BeginInit();
@@ -259,6 +263,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del vehículo";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // btnAgregarAnio
+            // 
+            this.btnAgregarAnio.Image = global::Concesionaria.Properties.Resources.page_add;
+            this.btnAgregarAnio.Location = new System.Drawing.Point(372, 78);
+            this.btnAgregarAnio.Name = "btnAgregarAnio";
+            this.btnAgregarAnio.Size = new System.Drawing.Size(40, 28);
+            this.btnAgregarAnio.TabIndex = 50;
+            this.btnAgregarAnio.UseVisualStyleBackColor = true;
+            this.btnAgregarAnio.Click += new System.EventHandler(this.btnAgregarAnio_Click);
+            // 
+            // cmbAnio
+            // 
+            this.cmbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAnio.FormattingEnabled = true;
+            this.cmbAnio.Location = new System.Drawing.Point(120, 79);
+            this.cmbAnio.Name = "cmbAnio";
+            this.cmbAnio.Size = new System.Drawing.Size(246, 24);
+            this.cmbAnio.TabIndex = 49;
             // 
             // dpFecha
             // 
@@ -626,7 +649,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 25);
+            this.label6.Location = new System.Drawing.Point(167, 22);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 16);
             this.label6.TabIndex = 7;
@@ -635,30 +658,31 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(165, 28);
+            this.label7.Location = new System.Drawing.Point(382, 22);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 16);
             this.label7.TabIndex = 8;
             this.label7.Text = "Número";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // label8
+            // lblNombre
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 47);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 16);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Nombre";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(8, 47);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(57, 16);
+            this.lblNombre.TabIndex = 9;
+            this.lblNombre.Text = "Nombre";
             // 
             // cmbDocumento
             // 
             this.cmbDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDocumento.FormattingEnabled = true;
-            this.cmbDocumento.Location = new System.Drawing.Point(85, 25);
+            this.cmbDocumento.Location = new System.Drawing.Point(250, 19);
             this.cmbDocumento.Name = "cmbDocumento";
-            this.cmbDocumento.Size = new System.Drawing.Size(74, 24);
+            this.cmbDocumento.Size = new System.Drawing.Size(94, 24);
             this.cmbDocumento.TabIndex = 12;
+            this.cmbDocumento.SelectedIndexChanged += new System.EventHandler(this.cmbDocumento_SelectedIndexChanged);
             // 
             // txtApellido
             // 
@@ -671,13 +695,17 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblGuion2);
+            this.groupBox2.Controls.Add(this.lblGuion1);
+            this.groupBox2.Controls.Add(this.txtCuit2);
+            this.groupBox2.Controls.Add(this.txtCuit1);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.btnAgregarCliente);
             this.groupBox2.Controls.Add(this.GrillaCliente);
             this.groupBox2.Controls.Add(this.txtEmail);
             this.groupBox2.Controls.Add(this.label41);
             this.groupBox2.Controls.Add(this.txtFechaNacimiento);
-            this.groupBox2.Controls.Add(this.label39);
+            this.groupBox2.Controls.Add(this.lblFecha);
             this.groupBox2.Controls.Add(this.CmbBarrio);
             this.groupBox2.Controls.Add(this.btnNuevoBarrio);
             this.groupBox2.Controls.Add(this.label38);
@@ -700,8 +728,8 @@
             this.groupBox2.Controls.Add(this.txtApellido);
             this.groupBox2.Controls.Add(this.cmbDocumento);
             this.groupBox2.Controls.Add(this.txtNroDoc);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.lblApellido);
+            this.groupBox2.Controls.Add(this.lblNombre);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -754,7 +782,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(399, 67);
+            this.label41.Location = new System.Drawing.Point(379, 67);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(42, 16);
             this.label41.TabIndex = 38;
@@ -762,21 +790,21 @@
             // 
             // txtFechaNacimiento
             // 
-            this.txtFechaNacimiento.Location = new System.Drawing.Point(461, 22);
+            this.txtFechaNacimiento.Location = new System.Drawing.Point(85, 19);
             this.txtFechaNacimiento.Mask = "00/00/0000";
             this.txtFechaNacimiento.Name = "txtFechaNacimiento";
             this.txtFechaNacimiento.Size = new System.Drawing.Size(76, 22);
             this.txtFechaNacimiento.TabIndex = 37;
             this.txtFechaNacimiento.ValidatingType = typeof(System.DateTime);
             // 
-            // label39
+            // lblFecha
             // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(395, 25);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(59, 16);
-            this.label39.TabIndex = 36;
-            this.label39.Text = "Fec Nac";
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(11, 22);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(59, 16);
+            this.lblFecha.TabIndex = 36;
+            this.lblFecha.Text = "Fec Nac";
             // 
             // CmbBarrio
             // 
@@ -800,7 +828,7 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(16, 118);
+            this.label38.Location = new System.Drawing.Point(8, 115);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(51, 16);
             this.label38.TabIndex = 26;
@@ -809,7 +837,7 @@
             // btnAgregarCiudad2
             // 
             this.btnAgregarCiudad2.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.btnAgregarCiudad2.Location = new System.Drawing.Point(337, 115);
+            this.btnAgregarCiudad2.Location = new System.Drawing.Point(356, 112);
             this.btnAgregarCiudad2.Name = "btnAgregarCiudad2";
             this.btnAgregarCiudad2.Size = new System.Drawing.Size(40, 28);
             this.btnAgregarCiudad2.TabIndex = 32;
@@ -819,7 +847,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(399, 91);
+            this.label37.Location = new System.Drawing.Point(382, 91);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(64, 16);
             this.label37.TabIndex = 32;
@@ -831,7 +859,7 @@
             this.cmbCiudad2.FormattingEnabled = true;
             this.cmbCiudad2.Location = new System.Drawing.Point(86, 118);
             this.cmbCiudad2.Name = "cmbCiudad2";
-            this.cmbCiudad2.Size = new System.Drawing.Size(246, 24);
+            this.cmbCiudad2.Size = new System.Drawing.Size(274, 24);
             this.cmbCiudad2.TabIndex = 33;
             this.cmbCiudad2.SelectedIndexChanged += new System.EventHandler(this.cmbCiudad2_SelectedIndexChanged);
             // 
@@ -859,7 +887,7 @@
             // 
             this.txtCelular.Location = new System.Drawing.Point(232, 70);
             this.txtCelular.Name = "txtCelular";
-            this.txtCelular.Size = new System.Drawing.Size(99, 22);
+            this.txtCelular.Size = new System.Drawing.Size(128, 22);
             this.txtCelular.TabIndex = 30;
             // 
             // txtTelefono
@@ -871,16 +899,16 @@
             // 
             // txtCodCLiente
             // 
-            this.txtCodCLiente.Location = new System.Drawing.Point(337, 48);
+            this.txtCodCLiente.Location = new System.Drawing.Point(351, 47);
             this.txtCodCLiente.Name = "txtCodCLiente";
-            this.txtCodCLiente.Size = new System.Drawing.Size(50, 22);
+            this.txtCodCLiente.Size = new System.Drawing.Size(26, 22);
             this.txtCodCLiente.TabIndex = 29;
             this.txtCodCLiente.Visible = false;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(402, 115);
+            this.label14.Location = new System.Drawing.Point(402, 118);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(44, 16);
             this.label14.TabIndex = 23;
@@ -888,9 +916,9 @@
             // 
             // txtAltura
             // 
-            this.txtAltura.Location = new System.Drawing.Point(279, 94);
+            this.txtAltura.Location = new System.Drawing.Point(279, 93);
             this.txtAltura.Name = "txtAltura";
-            this.txtAltura.Size = new System.Drawing.Size(53, 22);
+            this.txtAltura.Size = new System.Drawing.Size(81, 22);
             this.txtAltura.TabIndex = 18;
             // 
             // label13
@@ -914,7 +942,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(24, 94);
+            this.label12.Location = new System.Drawing.Point(10, 91);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(39, 16);
             this.label12.TabIndex = 19;
@@ -932,7 +960,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 70);
+            this.label10.Location = new System.Drawing.Point(8, 70);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(62, 16);
             this.label10.TabIndex = 15;
@@ -943,29 +971,29 @@
             this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Location = new System.Drawing.Point(85, 47);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(246, 22);
+            this.txtNombre.Size = new System.Drawing.Size(275, 22);
             this.txtNombre.TabIndex = 13;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtNroDoc
             // 
-            this.txtNroDoc.Location = new System.Drawing.Point(220, 22);
+            this.txtNroDoc.Location = new System.Drawing.Point(515, 22);
             this.txtNroDoc.Name = "txtNroDoc";
-            this.txtNroDoc.Size = new System.Drawing.Size(112, 22);
+            this.txtNroDoc.Size = new System.Drawing.Size(136, 22);
             this.txtNroDoc.TabIndex = 12;
             this.txtNroDoc.TextChanged += new System.EventHandler(this.txtNroDoc_TextChanged);
             this.txtNroDoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNroDoc_KeyPress);
             // 
-            // label9
+            // lblApellido
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(399, 44);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 16);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Apellido";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(379, 44);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(58, 16);
+            this.lblApellido.TabIndex = 10;
+            this.lblApellido.Text = "Apellido";
+            this.lblApellido.Click += new System.EventHandler(this.label9_Click);
             // 
             // btnGrabar
             // 
@@ -1794,24 +1822,37 @@
             this.label45.TabIndex = 55;
             this.label45.Text = "Subtotal";
             // 
-            // cmbAnio
+            // txtCuit1
             // 
-            this.cmbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAnio.FormattingEnabled = true;
-            this.cmbAnio.Location = new System.Drawing.Point(120, 79);
-            this.cmbAnio.Name = "cmbAnio";
-            this.cmbAnio.Size = new System.Drawing.Size(246, 24);
-            this.cmbAnio.TabIndex = 49;
+            this.txtCuit1.Location = new System.Drawing.Point(461, 22);
+            this.txtCuit1.Name = "txtCuit1";
+            this.txtCuit1.Size = new System.Drawing.Size(30, 22);
+            this.txtCuit1.TabIndex = 65;
             // 
-            // btnAgregarAnio
+            // txtCuit2
             // 
-            this.btnAgregarAnio.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.btnAgregarAnio.Location = new System.Drawing.Point(372, 78);
-            this.btnAgregarAnio.Name = "btnAgregarAnio";
-            this.btnAgregarAnio.Size = new System.Drawing.Size(40, 28);
-            this.btnAgregarAnio.TabIndex = 50;
-            this.btnAgregarAnio.UseVisualStyleBackColor = true;
-            this.btnAgregarAnio.Click += new System.EventHandler(this.btnAgregarAnio_Click);
+            this.txtCuit2.Location = new System.Drawing.Point(673, 22);
+            this.txtCuit2.Name = "txtCuit2";
+            this.txtCuit2.Size = new System.Drawing.Size(30, 22);
+            this.txtCuit2.TabIndex = 66;
+            // 
+            // lblGuion1
+            // 
+            this.lblGuion1.AutoSize = true;
+            this.lblGuion1.Location = new System.Drawing.Point(497, 22);
+            this.lblGuion1.Name = "lblGuion1";
+            this.lblGuion1.Size = new System.Drawing.Size(12, 16);
+            this.lblGuion1.TabIndex = 67;
+            this.lblGuion1.Text = "-";
+            // 
+            // lblGuion2
+            // 
+            this.lblGuion2.AutoSize = true;
+            this.lblGuion2.Location = new System.Drawing.Point(654, 22);
+            this.lblGuion2.Name = "lblGuion2";
+            this.lblGuion2.Size = new System.Drawing.Size(12, 16);
+            this.lblGuion2.TabIndex = 68;
+            this.lblGuion2.Text = "-";
             // 
             // FrmAutos
             // 
@@ -1899,7 +1940,7 @@
         private System.Windows.Forms.TextBox txtCodAuto;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.ComboBox cmbDocumento;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1907,7 +1948,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtNroDoc;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtAltura;
         private System.Windows.Forms.Label label13;
@@ -2007,7 +2048,7 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.MaskedTextBox txtFechaNacimiento;
-        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.ListBox Lista;
@@ -2038,5 +2079,9 @@
         private System.Windows.Forms.DateTimePicker dpFechaVencimiento;
         private System.Windows.Forms.ComboBox cmbAnio;
         private System.Windows.Forms.Button btnAgregarAnio;
+        private System.Windows.Forms.TextBox txtCuit2;
+        private System.Windows.Forms.TextBox txtCuit1;
+        private System.Windows.Forms.Label lblGuion2;
+        private System.Windows.Forms.Label lblGuion1;
     }
 }

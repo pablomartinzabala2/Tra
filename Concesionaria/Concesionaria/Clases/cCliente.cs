@@ -209,12 +209,13 @@ namespace Concesionaria.Clases
         public void InsertarClienteTransaccion(SqlConnection con, SqlTransaction Transaccion, Int32? CodTipoDoc, string NroDocumento,
             string Nombre, string Apellido, string Telefono, string Celular,
             string Calle, string Altura, Int32? CodBarrio,
-            DateTime? FechaNacimiento,string Email,string Observacion
+            DateTime? FechaNacimiento,string Email,string Observacion ,
+            string Cuit1,string Cuit2 
             )
         {
             string sql = "Insert into Cliente(CodTipoDoc,NroDocumento,Nombre,Apellido";
             sql = sql + ",Telefono,Celular, Calle,  Numero, CodBarrio";
-            sql = sql + ",FechaNacimiento,Email,Observacion)";
+            sql = sql + ",FechaNacimiento,Email,Observacion,Cuit1,Cuit2)";
             sql = sql + "Values(";
             if (CodTipoDoc == null)
                 sql = sql + "null";
@@ -237,6 +238,8 @@ namespace Concesionaria.Clases
                 sql = sql + "," + "'" + FechaNacimiento.ToString() + "'";
             sql = sql + "," + "'" + Email + "'";
             sql = sql + ","  +"'" + Observacion + "'";
+            sql = sql + "," + "'" + Cuit1 + "'";
+            sql = sql + "," + "'" + Cuit2 + "'";
             sql = sql + ")";
             SqlCommand comand = new SqlCommand();
             comand.Connection = con;
@@ -259,7 +262,7 @@ namespace Concesionaria.Clases
 
         public void ModificarClientetTransaccion(SqlConnection con,SqlTransaction Transaccion,Int32 CodCliente, Int32? CodTipoDoc, string NroDocumento,
            string Nombre, string Apellido, string Telefono, string Celular,
-           string Calle, string Numero, Int32? CodBarrio, DateTime? FechaNacimiento, string Email, string Observacion)
+           string Calle, string Numero, Int32? CodBarrio, DateTime? FechaNacimiento, string Email, string Observacion, string Cuit1,string Cuit2)
         {
             string sql = "Update Cliente ";
 
@@ -290,7 +293,8 @@ namespace Concesionaria.Clases
             }
             sql = sql + ",Email =" + "'" + Email + "'";
             sql = sql + ",Observacion =" + "'" + Observacion + "'";
-
+            sql = sql + ",Cuit1=" + "'" + Cuit1 + "'";
+            sql = sql + ",Cuit2=" + "'" + Cuit2 + "'";
             sql = sql + " where CodCliente=" + CodCliente.ToString();
             SqlCommand comand = new SqlCommand();
             comand.Connection = con;
