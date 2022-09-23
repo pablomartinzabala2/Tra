@@ -61,8 +61,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>3.90208cm</Top>
-        <Left>7.60624cm</Left>
+        <Top>5.43666cm</Top>
+        <Left>7.47395cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>2</ZIndex>
@@ -91,8 +91,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>4.88633cm</Top>
-        <Left>1.47849cm</Left>
+        <Top>6.88129cm</Top>
+        <Left>1.71662cm</Left>
         <Height>0.6cm</Height>
         <Width>1.98967cm</Width>
         <ZIndex>3</ZIndex>
@@ -121,8 +121,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Cliente</rd:DefaultName>
-        <Top>4.88103cm</Top>
-        <Left>3.46816cm</Left>
+        <Top>6.88129cm</Top>
+        <Left>3.77684cm</Left>
         <Height>0.6cm</Height>
         <Width>9.19396cm</Width>
         <ZIndex>4</ZIndex>
@@ -151,8 +151,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>5.9521cm</Top>
-        <Left>1.47849cm</Left>
+        <Top>8.05289cm</Top>
+        <Left>1.55786cm</Left>
         <Height>0.6cm</Height>
         <Width>11.54875cm</Width>
         <ZIndex>5</ZIndex>
@@ -181,8 +181,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>7.13214cm</Top>
-        <Left>1.47849cm</Left>
+        <Top>9.24881cm</Top>
+        <Left>1.53141cm</Left>
         <Height>0.6cm</Height>
         <Width>1.46812cm</Width>
         <ZIndex>6</ZIndex>
@@ -211,8 +211,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Marca</rd:DefaultName>
-        <Top>7.13214cm</Top>
-        <Left>3.38349cm</Left>
+        <Top>9.32818cm</Top>
+        <Left>3.40995cm</Left>
         <Height>0.6cm</Height>
         <Width>9.27862cm</Width>
         <ZIndex>7</ZIndex>
@@ -241,8 +241,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>7.9206cm</Top>
-        <Left>1.47849cm</Left>
+        <Top>10.06372cm</Top>
+        <Left>1.53141cm</Left>
         <Height>0.6cm</Height>
         <Width>1.49458cm</Width>
         <ZIndex>8</ZIndex>
@@ -271,8 +271,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Descripcion</rd:DefaultName>
-        <Top>7.9206cm</Top>
-        <Left>3.38349cm</Left>
+        <Top>10.16956cm</Top>
+        <Left>3.35703cm</Left>
         <Height>0.6cm</Height>
         <Width>9.01625cm</Width>
         <ZIndex>9</ZIndex>
@@ -301,7 +301,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>9.67066cm</Top>
+        <Top>11.84024cm</Top>
         <Left>1.47849cm</Left>
         <Height>0.88724cm</Height>
         <Width>0.89779cm</Width>
@@ -331,8 +331,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Anio</rd:DefaultName>
-        <Top>9.67066cm</Top>
-        <Left>3.38349cm</Left>
+        <Top>11.84024cm</Top>
+        <Left>3.35703cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>11</ZIndex>
@@ -361,7 +361,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>2.58974cm</Top>
+        <Top>0.67056cm</Top>
         <Left>12.13591cm</Left>
         <Height>0.6cm</Height>
         <Width>3.84937cm</Width>
@@ -391,7 +391,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>8.64231cm</Top>
+        <Top>10.81189cm</Top>
         <Left>1.47849cm</Left>
         <Height>0.88724cm</Height>
         <Width>1.21529cm</Width>
@@ -421,8 +421,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>tipo</rd:DefaultName>
-        <Top>8.70581cm</Top>
-        <Left>3.38349cm</Left>
+        <Top>10.87539cm</Top>
+        <Left>3.33057cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>14</ZIndex>
@@ -451,8 +451,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>12.4019cm</Top>
-        <Left>1.47849cm</Left>
+        <Top>14.43919cm</Top>
+        <Left>1.45203cm</Left>
         <Height>0.88724cm</Height>
         <Width>5.58625cm</Width>
         <ZIndex>15</ZIndex>
@@ -481,7 +481,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>10.90965cm</Top>
+        <Top>13.07923cm</Top>
         <Left>1.47849cm</Left>
         <Height>0.88724cm</Height>
         <Width>3.27908cm</Width>
@@ -511,8 +511,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>sTotal1</rd:DefaultName>
-        <Top>10.90965cm</Top>
-        <Left>4.90749cm</Left>
+        <Top>12.94694cm</Top>
+        <Left>4.88103cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>17</ZIndex>
@@ -541,7 +541,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>13.51315cm</Top>
+        <Top>13.63486cm</Top>
         <Left>1.47849cm</Left>
         <Height>0.88724cm</Height>
         <Width>7.17375cm</Width>
@@ -616,137 +616,256 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox7">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Guillermo Eduardo Traut</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>2.21466cm</Top>
+        <Left>1.47849cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.9765cm</Width>
+        <ZIndex>21</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox8">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Av. Manuelv V. Paz 1390 - Tel: 2244-454384</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>3.08931cm</Top>
+        <Left>1.47849cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.9765cm</Width>
+        <ZIndex>22</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox26">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Email: trautautomotores@hotmail.com</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>3.93234cm</Top>
+        <Left>1.45203cm</Left>
+        <Height>0.51682cm</Height>
+        <Width>6.6975cm</Width>
+        <ZIndex>23</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox24">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Las Flores (7200)  Bs As C.P 7200</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>4.73353cm</Top>
+        <Left>1.45203cm</Left>
+        <Height>0.51682cm</Height>
+        <Width>5.58625cm</Width>
+        <ZIndex>24</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox9">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>C.u.i.t: 20-24844804-1</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>2.21466cm</Top>
+        <Left>11.00878cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.9765cm</Width>
+        <ZIndex>25</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox10">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Ingresos Brutos 20-24844804-1</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>3.08931cm</Top>
+        <Left>11.00878cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.9765cm</Width>
+        <ZIndex>26</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox27">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Iva Responsable Inscripto</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>3.93234cm</Top>
+        <Left>11.00878cm</Left>
+        <Height>0.51682cm</Height>
+        <Width>4.9765cm</Width>
+        <ZIndex>27</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox11">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Teléfono:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>7.58712cm</Top>
+        <Left>1.71662cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.98967cm</Width>
+        <ZIndex>28</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>7.90625in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>8.49317in</Width>
   <Page>
     <PageFooter>
       <Height>2.54cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
-      <ReportItems>
-        <Textbox Name="Textbox23">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>Av. Manuel V. Paz 1390</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>0.12788cm</Top>
-          <Left>1.47849cm</Left>
-          <Height>0.51682cm</Height>
-          <Width>5.58625cm</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox24">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>Las Flores (7200)  Bs As</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>0.72584cm</Top>
-          <Left>1.47849cm</Left>
-          <Height>0.51682cm</Height>
-          <Width>5.58625cm</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox25">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>Tel: 02244 454384</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>1.32909cm</Top>
-          <Left>1.47849cm</Left>
-          <Height>0.51682cm</Height>
-          <Width>5.58625cm</Width>
-          <ZIndex>2</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox26">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>trautautomotores@hotmail.com</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>1.86884cm</Top>
-          <Left>1.47849cm</Left>
-          <Height>0.51682cm</Height>
-          <Width>5.58625cm</Width>
-          <ZIndex>3</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>

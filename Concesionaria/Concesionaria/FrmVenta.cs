@@ -4773,12 +4773,13 @@ namespace Concesionaria
             Comand.Connection = con;
             Comand.Transaction = Transaccion;
             string sqlCLiente = "";
+            cReportePresupuesto repPre = new cReportePresupuesto();
             try
             {
                 sqlCLiente = GetSqlClientes();
                 Comand.CommandText = sqlCLiente;
                 Comand.ExecuteNonQuery();
-
+                CodCliente = Convert.ToInt32(txtCodCLiente.Text);
                 if (GrabaClienteNuevo == true)
                 {
                     SqlCommand comand2 = new SqlCommand();
@@ -4786,12 +4787,49 @@ namespace Concesionaria
                     comand2.Transaction = Transaccion;
                     comand2.CommandText = "select max(CodCliente) as CodCliente from Cliente";
                     txtCodCLiente.Text = comand2.ExecuteScalar().ToString();
+
                 }
+                string Auto = cmbMarca.Text + " " + txtDescripcion.Text;
+                string PrecioAuto = "$ " + txtPrecioVenta.Text;
+                string NombreGasto = "          ";
+                string sImporteGasto = "";
+                //grabo el presupuesto
+                cPresupuesto presupuesto = new cPresupuesto();
+                CodPresupuesto = presupuesto.Insertar(con, Transaccion, CodAuto, CodCliente, Fecha, Total, sTotal);
+                repPre.Insertar(con,Transaccion, CodPresupuesto,"Unidad","","","");
+                repPre.Insertar(con,Transaccion, CodPresupuesto, Auto, "", "", PrecioAuto);
+                //grabo gastos de transferencia
+                //grabo los gatos de transferencia
+                for (int k = 0; k < GrillaGastos.Rows.Count - 1; k++)
+                {
+                    
+                    string CodGastoTransferencia = GrillaGastos.Rows[k].Cells[0].Value.ToString();
+                    Double Importe = fun.ToDouble(GrillaGastos.Rows[k].Cells[3].Value.ToString());
+                    string sImporte = GrillaGastos.Rows[k].Cells[3].Value.ToString();
+                    string sqlGastosTransferencia = "";
+                    sqlGastosTransferencia = "insert into GastosTransferenciaPresupuesto(CodPresupuesto,CodGastoTranasferencia,Importe,sImporte)";
+                    sqlGastosTransferencia = sqlGastosTransferencia + "values(";
+                    sqlGastosTransferencia = sqlGastosTransferencia + CodPresupuesto.ToString();
+                    sqlGastosTransferencia = sqlGastosTransferencia + "," + CodGastoTransferencia;
+                    sqlGastosTransferencia = sqlGastosTransferencia + "," + Importe.ToString();
+                    sqlGastosTransferencia = sqlGastosTransferencia + "," + "'" + sImporte + "'";
+                    sqlGastosTransferencia = sqlGastosTransferencia + ")";
+                    SqlCommand ComandTransferencia = new SqlCommand();
+                    ComandTransferencia.Connection = con;
+                    ComandTransferencia.Transaction = Transaccion;
+                    ComandTransferencia.CommandText = sqlGastosTransferencia;
+                    ComandTransferencia.ExecuteNonQuery();
+
+                    NombreGasto = GrillaGastos.Rows[k].Cells[1].Value.ToString();
+                    repPre.Insertar(con,Transaccion, CodPresupuesto,"", NombreGasto,"" , sImporte);
+                     
+                }
+
+              
                 Transaccion.Commit();
                 con.Close();
                 CodCliente = Convert.ToInt32(txtCodCLiente.Text);
-                cPresupuesto presupuesto = new cPresupuesto();
-                CodPresupuesto = presupuesto.Insertar(CodAuto, CodCliente, Fecha, Total, sTotal);
+                
                 Mensaje("Presupuesto grabado correctamente");
                 Principal.CodPresupuesto = CodPresupuesto;
                 FrmReportePresupuesto form = new FrmReportePresupuesto();

@@ -507,7 +507,6 @@ F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\Concesionaria.
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\Concesionaria.exe
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\Concesionaria.pdb
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\Microsoft.ReportViewer.WinForms.dll
-F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.csprojResolveAssemblyReference.cache
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.Form1.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FormularioBase.resources
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmAbmAuto.resources
@@ -615,3 +614,4 @@ F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.compiled
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.exe
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.pdb
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.csprojResolveAssemblyReference.cache

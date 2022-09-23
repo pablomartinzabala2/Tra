@@ -5,11 +5,12 @@ using System.Text;
 using Microsoft.ApplicationBlocks.Data;
 using System.Data.SqlClient;
 using System.Data;
+
 namespace Concesionaria.Clases
 {
     public class cPresupuesto
     {
-        public Int32  Insertar(Int32? CodAuto,Int32? CodCliente,DateTime Fecha,Double Total, string sTotal)
+        public Int32  Insertar(SqlConnection con, SqlTransaction Transaccion,Int32? CodAuto,Int32? CodCliente,DateTime Fecha,Double Total, string sTotal)
         {
             string sql = "Insert into Presupuesto(";
             sql = sql + "CodAuto,CodCliente,Fecha,Total,sTotal";
@@ -21,7 +22,7 @@ namespace Concesionaria.Clases
             sql = sql + "," + Total.ToString().Replace(",", ".");
             sql = sql + "," + "'" + sTotal + "'";
             sql = sql + ")";
-            return cDb.EjecutarEscalar(sql);
+            return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);
         }
 
         public DataTable GetPresupuestos()

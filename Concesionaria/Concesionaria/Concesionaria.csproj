@@ -115,6 +115,7 @@
     <Compile Include="Clases\cPunitorioCobranza.cs" />
     <Compile Include="Clases\cPunitorioCuota.cs" />
     <Compile Include="Clases\cPunitorioCuotasAnteriores.cs" />
+    <Compile Include="Clases\cReportePresupuesto.cs" />
     <Compile Include="Clases\cResumenCuentas.cs" />
     <Compile Include="Clases\cSaldoCobranza.cs" />
     <Compile Include="Clases\cSaldoCobranzaGeneral.cs" />
