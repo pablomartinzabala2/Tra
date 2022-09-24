@@ -45,7 +45,9 @@ namespace Concesionaria
             if (cmbCiudad.Items.Count > 1)
                 cmbCiudad.SelectedValue = 1;
             fun.LlenarCombo(CmbCiudad2, "Ciudad", "Nombre", "CodCiudad");
-            fun.LlenarCombo(cmbDocumento, "TipoDocumento", "Nombre", "CodTipoDoc");
+            string sqlDoc = "select * from TipoDocumento order by CodTipoDoc";
+            DataTable tbDoc = cDb.ExecuteDataTable(sqlDoc);
+            fun.LlenarComboDatatable(cmbDocumento,tbDoc, "Nombre", "CodTipoDoc");
             if (cmbDocumento.Items.Count > 1)
                 cmbDocumento.SelectedIndex = 1;
             fun.LlenarCombo(CmbBarrio, "Barrio", "Nombre", "CodBarrio");
@@ -4752,6 +4754,7 @@ namespace Concesionaria
             Int32? CodCliente = null;
             Int32? CodAuto = null;
             Double Total = 0;
+            Double TotalGastosTransferencia = 0;
             string sTotal = "";
             Total = fun.ToDouble(txtPrecioVenta.Text);
             sTotal = "$ " + txtPrecioVenta.Text;
@@ -4796,7 +4799,7 @@ namespace Concesionaria
                 //grabo el presupuesto
                 cPresupuesto presupuesto = new cPresupuesto();
                 CodPresupuesto = presupuesto.Insertar(con, Transaccion, CodAuto, CodCliente, Fecha, Total, sTotal);
-                repPre.Insertar(con,Transaccion, CodPresupuesto,"Unidad","","","");
+                repPre.Insertar(con,Transaccion, CodPresupuesto, "Unidad", "","","");
                 repPre.Insertar(con,Transaccion, CodPresupuesto, Auto, "", "", PrecioAuto);
                 //grabo gastos de transferencia
                 //grabo los gatos de transferencia
@@ -4805,6 +4808,7 @@ namespace Concesionaria
                     
                     string CodGastoTransferencia = GrillaGastos.Rows[k].Cells[0].Value.ToString();
                     Double Importe = fun.ToDouble(GrillaGastos.Rows[k].Cells[3].Value.ToString());
+                    TotalGastosTransferencia = TotalGastosTransferencia + Importe;
                     string sImporte = GrillaGastos.Rows[k].Cells[3].Value.ToString();
                     string sqlGastosTransferencia = "";
                     sqlGastosTransferencia = "insert into GastosTransferenciaPresupuesto(CodPresupuesto,CodGastoTranasferencia,Importe,sImporte)";
@@ -4822,10 +4826,61 @@ namespace Concesionaria
 
                     NombreGasto = GrillaGastos.Rows[k].Cells[1].Value.ToString();
                     repPre.Insertar(con,Transaccion, CodPresupuesto,"", NombreGasto,"" , sImporte);
-                     
+                    
                 }
 
-              
+                Double Subtotal = 0;
+                Subtotal = Total + TotalGastosTransferencia;
+                string sImporteSubtotal = "";
+                sImporteSubtotal = "$ " + fun.FormatoEnteroMiles(Subtotal.ToString()); 
+                repPre.Insertar(con, Transaccion, CodPresupuesto, "", "", "Subtotal",sImporteSubtotal);
+                Int32 CodAutoPartePago = 0;
+                Double ImpoteCompraAuto = 0;
+                string NombreAuto = "";
+                CPresupuestoxAuto preAuto = new CPresupuestoxAuto();
+                string sqlGastoRecepcion = "";
+                Double SubtotalGastoRecepcion = 0;
+                //grabo los autos en parte de pago para presupuestar
+                for (int k = 0; k < GrillaVehiculos.Rows.Count - 1; k++)
+                {
+                    CodAutoPartePago = Convert.ToInt32(GrillaVehiculos.Rows[k].Cells[0].Value.ToString());
+                    string sImporteCompra ="$ "+ GrillaVehiculos.Rows[k].Cells[4].Value.ToString();
+                    ImpoteCompraAuto = fun.ToDouble(GrillaVehiculos.Rows[k].Cells[4].Value.ToString());
+                    SubtotalGastoRecepcion = ImpoteCompraAuto;
+                    preAuto.Insertar(con, Transaccion, CodPresupuesto, CodAutoPartePago, ImpoteCompraAuto);
+                    NombreAuto = DescripcionAuto(CodAutoPartePago);
+                    repPre.Insertar(con, Transaccion, CodPresupuesto, "Entrega Unidad", "", "", "");
+                    repPre.Insertar(con, Transaccion, CodPresupuesto, NombreAuto, "", "", sImporteCompra);
+                    for (int i = 0; i < GrillaGastosRecepcion.Rows.Count - 1; i++)
+                    {
+                        string sDescripcion = GrillaGastosRecepcion.Rows[i].Cells[1].Value.ToString();
+                        string sImporteGastoRecepcion ="$ " + GrillaGastosRecepcion.Rows[i].Cells[3].Value.ToString();
+                        Double ImporteGastoRecep = 0;
+                        ImporteGastoRecep = fun.ToDouble(GrillaGastosRecepcion.Rows[i].Cells[3].Value.ToString());
+                        SubtotalGastoRecepcion = SubtotalGastoRecepcion + ImporteGastoRecep;
+                        sqlGastoRecepcion = "Insert into PresupuestoGastosPagar(CodPresupuesto,CodAuto,Descripcion,Importe)";
+                        sqlGastoRecepcion = sqlGastoRecepcion + " Values(" + CodPresupuesto.ToString();
+                        sqlGastoRecepcion = sqlGastoRecepcion + "," + GrillaGastosRecepcion.Rows[i].Cells[4].Value.ToString();
+                        sqlGastoRecepcion = sqlGastoRecepcion + "," + "'" + GrillaGastosRecepcion.Rows[i].Cells[1].Value.ToString() + "'";
+                        sqlGastoRecepcion = sqlGastoRecepcion + "," + fun.ToDouble(ImporteGastoRecep.ToString()).ToString().Replace(",", ".");
+                        sqlGastoRecepcion = sqlGastoRecepcion + ")";
+                        repPre.Insertar(con, Transaccion, CodPresupuesto, "", sDescripcion, "", sImporteGastoRecepcion);
+
+                        SqlCommand ComandRecepcion = new SqlCommand();
+                        ComandRecepcion.Connection = con;
+                        ComandRecepcion.Transaction = Transaccion;
+                        ComandRecepcion.CommandText = sqlGastoRecepcion;
+                        ComandRecepcion.ExecuteNonQuery();
+                    }
+                    sImporteSubtotal = "$ " + fun.FormatoEnteroMiles(SubtotalGastoRecepcion.ToString ());
+                    repPre.Insertar(con, Transaccion, CodPresupuesto, "", "", "Subtotal", sImporteSubtotal);
+                }
+                //verificar que no esta restando bien
+                // el SubtotalGastoRecepcion
+                Total = Subtotal - SubtotalGastoRecepcion;
+                sTotal = "$ " + fun.FormatoEnteroMiles(Subtotal.ToString ()); 
+                repPre.Insertar(con, Transaccion, CodPresupuesto, "", "", "Total", sTotal);
+
                 Transaccion.Commit();
                 con.Close();
                 CodCliente = Convert.ToInt32(txtCodCLiente.Text);
@@ -4838,9 +4893,27 @@ namespace Concesionaria
             catch(Exception ex)
             {
                 Mensaje("Hubo un error en el proceso Grabacion");
+                Transaccion.Rollback();
+                con.Close();
             }
         }
 
+        private string DescripcionAuto(Int32 CodAuto)
+        {
+            string Descripcion = "";
+            cAuto auto = new Clases.cAuto();
+            DataTable tbAuto = auto.GetAutoxCodigo(CodAuto);
+            if (tbAuto.Rows.Count >0)
+            {
+                if (tbAuto.Rows[0]["CodAuto"].ToString ()!="")
+                {
+                    Descripcion = tbAuto.Rows[0]["Descripcion"].ToString();
+                    Descripcion = Descripcion + " " + tbAuto.Rows[0]["Marca"].ToString();
+                }
+            }
+            return Descripcion;
+            
+        }
         private Boolean ValidarPresupuesto()
         {
             Boolean op = true;

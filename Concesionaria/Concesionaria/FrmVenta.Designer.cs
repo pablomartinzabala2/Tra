@@ -1912,7 +1912,7 @@
             this.tabControl3.Location = new System.Drawing.Point(6, 6);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(937, 155);
+            this.tabControl3.Size = new System.Drawing.Size(851, 155);
             this.tabControl3.TabIndex = 4;
             // 
             // tabPage10
@@ -1921,7 +1921,7 @@
             this.tabPage10.Location = new System.Drawing.Point(4, 25);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(929, 126);
+            this.tabPage10.Size = new System.Drawing.Size(843, 126);
             this.tabPage10.TabIndex = 0;
             this.tabPage10.Text = "Información del vehículo";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -2261,7 +2261,7 @@
             this.tabPage11.Location = new System.Drawing.Point(4, 25);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(929, 126);
+            this.tabPage11.Size = new System.Drawing.Size(843, 126);
             this.tabPage11.TabIndex = 1;
             this.tabPage11.Text = "Listado de vehículo en parte de pago";
             // 

@@ -111,6 +111,7 @@
     <Compile Include="Clases\cPrenda.cs" />
     <Compile Include="Clases\cPrestamo.cs" />
     <Compile Include="Clases\cPresupuesto.cs" />
+    <Compile Include="Clases\CPresupuestoxAuto.cs" />
     <Compile Include="Clases\cPreVenta.cs" />
     <Compile Include="Clases\cPunitorioCobranza.cs" />
     <Compile Include="Clases\cPunitorioCuota.cs" />
@@ -1148,7 +1149,9 @@
     <Content Include="Iconos\joselo.jpg" />
     <Content Include="Iconos\kfloppy_32x32-32.ico" />
     <Content Include="Iconos\llave.ico" />
+    <Content Include="Iconos\Logos\FirmaTraut.jpg" />
     <Content Include="Iconos\Logos\Logo.jpg" />
+    <Content Include="Iconos\Logos\Pie.jpg" />
     <Content Include="Iconos\Mensaje.jpg" />
     <Content Include="Iconos\money_euro.ico" />
     <Content Include="Iconos\MOVIMIENTOS.ico" />
