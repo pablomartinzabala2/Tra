@@ -4877,8 +4877,10 @@ namespace Concesionaria
                 }
                 //verificar que no esta restando bien
                 // el SubtotalGastoRecepcion
-                Total = Subtotal - SubtotalGastoRecepcion;
-                sTotal = "$ " + fun.FormatoEnteroMiles(Subtotal.ToString ()); 
+                //INSERTO LA FICHA EN BLANCO
+                repPre.Insertar(con, Transaccion, CodPresupuesto, "", "", "", "");
+                Total = CalcularTotalPresupuesto();
+                sTotal = "$ " + fun.FormatoEnteroMiles(Total.ToString ()); 
                 repPre.Insertar(con, Transaccion, CodPresupuesto, "", "", "Total", sTotal);
 
                 Transaccion.Commit();
@@ -4896,6 +4898,34 @@ namespace Concesionaria
                 Transaccion.Rollback();
                 con.Close();
             }
+        }
+
+        private Double CalcularTotalPresupuesto()
+        {
+            cFunciones fun = new Clases.cFunciones();
+            Double PrecioAuto = 0;
+            Double TotalGasto = 0;
+            Double AutoPartePago = 0;
+            Double GastoRecepcion = 0;
+            Double Total = 0;
+
+            if (txtImporteCompra.Text != "")
+                PrecioAuto = fun.ToDouble(txtPrecioVenta.Text);
+
+            if (txtTotalGasto.Text !="")
+            {
+                TotalGasto = fun.ToDouble(txtTotalGasto.Text);
+            }
+
+            if (txtTotalVehiculoPartePago.Text != "")
+                AutoPartePago = fun.ToDouble(txtTotalVehiculoPartePago.Text);
+
+            if (txtTotalGastosRecepcion.Text != "")
+                GastoRecepcion = fun.ToDouble(txtTotalGastosRecepcion.Text);
+
+            Total = PrecioAuto + TotalGasto - AutoPartePago - GastoRecepcion;
+            return Total;
+
         }
 
         private string DescripcionAuto(Int32 CodAuto)
