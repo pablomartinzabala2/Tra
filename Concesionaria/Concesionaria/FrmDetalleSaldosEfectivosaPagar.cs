@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data;
+
 namespace Concesionaria
 {
     public partial class FrmDetalleSaldosEfectivosaPagar : Form

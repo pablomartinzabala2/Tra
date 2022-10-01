@@ -48,7 +48,7 @@ namespace Concesionaria
                 return;
             }
             Principal.CodPresupuesto = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value.ToString());
-            FrmReportePresupuesto frm = new FrmReportePresupuesto();
+            FrmReportePresupuesto2 frm = new FrmReportePresupuesto2();
             frm.Show();
         }
     }

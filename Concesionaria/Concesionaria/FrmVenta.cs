@@ -41,13 +41,13 @@ namespace Concesionaria
             fun.LlenarCombo(cmbMarca, "Marca", "Nombre", "CodMarca");
             fun.LlenarCombo(CmbEntidadPrendaria, "EntidadPrendaria", "Descripcion", "CodEntidad");
             fun.LlenarCombo(CmbMarca2, "Marca", "Nombre", "CodMarca");
-           // fun.LlenarCombo(cmbCiudad, "Ciudad", "Nombre", "CodCiudad");
+            // fun.LlenarCombo(cmbCiudad, "Ciudad", "Nombre", "CodCiudad");
             if (cmbCiudad.Items.Count > 1)
                 cmbCiudad.SelectedValue = 1;
             fun.LlenarCombo(CmbCiudad2, "Ciudad", "Nombre", "CodCiudad");
             string sqlDoc = "select * from TipoDocumento order by CodTipoDoc";
             DataTable tbDoc = cDb.ExecuteDataTable(sqlDoc);
-            fun.LlenarComboDatatable(cmbDocumento,tbDoc, "Nombre", "CodTipoDoc");
+            fun.LlenarComboDatatable(cmbDocumento, tbDoc, "Nombre", "CodTipoDoc");
             if (cmbDocumento.Items.Count > 1)
                 cmbDocumento.SelectedIndex = 1;
             fun.LlenarCombo(CmbBarrio, "Barrio", "Nombre", "CodBarrio");
@@ -58,11 +58,17 @@ namespace Concesionaria
             fun.LlenarCombo(CmbTipoCombustible2, "TipoCombustible", "Nombre", "Codigo");
             fun.LlenarCombo(cmbProvincia2, "Provincia", "Nombre", "CodProvincia");
             fun.LlenarCombo(cmbTipoUtilitario, "TipoUtilitario", "Nombre", "CodTipo");
-            fun.LlenarCombo(CmbProvinciaAuto , "Provincia", "Nombre", "CodProvincia");
+            fun.LlenarCombo(CmbProvinciaAuto, "Provincia", "Nombre", "CodProvincia");
+            DataTable tbColor = cDb.ExecuteDataTable("select * from Color order by Nombre");
+            fun.LlenarComboDatatable(cmbColor, tbColor, "Nombre", "CodColor");
+            fun.LlenarComboDatatable(cmbColor2, tbColor, "Nombre", "CodColor");  
+            DataTable tbAnio = cDb.ExecuteDataTable("select * from anio Order by Nombre desc");
+            fun.LlenarComboDatatable(cmbAnio, tbAnio, "Nombre", "CodAnio");
+            fun.LlenarComboDatatable(cmbAnio2, tbAnio, "Nombre", "CodAnio");
             CargarVendedor();
             tbTarjeta = fun.CrearTabla("CodTarjeta;Nombre;Importe");
             OcultarVendedor(false);
-            txtFecha.Text = DateTime.Now.ToShortDateString();
+           
             cPapeles papel = new cPapeles();
             DataTable tbPapeles = papel.GetPapeles();
             ListaPapeles.DataSource = tbPapeles;
@@ -145,7 +151,10 @@ namespace Concesionaria
                     Clases.cFunciones fun = new Clases.cFunciones();
                     txtRutaAuto.Text = trdo.Rows[0]["RutaImagen"].ToString();
                     txtDescripcion.Text = trdo.Rows[0]["Descripcion"].ToString();
-                    txtAnio.Text = trdo.Rows[0]["Anio"].ToString();
+                    if (trdo.Rows[0]["CodAnio"].ToString()!="")
+                    {
+                        cmbAnio.SelectedValue = trdo.Rows[0]["CodAnio"].ToString();
+                    }
                     txtMotor.Text = trdo.Rows[0]["Motor"].ToString();
                     txtChasis.Text = trdo.Rows[0]["Chasis"].ToString();
                     txtKms.Text = trdo.Rows[0]["Kilometros"].ToString();
@@ -155,6 +164,10 @@ namespace Concesionaria
                     }
                     txtCodAuto.Text = trdo.Rows[0]["CodAuto"].ToString();
                     
+                    if (trdo.Rows[0]["CodColor"].ToString()!="")
+                    {
+                        cmbColor.SelectedValue = trdo.Rows[0]["CodColor"].ToString();
+                    }
 
                     if (trdo.Rows[0]["CodProvincia"].ToString() != "")
                     {
@@ -237,7 +250,10 @@ namespace Concesionaria
             txtCodStock.Text = "";
             cmbMarca.SelectedIndex = 0;
             txtDescripcion.Text = "";
-            txtAnio.Text = "";
+            if (cmbAnio.SelectedIndex >0)
+            {
+                cmbAnio.SelectedIndex = 0;
+            }
             txtKms.Text = "";
             txtPrecioVenta.Text = "";
             txtImporteCompra.Text = "";
@@ -390,7 +406,11 @@ namespace Concesionaria
                 {
                     b = 1;
                     txtDescripcion2.Text = trdo.Rows[0]["Descripcion"].ToString();
-                    txtAnio2.Text = trdo.Rows[0]["Anio"].ToString();
+                    if(trdo.Rows[0]["CodAnio"].ToString()!=null)
+                    {
+                        cmbAnio2.SelectedValue = trdo.Rows[0]["CodAnio"].ToString();
+                    }
+                   
                     txtKms2.Text = trdo.Rows[0]["Kilometros"].ToString();
                     txtCodAuto2.Text = trdo.Rows[0]["CodAuto"].ToString();
                     if (trdo.Rows[0]["CodCiudad"].ToString() != "")
@@ -468,7 +488,7 @@ namespace Concesionaria
             txtCodStock2.Text = "";
             CmbMarca2.SelectedIndex = 0;
             txtDescripcion2.Text = "";
-            txtAnio2.Text = "";
+            
             txtKms2.Text = "";
             txtImporteVehiculoCompra.Text = "";
         }
@@ -491,11 +511,7 @@ namespace Concesionaria
         private void btnCalcularCuotas_Click(object sender, EventArgs e)
         {
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (fun.ValidarFecha(txtFecha.Text) == false)
-            {
-                MessageBox.Show("Debe ingresar una fecha válida", Clases.cMensaje.Mensaje());
-                return;
-            }
+           
             int n = 2;
             int x = 4;
             double r = Math.Pow(x, n);
@@ -503,8 +519,8 @@ namespace Concesionaria
             double Interes = 0;
             double Cuotas = 0;
             double ValorCuota = 0;
-            Double PorAplicar = 0;
-            Double CapitalConInteres = 0;
+            
+            
             if (txtCapital.Text == "")
             {
                 MessageBox.Show("Debe ingresar un capital", Clases.cMensaje.Mensaje());
@@ -543,18 +559,20 @@ namespace Concesionaria
                 Interes = Convert.ToDouble(txtInteres.Text);
             }
 
-            PorAplicar = Cuotas * Interes / 12;
-            /*
+            // PorAplicar = Cuotas * Interes / 12;
+           // PorAplicar = Cuotas * Interes / 100;
+            
             double d1 = Cuotas * Interes;
             d1 = d1 / 100;
             double d2 = Capital * d1;
             ValorCuota = (Capital + d2) / Cuotas;
-            */
-            CapitalConInteres = Capital + Capital * PorAplicar / 100;
-            ValorCuota = CapitalConInteres / Cuotas;
-            Int32 ValorCuotaEntero = Convert.ToInt32(ValorCuota);
+
+            //CapitalConInteres = Capital + Capital * PorAplicar / 100;
+            
+             // ValorCuota = CapitalConInteres / Cuotas;
+             Int32 ValorCuotaEntero = Convert.ToInt32(ValorCuota);
             Int32 ValorCuotaSinInteres = Convert.ToInt32(Capital / Cuotas);
-            DateTime FechaVencimiento = Convert.ToDateTime(txtFecha.Text);
+            DateTime FechaVencimiento = dpFecha.Value;
             DataTable tcuotas = new DataTable();
             tcuotas.Columns.Add("Cuota");
             tcuotas.Columns.Add("Importe");
@@ -756,7 +774,7 @@ namespace Concesionaria
 
                 //saco el auto del stock
                 string sqlStock = "update StockAuto";
-                sqlStock = sqlStock + " set FechaBaja =" + "'" + txtFecha.Text + "'";
+                sqlStock = sqlStock + " set FechaBaja =" + "'" + dpFecha.Value.ToShortDateString() + "'";
                 sqlStock = sqlStock + " where CodAuto =" + txtCodAuto.Text;
                 Comand.CommandText = sqlStock;
                 Comand.ExecuteNonQuery();
@@ -776,7 +794,7 @@ namespace Concesionaria
                             string AutoPartePago = txtPatente.Text + " " + txtDescripcion.Text;
                             sqlInsertStock = "insert into StockAuto(CodAuto,FechaAlta,CodCliente,CodUsuario,ImporteCompra,DescripcionAutoPartePago)";
                             sqlInsertStock = sqlInsertStock + " values (" + codAuto.ToString();
-                            sqlInsertStock = sqlInsertStock + "," + "'" + txtFecha.Text + "'";
+                            sqlInsertStock = sqlInsertStock + "," + "'" + dpFecha.Value.ToShortDateString() + "'";
                             sqlInsertStock = sqlInsertStock + "," + txtCodCLiente.Text;
                             sqlInsertStock = sqlInsertStock + "," + Principal.CodUsuarioLogueado.ToString();
                             sqlInsertStock = sqlInsertStock + "," + fun.ToDouble(ImporteCompra).ToString();
@@ -947,7 +965,7 @@ namespace Concesionaria
                             sqlCheque = sqlCheque + "values (" + CodVenta.ToString();
                             sqlCheque = sqlCheque + "," + "'" + GrillaCheques.Rows[j].Cells[0].Value.ToString() + "'";
                             sqlCheque = sqlCheque + "," + fun.ToDouble(sImporteCheque);
-                            sqlCheque = sqlCheque + "," + "'" + txtFecha.Text + "'";
+                            sqlCheque = sqlCheque + "," + "'" + dpFecha.Value.ToShortDateString() + "'";
                             sqlCheque = sqlCheque + "," + "'" + GrillaCheques.Rows[j].Cells[2].Value.ToString() + "'";
                             sqlCheque = sqlCheque + "," + txtCodCLiente.Text;
                             sqlCheque = sqlCheque + "," + CmbBanco.SelectedValue;
@@ -982,7 +1000,7 @@ namespace Concesionaria
                             sqlCobranza = "Insert into Cobranza(CodVenta,Importe,Fecha,CodAuto,CodCliente,FechaCompromiso,ImportePagado,Saldo,Cuota)";
                             sqlCobranza = sqlCobranza + " values (" + CodVenta.ToString();
                             sqlCobranza = sqlCobranza + "," + ImporteCobranzaCuota.ToString();
-                            sqlCobranza = sqlCobranza + "," + "'" + txtFecha.Text + "'";
+                            sqlCobranza = sqlCobranza + "," + "'" + dpFecha.Value.ToShortDateString() + "'";
                             sqlCobranza = sqlCobranza + "," + txtCodAuto.Text;
                             sqlCobranza = sqlCobranza + "," + txtCodCLiente.Text;
                             sqlCobranza = sqlCobranza + "," + "'" + FechaCompromisoPago + "'";
@@ -1010,7 +1028,7 @@ namespace Concesionaria
                     sqlGastosPagar = sqlGastosPagar + ",Fecha,Importe,CodVenta,CodStock)";
                     sqlGastosPagar = sqlGastosPagar + "values (" + txtCodAuto.Text;
                     sqlGastosPagar = sqlGastosPagar + "," + "'" + sDescripcion + "'";
-                    sqlGastosPagar = sqlGastosPagar + "," + "'" + txtFecha.Text + "'";
+                    sqlGastosPagar = sqlGastosPagar + "," + "'" + dpFecha.Value.ToShortDateString() + "'";
                     sqlGastosPagar = sqlGastosPagar + "," + func.ToDouble(sImporte);
                     sqlGastosPagar = sqlGastosPagar + "," + CodVenta.ToString();
                     sqlGastosPagar = sqlGastosPagar + "," + CodStock.ToString();
@@ -1033,7 +1051,7 @@ namespace Concesionaria
                     sqlGastosPagar = sqlGastosPagar + ",Fecha,Importe,CodStock,CodVenta)";
                     sqlGastosPagar = sqlGastosPagar + "values (" + sCodAuto;
                     sqlGastosPagar = sqlGastosPagar + "," + "'" + Descripcion + "'";
-                    sqlGastosPagar = sqlGastosPagar + "," + "'" + txtFecha.Text + "'";
+                    sqlGastosPagar = sqlGastosPagar + "," + "'" + dpFecha.Value.ToShortDateString() + "'";
                     sqlGastosPagar = sqlGastosPagar + "," + func.ToDouble(Importe);
                     sqlGastosPagar = sqlGastosPagar + "," + CodStock.ToString();
                     sqlGastosPagar = sqlGastosPagar + "," + CodVenta.ToString();
@@ -1104,7 +1122,7 @@ namespace Concesionaria
                         comandSenia.CommandText = SqlSenia;
                         comandSenia.ExecuteNonQuery();*/
                     //actualizo la fecha
-                        SqlSenia = "update PreVenta set FechaEjecucion=" + "'" + txtFecha.Text + "'";
+                        SqlSenia = "update PreVenta set FechaEjecucion=" + "'" + dpFecha.Value.ToShortDateString() + "'";
                         SqlSenia = SqlSenia + " where CodPreVenta=" + txtCodPreVenta.Text.ToString ();
                         SqlCommand comandFecSenia = new SqlCommand();
                         comandFecSenia.Connection = con;
@@ -1223,16 +1241,16 @@ namespace Concesionaria
             int Concesion = 0;
             string Observacion = "";
             string Anio = "";
-            Double? Importe = 0;
-            Int32 CodStock = -1;
-            Int32 CodAuto = 0;
+            Double? Importe = 0;     
+            Int32? CodAnio = null;
+            Int32? CodColor = null;
 
             Patente = txtPatente2.Text;
             if (CmbCiudad2.SelectedIndex > 0)
                 CodCiudad = Convert.ToInt32(CmbCiudad2.SelectedValue);
 
             Descripcion = txtDescripcion2.Text;
-            Anio = txtAnio2.Text;
+           
             if (txtKms2.Text != "")
                 Kilometros = Convert.ToInt32(txtKms2.Text);
             if (CmbMarca2.SelectedIndex > 0)
@@ -1247,6 +1265,15 @@ namespace Concesionaria
                 Importe = fun.ToDouble(txtImporteVehiculoCompra.Text);
             }
 
+            if (cmbAnio2.SelectedIndex >0)
+            {
+                CodAnio = Convert.ToInt32(cmbAnio2.SelectedValue);
+            }
+             
+            if (cmbColor2.SelectedIndex > 0)
+            {
+                CodColor = Convert.ToInt32(cmbColor2.SelectedValue);
+            }
 
             Clases.cAuto auto = new Clases.cAuto();
             Boolean Graba = true;
@@ -1256,7 +1283,7 @@ namespace Concesionaria
             {
                 //inserto el auto
                 sql = auto.GetSqlAgregarAuto(Patente, CodMarca, Descripcion,
-                     Kilometros, CodCiudad, Propio, Concesion, Observacion, Anio, Importe);
+                     Kilometros, CodCiudad, Propio, Concesion, Observacion, Anio, Importe, CodAnio, CodColor);
                 return sql;
 
             }
@@ -1272,7 +1299,7 @@ namespace Concesionaria
         private string GetSqlVenta()
         {
             string sql = "";
-            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+            DateTime Fecha = dpFecha.Value; 
             Int32 CodAutoVendido = Convert.ToInt32(txtCodAuto.Text);
             Int32? CodAutoPartePago = null;
             Int32 CodStock = Convert.ToInt32(txtCodStock.Text);
@@ -1405,7 +1432,7 @@ namespace Concesionaria
         private string GetSqlMovimientos(Int32 CodVenta)
         {
             string sql = "";
-            string Fecha = txtFecha.Text;
+            string Fecha = dpFecha.Value.ToShortDateString();
             Int32 CodAutoVendido = Convert.ToInt32(txtCodAuto.Text);
 
             double ImporteAuto = 0;
@@ -1478,7 +1505,10 @@ namespace Concesionaria
             CmbEntidadPrendaria.SelectedIndex = 0;
             txtDescripcion.Text = "";
             txtObservacion.Text = "";
-            txtAnio.Text = "";
+           if (cmbAnio.SelectedIndex >0)
+            {
+                cmbAnio.SelectedIndex = 0;
+            }
             txtKms.Text = "";
             txtPrecioVenta.Text = "";
             GetCostos(-1);
@@ -1502,8 +1532,7 @@ namespace Concesionaria
             txtCodStock2.Text = "";
             CmbMarca2.SelectedIndex = 0;
             txtDescripcion2.Text = "";
-            txtAnio2.Text = "";
-            txtKms2.Text = "";
+                        txtKms2.Text = "";
             txtImporteVehiculoCompra.Text = "";
             GetCostos(-1);
             
@@ -1581,17 +1610,9 @@ namespace Concesionaria
             }
 
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (txtFecha.Text == "")
-            {
-                MessageBox.Show("Debe ingresar una fecha para continuar.", Clases.cMensaje.Mensaje());
-                return false;
-            }
+          
 
-            if (fun.ValidarFecha(txtFecha.Text) == false)
-            {
-                MessageBox.Show("La fecha ingresada es incorrecta.", Clases.cMensaje.Mensaje());
-                return false;
-            }
+         
 
 
             if (txtTotalPrenda.Text != "")
@@ -1949,7 +1970,7 @@ namespace Concesionaria
                 CodCiudad = Convert.ToInt32(CmbCiudad2.SelectedValue);
 
             Descripcion = txtDescripcion2.Text;
-            Anio = txtAnio2.Text;
+            Anio = "";
             if (txtKms2.Text != "")
                 Kilometros = Convert.ToInt32(txtKms2.Text.Replace(".", ""));
             if (CmbMarca2.SelectedIndex > 0)
@@ -1964,20 +1985,26 @@ namespace Concesionaria
                 Importe = fun.ToDouble(txtImporteVehiculoCompra.Text);
             }
 
+            Int32? CodAnio = null;
+            if (cmbAnio2.SelectedIndex>0)
+            {
+                CodAnio = Convert.ToInt32(cmbAnio2.SelectedValue);
+            }
+
             Int32? CodTipoCombustible2 = null;
             if (CmbTipoCombustible2.SelectedIndex > 0)
                 CodTipoCombustible2 = Convert.ToInt32(CmbTipoCombustible2.SelectedValue);
 
-            string Color = txtColor2.Text;
+            string Color = "";
             Clases.cAuto auto = new Clases.cAuto();
             Boolean Graba = true;
             if (txtCodAuto2.Text != "")
                 Graba = false;
             if (Graba)
-            { 
+            {
                 //inserto el auto
                 auto.AgregarAuto(Patente, CodMarca, Descripcion,
-                    Kilometros, CodCiudad, Propio, Concesion, Observacion, Anio, Importe, Motor, Chasis, Color, CodTipoCombustible2);
+                    Kilometros, CodCiudad, Propio, Concesion, Observacion, Anio, Importe, Motor, Chasis, Color, CodTipoCombustible2, CodAnio);
                 CodAuto = auto.GetMaxCodAuto();
                 txtCodAuto2.Text = CodAuto.ToString();
                
@@ -2068,7 +2095,7 @@ namespace Concesionaria
             txtKms2.Text = "";
             txtCodAuto2.Text = "";
             txtKms2.Text = "";
-            txtAnio2.Text = "";
+           
             if (CmbCiudad2.Items.Count >0 )
             {
                 CmbCiudad2.SelectedIndex = 0;
@@ -2085,9 +2112,6 @@ namespace Concesionaria
 
         private void txtPatente2_TextChanged_1(object sender, EventArgs e)
         {
-            
-
-
             int b = 0;
             string Patente = txtPatente2.Text;
             if (Patente.Length > 5)
@@ -2098,7 +2122,11 @@ namespace Concesionaria
                 {
                     b = 1;
                     txtDescripcion2.Text = trdo.Rows[0]["Descripcion"].ToString();
-                    txtAnio2.Text = trdo.Rows[0]["Anio"].ToString();
+                    if (trdo.Rows[0]["CodAnio"].ToString()!="")
+                    {
+                        cmbAnio2.SelectedValue = trdo.Rows[0]["CodAnio"].ToString();
+                    }
+                  
                     txtKms2.Text = trdo.Rows[0]["Kilometros"].ToString();
                     txtCodAuto2.Text = trdo.Rows[0]["CodAuto"].ToString();
                     txtMotor2.Text = trdo.Rows[0]["Motor"].ToString();
@@ -2111,6 +2139,16 @@ namespace Concesionaria
                     if (trdo.Rows[0]["CodMarca"].ToString() != "")
                     {
                         CmbMarca2.SelectedValue = trdo.Rows[0]["CodMarca"].ToString();
+                    }
+                     
+                    if (trdo.Rows[0]["CodColor"].ToString() != "")
+                    {
+                        cmbColor2.SelectedValue = trdo.Rows[0]["CodColor"].ToString();
+                    }
+                      
+                    if (trdo.Rows[0]["CodAnio"].ToString() != "")
+                    {
+                        cmbAnio2.SelectedValue = trdo.Rows[0]["CodAnio"].ToString();
                     }
 
                     Clases.cStockAuto stock = new Clases.cStockAuto();
@@ -2132,7 +2170,7 @@ namespace Concesionaria
                     txtDescripcion2.Text = "";
                     CmbMarca2.SelectedIndex = 0;
                     txtKms2.Text = "";
-                    txtAnio2.Text = "";
+                    
                     CmbCiudad2.SelectedIndex = 0;
                     txtImporteVehiculoCompra.Text = "";
                 }
@@ -2227,7 +2265,7 @@ namespace Concesionaria
             sql = sql + "," + Importe.ToString();
             sql = sql + "," + CodCliente.ToString();
             sql = sql + "," + CodEntidad.ToString();
-            sql = sql + "," + "'" + txtFecha.Text + "'";
+            sql = sql + "," + "'" + dpFecha.Value.ToShortDateString() + "'";
             sql = sql + "," + txtCodAuto.Text.ToString();
             sql = sql + "," + Importe.ToString();
             sql = sql + ",0";
@@ -3031,7 +3069,7 @@ namespace Concesionaria
             if (tVenta.Rows.Count > 0)
             {
                 DateTime FechaVenta = Convert.ToDateTime(tVenta.Rows[0]["Fecha"].ToString());
-                txtFecha.Text = FechaVenta.ToShortDateString();
+                dpFecha.Value = FechaVenta;
                 txtCodStock.Text = tVenta.Rows[0]["CodStock"].ToString();
                 txtPrecioVenta.Text = tVenta.Rows[0]["ImporteVenta"].ToString();
                 string sImp = txtPrecioVenta.Text.Replace(",", ".");
@@ -3170,7 +3208,7 @@ namespace Concesionaria
                     b = 1;
                     Clases.cFunciones fun = new Clases.cFunciones();
                     txtDescripcion.Text = trdo.Rows[0]["Descripcion"].ToString();
-                    txtAnio.Text = trdo.Rows[0]["Anio"].ToString();
+                   
                     txtMotor.Text = trdo.Rows[0]["Motor"].ToString();
                     txtChasis.Text = trdo.Rows[0]["Chasis"].ToString();
                     txtKms.Text = trdo.Rows[0]["Kilometros"].ToString();
@@ -3351,7 +3389,11 @@ namespace Concesionaria
                     {
 
                         txtDescripcion2.Text = trdo.Rows[0]["Descripcion"].ToString();
-                        txtAnio2.Text = trdo.Rows[0]["Anio"].ToString();
+                        if (trdo.Rows[0]["CodAnio"].ToString()!="")
+                        {
+                            cmbAnio2.SelectedValue = trdo.Rows[0]["CodAnio"].ToString();
+                        }
+                        
                         txtKms2.Text = trdo.Rows[0]["Kilometros"].ToString();
                         txtCodAuto2.Text = trdo.Rows[0]["CodAuto"].ToString();
                         txtMotor2.Text = trdo.Rows[0]["Motor"].ToString();
@@ -3424,7 +3466,7 @@ namespace Concesionaria
             Clases.cFunciones fun = new Clases.cFunciones();
             Int32 CodVendedor = Convert.ToInt32(CmbVendedor.SelectedValue);
             double Importe = fun.ToDouble(txtComisionVendedor.Text);
-            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+            DateTime Fecha = dpFecha.Value;
             string sql = "Insert into ComisionVendedor(CodVenta,Importe,CodVendedor,Fecha)";
             sql = sql + " values (" + CodVenta.ToString();
             sql = sql + "," + Importe.ToString().Replace(",", ".");
@@ -3724,17 +3766,7 @@ namespace Concesionaria
             }
 
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (txtFecha.Text == "")
-            {
-                MessageBox.Show("Debe ingresar una fecha para continuar.", Clases.cMensaje.Mensaje());
-                return false;
-            }
-
-            if (fun.ValidarFecha(txtFecha.Text) == false)
-            {
-                MessageBox.Show("La fecha ingresada es incorrecta.", Clases.cMensaje.Mensaje());
-                return false;
-            }
+          
 
 
             
@@ -3805,7 +3837,7 @@ namespace Concesionaria
 
                 //saco el auto del stock
                 string sqlStock = "update StockAuto";
-                sqlStock = sqlStock + " set FechaBaja =" + "'" + txtFecha.Text + "'";
+                sqlStock = sqlStock + " set FechaBaja =" + "'" + dpFecha.Value.ToShortDateString() + "'";
                 sqlStock = sqlStock + " where CodAuto =" + txtCodAuto.Text;
                 Comand.CommandText = sqlStock;
                 Comand.ExecuteNonQuery();
@@ -3825,7 +3857,7 @@ namespace Concesionaria
                             string AutoPartePago = txtPatente.Text + " " + txtDescripcion.Text;
                             sqlInsertStock = "insert into StockAuto(CodAuto,FechaAlta,CodCliente,CodUsuario,ImporteCompra,DescripcionAutoPartePago)";
                             sqlInsertStock = sqlInsertStock + " values (" + codAutoStock.ToString();
-                            sqlInsertStock = sqlInsertStock + "," + "'" + txtFecha.Text + "'";
+                            sqlInsertStock = sqlInsertStock + "," + "'" + dpFecha.Value.ToShortDateString() + "'";
                             sqlInsertStock = sqlInsertStock + "," + txtCodCLiente.Text;
                             sqlInsertStock = sqlInsertStock + "," + Principal.CodUsuarioLogueado.ToString();
                             sqlInsertStock = sqlInsertStock + "," + fun.ToDouble(ImporteCompra).ToString();
@@ -3907,7 +3939,7 @@ namespace Concesionaria
         private string GetSqlPreVenta()
         {
             string sql = "";
-            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+            DateTime Fecha = dpFecha.Value;
             Int32 CodAutoVendido = Convert.ToInt32(txtCodAuto.Text);
             Int32? CodAutoPartePago = null;
             Int32 CodStock = Convert.ToInt32(txtCodStock.Text);
@@ -3981,7 +4013,7 @@ namespace Concesionaria
         private string GetSqlMovimientosSeña()
         {
             string sql = "";
-            string Fecha = txtFecha.Text;
+            string Fecha = dpFecha.Value.ToShortDateString();
             Int32 CodAutoVendido = Convert.ToInt32(txtCodAuto.Text);
 
             double ImporteAuto = 0;
@@ -4094,7 +4126,7 @@ namespace Concesionaria
         private string GetSqlRestarSeniaMovimientos(double Importe)
         {
             string sql = "";
-            string Fecha = txtFecha.Text;
+            string Fecha = dpFecha.Value.ToShortDateString();
             Int32 CodAutoVendido = Convert.ToInt32(txtCodAuto.Text);
 
             double ImporteAuto = 0;
@@ -4181,14 +4213,10 @@ namespace Concesionaria
                 MessageBox.Show("Debe seleccionar una entidad prendaria", "Sistema");
                 return;
             }
-            if (fun.ValidarFecha (txtFechaVencimientoPrenda.Text)==false)
-            {
-                Mensaje("La fecha de fin es incorrecta");
-                return;
-            }
+           
             string Importe = txtImportePrenda.Text;
             string CodEntidad = CmbEntidadPrendaria.SelectedValue.ToString();
-            string FechaVencimiento = txtFechaVencimientoPrenda.Text;
+            string FechaVencimiento = dpFechaVencimientoPrenda.Value.ToShortDateString();
             if (fun.Buscar(tprenda , "CodEntidad", CodEntidad) == true)
             {
                 MessageBox.Show("Ya se ha ingresado la entidad");
@@ -4265,7 +4293,7 @@ namespace Concesionaria
                 sql = sql + "," + Importe.ToString();
                 sql = sql + "," + CodCliente.ToString();
                 sql = sql + "," + CodEntidad.ToString();
-                sql = sql + "," + "'" + txtFecha.Text + "'";
+                sql = sql + "," + "'" + dpFecha.Value.ToShortDateString() + "'";
                 sql = sql + "," + txtCodAuto.Text.ToString();
                 sql = sql + "," + Importe.ToString();
                 sql = sql + ",0";
@@ -4750,7 +4778,7 @@ namespace Concesionaria
             }
             cFunciones fun = new cFunciones();
             Int32 CodPresupuesto = 0;
-            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+            DateTime Fecha = dpFecha.Value;
             Int32? CodCliente = null;
             Int32? CodAuto = null;
             Double Total = 0;
@@ -4793,12 +4821,25 @@ namespace Concesionaria
 
                 }
                 string Auto = cmbMarca.Text + " " + txtDescripcion.Text;
+                if (cmbColor.SelectedIndex >0)
+                {
+                    Auto = Auto + " " + cmbColor.Text;
+                }
+                
+                if (cmbAnio.SelectedIndex >0)
+                {
+                    Auto = Auto + " " + cmbAnio.Text;
+                }
+
                 string PrecioAuto = "$ " + txtPrecioVenta.Text;
                 string NombreGasto = "          ";
                 string sImporteGasto = "";
+                Double ImporteEfectivo = 0;
+                if (txtTotalEfectivo.Text != "")
+                    ImporteEfectivo = fun.ToDouble(txtTotalEfectivo.Text);
                 //grabo el presupuesto
                 cPresupuesto presupuesto = new cPresupuesto();
-                CodPresupuesto = presupuesto.Insertar(con, Transaccion, CodAuto, CodCliente, Fecha, Total, sTotal);
+                CodPresupuesto = presupuesto.Insertar(con, Transaccion, CodAuto, CodCliente, Fecha, Total, sTotal, ImporteEfectivo);
                 repPre.Insertar(con,Transaccion, CodPresupuesto, "Unidad", "","","");
                 repPre.Insertar(con,Transaccion, CodPresupuesto, Auto, "", "", PrecioAuto);
                 //grabo gastos de transferencia
@@ -4882,14 +4923,57 @@ namespace Concesionaria
                 Total = CalcularTotalPresupuesto();
                 sTotal = "$ " + fun.FormatoEnteroMiles(Total.ToString ()); 
                 repPre.Insertar(con, Transaccion, CodPresupuesto, "", "", "Total", sTotal);
-
+                //Grabo la forma de pago
+                repPre.Insertar(con, Transaccion, CodPresupuesto, "Forma de Pago", "", "", "");
+                repPre.Insertar(con, Transaccion, CodPresupuesto, "", "", "SubTotal", "");
+                if (ImporteEfectivo >0)
+                {
+                    string sImporteefectivo = "$ " + fun.FormatoEnteroMiles(ImporteEfectivo.ToString());
+                    repPre.Insertar(con, Transaccion, CodPresupuesto, "", "Efectivo", "", sImporteefectivo);
+                }
+                //grabo el plan de cuotas
+                if (txtTotalDocumentos.Text != "")
+                {
+                    //grabo las cuotas
+                    string Cuota = "";
+                    string ImporteCuota = "";
+                    string FechaVecimiento = "";
+                    string ImporteSinInteres = "";
+                    string sqlInsertCuota = "";
+                    for (int i = 0; i < GrillaCuotas.Rows.Count - 1; i++)
+                    {
+                        Cuota = GrillaCuotas.Rows[i].Cells[0].Value.ToString();
+                        ImporteCuota = GrillaCuotas.Rows[i].Cells[1].Value.ToString();
+                        FechaVecimiento = GrillaCuotas.Rows[i].Cells[2].Value.ToString();
+                        ImporteSinInteres = GrillaCuotas.Rows[i].Cells[3].Value.ToString();
+                        sqlInsertCuota = "Insert into CuotasPresupuesto(CodPresupuesto,Cuota,Importe,FechaVencimiento,Saldo,ImporteSinInteres)";
+                        sqlInsertCuota = sqlInsertCuota + " values (";
+                        sqlInsertCuota = sqlInsertCuota + CodPresupuesto.ToString();
+                        sqlInsertCuota = sqlInsertCuota + "," + Cuota;
+                        sqlInsertCuota = sqlInsertCuota + "," + ImporteCuota;
+                        sqlInsertCuota = sqlInsertCuota + "," + "'" + FechaVecimiento + "'";
+                        sqlInsertCuota = sqlInsertCuota + "," + ImporteCuota;
+                        sqlInsertCuota = sqlInsertCuota + "," + ImporteSinInteres;
+                        sqlInsertCuota = sqlInsertCuota + ")";
+                        SqlCommand comandCuota = new SqlCommand();
+                        comandCuota.Connection = con;
+                        comandCuota.Transaction = Transaccion;
+                        comandCuota.CommandText = sqlInsertCuota;
+                        comandCuota.ExecuteNonQuery();
+                    }
+                    string PlanCuotas = Cuota.ToString() + " Cuotas de $" + fun.FormatoEnteroMiles(ImporteCuota.ToString());
+                    Double TotalCuotas = 0;
+                    TotalCuotas = Convert.ToDouble(txtTotalDocumentos.Text);
+                    string sTtotalCuotas = "$ " + fun.FormatoEnteroMiles(TotalCuotas.ToString ());
+                    repPre.Insertar(con, Transaccion, CodPresupuesto, "", PlanCuotas, "", sTtotalCuotas);
+                }
                 Transaccion.Commit();
                 con.Close();
                 CodCliente = Convert.ToInt32(txtCodCLiente.Text);
                 
                 Mensaje("Presupuesto grabado correctamente");
                 Principal.CodPresupuesto = CodPresupuesto;
-                FrmReportePresupuesto form = new FrmReportePresupuesto();
+                FrmReportePresupuesto2 form = new FrmReportePresupuesto2();
                 form.Show();
             }
             catch(Exception ex)
@@ -4923,7 +5007,7 @@ namespace Concesionaria
             if (txtTotalGastosRecepcion.Text != "")
                 GastoRecepcion = fun.ToDouble(txtTotalGastosRecepcion.Text);
 
-            Total = PrecioAuto + TotalGasto - AutoPartePago - GastoRecepcion;
+            Total = PrecioAuto + TotalGasto - AutoPartePago + GastoRecepcion;
             return Total;
 
         }
@@ -4939,6 +5023,8 @@ namespace Concesionaria
                 {
                     Descripcion = tbAuto.Rows[0]["Descripcion"].ToString();
                     Descripcion = Descripcion + " " + tbAuto.Rows[0]["Marca"].ToString();
+                    Descripcion = Descripcion + " " + tbAuto.Rows[0]["NombreColor"].ToString();
+                    Descripcion = Descripcion + " " + tbAuto.Rows[0]["NombreAnio"].ToString();
                 }
             }
             return Descripcion;
@@ -4989,13 +5075,15 @@ namespace Concesionaria
             string Color = "";
             Int32? CodTipoCombustible = null;
             Int32? CodTipoUtilitario = null;
+            Int32? CodAnio = null;
             Patente = txtPatente.Text;
             if (cmbMarca.SelectedIndex >0)
             {
                 CodMarca = Convert.ToInt32(cmbMarca.SelectedValue);
             }
             Descripcion = txtDescripcion.Text;
-            Anio = txtAnio.Text;
+            
+            Anio = "";
             if (txtKms.Text !="")
             {
                 Kilometros = Convert.ToInt32(txtKms.Text);
@@ -5020,7 +5108,7 @@ namespace Concesionaria
             Int32 CodAuto = 0;
             CodAuto = auto.AgregarAutoId(Patente, CodMarca, Descripcion, Kilometros,
                 CodCiudad, Propio, Concesion, Observacion, Anio, Importe, Motor,
-                Chasis, Color, CodTipoCombustible,CodTipoUtilitario
+                Chasis, Color, CodTipoCombustible,CodTipoUtilitario , CodAnio 
                 );
             return CodAuto;
         }

@@ -297,7 +297,7 @@ namespace Concesionaria.Clases
         public void GuardarNuevoGenerico(Control c, string Tabla)
         {
             string nombre = "";
-            string Campo = "";
+            
             string values = "";
             string  sql = "insert into " + Tabla;
             sql = sql + "(";
@@ -399,8 +399,6 @@ namespace Concesionaria.Clases
         public void ModificarGenerico(Control c, string Tabla,string NombreClavePrimario,string ValorClavePrimaria)
         {
             string nombre = "";
-            string Campo = "";
-            string values = "";
             string sql = "Update " + Tabla;
             sql = sql + " set ";
             int ban = 0;

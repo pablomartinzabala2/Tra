@@ -16,7 +16,7 @@ namespace Concesionaria
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
               Application.Run(new FrmLogin());
-            // Application.Run(new FrmReportePresupuesto());
+           //  Application.Run(new FrmReportePresupuesto2());
 
             //   Application.Run(new FrmTest());
             // A//pplication.Run(new FrmAbmEntidad());

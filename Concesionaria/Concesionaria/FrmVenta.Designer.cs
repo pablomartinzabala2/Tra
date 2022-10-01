@@ -32,6 +32,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbAnio = new System.Windows.Forms.ComboBox();
+            this.cmbColor = new System.Windows.Forms.ComboBox();
             this.label80 = new System.Windows.Forms.Label();
             this.cmbTipoUtilitario = new System.Windows.Forms.ComboBox();
             this.btnBuscarAuto = new System.Windows.Forms.Button();
@@ -43,7 +45,6 @@
             this.btnVerDetalleStock = new System.Windows.Forms.Button();
             this.label61 = new System.Windows.Forms.Label();
             this.txtExTitular = new System.Windows.Forms.TextBox();
-            this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.label57 = new System.Windows.Forms.Label();
             this.txtChasis = new System.Windows.Forms.TextBox();
             this.txtMotor = new System.Windows.Forms.TextBox();
@@ -64,7 +65,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtKms = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtAnio = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -183,6 +183,8 @@
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cmbColor2 = new System.Windows.Forms.ComboBox();
+            this.cmbAnio2 = new System.Windows.Forms.ComboBox();
             this.btnAgregarProvinciaAuto = new System.Windows.Forms.Button();
             this.label77 = new System.Windows.Forms.Label();
             this.CmbProvinciaAuto = new System.Windows.Forms.ComboBox();
@@ -190,7 +192,6 @@
             this.label60 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.txtColor2 = new System.Windows.Forms.TextBox();
             this.label56 = new System.Windows.Forms.Label();
             this.btnAgregarRadicacion = new System.Windows.Forms.Button();
             this.txtChasis2 = new System.Windows.Forms.TextBox();
@@ -207,7 +208,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.txtKms2 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.txtAnio2 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.txtDescripcion2 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -241,7 +241,6 @@
             this.btnNuevoPapel = new System.Windows.Forms.Button();
             this.ListaPapeles = new System.Windows.Forms.ListBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.txtFechaVencimientoPrenda = new System.Windows.Forms.MaskedTextBox();
             this.label72 = new System.Windows.Forms.Label();
             this.GrillaPrendas = new System.Windows.Forms.DataGridView();
             this.CmbEntidadPrendaria = new System.Windows.Forms.ComboBox();
@@ -307,6 +306,8 @@
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabarPreVenta = new System.Windows.Forms.Button();
             this.btnPresupuesto = new System.Windows.Forms.Button();
+            this.dpFecha = new System.Windows.Forms.DateTimePicker();
+            this.dpFechaVencimientoPrenda = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -382,6 +383,9 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.groupBox2.Controls.Add(this.dpFecha);
+            this.groupBox2.Controls.Add(this.cmbAnio);
+            this.groupBox2.Controls.Add(this.cmbColor);
             this.groupBox2.Controls.Add(this.label80);
             this.groupBox2.Controls.Add(this.cmbTipoUtilitario);
             this.groupBox2.Controls.Add(this.btnBuscarAuto);
@@ -393,7 +397,6 @@
             this.groupBox2.Controls.Add(this.btnVerDetalleStock);
             this.groupBox2.Controls.Add(this.label61);
             this.groupBox2.Controls.Add(this.txtExTitular);
-            this.groupBox2.Controls.Add(this.txtFecha);
             this.groupBox2.Controls.Add(this.label57);
             this.groupBox2.Controls.Add(this.txtChasis);
             this.groupBox2.Controls.Add(this.txtMotor);
@@ -414,7 +417,6 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtKms);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtAnio);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtDescripcion);
             this.groupBox2.Controls.Add(this.label2);
@@ -429,6 +431,24 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // cmbAnio
+            // 
+            this.cmbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAnio.FormattingEnabled = true;
+            this.cmbAnio.Location = new System.Drawing.Point(113, 74);
+            this.cmbAnio.Name = "cmbAnio";
+            this.cmbAnio.Size = new System.Drawing.Size(56, 24);
+            this.cmbAnio.TabIndex = 68;
+            // 
+            // cmbColor
+            // 
+            this.cmbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbColor.FormattingEnabled = true;
+            this.cmbColor.Location = new System.Drawing.Point(175, 79);
+            this.cmbColor.Name = "cmbColor";
+            this.cmbColor.Size = new System.Drawing.Size(93, 24);
+            this.cmbColor.TabIndex = 67;
             // 
             // label80
             // 
@@ -532,15 +552,6 @@
             this.txtExTitular.ReadOnly = true;
             this.txtExTitular.Size = new System.Drawing.Size(96, 22);
             this.txtExTitular.TabIndex = 41;
-            // 
-            // txtFecha
-            // 
-            this.txtFecha.Location = new System.Drawing.Point(749, 109);
-            this.txtFecha.Mask = "00/00/0000";
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(91, 22);
-            this.txtFecha.TabIndex = 40;
-            this.txtFecha.ValidatingType = typeof(System.DateTime);
             // 
             // label57
             // 
@@ -675,7 +686,7 @@
             // radioConcesion
             // 
             this.radioConcesion.AutoSize = true;
-            this.radioConcesion.Location = new System.Drawing.Point(260, 80);
+            this.radioConcesion.Location = new System.Drawing.Point(346, 80);
             this.radioConcesion.Name = "radioConcesion";
             this.radioConcesion.Size = new System.Drawing.Size(90, 20);
             this.radioConcesion.TabIndex = 13;
@@ -686,7 +697,7 @@
             // 
             this.radioPropio.AutoSize = true;
             this.radioPropio.Checked = true;
-            this.radioPropio.Location = new System.Drawing.Point(188, 80);
+            this.radioPropio.Location = new System.Drawing.Point(274, 80);
             this.radioPropio.Name = "radioPropio";
             this.radioPropio.Size = new System.Drawing.Size(66, 20);
             this.radioPropio.TabIndex = 12;
@@ -728,15 +739,6 @@
             this.label4.Size = new System.Drawing.Size(34, 16);
             this.label4.TabIndex = 8;
             this.label4.Text = "Kms";
-            // 
-            // txtAnio
-            // 
-            this.txtAnio.BackColor = System.Drawing.SystemColors.Control;
-            this.txtAnio.Location = new System.Drawing.Point(113, 80);
-            this.txtAnio.MaxLength = 4;
-            this.txtAnio.Name = "txtAnio";
-            this.txtAnio.Size = new System.Drawing.Size(60, 22);
-            this.txtAnio.TabIndex = 4;
             // 
             // label3
             // 
@@ -1929,6 +1931,8 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.groupBox4.Controls.Add(this.cmbColor2);
+            this.groupBox4.Controls.Add(this.cmbAnio2);
             this.groupBox4.Controls.Add(this.btnAgregarProvinciaAuto);
             this.groupBox4.Controls.Add(this.label77);
             this.groupBox4.Controls.Add(this.CmbProvinciaAuto);
@@ -1936,7 +1940,6 @@
             this.groupBox4.Controls.Add(this.label60);
             this.groupBox4.Controls.Add(this.label59);
             this.groupBox4.Controls.Add(this.label36);
-            this.groupBox4.Controls.Add(this.txtColor2);
             this.groupBox4.Controls.Add(this.label56);
             this.groupBox4.Controls.Add(this.btnAgregarRadicacion);
             this.groupBox4.Controls.Add(this.txtChasis2);
@@ -1953,7 +1956,6 @@
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Controls.Add(this.txtKms2);
             this.groupBox4.Controls.Add(this.label19);
-            this.groupBox4.Controls.Add(this.txtAnio2);
             this.groupBox4.Controls.Add(this.label20);
             this.groupBox4.Controls.Add(this.txtDescripcion2);
             this.groupBox4.Controls.Add(this.label21);
@@ -1967,6 +1969,24 @@
             this.groupBox4.Size = new System.Drawing.Size(850, 152);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
+            // 
+            // cmbColor2
+            // 
+            this.cmbColor2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbColor2.FormattingEnabled = true;
+            this.cmbColor2.Location = new System.Drawing.Point(698, 73);
+            this.cmbColor2.Name = "cmbColor2";
+            this.cmbColor2.Size = new System.Drawing.Size(117, 24);
+            this.cmbColor2.TabIndex = 69;
+            // 
+            // cmbAnio2
+            // 
+            this.cmbAnio2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAnio2.FormattingEnabled = true;
+            this.cmbAnio2.Location = new System.Drawing.Point(369, 38);
+            this.cmbAnio2.Name = "cmbAnio2";
+            this.cmbAnio2.Size = new System.Drawing.Size(61, 24);
+            this.cmbAnio2.TabIndex = 68;
             // 
             // btnAgregarProvinciaAuto
             // 
@@ -2032,14 +2052,6 @@
             this.label36.Size = new System.Drawing.Size(34, 16);
             this.label36.TabIndex = 41;
             this.label36.Text = "Kms";
-            // 
-            // txtColor2
-            // 
-            this.txtColor2.BackColor = System.Drawing.SystemColors.Control;
-            this.txtColor2.Location = new System.Drawing.Point(698, 71);
-            this.txtColor2.Name = "txtColor2";
-            this.txtColor2.Size = new System.Drawing.Size(132, 22);
-            this.txtColor2.TabIndex = 40;
             // 
             // label56
             // 
@@ -2183,15 +2195,6 @@
             this.label19.TabIndex = 8;
             this.label19.Text = "Kms";
             // 
-            // txtAnio2
-            // 
-            this.txtAnio2.BackColor = System.Drawing.SystemColors.Control;
-            this.txtAnio2.Location = new System.Drawing.Point(362, 42);
-            this.txtAnio2.MaxLength = 4;
-            this.txtAnio2.Name = "txtAnio2";
-            this.txtAnio2.Size = new System.Drawing.Size(55, 22);
-            this.txtAnio2.TabIndex = 4;
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -2301,7 +2304,7 @@
             this.tabPage13.Controls.Add(this.btnAgegarGastodeRecepcion);
             this.tabPage13.Location = new System.Drawing.Point(4, 25);
             this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Size = new System.Drawing.Size(929, 126);
+            this.tabPage13.Size = new System.Drawing.Size(843, 126);
             this.tabPage13.TabIndex = 2;
             this.tabPage13.Text = "Gastos de recepción";
             // 
@@ -2413,7 +2416,7 @@
             this.tabPage19.Controls.Add(this.ListaPapeles);
             this.tabPage19.Location = new System.Drawing.Point(4, 25);
             this.tabPage19.Name = "tabPage19";
-            this.tabPage19.Size = new System.Drawing.Size(929, 126);
+            this.tabPage19.Size = new System.Drawing.Size(843, 126);
             this.tabPage19.TabIndex = 3;
             this.tabPage19.Text = "Papeles";
             // 
@@ -2515,7 +2518,7 @@
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.tabPage7.Controls.Add(this.txtFechaVencimientoPrenda);
+            this.tabPage7.Controls.Add(this.dpFechaVencimientoPrenda);
             this.tabPage7.Controls.Add(this.label72);
             this.tabPage7.Controls.Add(this.GrillaPrendas);
             this.tabPage7.Controls.Add(this.CmbEntidadPrendaria);
@@ -2533,23 +2536,14 @@
             this.tabPage7.TabIndex = 3;
             this.tabPage7.Text = "Prenda";
             // 
-            // txtFechaVencimientoPrenda
-            // 
-            this.txtFechaVencimientoPrenda.Location = new System.Drawing.Point(639, 18);
-            this.txtFechaVencimientoPrenda.Mask = "00/00/0000";
-            this.txtFechaVencimientoPrenda.Name = "txtFechaVencimientoPrenda";
-            this.txtFechaVencimientoPrenda.Size = new System.Drawing.Size(70, 22);
-            this.txtFechaVencimientoPrenda.TabIndex = 53;
-            this.txtFechaVencimientoPrenda.ValidatingType = typeof(System.DateTime);
-            // 
             // label72
             // 
             this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(510, 24);
+            this.label72.Location = new System.Drawing.Point(526, 20);
             this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(123, 16);
+            this.label72.Size = new System.Drawing.Size(82, 16);
             this.label72.TabIndex = 52;
-            this.label72.Text = "Fecha Vencimiento";
+            this.label72.Text = "Vencimiento";
             // 
             // GrillaPrendas
             // 
@@ -2565,7 +2559,7 @@
             // 
             this.CmbEntidadPrendaria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbEntidadPrendaria.FormattingEnabled = true;
-            this.CmbEntidadPrendaria.Location = new System.Drawing.Point(309, 21);
+            this.CmbEntidadPrendaria.Location = new System.Drawing.Point(300, 15);
             this.CmbEntidadPrendaria.Name = "CmbEntidadPrendaria";
             this.CmbEntidadPrendaria.Size = new System.Drawing.Size(199, 24);
             this.CmbEntidadPrendaria.TabIndex = 17;
@@ -2573,7 +2567,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(258, 24);
+            this.label37.Location = new System.Drawing.Point(240, 21);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(54, 16);
             this.label37.TabIndex = 16;
@@ -2581,7 +2575,7 @@
             // 
             // txtImportePrenda
             // 
-            this.txtImportePrenda.Location = new System.Drawing.Point(106, 21);
+            this.txtImportePrenda.Location = new System.Drawing.Point(88, 18);
             this.txtImportePrenda.Name = "txtImportePrenda";
             this.txtImportePrenda.Size = new System.Drawing.Size(100, 22);
             this.txtImportePrenda.TabIndex = 15;
@@ -2619,7 +2613,7 @@
             // btnAbrircPrenda
             // 
             this.btnAbrircPrenda.Image = global::Concesionaria.Properties.Resources.zoom2;
-            this.btnAbrircPrenda.Location = new System.Drawing.Point(212, 18);
+            this.btnAbrircPrenda.Location = new System.Drawing.Point(194, 15);
             this.btnAbrircPrenda.Name = "btnAbrircPrenda";
             this.btnAbrircPrenda.Size = new System.Drawing.Size(40, 28);
             this.btnAbrircPrenda.TabIndex = 44;
@@ -3211,6 +3205,22 @@
             this.btnPresupuesto.UseVisualStyleBackColor = true;
             this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
             // 
+            // dpFecha
+            // 
+            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFecha.Location = new System.Drawing.Point(753, 111);
+            this.dpFecha.Name = "dpFecha";
+            this.dpFecha.Size = new System.Drawing.Size(87, 22);
+            this.dpFecha.TabIndex = 69;
+            // 
+            // dpFechaVencimientoPrenda
+            // 
+            this.dpFechaVencimientoPrenda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaVencimientoPrenda.Location = new System.Drawing.Point(622, 15);
+            this.dpFechaVencimientoPrenda.Name = "dpFechaVencimientoPrenda";
+            this.dpFechaVencimientoPrenda.Size = new System.Drawing.Size(87, 22);
+            this.dpFechaVencimientoPrenda.TabIndex = 70;
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3309,7 +3319,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtKms;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtAnio;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label2;
@@ -3393,7 +3402,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtKms2;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox txtAnio2;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox txtDescripcion2;
         private System.Windows.Forms.Label label21;
@@ -3468,7 +3476,6 @@
         private System.Windows.Forms.Label lblNombreVendedor;
         private System.Windows.Forms.TextBox txtApellidoVend;
         private System.Windows.Forms.TextBox txtNombreVen;
-        private System.Windows.Forms.TextBox txtColor2;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Button BtnAgregarCheque;
         private System.Windows.Forms.DataGridView GrillaCheques;
@@ -3477,7 +3484,6 @@
         private System.Windows.Forms.Label Gastos;
         private System.Windows.Forms.TextBox txtResumenGastos;
         private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.MaskedTextBox txtFecha;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.MaskedTextBox txtFechaCompromiso;
         private System.Windows.Forms.TextBox txtComisionVendedor;
@@ -3537,7 +3543,6 @@
         private System.Windows.Forms.Button BtnAgregarCobranza;
         private System.Windows.Forms.TextBox txtCuotasCobranza;
         private System.Windows.Forms.Label label71;
-        private System.Windows.Forms.MaskedTextBox txtFechaVencimientoPrenda;
         private System.Windows.Forms.Label label72;
         private System.Windows.Forms.MaskedTextBox txtFechaNacimiento;
         private System.Windows.Forms.Label label73;
@@ -3575,5 +3580,11 @@
         private System.Windows.Forms.Button btnBuscarAuto;
         private System.Windows.Forms.ComboBox cmbTipoUtilitario;
         private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.ComboBox cmbColor;
+        private System.Windows.Forms.ComboBox cmbAnio;
+        private System.Windows.Forms.ComboBox cmbAnio2;
+        private System.Windows.Forms.ComboBox cmbColor2;
+        private System.Windows.Forms.DateTimePicker dpFecha;
+        private System.Windows.Forms.DateTimePicker dpFechaVencimientoPrenda;
     }
 }

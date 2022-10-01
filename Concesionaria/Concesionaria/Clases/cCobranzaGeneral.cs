@@ -115,7 +115,7 @@ namespace Concesionaria.Clases
 
         public DataTable GetDedudaCobranzaGeneralxFecha(string Apellido, string Patente, DateTime FechaDesde, DateTime FechaHasta)
         {
-            int b = 0;
+            
             string Rdo = "";
             string a = "0", p = "0";
 

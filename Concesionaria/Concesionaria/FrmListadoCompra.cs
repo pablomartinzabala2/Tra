@@ -95,5 +95,10 @@ namespace Concesionaria
             FrmAutos frm = new Concesionaria.FrmAutos();
             frm.ShowDialog();
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

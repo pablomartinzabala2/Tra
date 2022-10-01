@@ -148,11 +148,6 @@ namespace Concesionaria
         private void btnCalcularCuotas_Click(object sender, EventArgs e)
         {
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (fun.ValidarFecha(txtFecha.Text) == false)
-            {
-                MessageBox.Show("La fecha ingresada es incorrecta", Clases.cMensaje.Mensaje());
-                return;
-            }
             int n = 2;
             int x = 4;
             double r = Math.Pow(x, n);
@@ -207,7 +202,7 @@ namespace Concesionaria
             ValorCuota = (Capital + d2) / Cuotas;
             Int32 ValorCuotaEntero = Convert.ToInt32(ValorCuota);
             Int32 ValorCuotaSinInteres = Convert.ToInt32(Capital / Cuotas);
-            DateTime FechaVencimiento = Convert.ToDateTime(txtFecha.Text);
+            DateTime FechaVencimiento = dpFecha.Value;
             DataTable tcuotas = new DataTable();
             tcuotas.Columns.Add("Cuota");
             tcuotas.Columns.Add("Importe");
@@ -239,9 +234,12 @@ namespace Concesionaria
             GrillaCuotas.Columns[2].HeaderText = "Vencimiento";
             GrillaCuotas.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight;
             GrillaCuotas.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.BottomRight;
+            fun.AnchoColumnas(GrillaCuotas, "25;25;25;25");
+            /*
             GrillaCuotas.Columns[0].Width = 50;
             GrillaCuotas.Columns[1].Width = 150;
             GrillaCuotas.Columns[2].Width = 150;
+            */
         }
 
         private void btnBorrarCuotas_Click(object sender, EventArgs e)
@@ -335,11 +333,7 @@ namespace Concesionaria
                 return false;
             }
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (fun.ValidarFecha (txtFecha.Text)==false)
-            {
-                MessageBox.Show("La fecha ingresada es incontinuar", Clases.cMensaje.Mensaje());
-                return false;
-            }
+           
 
             if (GrillaCuotas.Rows.Count < 1)
             {
@@ -359,7 +353,7 @@ namespace Concesionaria
             txtApellido.Text = "";
             txtTelefono.Text = "";
             txtCapital.Text = "";
-            txtFecha.Text = "";
+            
             txtInteres.Text = "";
             txtCuotas.Text = "";
             GrillaCuotas.DataSource = null;

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtAnio = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cmb_CodMarca = new System.Windows.Forms.ComboBox();
@@ -41,7 +43,6 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.btnBorrarCuotas = new System.Windows.Forms.Button();
             this.btnCalcularCuotas = new System.Windows.Forms.Button();
             this.GrillaCuotas = new System.Windows.Forms.DataGridView();
@@ -56,14 +57,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.dpFecha = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCuotas)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dpFecha);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtDireccion);
             this.groupBox1.Controls.Add(this.txtAnio);
@@ -78,7 +79,6 @@
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtFecha);
             this.groupBox1.Controls.Add(this.btnBorrarCuotas);
             this.groupBox1.Controls.Add(this.btnCalcularCuotas);
             this.groupBox1.Controls.Add(this.GrillaCuotas);
@@ -99,6 +99,23 @@
             this.groupBox1.Size = new System.Drawing.Size(588, 622);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(24, 180);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(67, 17);
+            this.label10.TabIndex = 55;
+            this.label10.Text = "Dirección";
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDireccion.Location = new System.Drawing.Point(103, 180);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(425, 23);
+            this.txtDireccion.TabIndex = 54;
             // 
             // txtAnio
             // 
@@ -204,15 +221,6 @@
             this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 42;
             this.label4.Text = "Fecha";
-            // 
-            // txtFecha
-            // 
-            this.txtFecha.Location = new System.Drawing.Point(428, 212);
-            this.txtFecha.Mask = "00/00/0000";
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(100, 23);
-            this.txtFecha.TabIndex = 41;
-            this.txtFecha.ValidatingType = typeof(System.DateTime);
             // 
             // btnBorrarCuotas
             // 
@@ -339,22 +347,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Patente";
             // 
-            // txtDireccion
+            // dpFecha
             // 
-            this.txtDireccion.BackColor = System.Drawing.SystemColors.Control;
-            this.txtDireccion.Location = new System.Drawing.Point(103, 180);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(425, 23);
-            this.txtDireccion.TabIndex = 54;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(24, 180);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(67, 17);
-            this.label10.TabIndex = 55;
-            this.label10.Text = "Dirección";
+            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFecha.Location = new System.Drawing.Point(426, 215);
+            this.dpFecha.Name = "dpFecha";
+            this.dpFecha.Size = new System.Drawing.Size(87, 23);
+            this.dpFecha.TabIndex = 56;
             // 
             // FrmDocumentosAnteriores
             // 
@@ -393,7 +392,6 @@
         private System.Windows.Forms.Button btnBorrarCuotas;
         private System.Windows.Forms.Button btnCalcularCuotas;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox txtFecha;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtApellido;
@@ -407,5 +405,6 @@
         private System.Windows.Forms.ComboBox cmb_CodMarca;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.DateTimePicker dpFecha;
     }
 }

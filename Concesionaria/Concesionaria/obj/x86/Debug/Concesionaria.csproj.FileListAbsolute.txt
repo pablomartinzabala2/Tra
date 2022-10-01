@@ -615,3 +615,4 @@ F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.exe
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.pdb
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.csprojResolveAssemblyReference.cache
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReportePresupuesto2.resources
