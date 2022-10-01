@@ -1839,6 +1839,10 @@ namespace Concesionaria
                         fun.LlenarCombo(CmbEntidadPrendaria, "EntidadPrendaria", "Descripcion", "CodEntidad");
                         CmbEntidadPrendaria.SelectedValue = Principal.CampoIdSecundarioGenerado;
                         break;
+                    case "Tarjeta":
+                        fun.LlenarCombo(cmbTarjeta, "Tarjeta", "Nombre", "CodTarjeta");
+                        cmbTarjeta.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                        break;
                     case "CategoriaGastoRecepcion":
                         fun.LlenarCombo(CmbGastoRecepcion, "CategoriaGastoRecepcion", "Descripcion", "Codigo");
                         CmbGastoRecepcion.SelectedValue = Principal.CampoIdSecundarioGenerado;
@@ -5133,6 +5137,28 @@ namespace Concesionaria
                     txtPatente.Text = Patente;
                 }
             }
+        }
+
+        private void btnNuevaEntidadPrendaria_Click(object sender, EventArgs e)
+        {
+            Principal.CampoIdSecundario = "CodEntidad";
+            Principal.CampoNombreSecundario = "Descripcion";
+            Principal.NombreTablaSecundario = "EntidadPrendaria";
+            Principal.CampoIdSecundarioGenerado = "";
+            FrmAltaBasica form = new FrmAltaBasica();
+            form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            form.ShowDialog();
+        }
+
+        private void btnNuevaTarjeta_Click(object sender, EventArgs e)
+        {
+            Principal.CampoIdSecundario = "CodTarjeta";
+            Principal.CampoNombreSecundario = "Nombre";
+            Principal.NombreTablaSecundario = "Tarjeta";
+            Principal.CampoIdSecundarioGenerado = "";
+            FrmAltaBasica form = new FrmAltaBasica();
+            form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            form.ShowDialog();
         }
     }
 };

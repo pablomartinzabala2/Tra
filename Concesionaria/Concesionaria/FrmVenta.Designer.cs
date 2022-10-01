@@ -250,7 +250,6 @@
             this.btnEliminarPrenda = new System.Windows.Forms.Button();
             this.btnAgregarPrenda = new System.Windows.Forms.Button();
             this.btnAbrircPrenda = new System.Windows.Forms.Button();
-            this.btnAgregarEntidadPrendaria = new System.Windows.Forms.Button();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.txtCuotasCobranza = new System.Windows.Forms.TextBox();
             this.label71 = new System.Windows.Forms.Label();
@@ -308,6 +307,8 @@
             this.btnPresupuesto = new System.Windows.Forms.Button();
             this.dpFecha = new System.Windows.Forms.DateTimePicker();
             this.dpFechaVencimientoPrenda = new System.Windows.Forms.DateTimePicker();
+            this.btnNuevaEntidadPrendaria = new System.Windows.Forms.Button();
+            this.btnNuevaTarjeta = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -2518,6 +2519,7 @@
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage7.Controls.Add(this.btnNuevaEntidadPrendaria);
             this.tabPage7.Controls.Add(this.dpFechaVencimientoPrenda);
             this.tabPage7.Controls.Add(this.label72);
             this.tabPage7.Controls.Add(this.GrillaPrendas);
@@ -2528,7 +2530,6 @@
             this.tabPage7.Controls.Add(this.btnEliminarPrenda);
             this.tabPage7.Controls.Add(this.btnAgregarPrenda);
             this.tabPage7.Controls.Add(this.btnAbrircPrenda);
-            this.tabPage7.Controls.Add(this.btnAgregarEntidadPrendaria);
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
@@ -2539,7 +2540,7 @@
             // label72
             // 
             this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(526, 20);
+            this.label72.Location = new System.Drawing.Point(566, 23);
             this.label72.Name = "label72";
             this.label72.Size = new System.Drawing.Size(82, 16);
             this.label72.TabIndex = 52;
@@ -2561,7 +2562,7 @@
             this.CmbEntidadPrendaria.FormattingEnabled = true;
             this.CmbEntidadPrendaria.Location = new System.Drawing.Point(300, 15);
             this.CmbEntidadPrendaria.Name = "CmbEntidadPrendaria";
-            this.CmbEntidadPrendaria.Size = new System.Drawing.Size(199, 24);
+            this.CmbEntidadPrendaria.Size = new System.Drawing.Size(164, 24);
             this.CmbEntidadPrendaria.TabIndex = 17;
             // 
             // label37
@@ -2593,7 +2594,7 @@
             // btnEliminarPrenda
             // 
             this.btnEliminarPrenda.Image = global::Concesionaria.Properties.Resources.cancel;
-            this.btnEliminarPrenda.Location = new System.Drawing.Point(807, 12);
+            this.btnEliminarPrenda.Location = new System.Drawing.Point(806, 11);
             this.btnEliminarPrenda.Name = "btnEliminarPrenda";
             this.btnEliminarPrenda.Size = new System.Drawing.Size(40, 28);
             this.btnEliminarPrenda.TabIndex = 51;
@@ -2603,7 +2604,7 @@
             // btnAgregarPrenda
             // 
             this.btnAgregarPrenda.Image = global::Concesionaria.Properties.Resources.add;
-            this.btnAgregarPrenda.Location = new System.Drawing.Point(761, 12);
+            this.btnAgregarPrenda.Location = new System.Drawing.Point(760, 12);
             this.btnAgregarPrenda.Name = "btnAgregarPrenda";
             this.btnAgregarPrenda.Size = new System.Drawing.Size(40, 28);
             this.btnAgregarPrenda.TabIndex = 50;
@@ -2620,16 +2621,6 @@
             this.btnAbrircPrenda.UseVisualStyleBackColor = true;
             this.btnAbrircPrenda.Visible = false;
             this.btnAbrircPrenda.Click += new System.EventHandler(this.btnAbrircPrenda_Click);
-            // 
-            // btnAgregarEntidadPrendaria
-            // 
-            this.btnAgregarEntidadPrendaria.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.btnAgregarEntidadPrendaria.Location = new System.Drawing.Point(715, 12);
-            this.btnAgregarEntidadPrendaria.Name = "btnAgregarEntidadPrendaria";
-            this.btnAgregarEntidadPrendaria.Size = new System.Drawing.Size(40, 28);
-            this.btnAgregarEntidadPrendaria.TabIndex = 31;
-            this.btnAgregarEntidadPrendaria.UseVisualStyleBackColor = true;
-            this.btnAgregarEntidadPrendaria.Click += new System.EventHandler(this.btnAgregarEntidadPrendaria_Click);
             // 
             // tabPage9
             // 
@@ -2893,6 +2884,7 @@
             // tabPage17
             // 
             this.tabPage17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage17.Controls.Add(this.btnNuevaTarjeta);
             this.tabPage17.Controls.Add(this.txtMontoTarjeta);
             this.tabPage17.Controls.Add(this.label70);
             this.tabPage17.Controls.Add(this.GrillaTarjeta);
@@ -2937,7 +2929,7 @@
             // txtImporteTarjeta
             // 
             this.txtImporteTarjeta.BackColor = System.Drawing.SystemColors.Control;
-            this.txtImporteTarjeta.Location = new System.Drawing.Point(335, 21);
+            this.txtImporteTarjeta.Location = new System.Drawing.Point(381, 21);
             this.txtImporteTarjeta.Name = "txtImporteTarjeta";
             this.txtImporteTarjeta.Size = new System.Drawing.Size(172, 22);
             this.txtImporteTarjeta.TabIndex = 33;
@@ -2964,7 +2956,7 @@
             // btnQuitarTarjeta
             // 
             this.btnQuitarTarjeta.Image = global::Concesionaria.Properties.Resources.cancel;
-            this.btnQuitarTarjeta.Location = new System.Drawing.Point(561, 18);
+            this.btnQuitarTarjeta.Location = new System.Drawing.Point(605, 15);
             this.btnQuitarTarjeta.Name = "btnQuitarTarjeta";
             this.btnQuitarTarjeta.Size = new System.Drawing.Size(40, 28);
             this.btnQuitarTarjeta.TabIndex = 51;
@@ -2974,7 +2966,7 @@
             // btnAgregarTarjeta
             // 
             this.btnAgregarTarjeta.Image = global::Concesionaria.Properties.Resources.add;
-            this.btnAgregarTarjeta.Location = new System.Drawing.Point(515, 18);
+            this.btnAgregarTarjeta.Location = new System.Drawing.Point(559, 15);
             this.btnAgregarTarjeta.Name = "btnAgregarTarjeta";
             this.btnAgregarTarjeta.Size = new System.Drawing.Size(40, 28);
             this.btnAgregarTarjeta.TabIndex = 50;
@@ -3216,10 +3208,30 @@
             // dpFechaVencimientoPrenda
             // 
             this.dpFechaVencimientoPrenda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaVencimientoPrenda.Location = new System.Drawing.Point(622, 15);
+            this.dpFechaVencimientoPrenda.Location = new System.Drawing.Point(661, 18);
             this.dpFechaVencimientoPrenda.Name = "dpFechaVencimientoPrenda";
             this.dpFechaVencimientoPrenda.Size = new System.Drawing.Size(87, 22);
             this.dpFechaVencimientoPrenda.TabIndex = 70;
+            // 
+            // btnNuevaEntidadPrendaria
+            // 
+            this.btnNuevaEntidadPrendaria.Image = global::Concesionaria.Properties.Resources.page_add;
+            this.btnNuevaEntidadPrendaria.Location = new System.Drawing.Point(475, 17);
+            this.btnNuevaEntidadPrendaria.Name = "btnNuevaEntidadPrendaria";
+            this.btnNuevaEntidadPrendaria.Size = new System.Drawing.Size(40, 28);
+            this.btnNuevaEntidadPrendaria.TabIndex = 71;
+            this.btnNuevaEntidadPrendaria.UseVisualStyleBackColor = true;
+            this.btnNuevaEntidadPrendaria.Click += new System.EventHandler(this.btnNuevaEntidadPrendaria_Click);
+            // 
+            // btnNuevaTarjeta
+            // 
+            this.btnNuevaTarjeta.Image = global::Concesionaria.Properties.Resources.page_add;
+            this.btnNuevaTarjeta.Location = new System.Drawing.Point(335, 21);
+            this.btnNuevaTarjeta.Name = "btnNuevaTarjeta";
+            this.btnNuevaTarjeta.Size = new System.Drawing.Size(40, 28);
+            this.btnNuevaTarjeta.TabIndex = 55;
+            this.btnNuevaTarjeta.UseVisualStyleBackColor = true;
+            this.btnNuevaTarjeta.Click += new System.EventHandler(this.btnNuevaTarjeta_Click);
             // 
             // FrmVenta
             // 
@@ -3413,7 +3425,6 @@
         private System.Windows.Forms.DataGridView GrillaVehiculos;
         private System.Windows.Forms.Button btnAgregarAuto;
         private System.Windows.Forms.Button btnEliminarAuto;
-        private System.Windows.Forms.Button btnAgregarEntidadPrendaria;
         private System.Windows.Forms.ComboBox CmbEntidadPrendaria;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
@@ -3586,5 +3597,7 @@
         private System.Windows.Forms.ComboBox cmbColor2;
         private System.Windows.Forms.DateTimePicker dpFecha;
         private System.Windows.Forms.DateTimePicker dpFechaVencimientoPrenda;
+        private System.Windows.Forms.Button btnNuevaEntidadPrendaria;
+        private System.Windows.Forms.Button btnNuevaTarjeta;
     }
 }
