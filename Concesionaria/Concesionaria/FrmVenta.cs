@@ -5207,6 +5207,59 @@ namespace Concesionaria
             tbFinaciacionCuota= fun.AgregarFilas(tbFinaciacionCuota, val);
             GrillaFinanciacionCuota.DataSource = tbFinaciacionCuota;
             fun.AnchoColumnas(GrillaFinanciacionCuota, "0;60;40");
+            txtImporteCuota.Text = "";
+        }
+
+        private void txtImporteCuota_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GrillaFinanciacionCuota_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtPrecioVenta_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txtImporteCuota_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtImporteCuota_Leave(object sender, EventArgs e)
+        {  
+            Double Precio = 0;
+            if (txtImporteCuota.Text != "")
+            {
+                Precio = Convert.ToDouble(txtImporteCuota.Text);
+                Clases.cFunciones fun = new Clases.cFunciones();
+                txtImporteCuota.Text = fun.FormatoEnteroMiles(Precio.ToString());
+             
+            }
+        }
+
+        private void btnQuitarFinanciacion_Click(object sender, EventArgs e)
+        {
+            if (GrillaFinanciacionCuota.CurrentRow ==null)
+            {
+                Mensaje("Debe seleccionar un registro");
+                return;
+            }
+            string CodTipo = GrillaFinanciacionCuota.CurrentRow.Cells[0].Value.ToString();
+            cFunciones fun = new cFunciones();
+            tbFinaciacionCuota = fun.EliminarFila(tbFinaciacionCuota, "CodTipo", CodTipo);
+            GrillaFinanciacionCuota.DataSource = tbFinaciacionCuota;
+            fun.AnchoColumnas(GrillaFinanciacionCuota, "0;60;40");
+
         }
     }
 }

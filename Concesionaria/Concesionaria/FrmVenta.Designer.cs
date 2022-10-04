@@ -288,6 +288,13 @@
             this.label69 = new System.Windows.Forms.Label();
             this.btnQuitarTarjeta = new System.Windows.Forms.Button();
             this.btnAgregarTarjeta = new System.Windows.Forms.Button();
+            this.tabPage20 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtImporteCuota = new System.Windows.Forms.TextBox();
+            this.GrillaFinanciacionCuota = new System.Windows.Forms.DataGridView();
+            this.btnQuitarFinanciacion = new System.Windows.Forms.Button();
+            this.btnAgregarFinanciacion = new System.Windows.Forms.Button();
+            this.cmbFinanciacion = new System.Windows.Forms.ComboBox();
             this.groupBox55 = new System.Windows.Forms.GroupBox();
             this.label50 = new System.Windows.Forms.Label();
             this.txtTotalCheque = new System.Windows.Forms.TextBox();
@@ -309,13 +316,6 @@
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabarPreVenta = new System.Windows.Forms.Button();
             this.btnPresupuesto = new System.Windows.Forms.Button();
-            this.tabPage20 = new System.Windows.Forms.TabPage();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.cmbFinanciacion = new System.Windows.Forms.ComboBox();
-            this.txtImporteCuota = new System.Windows.Forms.TextBox();
-            this.btnQuitarFinanciacion = new System.Windows.Forms.Button();
-            this.btnAgregarFinanciacion = new System.Windows.Forms.Button();
-            this.GrillaFinanciacionCuota = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -357,10 +357,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCheques)).BeginInit();
             this.tabPage17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaTarjeta)).BeginInit();
-            this.groupBox55.SuspendLayout();
             this.tabPage20.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaFinanciacionCuota)).BeginInit();
+            this.groupBox55.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -690,6 +690,7 @@
             this.txtPrecioVenta.Size = new System.Drawing.Size(246, 22);
             this.txtPrecioVenta.TabIndex = 7;
             this.txtPrecioVenta.ValidatingType = typeof(int);
+            this.txtPrecioVenta.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtPrecioVenta_MaskInputRejected);
             this.txtPrecioVenta.TextChanged += new System.EventHandler(this.txtPrecioVenta_TextChanged);
             this.txtPrecioVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioVenta_KeyPress);
             this.txtPrecioVenta.Leave += new System.EventHandler(this.txtPrecioVenta_Leave);
@@ -3020,6 +3021,80 @@
             this.btnAgregarTarjeta.UseVisualStyleBackColor = true;
             this.btnAgregarTarjeta.Click += new System.EventHandler(this.btnAgregarTarjeta_Click);
             // 
+            // tabPage20
+            // 
+            this.tabPage20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage20.Controls.Add(this.groupBox5);
+            this.tabPage20.Location = new System.Drawing.Point(4, 25);
+            this.tabPage20.Name = "tabPage20";
+            this.tabPage20.Size = new System.Drawing.Size(867, 168);
+            this.tabPage20.TabIndex = 10;
+            this.tabPage20.Text = "Presupuesto";
+            this.tabPage20.Click += new System.EventHandler(this.tabPage20_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.txtImporteCuota);
+            this.groupBox5.Controls.Add(this.GrillaFinanciacionCuota);
+            this.groupBox5.Controls.Add(this.btnQuitarFinanciacion);
+            this.groupBox5.Controls.Add(this.btnAgregarFinanciacion);
+            this.groupBox5.Controls.Add(this.cmbFinanciacion);
+            this.groupBox5.Location = new System.Drawing.Point(19, 15);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(376, 137);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Documentos";
+            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
+            // 
+            // txtImporteCuota
+            // 
+            this.txtImporteCuota.Location = new System.Drawing.Point(130, 21);
+            this.txtImporteCuota.Name = "txtImporteCuota";
+            this.txtImporteCuota.Size = new System.Drawing.Size(100, 22);
+            this.txtImporteCuota.TabIndex = 74;
+            this.txtImporteCuota.TextChanged += new System.EventHandler(this.txtImporteCuota_TextChanged_1);
+            this.txtImporteCuota.Leave += new System.EventHandler(this.txtImporteCuota_Leave);
+            // 
+            // GrillaFinanciacionCuota
+            // 
+            this.GrillaFinanciacionCuota.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaFinanciacionCuota.Location = new System.Drawing.Point(6, 55);
+            this.GrillaFinanciacionCuota.Name = "GrillaFinanciacionCuota";
+            this.GrillaFinanciacionCuota.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GrillaFinanciacionCuota.Size = new System.Drawing.Size(351, 76);
+            this.GrillaFinanciacionCuota.TabIndex = 73;
+            this.GrillaFinanciacionCuota.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaFinanciacionCuota_CellContentClick);
+            // 
+            // btnQuitarFinanciacion
+            // 
+            this.btnQuitarFinanciacion.Image = global::Concesionaria.Properties.Resources.cancel;
+            this.btnQuitarFinanciacion.Location = new System.Drawing.Point(276, 17);
+            this.btnQuitarFinanciacion.Name = "btnQuitarFinanciacion";
+            this.btnQuitarFinanciacion.Size = new System.Drawing.Size(34, 24);
+            this.btnQuitarFinanciacion.TabIndex = 72;
+            this.btnQuitarFinanciacion.UseVisualStyleBackColor = true;
+            this.btnQuitarFinanciacion.Click += new System.EventHandler(this.btnQuitarFinanciacion_Click);
+            // 
+            // btnAgregarFinanciacion
+            // 
+            this.btnAgregarFinanciacion.Image = global::Concesionaria.Properties.Resources.add;
+            this.btnAgregarFinanciacion.Location = new System.Drawing.Point(236, 19);
+            this.btnAgregarFinanciacion.Name = "btnAgregarFinanciacion";
+            this.btnAgregarFinanciacion.Size = new System.Drawing.Size(34, 24);
+            this.btnAgregarFinanciacion.TabIndex = 71;
+            this.btnAgregarFinanciacion.UseVisualStyleBackColor = true;
+            this.btnAgregarFinanciacion.Click += new System.EventHandler(this.btnAgregarFinanciacion_Click);
+            // 
+            // cmbFinanciacion
+            // 
+            this.cmbFinanciacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFinanciacion.FormattingEnabled = true;
+            this.cmbFinanciacion.Location = new System.Drawing.Point(6, 21);
+            this.cmbFinanciacion.Name = "cmbFinanciacion";
+            this.cmbFinanciacion.Size = new System.Drawing.Size(113, 24);
+            this.cmbFinanciacion.TabIndex = 69;
+            // 
             // groupBox55
             // 
             this.groupBox55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
@@ -3244,76 +3319,6 @@
             this.btnPresupuesto.UseVisualStyleBackColor = true;
             this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
             // 
-            // tabPage20
-            // 
-            this.tabPage20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.tabPage20.Controls.Add(this.groupBox5);
-            this.tabPage20.Location = new System.Drawing.Point(4, 25);
-            this.tabPage20.Name = "tabPage20";
-            this.tabPage20.Size = new System.Drawing.Size(867, 168);
-            this.tabPage20.TabIndex = 10;
-            this.tabPage20.Text = "Presupuesto";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.GrillaFinanciacionCuota);
-            this.groupBox5.Controls.Add(this.btnQuitarFinanciacion);
-            this.groupBox5.Controls.Add(this.btnAgregarFinanciacion);
-            this.groupBox5.Controls.Add(this.txtImporteCuota);
-            this.groupBox5.Controls.Add(this.cmbFinanciacion);
-            this.groupBox5.Location = new System.Drawing.Point(19, 15);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(376, 137);
-            this.groupBox5.TabIndex = 0;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Documentos";
-            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
-            // 
-            // cmbFinanciacion
-            // 
-            this.cmbFinanciacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbFinanciacion.FormattingEnabled = true;
-            this.cmbFinanciacion.Location = new System.Drawing.Point(6, 21);
-            this.cmbFinanciacion.Name = "cmbFinanciacion";
-            this.cmbFinanciacion.Size = new System.Drawing.Size(113, 24);
-            this.cmbFinanciacion.TabIndex = 69;
-            // 
-            // txtImporteCuota
-            // 
-            this.txtImporteCuota.BackColor = System.Drawing.SystemColors.Control;
-            this.txtImporteCuota.Location = new System.Drawing.Point(137, 23);
-            this.txtImporteCuota.Name = "txtImporteCuota";
-            this.txtImporteCuota.ReadOnly = true;
-            this.txtImporteCuota.Size = new System.Drawing.Size(96, 22);
-            this.txtImporteCuota.TabIndex = 70;
-            // 
-            // btnQuitarFinanciacion
-            // 
-            this.btnQuitarFinanciacion.Image = global::Concesionaria.Properties.Resources.cancel;
-            this.btnQuitarFinanciacion.Location = new System.Drawing.Point(287, 23);
-            this.btnQuitarFinanciacion.Name = "btnQuitarFinanciacion";
-            this.btnQuitarFinanciacion.Size = new System.Drawing.Size(34, 24);
-            this.btnQuitarFinanciacion.TabIndex = 72;
-            this.btnQuitarFinanciacion.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregarFinanciacion
-            // 
-            this.btnAgregarFinanciacion.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnAgregarFinanciacion.Location = new System.Drawing.Point(247, 23);
-            this.btnAgregarFinanciacion.Name = "btnAgregarFinanciacion";
-            this.btnAgregarFinanciacion.Size = new System.Drawing.Size(34, 24);
-            this.btnAgregarFinanciacion.TabIndex = 71;
-            this.btnAgregarFinanciacion.UseVisualStyleBackColor = true;
-            this.btnAgregarFinanciacion.Click += new System.EventHandler(this.btnAgregarFinanciacion_Click);
-            // 
-            // GrillaFinanciacionCuota
-            // 
-            this.GrillaFinanciacionCuota.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GrillaFinanciacionCuota.Location = new System.Drawing.Point(6, 55);
-            this.GrillaFinanciacionCuota.Name = "GrillaFinanciacionCuota";
-            this.GrillaFinanciacionCuota.Size = new System.Drawing.Size(351, 76);
-            this.GrillaFinanciacionCuota.TabIndex = 73;
-            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3392,12 +3397,12 @@
             this.tabPage17.ResumeLayout(false);
             this.tabPage17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaTarjeta)).EndInit();
-            this.groupBox55.ResumeLayout(false);
-            this.groupBox55.PerformLayout();
             this.tabPage20.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaFinanciacionCuota)).EndInit();
+            this.groupBox55.ResumeLayout(false);
+            this.groupBox55.PerformLayout();
             this.ResumeLayout(false);
 
         }
