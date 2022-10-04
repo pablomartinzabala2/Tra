@@ -20,6 +20,7 @@ namespace Concesionaria
         DataTable tprenda;
         DataTable tbTarjeta;
         DataTable tbCobranza;
+        DataTable tbFinaciacionCuota;
         //se utiliza para indicar en que combo debe seguir
         //cuadno regrese del alta basica y tengas dos
         //tablas iguales
@@ -32,10 +33,12 @@ namespace Concesionaria
 
         private void InicializarComponentes()
         {
+            tbFinaciacionCuota = new DataTable();
             tprenda = new DataTable();
             Clases.cFunciones fun = new Clases.cFunciones();
             string Lista = "CodEntidad;Nombre;Fecha;Importe;CodPrenda;FechaVencimiento";
             tprenda = fun.CrearTabla(Lista);
+            tbFinaciacionCuota = fun.CrearTabla("CodTipo;Nombre;Importe");
             PintarFormulario();
             //Clases.cFunciones fun = new Clases.cFunciones();
             fun.LlenarCombo(cmbMarca, "Marca", "Nombre", "CodMarca");
@@ -64,6 +67,7 @@ namespace Concesionaria
             fun.LlenarComboDatatable(cmbColor2, tbColor, "Nombre", "CodColor");  
             DataTable tbAnio = cDb.ExecuteDataTable("select * from anio Order by Nombre desc");
             fun.LlenarComboDatatable(cmbAnio, tbAnio, "Nombre", "CodAnio");
+            LlenarFinanciacion();
             fun.LlenarComboDatatable(cmbAnio2, tbAnio, "Nombre", "CodAnio");
             CargarVendedor();
             tbTarjeta = fun.CrearTabla("CodTarjeta;Nombre;Importe");
@@ -5160,8 +5164,52 @@ namespace Concesionaria
             form.FormClosing += new FormClosingEventHandler(form_FormClosing);
             form.ShowDialog();
         }
+
+        private void LlenarFinanciacion()
+        {
+            cFunciones fun = new cFunciones();
+            DataTable tbFinaciacion = fun.CrearTabla("CodTipo;Nombre");
+            string Valor = "1;12 Cuotas";
+            tbFinaciacion = fun.AgregarFilas(tbFinaciacion, Valor);
+            Valor = "2;24 Cuotas";
+            tbFinaciacion = fun.AgregarFilas(tbFinaciacion, Valor);
+            Valor = "3;36 Cuotas";
+            tbFinaciacion = fun.AgregarFilas(tbFinaciacion, Valor);
+            fun.LlenarComboDatatable(cmbFinanciacion, tbFinaciacion, "Nombre", "CodTipo");
+
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregarFinanciacion_Click(object sender, EventArgs e)
+        {
+            cFunciones fun = new cFunciones();
+            //tbFinaciacionCuota = fun.CrearTabla("CodTipo;Nombre");
+            if (cmbFinanciacion.SelectedIndex <1)
+            {
+                Mensaje("Debe seleccionar un tipo de financiación");
+                return;
+            }
+
+            if (txtImporteCuota.Text =="")
+            {
+                Mensaje("Debe ingresar un importe para continuar");
+                return;
+            }
+
+            string CodTipo = cmbFinanciacion.SelectedIndex.ToString();
+            string Nombre = cmbFinanciacion.Text;
+            string Importe = txtImporteCuota.Text;
+            string val = CodTipo + ";" + Nombre + ";" + Importe;
+            tbFinaciacionCuota= fun.AgregarFilas(tbFinaciacionCuota, val);
+            GrillaFinanciacionCuota.DataSource = tbFinaciacionCuota;
+            fun.AnchoColumnas(GrillaFinanciacionCuota, "0;60;40");
+        }
     }
-};
+}
 
             
 

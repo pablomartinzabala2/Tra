@@ -32,6 +32,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dpFecha = new System.Windows.Forms.DateTimePicker();
             this.cmbAnio = new System.Windows.Forms.ComboBox();
             this.cmbColor = new System.Windows.Forms.ComboBox();
             this.label80 = new System.Windows.Forms.Label();
@@ -241,6 +242,8 @@
             this.btnNuevoPapel = new System.Windows.Forms.Button();
             this.ListaPapeles = new System.Windows.Forms.ListBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.btnNuevaEntidadPrendaria = new System.Windows.Forms.Button();
+            this.dpFechaVencimientoPrenda = new System.Windows.Forms.DateTimePicker();
             this.label72 = new System.Windows.Forms.Label();
             this.GrillaPrendas = new System.Windows.Forms.DataGridView();
             this.CmbEntidadPrendaria = new System.Windows.Forms.ComboBox();
@@ -276,6 +279,7 @@
             this.BtnAgregarCheque = new System.Windows.Forms.Button();
             this.btnNuevaBanco = new System.Windows.Forms.Button();
             this.tabPage17 = new System.Windows.Forms.TabPage();
+            this.btnNuevaTarjeta = new System.Windows.Forms.Button();
             this.txtMontoTarjeta = new System.Windows.Forms.TextBox();
             this.label70 = new System.Windows.Forms.Label();
             this.GrillaTarjeta = new System.Windows.Forms.DataGridView();
@@ -305,10 +309,13 @@
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabarPreVenta = new System.Windows.Forms.Button();
             this.btnPresupuesto = new System.Windows.Forms.Button();
-            this.dpFecha = new System.Windows.Forms.DateTimePicker();
-            this.dpFechaVencimientoPrenda = new System.Windows.Forms.DateTimePicker();
-            this.btnNuevaEntidadPrendaria = new System.Windows.Forms.Button();
-            this.btnNuevaTarjeta = new System.Windows.Forms.Button();
+            this.tabPage20 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cmbFinanciacion = new System.Windows.Forms.ComboBox();
+            this.txtImporteCuota = new System.Windows.Forms.TextBox();
+            this.btnQuitarFinanciacion = new System.Windows.Forms.Button();
+            this.btnAgregarFinanciacion = new System.Windows.Forms.Button();
+            this.GrillaFinanciacionCuota = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -351,6 +358,9 @@
             this.tabPage17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaTarjeta)).BeginInit();
             this.groupBox55.SuspendLayout();
+            this.tabPage20.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaFinanciacionCuota)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -432,6 +442,14 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // dpFecha
+            // 
+            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFecha.Location = new System.Drawing.Point(753, 111);
+            this.dpFecha.Name = "dpFecha";
+            this.dpFecha.Size = new System.Drawing.Size(87, 22);
+            this.dpFecha.TabIndex = 69;
             // 
             // cmbAnio
             // 
@@ -1711,6 +1729,7 @@
             this.tabControl2.Controls.Add(this.tabPage9);
             this.tabControl2.Controls.Add(this.tabPage14);
             this.tabControl2.Controls.Add(this.tabPage17);
+            this.tabControl2.Controls.Add(this.tabPage20);
             this.tabControl2.Location = new System.Drawing.Point(0, 22);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -2537,6 +2556,24 @@
             this.tabPage7.TabIndex = 3;
             this.tabPage7.Text = "Prenda";
             // 
+            // btnNuevaEntidadPrendaria
+            // 
+            this.btnNuevaEntidadPrendaria.Image = global::Concesionaria.Properties.Resources.page_add;
+            this.btnNuevaEntidadPrendaria.Location = new System.Drawing.Point(475, 17);
+            this.btnNuevaEntidadPrendaria.Name = "btnNuevaEntidadPrendaria";
+            this.btnNuevaEntidadPrendaria.Size = new System.Drawing.Size(40, 28);
+            this.btnNuevaEntidadPrendaria.TabIndex = 71;
+            this.btnNuevaEntidadPrendaria.UseVisualStyleBackColor = true;
+            this.btnNuevaEntidadPrendaria.Click += new System.EventHandler(this.btnNuevaEntidadPrendaria_Click);
+            // 
+            // dpFechaVencimientoPrenda
+            // 
+            this.dpFechaVencimientoPrenda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaVencimientoPrenda.Location = new System.Drawing.Point(661, 18);
+            this.dpFechaVencimientoPrenda.Name = "dpFechaVencimientoPrenda";
+            this.dpFechaVencimientoPrenda.Size = new System.Drawing.Size(87, 22);
+            this.dpFechaVencimientoPrenda.TabIndex = 70;
+            // 
             // label72
             // 
             this.label72.AutoSize = true;
@@ -2899,6 +2936,16 @@
             this.tabPage17.TabIndex = 9;
             this.tabPage17.Text = "Tarjetas";
             // 
+            // btnNuevaTarjeta
+            // 
+            this.btnNuevaTarjeta.Image = global::Concesionaria.Properties.Resources.page_add;
+            this.btnNuevaTarjeta.Location = new System.Drawing.Point(335, 21);
+            this.btnNuevaTarjeta.Name = "btnNuevaTarjeta";
+            this.btnNuevaTarjeta.Size = new System.Drawing.Size(40, 28);
+            this.btnNuevaTarjeta.TabIndex = 55;
+            this.btnNuevaTarjeta.UseVisualStyleBackColor = true;
+            this.btnNuevaTarjeta.Click += new System.EventHandler(this.btnNuevaTarjeta_Click);
+            // 
             // txtMontoTarjeta
             // 
             this.txtMontoTarjeta.BackColor = System.Drawing.SystemColors.Control;
@@ -3197,41 +3244,75 @@
             this.btnPresupuesto.UseVisualStyleBackColor = true;
             this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
             // 
-            // dpFecha
+            // tabPage20
             // 
-            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFecha.Location = new System.Drawing.Point(753, 111);
-            this.dpFecha.Name = "dpFecha";
-            this.dpFecha.Size = new System.Drawing.Size(87, 22);
-            this.dpFecha.TabIndex = 69;
+            this.tabPage20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage20.Controls.Add(this.groupBox5);
+            this.tabPage20.Location = new System.Drawing.Point(4, 25);
+            this.tabPage20.Name = "tabPage20";
+            this.tabPage20.Size = new System.Drawing.Size(867, 168);
+            this.tabPage20.TabIndex = 10;
+            this.tabPage20.Text = "Presupuesto";
             // 
-            // dpFechaVencimientoPrenda
+            // groupBox5
             // 
-            this.dpFechaVencimientoPrenda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaVencimientoPrenda.Location = new System.Drawing.Point(661, 18);
-            this.dpFechaVencimientoPrenda.Name = "dpFechaVencimientoPrenda";
-            this.dpFechaVencimientoPrenda.Size = new System.Drawing.Size(87, 22);
-            this.dpFechaVencimientoPrenda.TabIndex = 70;
+            this.groupBox5.Controls.Add(this.GrillaFinanciacionCuota);
+            this.groupBox5.Controls.Add(this.btnQuitarFinanciacion);
+            this.groupBox5.Controls.Add(this.btnAgregarFinanciacion);
+            this.groupBox5.Controls.Add(this.txtImporteCuota);
+            this.groupBox5.Controls.Add(this.cmbFinanciacion);
+            this.groupBox5.Location = new System.Drawing.Point(19, 15);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(376, 137);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Documentos";
+            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
-            // btnNuevaEntidadPrendaria
+            // cmbFinanciacion
             // 
-            this.btnNuevaEntidadPrendaria.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.btnNuevaEntidadPrendaria.Location = new System.Drawing.Point(475, 17);
-            this.btnNuevaEntidadPrendaria.Name = "btnNuevaEntidadPrendaria";
-            this.btnNuevaEntidadPrendaria.Size = new System.Drawing.Size(40, 28);
-            this.btnNuevaEntidadPrendaria.TabIndex = 71;
-            this.btnNuevaEntidadPrendaria.UseVisualStyleBackColor = true;
-            this.btnNuevaEntidadPrendaria.Click += new System.EventHandler(this.btnNuevaEntidadPrendaria_Click);
+            this.cmbFinanciacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFinanciacion.FormattingEnabled = true;
+            this.cmbFinanciacion.Location = new System.Drawing.Point(6, 21);
+            this.cmbFinanciacion.Name = "cmbFinanciacion";
+            this.cmbFinanciacion.Size = new System.Drawing.Size(113, 24);
+            this.cmbFinanciacion.TabIndex = 69;
             // 
-            // btnNuevaTarjeta
+            // txtImporteCuota
             // 
-            this.btnNuevaTarjeta.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.btnNuevaTarjeta.Location = new System.Drawing.Point(335, 21);
-            this.btnNuevaTarjeta.Name = "btnNuevaTarjeta";
-            this.btnNuevaTarjeta.Size = new System.Drawing.Size(40, 28);
-            this.btnNuevaTarjeta.TabIndex = 55;
-            this.btnNuevaTarjeta.UseVisualStyleBackColor = true;
-            this.btnNuevaTarjeta.Click += new System.EventHandler(this.btnNuevaTarjeta_Click);
+            this.txtImporteCuota.BackColor = System.Drawing.SystemColors.Control;
+            this.txtImporteCuota.Location = new System.Drawing.Point(137, 23);
+            this.txtImporteCuota.Name = "txtImporteCuota";
+            this.txtImporteCuota.ReadOnly = true;
+            this.txtImporteCuota.Size = new System.Drawing.Size(96, 22);
+            this.txtImporteCuota.TabIndex = 70;
+            // 
+            // btnQuitarFinanciacion
+            // 
+            this.btnQuitarFinanciacion.Image = global::Concesionaria.Properties.Resources.cancel;
+            this.btnQuitarFinanciacion.Location = new System.Drawing.Point(287, 23);
+            this.btnQuitarFinanciacion.Name = "btnQuitarFinanciacion";
+            this.btnQuitarFinanciacion.Size = new System.Drawing.Size(34, 24);
+            this.btnQuitarFinanciacion.TabIndex = 72;
+            this.btnQuitarFinanciacion.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarFinanciacion
+            // 
+            this.btnAgregarFinanciacion.Image = global::Concesionaria.Properties.Resources.money_euro;
+            this.btnAgregarFinanciacion.Location = new System.Drawing.Point(247, 23);
+            this.btnAgregarFinanciacion.Name = "btnAgregarFinanciacion";
+            this.btnAgregarFinanciacion.Size = new System.Drawing.Size(34, 24);
+            this.btnAgregarFinanciacion.TabIndex = 71;
+            this.btnAgregarFinanciacion.UseVisualStyleBackColor = true;
+            this.btnAgregarFinanciacion.Click += new System.EventHandler(this.btnAgregarFinanciacion_Click);
+            // 
+            // GrillaFinanciacionCuota
+            // 
+            this.GrillaFinanciacionCuota.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaFinanciacionCuota.Location = new System.Drawing.Point(6, 55);
+            this.GrillaFinanciacionCuota.Name = "GrillaFinanciacionCuota";
+            this.GrillaFinanciacionCuota.Size = new System.Drawing.Size(351, 76);
+            this.GrillaFinanciacionCuota.TabIndex = 73;
             // 
             // FrmVenta
             // 
@@ -3313,6 +3394,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.GrillaTarjeta)).EndInit();
             this.groupBox55.ResumeLayout(false);
             this.groupBox55.PerformLayout();
+            this.tabPage20.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaFinanciacionCuota)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3599,5 +3684,12 @@
         private System.Windows.Forms.DateTimePicker dpFechaVencimientoPrenda;
         private System.Windows.Forms.Button btnNuevaEntidadPrendaria;
         private System.Windows.Forms.Button btnNuevaTarjeta;
+        private System.Windows.Forms.TabPage tabPage20;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ComboBox cmbFinanciacion;
+        private System.Windows.Forms.DataGridView GrillaFinanciacionCuota;
+        private System.Windows.Forms.Button btnQuitarFinanciacion;
+        private System.Windows.Forms.Button btnAgregarFinanciacion;
+        private System.Windows.Forms.TextBox txtImporteCuota;
     }
 }
