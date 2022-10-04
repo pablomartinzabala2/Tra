@@ -4877,9 +4877,12 @@ namespace Concesionaria
                     repPre.Insertar(con,Transaccion, CodPresupuesto,"", NombreGasto,"" , sImporte);
                     
                 }
-
+                Double ImporteAuto = fun.ToDouble(txtTotalVehiculoPartePago.Text);
+                Double Saldo = 0;
                 Double Subtotal = 0;
                 Subtotal = Total + TotalGastosTransferencia;
+                Saldo = Subtotal - ImporteAuto;
+              
                 string sImporteSubtotal = "";
                 sImporteSubtotal = "$ " + fun.FormatoEnteroMiles(Subtotal.ToString()); 
                 repPre.Insertar(con, Transaccion, CodPresupuesto, "", "", "Subtotal",sImporteSubtotal);
@@ -4938,8 +4941,21 @@ namespace Concesionaria
                 {
                     string sImporteefectivo = "$ " + fun.FormatoEnteroMiles(ImporteEfectivo.ToString());
                     repPre.Insertar(con, Transaccion, CodPresupuesto, "", "Efectivo", "", sImporteefectivo);
+                    string sSaldo = "$ " + fun.FormatoEnteroMiles(Saldo.ToString());
+                    repPre.Insertar(con, Transaccion, CodPresupuesto, "", "", "Saldo",sSaldo);
+                    //aca va el saldo
                 }
                 //grabo el plan de cuotas
+                if (tbFinaciacionCuota.Rows.Count>0)
+                {
+                    repPre.Insertar(con, Transaccion, CodPresupuesto, "", "Financiación", "", "");
+                    for (int f = 0; f < tbFinaciacionCuota.Rows.Count; f++)
+                    {
+                        string Nombre = tbFinaciacionCuota.Rows[f]["Nombre"].ToString();
+                        string Precio = "$ " + tbFinaciacionCuota.Rows[f]["Importe"].ToString();
+                        repPre.Insertar(con, Transaccion, CodPresupuesto, "", Nombre, Precio, "");
+                    }
+                }
                 if (txtTotalDocumentos.Text != "")
                 {
                     //grabo las cuotas
@@ -4980,6 +4996,7 @@ namespace Concesionaria
                 CodCliente = Convert.ToInt32(txtCodCLiente.Text);
                 
                 Mensaje("Presupuesto grabado correctamente");
+                LimpiarPresupuesto();
                 Principal.CodPresupuesto = CodPresupuesto;
                 FrmReportePresupuesto2 form = new FrmReportePresupuesto2();
                 form.Show();
@@ -4990,6 +5007,12 @@ namespace Concesionaria
                 Transaccion.Rollback();
                 con.Close();
             }
+        }
+
+        private void LimpiarPresupuesto()
+        {
+            tbFinaciacionCuota.Rows.Clear();
+            GrillaFinanciacionCuota.DataSource = tbFinaciacionCuota;
         }
 
         private Double CalcularTotalPresupuesto()
