@@ -19,8 +19,9 @@ namespace Concesionaria
 
         private void FrmControl_Load(object sender, EventArgs e)
         {
-            txtFecha.Text = DateTime.Now.ToShortDateString();
+            dpFecha.Value = DateTime.Now;
             lblVencidas.BackColor = Color.LightGreen;
+            Buscar();
         }
 
         private void Mensaje(string msj)
@@ -30,17 +31,18 @@ namespace Concesionaria
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            Buscar();
+        }
+
+        private void Buscar ()
+        {
             int ConDeuda = 0;
             if (ChkVencida.Checked == true)
                 ConDeuda = 1;
             Clases.cFunciones fun = new Clases.cFunciones();
             DataTable tResul = fun.CrearTabla("Codigo;Tipo;Cuota;Patente;Descripcion;Apellido;Telefono;Celular;Importe;Saldo;Vencimiento");
-            if (txtPatente.Text == "" && txtApellido.Text == "")
-            {
-                Mensaje("Debe ingresar un criterio de búsqueda");
-                return;
-            }
-            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+
+            DateTime Fecha = dpFecha.Value;
             string Valor = "";
             cCuota cuota = new cCuota();
             DataTable trdo = cuota.GetCuotasAdeudadas(txtPatente.Text, txtApellido.Text, Fecha, ConDeuda);
@@ -132,7 +134,7 @@ namespace Concesionaria
             cCobranzaGeneral cobGen = new cCobranzaGeneral();
             // if (txtApellido.Text != "")
             // {
-            DataTable tCobGen = cobGen.GetDedudaCobranzaGeneral(txtApellido.Text, txtPatente.Text);
+            DataTable tCobGen = cobGen.GetDedudaCobranzaGeneral(txtApellido.Text, txtPatente.Text, Fecha);
             for (int i = 0; i < tCobGen.Rows.Count; i++)
             {
                 Valor = tCobGen.Rows[i]["CodCobranza"].ToString();
@@ -145,7 +147,7 @@ namespace Concesionaria
                 Valor = Valor + ";";
                 Valor = Valor + ";" + tCobGen.Rows[i]["Importe"].ToString();
                 Valor = Valor + ";" + tCobGen.Rows[i]["Saldo"].ToString();
-                Valor = Valor + ";";
+                Valor = Valor + ";" + tCobGen.Rows[i]["FechaCompromiso"].ToString();
                 tResul = fun.AgregarFilas(tResul, Valor);
             }
             //}
@@ -167,7 +169,7 @@ namespace Concesionaria
                 Valor = Valor + ";" + "0";
                 Valor = Valor + ";" + "0";
                 Valor = Valor + ";";
-                tResul = fun.AgregarFilas(tResul, Valor);
+                // tResul = fun.AgregarFilas(tResul, Valor);
             }
             Double TotalImporte = 0;
             Double TotalSaldo = 0;
@@ -182,7 +184,16 @@ namespace Concesionaria
             tResul = fun.TablaaMiles(tResul, "Importe");
             tResul = fun.TablaaMiles(tResul, "Saldo");
             Grilla.DataSource = tResul;
+            fun.AnchoColumnas(Grilla, "0;0;0;0;30;30;10;0;10;10;10");
+            /*
             Grilla.Columns[0].Visible = false;
+            Grilla.Columns[1].Visible = false;
+            Grilla.Columns[2].Visible = false;
+            Grilla.Columns[3].Visible = false;
+            Grilla.Columns[7].Visible = false;
+            */
+            Grilla.Columns["Apellido"].DisplayIndex = 1;
+            Grilla.Columns["Telefono"].DisplayIndex = 2;
             Pintar();
             for (int i = 0; i < Grilla.Rows.Count - 1; i++)
             {
@@ -208,8 +219,8 @@ namespace Concesionaria
                     form.ShowDialog();
                     break;
                 case "Cobranza":
-                    string Patente = Grilla.CurrentRow.Cells[3].Value.ToString();
-                    Principal.CodigoPrincipalAbm = Patente;
+                    Int32 CodCobranza = Convert.ToInt32 (Grilla.CurrentRow.Cells[0].Value.ToString());
+                    Principal.CodigoPrincipalAbm = CodCobranza.ToString();
                     FrmCobroDocumentos cobro = new FrmCobroDocumentos();
                     cobro.ShowDialog();
                     break;
@@ -241,8 +252,8 @@ namespace Concesionaria
                     frmPrenda.ShowDialog();
                     break;
                 case "Cobranza General":
-                    Int32 CodCobranza = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value.ToString());
-                    Principal.CodigoPrincipalAbm = CodCobranza.ToString();
+                    string  CodidoCobranza = Grilla.CurrentRow.Cells[0].Value.ToString();
+                    Principal.CodigoPrincipalAbm = CodidoCobranza.ToString();
                     FrmRegistrarCobroCobranzasGenerales FrmCob = new FrmRegistrarCobroCobranzasGenerales();
                     FrmCob.ShowDialog();
                     break;
@@ -253,7 +264,7 @@ namespace Concesionaria
         {
             string Tipo = "";
             DateTime? Vencimiento;
-            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+            DateTime Fecha = dpFecha.Value;
             for (int i = 0; i < Grilla.Rows.Count - 1; i++)
             {
                 Tipo = Grilla.Rows[i].Cells[1].Value.ToString(); Grilla.Rows[i].Cells[10].Value.ToString();

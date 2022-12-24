@@ -43,7 +43,7 @@ namespace Concesionaria.Clases
 
         public static Int32 EjecutarEscalarTransaccion(SqlConnection con, SqlTransaction Transaccion, string Sql)
         {
-            Sql = Sql + "select SCOPE_IDENTITY()";
+            Sql = Sql + " select SCOPE_IDENTITY()";
             SqlCommand comand = new SqlCommand();
             comand.Connection = con;
             comand.Transaction = Transaccion;

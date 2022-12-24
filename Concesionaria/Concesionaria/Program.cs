@@ -12,13 +12,14 @@ namespace Concesionaria
         /// </summary>
         [STAThread]
         static void Main()
-        {  
+        {    
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-              Application.Run(new FrmLogin());
-           //  Application.Run(new FrmReportePresupuesto2());
+               Application.Run(new FrmLogin());
 
-            //   Application.Run(new FrmTest());
+            //  Principal.CodRecibo = 9;
+             // Application.Run(new FrmListadoRecibo());
+            //  Application.Run(new FrmListadoAbm());
             // A//pplication.Run(new FrmAbmEntidad());
             //   Application.Run(new FrmBorrarTablas ());
             //   Application.Run(new FrmVistaPrevia  ());

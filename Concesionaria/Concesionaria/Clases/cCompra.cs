@@ -30,7 +30,7 @@ namespace Concesionaria.Clases
 
         public DataTable getComprasxFecha(DateTime FechaDesde,DateTime FechaHasta,string Patente)
         {
-            string sql = " select c.CodCompra, a.Patente,a.Descripcion,m.nombre,c.Fecha,c.ImporteCompra";
+            string sql = " select c.CodCompra, a.Patente,a.Descripcion,m.nombre,c.Fecha,c.ImporteCompra,c.ImporteEfectivo ,c.CodStockEntrada ";
             sql = sql + " From Compra c,StockAuto s, auto a,Marca m";
             sql = sql + " where c.CodStockEntrada= s.CodStock";
             sql = sql + " and s.CodAuto=a.CodAuto";
@@ -42,6 +42,22 @@ namespace Concesionaria.Clases
                 sql = sql + " and a.Patente like " + "'%" + Patente + "%'";
             }
             return cDb.ExecuteDataTable(sql);
+        }
+
+        public void BorrarCompra(Int32 CodCompra, Double ImporteEfectivo, Int32 CodStock)
+        {
+            cMovimiento mov = new cMovimiento();
+            if (ImporteEfectivo >0)
+            {
+                mov.RegistrarMovimientoDescripcion(0, Principal.CodUsuarioLogueado,
+                    ImporteEfectivo, 0, 0, 0, 0, DateTime.Now, "Se Anulo el Efectivo pagado");
+            }
+            string sql = "delete from StockAuto where CodStock= " + CodStock.ToString();
+            cDb.ExecutarNonQuery(sql);
+            sql = "delete from EfectivosaPagar where CodCompra=" + CodCompra.ToString();
+            cDb.ExecutarNonQuery(sql);
+            sql = "delete from compra where codcompra =" + CodCompra.ToString();
+            cDb.ExecutarNonQuery(sql);
         }
     }
 }

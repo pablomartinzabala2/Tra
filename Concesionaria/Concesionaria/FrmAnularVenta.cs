@@ -58,7 +58,7 @@ namespace Concesionaria
             }
 
             string Patente = Grilla.CurrentRow.Cells[4].Value.ToString();   
-             string CodVenta = Grilla.CurrentRow.Cells[0].Value.ToString();
+            string CodVenta = Grilla.CurrentRow.Cells[0].Value.ToString();
             
             //
              Int32 CodAutoPartePago1 = 0;
@@ -324,9 +324,16 @@ namespace Concesionaria
                      Comand7.CommandText = sql7;
                      Comand7.ExecuteNonQuery();
 
-                     // doy de baja los autos del stock que ingresaron
-                     // como parte de pago
-                     if (CodAutoPartePago1 > 0)
+                    string SQL9 = "delete from Transferencia where CodVenta =" + CodVenta.ToString();
+                    SqlCommand Comand9 = new SqlCommand();
+                    Comand9.Connection = con;
+                    Comand9.Transaction = Transaccion;
+                    Comand9.CommandText = SQL9;
+                    Comand9.ExecuteNonQuery();
+
+                    // doy de baja los autos del stock que ingresaron
+                    // como parte de pago
+                    if (CodAutoPartePago1 > 0)
                      {
                          string sql8 = "update StockAuto set FechaBaja=" + "'" + DateTime.Now.ToShortDateString () + "'";
                          sql8 = sql8 + " where CodAuto=" + CodAutoPartePago1.ToString ();

@@ -9,9 +9,9 @@ namespace Concesionaria.Clases
     public class cCobranzaGeneral
     {
         public void InsertarCobranza(DateTime Fecha, string Descripcion, double Importe,
-            string Nombre,string Telefono,string Direccion,string Patente)
+            string Nombre,string Telefono,string Direccion,string Patente,DateTime FechaCompromiso)
         {
-            string sql = "Insert into CobranzaGeneral(Fecha,Importe,Descripcion,Saldo,Cliente,Telefono,Direccion,Patente)";
+            string sql = "Insert into CobranzaGeneral(Fecha,Importe,Descripcion,Saldo,Cliente,Telefono,Direccion,Patente,FechaCompromiso)";
             sql = sql + "values(" + "'" + Fecha.ToShortDateString () +"'";
             sql = sql + "," + Importe.ToString().Replace(",", ".");
             sql = sql + "," + "'" + Descripcion + "'";
@@ -20,6 +20,7 @@ namespace Concesionaria.Clases
             sql = sql + "," + "'" + Telefono + "'";
             sql = sql + "," + "'" + Direccion + "'";
             sql = sql + "," + "'" + Patente + "'";
+            sql = sql + "," + "'" + FechaCompromiso.ToShortDateString() + "'";
             sql = sql + ")";
              cDb.ExecutarNonQuery(sql);
         }
@@ -29,7 +30,7 @@ namespace Concesionaria.Clases
             string sql = "select CodCobranza,Descripcion,Importe,Fecha,ImportePagado,FechaPago,Saldo,Cliente";
             sql = sql + " from CobranzaGeneral ";
             sql = sql + " where Fecha >=" + "'" + FechaDesde.ToShortDateString () + "'" ;
-            sql = sql + " and Fecha <=" + "'" + FechaHasta + "'";
+            sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
             if (Concepto != "")
                 sql = sql + " and Patente like" + "'%" + Concepto + "%'" ;
             if (SoloImpago == 1)
@@ -87,22 +88,25 @@ namespace Concesionaria.Clases
             cDb.ExecutarNonQuery(sql);
         }
 
-        public DataTable GetDedudaCobranzaGeneral(string Apellido,string Patente)
+        public DataTable GetDedudaCobranzaGeneral(string Apellido,string Patente, DateTime FechaVencimiento)
         {
             int b = 0;
-            string sql = "select * from CobranzaGeneral";
+            string sql = "select * from CobranzaGeneral ";
+            sql = sql + " where Saldo >0 ";
+          //  sql = sql + " and FechaCompromiso <" + "'" + FechaVencimiento.ToShortDateString() + "'";
             if (Apellido != "")
             {
-                sql = sql + " where Cliente like " + "'%" + Apellido + "%'";
-                sql = sql + " and Saldo >0";
+                sql = sql + " and Cliente like " + "'%" + Apellido + "%'";
+          
                 b = 1;
             }
+            sql = sql + " order by Cliente ";
             if (Patente != "")
             {
                 if (b == 0)
                 {
-                    sql = sql + " where Patente like "  +"'%" + Patente + "%'";
-                    sql = sql + " and Saldo >0";
+                    sql = sql + " and Patente like "  +"'%" + Patente + "%'";
+             
                 }
                 else
                 {
@@ -146,6 +150,14 @@ namespace Concesionaria.Clases
             sql = sql + " and Fecha>=" + "'" + FechaDesde + "'";
             sql = sql + " and Fecha<=" + "'" + FechaHasta + "'";
             return cDb.ExecuteDataTable(sql);
+        }
+
+        public void BorrarCobranza(Int32 CodCobranza)
+        {
+            string sql = "delete from CobranzaGeneral  ";
+            sql = sql + " where CodCobranza=" + CodCobranza.ToString();
+            cDb.ExecutarNonQuery(sql);
+
         }
     }
 }

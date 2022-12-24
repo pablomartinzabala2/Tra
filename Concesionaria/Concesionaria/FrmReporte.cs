@@ -18,8 +18,10 @@ namespace Concesionaria
 
         private void FrmReporte_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'DsReportes.Reporte1' table. You can move, or remove it, as needed.
+            this.Reporte1TableAdapter.Fill(this.DsReportes.Reporte1);
             // TODO: This line of code loads data into the 'CONCESIONARIADataSet.Reporte' table. You can move, or remove it, as needed.
-            
+
             this.ReporteTableAdapter.Fill(this.CONCESIONARIADataSet.Reporte);
 
             this.reportViewer1.RefreshReport();

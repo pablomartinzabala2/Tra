@@ -16,12 +16,23 @@ namespace Concesionaria
             InitializeComponent();
         }
 
-        private void FrmControlGeneralOperaciones_Load(object sender, EventArgs e)
+        private void InicializarFechas()
         {
             DateTime Fecha = DateTime.Now;
-            txtFechaHasta.Text = Fecha.ToShortDateString();
-            Fecha = Fecha.AddMonths(-1);
-            txtFechaDesde.Text = Fecha.ToShortDateString();
+            int dia = Fecha.Day;
+            int Mes = Fecha.Month;
+            Fecha = Fecha.AddDays(-dia);
+            Fecha = Fecha.AddDays(1);
+            dpFechaDesde.Value = Fecha;
+            Fecha = Fecha.AddMonths(1);
+            Fecha = Fecha.AddDays(-1);
+            dpFechaHasta.Value = Fecha;
+        }
+
+        private void FrmControlGeneralOperaciones_Load(object sender, EventArgs e)
+        {
+            InicializarFechas();
+            ArmarDataTableDeudores();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -35,8 +46,8 @@ namespace Concesionaria
             if (txtApellido.Text != "")
                 Apellido = txtApellido.Text;
             Clases.cVenta objVenta = new Clases.cVenta();
-            DateTime FechaDesde = Convert.ToDateTime(txtFechaDesde.Text);
-            DateTime FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
+            DateTime FechaDesde = dpFechaDesde.Value;
+            DateTime FechaHasta = dpFechaHasta.Value;
             Int32 CodVenta = 0;
             Double Cobranza = 0;
             Clases.cFunciones fun = new Clases.cFunciones();

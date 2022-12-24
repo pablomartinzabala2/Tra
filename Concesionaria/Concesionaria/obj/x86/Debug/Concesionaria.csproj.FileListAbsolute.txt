@@ -614,8 +614,6 @@ F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.compiled
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.exe
 F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.pdb
-F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.csprojResolveAssemblyReference.cache
-F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReportePresupuesto2.resources
 C:\Users\ZABALA\GIT\Tra\Concesionaria\Concesionaria\bin\Debug\Concesionaria.exe.config
 C:\Users\ZABALA\GIT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.exe
 C:\Users\ZABALA\GIT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.pdb
@@ -731,3 +729,14 @@ C:\Users\ZABALA\GIT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.
 C:\Users\ZABALA\GIT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.csproj.GenerateResource.Cache
 C:\Users\ZABALA\GIT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.cache
 C:\Users\ZABALA\GIT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.compiled
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmListadoAbm.resources
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmAbmTipoFinanciacion.resources
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmAbmColor.resources
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.csprojResolveAssemblyReference.cache
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReporteRecibo.resources
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmAbmCategoriaGasto.resources
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmRecibo.resources
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmListadoRecibo.resources
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmBuscadorCliente.resources
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmListadoCliente.resources
+F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReporteCliente.resources

@@ -52,7 +52,7 @@
             this.Grupo.Controls.Add(this.txt_Nombre);
             this.Grupo.Controls.Add(this.label1);
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Grupo.Location = new System.Drawing.Point(0, 41);
+            this.Grupo.Location = new System.Drawing.Point(12, 59);
             this.Grupo.Name = "Grupo";
             this.Grupo.Size = new System.Drawing.Size(379, 76);
             this.Grupo.TabIndex = 0;
@@ -97,7 +97,7 @@
             this.btnSalir});
             this.BarraBotones.Location = new System.Drawing.Point(0, 0);
             this.BarraBotones.Name = "BarraBotones";
-            this.BarraBotones.Size = new System.Drawing.Size(388, 39);
+            this.BarraBotones.Size = new System.Drawing.Size(394, 39);
             this.BarraBotones.TabIndex = 14;
             this.BarraBotones.Text = "toolStrip1";
             // 
@@ -151,6 +151,7 @@
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(36, 36);
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAbrir
             // 
@@ -186,7 +187,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(388, 124);
+            this.ClientSize = new System.Drawing.Size(394, 147);
             this.Controls.Add(this.BarraBotones);
             this.Controls.Add(this.Grupo);
             this.MaximizeBox = false;

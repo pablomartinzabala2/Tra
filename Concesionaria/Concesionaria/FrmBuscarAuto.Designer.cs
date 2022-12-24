@@ -29,17 +29,22 @@
         private void InitializeComponent()
         {
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.chkStock = new System.Windows.Forms.CheckBox();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.tableAdapterManager1 = new Concesionaria.COPIACONCESIONARIADataSetTableAdapters.TableAdapterManager();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.flowLayoutPanel1);
+            this.Grupo.Controls.Add(this.chkStock);
             this.Grupo.Controls.Add(this.btnAceptar);
             this.Grupo.Controls.Add(this.btnBuscar);
             this.Grupo.Controls.Add(this.cmbMarca);
@@ -52,6 +57,25 @@
             this.Grupo.TabIndex = 2;
             this.Grupo.TabStop = false;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(348, 188);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(8, 8);
+            this.flowLayoutPanel1.TabIndex = 45;
+            // 
+            // chkStock
+            // 
+            this.chkStock.AutoSize = true;
+            this.chkStock.Checked = true;
+            this.chkStock.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkStock.Location = new System.Drawing.Point(366, 12);
+            this.chkStock.Name = "chkStock";
+            this.chkStock.Size = new System.Drawing.Size(62, 21);
+            this.chkStock.TabIndex = 44;
+            this.chkStock.Text = "Stcok";
+            this.chkStock.UseVisualStyleBackColor = true;
+            // 
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(543, 342);
@@ -61,6 +85,16 @@
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom2;
+            this.btnBuscar.Location = new System.Drawing.Point(320, 12);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(40, 27);
+            this.btnBuscar.TabIndex = 42;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // cmbMarca
             // 
@@ -91,15 +125,12 @@
             this.Grilla.Size = new System.Drawing.Size(603, 259);
             this.Grilla.TabIndex = 26;
             // 
-            // btnBuscar
+            // tableAdapterManager1
             // 
-            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom2;
-            this.btnBuscar.Location = new System.Drawing.Point(320, 12);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(40, 27);
-            this.btnBuscar.TabIndex = 42;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.Connection = null;
+            this.tableAdapterManager1.ReporteAutoTableAdapter = null;
+            this.tableAdapterManager1.UpdateOrder = Concesionaria.COPIACONCESIONARIADataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // FrmBuscarAuto
             // 
@@ -111,6 +142,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmBuscarAuto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBuscarAuto";
             this.Load += new System.EventHandler(this.FrmBuscarAuto_Load);
             this.Grupo.ResumeLayout(false);
@@ -128,5 +160,8 @@
         private System.Windows.Forms.ComboBox cmbMarca;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView Grilla;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.CheckBox chkStock;
+        private COPIACONCESIONARIADataSetTableAdapters.TableAdapterManager tableAdapterManager1;
     }
 }

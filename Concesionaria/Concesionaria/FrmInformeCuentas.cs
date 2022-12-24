@@ -177,7 +177,7 @@ namespace Concesionaria
         { 
             Clases.cFunciones fun = new Clases.cFunciones();
             Clases.cStockAuto stock = new Clases.cStockAuto();
-            DataTable trdo = stock.GetStockDetalladosVigente("", null);
+            DataTable trdo = stock.GetStockDetalladosVigenteResumenCuenta("", null);
             double Total = fun.TotalizarColumnaCondicion(trdo, "Costo", "Concesion", "0");
             txtVehículo.Text = Total.ToString();
             if (txtVehículo.Text != "")
@@ -185,6 +185,7 @@ namespace Concesionaria
                 txtVehículo.Text = fun.SepararDecimales(txtVehículo.Text);
                 txtVehículo.Text = fun.FormatoEnteroMiles(txtVehículo.Text);
             }
+            
         }
     }
 }

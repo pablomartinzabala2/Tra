@@ -71,12 +71,14 @@ namespace Concesionaria
             {
                 if (tauto.Rows.Count > 0)
                 {
-                    string Descrip ="Marca "+ tauto.Rows[0]["Marca"].ToString();
+                    string Descrip = "El siguiente Automovil " + "Marca " + tauto.Rows[0]["Marca"].ToString();
+                    Descrip = " Modelo " + tauto.Rows[0]["Descripcion"].ToString() + " Año " + " Motor " + tauto.Rows[0]["Motor"].ToString();
                     Descrip = Descrip + " con Dominio " + tauto.Rows[0]["Patente"].ToString();
-                   // Descrip = Descrip + " AÑO " + tauto.Rows[0]["Anio"].ToString();
-                  //  Descrip = Descrip + " DOMINIO " + tauto.Rows[0]["Patente"].ToString();
-                  //  Descrip = Descrip + " MOTOR N º" + tauto.Rows[0]["Motor"].ToString();
-                  //  Descrip = Descrip + " CHASIS N º" + tauto.Rows[0]["Chasis"].ToString();
+                    Descrip = Descrip + " Modelo " + tauto.Rows[0]["Anio"].ToString();
+                    Descrip = Descrip + " Motor  " + tauto.Rows[0]["Motor"].ToString();
+                    //  Descrip = Descrip + " DOMINIO " + tauto.Rows[0]["Patente"].ToString();
+                    //  Descrip = Descrip + " MOTOR N º" + tauto.Rows[0]["Motor"].ToString();
+                    //  Descrip = Descrip + " CHASIS N º" + tauto.Rows[0]["Chasis"].ToString();
                     txtAuto.Text = Descrip; 
                 }
             }
@@ -103,6 +105,17 @@ namespace Concesionaria
                 Importe = fun.FormatoEnteroMiles(Importe);
                 txtImportePrenda.Text = Importe;
             }
+            BuscarCuotas(CodVenta);
+            txtTotal.Text = Principal.TablaPrincipal;
+            Double Efectivo = 0;
+            Double Total = 0;
+            Double Saldo = 0;  
+            if (txtEfectivo.Text != "")
+                Efectivo = fun.ToDouble(txtEfectivo.Text);
+            if (txtTotal.Text != "")
+                Total = fun.ToDouble(txtTotal.Text);
+            Saldo = Total - Efectivo;
+            txtSaldo.Text = fun.FormatoEnteroMiles(Saldo.ToString());
         }
 
         private void GrabarDatos()
@@ -110,12 +123,40 @@ namespace Concesionaria
             string NombreCliente = txtNombre.Text;
             string DniCliente = txtDni.Text;
             string DireccionCliente = txtDireccion.Text;
+            /*
             string Texto1 = "Entre JOSELO AUTOMOTORES, por cuenta y orden de exTitular ";
             Texto1 = Texto1 + ", adelante la parte  VENDEDORA Y La Sr/a Comprador";
             Texto1 = Texto1 + ", en adelante la parte COMPRADORA, todos mayores de edad y hábiles para contratar, convienen en celebrar el presente contrato";
             Texto1 = Texto1 + " de compraventa de automotor sujeto a las  Cláusulas y concidiones adjuntas";
             Texto1 = Texto1.Replace("Comprador", txtComprador.Text);
             Texto1 = Texto1.Replace("exTitular", txtExTitular.Text);
+            */
+            string Texto1 = "Conste por el presente que Traut Automotores en Carácter de consignatario, domiciliado en ";
+            Texto1 = Texto1 + " San Martín 769, Las Flores, Provincia de Buenos Aires, vende y transfiere al Sr ";
+            Texto1 = Texto1 + " Comprador ";
+            Texto1 = Texto1 + " Domiciliado en " + txtDireccion.Text;
+            Texto1 = Texto1 + " " + txtAuto.Text;
+            Texto1 = Texto1 + " Expedido por DNRPA las flores ";
+            Texto1 = Texto1 + " encuentra, tomando en la fecha el comprador posesión del mismo en conformidad.";
+            Texto1 = Texto1 + " el precio de venta se establece en $ " + txtTotal.Text;
+
+            Texto1 = Texto1.Replace("Comprador", txtComprador.Text);
+
+            if (txtEfectivo.Text !="")
+            {
+                Texto1 = Texto1 + " al contado la suma en efectivo de $ " + txtEfectivo.Text;
+            }
+
+            if (txtSaldo.Text !="")
+            {
+                Texto1 = Texto1 + " y el saldo de $ " + txtSaldo.Text;
+            }
+
+            if (txtCanCuotas.Text !="")
+            {
+                Texto1 = Texto1 + " en cuotas " + txtCanCuotas.Text + " iguales y consecutivas de " + txtImporteCuotas.Text;
+
+            }
 
             string texto2 = "El VENDEDOR vende al COMPRADOR y este adquiere el automotor NombreAuto";
             texto2 = texto2 + " EL vendedor entrega en este acto el vehículo al ";
@@ -160,6 +201,26 @@ namespace Concesionaria
             sql = sql + "," + "'" + Texto8 + "'";
             sql = sql + ")";
             Clases.cDb.ExecutarNonQuery(sql);
+        }
+
+        private void BuscarCuotas(Int32 CodVenta)
+        {
+            cFunciones fun = new cFunciones();
+            Double Importe = 0;
+            int CanCuotas = 0;
+            
+            cCuota cuota = new cCuota();
+            DataTable tb = cuota.GetCuotasxCodVenta(CodVenta);
+            if (tb.Rows.Count >0)
+            {
+                if (tb.Rows[0]["Cuota"].ToString ()!="")
+                {
+                    Importe = Convert.ToDouble(tb.Rows[0]["Importe"].ToString());
+                    CanCuotas = tb.Rows.Count;
+                    txtCanCuotas.Text = CanCuotas.ToString();
+                    txtImporteCuotas.Text = fun.FormatoEnteroMiles(Importe.ToString ());
+                }
+            }
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -517,8 +578,12 @@ namespace Concesionaria
             DataTable trdo = obj.GetStockxCodigo(CodStock);
             if (trdo.Rows.Count >0)
             {
-                Int32 CodCliente = Convert.ToInt32(trdo.Rows[0]["CodCliente"].ToString()); ;
-                Texto = GetDatosClientexCod(CodCliente);
+                if (trdo.Rows[0]["CodCliente"].ToString()!="")
+                {
+                    Int32 CodCliente = Convert.ToInt32(trdo.Rows[0]["CodCliente"].ToString()); ;
+                    Texto = GetDatosClientexCod(CodCliente);
+                }
+                
             }
             return Texto;
         }
@@ -561,7 +626,7 @@ namespace Concesionaria
             if (NroDoc != "")
                 texto = texto + ", DNI " + NroDoc.ToString();
             if (Calle != "")
-                texto = texto + " con domicilio en calle " + Calle;
+                texto = texto + " Domiciliado en calle " + Calle;
             if (Numero != "")
                 texto = texto + " Numero " + Numero;
             if (Ciudad != "")

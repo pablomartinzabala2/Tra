@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetalleAuto));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCodStock = new System.Windows.Forms.TextBox();
             this.btnGrabarPrecio = new System.Windows.Forms.Button();
             this.txtPrecioVenta = new System.Windows.Forms.TextBox();
             this.BtnAgregarCheque = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.txtNroDoc = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.txtCelular = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.txtCliente = new System.Windows.Forms.TextBox();
@@ -96,7 +96,9 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCodStock = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnEditarAuto = new System.Windows.Forms.Button();
+            this.txtCodAuto = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -112,6 +114,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCodAuto);
+            this.groupBox1.Controls.Add(this.btnEditarAuto);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txtCodStock);
             this.groupBox1.Controls.Add(this.btnGrabarPrecio);
             this.groupBox1.Controls.Add(this.txtPrecioVenta);
@@ -122,7 +127,6 @@
             this.groupBox1.Controls.Add(this.txtNroDoc);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.txtCelular);
-            this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.txtCliente);
@@ -159,6 +163,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle vehículo";
+            // 
+            // txtCodStock
+            // 
+            this.txtCodStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.txtCodStock.Location = new System.Drawing.Point(209, 31);
+            this.txtCodStock.Name = "txtCodStock";
+            this.txtCodStock.ReadOnly = true;
+            this.txtCodStock.Size = new System.Drawing.Size(32, 22);
+            this.txtCodStock.TabIndex = 59;
+            this.txtCodStock.Visible = false;
             // 
             // btnGrabarPrecio
             // 
@@ -237,15 +251,6 @@
             this.txtCelular.ReadOnly = true;
             this.txtCelular.Size = new System.Drawing.Size(147, 22);
             this.txtCelular.TabIndex = 34;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(566, 208);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(28, 16);
-            this.label20.TabIndex = 33;
-            this.label20.Text = "Cel";
             // 
             // txtTelefono
             // 
@@ -767,14 +772,34 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Patente";
             // 
-            // txtCodStock
+            // button1
             // 
-            this.txtCodStock.Location = new System.Drawing.Point(209, 31);
-            this.txtCodStock.Name = "txtCodStock";
-            this.txtCodStock.ReadOnly = true;
-            this.txtCodStock.Size = new System.Drawing.Size(79, 22);
-            this.txtCodStock.TabIndex = 59;
-            this.txtCodStock.Visible = false;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(361, 243);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 28);
+            this.button1.TabIndex = 60;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnEditarAuto
+            // 
+            this.btnEditarAuto.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnEditarAuto.Location = new System.Drawing.Point(706, 34);
+            this.btnEditarAuto.Name = "btnEditarAuto";
+            this.btnEditarAuto.Size = new System.Drawing.Size(40, 28);
+            this.btnEditarAuto.TabIndex = 61;
+            this.btnEditarAuto.UseVisualStyleBackColor = true;
+            this.btnEditarAuto.Click += new System.EventHandler(this.btnEditarAuto_Click);
+            // 
+            // txtCodAuto
+            // 
+            this.txtCodAuto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.txtCodAuto.Location = new System.Drawing.Point(250, 31);
+            this.txtCodAuto.Name = "txtCodAuto";
+            this.txtCodAuto.ReadOnly = true;
+            this.txtCodAuto.Size = new System.Drawing.Size(32, 22);
+            this.txtCodAuto.TabIndex = 62;
+            this.txtCodAuto.Visible = false;
             // 
             // FrmDetalleAuto
             // 
@@ -856,7 +881,6 @@
         private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtCelular;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox txtNroDoc;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtFechaIngreso;
@@ -878,5 +902,8 @@
         private System.Windows.Forms.DataGridView GrillaPapeles;
         private System.Windows.Forms.TextBox txtCodCompra;
         private System.Windows.Forms.TextBox txtCodStock;
+        private System.Windows.Forms.Button btnEditarAuto;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtCodAuto;
     }
 }

@@ -23,7 +23,7 @@ namespace Concesionaria
             fun.LlenarCombo(cmb_CodTipoDoc, "TipoDocumento", "Nombre", "CodTipoDoc");
             if (cmb_CodTipoDoc.Items.Count > 0)
                 cmb_CodTipoDoc.SelectedIndex = 1;
-            cmb_CodTipoDoc.Enabled = false;  
+           
             fun.LlenarCombo(cmbProvincia2, "Provincia", "Nombre", "CodProvincia");
         }
 
@@ -461,6 +461,53 @@ namespace Concesionaria
             {
                 txt_RutaImagen.Text = "";
             }
+        }
+
+        private void OcultarTipoDoc(int CodTipoDoc)
+        {
+            switch (CodTipoDoc)
+            {
+                case 1: 
+                    txt_Apellido.Visible = true;
+                    txt_Nombre.Visible = true;
+                    lblNombre.Text = "Nombre";
+                  
+                   
+                    break;
+                case 2:
+                    txt_Apellido.Visible = false;
+                    txt_Nombre.Visible = false;
+                    lblNombre.Text = "Razón Social";
+                   
+                   
+                    break;
+                case 3:
+                    txt_Apellido.Visible = false;
+                    txt_Nombre.Visible = false;
+                    lblNombre.Text = "Razón Social";
+                    break;
+
+            }
+        }
+
+        private void cmb_CodTipoDoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void cmb_CodTipoDoc_RightToLeftChanged(object sender, EventArgs e)
+        {
+            if (cmb_CodTipoDoc.SelectedIndex > 0)
+            { 
+                int CodTipoDoc = Convert.ToInt32(cmb_CodTipoDoc.SelectedValue);
+                OcultarTipoDoc(CodTipoDoc);
+            }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            FrmListadoCliente fr = new FrmListadoCliente();
+            fr.Show();
         }
     }
 }

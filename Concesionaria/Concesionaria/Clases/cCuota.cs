@@ -116,7 +116,7 @@ namespace Concesionaria.Clases
                 con.Close();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Transaccion.Rollback();
                 return false;
@@ -318,6 +318,8 @@ namespace Concesionaria.Clases
                     sql = sql + " and v.CodAutoVendido in " + ListaCodAuto.ToString();
                 else
                     sql = sql + " and v.CodAutoVendido=-1";
+
+                sql = sql + " order by cli.Apellido,Cli.Nombre ";
             }
             if (b == 0)
             {
@@ -348,6 +350,7 @@ namespace Concesionaria.Clases
                 if (ConDeuda ==1)
                     sql = sql + " and c.FechaVencimiento <" + "'" + Fecha.ToShortDateString() + "'";
                 sql = sql + " and v.CodCliente in " + ListaCliente.ToString();
+                sql = sql + " order by cli.Apellido,Cli.Nombre ";
             }
             return cDb.ExecuteDataTable(sql);
         }

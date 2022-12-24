@@ -297,7 +297,8 @@ namespace Concesionaria.Clases
                 sql = sql + " where Patente like " + "'%" + Patente + "%'";
                 sql = sql + " and Saldo >0 ";
                 if (ConDeuda == 1)
-                sql = sql + " and FechaVencimiento <" + "'" + Fecha.ToShortDateString() + "'";
+                    sql = sql + " and FechaVencimiento <" + "'" + Fecha.ToShortDateString() + "'";
+                sql = sql + " order by Apellido,Nombre ";
             }
             else
             {
@@ -305,7 +306,8 @@ namespace Concesionaria.Clases
                 sql = sql + " where Apellido like " + "'%" + Apellido + "%'";
                 sql = sql + " and Saldo >0 ";
                 if (ConDeuda == 1)
-                sql = sql + " and FechaVencimiento <" + "'" + Fecha.ToShortDateString() + "'";
+                    sql = sql + " and FechaVencimiento <" + "'" + Fecha.ToShortDateString() + "'";
+                sql = sql + " order by Apellido,Nombre ";
             }
             return cDb.ExecuteDataTable(sql);
         }

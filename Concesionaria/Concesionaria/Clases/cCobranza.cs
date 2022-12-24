@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data ;
+using System.Data.SqlClient;
 namespace Concesionaria.Clases
 {
     public  class cCobranza
@@ -155,6 +156,8 @@ namespace Concesionaria.Clases
                     sql = sql + " and v.CodAutoVendido in " + ListaCodAuto.ToString();
                 else
                     sql = sql + " and v.CodAutoVendido=-1";
+
+                sql = sql + " order by cli.Apellido,cli.Nombre ";
             }
             if (b == 0)
             {
@@ -186,6 +189,8 @@ namespace Concesionaria.Clases
                     sql = sql + " and v.CodCliente in " + ListaCliente.ToString();
                 else
                     sql = sql + " and v.CodAutoVendido=-1";
+
+                sql = sql + " order by cli.Apellido,cli.Nombre ";
             }
             return cDb.ExecuteDataTable(sql);
         }
@@ -242,6 +247,21 @@ namespace Concesionaria.Clases
             sql = sql + " and c.CodAuto = a.CodAuto ";
             sql = sql + " and a.Patente =" + "'" + Patente + "'";
             return cDb.ExecuteDataTable(sql);
+        }
+
+        public void Insertar(SqlConnection con, SqlTransaction Transaccion,Double Importe,
+            DateTime Fecha,Int32 CodCliene, DateTime FechaCompromiso,int Cuota, Int32 CodRecibo)
+        {
+            string sql = "insert into cobranza(Importe,Fecha,CodCliene,FechaCompromiso,Cuota,Saldo,CodRecibo)";
+            sql = sql + " values(" + Importe.ToString().Replace(",", ".");
+            sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
+            sql = sql + "," + CodCliene.ToString();
+            sql = sql + "," + "'" + FechaCompromiso.ToShortDateString() + "'";
+            sql = sql + "," + Cuota.ToString();
+            sql = sql + "," + Importe.ToString().Replace(",", ".");
+            sql = sql + "," + CodRecibo.ToString();
+            sql = sql + ")";
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
     }

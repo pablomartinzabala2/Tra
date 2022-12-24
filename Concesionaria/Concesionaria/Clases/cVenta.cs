@@ -53,11 +53,21 @@ namespace Concesionaria.Clases
         public DataTable GetVentasxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,string Apellido)
         {
             string sql = "";
-            sql = "select Distinct v.CodVenta,a.Patente,a.Descripcion,sa.DescripcionAutoPartePago, c.Apellido,c.Nombre,";
-            sql = sql + "v.Fecha,v.ImporteVenta,ImporteEfectivo,v.ImporteAutoPartePago,v.ImporteCredito,v.ImportePrenda";
+            // sql = "select Distinct v.CodVenta,c.Apellido,c.Nombre,a.Patente,a.Descripcion,sa.DescripcionAutoPartePago";
+            sql = "select Distinct v.CodVenta,c.Apellido,c.Nombre,a.Patente,";
+            sql = sql + "(select mm.Nombre from Marca mm where mm.CodMarca=a.CodMarca) as Marca ";
+            sql = sql + ", a.Descripcion";
+            sql = sql + ",(select aaa.patente from auto aaa where aaa.CodAuto=(select max(sa.codauto) from VentasxAuto va, StockAuto sa where va.CodAuto = sa.CodAuto )) as DescripcionAutoPartePago ";
+            
+            sql = sql + ",v.Fecha,(v.ImporteVenta + ";
+            sql = sql + " (select isnull(sum(gg.Importe),0) from GastosTransferencia gg where gg.CodVenta=v.CodVenta)";
+            sql = sql + " + (select isnull(sum(gr.Importe),0) from GastosRecepcion gr where gr.CodVenta=v.CodVenta)";
+            sql = sql + ") as ImporteVenta ";
+            sql = sql + ",ImporteEfectivo,v.ImporteAutoPartePago,v.ImporteCredito,v.ImportePrenda";
             sql = sql + ", (select sum(Importe) from Cheque che ";
             sql = sql + "  where che.CodVenta = v.CodVenta and che.CodPrenda is null) as Cheque";
-            sql = sql + ", v.ImporteCobranza";
+          //  sql = sql + ", v.ImporteCobranza";
+            sql = sql + ",(select isnull(sum(cobr.Saldo),0) from Cobranza cobr where cobr.CodVenta=v.CodVenta) as ImporteCobranza ";
             sql = sql + "," + "(isnull(v.ImporteVenta,0)";
             sql = sql + " - (select isnull(sum(ssa.ImporteCompra),0) from StockAuto ssa where ssa.CodStock = v.CodStock)";
             sql = sql + " - (select isnull(sum(Importe),0) from Costo cst where cst.CodStock = v.CodStock)";
@@ -77,8 +87,8 @@ namespace Concesionaria.Clases
             sql = sql + " and a.CodAuto = sa.CodAuto";
             //AGREGO ESTA LINEA PARA NO DULICR EL VEH
             sql = sql + " and v.CodStock = sa.CodStock";
-            sql = sql + " and v.Fecha >=" + "'" + FechaDesde +"'";
-            sql = sql + " and v.Fecha<=" + "'" + FechaHasta + "'";
+            sql = sql + " and v.Fecha >=" + "'" + FechaDesde.ToShortDateString() +"'";
+            sql = sql + " and v.Fecha<=" + "'" + FechaHasta.ToShortDateString() + "'";
             if (Patente != "")
                 sql = sql + " and a.Patente like" + "'%" + Patente + "%'";
             if (Apellido != null)
@@ -86,6 +96,8 @@ namespace Concesionaria.Clases
             sql = sql + " order by v.CodVenta Desc";
             return cDb.ExecuteDataTable(sql);  
         }
+
+      
 
         public Double GetCostosTotalesxCodStock(Int32 CodStock)
         {
@@ -119,9 +131,11 @@ namespace Concesionaria.Clases
             string sql = "select v.CodAuto,a.Patente,a.Descripcion, ";
             sql = sql + "(select m.Nombre from marca m where m.CodMarca = a.CodMarca) as Marca,";
             sql = sql + "v.Importe";
-            sql = sql + ",(select sa.CodStock from stockauto sa where sa.CodAuto=a.CodAuto) as CodStock";
-            sql = sql + " from VentasxAuto v, auto a";
-            sql = sql + " where v.CodAuto = a.CodAuto";
+            sql = sql + ",v.CodAuto as CodStock,a.CodAuto";
+           // sql = sql + ",(select sa.CodStock from stockauto sa where sa.CodStock=a.CodAuto) as CodStock";
+            sql = sql + " from VentasxAuto v, auto a, stockauto sa";
+            sql = sql + " where v.CodAuto = sa.CodStock";
+            sql = sql + " and sa.CodAuto = a. CodAuto";
             sql = sql + " and v.CodVenta =" + CodVenta.ToString ();
             return cDb.ExecuteDataTable (sql);
         }

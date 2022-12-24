@@ -18,28 +18,32 @@ namespace Concesionaria
 
         private void FrmListadoCompra_Load(object sender, EventArgs e)
         {
+            InicializarFechas();
+        }
+
+        private void InicializarFechas()
+        {
             DateTime Fecha = DateTime.Now;
-            txtFechaHasta.Text = Fecha.ToShortDateString();
-            Fecha = Fecha.AddMonths(-1);
-            txtFechaDesde.Text  = Fecha.ToShortDateString();
+            int dia = Fecha.Day;
+            int Mes = Fecha.Month;
+            Fecha = Fecha.AddDays(-dia);
+            Fecha = Fecha.AddDays(1);
+            dpFechaDesde.Value = Fecha;
+            Fecha = Fecha.AddMonths(1);
+            Fecha = Fecha.AddDays(-1);
+            dpFechaHasta.Value = Fecha;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            Buscar();
+        }
+
+        private void Buscar()
+        {
             cFunciones fun = new cFunciones();
-            if (fun.ValidarFecha (txtFechaDesde.Text)==false)
-            {
-                Mensaje("La fecha desde es incorrecta");
-                return;
-            }
-             
-            if (fun.ValidarFecha(txtFechaHasta.Text) == false)
-            {
-                Mensaje("La fecha Hasta es incorrecta");
-                return;
-            }
-            DateTime FechaDesde = Convert.ToDateTime(txtFechaDesde.Text);
-            DateTime FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
+            DateTime FechaDesde = dpFechaDesde.Value;
+            DateTime FechaHasta = dpFechaHasta.Value;
             string Patente = txtPatente.Text.Trim();
             cCompra compra = new cCompra();
             DataTable trdo = compra.getComprasxFecha(FechaDesde, FechaHasta, Patente);
@@ -54,23 +58,13 @@ namespace Concesionaria
         private void btnBuscarCompra_Click(object sender, EventArgs e)
         {
             cFunciones fun = new cFunciones();
-            if (fun.ValidarFecha(txtFechaDesde.Text) == false)
-            {
-                Mensaje("La fecha desde es incorrecta");
-                return;
-            }
-
-            if (fun.ValidarFecha(txtFechaHasta.Text) == false)
-            {
-                Mensaje("La fecha Hasta es incorrecta");
-                return;
-            }
-            DateTime FechaDesde = Convert.ToDateTime(txtFechaDesde.Text);
-            DateTime FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
+            DateTime FechaDesde = dpFechaDesde.Value;
+            DateTime FechaHasta = dpFechaHasta.Value;
             string Patente = txtPatente.Text.Trim();
             cCompra compra = new cCompra();
             DataTable trdo = compra.getComprasxFecha(FechaDesde, FechaHasta, Patente);
             trdo = fun.TablaaMiles(trdo, "ImporteCompra");
+            trdo = fun.TablaaMiles(trdo, "ImporteEfectivo");
             Grilla.DataSource = trdo;
             string Col = "0;20;20;20;20;20";
             fun.AnchoColumnas(Grilla, Col);
@@ -82,6 +76,8 @@ namespace Concesionaria
             */
             Grilla.Columns[5].HeaderText = "Importe Compra";
         }
+
+
 
         private void btnAbrirCompra_Click(object sender, EventArgs e)
         {
@@ -98,7 +94,29 @@ namespace Concesionaria
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (Grilla.CurrentRow ==null)
+            {
+                MessageBox.Show("Debe seleccionar un elemento para continuar ");
+                return;
+            }
+            string msj = "Confirma eliminar la compra ";
+            var result = MessageBox.Show(msj, "Información",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
 
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            cFunciones fun = new cFunciones();
+            cCompra compra = new cCompra();
+            Int32 CodCompra = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value.ToString());
+            Double Efectivo = fun.ToDouble(Grilla.CurrentRow.Cells[6].Value.ToString ());
+            Int32 CodStock = Convert.ToInt32(Grilla.CurrentRow.Cells[7].Value.ToString());
+            compra.BorrarCompra(CodCompra, Efectivo, CodStock);
+            MessageBox.Show("Datos grabados correctamente ");
+            Buscar();
         }
     }
 }

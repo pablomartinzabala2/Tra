@@ -30,6 +30,14 @@ namespace Concesionaria
             string sql = "select * from Anio order by Nombre Desc";
             DataTable tbAnio = cDb.ExecuteDataTable(sql);
             fun.LlenarComboDatatable(cmb_CodAnio, tbAnio, "Nombre", "CodAnio");
+            if (Principal.CodigoAuto !=null)
+            {
+                txtCodAuto.Text = Principal.CodigoAuto.ToString();
+                fun.CargarControles(this, "Auto", "CodAuto", txtCodAuto.Text);
+                UbicarProvincia(Convert.ToInt32(txtCodAuto.Text));
+                Botonera(2);
+                Grupo.Enabled = true;
+            }
         }
 
         private void InicializarComponentes()

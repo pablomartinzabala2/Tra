@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace Concesionaria.Clases
 {
@@ -141,7 +142,8 @@ namespace Concesionaria.Clases
                 if (ListaCodAuto != "(")
                     sql = sql + " and v.CodAutoVendido in " + ListaCodAuto.ToString();
                 else
-                    sql = sql + " and v.CodAutoVendido=-1";
+                    sql = sql + " and v.CodAutoVendido=-1 ";
+                sql = sql + " order by cli.Apellido,cli.Nombre ";
             }
             if (b == 0)
             {
@@ -173,7 +175,9 @@ namespace Concesionaria.Clases
                 if (ListaCliente != "(")
                     sql = sql + " and v.CodCliente in " + ListaCliente.ToString();
                 else
-                    sql = sql + " and v.CodCliente=-1";
+                    sql = sql + " and v.CodCliente=-1 ";
+
+                sql = sql + " order by cli.Apellido,cli.Nombre ";
             }
             return cDb.ExecuteDataTable(sql);
         }
@@ -218,6 +222,21 @@ namespace Concesionaria.Clases
             string sql = "Delete from Cheque";
             sql = sql + " where CodPrenda=" + CodPrenda.ToString();
             cDb.ExecutarNonQuery(sql);
+        } 
+
+        public void Insertar(SqlConnection con, SqlTransaction Transaccion, string NroCheque
+            , Double Importe,DateTime Fecha,DateTime FechaVencimiento,Int32? CodCliente,Int32 Codbanco,Int32 CodVenta)
+        {
+            string sql = "insert into Cheque(NroCheque,Importe,Fecha,FechaVencimiento,CodCliente,CodBanco,CodVenta)";
+            sql = sql + " values (" + "'" + NroCheque + "'";
+            sql = sql + "," + Importe.ToString().Replace(",", ".");
+            sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
+            sql = sql + "," + "'" + FechaVencimiento.ToShortDateString() + "'";
+            sql = sql + "," + CodCliente.ToString();
+            sql = sql + "," + Codbanco.ToString();
+            sql = sql + "," + CodVenta.ToString();
+            sql = sql + ")";
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
     }
 }

@@ -512,5 +512,25 @@ namespace Concesionaria.Clases
             sql = sql + ")";
             return  cDb.EjecutarEscalar (sql);
         }
+
+        public DataTable GetAutoResumido(string Patente, Int32? CodMarca)
+        {
+            string sql = "";
+            sql = "select a.CodAuto,a.Patente";
+            sql = sql + ",m.Nombre";
+            sql = sql + ",a.Descripcion as Descripción";
+            sql = sql + ",(select aa.Nombre from anio aa where aa.CodAnio = a.CodAnio) as Modelo ";
+            sql = sql + " from auto a,marca m ";
+           
+            
+            sql = sql + " where a.CodMarca = m.CodMarca";
+           
+            if (Patente != "")
+                sql = sql + " and a.Patente like" + "'%" + Patente + "%'";
+            if (CodMarca != null)
+                sql = sql + " and a.CodMarca =" + CodMarca.ToString();
+            sql = sql + " order by m.Nombre,a.Anio desc";
+            return cDb.ExecuteDataTable(sql);
+        }
     }
 }

@@ -30,17 +30,17 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.lblVencidas = new System.Windows.Forms.Label();
+            this.ChkVencida = new System.Windows.Forms.CheckBox();
+            this.btnCobroPrenda = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCobroPrenda = new System.Windows.Forms.Button();
-            this.ChkVencida = new System.Windows.Forms.CheckBox();
-            this.lblVencidas = new System.Windows.Forms.Label();
+            this.dpFecha = new System.Windows.Forms.DateTimePicker();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
@@ -58,11 +58,11 @@
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.dpFecha);
             this.Grupo.Controls.Add(this.lblVencidas);
             this.Grupo.Controls.Add(this.ChkVencida);
             this.Grupo.Controls.Add(this.btnCobroPrenda);
             this.Grupo.Controls.Add(this.label4);
-            this.Grupo.Controls.Add(this.txtFecha);
             this.Grupo.Controls.Add(this.Grilla);
             this.Grupo.Controls.Add(this.label2);
             this.Grupo.Controls.Add(this.btnBuscar);
@@ -77,23 +77,45 @@
             this.Grupo.TabIndex = 60;
             this.Grupo.TabStop = false;
             // 
+            // lblVencidas
+            // 
+            this.lblVencidas.AutoSize = true;
+            this.lblVencidas.Location = new System.Drawing.Point(805, 13);
+            this.lblVencidas.Name = "lblVencidas";
+            this.lblVencidas.Size = new System.Drawing.Size(66, 17);
+            this.lblVencidas.TabIndex = 64;
+            this.lblVencidas.Text = "Vencidas";
+            // 
+            // ChkVencida
+            // 
+            this.ChkVencida.AutoSize = true;
+            this.ChkVencida.Checked = true;
+            this.ChkVencida.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkVencida.Location = new System.Drawing.Point(597, 13);
+            this.ChkVencida.Name = "ChkVencida";
+            this.ChkVencida.Size = new System.Drawing.Size(85, 21);
+            this.ChkVencida.TabIndex = 63;
+            this.ChkVencida.Text = "Vencidas";
+            this.ChkVencida.UseVisualStyleBackColor = true;
+            // 
+            // btnCobroPrenda
+            // 
+            this.btnCobroPrenda.Image = global::Concesionaria.Properties.Resources.money_euro;
+            this.btnCobroPrenda.Location = new System.Drawing.Point(758, 7);
+            this.btnCobroPrenda.Name = "btnCobroPrenda";
+            this.btnCobroPrenda.Size = new System.Drawing.Size(40, 26);
+            this.btnCobroPrenda.TabIndex = 62;
+            this.btnCobroPrenda.UseVisualStyleBackColor = true;
+            this.btnCobroPrenda.Click += new System.EventHandler(this.btnCobroPrenda_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(461, 16);
+            this.label4.Location = new System.Drawing.Point(438, 14);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 61;
             this.label4.Text = "Fecha";
-            // 
-            // txtFecha
-            // 
-            this.txtFecha.Location = new System.Drawing.Point(514, 13);
-            this.txtFecha.Mask = "00/00/0000";
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(76, 23);
-            this.txtFecha.TabIndex = 60;
-            this.txtFecha.ValidatingType = typeof(System.DateTime);
             // 
             // Grilla
             // 
@@ -120,7 +142,7 @@
             this.txtApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtApellido.Location = new System.Drawing.Point(240, 13);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(215, 23);
+            this.txtApellido.Size = new System.Drawing.Size(192, 23);
             this.txtApellido.TabIndex = 3;
             // 
             // txtPatente
@@ -149,36 +171,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Patente";
             // 
-            // btnCobroPrenda
+            // dpFecha
             // 
-            this.btnCobroPrenda.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroPrenda.Location = new System.Drawing.Point(758, 7);
-            this.btnCobroPrenda.Name = "btnCobroPrenda";
-            this.btnCobroPrenda.Size = new System.Drawing.Size(40, 26);
-            this.btnCobroPrenda.TabIndex = 62;
-            this.btnCobroPrenda.UseVisualStyleBackColor = true;
-            this.btnCobroPrenda.Click += new System.EventHandler(this.btnCobroPrenda_Click);
-            // 
-            // ChkVencida
-            // 
-            this.ChkVencida.AutoSize = true;
-            this.ChkVencida.Checked = true;
-            this.ChkVencida.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ChkVencida.Location = new System.Drawing.Point(597, 13);
-            this.ChkVencida.Name = "ChkVencida";
-            this.ChkVencida.Size = new System.Drawing.Size(85, 21);
-            this.ChkVencida.TabIndex = 63;
-            this.ChkVencida.Text = "Vencidas";
-            this.ChkVencida.UseVisualStyleBackColor = true;
-            // 
-            // lblVencidas
-            // 
-            this.lblVencidas.AutoSize = true;
-            this.lblVencidas.Location = new System.Drawing.Point(805, 13);
-            this.lblVencidas.Name = "lblVencidas";
-            this.lblVencidas.Size = new System.Drawing.Size(66, 17);
-            this.lblVencidas.TabIndex = 64;
-            this.lblVencidas.Text = "Vencidas";
+            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFecha.Location = new System.Drawing.Point(491, 10);
+            this.dpFecha.Name = "dpFecha";
+            this.dpFecha.Size = new System.Drawing.Size(87, 23);
+            this.dpFecha.TabIndex = 70;
             // 
             // FrmControl
             // 
@@ -211,9 +210,9 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox txtFecha;
         private System.Windows.Forms.Button btnCobroPrenda;
         private System.Windows.Forms.CheckBox ChkVencida;
         private System.Windows.Forms.Label lblVencidas;
+        private System.Windows.Forms.DateTimePicker dpFecha;
     }
 }

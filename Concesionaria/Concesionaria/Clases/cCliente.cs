@@ -209,13 +209,13 @@ namespace Concesionaria.Clases
         public void InsertarClienteTransaccion(SqlConnection con, SqlTransaction Transaccion, Int32? CodTipoDoc, string NroDocumento,
             string Nombre, string Apellido, string Telefono, string Celular,
             string Calle, string Altura, Int32? CodBarrio,
-            DateTime? FechaNacimiento,string Email,string Observacion ,
-            string Cuit1,string Cuit2 
+            DateTime? FechaNacimiento,string Email,string Observacion 
+            
             )
         {
             string sql = "Insert into Cliente(CodTipoDoc,NroDocumento,Nombre,Apellido";
             sql = sql + ",Telefono,Celular, Calle,  Numero, CodBarrio";
-            sql = sql + ",FechaNacimiento,Email,Observacion,Cuit1,Cuit2)";
+            sql = sql + ",FechaNacimiento,Email,Observacion)";
             sql = sql + "Values(";
             if (CodTipoDoc == null)
                 sql = sql + "null";
@@ -238,8 +238,6 @@ namespace Concesionaria.Clases
                 sql = sql + "," + "'" + FechaNacimiento.ToString() + "'";
             sql = sql + "," + "'" + Email + "'";
             sql = sql + ","  +"'" + Observacion + "'";
-            sql = sql + "," + "'" + Cuit1 + "'";
-            sql = sql + "," + "'" + Cuit2 + "'";
             sql = sql + ")";
             SqlCommand comand = new SqlCommand();
             comand.Connection = con;
@@ -262,7 +260,7 @@ namespace Concesionaria.Clases
 
         public void ModificarClientetTransaccion(SqlConnection con,SqlTransaction Transaccion,Int32 CodCliente, Int32? CodTipoDoc, string NroDocumento,
            string Nombre, string Apellido, string Telefono, string Celular,
-           string Calle, string Numero, Int32? CodBarrio, DateTime? FechaNacimiento, string Email, string Observacion, string Cuit1,string Cuit2)
+           string Calle, string Numero, Int32? CodBarrio, DateTime? FechaNacimiento, string Email, string Observacion)
         {
             string sql = "Update Cliente ";
 
@@ -293,8 +291,7 @@ namespace Concesionaria.Clases
             }
             sql = sql + ",Email =" + "'" + Email + "'";
             sql = sql + ",Observacion =" + "'" + Observacion + "'";
-            sql = sql + ",Cuit1=" + "'" + Cuit1 + "'";
-            sql = sql + ",Cuit2=" + "'" + Cuit2 + "'";
+
             sql = sql + " where CodCliente=" + CodCliente.ToString();
             SqlCommand comand = new SqlCommand();
             comand.Connection = con;
@@ -354,6 +351,96 @@ namespace Concesionaria.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
+        public Int32 InserterClienteId(SqlConnection con, SqlTransaction Transaccion, Int32? CodTipoDoc, string NroDocumento,
+            string Nombre,string Apellido, string Telefono)
+        {
+            string sql = "Insert into Cliente(CodTipoDoc,NroDocumento,Nombre,Apellido";
+            sql = sql + ",Telefono)";
+            sql = sql + "Values(";
+            if (CodTipoDoc == null)
+                sql = sql + "null";
+            else
+                sql = sql + CodTipoDoc.ToString();
+            sql = sql + "," + "'" + NroDocumento + "'";
+            sql = sql + "," + "'" + Nombre + "'";
+            sql = sql + "," + "'" + Apellido + "'";
+            sql = sql + "," + "'" + Telefono + "'";
+            sql = sql + ")";
+
+            return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);
+        }
+
+        public DataTable BuscarCliente(string Nombre,string Apellido)
+        {
+            string b = "";
+            string b1 = "";
+
+            if (Nombre != "")
+                b = "1";
+            else
+                b = "0";
+
+            if (Apellido != "")
+                b1 = "1";
+            else
+                b1 = "0";
+
+            string resul = b + b1;
+
+            string sql = "select codcliente,Apellido,Nombre,Telefono ";
+            sql = sql + " from Cliente ";
+            switch(resul)
+            {
+                case  "10":
+                    sql = sql + " where Nombre like " + "'%" + Nombre + "%'";
+                    break;
+
+                case "11":
+                    sql = sql + " where Nombre like " + "'%" + Nombre + "%'";
+                    sql = sql + " and Apellido like " + "'%" + Apellido + "%'";
+                    break;
+
+                case "01":
+                    sql = sql + " where  Apellido like " + "'%" + Apellido + "%'";
+                    break;
+            }
+
+            sql = sql + " Order by Apellido,Nombre ";
+            return cDb.ExecuteDataTable(sql);
+
+        }
+
+        public DataTable GetClientes(Int32? CodTipoDoc)
+        {
+            string sql = "select c.Apellido,c.Nombre,c.Telefono, ";
+            sql = sql + "c.Calle,c.Numero ";
+            sql = sql + " from Cliente c";
+            if (CodTipoDoc !=null)
+            {
+                sql = sql + " where c.CodTipoDoc=" + CodTipoDoc.ToString();
+            }
+            sql = sql + " order by c.Apellido,c.Nombre ";
+            return cDb.ExecuteDataTable(sql);
+        }
+
+        public Int32 InserterClienteId2(Int32? CodTipoDoc, string NroDocumento,
+           string Nombre, string Apellido, string Telefono)
+        {
+            string sql = "Insert into Cliente(CodTipoDoc,NroDocumento,Nombre,Apellido";
+            sql = sql + ",Telefono)";
+            sql = sql + "Values(";
+            if (CodTipoDoc == null)
+                sql = sql + "null";
+            else
+                sql = sql + CodTipoDoc.ToString();
+            sql = sql + "," + "'" + NroDocumento + "'";
+            sql = sql + "," + "'" + Nombre + "'";
+            sql = sql + "," + "'" + Apellido + "'";
+            sql = sql + "," + "'" + Telefono + "'";
+            sql = sql + ")";
+
+            return cDb.EjecutarEscalar(sql);
+        }
 
     }
 }

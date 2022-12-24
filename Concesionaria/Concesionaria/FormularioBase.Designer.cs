@@ -41,6 +41,7 @@
             this.Name = "FormularioBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormularioBase";
+            this.Load += new System.EventHandler(this.FormularioBase_Load);
             this.ResumeLayout(false);
 
         }

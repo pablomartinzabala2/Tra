@@ -38,5 +38,14 @@ namespace Concesionaria.Clases
             sql = sql + " where CodCiudad=" + CodCiudad.ToString();
             return cDb.ExecuteDataTable(sql);
         }
+
+        public void Insertar(string Nombre)
+        {
+            string sql = "Insert into Ciudad(";
+            sql = sql + "Nombre)";
+            sql = sql + " Values(" + "'" + Nombre + "'";
+            sql = sql + ")";
+            cDb.ExecutarNonQuery(sql);
+        }
     }
 }

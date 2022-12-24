@@ -417,6 +417,10 @@ namespace Concesionaria
             DataTable trdo = cliente.GetClientesxCodigo(CodCliente);
             if (trdo.Rows.Count > 0)
             {
+                if (trdo.Rows[0]["CodTipoDoc"].ToString()!="")
+                {
+                    cmbDocumento.SelectedValue = trdo.Rows[0]["CodTipoDoc"].ToString();
+                }
                 txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
                 txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
                 txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
@@ -427,7 +431,8 @@ namespace Concesionaria
                     CmbBarrio.SelectedValue = trdo.Rows[0]["CodBarrio"].ToString();
                 txtCodCLiente.Text = trdo.Rows[0]["CodCliente"].ToString();
                 txtNroDoc.Text = trdo.Rows[0]["NroDocumento"].ToString();
-                CargarPatentesxCliente(Convert.ToInt32(txtCodCLiente.Text));
+                CargarPatentesxCliente(CodCliente);
+                //  CargarPatentesxCliente(Convert.ToInt32(txtCodCLiente.Text));
             }
         }
 

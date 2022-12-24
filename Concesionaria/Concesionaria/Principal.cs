@@ -36,6 +36,8 @@ namespace Concesionaria
         public static Int32? CodAutoSeleccionado;
         public static string RutaImagen;
         public static Int32? CodPresupuesto;
+        public static Int32? CodRecibo;
+        public static Int32? CodigoAuto;
         public Principal()
         {
             InitializeComponent();
@@ -739,6 +741,30 @@ namespace Concesionaria
         private void presupuestoToolStripMenuItem_Click(object sender, EventArgs e)
         {  
             FrmListadoPresupuesto frm = new FrmListadoPresupuesto();
+            frm.Show();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            FrmListadoAbm frm = new FrmListadoAbm();
+            frm.Show();
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            FrmAbmAuto frm = new FrmAbmAuto();
+            frm.Show();
+        }
+
+        private void anularVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAnularVenta frm = new FrmAnularVenta();
+            frm.Show();
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            FrmListadoRecibo frm = new FrmListadoRecibo();
             frm.Show();
         }
     }

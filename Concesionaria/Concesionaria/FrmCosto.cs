@@ -207,7 +207,7 @@ namespace Concesionaria
             TotalTotal = fun.ToDouble(txtImporte.Text);
             for (i = 0; i < Grilla.Rows.Count - 1; i++)
             {
-                if (Grilla.Rows[i].Cells[4].Value != "")
+                if (Grilla.Rows[i].Cells[4].Value.ToString () != "")
                 {
                     Total = Total + Convert.ToDouble(Grilla.Rows[i].Cells[4].Value);
                 }               

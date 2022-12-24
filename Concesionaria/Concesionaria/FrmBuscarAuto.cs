@@ -31,10 +31,15 @@ namespace Concesionaria
             {
                 CodMarca = Convert.ToInt32(cmbMarca.SelectedValue);
             }
+            DataTable trdo;
+            cAuto auto = new cAuto();
             cStockAuto stock = new cStockAuto();
-            DataTable trdo = stock.GetStockResumidoVigente(Patente, CodMarca);
+            if (chkStock.Checked == true)
+                trdo = stock.GetStockResumidoVigente(Patente, CodMarca);
+            else
+                trdo = auto.GetAutoResumido(Patente, CodMarca);
             Grilla.DataSource = trdo;
-            fun.AnchoColumnas(Grilla, "0;20;40;40");
+            fun.AnchoColumnas(Grilla, "0;20;40;30;10");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

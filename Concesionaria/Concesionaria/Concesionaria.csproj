@@ -116,6 +116,7 @@
     <Compile Include="Clases\cPunitorioCobranza.cs" />
     <Compile Include="Clases\cPunitorioCuota.cs" />
     <Compile Include="Clases\cPunitorioCuotasAnteriores.cs" />
+    <Compile Include="Clases\cRecibo.cs" />
     <Compile Include="Clases\cReportePresupuesto.cs" />
     <Compile Include="Clases\cResumenCuentas.cs" />
     <Compile Include="Clases\cSaldoCobranza.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Clases\cSaldoEfectivoPagar.cs" />
     <Compile Include="Clases\cStockAuto.cs" />
     <Compile Include="Clases\cTarjeta.cs" />
+    <Compile Include="Clases\cTransferencia.cs" />
     <Compile Include="Clases\cUsuario.cs" />
     <Compile Include="Clases\cVendedor.cs" />
     <Compile Include="Clases\cVenta.cs" />
@@ -174,6 +176,12 @@
     <Compile Include="FrmAbmBarrio.designer.cs">
       <DependentUpon>FrmAbmBarrio.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAbmCategoriaGasto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmCategoriaGasto.Designer.cs">
+      <DependentUpon>FrmAbmCategoriaGasto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAbmCategoriaGastoRecepcion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +199,12 @@
     </Compile>
     <Compile Include="FrmAbmCliente.Designer.cs">
       <DependentUpon>FrmAbmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAbmColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmColor.Designer.cs">
+      <DependentUpon>FrmAbmColor.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAbmEntidad prendaria.cs">
       <SubType>Form</SubType>
@@ -222,6 +236,12 @@
     <Compile Include="FrmAbmTarjeta.Designer.cs">
       <DependentUpon>FrmAbmTarjeta.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAbmTipoFinanciacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmTipoFinanciacion.Designer.cs">
+      <DependentUpon>FrmAbmTipoFinanciacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAlertas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +271,12 @@
     </Compile>
     <Compile Include="FrmBorrarTablas.Designer.cs">
       <DependentUpon>FrmBorrarTablas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscadorCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscadorCliente.Designer.cs">
+      <DependentUpon>FrmBuscadorCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmBuscadorGenerico.cs">
       <SubType>Form</SubType>
@@ -420,6 +446,12 @@
     <Compile Include="FrmIngresoCheque.Designer.cs">
       <DependentUpon>FrmIngresoCheque.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoAbm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoAbm.Designer.cs">
+      <DependentUpon>FrmListadoAbm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoAlertas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -455,6 +487,12 @@
     </Compile>
     <Compile Include="FrmListadoChequesaPagar.Designer.cs">
       <DependentUpon>FrmListadoChequesaPagar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoCliente.Designer.cs">
+      <DependentUpon>FrmListadoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListadoCobranza.cs">
       <SubType>Form</SubType>
@@ -522,11 +560,17 @@
     <Compile Include="FrmListadoPrenda.Designer.cs">
       <DependentUpon>FrmListadoPrenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmListadoPrestamo.cs">
+    <Compile Include="FrmReporteCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmListadoPrestamo.Designer.cs">
-      <DependentUpon>FrmListadoPrestamo.cs</DependentUpon>
+    <Compile Include="FrmReporteCliente.Designer.cs">
+      <DependentUpon>FrmReporteCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmsotprinciapl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmsotprinciapl.Designer.cs">
+      <DependentUpon>frmsotprinciapl.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListadoPresupuesto.cs">
       <SubType>Form</SubType>
@@ -539,6 +583,12 @@
     </Compile>
     <Compile Include="FrmListadoPreVenta.Designer.cs">
       <DependentUpon>FrmListadoPreVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoRecibo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoRecibo.Designer.cs">
+      <DependentUpon>FrmListadoRecibo.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListadoTarjeta.cs">
       <SubType>Form</SubType>
@@ -599,6 +649,12 @@
     </Compile>
     <Compile Include="fRMpRUEBA.Designer.cs">
       <DependentUpon>fRMpRUEBA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRecibo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRecibo.Designer.cs">
+      <DependentUpon>FrmRecibo.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRegistarEfectivosaPagar.cs">
       <SubType>Form</SubType>
@@ -678,11 +734,11 @@
     <Compile Include="FrmReportePresupuesto.Designer.cs">
       <DependentUpon>FrmReportePresupuesto.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReportePresupuesto2.cs">
+    <Compile Include="FrmReporteRecibo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReportePresupuesto2.Designer.cs">
-      <DependentUpon>FrmReportePresupuesto2.cs</DependentUpon>
+    <Compile Include="FrmReporteRecibo.Designer.cs">
+      <DependentUpon>FrmReporteRecibo.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmReporteVenta.cs">
       <SubType>Form</SubType>
@@ -773,6 +829,9 @@
     <EmbeddedResource Include="FrmAbmBarrio.resx">
       <DependentUpon>FrmAbmBarrio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmCategoriaGasto.resx">
+      <DependentUpon>FrmAbmCategoriaGasto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmCategoriaGastoRecepcion.resx">
       <DependentUpon>FrmAbmCategoriaGastoRecepcion.cs</DependentUpon>
     </EmbeddedResource>
@@ -781,6 +840,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmCliente.resx">
       <DependentUpon>FrmAbmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmColor.resx">
+      <DependentUpon>FrmAbmColor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmEntidad prendaria.resx">
       <DependentUpon>FrmAbmEntidad prendaria.cs</DependentUpon>
@@ -797,6 +859,9 @@
     <EmbeddedResource Include="FrmAbmTarjeta.resx">
       <DependentUpon>FrmAbmTarjeta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmTipoFinanciacion.resx">
+      <DependentUpon>FrmAbmTipoFinanciacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAlertas.resx">
       <DependentUpon>FrmAlertas.cs</DependentUpon>
     </EmbeddedResource>
@@ -811,6 +876,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBorrarTablas.resx">
       <DependentUpon>FrmBorrarTablas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscadorCliente.resx">
+      <DependentUpon>FrmBuscadorCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscadorGenerico.resx">
       <DependentUpon>FrmBuscadorGenerico.cs</DependentUpon>
@@ -896,6 +964,9 @@
     <EmbeddedResource Include="FrmIngresoCheque.resx">
       <DependentUpon>FrmIngresoCheque.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoAbm.resx">
+      <DependentUpon>FrmListadoAbm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoAlertas.resx">
       <DependentUpon>FrmListadoAlertas.cs</DependentUpon>
     </EmbeddedResource>
@@ -913,6 +984,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoChequesaPagar.resx">
       <DependentUpon>FrmListadoChequesaPagar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoCliente.resx">
+      <DependentUpon>FrmListadoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoCobranza.resx">
       <DependentUpon>FrmListadoCobranza.cs</DependentUpon>
@@ -947,14 +1021,20 @@
     <EmbeddedResource Include="FrmListadoPrenda.resx">
       <DependentUpon>FrmListadoPrenda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmListadoPrestamo.resx">
-      <DependentUpon>FrmListadoPrestamo.cs</DependentUpon>
+    <EmbeddedResource Include="FrmReporteCliente.resx">
+      <DependentUpon>FrmReporteCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmsotprinciapl.resx">
+      <DependentUpon>frmsotprinciapl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoPresupuesto.resx">
       <DependentUpon>FrmListadoPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoPreVenta.resx">
       <DependentUpon>FrmListadoPreVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoRecibo.resx">
+      <DependentUpon>FrmListadoRecibo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoTarjeta.resx">
       <DependentUpon>FrmListadoTarjeta.cs</DependentUpon>
@@ -985,6 +1065,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fRMpRUEBA.resx">
       <DependentUpon>fRMpRUEBA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRecibo.resx">
+      <DependentUpon>FrmRecibo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistarEfectivosaPagar.resx">
       <DependentUpon>FrmRegistarEfectivosaPagar.cs</DependentUpon>
@@ -1025,8 +1108,8 @@
     <EmbeddedResource Include="FrmReportePresupuesto.resx">
       <DependentUpon>FrmReportePresupuesto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReportePresupuesto2.resx">
-      <DependentUpon>FrmReportePresupuesto2.cs</DependentUpon>
+    <EmbeddedResource Include="FrmReporteRecibo.resx">
+      <DependentUpon>FrmReporteRecibo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteVenta.resx">
       <DependentUpon>FrmReporteVenta.cs</DependentUpon>
@@ -1076,8 +1159,12 @@
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="ReporteListado.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteBoletoCompraventa.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteClientes.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePresupuesto.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePresupuesto2.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteRecibo.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteStock.rdlc" />
     <EmbeddedResource Include="ReporteVentas.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -1158,11 +1245,13 @@
     <Content Include="Iconos\Grilla.ico" />
     <Content Include="Iconos\joselo.jpg" />
     <Content Include="Iconos\kfloppy_32x32-32.ico" />
+    <Content Include="Iconos\ListadoAbm.png" />
     <Content Include="Iconos\llave.ico" />
     <Content Include="Iconos\Logos\FirmaTraut.jpg" />
     <Content Include="Iconos\Logos\Logo.jpg" />
     <Content Include="Iconos\Logos\Pie.jpg" />
     <Content Include="Iconos\Logos\Pie2.jpg" />
+    <Content Include="Iconos\LogoTraut.jpg" />
     <Content Include="Iconos\Mensaje.jpg" />
     <Content Include="Iconos\money_euro.ico" />
     <Content Include="Iconos\MOVIMIENTOS.ico" />
@@ -1174,6 +1263,7 @@
     <Content Include="Iconos\print.ico" />
     <Content Include="Iconos\printer.ico" />
     <Content Include="Iconos\printer2.gif" />
+    <Content Include="Iconos\Recibo.ico" />
     <Content Include="Iconos\statistics3.ico" />
     <Content Include="Iconos\table.ico" />
     <Content Include="Iconos\tv.ico" />

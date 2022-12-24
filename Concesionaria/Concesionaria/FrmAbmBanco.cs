@@ -120,5 +120,14 @@ namespace Concesionaria
             Grupo.Enabled = true;
 
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Clases.cFunciones fun = new Clases.cFunciones();
+            Botonera(1);
+            Grupo.Enabled = false;
+            fun.LimpiarGenerico(this);
+            txtCodigo.Text = "";
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Concesionaria.Clases;
 
 namespace Concesionaria
 {
@@ -20,6 +21,16 @@ namespace Concesionaria
         {
 
             this.reportViewer1.RefreshReport();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string Nombre = textBox1.Text;
+            // cCiudad city = new Clases.cCiudad();
+            // city.Insertar(Nombre);
+
+            cBarrio  bar = new cBarrio();
+          int id =bar.Insertar(Nombre, 1);
         }
     }
 }

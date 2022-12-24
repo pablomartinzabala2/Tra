@@ -59,8 +59,8 @@ namespace Concesionaria
             string sqlDoc = "select * from TipoDocumento order by CodTipoDoc";
             DataTable tbDoc = cDb.ExecuteDataTable(sqlDoc);
             fun.LlenarComboDatatable(cmbDocumento, tbDoc, "Nombre", "CodTipoDoc");
-            if (cmbDocumento.Items.Count > 0)
-                cmbDocumento.SelectedIndex = 1;
+          //  if (cmbDocumento.Items.Count > 0)
+           //     cmbDocumento.SelectedIndex = 1;
             
             // fun.LlenarCombo(CmbBarrio, "Barrio", "Nombre", "CodBarrio");
             //fun.LlenarCombo(CmbCategoriaGasto, "CategoriaGasto", "Nombre", "CodCategoriaGasto");
@@ -216,8 +216,6 @@ namespace Concesionaria
                     txtApellido.Visible = true;
                     lblNombre.Text = "Nombre";
                     lblFecha.Text = "Fecha Nac-";
-                    txtCuit1.Visible = false;
-                    txtCuit2.Visible = false;
                     lblGuion1.Visible = false;
                     lblGuion2.Visible = false;
                     break;
@@ -226,8 +224,6 @@ namespace Concesionaria
                     txtApellido.Visible = false;
                     lblNombre.Text = "Razón Social";
                     lblFecha.Text = "Fecha Inicio";
-                    txtCuit1.Visible = true;
-                    txtCuit2.Visible = true;
                     lblGuion1.Visible = true;
                     lblGuion2.Visible = true;
                     break;
@@ -236,8 +232,7 @@ namespace Concesionaria
                     txtApellido.Visible = false;
                     lblNombre.Text = "Razón Social";
                     lblFecha.Text = "Fecha Inicio";
-                    txtCuit1.Visible = true;
-                    txtCuit2.Visible = true;
+                  
                     lblGuion1.Visible = true;
                     lblGuion2.Visible = true;
                     break;
@@ -692,8 +687,7 @@ namespace Concesionaria
             if (cmbProvincia2.Items.Count > 0)
                 cmbProvincia2.SelectedIndex = 0;
 
-            txtCuit1.Text = "";
-            txtCuit2.Text = "";
+         
         }
 
         private void btnAgregarCiudad_Click(object sender, EventArgs e)
@@ -850,10 +844,7 @@ namespace Concesionaria
             string Email = txtEmail.Text;
             string Observacion = txtObservacion.Text;
 
-            string Cuit1 = "";
-            string Cuit2 = "";
-            Cuit1 = txtCuit1.Text;
-            Cuit2 = txtCuit2.Text;
+           
 
             if (CmbBarrio.SelectedIndex > 0)
                 CodBarrio = Convert.ToInt32(CmbBarrio.SelectedValue);
@@ -861,14 +852,14 @@ namespace Concesionaria
             if (Nuevo == true)
             {
                 cliente.InsertarClienteTransaccion(con, Transaccion, CodTipoDoc, NroDocumento, Nombre,
-                    Apellido, Telefono, Celular, Calle, Altura, CodBarrio, FechaNacimiento, Email, Observacion, Cuit1, Cuit2);
+                    Apellido, Telefono, Celular, Calle, Altura, CodBarrio, FechaNacimiento, Email, Observacion);
                 txtCodCLiente.Text = cliente.GetMaxClientetTransaccion(con, Transaccion).ToString();
             }
             else
             {
                 cliente.ModificarClientetTransaccion(con, Transaccion, Convert.ToInt32(txtCodCLiente.Text), CodTipoDoc, NroDocumento, Nombre,
                     Apellido, Telefono, Celular,
-                    Calle, Altura, CodBarrio, FechaNacimiento, Email, Observacion, Cuit1, Cuit2);
+                    Calle, Altura, CodBarrio, FechaNacimiento, Email, Observacion);
             }
             return true;
         }
@@ -2461,20 +2452,7 @@ namespace Concesionaria
                     return;
                 }
             }
-            if (CodTipoDoc>1 && CodTipoDoc <4)
-            {
-                if (txtCuit1.Text =="")
-                {
-                    Mensaje("El número de documento ingresado es inclompleto");
-                    return;
-                }
-
-                if (txtCuit2.Text =="")
-                {
-                    Mensaje("El número de documento ingresado es inclompleto");
-                    return;
-                }
-            }
+            
 
        
             if (cmbDocumento.SelectedIndex > 0)
@@ -2608,8 +2586,8 @@ namespace Concesionaria
                 Vehiculo = fun.ToDouble(txtTotalVehiculo.Text);
             if (txtTotalEfectivosaPagar.Text != "")
                 EfectivoPagar = fun.ToDouble(txtTotalEfectivosaPagar.Text);
-            if (txtTotalGasto.Text != "")
-                Gastos = fun.ToDouble(txtTotalGasto.Text);
+         //   if (txtTotalGasto.Text != "")
+         //       Gastos = fun.ToDouble(txtTotalGasto.Text);
 
             Subtotal = Efectivo + Cheque + Vehiculo + EfectivoPagar + Gastos;
             TxtSubTotal.Text = Subtotal.ToString();

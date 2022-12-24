@@ -372,7 +372,7 @@ namespace Concesionaria.Clases
                                 if (Combo.SelectedIndex > 0)
                                     values = "Values("+ Combo.SelectedValue.ToString();
                                 else
-                                    values = "(null";
+                                    values = " Values(null";
                                 ban = 1;
                             }
                             else

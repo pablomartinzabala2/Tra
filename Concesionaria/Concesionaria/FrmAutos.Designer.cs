@@ -77,6 +77,8 @@
             this.cmbDocumento = new System.Windows.Forms.ComboBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblGuion2 = new System.Windows.Forms.Label();
+            this.lblGuion1 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.btnAgregarCliente = new System.Windows.Forms.Button();
             this.GrillaCliente = new System.Windows.Forms.DataGridView();
@@ -186,10 +188,6 @@
             this.label44 = new System.Windows.Forms.Label();
             this.TxtSubTotal = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
-            this.txtCuit1 = new System.Windows.Forms.TextBox();
-            this.txtCuit2 = new System.Windows.Forms.TextBox();
-            this.lblGuion1 = new System.Windows.Forms.Label();
-            this.lblGuion2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCliente)).BeginInit();
@@ -697,8 +695,6 @@
             // 
             this.groupBox2.Controls.Add(this.lblGuion2);
             this.groupBox2.Controls.Add(this.lblGuion1);
-            this.groupBox2.Controls.Add(this.txtCuit2);
-            this.groupBox2.Controls.Add(this.txtCuit1);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.btnAgregarCliente);
             this.groupBox2.Controls.Add(this.GrillaCliente);
@@ -740,6 +736,24 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información del Cliente";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // lblGuion2
+            // 
+            this.lblGuion2.AutoSize = true;
+            this.lblGuion2.Location = new System.Drawing.Point(654, 22);
+            this.lblGuion2.Name = "lblGuion2";
+            this.lblGuion2.Size = new System.Drawing.Size(12, 16);
+            this.lblGuion2.TabIndex = 68;
+            this.lblGuion2.Text = "-";
+            // 
+            // lblGuion1
+            // 
+            this.lblGuion1.AutoSize = true;
+            this.lblGuion1.Location = new System.Drawing.Point(497, 22);
+            this.lblGuion1.Name = "lblGuion1";
+            this.lblGuion1.Size = new System.Drawing.Size(12, 16);
+            this.lblGuion1.TabIndex = 67;
+            this.lblGuion1.Text = "-";
             // 
             // button4
             // 
@@ -889,6 +903,7 @@
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(128, 22);
             this.txtCelular.TabIndex = 30;
+            this.txtCelular.Visible = false;
             // 
             // txtTelefono
             // 
@@ -956,6 +971,7 @@
             this.label11.Size = new System.Drawing.Size(28, 16);
             this.label11.TabIndex = 16;
             this.label11.Text = "Cel";
+            this.label11.Visible = false;
             // 
             // label10
             // 
@@ -978,7 +994,7 @@
             // 
             // txtNroDoc
             // 
-            this.txtNroDoc.Location = new System.Drawing.Point(515, 22);
+            this.txtNroDoc.Location = new System.Drawing.Point(462, 21);
             this.txtNroDoc.Name = "txtNroDoc";
             this.txtNroDoc.Size = new System.Drawing.Size(136, 22);
             this.txtNroDoc.TabIndex = 12;
@@ -1822,38 +1838,6 @@
             this.label45.TabIndex = 55;
             this.label45.Text = "Subtotal";
             // 
-            // txtCuit1
-            // 
-            this.txtCuit1.Location = new System.Drawing.Point(461, 22);
-            this.txtCuit1.Name = "txtCuit1";
-            this.txtCuit1.Size = new System.Drawing.Size(30, 22);
-            this.txtCuit1.TabIndex = 65;
-            // 
-            // txtCuit2
-            // 
-            this.txtCuit2.Location = new System.Drawing.Point(673, 22);
-            this.txtCuit2.Name = "txtCuit2";
-            this.txtCuit2.Size = new System.Drawing.Size(30, 22);
-            this.txtCuit2.TabIndex = 66;
-            // 
-            // lblGuion1
-            // 
-            this.lblGuion1.AutoSize = true;
-            this.lblGuion1.Location = new System.Drawing.Point(497, 22);
-            this.lblGuion1.Name = "lblGuion1";
-            this.lblGuion1.Size = new System.Drawing.Size(12, 16);
-            this.lblGuion1.TabIndex = 67;
-            this.lblGuion1.Text = "-";
-            // 
-            // lblGuion2
-            // 
-            this.lblGuion2.AutoSize = true;
-            this.lblGuion2.Location = new System.Drawing.Point(654, 22);
-            this.lblGuion2.Name = "lblGuion2";
-            this.lblGuion2.Size = new System.Drawing.Size(12, 16);
-            this.lblGuion2.TabIndex = 68;
-            this.lblGuion2.Text = "-";
-            // 
             // FrmAutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2079,8 +2063,6 @@
         private System.Windows.Forms.DateTimePicker dpFechaVencimiento;
         private System.Windows.Forms.ComboBox cmbAnio;
         private System.Windows.Forms.Button btnAgregarAnio;
-        private System.Windows.Forms.TextBox txtCuit2;
-        private System.Windows.Forms.TextBox txtCuit1;
         private System.Windows.Forms.Label lblGuion2;
         private System.Windows.Forms.Label lblGuion1;
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.Data.SqlClient;
 namespace Concesionaria.Clases
 {
     public class cChequeCobrar
@@ -84,6 +85,31 @@ namespace Concesionaria.Clases
             sql = sql + " set EntregadoA=" + "'" + Nombre + "'";
             sql = sql + " where CodCheque=" + CodChque.ToString();
             cDb.ExecutarNonQuery(sql);
+
+        }
+
+        public void InsertarTransaccion(SqlConnection con, SqlTransaction Transaccion, DateTime Fecha, DateTime Vencimiento,
+          Double Importe, Int32? CodBanco, string Apellido,
+          string Nombre, string Patente, string Telefono, string NumeroCheque,Int32? CodRecibo)
+        {
+            string sql = "insert into chequecobrar(";
+            sql = sql + "Fecha,Vencimiento,Importe,CodBanco,";
+            sql = sql + "Apellido,Nombre,Patente,Telefono,NumeroCheque,CodRecibo)";
+            sql = sql + " Values(" + "'" + Fecha.ToShortDateString() + "'";
+            sql = sql + "," + "'" + Vencimiento.ToShortDateString() + "'";
+            sql = sql + "," + Importe.ToString().Replace(",", ".");
+            sql = sql + "," + CodBanco.ToString();
+            sql = sql + "," + "'" + Apellido + "'";
+            sql = sql + "," + "'" + Nombre + "'";
+            sql = sql + "," + "'" + Patente + "'";
+            sql = sql + "," + "'" + Telefono + "'";
+            sql = sql + "," + "'" + NumeroCheque + "'";
+            if (CodRecibo != null)
+                sql = sql + "," + CodRecibo.ToString();
+            else
+                sql = sql + ",null";
+            sql = sql + ")";
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
 
         }
     }

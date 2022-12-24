@@ -48,5 +48,14 @@ namespace Concesionaria.Clases
             sql = sql + " and b.CodBarrio=" + CodBarrio.ToString();
             return cDb.ExecuteDataTable(sql);
         }
+
+        public Int32  Insertar(string Nombre,int CodCiudad)
+        {
+            string sql = "insert into Barrio(Nombre,CodCiudad) Values(";
+            sql = sql + "'" + Nombre + "'";
+            sql = sql + "," + CodCiudad.ToString();
+            sql = sql + ")";
+            return cDb.EjecutarEscalar(sql);
+        }
     }
 }

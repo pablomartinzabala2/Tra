@@ -63,16 +63,19 @@ namespace Concesionaria.Clases
 
         }
 
-        public DataTable GetStockDetalladosVigente(string Patente,Int32? CodMarca)
+        public DataTable GetStockDetalladosVigente(string Patente,Int32? CodMarca, string Modelo)
         {
             string sql = "";
             sql = "select sa.CodStock,a.Patente";
             sql = sql + ",m.Nombre";
-            sql = sql + ",Descripcion as Descripción";
-            sql = sql + ",sa.FechaAlta as Fecha";
-           // sql = sql + ", (cli.Apellido + ' ' + Cli.Nombre) as Cliente";
-            sql = sql + ", ('') as Cliente";
-            //sql = sql + ",Importe as Costo";
+            sql = sql + ",Descripcion as Modelo";
+            sql = sql + ",(select tc.Nombre from TipoCombustible tc where tc.Codigo=a.CodTipoCombustible) as Combustible ";
+            sql = sql + ",(select cc.Nombre from Color cc where cc.CodColor=a.CodColor) as Color";
+            sql = sql + ",(select aa.Nombre from Anio aa where aa.CodAnio=a.CodAnio) as Año";
+            sql = sql + ",a.Kilometros as km ";
+            sql = sql + ",(select tu.Nombre from TipoUtilitario tu where tu.CodTipo=a.CodTipoUtilitario) as Tipo ";
+            sql = sql + ",a.Concesion";
+            /*
             sql = sql + ",(Importe + (select isnull(sum(Importe),0) from Costo cos where "; 
             sql = sql + " cos.CodStock = sa.CodStock ) ";
             sql = sql + " + (select isnull(sum(Importe),0) from Gasto gas where gas.CodStock = sa.CodStock)";
@@ -80,10 +83,10 @@ namespace Concesionaria.Clases
             sql = sql + " - (select isnull(sum(dif.Importe),0) from gastospagar gap, DiferenciaTransferencia dif";
             sql = sql + " where gap.CodGasto=dif.CodGasto  and gap.CodStock = sa.CodStock)";
             sql = sql + ") as Costo";
-            sql = sql + ",Concesion";
-            sql = sql + ",(select suc.Nombre from sucursal suc where suc.CodSucursal=a.CodSucursal) as Ubicacion";
+            */
             sql = sql + ",sa.PrecioVenta";
-            sql = sql + ",(select suc.Nombre from sucursal suc where suc.CodSucursal=a.CodSucursal) as Ubicacion";
+            
+            
             
             sql = sql + " from auto a, StockAuto sa,marca m";
             sql = sql + " where a.Codauto =sa.CodAuto ";
@@ -94,7 +97,9 @@ namespace Concesionaria.Clases
                 sql = sql + " and a.Patente like" + "'%" + Patente + "%'";
             if (CodMarca != null)
                 sql = sql + " and a.CodMarca =" + CodMarca.ToString();
-            sql = sql + " order by m.Nombre,a.Anio desc";
+            if (Modelo != "")
+                sql = sql + " and a.Descripcion like " + "'%" + Modelo + "%'";
+            sql = sql + " order by m.Nombre,a.Descripcion, a.Anio desc";
             return cDb.ExecuteDataTable(sql);
         }
 
@@ -230,7 +235,8 @@ namespace Concesionaria.Clases
             string sql = "";
             sql = "select a.CodAuto,a.Patente";
             sql = sql + ",m.Nombre";
-            sql = sql + ",Descripcion as Descripción";
+            sql = sql + ",Descripcion as Descripción ";
+            sql = sql + ",(select aa.Nombre from anio aa where aa.CodAnio = a.CodAnio) as Modelo ";
             // sql = sql + ",sa.FechaAlta as Fecha";
             // sql = sql + ", (cli.Apellido + ' ' + Cli.Nombre) as Cliente";
             // sql = sql + ", ('') as Cliente";
@@ -246,6 +252,41 @@ namespace Concesionaria.Clases
             //   sql = sql + ",(select suc.Nombre from sucursal suc where suc.CodSucursal=a.CodSucursal) as Ubicacion";
             //    sql = sql + ",sa.PrecioVenta";
             //    sql = sql + ",(select suc.Nombre from sucursal suc where suc.CodSucursal=a.CodSucursal) as Ubicacion";
+
+            sql = sql + " from auto a, StockAuto sa,marca m";
+            sql = sql + " where a.Codauto =sa.CodAuto ";
+            // sql = sql + " and sa.CodCliente = cli.CodCliente";
+            sql = sql + " and a.CodMarca = m.CodMarca";
+            sql = sql + " and sa.FechaBaja is null ";
+            if (Patente != "")
+                sql = sql + " and a.Patente like" + "'%" + Patente + "%'";
+            if (CodMarca != null)
+                sql = sql + " and a.CodMarca =" + CodMarca.ToString();
+            sql = sql + " order by m.Nombre,a.Anio desc";
+            return cDb.ExecuteDataTable(sql);
+        }
+
+        public DataTable GetStockDetalladosVigenteResumenCuenta(string Patente, Int32? CodMarca)
+        {
+            string sql = "";
+            sql = "select sa.CodStock,a.Patente";
+            sql = sql + ",m.Nombre";
+            sql = sql + ",Descripcion as Descripción";
+            sql = sql + ",sa.FechaAlta as Fecha";
+            // sql = sql + ", (cli.Apellido + ' ' + Cli.Nombre) as Cliente";
+            sql = sql + ", ('') as Cliente";
+            //sql = sql + ",Importe as Costo";
+            sql = sql + ",(Importe + (select isnull(sum(Importe),0) from Costo cos where ";
+            sql = sql + " cos.CodStock = sa.CodStock ) ";
+            sql = sql + " + (select isnull(sum(Importe),0) from Gasto gas where gas.CodStock = sa.CodStock)";
+            //sql = sql + " + (select isnull(sum(Importe),0) from GastosRecepcionxAuto gra where gra.CodStock = sa.CodStock)";
+            sql = sql + " - (select isnull(sum(dif.Importe),0) from gastospagar gap, DiferenciaTransferencia dif";
+            sql = sql + " where gap.CodGasto=dif.CodGasto  and gap.CodStock = sa.CodStock)";
+            sql = sql + ") as Costo";
+            sql = sql + ",Concesion";
+            sql = sql + ",(select suc.Nombre from sucursal suc where suc.CodSucursal=a.CodSucursal) as Ubicacion";
+            sql = sql + ",sa.PrecioVenta";
+            sql = sql + ",(select suc.Nombre from sucursal suc where suc.CodSucursal=a.CodSucursal) as Ubicacion";
 
             sql = sql + " from auto a, StockAuto sa,marca m";
             sql = sql + " where a.Codauto =sa.CodAuto ";

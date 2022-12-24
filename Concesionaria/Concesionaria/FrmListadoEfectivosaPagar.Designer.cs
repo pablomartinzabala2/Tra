@@ -106,7 +106,7 @@
             // btnCobroPrenda
             // 
             this.btnCobroPrenda.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroPrenda.Location = new System.Drawing.Point(768, 30);
+            this.btnCobroPrenda.Location = new System.Drawing.Point(759, 28);
             this.btnCobroPrenda.Name = "btnCobroPrenda";
             this.btnCobroPrenda.Size = new System.Drawing.Size(40, 31);
             this.btnCobroPrenda.TabIndex = 48;

@@ -53,7 +53,7 @@
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.DataTable1BindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Concesionaria.Reportes.ReportePresupuesto.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Concesionaria.Reportes.ReportePresupuesto2.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(12, 1);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(721, 493);

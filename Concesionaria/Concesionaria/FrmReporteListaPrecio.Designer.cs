@@ -36,9 +36,11 @@
             this.ReporteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ReporteTableAdapter = new Concesionaria.CONCESIONARIADataSetTableAdapters.ReporteTableAdapter();
             this.ReporteAutoTableAdapter = new Concesionaria.CONCESIONARIADataSetTableAdapters.ReporteAutoTableAdapter();
+            this.COPIACONCESIONARIADataSet = new Concesionaria.COPIACONCESIONARIADataSet();
             ((System.ComponentModel.ISupportInitialize)(this.ReporteAutoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CONCESIONARIADataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReporteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.COPIACONCESIONARIADataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // ReporteAutoBindingSource
@@ -56,7 +58,7 @@
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.ReporteAutoBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Concesionaria.ReporteListado.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Concesionaria.Reportes.ReporteStock.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(12, 12);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(0);
             this.reportViewer1.Name = "reportViewer1";
@@ -76,6 +78,11 @@
             // 
             this.ReporteAutoTableAdapter.ClearBeforeFill = true;
             // 
+            // COPIACONCESIONARIADataSet
+            // 
+            this.COPIACONCESIONARIADataSet.DataSetName = "COPIACONCESIONARIADataSet";
+            this.COPIACONCESIONARIADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // FrmReporteListaPrecio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -91,6 +98,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ReporteAutoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CONCESIONARIADataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReporteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.COPIACONCESIONARIADataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -103,5 +111,6 @@
         private CONCESIONARIADataSetTableAdapters.ReporteTableAdapter ReporteTableAdapter;
         private System.Windows.Forms.BindingSource ReporteAutoBindingSource;
         private CONCESIONARIADataSetTableAdapters.ReporteAutoTableAdapter ReporteAutoTableAdapter;
+        private COPIACONCESIONARIADataSet COPIACONCESIONARIADataSet;
     }
 }

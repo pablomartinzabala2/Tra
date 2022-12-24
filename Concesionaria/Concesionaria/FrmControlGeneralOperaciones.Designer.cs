@@ -39,19 +39,21 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtFechaHasta = new System.Windows.Forms.MaskedTextBox();
-            this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.txtPrenda = new System.Windows.Forms.TextBox();
             this.txtVehículo = new System.Windows.Forms.TextBox();
             this.txtDocumentos = new System.Windows.Forms.TextBox();
+            this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
+            this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dpFechaHasta);
+            this.groupBox1.Controls.Add(this.dpFechaDesde);
             this.groupBox1.Controls.Add(this.txtApellido);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnReporte2);
@@ -62,8 +64,6 @@
             this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtFechaHasta);
-            this.groupBox1.Controls.Add(this.txtFechaDesde);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.Grilla);
             this.groupBox1.Controls.Add(this.txtPrenda);
@@ -166,26 +166,6 @@
             this.label2.TabIndex = 39;
             this.label2.Text = "Fecha Hasta";
             // 
-            // txtFechaHasta
-            // 
-            this.txtFechaHasta.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFechaHasta.Location = new System.Drawing.Point(347, 27);
-            this.txtFechaHasta.Mask = "00/00/0000";
-            this.txtFechaHasta.Name = "txtFechaHasta";
-            this.txtFechaHasta.Size = new System.Drawing.Size(100, 22);
-            this.txtFechaHasta.TabIndex = 38;
-            this.txtFechaHasta.ValidatingType = typeof(System.DateTime);
-            // 
-            // txtFechaDesde
-            // 
-            this.txtFechaDesde.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFechaDesde.Location = new System.Drawing.Point(118, 27);
-            this.txtFechaDesde.Mask = "00/00/0000";
-            this.txtFechaDesde.Name = "txtFechaDesde";
-            this.txtFechaDesde.Size = new System.Drawing.Size(100, 22);
-            this.txtFechaDesde.TabIndex = 37;
-            this.txtFechaDesde.ValidatingType = typeof(System.DateTime);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -231,6 +211,22 @@
             this.txtDocumentos.Size = new System.Drawing.Size(136, 22);
             this.txtDocumentos.TabIndex = 1;
             // 
+            // dpFechaHasta
+            // 
+            this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaHasta.Location = new System.Drawing.Point(356, 25);
+            this.dpFechaHasta.Name = "dpFechaHasta";
+            this.dpFechaHasta.Size = new System.Drawing.Size(87, 22);
+            this.dpFechaHasta.TabIndex = 73;
+            // 
+            // dpFechaDesde
+            // 
+            this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaDesde.Location = new System.Drawing.Point(118, 25);
+            this.dpFechaDesde.Name = "dpFechaDesde";
+            this.dpFechaDesde.Size = new System.Drawing.Size(87, 22);
+            this.dpFechaDesde.TabIndex = 72;
+            // 
             // FrmControlGeneralOperaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,12 +260,12 @@
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox txtFechaHasta;
-        private System.Windows.Forms.MaskedTextBox txtFechaDesde;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.TextBox txtPrenda;
         private System.Windows.Forms.TextBox txtVehículo;
         private System.Windows.Forms.TextBox txtDocumentos;
+        private System.Windows.Forms.DateTimePicker dpFechaHasta;
+        private System.Windows.Forms.DateTimePicker dpFechaDesde;
     }
 }

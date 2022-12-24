@@ -15,5 +15,15 @@ namespace Concesionaria
         {
             InitializeComponent();
         }
+
+        private void FormularioBase_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void Msj(string Mensaje)
+        {
+            MessageBox.Show(Mensaje, "Sistema");
+        }
     }
 }
