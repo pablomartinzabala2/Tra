@@ -18,8 +18,12 @@ namespace Concesionaria
 
         private void FrmRegistrarCobranzaGeneral_Load(object sender, EventArgs e)
         {
-           
-            
+            cFunciones fun = new cFunciones();
+            string sqlDoc = "select * from TipoDocumento order by CodTipoDoc";
+            DataTable tbDoc = cDb.ExecuteDataTable(sqlDoc);
+            fun.LlenarComboDatatable(cmbDocumento, tbDoc, "Nombre", "CodTipoDoc");
+            if (cmbDocumento.Items.Count > 1)
+                cmbDocumento.SelectedIndex = 1;
         }
 
         private void Mensaje(string msj)
@@ -42,7 +46,7 @@ namespace Concesionaria
                 return;
             }
 
-            Int32 CodCLi = 0;
+            Int32? CodCLi = 0;
             cCliente cli = new cCliente();
             DateTime Fecha = dpFecha.Value;
             DateTime FechaVencimiento = dpFechaVencimiento.Value;
@@ -54,7 +58,7 @@ namespace Concesionaria
             string Telefono = txtTelefono.Text;
             string Patente = txtPatente.Text;
             string Direccion = txtDireccion.Text;
-            string Nombrecliente = txtNombre + " " + txtApellido.Text;
+            string Nombrecliente = txtNombre.Text + " " + txtApellido.Text;
             cCobranzaGeneral cob = new cCobranzaGeneral();
             if (txtCodCLiente.Text =="")
             {
@@ -65,7 +69,7 @@ namespace Concesionaria
                 txtCodCLiente.Text = "";
             }
 
-            cob.InsertarCobranza(Fecha, Descripcion, Importe, Nombrecliente, Telefono, Direccion, Patente, FechaVencimiento);
+            cob.InsertarCobranza(Fecha, Descripcion, Importe, Nombrecliente, Telefono, Direccion, Patente, FechaVencimiento,CodCLi);
             Mensaje("Datos grabados correctamente");
             txtDescripcion.Text = "";
             txtEfectivo.Text = "";
@@ -106,6 +110,10 @@ namespace Concesionaria
                 txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
                 txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
                 txtCodCLiente.Text = trdo.Rows[0]["CodCliente"].ToString();
+                if (trdo.Rows[0]["CodTipoDoc"].ToString() != "")
+                {
+                    cmbDocumento.SelectedValue = trdo.Rows[0]["CodTipoDoc"].ToString();
+                }
             }
             else
             {
@@ -116,6 +124,38 @@ namespace Concesionaria
                 txtCodCLiente.Text = "";
             }
                 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEfectivo_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtNroDoc_TextChanged(object sender, EventArgs e)
+        {
+            Int32 CodTipoDoc = 0;
+            if (cmbDocumento.SelectedIndex > 0)
+                CodTipoDoc = Convert.ToInt32(cmbDocumento.SelectedValue);
+            string nroDocumento = txtNroDoc.Text;
+            Clases.cCliente cliente = new Clases.cCliente();
+            DataTable trdo = cliente.GetClientesxNroDoc(CodTipoDoc, nroDocumento);
+            if (trdo.Rows.Count > 0)
+            {
+                txtCodCLiente.Text = trdo.Rows[0]["CodCliente"].ToString();
+                txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
+                txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
+                txtNroDoc.Text = trdo.Rows[0]["NroDocumento"].ToString();
+                if (trdo.Rows[0]["CodTipoDoc"].ToString()!="")
+                {
+                    cmbDocumento.SelectedValue = trdo.Rows[0]["CodTipoDoc"].ToString();
+                }
+            }
         }
     }
 }

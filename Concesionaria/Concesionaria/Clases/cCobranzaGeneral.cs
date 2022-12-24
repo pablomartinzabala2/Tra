@@ -9,9 +9,9 @@ namespace Concesionaria.Clases
     public class cCobranzaGeneral
     {
         public void InsertarCobranza(DateTime Fecha, string Descripcion, double Importe,
-            string Nombre,string Telefono,string Direccion,string Patente,DateTime FechaCompromiso)
+            string Nombre,string Telefono,string Direccion,string Patente,DateTime FechaCompromiso,Int32? CodCliente)
         {
-            string sql = "Insert into CobranzaGeneral(Fecha,Importe,Descripcion,Saldo,Cliente,Telefono,Direccion,Patente,FechaCompromiso)";
+            string sql = "Insert into CobranzaGeneral(Fecha,Importe,Descripcion,Saldo,Cliente,Telefono,Direccion,Patente,FechaCompromiso,CodCliente)";
             sql = sql + "values(" + "'" + Fecha.ToShortDateString () +"'";
             sql = sql + "," + Importe.ToString().Replace(",", ".");
             sql = sql + "," + "'" + Descripcion + "'";
@@ -21,6 +21,10 @@ namespace Concesionaria.Clases
             sql = sql + "," + "'" + Direccion + "'";
             sql = sql + "," + "'" + Patente + "'";
             sql = sql + "," + "'" + FechaCompromiso.ToShortDateString() + "'";
+            if (CodCliente != null)
+                sql = sql + "," + CodCliente.ToString();
+            else
+                sql = sql + ",null";
             sql = sql + ")";
              cDb.ExecutarNonQuery(sql);
         }

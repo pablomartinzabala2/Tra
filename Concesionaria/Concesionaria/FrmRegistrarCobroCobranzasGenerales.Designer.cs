@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtFechaCobro = new System.Windows.Forms.MaskedTextBox();
             this.btnAlarma = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtPatente = new System.Windows.Forms.TextBox();
@@ -49,8 +51,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtImporte = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtFechaCobro = new System.Windows.Forms.MaskedTextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,6 +86,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registrar efectivo";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(43, 173);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(87, 17);
+            this.label8.TabIndex = 67;
+            this.label8.Text = "Fecha cobro";
+            // 
+            // txtFechaCobro
+            // 
+            this.txtFechaCobro.Location = new System.Drawing.Point(146, 173);
+            this.txtFechaCobro.Mask = "00/00/0000";
+            this.txtFechaCobro.Name = "txtFechaCobro";
+            this.txtFechaCobro.Size = new System.Drawing.Size(75, 23);
+            this.txtFechaCobro.TabIndex = 66;
+            this.txtFechaCobro.ValidatingType = typeof(System.DateTime);
+            // 
             // btnAlarma
             // 
             this.btnAlarma.Image = global::Concesionaria.Properties.Resources.RelojChico1;
@@ -115,7 +133,7 @@
             // btnDetalle
             // 
             this.btnDetalle.Image = global::Concesionaria.Properties.Resources.Grilla;
-            this.btnDetalle.Location = new System.Drawing.Point(252, 310);
+            this.btnDetalle.Location = new System.Drawing.Point(262, 337);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(40, 29);
             this.btnDetalle.TabIndex = 62;
@@ -264,24 +282,6 @@
             this.label1.Size = new System.Drawing.Size(51, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = " Monto";
-            // 
-            // txtFechaCobro
-            // 
-            this.txtFechaCobro.Location = new System.Drawing.Point(146, 173);
-            this.txtFechaCobro.Mask = "00/00/0000";
-            this.txtFechaCobro.Name = "txtFechaCobro";
-            this.txtFechaCobro.Size = new System.Drawing.Size(75, 23);
-            this.txtFechaCobro.TabIndex = 66;
-            this.txtFechaCobro.ValidatingType = typeof(System.DateTime);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(43, 173);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(87, 17);
-            this.label8.TabIndex = 67;
-            this.label8.Text = "Fecha cobro";
             // 
             // FrmRegistrarCobroCobranzasGenerales
             // 
