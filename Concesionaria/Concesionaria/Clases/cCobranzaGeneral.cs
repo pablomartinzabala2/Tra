@@ -41,6 +41,7 @@ namespace Concesionaria.Clases
                 sql = sql + " and Saldo >0";
             if (Cliente != "")
                 sql = sql + " and Cliente like " + "'%" + Cliente  +"%'";
+            sql = sql + " order by CodCobranza desc ";
             return cDb.ExecuteDataTable(sql);
         }
 

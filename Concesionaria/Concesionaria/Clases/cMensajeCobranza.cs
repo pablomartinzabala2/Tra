@@ -24,10 +24,17 @@ namespace Concesionaria.Clases
 
         public DataTable GetMensajesxCodCobranza(Int32 CodCobranza)
         {
-            string sql = "select Fecha,Mensaje from MensajesCobranza";
+            string sql = "select CodMensaje,Fecha,Mensaje from MensajesCobranza";
             sql = sql + " where CodCobranza =" + CodCobranza.ToString();
             sql = sql + " order by Fecha Desc";
             return cDb.ExecuteDataTable(sql);
+        }
+
+        public void borrar(Int32 CodMensaje)
+        {
+            string sql = "delete from MensajesCobranza ";
+            sql = sql + " where CodMensaje=" + CodMensaje.ToString();
+            cDb.ExecutarNonQuery(sql);
         }
     }
 }

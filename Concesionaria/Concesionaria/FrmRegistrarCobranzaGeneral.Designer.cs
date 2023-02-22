@@ -53,11 +53,13 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtEfectivo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.cmbDocumento);
             this.groupBox1.Controls.Add(this.txtCodCLiente);
             this.groupBox1.Controls.Add(this.btnBuscarCliente);
@@ -303,6 +305,17 @@
             this.label1.Text = " Monto";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // button1
+            // 
+            this.button1.Image = global::Concesionaria.Properties.Resources.email;
+            this.button1.Location = new System.Drawing.Point(246, 239);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 29);
+            this.button1.TabIndex = 82;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FrmRegistrarCobranzaGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,5 +362,6 @@
         private System.Windows.Forms.Button btnBuscarCliente;
         private System.Windows.Forms.TextBox txtCodCLiente;
         private System.Windows.Forms.ComboBox cmbDocumento;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -1,0 +1,85 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data;
+
+namespace Concesionaria.Clases
+{
+    class cCuentaProveedor
+    {
+        public void Insertar(string Nombre,Int32 CodProveedor)
+        {
+            string sql = "insert into CuentaProveedor( ";
+            sql = sql + "Nombre,CodProveedor)";
+            sql = sql + " Values(" + "'" + Nombre + "'";
+            sql = sql + "," + CodProveedor.ToString();
+            sql = sql + ")";
+            cDb.ExecutarNonQuery(sql);
+        }
+
+        public DataTable GetCuentas(Int32 CodProveedor)
+        {
+            string sql = " select CodCuenta,Nombre,CodProveedor from cuentaproveedor ";
+            sql = sql + " where CodProveedor =" + CodProveedor.ToString();
+            return cDb.ExecuteDataTable(sql);
+        }
+
+        public DataTable GetCuentasProveedores(string Proveedor)
+        {
+            string sql = "select c.CodCuenta,p.Nombre,c.Nombre";
+            sql = sql + " from cuentaproveedor c,Proveedor p ";
+            sql = sql + " where c.CodProveedor=p.CodProveedor";
+            if (Proveedor !="")
+            {
+                sql = sql + " and p.Nombre like " + "'%" + Proveedor + "%'";
+            }
+
+            return cDb.ExecuteDataTable(sql);
+        }
+
+        public DataTable GetDetalleCuentas(Int32 CodCuenta)
+        {
+            string sql = " select c.CodCuenta,c.Nombre,c.CodProveedor,p.Nombre as Proveedor from cuentaproveedor c, Proveedor p ";
+            sql = sql + " where c.CodProveedor=p.CodProveedor ";
+            sql = sql + " and  CodCuenta =" + CodCuenta.ToString();
+            return cDb.ExecuteDataTable(sql);
+        }
+
+        public DataTable GetCuentasResumidas()
+        {
+            string sql = "select c.CodCuenta,c.Nombre,P.Nombre as Proveedor,sum(d.Saldo) as Importe";
+            sql = sql + " from CuentaProveedor c,Proveedor p,deudaproveedor d ";
+            sql = sql + " where c.CodProveedor = p.CodProveedor ";
+            sql = sql + " and d.CodCuentaProveedor = c.CodCuenta ";
+            sql = sql + " group by c.CodCuenta,c.Nombre,P.Nombre ";
+            return cDb.ExecuteDataTable(sql);
+        }
+
+        public Double GetSaldo(Int32 CodCuenta)
+        {
+            Double Importe = 0;
+            string sql = "select isnull(sum(Saldo),0) as Importe from DeudaProveedor ";
+            sql = sql + " where CodCuentaProveedor=" + CodCuenta.ToString();
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count >0)
+            {
+                if (trdo.Rows[0]["Importe"].ToString ()!="")
+                {
+                    Importe = Convert.ToDouble(trdo.Rows[0]["Importe"].ToString());
+                }
+            }
+            return Importe;
+        }
+
+        public DataTable GetDetalleDeuda(Int32 CodCuenta)
+        {
+            string sql = "select CodDeuda,Concepto,Importe,Saldo";
+            sql = sql + " from DeudaProveedor ";
+            sql = sql + " where CodCuentaProveedor=" + CodCuenta.ToString();
+            sql = sql + " and Saldo >0 ";
+            return cDb.ExecuteDataTable(sql);
+        }
+
+    }
+}

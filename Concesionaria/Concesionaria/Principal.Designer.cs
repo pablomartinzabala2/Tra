@@ -61,7 +61,6 @@
             this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.alertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anotacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chequesAPagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cobranzasGeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cobranzasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,6 +90,10 @@
             this.mnuInformeCuentas = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarEfectivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarGastosGeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listadoDeudasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listadoCuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -107,10 +110,14 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.BtnBorrarTablas = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.aPagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aCobrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chequeesGeneralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -124,6 +131,7 @@
             this.editMenu,
             this.viewMenu,
             this.mnuMovimientos,
+            this.proveedoresToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -354,7 +362,6 @@
             this.viewMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.alertasToolStripMenuItem,
             this.anotacionesToolStripMenuItem,
-            this.chcToolStripMenuItem,
             this.chequesAPagarToolStripMenuItem,
             this.cobranzasGeneralesToolStripMenuItem,
             this.cobranzasToolStripMenuItem,
@@ -368,6 +375,7 @@
             this.interesesPagadosToolStripMenuItem,
             this.toolStripMenuItem4,
             this.menuPrendas,
+            this.toolStripMenuItem11,
             this.rentabilidadToolStripMenuItem,
             this.toolStripMenuItem5,
             this.toolStripMenuItem3,
@@ -394,18 +402,15 @@
             this.anotacionesToolStripMenuItem.Text = "Anotaciones";
             this.anotacionesToolStripMenuItem.Click += new System.EventHandler(this.anotacionesToolStripMenuItem_Click);
             // 
-            // chcToolStripMenuItem
-            // 
-            this.chcToolStripMenuItem.Name = "chcToolStripMenuItem";
-            this.chcToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.chcToolStripMenuItem.Text = "Cheques a cobrar";
-            this.chcToolStripMenuItem.Click += new System.EventHandler(this.chcToolStripMenuItem_Click);
-            // 
             // chequesAPagarToolStripMenuItem
             // 
+            this.chequesAPagarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aPagarToolStripMenuItem,
+            this.aCobrarToolStripMenuItem,
+            this.chequeesGeneralToolStripMenuItem});
             this.chequesAPagarToolStripMenuItem.Name = "chequesAPagarToolStripMenuItem";
             this.chequesAPagarToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.chequesAPagarToolStripMenuItem.Text = "Cheques a pagar";
+            this.chequesAPagarToolStripMenuItem.Text = "Cheques ";
             this.chequesAPagarToolStripMenuItem.Click += new System.EventHandler(this.chequesAPagarToolStripMenuItem_Click);
             // 
             // cobranzasGeneralesToolStripMenuItem
@@ -613,6 +618,37 @@
             this.registrarGastosGeneralesToolStripMenuItem.Text = "Registrar gastos generales";
             this.registrarGastosGeneralesToolStripMenuItem.Click += new System.EventHandler(this.registrarGastosGeneralesToolStripMenuItem_Click);
             // 
+            // proveedoresToolStripMenuItem
+            // 
+            this.proveedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearToolStripMenuItem,
+            this.listadoDeudasToolStripMenuItem,
+            this.listadoCuentasToolStripMenuItem});
+            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(112, 21);
+            this.proveedoresToolStripMenuItem.Text = "Proveedores";
+            // 
+            // crearToolStripMenuItem
+            // 
+            this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.crearToolStripMenuItem.Text = "Crear";
+            this.crearToolStripMenuItem.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
+            // 
+            // listadoDeudasToolStripMenuItem
+            // 
+            this.listadoDeudasToolStripMenuItem.Name = "listadoDeudasToolStripMenuItem";
+            this.listadoDeudasToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.listadoDeudasToolStripMenuItem.Text = "Listado Deudas";
+            this.listadoDeudasToolStripMenuItem.Click += new System.EventHandler(this.listadoDeudasToolStripMenuItem_Click);
+            // 
+            // listadoCuentasToolStripMenuItem
+            // 
+            this.listadoCuentasToolStripMenuItem.Name = "listadoCuentasToolStripMenuItem";
+            this.listadoCuentasToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.listadoCuentasToolStripMenuItem.Text = "Listado Cuentas";
+            this.listadoCuentasToolStripMenuItem.Click += new System.EventHandler(this.listadoCuentasToolStripMenuItem_Click);
+            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -793,6 +829,16 @@
             this.toolStripButton4.Text = "Archivos";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton6.Text = "toolStripButton6";
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
+            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -809,15 +855,33 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // toolStripButton6
+            // aPagarToolStripMenuItem
             // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(36, 36);
-            this.toolStripButton6.Text = "toolStripButton6";
-            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
+            this.aPagarToolStripMenuItem.Name = "aPagarToolStripMenuItem";
+            this.aPagarToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.aPagarToolStripMenuItem.Text = "A Pagar";
+            this.aPagarToolStripMenuItem.Click += new System.EventHandler(this.aPagarToolStripMenuItem_Click);
+            // 
+            // aCobrarToolStripMenuItem
+            // 
+            this.aCobrarToolStripMenuItem.Name = "aCobrarToolStripMenuItem";
+            this.aCobrarToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.aCobrarToolStripMenuItem.Text = "A Cobrar";
+            this.aCobrarToolStripMenuItem.Click += new System.EventHandler(this.aCobrarToolStripMenuItem_Click);
+            // 
+            // chequeesGeneralToolStripMenuItem
+            // 
+            this.chequeesGeneralToolStripMenuItem.Name = "chequeesGeneralToolStripMenuItem";
+            this.chequeesGeneralToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.chequeesGeneralToolStripMenuItem.Text = "Chequees General";
+            this.chequeesGeneralToolStripMenuItem.Click += new System.EventHandler(this.chequeesGeneralToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(228, 22);
+            this.toolStripMenuItem11.Text = "Recibos";
+            this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
             // 
             // Principal
             // 
@@ -878,7 +942,6 @@
         private System.Windows.Forms.ToolStripMenuItem cobranzasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem chcToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuPrendas;
         private System.Windows.Forms.ToolStripMenuItem MenuPrestamo;
         private System.Windows.Forms.ToolStripMenuItem interesesPagadosToolStripMenuItem;
@@ -927,6 +990,14 @@
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripMenuItem anularVentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listadoDeudasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listadoCuentasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aPagarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aCobrarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem chequeesGeneralToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
     }
 }
 

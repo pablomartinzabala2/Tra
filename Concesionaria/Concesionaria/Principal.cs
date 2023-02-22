@@ -38,6 +38,9 @@ namespace Concesionaria
         public static Int32? CodPresupuesto;
         public static Int32? CodRecibo;
         public static Int32? CodigoAuto;
+        public static Int32? CodCliente;
+        public static Double? Importe;
+        public static Int32? CodProveedor;
         public Principal()
         {
             InitializeComponent();
@@ -349,10 +352,7 @@ namespace Concesionaria
 
         private void chcToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmListadoCheques childForm = new FrmListadoCheques();
-            childForm.MdiParent = this;
-            childForm.Text = "Formulario de Listado de Cheques";
-            childForm.Show();
+            
         }
 
         private void menuPrendas_Click(object sender, EventArgs e)
@@ -410,10 +410,7 @@ namespace Concesionaria
 
         private void chequesAPagarToolStripMenuItem_Click(object sender, EventArgs e)
         {  
-            Principal.CodigoPrincipalAbm = null;
-            FrmListadoChequesaPagar childForm = new FrmListadoChequesaPagar();
-            childForm.Text = "Formulario de listados de Cheques a Pagar";
-            childForm.Show();
+           
         }
 
         private void registrarDocumentosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -763,6 +760,52 @@ namespace Concesionaria
         }
 
         private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            FrmListadoRecibo frm = new FrmListadoRecibo();
+            frm.Show();
+        }
+
+        private void crearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAbmProveedor frm = new FrmAbmProveedor();
+            frm.Show();
+        }
+
+        private void listadoDeudasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListadoDeudaProveedor frm = new FrmListadoDeudaProveedor();
+            frm.Show();
+        }
+
+        private void listadoCuentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListadoCuentasProveedor frm = new FrmListadoCuentasProveedor();
+            frm.Show();
+        }
+
+        private void aPagarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Principal.CodigoPrincipalAbm = null;
+            FrmListadoChequesaPagar childForm = new FrmListadoChequesaPagar();
+            childForm.Text = "Formulario de listados de Cheques a Pagar";
+            childForm.Show();
+        }
+
+        private void aCobrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListadoCheques childForm = new FrmListadoCheques();
+            childForm.MdiParent = this;
+            childForm.Text = "Formulario de Listado de Cheques";
+            childForm.Show();
+        }
+
+        private void chequeesGeneralToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListadoChequeCobrar frm = new FrmListadoChequeCobrar();
+            frm.Show();
+        }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
         {
             FrmListadoRecibo frm = new FrmListadoRecibo();
             frm.Show();

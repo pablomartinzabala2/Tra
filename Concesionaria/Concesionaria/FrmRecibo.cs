@@ -560,7 +560,30 @@ namespace Concesionaria
 
         private void FrmRecibo_Load(object sender, EventArgs e)
         {
+            if (Principal.CodCliente!=null)
+            {
+                BuscarCliente(Convert.ToInt32(Principal.CodCliente));
+            }
+        }
 
+        private void BuscarCliente(Int32 CodCliente)
+        {
+            cCliente cli = new cCliente();
+            DataTable trdo = cli.GetClientesxCodigo(CodCliente);
+            if (trdo.Rows.Count >0)
+            {
+                cmbDocumento.SelectedValue = trdo.Rows[0]["CodTipoDoc"].ToString();
+                txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
+                txtNroDoc.Text = trdo.Rows[0]["NroDocumento"].ToString();
+            }
+
+            if (Principal.Importe !=null)
+            {
+                cFunciones fun = new cFunciones();
+                txtEfectivo.Text = Principal.Importe.ToString();
+                txtEfectivo.Text = fun.FormatoEnteroMiles(txtEfectivo.Text);
+            }
         }
 
         private void cmbDocumento_SelectedIndexChanged(object sender, EventArgs e)
@@ -635,6 +658,11 @@ namespace Concesionaria
                     txtNroDoc.Text = tb.Rows[0]["NroDocumento"].ToString();
                 }
             }
+        }
+
+        private void txtCodCLiente_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

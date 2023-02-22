@@ -17,7 +17,7 @@ namespace Concesionaria
         }
 
         private void btnBuscarApe_Click(object sender, EventArgs e)
-        {  
+        {
             if (txtUsuario.Text=="")
             {
                 MessageBox.Show ("Ingresar Nombre de Usuario");

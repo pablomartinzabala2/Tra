@@ -33,6 +33,7 @@ namespace Concesionaria
             DataTable trdo = cob.GetCobranzaxCodigo(CodCobranza);
             if (trdo.Rows.Count > 0)
             {
+                txtCodCliente.Text = trdo.Rows[0]["CodCliente"].ToString();
                 if (trdo.Rows[0]["Fecha"].ToString() != "")
                 {
                     DateTime Fecha = Convert.ToDateTime(trdo.Rows[0]["Fecha"].ToString());
@@ -129,6 +130,18 @@ namespace Concesionaria
             mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, Importe, 0, 0, 0, 0, Fecha, Descripción);
             Mensaje("Datos grabados correctamente ");
             GetCobranzas(CodCobranza);
+            if (txtCodCliente.Text !="")
+            {
+                Double? ImportePagado = fun.ToDouble(txtMontoaPagar.Text);
+                Principal.CodCliente = Convert.ToInt32(txtCodCliente.Text);
+                Principal.Importe = ImportePagado;
+                FrmRecibo rec = new FrmRecibo();
+                rec.ShowDialog();
+                Principal.CodCliente = null;
+               
+            }
+           
+          
         }
 
         private void Mensaje(string msj)
@@ -221,6 +234,13 @@ namespace Concesionaria
             Principal.CodigoPrincipalAbm = null;
             FrmRegistrarAlarma form = new FrmRegistrarAlarma();
             form.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Principal.CodigoPrincipalAbm = txtCodCobranza.Text;
+            FrmMensajeCobranzas frm = new FrmMensajeCobranzas();
+            frm.Show();
         }
     }
 }

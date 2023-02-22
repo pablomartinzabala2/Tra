@@ -39,7 +39,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtKms = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtAnio = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -73,6 +72,8 @@
             this.CmbGastoRecepcion = new System.Windows.Forms.ComboBox();
             this.label40 = new System.Windows.Forms.Label();
             this.btnAgregarGastodeRecepcion = new System.Windows.Forms.Button();
+            this.btnBuscarAuto = new System.Windows.Forms.Button();
+            this.cmbAnio = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -84,6 +85,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbAnio);
+            this.groupBox1.Controls.Add(this.btnBuscarAuto);
             this.groupBox1.Controls.Add(this.txtCodStock);
             this.groupBox1.Controls.Add(this.txtImporte);
             this.groupBox1.Controls.Add(this.label15);
@@ -94,7 +97,6 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtKms);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtAnio);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.label2);
@@ -203,14 +205,6 @@
             this.label4.Size = new System.Drawing.Size(34, 16);
             this.label4.TabIndex = 8;
             this.label4.Text = "Kms";
-            // 
-            // txtAnio
-            // 
-            this.txtAnio.Enabled = false;
-            this.txtAnio.Location = new System.Drawing.Point(143, 95);
-            this.txtAnio.Name = "txtAnio";
-            this.txtAnio.Size = new System.Drawing.Size(100, 22);
-            this.txtAnio.TabIndex = 7;
             // 
             // label3
             // 
@@ -538,6 +532,25 @@
             this.btnAgregarGastodeRecepcion.UseVisualStyleBackColor = true;
             this.btnAgregarGastodeRecepcion.Click += new System.EventHandler(this.btnAgregarGastodeRecepcion_Click);
             // 
+            // btnBuscarAuto
+            // 
+            this.btnBuscarAuto.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnBuscarAuto.Location = new System.Drawing.Point(276, 24);
+            this.btnBuscarAuto.Name = "btnBuscarAuto";
+            this.btnBuscarAuto.Size = new System.Drawing.Size(40, 27);
+            this.btnBuscarAuto.TabIndex = 65;
+            this.btnBuscarAuto.UseVisualStyleBackColor = true;
+            this.btnBuscarAuto.Click += new System.EventHandler(this.btnBuscarAuto_Click);
+            // 
+            // cmbAnio
+            // 
+            this.cmbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAnio.FormattingEnabled = true;
+            this.cmbAnio.Location = new System.Drawing.Point(143, 98);
+            this.cmbAnio.Name = "cmbAnio";
+            this.cmbAnio.Size = new System.Drawing.Size(56, 24);
+            this.cmbAnio.TabIndex = 69;
+            // 
             // FrmCosto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -578,7 +591,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtKms;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtAnio;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label2;
@@ -613,5 +625,7 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Button btnAgregarGastodeRecepcion;
         private System.Windows.Forms.DataGridView GrillaGastosRecepcion;
+        private System.Windows.Forms.Button btnBuscarAuto;
+        private System.Windows.Forms.ComboBox cmbAnio;
     }
 }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Concesionaria.Clases;
 
 namespace Concesionaria
 {
@@ -41,7 +42,7 @@ namespace Concesionaria
                 {
                     b = 1;
                     txtDescripcion.Text = trdo.Rows[0]["Descripcion"].ToString();
-                    txtAnio.Text = trdo.Rows[0]["Anio"].ToString();
+                    cmbAnio.SelectedValue = trdo.Rows[0]["CodAnio"].ToString();
                     txtKms.Text = trdo.Rows[0]["Kilometros"].ToString();
                     txtCodAuto.Text = trdo.Rows[0]["CodAuto"].ToString();
                     txtImporte.Text = trdo.Rows[0]["Importe"].ToString();
@@ -73,9 +74,9 @@ namespace Concesionaria
                     if (trdo2.Rows.Count > 0)
                     {
                         txtCodStock.Text = trdo2.Rows[0]["CodStock"].ToString();
-                        CargarCostoxstock(Convert.ToInt32 (txtCodStock.Text));
+                        CargarCostoxstock(Convert.ToInt32(txtCodStock.Text));
                     }
-                    
+
                 }
             }
             if (b == 0)
@@ -87,7 +88,7 @@ namespace Concesionaria
             txtCodAuto.Text = "";
             cmbMarca.SelectedIndex = 0;
             txtDescripcion.Text = "";
-            txtAnio.Text = "";
+
             txtKms.Text = "";
             txtImporte.Text = "";
             CargarCostoxstock(-1);
@@ -104,6 +105,8 @@ namespace Concesionaria
             string FechaCorta = DateTime.Now.ToShortDateString();
             txtFecha.Text = FechaCorta;
             fun.LlenarCombo(CmbGastoRecepcion, "CategoriaGastoRecepcion", "Descripcion", "Codigo");
+            DataTable tbAnio = cDb.ExecuteDataTable("select * from anio Order by Nombre desc");
+            fun.LlenarComboDatatable(cmbAnio, tbAnio, "Nombre", "CodAnio");
         }
 
         private void FrmCosto_Load(object sender, EventArgs e)
@@ -117,19 +120,19 @@ namespace Concesionaria
             Clases.cCosto costo = new Clases.cCosto();
             DataTable trdo = costo.GetCostoxCodigoStock(CodStock);
             //agrego el boton
-            Grilla.DataSource =fun.TablaaMiles (trdo,"Importe");
-           // Grilla.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 14);
-            
-           // Grilla.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
+            Grilla.DataSource = fun.TablaaMiles(trdo, "Importe");
+            // Grilla.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 14);
+
+            // Grilla.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
             Grilla.Columns[0].Visible = false;
             Grilla.Columns[1].Visible = false;
             Grilla.Columns[2].Width = 440;
             Grilla.Columns[3].Width = 90;
             Grilla.Columns[4].Width = 150;
-            Grilla.Columns[2].HeaderText = "Descripción"; 
+            Grilla.Columns[2].HeaderText = "Descripción";
             CalcularTotalGeneral();
             Grilla.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight;
-           
+
             //cargo los gastos
             Clases.cGasto gasto = new Clases.cGasto();
             if (txtCodStock.Text != "")
@@ -145,7 +148,7 @@ namespace Concesionaria
                 CalcularTotalGeneral();
                 Grilla.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight;
             }
-            
+
         }
 
         private void btnAgregarCosto_Click(object sender, EventArgs e)
@@ -158,7 +161,7 @@ namespace Concesionaria
             Clases.cFunciones fun = new Clases.cFunciones();
             if (txtCodAuto.Text == "")
             {
-                MessageBox.Show("Debe ingresar un auto válido", Clases.cMensaje.Mensaje()); 
+                MessageBox.Show("Debe ingresar un auto válido", Clases.cMensaje.Mensaje());
                 return;
             }
             if (txtFecha.Text == "")
@@ -186,12 +189,12 @@ namespace Concesionaria
                 CodStock = Convert.ToInt32(txtCodStock.Text);
 
             Clases.cCosto costo = new Clases.cCosto();
-            costo.InsertarCosto(CodAuto, Patente, Importe, Fecha, Descripcion.ToUpper () , CodStock);
-            CargarCostoxstock(Convert.ToInt32 (CodStock));
+            costo.InsertarCosto(CodAuto, Patente, Importe, Fecha, Descripcion.ToUpper(), CodStock);
+            CargarCostoxstock(Convert.ToInt32(CodStock));
             DateTime FechaCosto = Convert.ToDateTime(txtFecha.Text);
 
             Clases.cMovimiento mov = new Clases.cMovimiento();
-            mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, (-1) * (Importe), 0, 0, Importe, 0, FechaCosto,Descripcion.ToUpper ());
+            mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, (-1) * (Importe), 0, 0, Importe, 0, FechaCosto, Descripcion.ToUpper());
             txtCosto.Text = "";
             txtDescripcionCosto.Text = "";
             txtCodCosto.Text = "";
@@ -207,10 +210,10 @@ namespace Concesionaria
             TotalTotal = fun.ToDouble(txtImporte.Text);
             for (i = 0; i < Grilla.Rows.Count - 1; i++)
             {
-                if (Grilla.Rows[i].Cells[4].Value.ToString () != "")
+                if (Grilla.Rows[i].Cells[4].Value.ToString() != "")
                 {
                     Total = Total + Convert.ToDouble(Grilla.Rows[i].Cells[4].Value);
-                }               
+                }
             }
             TotalTotal = TotalTotal + Total;
             txtTotal.Text = Total.ToString();
@@ -222,12 +225,12 @@ namespace Concesionaria
         public void Estilo()
         {
             Grilla.Columns[2].HeaderCell.Style.BackColor = Color.Red;
-            Grilla.Columns[2].HeaderCell.Style.ForeColor  = Color.White;
+            Grilla.Columns[2].HeaderCell.Style.ForeColor = Color.White;
             Grilla.Columns[3].HeaderCell.Style.BackColor = Color.MediumSlateBlue;
             Grilla.Columns[3].HeaderCell.Style.ForeColor = Color.White;
             Grilla.Columns[4].HeaderCell.Style.BackColor = Color.MediumSlateBlue;
             Grilla.Columns[4].HeaderCell.Style.ForeColor = Color.White;
-            Grilla.EnableHeadersVisualStyles = false; 
+            Grilla.EnableHeadersVisualStyles = false;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -237,40 +240,40 @@ namespace Concesionaria
                 MessageBox.Show("Debe seleccionar un costo ", Clases.cMensaje.Mensaje());
                 return;
             }
-            txtCodCosto.Text = Grilla.CurrentRow.Cells[0].Value.ToString();   
+            txtCodCosto.Text = Grilla.CurrentRow.Cells[0].Value.ToString();
             if (txtCodCosto.Text == "")
             {
-                
+
             }
             var resul = MessageBox.Show("Confirma eliminar el costo", Clases.cMensaje.Mensaje(), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             Double Importe = 0;
-            string sImporte ="";
+            string sImporte = "";
             if (resul == DialogResult.Yes)
             {
                 //busco el importe a borrar
-                
-                 sImporte = "";
-                 for (int i = 0; i < Grilla.Rows.Count - 1; i++)
-                 {
-                     if (Grilla.Rows[i].Cells[0].Value.ToString() == txtCodCosto.Text)
-                     {
-                         sImporte = Grilla.Rows[i].Cells[4].Value.ToString();
-                     }
-                 }
-                    
+
+                sImporte = "";
+                for (int i = 0; i < Grilla.Rows.Count - 1; i++)
+                {
+                    if (Grilla.Rows[i].Cells[0].Value.ToString() == txtCodCosto.Text)
+                    {
+                        sImporte = Grilla.Rows[i].Cells[4].Value.ToString();
+                    }
+                }
+
             }
-            Clases.cFunciones fun = new Clases.cFunciones ();
+            Clases.cFunciones fun = new Clases.cFunciones();
             if (sImporte != "")
                 Importe = fun.ToDouble(sImporte);
-                Clases.cCosto costo = new Clases.cCosto();
-                Int32 CodCosto = Convert.ToInt32(txtCodCosto.Text);
-                costo.BorrarCosto(CodCosto);
-                DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
-                Clases.cMovimiento mov = new Clases.cMovimiento();
-                mov.RegistrarMovimiento(-1, Principal.CodUsuarioLogueado, (Importe), 0, 0,(-1)* Importe, 0,Fecha);
-                CargarCostoxstock(Convert.ToInt32(txtCodStock.Text));
-            }
-        
+            Clases.cCosto costo = new Clases.cCosto();
+            Int32 CodCosto = Convert.ToInt32(txtCodCosto.Text);
+            costo.BorrarCosto(CodCosto);
+            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+            Clases.cMovimiento mov = new Clases.cMovimiento();
+            mov.RegistrarMovimiento(-1, Principal.CodUsuarioLogueado, (Importe), 0, 0, (-1) * Importe, 0, Fecha);
+            CargarCostoxstock(Convert.ToInt32(txtCodStock.Text));
+        }
+
         private void Grilla_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //string resultado = Grilla.SelectedRows.Item(0).Cells(0).Value;
@@ -287,7 +290,7 @@ namespace Concesionaria
                 txtDescripcionCosto.Text = "";
                 txtFecha.Text = "";
                 txtCosto.Text = "";
-                txtCodCosto.Text = ""; 
+                txtCodCosto.Text = "";
             }
         }
 
@@ -296,7 +299,7 @@ namespace Concesionaria
             if (txtCosto.Text != "")
             {
                 Clases.cFunciones fun = new Clases.cFunciones();
-                txtCosto.Text = fun.FormatoEnteroMiles(txtCosto.Text); 
+                txtCosto.Text = fun.FormatoEnteroMiles(txtCosto.Text);
             }
         }
 
@@ -381,7 +384,7 @@ namespace Concesionaria
             GrillaGastosRecepcion.Columns[1].Width = 450;
             GrillaGastosRecepcion.Columns[1].HeaderText = "Descripción";
 
-            
+
         }
 
         private void txtImporteGastoRecepcion_Leave(object sender, EventArgs e)
@@ -406,8 +409,8 @@ namespace Concesionaria
                 Importe = fun.ToDouble(GrillaGastosRecepcion.Rows[k].Cells[3].Value.ToString());
                 if (CodGastoRecepcion != "")
                 {
-                   
-                    gasto.GrabarGastosRecepcionxCodStock(CodStock, Convert.ToInt32(CodGastoRecepcion), Importe,Convert.ToDateTime(txtFecha.Text));
+
+                    gasto.GrabarGastosRecepcionxCodStock(CodStock, Convert.ToInt32(CodGastoRecepcion), Importe, Convert.ToDateTime(txtFecha.Text));
 
                 }
             }
@@ -427,11 +430,116 @@ namespace Concesionaria
             if (Codigo != "")
             {
                 Clases.cGasto gasto = new Clases.cGasto();
-                gasto.BorarGastoRecepcion2(Convert.ToInt32 (txtCodStock.Text),Convert.ToInt32 (Codigo));
+                gasto.BorarGastoRecepcion2(Convert.ToInt32(txtCodStock.Text), Convert.ToInt32(Codigo));
             }
             Clases.cGasto gasto2 = new Clases.cGasto();
             DataTable tgasto = gasto2.GetGastosRecepcionxCodStock2(Convert.ToInt32(txtCodStock.Text));
             GrillaGastosRecepcion.DataSource = tgasto;
+        }
+
+        private void btnBuscarAuto_Click(object sender, EventArgs e)
+        {
+            FrmBuscarAuto form = new FrmBuscarAuto();
+            form.FormClosing += new FormClosingEventHandler(formBuscadorAuto_FormClosing);
+            form.ShowDialog();
+        }
+
+        private void formBuscadorAuto_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Int32 CodAuto = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            cAuto auto = new Clases.cAuto();
+            BuscarAutoxCodigo(CodAuto);
+        }
+
+        private void BuscarAutoxCodigo(Int32 COdAuto)
+        {
+
+            Clases.cAuto auto = new Clases.cAuto();
+            DataTable trdo = auto.GetAutoxCodigo(COdAuto);
+            if (trdo.Rows.Count > 0)
+            {
+                Clases.cFunciones fun = new Clases.cFunciones();
+                txtDescripcion.Text = trdo.Rows[0]["Descripcion"].ToString();
+                txtPatente.Text = trdo.Rows[0]["Patente"].ToString();
+                // txtMotor.Text = trdo.Rows[0]["Motor"].ToString();
+                //  txtChasis.Text = trdo.Rows[0]["Chasis"].ToString();
+                txtKms.Text = trdo.Rows[0]["Kilometros"].ToString();
+                if (txtKms.Text != "")
+                {
+                    txtKms.Text = fun.FormatoEnteroMiles(txtKms.Text);
+                }
+                txtCodAuto.Text = trdo.Rows[0]["CodAuto"].ToString();
+                if (trdo.Rows[0]["CodCiudad"].ToString() != "")
+                {
+                    cmbCiudad.SelectedValue = trdo.Rows[0]["CodCiudad"].ToString();
+                }
+
+                if (trdo.Rows[0]["CodMarca"].ToString() != "")
+                {
+                    cmbMarca.SelectedValue = trdo.Rows[0]["CodMarca"].ToString();
+                }
+
+                if (trdo.Rows[0]["CodAnio"].ToString() != "")
+                {
+                    // cmbAnio.SelectedValue = trdo.Rows[0]["CodAnio"].ToString();
+                }
+
+                if (trdo.Rows[0]["CodTipoUtilitario"].ToString() != "")
+                {
+                    //  cmbTipoUtilitario.SelectedValue = trdo.Rows[0]["CodTipoUtilitario"].ToString();
+                }
+
+                if (trdo.Rows[0]["CodColor"].ToString() != "")
+                {
+                    // cmbColor.SelectedValue = trdo.Rows[0]["CodColor"].ToString();
+                }
+
+                if (trdo.Rows[0]["CodCiudad"].ToString() != "")
+                {
+                    Int32 CodCiiudad = Convert.ToInt32(trdo.Rows[0]["CodCiudad"].ToString());
+                    cCiudad citi = new cCiudad();
+                    DataTable tbciudad = citi.GetCiudadxId(CodCiiudad);
+                    fun.LlenarComboDatatable(cmbCiudad, tbciudad, "Nombre", "CodCiudad");
+                    cmbCiudad.SelectedValue = trdo.Rows[0]["CodCiudad"].ToString();
+                }
+
+
+                if (trdo.Rows[0]["Propio"].ToString() == "1")
+                {
+                    radioPropio.Checked = true;
+                    radioConcesion.Checked = false;
+                }
+
+                if (trdo.Rows[0]["Concesion"].ToString() == "1")
+                {
+                    radioPropio.Checked = false;
+                    radioConcesion.Checked = true;
+                }
+
+                Clases.cStockAuto stock = new Clases.cStockAuto();
+                DataTable trdo2 = stock.GetStockAutosVigentes(Convert.ToInt32(txtCodAuto.Text));
+                if (trdo2.Rows.Count > 0)
+                {
+                    txtCodStock.Text = trdo2.Rows[0]["CodStock"].ToString();
+                    // GetExTitular(Convert.ToInt32(trdo2.Rows[0]["CodCliente"].ToString()));
+                    //  GetCostos(Convert.ToInt32(txtCodStock.Text));
+                    //  CargarGastosGeneralesxCodStoxk(Convert.ToInt32(txtCodStock.Text));
+                    if (trdo2.Rows[0]["CodCliente"].ToString() != "")
+                    {
+                        // txtCodCLiente.Text = trdo2.Rows[0]["CodCliente"].ToString();
+                        // GetClientesxCodigo(Convert.ToInt32(txtCodCLiente.Text));
+                    }
+
+                }
+
+                if (txtCodStock.Text != "")
+                {
+                    //GetCostos(Convert.ToInt32(txtCodStock.Text));
+                    //CargarGastosGeneralesxCodStoxk(Convert.ToInt32(txtCodStock.Text));
+                }
+
+            }
+
         }
     }
 }

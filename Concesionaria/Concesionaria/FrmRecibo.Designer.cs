@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.txtConcepto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -101,7 +102,6 @@
             this.btnQuitarTarjeta = new System.Windows.Forms.Button();
             this.btnAgregarTarjeta = new System.Windows.Forms.Button();
             this.btnGuardarRecibo = new System.Windows.Forms.Button();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -142,6 +142,16 @@
             this.groupBox1.Size = new System.Drawing.Size(585, 118);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
+            // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(466, 0);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(40, 27);
+            this.btnBuscarCliente.TabIndex = 74;
+            this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
             // txtConcepto
             // 
@@ -209,6 +219,7 @@
             this.txtCodCLiente.Size = new System.Drawing.Size(50, 22);
             this.txtCodCLiente.TabIndex = 29;
             this.txtCodCLiente.Visible = false;
+            this.txtCodCLiente.TextChanged += new System.EventHandler(this.txtCodCLiente_TextChanged);
             // 
             // label10
             // 
@@ -842,16 +853,6 @@
             this.btnGuardarRecibo.Text = "Guardar";
             this.btnGuardarRecibo.UseVisualStyleBackColor = true;
             this.btnGuardarRecibo.Click += new System.EventHandler(this.btnGuardarRecibo_Click);
-            // 
-            // btnBuscarCliente
-            // 
-            this.btnBuscarCliente.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(466, 0);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(40, 27);
-            this.btnBuscarCliente.TabIndex = 74;
-            this.btnBuscarCliente.UseVisualStyleBackColor = true;
-            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
             // FrmRecibo
             // 

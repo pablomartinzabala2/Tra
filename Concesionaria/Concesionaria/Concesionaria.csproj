@@ -80,10 +80,12 @@
     <Compile Include="Clases\cConexion.cs" />
     <Compile Include="Clases\cConfiguracion.cs" />
     <Compile Include="Clases\cCosto.cs" />
+    <Compile Include="Clases\cCuentaProveedor.cs" />
     <Compile Include="Clases\cCuota.cs" />
     <Compile Include="Clases\cCuotasAnteriores.cs" />
     <Compile Include="Clases\cDb.cs" />
     <Compile Include="Clases\cDetallePrestamo.cs" />
+    <Compile Include="Clases\cDeudaProveedor.cs" />
     <Compile Include="Clases\cDiferenciaTransferencia.cs" />
     <Compile Include="Clases\cEfectivoaPagar.cs" />
     <Compile Include="Clases\cEntidad.cs" />
@@ -99,6 +101,7 @@
     <Compile Include="Clases\cMarca.cs" />
     <Compile Include="Clases\cMensaje.cs" />
     <Compile Include="Clases\cMensajeCobranza.cs" />
+    <Compile Include="Clases\cMensajeCobranzaGeneral.cs" />
     <Compile Include="Clases\cMensajeCuotasAnteriores.cs" />
     <Compile Include="Clases\cMensajeEfectivoPagar.cs" />
     <Compile Include="Clases\cMensajesCuotas.cs" />
@@ -107,12 +110,14 @@
     <Compile Include="Clases\cMovimiento.cs" />
     <Compile Include="Clases\cPagoCheque.cs" />
     <Compile Include="Clases\cPagoIntereses.cs" />
+    <Compile Include="Clases\cPagoProveedor.cs" />
     <Compile Include="Clases\cPapeles.cs" />
     <Compile Include="Clases\cPrenda.cs" />
     <Compile Include="Clases\cPrestamo.cs" />
     <Compile Include="Clases\cPresupuesto.cs" />
     <Compile Include="Clases\CPresupuestoxAuto.cs" />
     <Compile Include="Clases\cPreVenta.cs" />
+    <Compile Include="Clases\cProveedor.cs" />
     <Compile Include="Clases\cPunitorioCobranza.cs" />
     <Compile Include="Clases\cPunitorioCuota.cs" />
     <Compile Include="Clases\cPunitorioCuotasAnteriores.cs" />
@@ -230,6 +235,12 @@
     <Compile Include="FrmAbmPapeles.Designer.cs">
       <DependentUpon>FrmAbmPapeles.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAbmProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmProveedor.Designer.cs">
+      <DependentUpon>FrmAbmProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAbmTarjeta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +288,12 @@
     </Compile>
     <Compile Include="FrmBuscadorCliente.Designer.cs">
       <DependentUpon>FrmBuscadorCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscadorCuentaProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscadorCuentaProveedor.Designer.cs">
+      <DependentUpon>FrmBuscadorCuentaProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmBuscadorGenerico.cs">
       <SubType>Form</SubType>
@@ -373,6 +390,18 @@
     </Compile>
     <Compile Include="FrmCosto.Designer.cs">
       <DependentUpon>FrmCosto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCrearDeudaProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCrearDeudaProveedor.Designer.cs">
+      <DependentUpon>FrmCrearDeudaProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMcUENTApROVEEDOR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMcUENTApROVEEDOR.Designer.cs">
+      <DependentUpon>FRMcUENTApROVEEDOR.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDetalleAuto.cs">
       <SubType>Form</SubType>
@@ -518,6 +547,18 @@
     <Compile Include="FrmListadoCompra.Designer.cs">
       <DependentUpon>FrmListadoCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoCuentasProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoCuentasProveedor.Designer.cs">
+      <DependentUpon>FrmListadoCuentasProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoDeudaProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoDeudaProveedor.Designer.cs">
+      <DependentUpon>FrmListadoDeudaProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoDocumentosAnteriores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -559,6 +600,18 @@
     </Compile>
     <Compile Include="FrmListadoPrenda.Designer.cs">
       <DependentUpon>FrmListadoPrenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMensajeCobranzas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMensajeCobranzas.Designer.cs">
+      <DependentUpon>FrmMensajeCobranzas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPagoCuentaProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPagoCuentaProveedor.Designer.cs">
+      <DependentUpon>FrmPagoCuentaProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmReporteCliente.cs">
       <SubType>Form</SubType>
@@ -856,6 +909,9 @@
     <EmbeddedResource Include="FrmAbmPapeles.resx">
       <DependentUpon>FrmAbmPapeles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmProveedor.resx">
+      <DependentUpon>FrmAbmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmTarjeta.resx">
       <DependentUpon>FrmAbmTarjeta.cs</DependentUpon>
     </EmbeddedResource>
@@ -879,6 +935,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscadorCliente.resx">
       <DependentUpon>FrmBuscadorCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscadorCuentaProveedor.resx">
+      <DependentUpon>FrmBuscadorCuentaProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscadorGenerico.resx">
       <DependentUpon>FrmBuscadorGenerico.cs</DependentUpon>
@@ -927,6 +986,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCosto.resx">
       <DependentUpon>FrmCosto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCrearDeudaProveedor.resx">
+      <DependentUpon>FrmCrearDeudaProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMcUENTApROVEEDOR.resx">
+      <DependentUpon>FRMcUENTApROVEEDOR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalleAuto.resx">
       <DependentUpon>FrmDetalleAuto.cs</DependentUpon>
@@ -1000,6 +1065,12 @@
     <EmbeddedResource Include="FrmListadoCompra.resx">
       <DependentUpon>FrmListadoCompra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoCuentasProveedor.resx">
+      <DependentUpon>FrmListadoCuentasProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoDeudaProveedor.resx">
+      <DependentUpon>FrmListadoDeudaProveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoDocumentosAnteriores.resx">
       <DependentUpon>FrmListadoDocumentosAnteriores.cs</DependentUpon>
     </EmbeddedResource>
@@ -1020,6 +1091,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoPrenda.resx">
       <DependentUpon>FrmListadoPrenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMensajeCobranzas.resx">
+      <DependentUpon>FrmMensajeCobranzas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPagoCuentaProveedor.resx">
+      <DependentUpon>FrmPagoCuentaProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteCliente.resx">
       <DependentUpon>FrmReporteCliente.cs</DependentUpon>

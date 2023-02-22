@@ -66,7 +66,7 @@ namespace Concesionaria
             }
             else
             {
-                txtCodCLiente.Text = "";
+                CodCLi = Convert.ToInt32(txtCodCLiente.Text);
             }
 
             cob.InsertarCobranza(Fecha, Descripcion, Importe, Nombrecliente, Telefono, Direccion, Patente, FechaVencimiento,CodCLi);
@@ -156,6 +156,18 @@ namespace Concesionaria
                     cmbDocumento.SelectedValue = trdo.Rows[0]["CodTipoDoc"].ToString();
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmMensajeCobranzas frm = new FrmMensajeCobranzas();
+            frm.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FrmMensajeCobranzas frm = new FrmMensajeCobranzas();
+            frm.Show();
         }
     }
 }
