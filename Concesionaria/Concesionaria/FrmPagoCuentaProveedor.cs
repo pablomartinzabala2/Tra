@@ -70,7 +70,8 @@ namespace Concesionaria
             {
                 Saldo = fun.ToDouble(txtSaldo.Text);
             }
-
+            cMovimiento mov = new Clases.cMovimiento();
+            string Descripcion = "";
             SqlConnection con = new SqlConnection();
             con.ConnectionString = Clases.cConexion.Cadenacon();
             con.Open();
@@ -80,6 +81,9 @@ namespace Concesionaria
             {
                 if (Efectivo>0)
                 {
+                    Descripcion = "Pago Cuenta " + txtCuentaProveedor.Text;
+                    mov.RegistrarMovimientoDescripcionTransaccion(con, Transaccion, 0,
+                        Principal.CodUsuarioLogueado, (-1) * Efectivo,0,0,0,0,dpFecha.Value,Descripcion,0);
                     CodPago = pago.Insertar(con, Transaccion, Fecha, Efectivo, Concepto);
                     for (int i = 0; i < Grilla.Rows.Count - 1; i++)
                     {    // salgo es la deuda total y saldo deuda es cada deuada individual

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnVerResumen = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnBorarCobranza = new System.Windows.Forms.Button();
             this.btnCobroCheque = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnVerResumen);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnBorarCobranza);
             this.groupBox1.Controls.Add(this.btnCobroCheque);
@@ -52,6 +54,16 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Cuentas Corrientes";
+            // 
+            // btnVerResumen
+            // 
+            this.btnVerResumen.Image = global::Concesionaria.Properties.Resources.Folder1;
+            this.btnVerResumen.Location = new System.Drawing.Point(588, 26);
+            this.btnVerResumen.Name = "btnVerResumen";
+            this.btnVerResumen.Size = new System.Drawing.Size(40, 31);
+            this.btnVerResumen.TabIndex = 75;
+            this.btnVerResumen.UseVisualStyleBackColor = true;
+            this.btnVerResumen.Click += new System.EventHandler(this.btnVerResumen_Click);
             // 
             // button1
             // 
@@ -125,5 +137,6 @@
         private System.Windows.Forms.Button btnCobroCheque;
         private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnVerResumen;
     }
 }

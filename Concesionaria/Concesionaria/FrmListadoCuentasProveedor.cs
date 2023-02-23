@@ -49,5 +49,13 @@ namespace Concesionaria
             FrmPagoCuentaProveedor frm = new FrmPagoCuentaProveedor();
             frm.Show();
         }
+
+        private void btnVerResumen_Click(object sender, EventArgs e)
+        {
+            Int32 CodCuenta = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
+            Principal.CodigoPrincipalAbm = CodCuenta.ToString();
+            FrmResumenCuentaProveedor frm = new FrmResumenCuentaProveedor();
+            frm.Show();
+        }
     }
 }
