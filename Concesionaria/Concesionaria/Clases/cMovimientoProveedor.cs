@@ -40,9 +40,10 @@ namespace Concesionaria.Clases
         {
             Double Saldo = 0;
             Saldo = GetSaldo(CodCuentaProveedor);
-            string sql = " select 0,'' as Fecha,'Saldo',0," + Saldo.ToString().Replace(",", ".");
+            string sql = " select 0,'' as Fecha,'Saldo'," + Saldo.ToString().Replace(",", ".") + ",0";
+            sql = sql + "," + Saldo.ToString().Replace(",", ".") + " as Saldo ";
             sql = sql + " union ";
-            sql = sql + "select CodCuentaProveedor,Fecha,Concepto,Debe,Haber";
+            sql = sql + "select CodCuentaProveedor,Fecha,Concepto,Debe,Haber, Saldo";
             sql = sql + " from MovimientoProveedor ";
             sql = sql + " where CodCuentaProveedor=" + CodCuentaProveedor.ToString();
             sql = sql + " order by Fecha asc ";

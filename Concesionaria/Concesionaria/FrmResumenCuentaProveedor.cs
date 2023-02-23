@@ -47,7 +47,7 @@ namespace Concesionaria
             cMovimientoProveedor mov = new Clases.cMovimientoProveedor();
             DataTable trdo = mov.GetResumen(CodCuentaProveedor);
             Grilla.DataSource = trdo;
-            fun.AnchoColumnas(Grilla, "0;10;40;25;25");
+            fun.AnchoColumnas(Grilla, "0;10;30;20;20;20");
         }
     }
 }
