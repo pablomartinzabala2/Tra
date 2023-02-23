@@ -37,12 +37,16 @@
             this.txtCodProveedor = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtSaldo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.txtSaldo);
+            this.Grupo.Controls.Add(this.label3);
             this.Grupo.Controls.Add(this.Grilla);
             this.Grupo.Controls.Add(this.btnQuitarFinanciacion);
             this.Grupo.Controls.Add(this.btnAgregarFinanciacion);
@@ -54,7 +58,7 @@
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(12, 12);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(393, 263);
+            this.Grupo.Size = new System.Drawing.Size(393, 297);
             this.Grupo.TabIndex = 14;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Marcas de vehículos";
@@ -62,7 +66,7 @@
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(10, 98);
+            this.Grilla.Location = new System.Drawing.Point(6, 129);
             this.Grilla.Name = "Grilla";
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Grilla.Size = new System.Drawing.Size(351, 149);
@@ -127,11 +131,27 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Proveedor";
             // 
+            // txtSaldo
+            // 
+            this.txtSaldo.Location = new System.Drawing.Point(82, 86);
+            this.txtSaldo.Name = "txtSaldo";
+            this.txtSaldo.Size = new System.Drawing.Size(217, 23);
+            this.txtSaldo.TabIndex = 78;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 17);
+            this.label3.TabIndex = 77;
+            this.label3.Text = "Saldo";
+            // 
             // FRMcUENTApROVEEDOR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 303);
+            this.ClientSize = new System.Drawing.Size(430, 321);
             this.Controls.Add(this.Grupo);
             this.Name = "FRMcUENTApROVEEDOR";
             this.Text = "FRMcUENTApROVEEDOR";
@@ -154,5 +174,7 @@
         private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.Button btnQuitarFinanciacion;
         private System.Windows.Forms.Button btnAgregarFinanciacion;
+        private System.Windows.Forms.TextBox txtSaldo;
+        private System.Windows.Forms.Label label3;
     }
 }

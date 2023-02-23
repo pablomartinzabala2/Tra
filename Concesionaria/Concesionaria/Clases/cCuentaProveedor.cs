@@ -8,12 +8,13 @@ namespace Concesionaria.Clases
 {
     class cCuentaProveedor
     {
-        public void Insertar(string Nombre,Int32 CodProveedor)
+        public void Insertar(string Nombre,Int32 CodProveedor, Double Saldo)
         {
             string sql = "insert into CuentaProveedor( ";
-            sql = sql + "Nombre,CodProveedor)";
+            sql = sql + "Nombre,CodProveedor,Saldo)";
             sql = sql + " Values(" + "'" + Nombre + "'";
             sql = sql + "," + CodProveedor.ToString();
+            sql = sql + "," + Saldo.ToString().Replace(",", ".");
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
         }

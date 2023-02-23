@@ -58,7 +58,7 @@
             // btnVerResumen
             // 
             this.btnVerResumen.Image = global::Concesionaria.Properties.Resources.Folder1;
-            this.btnVerResumen.Location = new System.Drawing.Point(588, 26);
+            this.btnVerResumen.Location = new System.Drawing.Point(542, 22);
             this.btnVerResumen.Name = "btnVerResumen";
             this.btnVerResumen.Size = new System.Drawing.Size(40, 31);
             this.btnVerResumen.TabIndex = 75;
@@ -68,7 +68,7 @@
             // button1
             // 
             this.button1.Image = global::Concesionaria.Properties.Resources.add;
-            this.button1.Location = new System.Drawing.Point(542, 26);
+            this.button1.Location = new System.Drawing.Point(634, 27);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 31);
             this.button1.TabIndex = 74;

@@ -30,6 +30,7 @@ namespace Concesionaria
                 {
                     txtProveedor.Text = trdo.Rows[0]["Proveedor"].ToString();
                     txtCuentaProveedor.Text = trdo.Rows[0]["Nombre"].ToString();
+                    Cargar(CodCuenta);
                 }
                
             }
@@ -38,6 +39,15 @@ namespace Concesionaria
         private void FrmResumenCuentaProveedor_Load(object sender, EventArgs e)
         {
             Buscar();
+        }
+
+        private void Cargar(Int32 CodCuentaProveedor)
+        {
+            cFunciones fun = new Clases.cFunciones();
+            cMovimientoProveedor mov = new Clases.cMovimientoProveedor();
+            DataTable trdo = mov.GetResumen(CodCuentaProveedor);
+            Grilla.DataSource = trdo;
+            fun.AnchoColumnas(Grilla, "0;10;40;25;25");
         }
     }
 }

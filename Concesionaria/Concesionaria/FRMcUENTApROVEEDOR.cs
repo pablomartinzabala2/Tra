@@ -63,8 +63,11 @@ namespace Concesionaria
 
             string Nombre = txtCuenta.Text;
             Int32 CodProveedor = Convert.ToInt32(txtCodProveedor.Text);
+            Double Saldo = 0;
+            if (txtSaldo.Text != "")
+                Saldo = Convert.ToInt32(txtSaldo.Text);
             cCuentaProveedor cuenta = new cCuentaProveedor();
-            cuenta.Insertar(Nombre, CodProveedor);
+            cuenta.Insertar(Nombre, CodProveedor, Saldo);
             BuscarCuentas(CodProveedor);
             MessageBox.Show("Datos Grabados Correctamente ");
             BuscarCuentas(CodProveedor);

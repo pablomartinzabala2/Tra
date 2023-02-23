@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
+using System.Data;
 namespace Concesionaria.Clases
 {
     public class cMovimientoProveedor
@@ -33,6 +34,35 @@ namespace Concesionaria.Clases
             sql = sql + "," + Haber.ToString().Replace(",", ".");
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
+        }
+
+       public DataTable GetResumen(Int32 CodCuentaProveedor)
+        {
+            Double Saldo = 0;
+            Saldo = GetSaldo(CodCuentaProveedor);
+            string sql = " select 0,'' as Fecha,'Saldo',0," + Saldo.ToString().Replace(",", ".");
+            sql = sql + " union ";
+            sql = sql + "select CodCuentaProveedor,Fecha,Concepto,Debe,Haber";
+            sql = sql + " from MovimientoProveedor ";
+            sql = sql + " where CodCuentaProveedor=" + CodCuentaProveedor.ToString();
+            sql = sql + " order by Fecha asc ";
+            return cDb.ExecuteDataTable(sql);
+        }
+
+        private Double GetSaldo(Int32 CodCuenta)
+        {
+            Double Saldo = 0;
+            string sql = "select isnull(Saldo,0) as Saldo from CuentaProveedor ";
+            sql = sql + " where CodCuenta=" + CodCuenta.ToString();
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count >0)
+            {
+                if (trdo.Rows[0]["Saldo"].ToString ()!="")
+                {
+                    Saldo = Convert.ToDouble(trdo.Rows[0]["Saldo"].ToString());
+                }
+            }
+            return Saldo;
         }
     }
 }
