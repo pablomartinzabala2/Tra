@@ -59,6 +59,7 @@ namespace Concesionaria
                 MessageBox.Show("Debe ingresar un concepto ");
                 return;
             }
+            cMovimientoProveedor mov = new cMovimientoProveedor();
             cDeudaProveedor Deuda = new cDeudaProveedor();
             Int32 CodCuentaProveedor= Convert.ToInt32 (txtCodCuenta.Text);
             string COncepto = txtConcepto.Text;
@@ -70,6 +71,7 @@ namespace Concesionaria
             Importe = fun.ToDouble(txtImporte.Text);
             Deuda.Insertar(CodCuentaProveedor,COncepto,
              Fecha,  FechaVto,  Importe,  Observacion);
+            mov.Insertar(CodCuentaProveedor, Fecha, COncepto, Importe, 0);
             MessageBox.Show("Datos Grabados Correctamente");
             Limpiar();
         }
