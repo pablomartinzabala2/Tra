@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace Concesionaria.Clases
 {
@@ -80,6 +81,22 @@ namespace Concesionaria.Clases
             sql = sql + " where CodCuentaProveedor=" + CodCuenta.ToString();
             sql = sql + " and Saldo >0 ";
             return cDb.ExecuteDataTable(sql);
+        }
+
+        public void ActuaizarSaldo(Int32 CodCuenta, Double Importe)
+        {
+            string sql = " update CuentaProveedor ";
+            sql = sql + " set Saldo=" + Importe.ToString().Replace(",", ".");
+            sql = sql + " where CodCuenta=" + CodCuenta.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
+
+        public void ActuaizarSaldoTran(SqlConnection con, SqlTransaction Transaccion,Int32 CodCuenta, Double Importe)
+        {
+            string sql = " update CuentaProveedor ";
+            sql = sql + " set Saldo=" + Importe.ToString().Replace(",", ".");
+            sql = sql + " where CodCuenta=" + CodCuenta.ToString();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion,sql);
         }
 
     }

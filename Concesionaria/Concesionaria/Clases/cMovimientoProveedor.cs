@@ -9,26 +9,24 @@ namespace Concesionaria.Clases
     public class cMovimientoProveedor
     {
         public void InsertarTran(SqlConnection con, SqlTransaction Transaccion,
-            Int32 CodCuentaProveedor, DateTime Fecha, string Concepto,Double Debe, Double Haber)
+            Int32 CodCuentaProveedor, DateTime Fecha, string Concepto,Double Debe, Double Haber,Double Saldo)
         {
             string sql = "insert into MovimientoProveedor(CodCuentaProveedor,Fecha,Concepto,";
-            sql = sql + "Debe,Haber)";
+            sql = sql + "Debe,Haber,Saldo)";
             sql = sql + " values (" + CodCuentaProveedor.ToString();
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + "'" + Concepto + "'";
             sql = sql + "," + Debe.ToString().Replace(",", ".");
             sql = sql + "," + Haber.ToString().Replace(",", ".");
+            sql = sql + "," + Saldo.ToString().Replace(",", ".");
             sql = sql + ")";
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
         public void Insertar(
-           Int32 CodCuentaProveedor, DateTime Fecha, string Concepto, Double Debe, Double Haber)
+           Int32 CodCuentaProveedor, DateTime Fecha, string Concepto, Double Debe, Double Haber,Double Saldo )
         {
 
-            Double Saldo = 0;
-            Saldo = GetSaldo(CodCuentaProveedor);
-            Saldo = Saldo - Debe;
             string sql = "insert into MovimientoProveedor(CodCuentaProveedor,Fecha,Concepto,";
             sql = sql + "Debe,Haber,Saldo)";
             sql = sql + " values (" + CodCuentaProveedor.ToString();
