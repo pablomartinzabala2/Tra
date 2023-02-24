@@ -46,6 +46,9 @@ namespace Concesionaria
             cFunciones fun = new Clases.cFunciones();
             cMovimientoProveedor mov = new Clases.cMovimientoProveedor();
             DataTable trdo = mov.GetResumen(CodCuentaProveedor);
+            trdo = fun.TablaaMiles(trdo, "Debe");
+            trdo = fun.TablaaMiles(trdo, "Haber");
+            trdo = fun.TablaaMiles(trdo, "Saldo");
             Grilla.DataSource = trdo;
             fun.AnchoColumnas(Grilla, "0;10;30;20;20;20");
             Grilla.Columns[2].HeaderText = "Concepto";

@@ -41,12 +41,13 @@ namespace Concesionaria.Clases
 
        public DataTable GetResumen(Int32 CodCuentaProveedor)
         {
-            Double Saldo = 0;
-            Saldo = GetSaldo(CodCuentaProveedor);
-            string sql = " select 0,'' as Fecha,'',0,0"; 
-            sql = sql + "," + Saldo.ToString().Replace(",", ".") + " as Saldo ";
-            sql = sql + " union ";
-            sql = sql + "select CodCuentaProveedor,Fecha,Concepto,Debe,Haber, Saldo";
+            //  Double Saldo = 0;
+            //  Saldo = GetSaldo(CodCuentaProveedor);
+            //  string sql = " select 0,'' as Fecha,'',0,0"; 
+            //  sql = sql + "," + Saldo.ToString().Replace(",", ".") + " as Saldo ";
+            //   sql = sql + " union ";
+            string sql = "";
+            sql =   "select CodCuentaProveedor,Fecha,Concepto,Debe,Haber, Saldo";
             sql = sql + " from MovimientoProveedor ";
             sql = sql + " where CodCuentaProveedor=" + CodCuentaProveedor.ToString();
             sql = sql + " order by Fecha asc ";

@@ -91,7 +91,7 @@ namespace Concesionaria
                     Double SaldoCuentaProv = movProv.GetSaldo(CodCuentaProveedor);
                     Saldo = Saldo + Efectivo;
                     movProv.InsertarTran(con, Transaccion, CodCuentaProveedor, Fecha, Concepto, 0, Efectivo, Saldo);
-                    cuentaProv.ActuaizarSaldoTran(con, Transaccion, Saldo);
+                    cuentaProv.ActuaizarSaldoTran(con, Transaccion,CodCuentaProveedor, Saldo);
                     for (int i = 0; i < Grilla.Rows.Count - 1; i++)
                     {    // salgo es la deuda total y saldo deuda es cada deuada individual
                         CodDeuda = Convert.ToInt32(Grilla.Rows[i].Cells[0].Value);
