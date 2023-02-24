@@ -59,9 +59,12 @@ namespace Concesionaria
                 MessageBox.Show("Debe ingresar un concepto ");
                 return;
             }
+            cCuentaProveedor
+            Double Saldo = 0;
             cMovimientoProveedor mov = new cMovimientoProveedor();
             cDeudaProveedor Deuda = new cDeudaProveedor();
             Int32 CodCuentaProveedor= Convert.ToInt32 (txtCodCuenta.Text);
+            Saldo = mov.GetSaldo(CodCuentaProveedor);
             string COncepto = txtConcepto.Text;
             DateTime Fecha = Convert.ToDateTime(dpFecha.Value);
             DateTime FechaVto = Convert.ToDateTime(dpFechaVencimiento.Value);

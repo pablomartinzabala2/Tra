@@ -25,13 +25,18 @@ namespace Concesionaria.Clases
         public void Insertar(
            Int32 CodCuentaProveedor, DateTime Fecha, string Concepto, Double Debe, Double Haber)
         {
+
+            Double Saldo = 0;
+            Saldo = GetSaldo(CodCuentaProveedor);
+            Saldo = Saldo - Debe;
             string sql = "insert into MovimientoProveedor(CodCuentaProveedor,Fecha,Concepto,";
-            sql = sql + "Debe,Haber)";
+            sql = sql + "Debe,Haber,Saldo)";
             sql = sql + " values (" + CodCuentaProveedor.ToString();
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + "'" + Concepto + "'";
             sql = sql + "," + Debe.ToString().Replace(",", ".");
             sql = sql + "," + Haber.ToString().Replace(",", ".");
+            sql = sql + "," + Saldo.ToString().Replace(",", ".");
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
         }
@@ -40,7 +45,7 @@ namespace Concesionaria.Clases
         {
             Double Saldo = 0;
             Saldo = GetSaldo(CodCuentaProveedor);
-            string sql = " select 0,'' as Fecha,'Saldo'," + Saldo.ToString().Replace(",", ".") + ",0";
+            string sql = " select 0,'' as Fecha,'',0,0"; 
             sql = sql + "," + Saldo.ToString().Replace(",", ".") + " as Saldo ";
             sql = sql + " union ";
             sql = sql + "select CodCuentaProveedor,Fecha,Concepto,Debe,Haber, Saldo";
@@ -50,7 +55,7 @@ namespace Concesionaria.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
-        private Double GetSaldo(Int32 CodCuenta)
+        public Double GetSaldo(Int32 CodCuenta)
         {
             Double Saldo = 0;
             string sql = "select isnull(Saldo,0) as Saldo from CuentaProveedor ";
