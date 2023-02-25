@@ -58,7 +58,7 @@
             // btnVerResumen
             // 
             this.btnVerResumen.Image = global::Concesionaria.Properties.Resources.Folder1;
-            this.btnVerResumen.Location = new System.Drawing.Point(542, 22);
+            this.btnVerResumen.Location = new System.Drawing.Point(542, 26);
             this.btnVerResumen.Name = "btnVerResumen";
             this.btnVerResumen.Size = new System.Drawing.Size(40, 31);
             this.btnVerResumen.TabIndex = 75;

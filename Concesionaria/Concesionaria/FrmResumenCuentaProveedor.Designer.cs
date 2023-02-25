@@ -35,12 +35,16 @@
             this.txtProveedor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtSaldo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtSaldo);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.Grilla);
             this.groupBox1.Controls.Add(this.txtCodCuenta);
             this.groupBox1.Controls.Add(this.txtCuentaProveedor);
@@ -50,7 +54,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(689, 441);
+            this.groupBox1.Size = new System.Drawing.Size(689, 454);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -61,7 +65,7 @@
             this.Grilla.Name = "Grilla";
             this.Grilla.ReadOnly = true;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(696, 373);
+            this.Grilla.Size = new System.Drawing.Size(696, 352);
             this.Grilla.TabIndex = 46;
             // 
             // txtCodCuenta
@@ -105,6 +109,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Proveedor";
             // 
+            // txtSaldo
+            // 
+            this.txtSaldo.Location = new System.Drawing.Point(536, 414);
+            this.txtSaldo.Name = "txtSaldo";
+            this.txtSaldo.Size = new System.Drawing.Size(147, 23);
+            this.txtSaldo.TabIndex = 48;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(486, 414);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 17);
+            this.label3.TabIndex = 47;
+            this.label3.Text = "Saldo";
+            // 
             // FrmResumenCuentaProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,5 +150,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCodCuenta;
         private System.Windows.Forms.DataGridView Grilla;
+        private System.Windows.Forms.TextBox txtSaldo;
+        private System.Windows.Forms.Label label3;
     }
 }
