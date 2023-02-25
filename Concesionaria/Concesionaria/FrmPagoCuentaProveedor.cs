@@ -89,9 +89,9 @@ namespace Concesionaria
                         Principal.CodUsuarioLogueado, (-1) * Efectivo,0,0,0,0,dpFecha.Value,Descripcion,0);
                     CodPago = pago.Insertar(con, Transaccion, Fecha, Efectivo, Concepto);
                     Double SaldoCuentaProv = movProv.GetSaldo(CodCuentaProveedor);
-                    Saldo = Saldo + Efectivo;
-                    movProv.InsertarTran(con, Transaccion, CodCuentaProveedor, Fecha, Concepto, 0, Efectivo, Saldo);
-                    cuentaProv.ActuaizarSaldoTran(con, Transaccion,CodCuentaProveedor, Saldo);
+                    SaldoCuentaProv = SaldoCuentaProv + Efectivo;
+                    movProv.InsertarTran(con, Transaccion, CodCuentaProveedor, Fecha, Concepto, 0, Efectivo, SaldoCuentaProv);
+                    cuentaProv.ActuaizarSaldoTran(con, Transaccion,CodCuentaProveedor, SaldoCuentaProv);
                     for (int i = 0; i < Grilla.Rows.Count - 1; i++)
                     {    // salgo es la deuda total y saldo deuda es cada deuada individual
                         CodDeuda = Convert.ToInt32(Grilla.Rows[i].Cells[0].Value);
@@ -111,6 +111,12 @@ namespace Concesionaria
                             }
                               
                         }
+
+                    }
+                    if (Efectivo>0)
+                    {
+                        //significa que sobro efectivo para abonar la deuda
+                      //  movProv.InsertarTran(con ,Transaccion, Fecha,txtConcepto.Text,0,)
 
                     }
                 }
@@ -138,12 +144,13 @@ namespace Concesionaria
             cFunciones fun = new Clases.cFunciones();
             Efectivo = fun.ToDouble(txtEfectivo.Text);
             Saldo = fun.ToDouble(txtSaldo.Text);
+            /*
             if (Efectivo>Saldo)
             {
                 MessageBox.Show("El saldo es inferior al importe efectivo");
                 return false;
             }
-
+            */
             if (txtConcepto.Text =="")
             {
                 MessageBox.Show("Debe ingresar un concepto para continuar");
