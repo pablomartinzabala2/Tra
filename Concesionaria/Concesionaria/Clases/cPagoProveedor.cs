@@ -19,5 +19,29 @@ namespace Concesionaria.Clases
             sql = sql + ")";
             return cDb.EjecutarEscalarTransaccion (con, Transaccion, sql);
         }
+
+        public  DataTable Buscar(DateTime FechaDesde, DateTime FevhaHasta)
+        {
+            string sql = "select CodPago,Fecha,Concepto,Efectivo ";
+            sql = sql + " from PagoProveedor ";
+            sql = sql + " where Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and Fecha <=" + "'" + FevhaHasta.ToShortDateString() + "'";
+            return cDb.ExecuteDataTable(sql);
+
+        }
+
+        public DataTable GetPagoxCodigo(Int32 CodPago)
+        {
+            string sql = " select * from Pago ";
+            sql = sql + " where CodPago=" + CodPago.ToString();
+            return cDb.ExecuteDataTable(sql);
+        }
+
+        public void Borrar(SqlConnection con, SqlTransaction Transaccion, Int32 CodPago)
+        {
+            string sql = " delete from PagoProveedor ";
+            sql = sql + " where CodPago=" + CodPago.ToString();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
     }
 }

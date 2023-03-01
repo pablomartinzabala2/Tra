@@ -62,6 +62,9 @@
             this.alertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anotacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chequesAPagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aPagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aCobrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chequeesGeneralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cobranzasGeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cobranzasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,6 +77,7 @@
             this.interesesPagadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrendas = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.rentabilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,10 +118,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.aPagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aCobrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chequeesGeneralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.listadoDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -413,6 +414,27 @@
             this.chequesAPagarToolStripMenuItem.Text = "Cheques ";
             this.chequesAPagarToolStripMenuItem.Click += new System.EventHandler(this.chequesAPagarToolStripMenuItem_Click);
             // 
+            // aPagarToolStripMenuItem
+            // 
+            this.aPagarToolStripMenuItem.Name = "aPagarToolStripMenuItem";
+            this.aPagarToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.aPagarToolStripMenuItem.Text = "A Pagar";
+            this.aPagarToolStripMenuItem.Click += new System.EventHandler(this.aPagarToolStripMenuItem_Click);
+            // 
+            // aCobrarToolStripMenuItem
+            // 
+            this.aCobrarToolStripMenuItem.Name = "aCobrarToolStripMenuItem";
+            this.aCobrarToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.aCobrarToolStripMenuItem.Text = "A Cobrar";
+            this.aCobrarToolStripMenuItem.Click += new System.EventHandler(this.aCobrarToolStripMenuItem_Click);
+            // 
+            // chequeesGeneralToolStripMenuItem
+            // 
+            this.chequeesGeneralToolStripMenuItem.Name = "chequeesGeneralToolStripMenuItem";
+            this.chequeesGeneralToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.chequeesGeneralToolStripMenuItem.Text = "Chequees General";
+            this.chequeesGeneralToolStripMenuItem.Click += new System.EventHandler(this.chequeesGeneralToolStripMenuItem_Click);
+            // 
             // cobranzasGeneralesToolStripMenuItem
             // 
             this.cobranzasGeneralesToolStripMenuItem.Name = "cobranzasGeneralesToolStripMenuItem";
@@ -496,6 +518,13 @@
             this.menuPrendas.Size = new System.Drawing.Size(228, 22);
             this.menuPrendas.Text = "Prendas";
             this.menuPrendas.Click += new System.EventHandler(this.menuPrendas_Click);
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(228, 22);
+            this.toolStripMenuItem11.Text = "Recibos";
+            this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
             // 
             // rentabilidadToolStripMenuItem
             // 
@@ -623,7 +652,8 @@
             this.proveedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crearToolStripMenuItem,
             this.listadoDeudasToolStripMenuItem,
-            this.listadoCuentasToolStripMenuItem});
+            this.listadoCuentasToolStripMenuItem,
+            this.listadoDePagosToolStripMenuItem});
             this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
             this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(112, 21);
             this.proveedoresToolStripMenuItem.Text = "Proveedores";
@@ -631,21 +661,21 @@
             // crearToolStripMenuItem
             // 
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.crearToolStripMenuItem.Text = "Crear";
             this.crearToolStripMenuItem.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
             // 
             // listadoDeudasToolStripMenuItem
             // 
             this.listadoDeudasToolStripMenuItem.Name = "listadoDeudasToolStripMenuItem";
-            this.listadoDeudasToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.listadoDeudasToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.listadoDeudasToolStripMenuItem.Text = "Listado Deudas";
             this.listadoDeudasToolStripMenuItem.Click += new System.EventHandler(this.listadoDeudasToolStripMenuItem_Click);
             // 
             // listadoCuentasToolStripMenuItem
             // 
             this.listadoCuentasToolStripMenuItem.Name = "listadoCuentasToolStripMenuItem";
-            this.listadoCuentasToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.listadoCuentasToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.listadoCuentasToolStripMenuItem.Text = "Listado Cuentas";
             this.listadoCuentasToolStripMenuItem.Click += new System.EventHandler(this.listadoCuentasToolStripMenuItem_Click);
             // 
@@ -855,33 +885,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // aPagarToolStripMenuItem
+            // listadoDePagosToolStripMenuItem
             // 
-            this.aPagarToolStripMenuItem.Name = "aPagarToolStripMenuItem";
-            this.aPagarToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.aPagarToolStripMenuItem.Text = "A Pagar";
-            this.aPagarToolStripMenuItem.Click += new System.EventHandler(this.aPagarToolStripMenuItem_Click);
-            // 
-            // aCobrarToolStripMenuItem
-            // 
-            this.aCobrarToolStripMenuItem.Name = "aCobrarToolStripMenuItem";
-            this.aCobrarToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.aCobrarToolStripMenuItem.Text = "A Cobrar";
-            this.aCobrarToolStripMenuItem.Click += new System.EventHandler(this.aCobrarToolStripMenuItem_Click);
-            // 
-            // chequeesGeneralToolStripMenuItem
-            // 
-            this.chequeesGeneralToolStripMenuItem.Name = "chequeesGeneralToolStripMenuItem";
-            this.chequeesGeneralToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.chequeesGeneralToolStripMenuItem.Text = "Chequees General";
-            this.chequeesGeneralToolStripMenuItem.Click += new System.EventHandler(this.chequeesGeneralToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem11
-            // 
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(228, 22);
-            this.toolStripMenuItem11.Text = "Recibos";
-            this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
+            this.listadoDePagosToolStripMenuItem.Name = "listadoDePagosToolStripMenuItem";
+            this.listadoDePagosToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.listadoDePagosToolStripMenuItem.Text = "Listado de Pagos";
+            this.listadoDePagosToolStripMenuItem.Click += new System.EventHandler(this.listadoDePagosToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -998,6 +1007,7 @@
         private System.Windows.Forms.ToolStripMenuItem aCobrarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chequeesGeneralToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
+        private System.Windows.Forms.ToolStripMenuItem listadoDePagosToolStripMenuItem;
     }
 }
 

@@ -810,5 +810,11 @@ namespace Concesionaria
             FrmListadoRecibo frm = new FrmListadoRecibo();
             frm.Show();
         }
+
+        private void listadoDePagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListadoPagoProveedor frm = new FrmListadoPagoProveedor();
+            frm.Show();
+        }
     }
 }

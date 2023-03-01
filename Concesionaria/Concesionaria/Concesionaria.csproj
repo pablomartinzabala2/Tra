@@ -596,6 +596,12 @@
     <Compile Include="FrmListadoMovimientos.Designer.cs">
       <DependentUpon>FrmListadoMovimientos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoPagoProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoPagoProveedor.Designer.cs">
+      <DependentUpon>FrmListadoPagoProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoPrenda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1095,6 +1101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoMovimientos.resx">
       <DependentUpon>FrmListadoMovimientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoPagoProveedor.resx">
+      <DependentUpon>FrmListadoPagoProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoPrenda.resx">
       <DependentUpon>FrmListadoPrenda.cs</DependentUpon>

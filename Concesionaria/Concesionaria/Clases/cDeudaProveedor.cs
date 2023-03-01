@@ -45,5 +45,14 @@ namespace Concesionaria.Clases
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
 
         }
+
+        public void Anular(SqlConnection con, SqlTransaction Transaccion,Int32 CodPago)
+        {
+            string sql = " update DeudaProveedor ";
+            sql = sql + " set Saldo = Importe ";
+            sql = sql + " , CodPago = null ";
+            sql = sql + " where CodPago=" + CodPago.ToString();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
     }
 }
