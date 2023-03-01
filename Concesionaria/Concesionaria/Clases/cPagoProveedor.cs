@@ -32,7 +32,7 @@ namespace Concesionaria.Clases
 
         public DataTable GetPagoxCodigo(Int32 CodPago)
         {
-            string sql = " select * from Pago ";
+            string sql = " select * from PagoProveedor ";
             sql = sql + " where CodPago=" + CodPago.ToString();
             return cDb.ExecuteDataTable(sql);
         }
