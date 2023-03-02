@@ -173,7 +173,7 @@
             // button2
             // 
             this.button2.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.button2.Location = new System.Drawing.Point(337, 13);
+            this.button2.Location = new System.Drawing.Point(237, 13);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(40, 29);
             this.button2.TabIndex = 85;
@@ -183,23 +183,26 @@
             // button4
             // 
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(291, 12);
+            this.button4.Location = new System.Drawing.Point(454, 12);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(40, 29);
             this.button4.TabIndex = 84;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
             // 
             // btnAgregarCliente
             // 
             this.btnAgregarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCliente.Image")));
-            this.btnAgregarCliente.Location = new System.Drawing.Point(246, 13);
+            this.btnAgregarCliente.Location = new System.Drawing.Point(408, 13);
             this.btnAgregarCliente.Name = "btnAgregarCliente";
             this.btnAgregarCliente.Size = new System.Drawing.Size(40, 29);
             this.btnAgregarCliente.TabIndex = 83;
             this.btnAgregarCliente.UseVisualStyleBackColor = true;
+            this.btnAgregarCliente.Visible = false;
             // 
             // txtImporteCheque
             // 
+            this.txtImporteCheque.Enabled = false;
             this.txtImporteCheque.Location = new System.Drawing.Point(131, 15);
             this.txtImporteCheque.Name = "txtImporteCheque";
             this.txtImporteCheque.Size = new System.Drawing.Size(100, 23);
