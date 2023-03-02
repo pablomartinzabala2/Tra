@@ -119,5 +119,13 @@ namespace Concesionaria.Clases
             sql = sql + " where FechaPago is null ";
             return cDb.ExecuteDataTable(sql);
         }
+
+        public void ActualizarFechaCobro(SqlConnection con, SqlTransaction Transaccion,Int32 CodCheque,DateTime Fecha)
+        {
+            string sql = "update ChequeCobrar ";
+            sql = sql + " set FechaPago=" + "'" + Fecha.ToShortDateString() + "'";
+            sql = sql + " where CodCheque=" + CodCheque.ToString();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
     }
 }

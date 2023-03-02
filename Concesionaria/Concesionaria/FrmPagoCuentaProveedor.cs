@@ -58,6 +58,7 @@ namespace Concesionaria
             cPagoProveedor pago = new cPagoProveedor();
             cDeudaProveedor Deuda = new cDeudaProveedor();
             Double Efectivo = 0;
+            Double TotalCheque = 0;
             Double Saldo = 0;
             Int32 CodPago = 0;
             Int32 CodDeuda = 0;
@@ -70,6 +71,12 @@ namespace Concesionaria
             {
                 Saldo = fun.ToDouble(txtSaldo.Text);
             }
+
+            if (txtImporteCheque.Text !="")
+            {
+                TotalCheque = fun.ToDouble(txtImporteCheque.Text);
+            }
+            Int32 CodCuentaProveedor = Convert.ToInt32(txtCodCuenta.Text);
             cCuentaProveedor cuentaProv = new Clases.cCuentaProveedor();
             cMovimiento mov = new Clases.cMovimiento();
             cMovimientoProveedor movProv = new cMovimientoProveedor();
@@ -83,11 +90,11 @@ namespace Concesionaria
             {
                 if (Efectivo>0)
                 {
-                    Int32 CodCuentaProveedor = Convert.ToInt32(txtCodCuenta.Text);
+                   
                     Descripcion = "Pago Cuenta " + txtCuentaProveedor.Text;
                     mov.RegistrarMovimientoDescripcionTransaccion(con, Transaccion, 0,
                         Principal.CodUsuarioLogueado, (-1) * Efectivo,0,0,0,0,dpFecha.Value,Descripcion,0);
-                    CodPago = pago.Insertar(con, Transaccion, Fecha, Efectivo, Concepto);
+                    CodPago = pago.Insertar(con, Transaccion, Fecha, Efectivo, Concepto, 0, null);
                     Double SaldoCuentaProv = movProv.GetSaldo(CodCuentaProveedor);
                     SaldoCuentaProv = SaldoCuentaProv + Efectivo;
                     movProv.InsertarTran(con, Transaccion, CodCuentaProveedor, Fecha, Concepto, 0, Efectivo, SaldoCuentaProv);
@@ -108,16 +115,45 @@ namespace Concesionaria
                             {
                                 Deuda.ActualizarSaldo(con, Transaccion, CodDeuda, Efectivo, CodPago);
                                 Efectivo = 0;
-                            }
-                              
+                            }                         
                         }
-
                     }
                     if (Efectivo>0)
                     {
                         //significa que sobro efectivo para abonar la deuda
                       //  movProv.InsertarTran(con ,Transaccion, Fecha,txtConcepto.Text,0,)
 
+                    }
+                }
+
+                if (TotalCheque>0)
+                {
+                    cChequeCobrar cheque = new cChequeCobrar();
+                    Int32? CodCheque = Convert.ToInt32(txtCodCheque.Text);
+                    CodPago = pago.Insertar(con, Transaccion, Fecha, 0, Concepto, TotalCheque, CodCheque);
+                    Double SaldoCuentaProv = movProv.GetSaldo(CodCuentaProveedor);
+                    SaldoCuentaProv = SaldoCuentaProv + TotalCheque;
+                    movProv.InsertarTran(con, Transaccion, CodCuentaProveedor, Fecha, Concepto, 0, TotalCheque, SaldoCuentaProv);
+                    cheque.ActualizarFechaCobro(con, Transaccion,Convert.ToInt32(CodCheque), Fecha);
+                    for (int i = 0; i < Grilla.Rows.Count - 1; i++)
+                    {    // salgo es la deuda total y saldo deuda es cada deuada individual
+                        CodDeuda = Convert.ToInt32(Grilla.Rows[i].Cells[0].Value);
+                        SaldoDeuda = fun.ToDouble(Grilla.Rows[i].Cells[3].Value.ToString());
+                        if (TotalCheque > 0)
+                        {
+                            if (TotalCheque >= SaldoDeuda)
+                            {
+                                Deuda.ActualizarSaldo(con, Transaccion, CodDeuda, SaldoDeuda, CodPago);
+                                TotalCheque = TotalCheque - SaldoDeuda;
+                                Saldo = Saldo - SaldoDeuda;
+                            }
+                            else
+                            {
+                                Deuda.ActualizarSaldo(con, Transaccion, CodDeuda, TotalCheque, CodPago);
+                                TotalCheque = 0;
+                                
+                            }
+                        }
                     }
                 }
                
@@ -183,7 +219,7 @@ namespace Concesionaria
                 if (trdo.Rows.Count >0)
                 {
                     txtCodCheque.Text = CodCheque.ToString();
-                    Double Importe = Convert.ToInt32(trdo.Rows[0]["Importe"].ToString());
+                    Double Importe = Convert.ToDouble(trdo.Rows[0]["Importe"].ToString());
                     txtImporteCheque.Text = Importe.ToString();
                     txtImporteCheque.Text = fun.FormatoEnteroMiles(txtImporteCheque.Text);
                 }

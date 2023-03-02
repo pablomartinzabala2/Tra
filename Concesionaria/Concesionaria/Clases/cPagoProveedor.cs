@@ -9,13 +9,18 @@ namespace Concesionaria.Clases
 {
     public  class cPagoProveedor
     {
-        public Int32 Insertar(SqlConnection con, SqlTransaction Transaccion,DateTime Fecha,Double Efectivo, string Concepto)
+        public Int32 Insertar(SqlConnection con, SqlTransaction Transaccion,DateTime Fecha,Double Efectivo, string Concepto,Double ImporteCheque,Int32? CodCheque)
         {
             string sql = "insert into PagoProveedor(";
-            sql = sql + "Fecha,Efectivo,Concepto)";
+            sql = sql + "Fecha,Efectivo,Concepto,ImporteCheque,CodCheque)";
             sql = sql + " values(" + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + Efectivo.ToString().Replace(",", ".");
             sql = sql + "," + "'" + Concepto + "'";
+            sql = sql + "," + ImporteCheque.ToString().Replace(",", ".");
+            if (CodCheque != null)
+                sql = sql + "," + CodCheque.ToString();
+            else
+                sql = sql + ",null";
             sql = sql + ")";
             return cDb.EjecutarEscalarTransaccion (con, Transaccion, sql);
         }
