@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPagoCuentaProveedor));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtConcepto = new System.Windows.Forms.TextBox();
@@ -36,6 +37,13 @@
             this.txtEfectivo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.btnAgregarCliente = new System.Windows.Forms.Button();
+            this.txtImporteCheque = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCodCheque = new System.Windows.Forms.TextBox();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.txtSaldo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,6 +59,7 @@
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,10 +109,11 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(42, 351);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(571, 100);
+            this.tabControl1.Size = new System.Drawing.Size(571, 115);
             this.tabControl1.TabIndex = 84;
             // 
             // tabPage1
@@ -114,7 +124,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(563, 71);
+            this.tabPage1.Size = new System.Drawing.Size(563, 86);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Efectivo";
             // 
@@ -141,9 +151,78 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(563, 71);
+            this.tabPage2.Size = new System.Drawing.Size(563, 86);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Transferencia";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage3.Controls.Add(this.button2);
+            this.tabPage3.Controls.Add(this.button4);
+            this.tabPage3.Controls.Add(this.btnAgregarCliente);
+            this.tabPage3.Controls.Add(this.txtImporteCheque);
+            this.tabPage3.Controls.Add(this.label6);
+            this.tabPage3.Controls.Add(this.txtCodCheque);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(563, 86);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Cheque";
+            // 
+            // button2
+            // 
+            this.button2.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.button2.Location = new System.Drawing.Point(337, 13);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(40, 29);
+            this.button2.TabIndex = 85;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button4
+            // 
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Location = new System.Drawing.Point(291, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(40, 29);
+            this.button4.TabIndex = 84;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarCliente
+            // 
+            this.btnAgregarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCliente.Image")));
+            this.btnAgregarCliente.Location = new System.Drawing.Point(246, 13);
+            this.btnAgregarCliente.Name = "btnAgregarCliente";
+            this.btnAgregarCliente.Size = new System.Drawing.Size(40, 29);
+            this.btnAgregarCliente.TabIndex = 83;
+            this.btnAgregarCliente.UseVisualStyleBackColor = true;
+            // 
+            // txtImporteCheque
+            // 
+            this.txtImporteCheque.Location = new System.Drawing.Point(131, 15);
+            this.txtImporteCheque.Name = "txtImporteCheque";
+            this.txtImporteCheque.Size = new System.Drawing.Size(100, 23);
+            this.txtImporteCheque.TabIndex = 82;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(70, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 17);
+            this.label6.TabIndex = 81;
+            this.label6.Text = "Importe";
+            // 
+            // txtCodCheque
+            // 
+            this.txtCodCheque.BackColor = System.Drawing.Color.Red;
+            this.txtCodCheque.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodCheque.Location = new System.Drawing.Point(16, 15);
+            this.txtCodCheque.Name = "txtCodCheque";
+            this.txtCodCheque.Size = new System.Drawing.Size(51, 23);
+            this.txtCodCheque.TabIndex = 80;
+            this.txtCodCheque.Visible = false;
             // 
             // Grilla
             // 
@@ -244,7 +323,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(46, 457);
+            this.btnGuardar.Location = new System.Drawing.Point(46, 465);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 37);
             this.btnGuardar.TabIndex = 6;
@@ -266,6 +345,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
             this.ResumeLayout(false);
 
@@ -293,5 +374,12 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtConcepto;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox txtImporteCheque;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtCodCheque;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnAgregarCliente;
     }
 }

@@ -308,6 +308,12 @@
     <Compile Include="FrmBuscarAuto.Designer.cs">
       <DependentUpon>FrmBuscarAuto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBuscarCheque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarCheque.Designer.cs">
+      <DependentUpon>FrmBuscarCheque.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCobroCheque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -957,6 +963,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarAuto.resx">
       <DependentUpon>FrmBuscarAuto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscarCheque.resx">
+      <DependentUpon>FrmBuscarCheque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCobroCheque.resx">
       <DependentUpon>FrmCobroCheque.cs</DependentUpon>

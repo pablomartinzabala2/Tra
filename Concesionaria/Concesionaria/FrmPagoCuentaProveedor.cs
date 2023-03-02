@@ -164,5 +164,30 @@ namespace Concesionaria
             cFunciones fun = new Clases.cFunciones();
             txtEfectivo.Text = fun.FormatoEnteroMiles(txtEfectivo.Text);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmBuscarCheque frm = new FrmBuscarCheque();
+            frm.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            frm.Show();
+        }
+
+        private void form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            cFunciones fun = new Clases.cFunciones();
+            if (Principal.CodCheque!=null)
+            {
+                Int32 CodCheque = Convert.ToInt32(Principal.CodCheque);
+                cChequeCobrar cheque = new cChequeCobrar();
+                DataTable trdo = cheque.GetChequexCodigo(CodCheque);
+                if (trdo.Rows.Count >0)
+                {
+                    txtCodCheque.Text = CodCheque.ToString();
+                    Double Importe = Convert.ToInt32(trdo.Rows[0]["Importe"].ToString());
+                    txtImporteCheque.Text = Importe.ToString();
+                    txtImporteCheque.Text = fun.FormatoEnteroMiles(txtImporteCheque.Text);
+                }
+            }
+        }
     }
 }

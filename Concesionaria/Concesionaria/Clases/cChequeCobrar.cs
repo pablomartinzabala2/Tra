@@ -112,5 +112,12 @@ namespace Concesionaria.Clases
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
 
         }
+
+        public DataTable GetChequesImpagoss()
+        {
+            string sql = "select CodCheque,Importe,Fecha,Vencimiento,Apellido from chequecobrar ";
+            sql = sql + " where FechaPago is null ";
+            return cDb.ExecuteDataTable(sql);
+        }
     }
 }
