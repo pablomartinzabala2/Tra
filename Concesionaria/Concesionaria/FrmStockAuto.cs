@@ -30,10 +30,13 @@ namespace Concesionaria
 
         private void BuscarAutosdeStock(string Patente,Int32? CodMarca, string Modelo)
         {
+            Boolean OrdenaPrecio = false;
+            if (CHKoRDENARpRECIO.Checked == true)
+                OrdenaPrecio = true;
             double Total = 0;
             Clases.cFunciones fun = new Clases.cFunciones();
             Clases.cStockAuto stock = new Clases.cStockAuto();
-            DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo);
+            DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio);
             trdo = fun.TablaaMiles(trdo, "Costo");
             Total = fun.TotalizarColumna(trdo, "Costo");
             txtTotalVehiculos.Text = trdo.Rows.Count.ToString();
@@ -63,6 +66,9 @@ namespace Concesionaria
 
         private void Buscar()
         {
+            Boolean OrdenaPrecio = false;
+            if (CHKoRDENARpRECIO.Checked == true)
+                OrdenaPrecio = true;
             Clases.cFunciones fun = new Clases.cFunciones();
             string Patente = txtPatente.Text;
             string Modelo = "";
@@ -72,7 +78,7 @@ namespace Concesionaria
             if (cmbMarca.SelectedIndex > 0)
                 CodMarca = Convert.ToInt32(cmbMarca.SelectedValue);
             Clases.cStockAuto stock = new Clases.cStockAuto();
-            DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo);
+            DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio);
             txtTotalVehiculos.Text = trdo.Rows.Count.ToString();
            // trdo = fun.TablaaMiles(trdo, "Costo");
             trdo = fun.TablaaMiles(trdo, "PrecioVenta");

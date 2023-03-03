@@ -188,6 +188,7 @@
             this.label44 = new System.Windows.Forms.Label();
             this.TxtSubTotal = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCliente)).BeginInit();
@@ -693,6 +694,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnBuscarCliente);
             this.groupBox2.Controls.Add(this.lblGuion2);
             this.groupBox2.Controls.Add(this.lblGuion1);
             this.groupBox2.Controls.Add(this.button4);
@@ -1838,6 +1840,16 @@
             this.label45.TabIndex = 55;
             this.label45.Text = "Subtotal";
             // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(604, 19);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(40, 27);
+            this.btnBuscarCliente.TabIndex = 76;
+            this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
+            // 
             // FrmAutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2065,5 +2077,6 @@
         private System.Windows.Forms.Button btnAgregarAnio;
         private System.Windows.Forms.Label lblGuion2;
         private System.Windows.Forms.Label lblGuion1;
+        private System.Windows.Forms.Button btnBuscarCliente;
     }
 }

@@ -30,6 +30,8 @@
         {
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtModelo = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnBajaStock = new System.Windows.Forms.Button();
             this.txtMontoTotal = new System.Windows.Forms.TextBox();
@@ -42,8 +44,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtModelo = new System.Windows.Forms.TextBox();
+            this.CHKoRDENARpRECIO = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CHKoRDENARpRECIO);
             this.groupBox1.Controls.Add(this.txtModelo);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnImprimir);
@@ -83,10 +85,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Autos en Stock";
             // 
+            // txtModelo
+            // 
+            this.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtModelo.Location = new System.Drawing.Point(550, 26);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(253, 23);
+            this.txtModelo.TabIndex = 57;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(490, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 17);
+            this.label5.TabIndex = 56;
+            this.label5.Text = "Modelo";
+            // 
             // btnImprimir
             // 
             this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer1;
-            this.btnImprimir.Location = new System.Drawing.Point(935, 26);
+            this.btnImprimir.Location = new System.Drawing.Point(983, 22);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(34, 30);
             this.btnImprimir.TabIndex = 55;
@@ -95,7 +114,7 @@
             // 
             // btnBajaStock
             // 
-            this.btnBajaStock.Location = new System.Drawing.Point(994, 26);
+            this.btnBajaStock.Location = new System.Drawing.Point(1026, 22);
             this.btnBajaStock.Name = "btnBajaStock";
             this.btnBajaStock.Size = new System.Drawing.Size(108, 30);
             this.btnBajaStock.TabIndex = 29;
@@ -136,7 +155,7 @@
             // button1
             // 
             this.button1.Image = global::Concesionaria.Properties.Resources.CAR3;
-            this.button1.Location = new System.Drawing.Point(895, 26);
+            this.button1.Location = new System.Drawing.Point(943, 22);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(34, 30);
             this.button1.TabIndex = 26;
@@ -168,13 +187,13 @@
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Location = new System.Drawing.Point(268, 26);
             this.cmbMarca.Name = "cmbMarca";
-            this.cmbMarca.Size = new System.Drawing.Size(246, 24);
+            this.cmbMarca.Size = new System.Drawing.Size(200, 24);
             this.cmbMarca.TabIndex = 24;
             // 
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom;
-            this.btnBuscar.Location = new System.Drawing.Point(855, 26);
+            this.btnBuscar.Location = new System.Drawing.Point(903, 22);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(34, 30);
             this.btnBuscar.TabIndex = 23;
@@ -198,22 +217,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = " Patente";
             // 
-            // label5
+            // CHKoRDENARpRECIO
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(536, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 17);
-            this.label5.TabIndex = 56;
-            this.label5.Text = "Modelo";
-            // 
-            // txtModelo
-            // 
-            this.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtModelo.Location = new System.Drawing.Point(596, 26);
-            this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(253, 23);
-            this.txtModelo.TabIndex = 57;
+            this.CHKoRDENARpRECIO.AutoSize = true;
+            this.CHKoRDENARpRECIO.Location = new System.Drawing.Point(809, 25);
+            this.CHKoRDENARpRECIO.Name = "CHKoRDENARpRECIO";
+            this.CHKoRDENARpRECIO.Size = new System.Drawing.Size(99, 21);
+            this.CHKoRDENARpRECIO.TabIndex = 58;
+            this.CHKoRDENARpRECIO.Text = "Ord. Precio";
+            this.CHKoRDENARpRECIO.UseVisualStyleBackColor = true;
             // 
             // FrmStockAuto
             // 
@@ -253,5 +265,6 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox CHKoRDENARpRECIO;
     }
 }
