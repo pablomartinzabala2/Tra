@@ -96,7 +96,7 @@ namespace Concesionaria
                     CodPago = pago.Insertar(con, Transaccion, Fecha, Efectivo, Concepto, 0, null, CodCuentaProveedor);
                     Double SaldoCuentaProv = movProv.GetSaldo(CodCuentaProveedor);
                     SaldoCuentaProv = SaldoCuentaProv + Efectivo;
-                    movProv.InsertarTran(con, Transaccion, CodCuentaProveedor, Fecha, Concepto, 0, Efectivo, SaldoCuentaProv);
+                    movProv.InsertarTran(con, Transaccion, CodCuentaProveedor, Fecha, Concepto, 0, Efectivo, SaldoCuentaProv, 0, CodPago);
                     cuentaProv.ActuaizarSaldoTran(con, Transaccion,CodCuentaProveedor, SaldoCuentaProv);
                     for (int i = 0; i < Grilla.Rows.Count - 1; i++)
                     {    // salgo es la deuda total y saldo deuda es cada deuada individual
@@ -132,7 +132,7 @@ namespace Concesionaria
                     CodPago = pago.Insertar(con, Transaccion, Fecha, 0, Concepto, TotalCheque, CodCheque, CodCuentaProveedor);
                     Double SaldoCuentaProv = movProv.GetSaldo(CodCuentaProveedor);
                     SaldoCuentaProv = SaldoCuentaProv + TotalCheque;
-                    movProv.InsertarTran(con, Transaccion, CodCuentaProveedor, Fecha, Concepto, 0, TotalCheque, SaldoCuentaProv);
+                    movProv.InsertarTran(con, Transaccion, CodCuentaProveedor, Fecha, Concepto, 0, TotalCheque, SaldoCuentaProv, 0, CodPago);
                     cheque.ActualizarFechaCobro(con, Transaccion,Convert.ToInt32(CodCheque), Fecha);
                     for (int i = 0; i < Grilla.Rows.Count - 1; i++)
                     {    // salgo es la deuda total y saldo deuda es cada deuada individual

@@ -8,7 +8,7 @@ namespace Concesionaria.Clases
 {
     public class cDeudaProveedor
     {
-        public void Insertar (Int32 CodCuentaProveedor, string COncepto,
+        public Int32 Insertar (Int32 CodCuentaProveedor, string COncepto,
             DateTime Fecha, DateTime FechaVto, Double Importe, string Observacion)
         {
             string sql = "Insert into DeudaProveedor(";
@@ -21,7 +21,7 @@ namespace Concesionaria.Clases
             sql = sql + "," + "'" + Observacion + "'";
             sql = sql + "," + Importe.ToString().Replace(",", ".");
             sql = sql + ")";
-            cDb.ExecutarNonQuery(sql);
+            return cDb.EjecutarEscalar(sql);
         }
 
         public DataTable GetDeuda(DateTime FechaDesde,DateTime FechaHasta)

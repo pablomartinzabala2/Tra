@@ -56,6 +56,18 @@ namespace Concesionaria
                 Msj("Debe seleccionar un elemento ");
                 return;
             }
+
+            string msj = "Confirma anular el pago ";
+            var result = MessageBox.Show(msj, "Información",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
+
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
             Int32 CodPago = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
             cPagoProveedor pago = new cPagoProveedor();
             DataTable trdo = pago.GetPagoxCodigo(CodPago);
@@ -69,7 +81,7 @@ namespace Concesionaria
             cDeudaProveedor Deuda = new Clases.cDeudaProveedor();
             cMovimiento mov = new cMovimiento();
             cMovimientoProveedor movProv = new cMovimientoProveedor();
-
+            movProv.BorrarMovimientoxCodPago(CodPago);
             SqlConnection con = new SqlConnection();
             con.ConnectionString = Clases.cConexion.Cadenacon();
             con.Open();

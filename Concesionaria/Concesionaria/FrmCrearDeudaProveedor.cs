@@ -59,6 +59,7 @@ namespace Concesionaria
                 MessageBox.Show("Debe ingresar un concepto ");
                 return;
             }
+            Int32 CodDeuda = 0;
             cCuentaProveedor cuentaProv = new cCuentaProveedor();
             Double Saldo = 0;
             cMovimientoProveedor mov = new cMovimientoProveedor();
@@ -72,10 +73,11 @@ namespace Concesionaria
             string Observacion = txtDescripcion.Text;
             cFunciones fun = new cFunciones();
             Importe = fun.ToDouble(txtImporte.Text);
-            Deuda.Insertar(CodCuentaProveedor,COncepto,
+            CodDeuda = Deuda.Insertar(CodCuentaProveedor,COncepto,
              Fecha,  FechaVto,  Importe,  Observacion);
             Saldo = Saldo - Importe;
-            mov.Insertar(CodCuentaProveedor, Fecha, COncepto, Importe, 0, Saldo);
+            mov.Insertar(CodCuentaProveedor, Fecha, COncepto, Importe, 0, Saldo, CodDeuda, 0);
+
            
             cuentaProv.ActuaizarSaldo(CodCuentaProveedor, Saldo);
             MessageBox.Show("Datos Grabados Correctamente");

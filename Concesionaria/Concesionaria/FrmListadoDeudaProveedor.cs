@@ -75,6 +75,18 @@ namespace Concesionaria
                 Msj("Debe seleccionar un registro");
                 return;
             }
+
+            string msj = "Confirma Eliminar el registro ";
+            var result = MessageBox.Show(msj, "Información",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
+
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
             string sCodPago = Grilla.CurrentRow.Cells[5].Value.ToString().Trim();
             if (sCodPago !="")
             {
@@ -86,6 +98,7 @@ namespace Concesionaria
                 Int32 CodDeuda = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value.ToString());
                 cDeudaProveedor Deuda = new cDeudaProveedor();
                 Deuda.Borrrar(CodDeuda);
+                mov.BorrarMovimientoxCodDeuda(CodDeuda);
                 DateTime FechaDesde = Convert.ToDateTime(dpFechaDesde.Value);
                 DateTime FechaHasta = Convert.ToDateTime(dpFechaHasta.Value);
                 Buscar(FechaDesde, FechaHasta);

@@ -9,32 +9,48 @@ namespace Concesionaria.Clases
     public class cMovimientoProveedor
     {
         public void InsertarTran(SqlConnection con, SqlTransaction Transaccion,
-            Int32 CodCuentaProveedor, DateTime Fecha, string Concepto,Double Debe, Double Haber,Double Saldo)
+            Int32 CodCuentaProveedor, DateTime Fecha, string Concepto,Double Debe, Double Haber,Double Saldo,Int32 CodDeuda,Int32 CodPago )
         {
             string sql = "insert into MovimientoProveedor(CodCuentaProveedor,Fecha,Concepto,";
-            sql = sql + "Debe,Haber,Saldo)";
+            sql = sql + "Debe,Haber,Saldo,CodDeuda,CodPago)";
             sql = sql + " values (" + CodCuentaProveedor.ToString();
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + "'" + Concepto + "'";
             sql = sql + "," + Debe.ToString().Replace(",", ".");
             sql = sql + "," + Haber.ToString().Replace(",", ".");
             sql = sql + "," + Saldo.ToString().Replace(",", ".");
+            if (CodDeuda > 0)
+                sql = sql + "," + CodDeuda.ToString();
+            else
+                sql = sql + ",null";
+            if (CodPago > 0)
+                sql = sql + "," + CodPago.ToString();
+            else
+                sql = sql + ",null";
             sql = sql + ")";
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
         public void Insertar(
-           Int32 CodCuentaProveedor, DateTime Fecha, string Concepto, Double Debe, Double Haber,Double Saldo )
+           Int32 CodCuentaProveedor, DateTime Fecha, string Concepto, Double Debe, Double Haber,Double Saldo, Int32 CodDeuda, Int32 CodPago)
         {
 
             string sql = "insert into MovimientoProveedor(CodCuentaProveedor,Fecha,Concepto,";
-            sql = sql + "Debe,Haber,Saldo)";
+            sql = sql + "Debe,Haber,Saldo,CodDeuda,CodPago)";
             sql = sql + " values (" + CodCuentaProveedor.ToString();
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + "'" + Concepto + "'";
             sql = sql + "," + Debe.ToString().Replace(",", ".");
             sql = sql + "," + Haber.ToString().Replace(",", ".");
             sql = sql + "," + Saldo.ToString().Replace(",", ".");
+            if (CodDeuda > 0)
+                sql = sql + "," + CodDeuda.ToString();
+            else
+                sql = sql + ",null";
+            if (CodPago > 0)
+                sql = sql + "," + CodPago.ToString();
+            else
+                sql = sql + ",null";
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
         }
@@ -70,6 +86,19 @@ namespace Concesionaria.Clases
             return Saldo;
         }
 
-        
+        public void BorrarMovimientoxCodDeuda(Int32 CodDeuda)
+        {
+            string sql = "delete from MovimientoProveedor ";
+            sql = sql + " where CodDeuda=" + CodDeuda.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
+        public void BorrarMovimientoxCodPago(Int32 CodPago)
+        {
+            string sql = "delete from MovimientoProveedor ";
+            sql = sql + " where CodPago=" + CodPago.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
+
+
     }
 }
