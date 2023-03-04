@@ -26,7 +26,7 @@ namespace Concesionaria.Clases
 
         public DataTable GetDeuda(DateTime FechaDesde,DateTime FechaHasta)
         {
-            string sql = "select d.CodDeuda,p.Nombre as Proveedor,c.Nombre as Cuenta,d.Importe,d.Saldo";
+            string sql = "select d.CodDeuda,p.Nombre as Proveedor,c.Nombre as Cuenta,d.Importe,d.Saldo,d.CodPago";
             sql = sql + " from CuentaProveedor c,Proveedor p,DeudaProveedor d";
             sql = sql + " where c.CodProveedor=p.CodProveedor";
             sql = sql + " and d.CodCuentaProveedor=c.CodCuenta "; 
@@ -53,6 +53,14 @@ namespace Concesionaria.Clases
             sql = sql + " , CodPago = null ";
             sql = sql + " where CodPago=" + CodPago.ToString();
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
+
+        public void Borrrar(Int32 CodDeuda)
+        {
+            string sql = "delete from DeudaProveedor ";
+            sql = sql + " where CodDeuda=" + CodDeuda.ToString();
+            cDb.ExecutarNonQuery(sql);
+
         }
     }
 }

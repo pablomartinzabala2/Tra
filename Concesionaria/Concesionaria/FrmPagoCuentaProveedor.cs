@@ -90,11 +90,10 @@ namespace Concesionaria
             {
                 if (Efectivo>0)
                 {
-                   
                     Descripcion = "Pago Cuenta " + txtCuentaProveedor.Text;
                     mov.RegistrarMovimientoDescripcionTransaccion(con, Transaccion, 0,
                         Principal.CodUsuarioLogueado, (-1) * Efectivo,0,0,0,0,dpFecha.Value,Descripcion,0);
-                    CodPago = pago.Insertar(con, Transaccion, Fecha, Efectivo, Concepto, 0, null);
+                    CodPago = pago.Insertar(con, Transaccion, Fecha, Efectivo, Concepto, 0, null, CodCuentaProveedor);
                     Double SaldoCuentaProv = movProv.GetSaldo(CodCuentaProveedor);
                     SaldoCuentaProv = SaldoCuentaProv + Efectivo;
                     movProv.InsertarTran(con, Transaccion, CodCuentaProveedor, Fecha, Concepto, 0, Efectivo, SaldoCuentaProv);
@@ -130,7 +129,7 @@ namespace Concesionaria
                 {
                     cChequeCobrar cheque = new cChequeCobrar();
                     Int32? CodCheque = Convert.ToInt32(txtCodCheque.Text);
-                    CodPago = pago.Insertar(con, Transaccion, Fecha, 0, Concepto, TotalCheque, CodCheque);
+                    CodPago = pago.Insertar(con, Transaccion, Fecha, 0, Concepto, TotalCheque, CodCheque, CodCuentaProveedor);
                     Double SaldoCuentaProv = movProv.GetSaldo(CodCuentaProveedor);
                     SaldoCuentaProv = SaldoCuentaProv + TotalCheque;
                     movProv.InsertarTran(con, Transaccion, CodCuentaProveedor, Fecha, Concepto, 0, TotalCheque, SaldoCuentaProv);

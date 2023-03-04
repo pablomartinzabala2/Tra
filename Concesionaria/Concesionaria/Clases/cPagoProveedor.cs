@@ -9,10 +9,10 @@ namespace Concesionaria.Clases
 {
     public  class cPagoProveedor
     {
-        public Int32 Insertar(SqlConnection con, SqlTransaction Transaccion,DateTime Fecha,Double Efectivo, string Concepto,Double ImporteCheque,Int32? CodCheque)
+        public Int32 Insertar(SqlConnection con, SqlTransaction Transaccion,DateTime Fecha,Double Efectivo, string Concepto,Double ImporteCheque,Int32? CodCheque, Int32 CodCuentaProveedor)
         {
             string sql = "insert into PagoProveedor(";
-            sql = sql + "Fecha,Efectivo,Concepto,ImporteCheque,CodCheque)";
+            sql = sql + "Fecha,Efectivo,Concepto,ImporteCheque,CodCheque,CodCuentaProveedor)";
             sql = sql + " values(" + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + Efectivo.ToString().Replace(",", ".");
             sql = sql + "," + "'" + Concepto + "'";
@@ -21,13 +21,14 @@ namespace Concesionaria.Clases
                 sql = sql + "," + CodCheque.ToString();
             else
                 sql = sql + ",null";
+            sql = sql + "," + CodCuentaProveedor.ToString();
             sql = sql + ")";
             return cDb.EjecutarEscalarTransaccion (con, Transaccion, sql);
         }
 
         public  DataTable Buscar(DateTime FechaDesde, DateTime FevhaHasta)
         {
-            string sql = "select CodPago,Fecha,Concepto,Efectivo ";
+            string sql = "select CodPago,Fecha,Concepto,Efectivo ,CodCheque,ImporteCheque";
             sql = sql + " from PagoProveedor ";
             sql = sql + " where Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and Fecha <=" + "'" + FevhaHasta.ToShortDateString() + "'";

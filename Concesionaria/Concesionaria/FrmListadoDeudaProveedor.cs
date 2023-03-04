@@ -67,5 +67,31 @@ namespace Concesionaria
         {
 
         }
+
+        private void btnEliminarDeuda_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow==null)
+            {
+                Msj("Debe seleccionar un registro");
+                return;
+            }
+            string sCodPago = Grilla.CurrentRow.Cells[5].Value.ToString().Trim();
+            if (sCodPago !="")
+            {
+                Msj("Debe anular el pago para poder borrarlo ");
+            }
+            else
+            {  
+                cMovimientoProveedor mov = new cMovimientoProveedor();
+                Int32 CodDeuda = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value.ToString());
+                cDeudaProveedor Deuda = new cDeudaProveedor();
+                Deuda.Borrrar(CodDeuda);
+                DateTime FechaDesde = Convert.ToDateTime(dpFechaDesde.Value);
+                DateTime FechaHasta = Convert.ToDateTime(dpFechaHasta.Value);
+                Buscar(FechaDesde, FechaHasta);
+                Msj("Datos grabados correctamente ");
+            }
+            
+        }
     }
 }

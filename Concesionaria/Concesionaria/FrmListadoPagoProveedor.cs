@@ -68,6 +68,7 @@ namespace Concesionaria
             cDeudaProveedor deuda = new cDeudaProveedor();
             cDeudaProveedor Deuda = new Clases.cDeudaProveedor();
             cMovimiento mov = new cMovimiento();
+            cMovimientoProveedor movProv = new cMovimientoProveedor();
 
             SqlConnection con = new SqlConnection();
             con.ConnectionString = Clases.cConexion.Cadenacon();
@@ -82,9 +83,12 @@ namespace Concesionaria
                 if (Efectivo >0)
                 {
                     mov.RegistrarMovimientoDescripcionTransaccion(con, Transaccion, 0, Principal.CodUsuarioLogueado, Efectivo, 0, 0, 0, 0, DateTime.Now, "Pago Anulado", 0);
+                    
                 }
                 Transaccion.Commit();
                 con.Close();
+                Buscar();
+                Msj("Datos procesados correctamente ");
                
             }
             catch (Exception Ex)
