@@ -44,7 +44,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.CHKoRDENARpRECIO = new System.Windows.Forms.CheckBox();
+            this.cmbOrden = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +61,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.CHKoRDENARpRECIO);
+            this.groupBox1.Controls.Add(this.cmbOrden);
             this.groupBox1.Controls.Add(this.txtModelo);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnImprimir);
@@ -90,7 +90,7 @@
             this.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtModelo.Location = new System.Drawing.Point(550, 26);
             this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(253, 23);
+            this.txtModelo.Size = new System.Drawing.Size(214, 23);
             this.txtModelo.TabIndex = 57;
             // 
             // label5
@@ -217,15 +217,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = " Patente";
             // 
-            // CHKoRDENARpRECIO
+            // cmbOrden
             // 
-            this.CHKoRDENARpRECIO.AutoSize = true;
-            this.CHKoRDENARpRECIO.Location = new System.Drawing.Point(809, 25);
-            this.CHKoRDENARpRECIO.Name = "CHKoRDENARpRECIO";
-            this.CHKoRDENARpRECIO.Size = new System.Drawing.Size(99, 21);
-            this.CHKoRDENARpRECIO.TabIndex = 58;
-            this.CHKoRDENARpRECIO.Text = "Ord. Precio";
-            this.CHKoRDENARpRECIO.UseVisualStyleBackColor = true;
+            this.cmbOrden.FormattingEnabled = true;
+            this.cmbOrden.Location = new System.Drawing.Point(776, 23);
+            this.cmbOrden.Name = "cmbOrden";
+            this.cmbOrden.Size = new System.Drawing.Size(121, 24);
+            this.cmbOrden.TabIndex = 58;
             // 
             // FrmStockAuto
             // 
@@ -265,6 +263,6 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox CHKoRDENARpRECIO;
+        private System.Windows.Forms.ComboBox cmbOrden;
     }
 }

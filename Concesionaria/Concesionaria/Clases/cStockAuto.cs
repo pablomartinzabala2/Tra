@@ -63,7 +63,7 @@ namespace Concesionaria.Clases
 
         }
 
-        public DataTable GetStockDetalladosVigente(string Patente,Int32? CodMarca, string Modelo, Boolean OrdenarPrecio )
+        public DataTable GetStockDetalladosVigente(string Patente,Int32? CodMarca, string Modelo, int? OrdenarPrecio )
         {
             string sql = "";
             sql = "select sa.CodStock,a.Patente";
@@ -97,10 +97,19 @@ namespace Concesionaria.Clases
                 sql = sql + " and a.CodMarca =" + CodMarca.ToString();
             if (Modelo != "")
                 sql = sql + " and a.Descripcion like " + "'%" + Modelo + "%'";
-            if (OrdenarPrecio == false)
-                sql = sql + " order by m.Nombre,a.Descripcion, a.Anio desc";
+            if (OrdenarPrecio !=null)
+            {
+                if (OrdenarPrecio ==1)
+                    sql = sql + " order by sa.PrecioVenta asc";
+
+                if (OrdenarPrecio == 2)
+                    sql = sql + " order by sa.PrecioVenta desc";
+            }
             else
-                sql = sql + " order by sa.PrecioVenta ";
+            {
+                sql = sql + " order by m.Nombre,a.Descripcion, a.Anio desc";
+            }
+                    
             return cDb.ExecuteDataTable(sql);
         }
 

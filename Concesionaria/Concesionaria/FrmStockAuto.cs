@@ -24,15 +24,20 @@ namespace Concesionaria
             Buscar();
             txtTotalVehiculos.BackColor = cColor.CajaTexto();
             txtMontoTotal.BackColor = cColor.CajaTexto();
-            
+            DataTable tbOrden = new DataTable();
+            tbOrden = fun.CrearTabla("Codigo;Nombre");
+            tbOrden = fun.AgregarFilas(tbOrden, "1;Asc");
+            tbOrden = fun.AgregarFilas(tbOrden, "2;Desc");
+            fun.LlenarComboDatatable(cmbOrden, tbOrden, "Nombre", "Codigo");
             
         }
 
         private void BuscarAutosdeStock(string Patente,Int32? CodMarca, string Modelo)
         {
-            Boolean OrdenaPrecio = false;
-            if (CHKoRDENARpRECIO.Checked == true)
-                OrdenaPrecio = true;
+            int? OrdenaPrecio = null;
+            if (cmbOrden.SelectedIndex > 0)
+                OrdenaPrecio = Convert.ToInt32(cmbOrden.SelectedValue);
+               
             double Total = 0;
             Clases.cFunciones fun = new Clases.cFunciones();
             Clases.cStockAuto stock = new Clases.cStockAuto();
@@ -66,9 +71,10 @@ namespace Concesionaria
 
         private void Buscar()
         {
-            Boolean OrdenaPrecio = false;
-            if (CHKoRDENARpRECIO.Checked == true)
-                OrdenaPrecio = true;
+            int? OrdenaPrecio = null;
+            if (cmbOrden.SelectedIndex > 0)
+                OrdenaPrecio = Convert.ToInt32(cmbOrden.SelectedValue);
+
             Clases.cFunciones fun = new Clases.cFunciones();
             string Patente = txtPatente.Text;
             string Modelo = "";
