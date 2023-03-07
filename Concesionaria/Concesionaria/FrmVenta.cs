@@ -1225,13 +1225,16 @@ namespace Concesionaria
             DateTime Fecha = dpFecha.Value;
             string NroRecibo = "";
             int Orden = 1;
+            Int32 CodEmpleado = 0;
             if (txtEfectivo.Text != "")
             {
                 Efectivo = fun.ToDouble(txtEfectivo.Text);
             }
 
+            CodEmpleado = Convert.ToInt32(CmbVendedor.SelectedValue);
+
             Int32 CodCliente = Convert.ToInt32(txtCodCLiente.Text);
-            CodRecibo = recibo.Insertar(con, Transaccion, Fecha, CodCliente, 0, "", "", 0, "",Efectivo);
+            CodRecibo = recibo.Insertar(con, Transaccion, Fecha, CodCliente, 0, "", "", 0, "", Efectivo, CodEmpleado);
             NroRecibo = recibo.GetNroRecibo(CodRecibo);
             recibo.ActualizarNroRecibo(con, Transaccion, CodRecibo, NroRecibo);
           

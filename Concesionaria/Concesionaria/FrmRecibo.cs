@@ -34,7 +34,15 @@ namespace Concesionaria
             tbCobranza = new DataTable();
             string ColCob = "Cuota;Importe;FechaVencimiento;FechaPago;Saldo;CodCobranza";
             tbCobranza = fun.CrearTabla(ColCob);
-            
+            CargarEmpleado();
+        }
+
+        private void CargarEmpleado()
+        { 
+            Clases.cVendedor ven = new Clases.cVendedor();
+            DataTable tvend = ven.GetVendedores();
+            Clases.cFunciones fun = new Clases.cFunciones();
+            fun.LlenarComboDatatable(cmbEmpleado, tvend, "Apellido", "CodVendedor");
         }
 
         private void txtNroDoc_TextChanged(object sender, EventArgs e)
@@ -230,6 +238,12 @@ namespace Concesionaria
                 return;
             }
 
+            if (cmbEmpleado.SelectedIndex <1)
+            {
+                MessageBox.Show("Debe Seleccionar un empleado");
+                return;
+            }
+
             SqlConnection con = new SqlConnection();
             con.ConnectionString = Clases.cConexion.Cadenacon();
             con.Open();
@@ -258,6 +272,7 @@ namespace Concesionaria
         private void GuardarRecibo(SqlConnection con, SqlTransaction Transaccion)
         {
             cFunciones fun = new cFunciones();
+            Int32 CodEmpleado = 0;
             cRecibo recibo = new cRecibo();
             Int32 CodRecibo = 0;
             Double Efectivo = 0;
@@ -270,6 +285,8 @@ namespace Concesionaria
             Double Cobranza = 0;
             Double Total = 0;
             string sTotal = "";
+
+            CodEmpleado = Convert.ToInt32(cmbEmpleado.SelectedValue);
 
             DateTime Fecha = dpFecha.Value;
             string NroRecibo = "";
@@ -302,7 +319,7 @@ namespace Concesionaria
                 sTotal = "$ " + fun.FormatoEnteroMiles(Total.ToString());
             }
 
-            CodRecibo = recibo.Insertar(con, Transaccion, Fecha, CodCliente, Saldo, sSaldo, Concepto, Total, sTotal,Efectivo);
+            CodRecibo = recibo.Insertar(con, Transaccion, Fecha, CodCliente, Saldo, sSaldo, Concepto, Total, sTotal, Efectivo, CodEmpleado);
             NroRecibo = recibo.GetNroRecibo(CodRecibo);
             recibo.ActualizarNroRecibo(con, Transaccion, CodRecibo, NroRecibo);
 

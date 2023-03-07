@@ -102,6 +102,8 @@
             this.btnQuitarTarjeta = new System.Windows.Forms.Button();
             this.btnAgregarTarjeta = new System.Windows.Forms.Button();
             this.btnGuardarRecibo = new System.Windows.Forms.Button();
+            this.cmbEmpleado = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -118,6 +120,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cmbEmpleado);
             this.groupBox1.Controls.Add(this.btnBuscarCliente);
             this.groupBox1.Controls.Add(this.txtConcepto);
             this.groupBox1.Controls.Add(this.label3);
@@ -139,7 +143,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(585, 118);
+            this.groupBox1.Size = new System.Drawing.Size(855, 118);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
@@ -854,6 +858,24 @@
             this.btnGuardarRecibo.UseVisualStyleBackColor = true;
             this.btnGuardarRecibo.Click += new System.EventHandler(this.btnGuardarRecibo_Click);
             // 
+            // cmbEmpleado
+            // 
+            this.cmbEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEmpleado.FormattingEnabled = true;
+            this.cmbEmpleado.Location = new System.Drawing.Point(603, 3);
+            this.cmbEmpleado.Name = "cmbEmpleado";
+            this.cmbEmpleado.Size = new System.Drawing.Size(246, 24);
+            this.cmbEmpleado.TabIndex = 75;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(525, 5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 16);
+            this.label4.TabIndex = 76;
+            this.label4.Text = "Empleado";
+            // 
             // FrmRecibo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -963,5 +985,7 @@
         private System.Windows.Forms.TextBox txtConcepto;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnBuscarCliente;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbEmpleado;
     }
 }

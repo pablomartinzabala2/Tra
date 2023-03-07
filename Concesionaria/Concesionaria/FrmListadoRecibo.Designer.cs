@@ -63,7 +63,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(907, 439);
+            this.groupBox1.Size = new System.Drawing.Size(1029, 439);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Recibos";
@@ -152,11 +152,11 @@
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(17, 67);
+            this.Grilla.Location = new System.Drawing.Point(6, 70);
             this.Grilla.Name = "Grilla";
             this.Grilla.ReadOnly = true;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(868, 348);
+            this.Grilla.Size = new System.Drawing.Size(1006, 348);
             this.Grilla.TabIndex = 45;
             // 
             // label1
@@ -181,7 +181,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(921, 452);
+            this.ClientSize = new System.Drawing.Size(1053, 452);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmListadoRecibo";
             this.Text = "Listado de Recibos";

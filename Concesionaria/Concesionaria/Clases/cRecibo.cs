@@ -23,10 +23,10 @@ namespace Concesionaria.Clases
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
-        public Int32 Insertar(SqlConnection con, SqlTransaction Transaccion, DateTime Fecha, Int32 CodCliente,Double  Saldo, string SSaldo,string Concepto,Double Total, string sTotal, Double Efectivo )
+        public Int32 Insertar(SqlConnection con, SqlTransaction Transaccion, DateTime Fecha, Int32 CodCliente,Double  Saldo, string SSaldo,string Concepto,Double Total, string sTotal, Double Efectivo, Int32 CodEmpleado )
         {
             string sql = "Insert into Recibo(CodCliente,Fecha,Saldo,sSaldo,Concepto,Total,sTotal";
-            sql = sql + ",Efectivo)";
+            sql = sql + ",Efectivo,CodEmpleado)";
             sql = sql + " Values(" + CodCliente.ToString();
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + Saldo.ToString().Replace(",", ".");
@@ -35,6 +35,7 @@ namespace Concesionaria.Clases
             sql = sql + "," + Total.ToString().Replace(",", ".");
             sql = sql + "," + "'" + sTotal + "'";
             sql = sql + "," + Efectivo.ToString().Replace(",", ".");
+            sql = sql + "," + CodEmpleado.ToString();
             sql = sql + ")";
             return  cDb.EjecutarEscalarTransaccion (con, Transaccion, sql);
         }
@@ -85,6 +86,7 @@ namespace Concesionaria.Clases
         {
             string sql = " select r.CodRecibo,c.Apellido ,c.Nombre ";
             sql = sql + " ,r.Fecha,r.Concepto, r.Total,NroRecibo ";
+            sql = sql + ", (select ve.Nombre from Vendedor ve where ve.CodVendedor =r.CodEmpleado) as Empleado";
             sql = sql + " from recibo r , cliente c ";
             sql = sql + " where r.CodCliente = c.CodCliente ";
             sql = sql + " and r.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
