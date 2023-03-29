@@ -48,12 +48,23 @@ namespace Concesionaria.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
-        public DataTable GetCuentasResumidas()
+        public DataTable GetCuentasResumidas(string Cuenta, string NombreProveedor)
         {
             string sql = "select c.CodCuenta,c.Nombre,P.Nombre as Proveedor,sum(d.Saldo) as Importe";
             sql = sql + " from CuentaProveedor c,Proveedor p,deudaproveedor d ";
             sql = sql + " where c.CodProveedor = p.CodProveedor ";
             sql = sql + " and d.CodCuentaProveedor = c.CodCuenta ";
+
+            if (NombreProveedor != "")
+            {
+                sql = sql + " and p.Nombre like " + "'%" + NombreProveedor + "%'";
+            }
+
+            if (Cuenta != "")
+            {
+                sql = sql + " and c.Nombre like " + "'%" + Cuenta + "%'";
+            }
+
             sql = sql + " group by c.CodCuenta,c.Nombre,P.Nombre ";
             return cDb.ExecuteDataTable(sql);
         }

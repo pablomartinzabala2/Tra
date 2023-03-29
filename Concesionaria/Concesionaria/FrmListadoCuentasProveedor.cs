@@ -19,19 +19,21 @@ namespace Concesionaria
 
         private void FrmListadoCuentasProveedor_Load(object sender, EventArgs e)
         {
-            Buscar();
+            Buscar("","");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Buscar();
+            string Nombre = txtNombre.Text.Trim();
+            string Cuenta = txtCuenta.Text;
+            Buscar(Cuenta , Nombre);
         }
 
-        private void Buscar()
+        private void Buscar(string NombreCuenta, string Proveedor)
         {
             cFunciones fun = new cFunciones();
             cCuentaProveedor Cuenta = new Clases.cCuentaProveedor();
-            DataTable trdo = Cuenta.GetCuentasResumidas();
+            DataTable trdo = Cuenta.GetCuentasResumidas(NombreCuenta, Proveedor);
             trdo = fun.TablaaMiles(trdo, "Importe");
             Grilla.DataSource = trdo;
             fun.AnchoColumnas(Grilla, "10;30;30;30");

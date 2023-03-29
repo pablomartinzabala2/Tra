@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCuenta = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnVerResumen = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnBorarCobranza = new System.Windows.Forms.Button();
@@ -41,6 +45,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtCuenta);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.btnVerResumen);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnBorarCobranza);
@@ -50,15 +58,47 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(936, 485);
+            this.groupBox1.Size = new System.Drawing.Size(892, 485);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Cuentas Corrientes";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 17);
+            this.label2.TabIndex = 79;
+            this.label2.Text = "Cuenta";
+            // 
+            // txtCuenta
+            // 
+            this.txtCuenta.Location = new System.Drawing.Point(77, 30);
+            this.txtCuenta.Name = "txtCuenta";
+            this.txtCuenta.Size = new System.Drawing.Size(178, 23);
+            this.txtCuenta.TabIndex = 78;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(261, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 17);
+            this.label1.TabIndex = 77;
+            this.label1.Text = "Proveedor";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(341, 30);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(178, 23);
+            this.txtNombre.TabIndex = 76;
+            // 
             // btnVerResumen
             // 
             this.btnVerResumen.Image = global::Concesionaria.Properties.Resources.Folder1;
-            this.btnVerResumen.Location = new System.Drawing.Point(542, 26);
+            this.btnVerResumen.Location = new System.Drawing.Point(665, 30);
             this.btnVerResumen.Name = "btnVerResumen";
             this.btnVerResumen.Size = new System.Drawing.Size(40, 31);
             this.btnVerResumen.TabIndex = 75;
@@ -68,7 +108,7 @@
             // button1
             // 
             this.button1.Image = global::Concesionaria.Properties.Resources.add;
-            this.button1.Location = new System.Drawing.Point(634, 27);
+            this.button1.Location = new System.Drawing.Point(711, 30);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 31);
             this.button1.TabIndex = 74;
@@ -87,7 +127,7 @@
             // btnCobroCheque
             // 
             this.btnCobroCheque.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroCheque.Location = new System.Drawing.Point(496, 26);
+            this.btnCobroCheque.Location = new System.Drawing.Point(619, 30);
             this.btnCobroCheque.Name = "btnCobroCheque";
             this.btnCobroCheque.Size = new System.Drawing.Size(40, 31);
             this.btnCobroCheque.TabIndex = 48;
@@ -106,7 +146,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(402, 30);
+            this.btnBuscar.Location = new System.Drawing.Point(525, 30);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(88, 28);
             this.btnBuscar.TabIndex = 44;
@@ -118,12 +158,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 539);
+            this.ClientSize = new System.Drawing.Size(895, 479);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmListadoCuentasProveedor";
             this.Text = "FrmListadoCuentasProveedor";
             this.Load += new System.EventHandler(this.FrmListadoCuentasProveedor_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
             this.ResumeLayout(false);
 
@@ -138,5 +179,9 @@
         private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnVerResumen;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCuenta;
     }
 }
