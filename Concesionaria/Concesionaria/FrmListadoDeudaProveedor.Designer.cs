@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnEliminarDeuda = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
@@ -40,13 +41,14 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnEliminarDeuda = new System.Windows.Forms.Button();
+            this.btnAbrirDeuda = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAbrirDeuda);
             this.groupBox1.Controls.Add(this.btnEliminarDeuda);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.dpFechaHasta);
@@ -66,6 +68,16 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de deuda Proveedor";
+            // 
+            // btnEliminarDeuda
+            // 
+            this.btnEliminarDeuda.Image = global::Concesionaria.Properties.Resources.cancel;
+            this.btnEliminarDeuda.Location = new System.Drawing.Point(542, 26);
+            this.btnEliminarDeuda.Name = "btnEliminarDeuda";
+            this.btnEliminarDeuda.Size = new System.Drawing.Size(40, 31);
+            this.btnEliminarDeuda.TabIndex = 75;
+            this.btnEliminarDeuda.UseVisualStyleBackColor = true;
+            this.btnEliminarDeuda.Click += new System.EventHandler(this.btnEliminarDeuda_Click);
             // 
             // button1
             // 
@@ -123,7 +135,7 @@
             // btnCobroCheque
             // 
             this.btnCobroCheque.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroCheque.Location = new System.Drawing.Point(588, 26);
+            this.btnCobroCheque.Location = new System.Drawing.Point(651, 26);
             this.btnCobroCheque.Name = "btnCobroCheque";
             this.btnCobroCheque.Size = new System.Drawing.Size(40, 31);
             this.btnCobroCheque.TabIndex = 48;
@@ -169,15 +181,15 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Fecha Hasta";
             // 
-            // btnEliminarDeuda
+            // btnAbrirDeuda
             // 
-            this.btnEliminarDeuda.Image = global::Concesionaria.Properties.Resources.cancel;
-            this.btnEliminarDeuda.Location = new System.Drawing.Point(542, 26);
-            this.btnEliminarDeuda.Name = "btnEliminarDeuda";
-            this.btnEliminarDeuda.Size = new System.Drawing.Size(40, 31);
-            this.btnEliminarDeuda.TabIndex = 75;
-            this.btnEliminarDeuda.UseVisualStyleBackColor = true;
-            this.btnEliminarDeuda.Click += new System.EventHandler(this.btnEliminarDeuda_Click);
+            this.btnAbrirDeuda.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnAbrirDeuda.Location = new System.Drawing.Point(588, 26);
+            this.btnAbrirDeuda.Name = "btnAbrirDeuda";
+            this.btnAbrirDeuda.Size = new System.Drawing.Size(40, 31);
+            this.btnAbrirDeuda.TabIndex = 76;
+            this.btnAbrirDeuda.UseVisualStyleBackColor = true;
+            this.btnAbrirDeuda.Click += new System.EventHandler(this.btnAbrirDeuda_Click);
             // 
             // FrmListadoDeudaProveedor
             // 
@@ -210,5 +222,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnEliminarDeuda;
+        private System.Windows.Forms.Button btnAbrirDeuda;
     }
 }

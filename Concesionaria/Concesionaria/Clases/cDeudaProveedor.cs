@@ -62,5 +62,16 @@ namespace Concesionaria.Clases
             cDb.ExecutarNonQuery(sql);
 
         }
+
+        public DataTable GetDeudaxCodigo(Int32 CodDeuda)
+        {
+            string sql = "select d.*,c.Nombre as Cuenta ,p.Nombre as Proveedor   ";
+            sql = sql + " from DeudaProveedor d, CuentaProveedor c , Proveedor p";
+            sql = sql + " where d.CodCuentaProveedor=c.CodCuenta" ;
+            sql = sql + " and c.CodProveedor=p.CodProveedor ";
+            sql = sql + " and CodDeuda=" + CodDeuda.ToString();
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            return trdo;
+        }
     }
 }

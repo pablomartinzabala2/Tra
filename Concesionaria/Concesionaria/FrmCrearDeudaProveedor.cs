@@ -96,7 +96,33 @@ namespace Concesionaria
 
         private void FrmCrearDeudaProveedor_Load(object sender, EventArgs e)
         {
+            if (Principal.Codigo!=null)
+            {
+                Int32 CodDeuda = Convert.ToInt32(Principal.Codigo);
+                BuscarDeuda(CodDeuda);
+            }
+        }
 
+        private void BuscarDeuda(Int32 CodDeuda)
+        {
+            cFunciones fun = new cFunciones();
+            cDeudaProveedor Deuda = new Clases.cDeudaProveedor();
+            DataTable trdo = Deuda.GetDeudaxCodigo(CodDeuda);
+            txtConcepto.Text = trdo.Rows[0]["Concepto"].ToString();
+            txtDescripcion.Text = trdo.Rows[0]["Observacion"].ToString();
+            Double Importe = Convert.ToDouble(trdo.Rows[0]["Importe"].ToString());
+            txtImporte.Text = Importe.ToString();
+            txtImporte.Text = fun.FormatoEnteroMiles(Importe.ToString());
+            DateTime Fecha = Convert.ToDateTime(trdo.Rows[0]["Fecha"]);
+            dpFecha.Value = Fecha;
+            if (trdo.Rows[0]["FechaVto"].ToString ()!="")
+            {
+                DateTime FechaVto = Convert.ToDateTime(trdo.Rows[0]["FechaVto"].ToString());
+                dpFechaVencimiento.Value = FechaVto;
+            }
+            txtCuentaProveedor.Text = trdo.Rows[0]["Cuenta"].ToString();
+            txtProveedor.Text = trdo.Rows[0]["Proveedor"].ToString();
+            btnGuardar.Visible = false;
         }
 
         private void txtImporte_Leave(object sender, EventArgs e)

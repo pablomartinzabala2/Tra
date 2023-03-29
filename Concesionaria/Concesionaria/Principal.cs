@@ -42,6 +42,7 @@ namespace Concesionaria
         public static Double? Importe;
         public static Int32? CodProveedor;
         public static Int32? CodCheque;
+        public static Int32? Codigo; 
         public Principal()
         {
             InitializeComponent();

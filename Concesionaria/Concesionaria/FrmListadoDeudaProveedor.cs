@@ -106,5 +106,20 @@ namespace Concesionaria
             }
             
         }
+
+        private void btnAbrirDeuda_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow ==null)
+            {
+                Msj("Debe seleccionar un registro");
+                return;
+            }
+            Int32 CodDeuda = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value.ToString());
+            Principal.Codigo = CodDeuda;
+            FrmCrearDeudaProveedor frm = new FrmCrearDeudaProveedor();
+            frm.ShowDialog();
+            Principal.Codigo = null;
+
+        }
     }
 }
