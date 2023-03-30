@@ -27,14 +27,19 @@ namespace Concesionaria.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
-        public DataTable GetCuentasProveedores(string Proveedor)
+        public DataTable GetCuentasProveedores(string Proveedor, string Cuenta)
         {
-            string sql = "select c.CodCuenta,p.Nombre,c.Nombre";
+            string sql = "select c.CodCuenta,p.Nombre as Proveedor,c.Nombre as Cuenta ";
             sql = sql + " from cuentaproveedor c,Proveedor p ";
             sql = sql + " where c.CodProveedor=p.CodProveedor";
             if (Proveedor !="")
             {
                 sql = sql + " and p.Nombre like " + "'%" + Proveedor + "%'";
+            }
+
+            if (Cuenta !="")
+            {
+                sql = sql + " and c.Nombre like " + "'%" + Cuenta + "%'";
             }
 
             return cDb.ExecuteDataTable(sql);

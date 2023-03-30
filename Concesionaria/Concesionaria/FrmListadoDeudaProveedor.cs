@@ -25,16 +25,20 @@ namespace Concesionaria
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            string Proveedor = "";
+            if (txtProveedor.Text != "")
+                Proveedor = txtProveedor.Text;
+
             DateTime FechaDesde = Convert.ToDateTime(dpFechaDesde.Value);
             DateTime FechaHasta = Convert.ToDateTime(dpFechaHasta.Value);
-            Buscar(FechaDesde, FechaHasta);
+            Buscar(FechaDesde, FechaHasta, Proveedor);
         }
 
-        private void Buscar(DateTime FechaDesde,DateTime FechaHasta)
+        private void Buscar(DateTime FechaDesde,DateTime FechaHasta, string Proveedor)
         {
             cFunciones fun = new cFunciones();
             cDeudaProveedor Deuda = new Clases.cDeudaProveedor();
-            DataTable trdo = Deuda.GetDeuda(FechaDesde, FechaHasta);
+            DataTable trdo = Deuda.GetDeuda(FechaDesde, FechaHasta, Proveedor);
             trdo = fun.TablaaFechas(trdo, "Importe");
             trdo = fun.TablaaFechas(trdo, "Saldo");
             Grilla.DataSource = trdo;
@@ -47,7 +51,7 @@ namespace Concesionaria
             InicializarFechas();
             DateTime FechaDesde = Convert.ToDateTime(dpFechaDesde.Value);
             DateTime FechaHasta = Convert.ToDateTime(dpFechaHasta.Value);
-            Buscar(FechaDesde, FechaHasta);
+            Buscar(FechaDesde, FechaHasta,"");
         }
 
         private void InicializarFechas()
@@ -101,7 +105,10 @@ namespace Concesionaria
                 mov.BorrarMovimientoxCodDeuda(CodDeuda);
                 DateTime FechaDesde = Convert.ToDateTime(dpFechaDesde.Value);
                 DateTime FechaHasta = Convert.ToDateTime(dpFechaHasta.Value);
-                Buscar(FechaDesde, FechaHasta);
+                string Proveedor = "";
+                if (txtProveedor.Text != "")
+                    Proveedor = txtProveedor.Text;
+                Buscar(FechaDesde, FechaHasta, Proveedor);
                 Msj("Datos grabados correctamente ");
             }
             

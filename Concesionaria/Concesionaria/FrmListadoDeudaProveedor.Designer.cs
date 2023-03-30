@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtProveedor = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnAbrirDeuda = new System.Windows.Forms.Button();
             this.btnEliminarDeuda = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
@@ -41,13 +44,14 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnAbrirDeuda = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtProveedor);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnAbrirDeuda);
             this.groupBox1.Controls.Add(this.btnEliminarDeuda);
             this.groupBox1.Controls.Add(this.button1);
@@ -69,10 +73,36 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de deuda Proveedor";
             // 
+            // txtProveedor
+            // 
+            this.txtProveedor.Location = new System.Drawing.Point(386, 34);
+            this.txtProveedor.Name = "txtProveedor";
+            this.txtProveedor.Size = new System.Drawing.Size(159, 23);
+            this.txtProveedor.TabIndex = 78;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(306, 34);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 17);
+            this.label4.TabIndex = 77;
+            this.label4.Text = "Proveedor";
+            // 
+            // btnAbrirDeuda
+            // 
+            this.btnAbrirDeuda.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnAbrirDeuda.Location = new System.Drawing.Point(737, 28);
+            this.btnAbrirDeuda.Name = "btnAbrirDeuda";
+            this.btnAbrirDeuda.Size = new System.Drawing.Size(40, 31);
+            this.btnAbrirDeuda.TabIndex = 76;
+            this.btnAbrirDeuda.UseVisualStyleBackColor = true;
+            this.btnAbrirDeuda.Click += new System.EventHandler(this.btnAbrirDeuda_Click);
+            // 
             // btnEliminarDeuda
             // 
             this.btnEliminarDeuda.Image = global::Concesionaria.Properties.Resources.cancel;
-            this.btnEliminarDeuda.Location = new System.Drawing.Point(542, 26);
+            this.btnEliminarDeuda.Location = new System.Drawing.Point(691, 28);
             this.btnEliminarDeuda.Name = "btnEliminarDeuda";
             this.btnEliminarDeuda.Size = new System.Drawing.Size(40, 31);
             this.btnEliminarDeuda.TabIndex = 75;
@@ -82,7 +112,7 @@
             // button1
             // 
             this.button1.Image = global::Concesionaria.Properties.Resources.add;
-            this.button1.Location = new System.Drawing.Point(496, 27);
+            this.button1.Location = new System.Drawing.Point(645, 28);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 31);
             this.button1.TabIndex = 74;
@@ -92,7 +122,7 @@
             // dpFechaHasta
             // 
             this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaHasta.Location = new System.Drawing.Point(299, 31);
+            this.dpFechaHasta.Location = new System.Drawing.Point(213, 34);
             this.dpFechaHasta.Name = "dpFechaHasta";
             this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
             this.dpFechaHasta.TabIndex = 73;
@@ -100,7 +130,7 @@
             // dpFechaDesde
             // 
             this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaDesde.Location = new System.Drawing.Point(112, 32);
+            this.dpFechaDesde.Location = new System.Drawing.Point(69, 34);
             this.dpFechaDesde.Name = "dpFechaDesde";
             this.dpFechaDesde.Size = new System.Drawing.Size(87, 23);
             this.dpFechaDesde.TabIndex = 72;
@@ -135,7 +165,7 @@
             // btnCobroCheque
             // 
             this.btnCobroCheque.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroCheque.Location = new System.Drawing.Point(651, 26);
+            this.btnCobroCheque.Location = new System.Drawing.Point(783, 28);
             this.btnCobroCheque.Name = "btnCobroCheque";
             this.btnCobroCheque.Size = new System.Drawing.Size(40, 31);
             this.btnCobroCheque.TabIndex = 48;
@@ -155,7 +185,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(402, 30);
+            this.btnBuscar.Location = new System.Drawing.Point(551, 28);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(88, 28);
             this.btnBuscar.TabIndex = 44;
@@ -168,28 +198,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 17);
+            this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 41;
-            this.label1.Text = "Fecha Desde";
+            this.label1.Text = "Desde";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(205, 33);
+            this.label2.Location = new System.Drawing.Point(162, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 17);
+            this.label2.Size = new System.Drawing.Size(45, 17);
             this.label2.TabIndex = 40;
-            this.label2.Text = "Fecha Hasta";
-            // 
-            // btnAbrirDeuda
-            // 
-            this.btnAbrirDeuda.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnAbrirDeuda.Location = new System.Drawing.Point(588, 26);
-            this.btnAbrirDeuda.Name = "btnAbrirDeuda";
-            this.btnAbrirDeuda.Size = new System.Drawing.Size(40, 31);
-            this.btnAbrirDeuda.TabIndex = 76;
-            this.btnAbrirDeuda.UseVisualStyleBackColor = true;
-            this.btnAbrirDeuda.Click += new System.EventHandler(this.btnAbrirDeuda_Click);
+            this.label2.Text = "Hasta";
             // 
             // FrmListadoDeudaProveedor
             // 
@@ -223,5 +243,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnEliminarDeuda;
         private System.Windows.Forms.Button btnAbrirDeuda;
+        private System.Windows.Forms.TextBox txtProveedor;
+        private System.Windows.Forms.Label label4;
     }
 }

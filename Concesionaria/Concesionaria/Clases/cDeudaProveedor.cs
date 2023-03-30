@@ -24,7 +24,7 @@ namespace Concesionaria.Clases
             return cDb.EjecutarEscalar(sql);
         }
 
-        public DataTable GetDeuda(DateTime FechaDesde,DateTime FechaHasta)
+        public DataTable GetDeuda(DateTime FechaDesde,DateTime FechaHasta, string Proveedor)
         {
             string sql = "select d.CodDeuda,p.Nombre as Proveedor,c.Nombre as Cuenta,d.Importe,d.Saldo,d.CodPago";
             sql = sql + " from CuentaProveedor c,Proveedor p,DeudaProveedor d";
@@ -32,6 +32,8 @@ namespace Concesionaria.Clases
             sql = sql + " and d.CodCuentaProveedor=c.CodCuenta "; 
             sql = sql + " and d.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and d.Fecha<=" + "'" + FechaHasta.ToShortDateString() + "'";
+            if (Proveedor != "")
+                sql = sql + " and p.Nombre like " + "'%" + Proveedor +"%'";
             sql = sql + " order by CodDeuda Desc ";
             return cDb.ExecuteDataTable(sql);
         }
