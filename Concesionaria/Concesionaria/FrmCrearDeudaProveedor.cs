@@ -130,6 +130,7 @@ namespace Concesionaria
             Clases.cFunciones fun = new Clases.cFunciones();
             txtImporte.Text = fun.FormatoEnteroMiles(txtImporte.Text);
         }
+   
     }
 
 }

@@ -57,10 +57,38 @@ namespace Concesionaria
             trdo = fun.TablaaMiles(trdo, "Haber");
             trdo = fun.TablaaMiles(trdo, "Saldo");
             Grilla.DataSource = trdo;
-            fun.AnchoColumnas(Grilla, "0;15;45;20;20;0");
+            fun.AnchoColumnas(Grilla, "0;15;45;20;20;0;0;0");
             Grilla.Columns[2].HeaderText = "Concepto";
             Grilla.Columns[3].HeaderText = "Debe";
             Grilla.Columns[4].HeaderText = "Haber";
+        }
+
+        private void btnAbrirDeuda_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow ==null)
+            {
+                Msj("Debe seleccionar un elemento ");
+                return;
+            }
+            string CodDeuda = Grilla.CurrentRow.Cells[6].Value.ToString();
+            string CodPago = Grilla.CurrentRow.Cells[7].Value.ToString();
+
+            if (CodDeuda !="")
+            {
+                Principal.Codigo = Convert.ToInt32(CodDeuda);
+                FrmCrearDeudaProveedor frm = new FrmCrearDeudaProveedor();
+                frm.ShowDialog();
+                Principal.Codigo = null;
+            }
+
+            if (CodPago !="")
+            {
+                Principal.Codigo = Convert.ToInt32(CodPago);
+                FrmPagoCuentaProveedor frm = new FrmPagoCuentaProveedor();
+                frm.ShowDialog();
+                Principal.Codigo = null;
+
+            }
         }
     }
 }

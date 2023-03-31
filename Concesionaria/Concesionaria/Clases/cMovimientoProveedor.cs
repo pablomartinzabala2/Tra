@@ -63,7 +63,7 @@ namespace Concesionaria.Clases
             //  sql = sql + "," + Saldo.ToString().Replace(",", ".") + " as Saldo ";
             //   sql = sql + " union ";
             string sql = "";
-            sql =   "select CodCuentaProveedor,Fecha,Concepto,Debe,Haber, Saldo";
+            sql =   "select CodCuentaProveedor,Fecha,Concepto,Debe,Haber, Saldo,CodDeuda,CodPago";
             sql = sql + " from MovimientoProveedor ";
             sql = sql + " where CodCuentaProveedor=" + CodCuentaProveedor.ToString();
             sql = sql + " order by Fecha asc ";

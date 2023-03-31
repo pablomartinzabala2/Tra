@@ -29,20 +29,22 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSaldo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.txtCodCuenta = new System.Windows.Forms.TextBox();
             this.txtCuentaProveedor = new System.Windows.Forms.TextBox();
             this.txtProveedor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSaldo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnAbrirDeuda = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAbrirDeuda);
             this.groupBox1.Controls.Add(this.txtSaldo);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.Grilla);
@@ -57,6 +59,22 @@
             this.groupBox1.Size = new System.Drawing.Size(689, 454);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // txtSaldo
+            // 
+            this.txtSaldo.Location = new System.Drawing.Point(536, 414);
+            this.txtSaldo.Name = "txtSaldo";
+            this.txtSaldo.Size = new System.Drawing.Size(147, 23);
+            this.txtSaldo.TabIndex = 48;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(486, 414);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 17);
+            this.label3.TabIndex = 47;
+            this.label3.Text = "Saldo";
             // 
             // Grilla
             // 
@@ -109,21 +127,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Proveedor";
             // 
-            // txtSaldo
+            // btnAbrirDeuda
             // 
-            this.txtSaldo.Location = new System.Drawing.Point(536, 414);
-            this.txtSaldo.Name = "txtSaldo";
-            this.txtSaldo.Size = new System.Drawing.Size(147, 23);
-            this.txtSaldo.TabIndex = 48;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(486, 414);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 17);
-            this.label3.TabIndex = 47;
-            this.label3.Text = "Saldo";
+            this.btnAbrirDeuda.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnAbrirDeuda.Location = new System.Drawing.Point(571, 5);
+            this.btnAbrirDeuda.Name = "btnAbrirDeuda";
+            this.btnAbrirDeuda.Size = new System.Drawing.Size(40, 31);
+            this.btnAbrirDeuda.TabIndex = 77;
+            this.btnAbrirDeuda.UseVisualStyleBackColor = true;
+            this.btnAbrirDeuda.Click += new System.EventHandler(this.btnAbrirDeuda_Click);
             // 
             // FrmResumenCuentaProveedor
             // 
@@ -152,5 +164,6 @@
         private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.TextBox txtSaldo;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnAbrirDeuda;
     }
 }

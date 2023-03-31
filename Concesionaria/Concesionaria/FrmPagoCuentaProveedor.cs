@@ -21,6 +21,11 @@ namespace Concesionaria
         private void FrmPagoCuentaProveedor_Load(object sender, EventArgs e)
         {
             Buscar();
+            if (Principal.Codigo !=null)
+            {
+                Int32 CodPago = Convert.ToInt32(Principal.Codigo);
+                BuscarPago(CodPago);
+            }
         }
 
         private void Buscar()
@@ -222,6 +227,23 @@ namespace Concesionaria
                     txtImporteCheque.Text = Importe.ToString();
                     txtImporteCheque.Text = fun.FormatoEnteroMiles(txtImporteCheque.Text);
                 }
+            }
+        }
+
+        private void BuscarPago(Int32 CodPago)
+        {
+            cFunciones fun = new cFunciones();
+            cPagoProveedor Pago = new cPagoProveedor();
+            DataTable trdo = Pago.GetPagoxCodigo(CodPago);
+            if (trdo.Rows.Count >0)
+            {
+                DateTime Fecha = Convert.ToDateTime(trdo.Rows[0]["Fecha"]);
+                string Concepto = trdo.Rows[0]["Concepto"].ToString();
+                Double Efectivo = Convert.ToDouble(trdo.Rows[0]["Efectivo"]);
+                txtConcepto.Text = Concepto;
+                dpFecha.Value = Fecha;
+                txtEfectivo.Text = Efectivo.ToString();
+                txtEfectivo.Text = fun.FormatoEnteroMiles(txtEfectivo.Text);
             }
         }
     }
