@@ -231,9 +231,10 @@ namespace Concesionaria
         }
 
         private void BuscarPago(Int32 CodPago)
-        {
+        { 
             cFunciones fun = new cFunciones();
             cPagoProveedor Pago = new cPagoProveedor();
+            cDeudaProveedor Deuda = new cDeudaProveedor();
             DataTable trdo = Pago.GetPagoxCodigo(CodPago);
             if (trdo.Rows.Count >0)
             {
@@ -244,6 +245,15 @@ namespace Concesionaria
                 dpFecha.Value = Fecha;
                 txtEfectivo.Text = Efectivo.ToString();
                 txtEfectivo.Text = fun.FormatoEnteroMiles(txtEfectivo.Text);
+
+                DataTable tdeuda = Deuda.GetDeudaxCodPago(CodPago);
+                tdeuda = fun.TablaaMiles(tdeuda, "Importe");
+                tdeuda = fun.TablaaMiles(tdeuda, "Saldo");
+                Grilla.DataSource = tdeuda;
+               
+                fun.AnchoColumnas(Grilla, "50;25;25");
+
+                btnGuardar.Visible = false;
             }
         }
     }

@@ -75,5 +75,13 @@ namespace Concesionaria.Clases
             DataTable trdo = cDb.ExecuteDataTable(sql);
             return trdo;
         }
+
+        public DataTable GetDeudaxCodPago(Int32 CodPago)
+        {
+            string sql = "select Concepto,Importe,Saldo ";
+            sql = sql + " from DeudaProveedor ";
+            sql = sql + " where CodPago=" + CodPago.ToString();
+            return cDb.ExecuteDataTable(sql);
+        }
     }
 }
