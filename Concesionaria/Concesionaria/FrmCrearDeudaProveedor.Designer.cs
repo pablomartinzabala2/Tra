@@ -45,6 +45,10 @@
             this.txtCodCuenta = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCodStock = new System.Windows.Forms.TextBox();
+            this.btnAbrirStock = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtVehiculo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtConcepto = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -69,7 +73,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(119, 365);
+            this.btnGuardar.Location = new System.Drawing.Point(119, 393);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 37);
             this.btnGuardar.TabIndex = 6;
@@ -89,7 +93,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 234);
+            this.label3.Location = new System.Drawing.Point(39, 259);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 17);
             this.label3.TabIndex = 23;
@@ -98,10 +102,10 @@
             // txtDescripcion
             // 
             this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescripcion.Location = new System.Drawing.Point(119, 231);
+            this.txtDescripcion.Location = new System.Drawing.Point(119, 256);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(305, 103);
+            this.txtDescripcion.Size = new System.Drawing.Size(305, 131);
             this.txtDescripcion.TabIndex = 5;
             // 
             // txtProveedor
@@ -195,6 +199,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCodStock);
+            this.groupBox1.Controls.Add(this.btnAbrirStock);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtVehiculo);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtConcepto);
             this.groupBox1.Controls.Add(this.button1);
@@ -216,10 +224,48 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(25, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(448, 470);
+            this.groupBox1.Size = new System.Drawing.Size(448, 450);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "RegistrarDeuda Proveedor";
+            // 
+            // txtCodStock
+            // 
+            this.txtCodStock.BackColor = System.Drawing.Color.Red;
+            this.txtCodStock.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodStock.Location = new System.Drawing.Point(271, 169);
+            this.txtCodStock.Name = "txtCodStock";
+            this.txtCodStock.Size = new System.Drawing.Size(71, 23);
+            this.txtCodStock.TabIndex = 88;
+            this.txtCodStock.Visible = false;
+            // 
+            // btnAbrirStock
+            // 
+            this.btnAbrirStock.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnAbrirStock.Location = new System.Drawing.Point(430, 227);
+            this.btnAbrirStock.Name = "btnAbrirStock";
+            this.btnAbrirStock.Size = new System.Drawing.Size(40, 27);
+            this.btnAbrirStock.TabIndex = 87;
+            this.btnAbrirStock.UseVisualStyleBackColor = true;
+            this.btnAbrirStock.Click += new System.EventHandler(this.btnAbrirStock_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(45, 227);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 17);
+            this.label6.TabIndex = 86;
+            this.label6.Text = "Vehículo";
+            // 
+            // txtVehiculo
+            // 
+            this.txtVehiculo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtVehiculo.Location = new System.Drawing.Point(119, 227);
+            this.txtVehiculo.Name = "txtVehiculo";
+            this.txtVehiculo.ReadOnly = true;
+            this.txtVehiculo.Size = new System.Drawing.Size(305, 23);
+            this.txtVehiculo.TabIndex = 85;
             // 
             // label5
             // 
@@ -274,5 +320,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtConcepto;
+        private System.Windows.Forms.Button btnAbrirStock;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtVehiculo;
+        private System.Windows.Forms.TextBox txtCodStock;
     }
 }

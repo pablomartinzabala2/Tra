@@ -25,6 +25,7 @@ namespace Concesionaria
                 CargarGastosGeneralesxCodStoxk(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 CargarCheques(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 GetTelefonoCliente(Convert.ToInt32(Principal.CodigoPrincipalAbm));
+                CargarDeudaProveedor(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 // GetEfectivoPagar(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 CargarPapeles();
                 if (txtCodCompra.Text !="")
@@ -505,6 +506,16 @@ namespace Concesionaria
         {
             Int32 cODsTOCK = Convert.ToInt32(txtCodStock.Text);
             CargarAuto(cODsTOCK);
+        }
+
+        private void CargarDeudaProveedor(Int32 CodStock)
+        {
+            cFunciones fun = new cFunciones();
+            cDeudaProveedor Deuda = new cDeudaProveedor();
+            DataTable trdo = Deuda.GetDeudaxCodStock(CodStock);
+            trdo = fun.TablaaMiles(trdo, "Importe");
+            GrillaProveedor.DataSource = trdo;
+            fun.AnchoColumnas(GrillaProveedor, "30;30;30;10");
         }
     }
 }

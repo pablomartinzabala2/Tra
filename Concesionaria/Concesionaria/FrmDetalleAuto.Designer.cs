@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetalleAuto));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCodAuto = new System.Windows.Forms.TextBox();
+            this.btnEditarAuto = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtCodStock = new System.Windows.Forms.TextBox();
             this.btnGrabarPrecio = new System.Windows.Forms.Button();
             this.txtPrecioVenta = new System.Windows.Forms.TextBox();
@@ -96,9 +99,8 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnEditarAuto = new System.Windows.Forms.Button();
-            this.txtCodAuto = new System.Windows.Forms.TextBox();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.GrillaProveedor = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -110,6 +112,8 @@
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaPapeles)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaProveedor)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -163,6 +167,35 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle vehículo";
+            // 
+            // txtCodAuto
+            // 
+            this.txtCodAuto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.txtCodAuto.Location = new System.Drawing.Point(250, 31);
+            this.txtCodAuto.Name = "txtCodAuto";
+            this.txtCodAuto.ReadOnly = true;
+            this.txtCodAuto.Size = new System.Drawing.Size(32, 22);
+            this.txtCodAuto.TabIndex = 62;
+            this.txtCodAuto.Visible = false;
+            // 
+            // btnEditarAuto
+            // 
+            this.btnEditarAuto.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnEditarAuto.Location = new System.Drawing.Point(706, 34);
+            this.btnEditarAuto.Name = "btnEditarAuto";
+            this.btnEditarAuto.Size = new System.Drawing.Size(40, 28);
+            this.btnEditarAuto.TabIndex = 61;
+            this.btnEditarAuto.UseVisualStyleBackColor = true;
+            this.btnEditarAuto.Click += new System.EventHandler(this.btnEditarAuto_Click);
+            // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(361, 243);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 28);
+            this.button1.TabIndex = 60;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // txtCodStock
             // 
@@ -327,6 +360,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Location = new System.Drawing.Point(6, 258);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -772,34 +806,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Patente";
             // 
-            // button1
+            // tabPage6
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(361, 243);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 28);
-            this.button1.TabIndex = 60;
-            this.button1.UseVisualStyleBackColor = true;
+            this.tabPage6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage6.Controls.Add(this.GrillaProveedor);
+            this.tabPage6.Location = new System.Drawing.Point(4, 25);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(764, 221);
+            this.tabPage6.TabIndex = 6;
+            this.tabPage6.Text = "Deuda Proveedor";
             // 
-            // btnEditarAuto
+            // GrillaProveedor
             // 
-            this.btnEditarAuto.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnEditarAuto.Location = new System.Drawing.Point(706, 34);
-            this.btnEditarAuto.Name = "btnEditarAuto";
-            this.btnEditarAuto.Size = new System.Drawing.Size(40, 28);
-            this.btnEditarAuto.TabIndex = 61;
-            this.btnEditarAuto.UseVisualStyleBackColor = true;
-            this.btnEditarAuto.Click += new System.EventHandler(this.btnEditarAuto_Click);
-            // 
-            // txtCodAuto
-            // 
-            this.txtCodAuto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.txtCodAuto.Location = new System.Drawing.Point(250, 31);
-            this.txtCodAuto.Name = "txtCodAuto";
-            this.txtCodAuto.ReadOnly = true;
-            this.txtCodAuto.Size = new System.Drawing.Size(32, 22);
-            this.txtCodAuto.TabIndex = 62;
-            this.txtCodAuto.Visible = false;
+            this.GrillaProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaProveedor.Location = new System.Drawing.Point(9, 15);
+            this.GrillaProveedor.Name = "GrillaProveedor";
+            this.GrillaProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GrillaProveedor.Size = new System.Drawing.Size(729, 166);
+            this.GrillaProveedor.TabIndex = 3;
             // 
             // FrmDetalleAuto
             // 
@@ -829,6 +853,8 @@
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaPapeles)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaProveedor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -905,5 +931,7 @@
         private System.Windows.Forms.Button btnEditarAuto;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtCodAuto;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.DataGridView GrillaProveedor;
     }
 }

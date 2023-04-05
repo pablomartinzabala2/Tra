@@ -9,10 +9,10 @@ namespace Concesionaria.Clases
     public class cDeudaProveedor
     {
         public Int32 Insertar (Int32 CodCuentaProveedor, string COncepto,
-            DateTime Fecha, DateTime FechaVto, Double Importe, string Observacion)
+            DateTime Fecha, DateTime FechaVto, Double Importe, string Observacion, Int32? CodStock)
         {
             string sql = "Insert into DeudaProveedor(";
-            sql = sql + "CodCuentaProveedor,COncepto,Fecha,FechaVto,Importe,Observacion,Saldo)";
+            sql = sql + "CodCuentaProveedor,COncepto,Fecha,FechaVto,Importe,Observacion,Saldo,CodStock)";
             sql = sql + " values(" + CodCuentaProveedor.ToString();
             sql = sql + "," + "'" + COncepto + "'";
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
@@ -20,6 +20,10 @@ namespace Concesionaria.Clases
             sql = sql + "," + Importe.ToString().Replace(",", ".");
             sql = sql + "," + "'" + Observacion + "'";
             sql = sql + "," + Importe.ToString().Replace(",", ".");
+            if (CodStock != null)
+                sql = sql + "," + CodStock.ToString();
+            else
+                sql = sql + ",null";
             sql = sql + ")";
             return cDb.EjecutarEscalar(sql);
         }
@@ -81,6 +85,17 @@ namespace Concesionaria.Clases
             string sql = "select Concepto,Importe,Saldo ";
             sql = sql + " from DeudaProveedor ";
             sql = sql + " where CodPago=" + CodPago.ToString();
+            return cDb.ExecuteDataTable(sql);
+        }
+
+        public DataTable GetDeudaxCodStock(Int32 CodStock)
+        {
+            string sql = "select p.Nombre as Proveedor,c.Nombre as Cuenta, ";
+            sql = sql + " d.Concepto,d.Importe";
+            sql = sql +" from DeudaProveedor d,CuentaProveedor c, Proveedor p";
+            sql = sql + " where d.CodCuentaProveedor=c.CodCuenta ";
+            sql = sql + " and p.CodProveedor = c.CodProveedor ";
+            sql = sql + " and d.CodStock=" + CodStock.ToString();
             return cDb.ExecuteDataTable(sql);
         }
     }
