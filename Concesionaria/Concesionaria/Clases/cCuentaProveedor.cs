@@ -115,5 +115,12 @@ namespace Concesionaria.Clases
             cDb.EjecutarNonQueryTransaccion(con, Transaccion,sql);
         }
 
+        public void BorrrarCuenta(Int32 CodCuenta)
+        {
+            string sql = "delete from CuentaProveedor ";
+            sql = sql + " where CodCuenta=" + CodCuenta.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
+
     }
 }

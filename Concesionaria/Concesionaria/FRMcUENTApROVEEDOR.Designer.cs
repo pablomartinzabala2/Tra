@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.txtSaldo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.btnQuitarFinanciacion = new System.Windows.Forms.Button();
             this.btnAgregarFinanciacion = new System.Windows.Forms.Button();
@@ -37,8 +39,6 @@
             this.txtCodProveedor = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSaldo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
@@ -63,6 +63,22 @@
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Marcas de vehículos";
             // 
+            // txtSaldo
+            // 
+            this.txtSaldo.Location = new System.Drawing.Point(82, 86);
+            this.txtSaldo.Name = "txtSaldo";
+            this.txtSaldo.Size = new System.Drawing.Size(217, 23);
+            this.txtSaldo.TabIndex = 78;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 17);
+            this.label3.TabIndex = 77;
+            this.label3.Text = "Saldo";
+            // 
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -80,6 +96,7 @@
             this.btnQuitarFinanciacion.Size = new System.Drawing.Size(34, 24);
             this.btnQuitarFinanciacion.TabIndex = 75;
             this.btnQuitarFinanciacion.UseVisualStyleBackColor = true;
+            this.btnQuitarFinanciacion.Click += new System.EventHandler(this.btnQuitarFinanciacion_Click);
             // 
             // btnAgregarFinanciacion
             // 
@@ -130,22 +147,6 @@
             this.label1.Size = new System.Drawing.Size(74, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Proveedor";
-            // 
-            // txtSaldo
-            // 
-            this.txtSaldo.Location = new System.Drawing.Point(82, 86);
-            this.txtSaldo.Name = "txtSaldo";
-            this.txtSaldo.Size = new System.Drawing.Size(217, 23);
-            this.txtSaldo.TabIndex = 78;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 86);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 17);
-            this.label3.TabIndex = 77;
-            this.label3.Text = "Saldo";
             // 
             // FRMcUENTApROVEEDOR
             // 

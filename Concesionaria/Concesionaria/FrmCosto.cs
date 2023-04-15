@@ -102,8 +102,6 @@ namespace Concesionaria
             fun.LlenarCombo(cmbMarca, "Marca", "Nombre", "CodMarca");
             fun.LlenarCombo(cmbCiudad, "Ciudad", "Nombre", "CodCiudad");
             cmbCiudad.SelectedValue = 1;
-            string FechaCorta = DateTime.Now.ToShortDateString();
-            txtFecha.Text = FechaCorta;
             fun.LlenarCombo(CmbGastoRecepcion, "CategoriaGastoRecepcion", "Descripcion", "Codigo");
             DataTable tbAnio = cDb.ExecuteDataTable("select * from anio Order by Nombre desc");
             fun.LlenarComboDatatable(cmbAnio, tbAnio, "Nombre", "CodAnio");
@@ -164,17 +162,8 @@ namespace Concesionaria
                 MessageBox.Show("Debe ingresar un auto válido", Clases.cMensaje.Mensaje());
                 return;
             }
-            if (txtFecha.Text == "")
-            {
-                MessageBox.Show("Debe ingresar una fecha para continuar.", Clases.cMensaje.Mensaje());
-                return;
-            }
-
-            if (fun.ValidarFecha(txtFecha.Text) == false)
-            {
-                MessageBox.Show("La fecha ingresada es incorrecta.", Clases.cMensaje.Mensaje());
-                return;
-            }
+          
+           
 
 
             Double Importe = 0;
@@ -182,16 +171,17 @@ namespace Concesionaria
                 Importe = Convert.ToDouble(txtCosto.Text);
             Int32 CodAuto = Convert.ToInt32(txtCodAuto.Text);
             string Descripcion = txtDescripcionCosto.Text + ", PATENTE " + txtPatente.Text;
-            string Fecha = txtFecha.Text;
+            string Fecha = dpFecha.Value.ToShortDateString();
             string Patente = txtPatente.Text;
             Int32? CodStock = -1;
+            Int32? CodDeuda = null;
             if (txtCodStock.Text != "")
                 CodStock = Convert.ToInt32(txtCodStock.Text);
 
             Clases.cCosto costo = new Clases.cCosto();
-            costo.InsertarCosto(CodAuto, Patente, Importe, Fecha, Descripcion.ToUpper(), CodStock);
+            costo.InsertarCosto(CodAuto, Patente, Importe, Fecha, Descripcion.ToUpper(), CodStock,CodDeuda);
             CargarCostoxstock(Convert.ToInt32(CodStock));
-            DateTime FechaCosto = Convert.ToDateTime(txtFecha.Text);
+            DateTime FechaCosto = Convert.ToDateTime(dpFecha.Value);
 
             Clases.cMovimiento mov = new Clases.cMovimiento();
             mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, (-1) * (Importe), 0, 0, Importe, 0, FechaCosto, Descripcion.ToUpper());
@@ -268,7 +258,7 @@ namespace Concesionaria
             Clases.cCosto costo = new Clases.cCosto();
             Int32 CodCosto = Convert.ToInt32(txtCodCosto.Text);
             costo.BorrarCosto(CodCosto);
-            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+            DateTime Fecha = Convert.ToDateTime(dpFecha.Value);
             Clases.cMovimiento mov = new Clases.cMovimiento();
             mov.RegistrarMovimiento(-1, Principal.CodUsuarioLogueado, (Importe), 0, 0, (-1) * Importe, 0, Fecha);
             CargarCostoxstock(Convert.ToInt32(txtCodStock.Text));
@@ -281,14 +271,14 @@ namespace Concesionaria
             if (Codigo != "")
             {
                 txtDescripcionCosto.Text = Grilla.CurrentRow.Cells[2].Value.ToString();
-                txtFecha.Text = Grilla.CurrentRow.Cells[3].Value.ToString();
+                dpFecha.Value = Convert.ToDateTime(Grilla.CurrentRow.Cells[3].Value.ToString());
                 txtCosto.Text = Grilla.CurrentRow.Cells[4].Value.ToString();
                 txtCodCosto.Text = Grilla.CurrentRow.Cells[0].Value.ToString();
             }
             else
             {
                 txtDescripcionCosto.Text = "";
-                txtFecha.Text = "";
+            
                 txtCosto.Text = "";
                 txtCodCosto.Text = "";
             }
@@ -323,7 +313,7 @@ namespace Concesionaria
                 return;
             }
 
-            if (fun.ValidarFecha(txtFecha.Text) == false)
+            if (fun.ValidarFecha(dpFecha.Value.ToShortDateString()) == false)
             {
                 MessageBox.Show("La fecha ingresada es incorrecta", Clases.cMensaje.Mensaje());
                 return;
@@ -373,7 +363,7 @@ namespace Concesionaria
             r1[1] = Descripcion;
             r1[2] = Tipo;
             r1[3] = Importe;
-            r1[4] = txtFecha.Text;
+            r1[4] = dpFecha.Value.ToShortDateString();
             tListado.Rows.Add(r1);
             GrillaGastosRecepcion.DataSource = tListado;
             Clases.cFunciones fun = new Clases.cFunciones();
@@ -410,7 +400,7 @@ namespace Concesionaria
                 if (CodGastoRecepcion != "")
                 {
 
-                    gasto.GrabarGastosRecepcionxCodStock(CodStock, Convert.ToInt32(CodGastoRecepcion), Importe, Convert.ToDateTime(txtFecha.Text));
+                    gasto.GrabarGastosRecepcionxCodStock(CodStock, Convert.ToInt32(CodGastoRecepcion), Importe, Convert.ToDateTime(dpFecha.Value));
 
                 }
             }

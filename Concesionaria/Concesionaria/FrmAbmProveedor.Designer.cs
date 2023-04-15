@@ -143,6 +143,7 @@
             this.btnEliminar.Size = new System.Drawing.Size(36, 36);
             this.btnEliminar.Text = "toolStripButton3";
             this.btnEliminar.ToolTipText = "Eliminar";
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAceptar
             // 

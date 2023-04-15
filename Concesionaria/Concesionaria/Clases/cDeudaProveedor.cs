@@ -30,7 +30,7 @@ namespace Concesionaria.Clases
 
         public DataTable GetDeuda(DateTime FechaDesde,DateTime FechaHasta, string Proveedor)
         {
-            string sql = "select d.CodDeuda,p.Nombre as Proveedor,c.Nombre as Cuenta,d.Importe,d.Saldo,d.CodPago";
+            string sql = "select d.CodDeuda,p.Nombre as Proveedor,c.Nombre as Cuenta,d.Importe,d.Saldo,d.CodPago,d.CodCuentaProveedor ";
             sql = sql + " from CuentaProveedor c,Proveedor p,DeudaProveedor d";
             sql = sql + " where c.CodProveedor=p.CodProveedor";
             sql = sql + " and d.CodCuentaProveedor=c.CodCuenta "; 

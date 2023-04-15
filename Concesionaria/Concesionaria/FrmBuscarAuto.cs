@@ -31,6 +31,12 @@ namespace Concesionaria
             {
                 CodMarca = Convert.ToInt32(cmbMarca.SelectedValue);
             }
+
+            if (txtPatente.Text !="")
+            {
+                Patente = txtPatente.Text; 
+            }
+
             DataTable trdo;
             cAuto auto = new cAuto();
             cStockAuto stock = new cStockAuto();

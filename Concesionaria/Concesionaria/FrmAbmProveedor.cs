@@ -154,5 +154,37 @@ namespace Concesionaria
                 return;
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+          
+            string msj = "Confirma Eliminar el registro ";
+            var result = MessageBox.Show(msj, "Información",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
+
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                cFunciones fun = new cFunciones();
+                try
+                {
+                    fun.EliminarGenerico("Proveedor", "CodProveedor", txtCodigo.Text);
+                    MessageBox.Show("Datos borrados correctamente ");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("No se puede eliminar el registro, tiene cuentas asociadas ");
+
+                }
+                Botonera(1);
+                Grupo.Enabled = false;
+                txt_Nombre.Text = "";
+            }
+        }
     }
 }

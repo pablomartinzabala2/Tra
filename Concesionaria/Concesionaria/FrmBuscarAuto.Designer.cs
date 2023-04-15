@@ -37,12 +37,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.tableAdapterManager1 = new Concesionaria.COPIACONCESIONARIADataSetTableAdapters.TableAdapterManager();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtPatente = new System.Windows.Forms.TextBox();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.txtPatente);
+            this.Grupo.Controls.Add(this.label2);
             this.Grupo.Controls.Add(this.flowLayoutPanel1);
             this.Grupo.Controls.Add(this.chkStock);
             this.Grupo.Controls.Add(this.btnAceptar);
@@ -69,7 +73,7 @@
             this.chkStock.AutoSize = true;
             this.chkStock.Checked = true;
             this.chkStock.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkStock.Location = new System.Drawing.Point(366, 12);
+            this.chkStock.Location = new System.Drawing.Point(543, 14);
             this.chkStock.Name = "chkStock";
             this.chkStock.Size = new System.Drawing.Size(62, 21);
             this.chkStock.TabIndex = 44;
@@ -89,7 +93,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom2;
-            this.btnBuscar.Location = new System.Drawing.Point(320, 12);
+            this.btnBuscar.Location = new System.Drawing.Point(490, 10);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(40, 27);
             this.btnBuscar.TabIndex = 42;
@@ -100,7 +104,7 @@
             // 
             this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMarca.FormattingEnabled = true;
-            this.cmbMarca.Location = new System.Drawing.Point(68, 19);
+            this.cmbMarca.Location = new System.Drawing.Point(68, 12);
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(246, 24);
             this.cmbMarca.TabIndex = 41;
@@ -108,7 +112,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 22);
+            this.label1.Location = new System.Drawing.Point(15, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 27;
@@ -117,7 +121,7 @@
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(15, 58);
+            this.Grilla.Location = new System.Drawing.Point(15, 42);
             this.Grilla.Name = "Grilla";
             this.Grilla.ReadOnly = true;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -131,6 +135,22 @@
             this.tableAdapterManager1.Connection = null;
             this.tableAdapterManager1.ReporteAutoTableAdapter = null;
             this.tableAdapterManager1.UpdateOrder = Concesionaria.COPIACONCESIONARIADataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(320, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 17);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "Patente";
+            // 
+            // txtPatente
+            // 
+            this.txtPatente.Location = new System.Drawing.Point(383, 12);
+            this.txtPatente.Name = "txtPatente";
+            this.txtPatente.Size = new System.Drawing.Size(101, 23);
+            this.txtPatente.TabIndex = 79;
             // 
             // FrmBuscarAuto
             // 
@@ -163,5 +183,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.CheckBox chkStock;
         private COPIACONCESIONARIADataSetTableAdapters.TableAdapterManager tableAdapterManager1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtPatente;
     }
 }

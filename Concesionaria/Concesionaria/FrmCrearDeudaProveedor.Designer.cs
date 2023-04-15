@@ -45,6 +45,8 @@
             this.txtCodCuenta = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCodAuto = new System.Windows.Forms.TextBox();
+            this.txtPatente = new System.Windows.Forms.TextBox();
             this.txtCodStock = new System.Windows.Forms.TextBox();
             this.btnAbrirStock = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -199,6 +201,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCodAuto);
+            this.groupBox1.Controls.Add(this.txtPatente);
             this.groupBox1.Controls.Add(this.txtCodStock);
             this.groupBox1.Controls.Add(this.btnAbrirStock);
             this.groupBox1.Controls.Add(this.label6);
@@ -229,6 +233,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "RegistrarDeuda Proveedor";
             // 
+            // txtCodAuto
+            // 
+            this.txtCodAuto.BackColor = System.Drawing.Color.Red;
+            this.txtCodAuto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodAuto.Location = new System.Drawing.Point(348, 169);
+            this.txtCodAuto.Name = "txtCodAuto";
+            this.txtCodAuto.Size = new System.Drawing.Size(71, 23);
+            this.txtCodAuto.TabIndex = 90;
+            this.txtCodAuto.Visible = false;
+            // 
+            // txtPatente
+            // 
+            this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPatente.Enabled = false;
+            this.txtPatente.Location = new System.Drawing.Point(119, 227);
+            this.txtPatente.Name = "txtPatente";
+            this.txtPatente.ReadOnly = true;
+            this.txtPatente.Size = new System.Drawing.Size(93, 23);
+            this.txtPatente.TabIndex = 89;
+            // 
             // txtCodStock
             // 
             this.txtCodStock.BackColor = System.Drawing.Color.Red;
@@ -254,17 +278,18 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(45, 227);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 17);
+            this.label6.Size = new System.Drawing.Size(57, 17);
             this.label6.TabIndex = 86;
-            this.label6.Text = "Vehículo";
+            this.label6.Text = "Patente";
             // 
             // txtVehiculo
             // 
             this.txtVehiculo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtVehiculo.Location = new System.Drawing.Point(119, 227);
+            this.txtVehiculo.Enabled = false;
+            this.txtVehiculo.Location = new System.Drawing.Point(225, 229);
             this.txtVehiculo.Name = "txtVehiculo";
             this.txtVehiculo.ReadOnly = true;
-            this.txtVehiculo.Size = new System.Drawing.Size(305, 23);
+            this.txtVehiculo.Size = new System.Drawing.Size(197, 23);
             this.txtVehiculo.TabIndex = 85;
             // 
             // label5
@@ -324,5 +349,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtVehiculo;
         private System.Windows.Forms.TextBox txtCodStock;
+        private System.Windows.Forms.TextBox txtPatente;
+        private System.Windows.Forms.TextBox txtCodAuto;
     }
 }

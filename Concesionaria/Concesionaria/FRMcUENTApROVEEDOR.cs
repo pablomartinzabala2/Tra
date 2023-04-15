@@ -71,6 +71,31 @@ namespace Concesionaria
             BuscarCuentas(CodProveedor);
             MessageBox.Show("Datos Grabados Correctamente ");
             BuscarCuentas(CodProveedor);
+            txtCuenta.Text = "";
+        }
+
+        private void btnQuitarFinanciacion_Click(object sender, EventArgs e)
+        {   
+            if (Grilla.CurrentRow ==null)
+            {
+                Msj("Debe seleccionar una cuenta ");
+                return;
+            }
+            Int32 CodCuenta = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
+            cCuentaProveedor cuenta = new cCuentaProveedor();
+            try
+            {
+                cuenta.BorrrarCuenta(CodCuenta);
+                Msj("Cuenta borrada correctamente ");
+            }
+            catch (Exception)
+            {
+                Msj("No se puede eliminar la cuenta, tiene deudas o pagos asociados");
+                
+            }
+
+            Int32 CodProveedor = Convert.ToInt32(txtCodProveedor.Text);
+            BuscarCuentas(CodProveedor);
         }
     }
 }

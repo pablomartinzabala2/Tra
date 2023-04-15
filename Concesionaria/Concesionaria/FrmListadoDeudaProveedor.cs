@@ -42,8 +42,8 @@ namespace Concesionaria
             trdo = fun.TablaaFechas(trdo, "Importe");
             trdo = fun.TablaaFechas(trdo, "Saldo");
             Grilla.DataSource = trdo;
-            
-            fun.AnchoColumnas(Grilla, "0;40;30;20;20");
+            //select d.CodDeuda,p.Nombre as Proveedor,c.Nombre as Cuenta,d.Importe,d.Saldo,d.CodPago,d.CodDeudaProveedor
+           // fun.AnchoColumnas(Grilla, "0;40;30;20;20;0;0");
         }
 
         private void FrmListadoDeudaProveedor_Load(object sender, EventArgs e)
@@ -95,13 +95,24 @@ namespace Concesionaria
             if (sCodPago !="")
             {
                 Msj("Debe anular el pago para poder borrarlo ");
+                return;
             }
             else
             {  
                 cMovimientoProveedor mov = new cMovimientoProveedor();
                 Int32 CodDeuda = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value.ToString());
+                Int32 CodCuentaProveedor = Convert.ToInt32(Grilla.CurrentRow.Cells[6].Value.ToString());
                 cDeudaProveedor Deuda = new cDeudaProveedor();
                 Deuda.Borrrar(CodDeuda);
+                cCosto Costo = new cCosto();
+                Costo.BorrarCostoxCodDeuda(CodDeuda);
+                cCuentaProveedor Cuenta = new cCuentaProveedor();
+                Double Saldo = Cuenta.GetSaldo(CodCuentaProveedor);
+                //Actualizo el saldo de la cuenta
+                Cuenta.ActuaizarSaldo(CodCuentaProveedor, Saldo);
+                //Actualizo el saldo del proveedor
+                
+                //EN PROVEEDOR Y CUENTA PROVEEDOR
                 mov.BorrarMovimientoxCodDeuda(CodDeuda);
                 DateTime FechaDesde = Convert.ToDateTime(dpFechaDesde.Value);
                 DateTime FechaHasta = Convert.ToDateTime(dpFechaHasta.Value);

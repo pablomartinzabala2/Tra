@@ -10,11 +10,11 @@ namespace Concesionaria.Clases
 {
     public class cCosto
     {
-        public void InsertarCosto(Int32 CodAuto,string Patente,Double? Importe,string Fecha,string Descripcion, Int32? CodStock )
+        public void InsertarCosto(Int32 CodAuto,string Patente,Double? Importe,string Fecha,string Descripcion, Int32? CodStock, Int32? CodDeuda )
         {
             string sql = "";
             sql = "Insert into Costo(CodAuto,Patente,";
-            sql = sql + "Importe,Fecha,Descripcion,CodStock)";
+            sql = sql + "Importe,Fecha,Descripcion,CodStock,CodDeuda)";
             sql = sql + "values(" + CodAuto.ToString ();
             sql = sql + "," + "'" + Patente  +"'";
             if (Importe ==null)
@@ -26,7 +26,12 @@ namespace Concesionaria.Clases
             if (CodStock == null)
                 sql = sql + ",null";
             else
-                sql = sql + "," + CodStock.ToString(); 
+                sql = sql + "," + CodStock.ToString();
+
+            if (CodDeuda == null)
+                sql = sql + ",null";
+            else
+                sql = sql + "," + CodDeuda.ToString();
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
         }
@@ -52,6 +57,14 @@ namespace Concesionaria.Clases
             sql = sql + " where FechaBaja is null ";
             sql = sql + " and CodStock =" + CodStock.ToString() ;
             return cDb.ExecuteDataTable(sql);
+        }
+
+        public void BorrarCostoxCodDeuda(Int32 CodDeuda)
+        {
+            string sql = "delete from Costo ";
+            sql = sql + " where CodDeuda=" + CodDeuda.ToString();
+            cDb.ExecutarNonQuery(sql);
+              
         }
     }
 }

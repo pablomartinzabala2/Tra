@@ -59,6 +59,8 @@ namespace Concesionaria
                 MessageBox.Show("Debe ingresar un concepto ");
                 return;
             }
+            cCosto Costo = new cCosto();
+
             Int32 CodDeuda = 0;
             cCuentaProveedor cuentaProv = new cCuentaProveedor();
             Double Saldo = 0;
@@ -82,8 +84,15 @@ namespace Concesionaria
              Fecha, FechaVto, Importe, Observacion, CodStock);
             Saldo = Saldo - Importe;
             mov.Insertar(CodCuentaProveedor, Fecha, COncepto, Importe, 0, Saldo, CodDeuda, 0);
-
-           
+            if (txtCodStock.Text !="")
+            {
+               
+                string Patente = txtPatente.Text;
+                CodStock = Convert.ToInt32(txtCodStock.Text);
+                Int32 CodAuto = Convert.ToInt32(txtCodAuto.Text);
+                Costo.InsertarCosto(CodAuto, Patente, Importe, Fecha.ToShortDateString(), COncepto, CodStock, Convert.ToInt32(CodDeuda));
+            }
+            
             cuentaProv.ActuaizarSaldo(CodCuentaProveedor, Saldo);
             MessageBox.Show("Datos Grabados Correctamente");
             Limpiar();
@@ -139,6 +148,11 @@ namespace Concesionaria
 
         private void btnAbrirStock_Click(object sender, EventArgs e)
         {
+            if (txtCodCuenta.Text =="")
+            {
+                Msj("Debe seleccionar una cuenta ");
+                return;
+            }
             FrmBuscarAuto form = new FrmBuscarAuto();
             form.FormClosing += new FormClosingEventHandler(formBuscadorAuto_FormClosing);
             form.ShowDialog();
@@ -151,18 +165,18 @@ namespace Concesionaria
             cStockAuto stock = new cStockAuto();
 
             DataTable trdo = auto.GetAutoxCodigo(CodAuto);
-            string Texto = "";
             if (trdo.Rows.Count >0)
             {
                 string Patente = trdo.Rows[0]["Patente"].ToString();
                 string Descripcion = trdo.Rows[0]["Descripcion"].ToString();
-                Texto = Descripcion + " " + Patente;
-                txtVehiculo.Text = Texto;
+                txtPatente.Text = Patente;
+                txtVehiculo.Text = Descripcion;
             }
 
             DataTable tstock = stock.GetStockAutosVigentes(CodAuto);
             if (tstock.Rows.Count >0)
             {
+                txtCodAuto.Text = tstock.Rows[0]["CodAuto"].ToString();
                 txtCodStock.Text = tstock.Rows[0]["CodStock"].ToString(); 
             }
         }
