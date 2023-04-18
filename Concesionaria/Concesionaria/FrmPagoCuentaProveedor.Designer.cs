@@ -241,6 +241,7 @@
             // 
             this.txtSaldo.Location = new System.Drawing.Point(119, 154);
             this.txtSaldo.Name = "txtSaldo";
+            this.txtSaldo.ReadOnly = true;
             this.txtSaldo.Size = new System.Drawing.Size(100, 23);
             this.txtSaldo.TabIndex = 1;
             // 

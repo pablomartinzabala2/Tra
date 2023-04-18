@@ -79,9 +79,11 @@ namespace Concesionaria.Clases
         public Double GetSaldo(Int32 CodCuenta)
         {
             Double Importe = 0;
-            string sql = "select isnull(sum(Saldo),0) as Importe from DeudaProveedor ";
-            sql = sql + " where CodCuentaProveedor=" + CodCuenta.ToString();
-            DataTable trdo = cDb.ExecuteDataTable(sql);
+            // string sql = "select isnull(sum(Saldo),0) as Importe from DeudaProveedor ";
+            // sql = sql + " where CodCuentaProveedor=" + CodCuenta.ToString();
+            string sql = " select(sum(m.Haber) - sum(m.Debe)) as Importe from MovimientoProveedor m";
+            sql = sql + " where m.CodCuentaProveedor=" + CodCuenta.ToString(); 
+           DataTable trdo = cDb.ExecuteDataTable(sql);
             if (trdo.Rows.Count >0)
             {
                 if (trdo.Rows[0]["Importe"].ToString ()!="")
