@@ -55,7 +55,9 @@ namespace Concesionaria.Clases
 
         public DataTable GetCuentasResumidas(string Cuenta, string NombreProveedor)
         {
-            string sql = "select c.CodCuenta,c.Nombre,P.Nombre as Proveedor,sum(d.Saldo) as Importe";
+           // string sql = "select c.CodCuenta,c.Nombre,P.Nombre as Proveedor,sum(d.Saldo) as Importe";
+            string sql = "select c.CodCuenta,c.Nombre,P.Nombre as Proveedor ";
+            sql = sql + ",(select (sum(m.Haber) - sum(m.Debe)) from MovimientoProveedor m where m.CodCuentaProveedor=c.CodCuenta) as Importe ";
             sql = sql + " from CuentaProveedor c,Proveedor p,deudaproveedor d ";
             sql = sql + " where c.CodProveedor = p.CodProveedor ";
             sql = sql + " and d.CodCuentaProveedor = c.CodCuenta ";
