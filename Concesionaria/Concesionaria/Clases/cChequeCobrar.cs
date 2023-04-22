@@ -42,7 +42,7 @@ namespace Concesionaria.Clases
             return Importe;
         }
 
-        public DataTable GetChequesxFecha(DateTime FechaDesde, DateTime FechaHasta, int SoloImpago)
+        public DataTable GetChequesxFecha(DateTime FechaDesde, DateTime FechaHasta, int SoloImpago,string Apellido, string NumeroCheque)
         {
             string sql = "select c.CodCheque,c.Fecha,c.NumeroCheque,";
             sql = sql + "(select b.Nombre from Banco b where b.CodBanco = c.CodBanco) as Banco";
@@ -53,6 +53,17 @@ namespace Concesionaria.Clases
             sql = sql + " and c.Fecha<=" + "'" + FechaHasta.ToShortDateString() + "'";
             if (SoloImpago == 1)
                 sql = sql + " and c.FechaPago is null";
+            if (Apellido !="")
+            {
+                sql = sql + " and c.Apellido like " + "'%" + Apellido +"%'";
+            }
+
+            if (NumeroCheque != "")
+            {
+                sql = sql + " and c.NumeroCheque like " + "'%" + NumeroCheque + "%'";
+            }
+
+            
             return cDb.ExecuteDataTable(sql);
         }
 

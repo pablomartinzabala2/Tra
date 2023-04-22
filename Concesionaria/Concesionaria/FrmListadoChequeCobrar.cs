@@ -18,24 +18,31 @@ namespace Concesionaria
         }
 
         private void FrmListadoChequeCobrar_Load(object sender, EventArgs e)
-        {
+        {   
             DateTime Fecha = DateTime.Now;
-            txtFechaCobro.Text = Fecha.ToShortDateString();
-            txtFechaHasta.Text = Fecha.ToShortDateString();
+            daFechaCobro.Value = Fecha;
+            dpFechaHasta.Value = Fecha;
             Fecha = Fecha.AddMonths(-1);
-            txtFechaDesde.Text = Fecha.ToShortDateString();
+            dpFechaDesde.Value = Fecha;
             Buscar();
         }
 
         private void Buscar()
         {
-            DateTime Desde = Convert.ToDateTime(txtFechaDesde.Text);
-            DateTime Hasta = Convert.ToDateTime(txtFechaHasta.Text);
+            DateTime Desde = dpFechaDesde.Value;
+            DateTime Hasta = dpFechaHasta.Value;
+            string Apellido = "";
+            string NumeroCheque = "";
+            if (txtApellido.Text != "")
+                Apellido = txtApellido.Text;
+            if (txtNumeroCheque.Text != "")
+                NumeroCheque = txtNumeroCheque.Text;
+
             int SoloImpago = 0;
             if (chkSoloImpago.Checked == true)
                 SoloImpago = 1;
             cChequeCobrar cheque = new cChequeCobrar();
-            DataTable trdo = cheque.GetChequesxFecha(Desde, Hasta,SoloImpago);
+            DataTable trdo = cheque.GetChequesxFecha(Desde, Hasta, SoloImpago, Apellido, NumeroCheque);
             Clases.cFunciones fun = new Clases.cFunciones();
             trdo = fun.TablaaMiles(trdo, "Importe");
             Grilla.DataSource = trdo;
@@ -71,13 +78,13 @@ namespace Concesionaria
             }
 
             //Clases.cFunciones fun = new Clases.cFunciones();
-            if (fun.ValidarFecha(txtFechaCobro.Text) == false)
+            if (fun.ValidarFecha(daFechaCobro.Value.ToShortDateString ()) == false)
             {
                 MessageBox.Show("La fecha cobro es incorrecta ", "Sistema");
                 return;
             }
             string Entregado = Grilla.CurrentRow.Cells[9].Value.ToString();
-            DateTime FechaCobro = Convert.ToDateTime(txtFechaCobro.Text);
+            DateTime FechaCobro = daFechaCobro.Value;
             Int32 CodCheque = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value.ToString());
             Double Importe = fun.ToDouble(Grilla.CurrentRow.Cells[4].Value.ToString());
             string NumeroCheque = Grilla.CurrentRow.Cells[2].Value.ToString();
@@ -103,7 +110,7 @@ namespace Concesionaria
                 return;
             }
 
-            if (fun.ValidarFecha(txtFechaCobro.Text) == false)
+            if (fun.ValidarFecha(daFechaCobro.Value.ToShortDateString ()) == false)
             {
                 MessageBox.Show("La fecha de cobro es incorrecta");
                 return;
@@ -114,7 +121,7 @@ namespace Concesionaria
                 MessageBox.Show("Ya se ha anulado el cheque ");
                 return;
             }
-            DateTime FechaCobro = Convert.ToDateTime(txtFechaCobro.Text);
+            DateTime FechaCobro = daFechaCobro.Value;
 
             Int32 CodCheque = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value.ToString());
             Double Importe = fun.ToDouble(Grilla.CurrentRow.Cells[4].Value.ToString());
