@@ -107,8 +107,6 @@ namespace Concesionaria
             txtCodStock.Text = "";
         }
 
-
-
         private void FrmCrearDeudaProveedor_Load(object sender, EventArgs e)
         {
             if (Principal.Codigo!=null)
@@ -135,6 +133,19 @@ namespace Concesionaria
                 DateTime FechaVto = Convert.ToDateTime(trdo.Rows[0]["FechaVto"].ToString());
                 dpFechaVencimiento.Value = FechaVto;
             }
+
+            if (trdo.Rows[0]["CodStock"].ToString() != "")
+            {
+                Int32 CodStock = Convert.ToInt32(trdo.Rows[0]["CodStock"].ToString());
+                cStockAuto stock = new cStockAuto();
+                DataTable tbstock = stock.GetStockxCodigo(CodStock);
+                if (tbstock.Rows.Count >0)
+                {
+                    txtPatente.Text = tbstock.Rows[0]["Patente"].ToString();
+                    txtVehiculo.Text = tbstock.Rows[0]["Descripcion"].ToString();
+                }
+            }
+
             txtCuentaProveedor.Text = trdo.Rows[0]["Cuenta"].ToString();
             txtProveedor.Text = trdo.Rows[0]["Proveedor"].ToString();
             btnGuardar.Visible = false;

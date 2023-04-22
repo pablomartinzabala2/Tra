@@ -28,8 +28,19 @@ namespace Concesionaria.Clases
 
         public  DataTable Buscar(DateTime FechaDesde, DateTime FevhaHasta)
         {
-            string sql = "select CodPago,Fecha,Concepto,Efectivo ,CodCheque,ImporteCheque";
-            sql = sql + " from PagoProveedor ";
+            string sql = "select p.CodPago,p.Fecha";
+            sql = sql + ",( select distinct pr.Nombre ";
+            sql = sql + " from Proveedor pr, CuentaProveedor c, DeudaProveedor d ";
+            sql = sql + " where pr.CodProveedor=c.CodProveedor ";
+            sql = sql + " and c.CodCuenta=d.CodCuentaProveedor ";
+            sql = sql + " and d.CodPago=p.CodPago ";
+            sql = sql + ") as Proveedor ";
+            sql = sql + ",( select distinct c.Nombre from CuentaProveedor c, DeudaProveedor d ";
+            sql = sql + " where c.CodCuenta=d.CodCuentaProveedor ";
+            sql = sql + " and d.CodPago=p.CodPago ";
+            sql = sql + ") as Cuenta ";
+            sql = sql + " ,p.Concepto,p.Efectivo ,p.CodCheque,p.ImporteCheque ";
+            sql = sql + " from PagoProveedor p";
             sql = sql + " where Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and Fecha <=" + "'" + FevhaHasta.ToShortDateString() + "'";
             return cDb.ExecuteDataTable(sql);

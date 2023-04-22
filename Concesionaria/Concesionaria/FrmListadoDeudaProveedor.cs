@@ -42,8 +42,8 @@ namespace Concesionaria
             trdo = fun.TablaaFechas(trdo, "Importe");
             trdo = fun.TablaaFechas(trdo, "Saldo");
             Grilla.DataSource = trdo;
-            //select d.CodDeuda,p.Nombre as Proveedor,c.Nombre as Cuenta,d.Importe,d.Saldo,d.CodPago,d.CodDeudaProveedor
-           // fun.AnchoColumnas(Grilla, "0;40;30;20;20;0;0");
+            //select d.CodDeuda,p.Nombre as Proveedor,c.Nombre as Cuenta,d.Concepto,d.Importe,d.Saldo,d.CodPago,d.CodDeudaProveedor
+            fun.AnchoColumnas(Grilla, "0;20;20;30;15;15;0;0");
         }
 
         private void FrmListadoDeudaProveedor_Load(object sender, EventArgs e)

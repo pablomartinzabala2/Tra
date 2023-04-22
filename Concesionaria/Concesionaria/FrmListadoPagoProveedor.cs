@@ -37,11 +37,16 @@ namespace Concesionaria
 
         private void Buscar ()
         {
+            cFunciones fun = new cFunciones();
             DateTime FechaDesde = dpFechaDesde.Value;
             DateTime FechaHasta = dpFechaHasta.Value;
             cPagoProveedor pago = new Clases.cPagoProveedor();
             DataTable trdo = pago.Buscar(FechaDesde, FechaHasta);
+            trdo = fun.TablaaMiles(trdo, "Efectivo");
+            trdo = fun.TablaaMiles(trdo, "ImportaCheque");
             Grilla.DataSource = trdo;
+            fun.AnchoColumnas(Grilla, "0;10;20;20;30;10;0;10");
+            Grilla.Columns[7].HeaderText = "Cheque ";
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
