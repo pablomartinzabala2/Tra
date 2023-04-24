@@ -78,7 +78,7 @@
             // chkSoloImpago
             // 
             this.chkSoloImpago.AutoSize = true;
-            this.chkSoloImpago.Location = new System.Drawing.Point(486, 18);
+            this.chkSoloImpago.Location = new System.Drawing.Point(486, 24);
             this.chkSoloImpago.Name = "chkSoloImpago";
             this.chkSoloImpago.Size = new System.Drawing.Size(80, 21);
             this.chkSoloImpago.TabIndex = 60;
@@ -88,7 +88,7 @@
             // btnAbrir
             // 
             this.btnAbrir.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnAbrir.Location = new System.Drawing.Point(1137, 13);
+            this.btnAbrir.Location = new System.Drawing.Point(1137, 24);
             this.btnAbrir.Name = "btnAbrir";
             this.btnAbrir.Size = new System.Drawing.Size(34, 24);
             this.btnAbrir.TabIndex = 59;
@@ -98,7 +98,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(298, 20);
+            this.label4.Location = new System.Drawing.Point(298, 24);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 17);
             this.label4.TabIndex = 57;
@@ -107,7 +107,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Image = global::Concesionaria.Properties.Resources.cancel;
-            this.btnEliminar.Location = new System.Drawing.Point(1097, 14);
+            this.btnEliminar.Location = new System.Drawing.Point(1097, 24);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(34, 24);
             this.btnEliminar.TabIndex = 51;
@@ -118,7 +118,7 @@
             // btnCobrar
             // 
             this.btnCobrar.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobrar.Location = new System.Drawing.Point(1057, 15);
+            this.btnCobrar.Location = new System.Drawing.Point(1057, 24);
             this.btnCobrar.Name = "btnCobrar";
             this.btnCobrar.Size = new System.Drawing.Size(34, 24);
             this.btnCobrar.TabIndex = 50;
@@ -129,7 +129,7 @@
             // button3
             // 
             this.button3.Image = global::Concesionaria.Properties.Resources.zoom;
-            this.button3.Location = new System.Drawing.Point(1017, 13);
+            this.button3.Location = new System.Drawing.Point(1017, 24);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(34, 24);
             this.button3.TabIndex = 48;
@@ -148,7 +148,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(154, 23);
+            this.label8.Location = new System.Drawing.Point(154, 24);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 17);
             this.label8.TabIndex = 44;
@@ -167,7 +167,7 @@
             // dpFechaDesde
             // 
             this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaDesde.Location = new System.Drawing.Point(61, 19);
+            this.dpFechaDesde.Location = new System.Drawing.Point(61, 24);
             this.dpFechaDesde.Name = "dpFechaDesde";
             this.dpFechaDesde.Size = new System.Drawing.Size(87, 23);
             this.dpFechaDesde.TabIndex = 71;
@@ -175,7 +175,7 @@
             // dpFechaHasta
             // 
             this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaHasta.Location = new System.Drawing.Point(205, 16);
+            this.dpFechaHasta.Location = new System.Drawing.Point(205, 24);
             this.dpFechaHasta.Name = "dpFechaHasta";
             this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
             this.dpFechaHasta.TabIndex = 72;
@@ -183,7 +183,7 @@
             // daFechaCobro
             // 
             this.daFechaCobro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.daFechaCobro.Location = new System.Drawing.Point(393, 16);
+            this.daFechaCobro.Location = new System.Drawing.Point(393, 24);
             this.daFechaCobro.Name = "daFechaCobro";
             this.daFechaCobro.Size = new System.Drawing.Size(87, 23);
             this.daFechaCobro.TabIndex = 73;
@@ -191,7 +191,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(572, 20);
+            this.label1.Location = new System.Drawing.Point(572, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 74;
@@ -199,16 +199,16 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(636, 19);
+            this.txtApellido.Location = new System.Drawing.Point(636, 24);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(173, 23);
             this.txtApellido.TabIndex = 75;
             // 
             // txtNumeroCheque
             // 
-            this.txtNumeroCheque.Location = new System.Drawing.Point(875, 18);
+            this.txtNumeroCheque.Location = new System.Drawing.Point(879, 24);
             this.txtNumeroCheque.Name = "txtNumeroCheque";
-            this.txtNumeroCheque.Size = new System.Drawing.Size(136, 23);
+            this.txtNumeroCheque.Size = new System.Drawing.Size(120, 23);
             this.txtNumeroCheque.TabIndex = 77;
             // 
             // label2

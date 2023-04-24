@@ -123,6 +123,7 @@
     <Compile Include="Clases\cPunitorioCuota.cs" />
     <Compile Include="Clases\cPunitorioCuotasAnteriores.cs" />
     <Compile Include="Clases\cRecibo.cs" />
+    <Compile Include="Clases\cReporte.cs" />
     <Compile Include="Clases\cReportePresupuesto.cs" />
     <Compile Include="Clases\cResumenCuentas.cs" />
     <Compile Include="Clases\cSaldoCobranza.cs" />
@@ -1269,6 +1270,7 @@
     <EmbeddedResource Include="Reportes\ReportePresupuesto.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePresupuesto2.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteRecibo.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteResumenCuenta.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteStock.rdlc" />
     <EmbeddedResource Include="ReporteVentas.rdlc">
       <SubType>Designer</SubType>

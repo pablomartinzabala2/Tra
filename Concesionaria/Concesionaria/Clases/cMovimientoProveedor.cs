@@ -55,7 +55,7 @@ namespace Concesionaria.Clases
             cDb.ExecutarNonQuery(sql);
         }
 
-       public DataTable GetResumen(Int32 CodCuentaProveedor)
+       public DataTable GetResumen(Int32 CodCuentaProveedor,DateTime FechaDesde,DateTime FechaHasta)
         {
             //  Double Saldo = 0;
             //  Saldo = GetSaldo(CodCuentaProveedor);
@@ -64,8 +64,10 @@ namespace Concesionaria.Clases
             //   sql = sql + " union ";
             string sql = "";
             sql =   "select CodCuentaProveedor,Fecha,Concepto,Debe,Haber, Saldo,CodDeuda,CodPago";
-            sql = sql + " from MovimientoProveedor ";
+            sql = sql + " from MovimientoProveedor "; 
             sql = sql + " where CodCuentaProveedor=" + CodCuentaProveedor.ToString();
+            sql = sql + " and Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and Fecha <=" +"'" + FechaHasta.ToShortDateString() + "'";
             sql = sql + " order by Fecha asc ";
             return cDb.ExecuteDataTable(sql);
         }

@@ -15,6 +15,7 @@ namespace Concesionaria
         public FrmResumenCuentaProveedor()
         {
             InitializeComponent();
+            InicializarFechas();
         }
 
         private void Buscar()
@@ -36,6 +37,19 @@ namespace Concesionaria
             }
         }
 
+        private void InicializarFechas()
+        {  
+            DateTime Fecha = DateTime.Now;
+            int dia = Fecha.Day;
+            int Mes = Fecha.Month;
+            Fecha = Fecha.AddDays(-dia);
+            Fecha = Fecha.AddDays(1);
+            dpFechaDesde.Value = Fecha;
+            Fecha = Fecha.AddMonths(1);
+            Fecha = Fecha.AddDays(-1);
+            dpFechaHasta.Value = Fecha;
+        }
+
         private void FrmResumenCuentaProveedor_Load(object sender, EventArgs e)
         {
             Buscar();
@@ -45,7 +59,10 @@ namespace Concesionaria
         {
             cFunciones fun = new Clases.cFunciones();
             cMovimientoProveedor mov = new Clases.cMovimientoProveedor();
-            DataTable trdo = mov.GetResumen(CodCuentaProveedor);
+            DateTime FechaDesde = dpFechaDesde.Value;
+            DateTime FechaHasta = dpFechaHasta.Value;
+            DataTable trdo = mov.GetResumen(CodCuentaProveedor, FechaDesde, FechaHasta);
+                
             Double Debe = 0;
             Double Haber = 0;
             Debe = fun.TotalizarColumna(trdo, "Debe");
@@ -88,6 +105,29 @@ namespace Concesionaria
                 frm.ShowDialog();
                 Principal.Codigo = null;
 
+            }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            cReporte Reporte = new cReporte();
+            Reporte.Borrar();
+            string Proveedor = txtProveedor.Text;
+            string Cuenta = txtCuentaProveedor.Text;
+            string FechaDesde = dpFechaDesde.Value.ToShortDateString();
+            string FechaHasta = dpFechaHasta.Value.ToShortDateString();
+            string Fecha = "";
+            string Concepto = "";
+            string Debe = "";
+            string Haber = "";
+            for (int i =0;i < Grilla.Rows.Count -1;i++)
+            {
+                Fecha = Grilla.Rows[i].Cells[1].Value.ToString();
+                Concepto = Grilla.Rows[i].Cells[2].Value.ToString();
+                Debe = Grilla.Rows[i].Cells[3].Value.ToString();
+                Haber = Grilla.Rows[i].Cells[4].Value.ToString();
+                Reporte.Insertar(Proveedor, Cuenta, FechaDesde, FechaHasta,
+                    Fecha, Concepto, Debe, Haber, "");
             }
         }
     }
