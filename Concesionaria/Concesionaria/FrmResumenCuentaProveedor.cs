@@ -112,6 +112,7 @@ namespace Concesionaria
         {
             cReporte Reporte = new cReporte();
             Reporte.Borrar();
+            int Orden = 1;
             string Proveedor = txtProveedor.Text;
             string Cuenta = txtCuentaProveedor.Text;
             string FechaDesde = dpFechaDesde.Value.ToShortDateString();
@@ -123,12 +124,16 @@ namespace Concesionaria
             for (int i =0;i < Grilla.Rows.Count -1;i++)
             {
                 Fecha = Grilla.Rows[i].Cells[1].Value.ToString();
+                Fecha = Fecha.Substring(0, 10);
                 Concepto = Grilla.Rows[i].Cells[2].Value.ToString();
                 Debe = Grilla.Rows[i].Cells[3].Value.ToString();
                 Haber = Grilla.Rows[i].Cells[4].Value.ToString();
-                Reporte.Insertar(Proveedor, Cuenta, FechaDesde, FechaHasta,
-                    Fecha, Concepto, Debe, Haber, "");
+                Reporte.Insertar(Orden, Proveedor, Cuenta, FechaDesde, FechaHasta,
+                    Fecha, Concepto, Debe, Haber);
+                Orden = Orden + 1;
             }
+            FrmReporteResumenProveedor frm = new FrmReporteResumenProveedor();
+            frm.Show();
         }
     }
 }
