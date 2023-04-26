@@ -132,8 +132,18 @@ namespace Concesionaria
                     Fecha, Concepto, Debe, Haber);
                 Orden = Orden + 1;
             }
+            string Saldo = txtSaldo.Text;
+            Orden++;
+            Reporte.Insertar(Orden, "", "", "", "", "", "", "", "");
+            Orden++;
+            Reporte.Insertar(Orden, "", "", "", "", "", "Saldo", Saldo, "");
             FrmReporteResumenProveedor frm = new FrmReporteResumenProveedor();
             frm.Show();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Buscar();
         }
     }
 }

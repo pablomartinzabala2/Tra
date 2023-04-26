@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
@@ -42,13 +43,14 @@
             this.txtProveedor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.btnImprimir);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -69,6 +71,16 @@
             this.groupBox1.Size = new System.Drawing.Size(782, 454);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer;
+            this.btnImprimir.Location = new System.Drawing.Point(735, 32);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(40, 31);
+            this.btnImprimir.TabIndex = 82;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // label5
             // 
@@ -107,7 +119,7 @@
             // btnAbrirDeuda
             // 
             this.btnAbrirDeuda.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnAbrirDeuda.Location = new System.Drawing.Point(641, 34);
+            this.btnAbrirDeuda.Location = new System.Drawing.Point(689, 33);
             this.btnAbrirDeuda.Name = "btnAbrirDeuda";
             this.btnAbrirDeuda.Size = new System.Drawing.Size(40, 31);
             this.btnAbrirDeuda.TabIndex = 77;
@@ -181,15 +193,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Proveedor";
             // 
-            // btnImprimir
+            // btnBuscar
             // 
-            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer;
-            this.btnImprimir.Location = new System.Drawing.Point(687, 33);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(40, 31);
-            this.btnImprimir.TabIndex = 82;
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom;
+            this.btnBuscar.Location = new System.Drawing.Point(643, 33);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(40, 31);
+            this.btnBuscar.TabIndex = 83;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // FrmResumenCuentaProveedor
             // 
@@ -224,5 +236,6 @@
         private System.Windows.Forms.DateTimePicker dpFechaHasta;
         private System.Windows.Forms.DateTimePicker dpFechaDesde;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

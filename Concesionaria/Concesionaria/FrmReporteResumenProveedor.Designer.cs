@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DsReportes = new Concesionaria.DsReportes();
             this.ReporteResumenCuentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DsReportes = new Concesionaria.DsReportes();
             this.ReporteResumenCuentaTableAdapter = new Concesionaria.DsReportesTableAdapters.ReporteResumenCuentaTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DsReportes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReporteResumenCuentaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DsReportes)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
@@ -49,15 +49,15 @@
             this.reportViewer1.Size = new System.Drawing.Size(712, 476);
             this.reportViewer1.TabIndex = 0;
             // 
-            // DsReportes
-            // 
-            this.DsReportes.DataSetName = "DsReportes";
-            this.DsReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // ReporteResumenCuentaBindingSource
             // 
             this.ReporteResumenCuentaBindingSource.DataMember = "ReporteResumenCuenta";
             this.ReporteResumenCuentaBindingSource.DataSource = this.DsReportes;
+            // 
+            // DsReportes
+            // 
+            this.DsReportes.DataSetName = "DsReportes";
+            this.DsReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ReporteResumenCuentaTableAdapter
             // 
@@ -69,11 +69,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 493);
             this.Controls.Add(this.reportViewer1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmReporteResumenProveedor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmReporteResumenProveedor";
             this.Load += new System.EventHandler(this.FrmReporteResumenProveedor_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DsReportes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReporteResumenCuentaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DsReportes)).EndInit();
             this.ResumeLayout(false);
 
         }
