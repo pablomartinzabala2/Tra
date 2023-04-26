@@ -38,7 +38,12 @@ namespace Concesionaria
         {
             cFunciones fun = new cFunciones();
             cDeudaProveedor Deuda = new Clases.cDeudaProveedor();
+            Double Total = 0, Saldo = 0;
             DataTable trdo = Deuda.GetDeuda(FechaDesde, FechaHasta, Proveedor);
+            Total = fun.TotalizarColumna(trdo, "Importe");
+            Saldo = fun.TotalizarColumna(trdo, "Saldo");
+            txtTotalDeuda.Text = fun.FormatoEnteroMiles(Total.ToString());
+            txtTotalSaldo.Text = fun.FormatoEnteroMiles(Saldo.ToString());
             trdo = fun.TablaaFechas(trdo, "Importe");
             trdo = fun.TablaaFechas(trdo, "Saldo");
             Grilla.DataSource = trdo;

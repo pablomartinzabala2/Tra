@@ -37,19 +37,23 @@
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.btnBorarCobranza = new System.Windows.Forms.Button();
-            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.txtTotalSaldo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCobroCheque = new System.Windows.Forms.Button();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtTotalDeuda = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTotalDeuda);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtProveedor);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnAbrirDeuda);
@@ -58,7 +62,7 @@
             this.groupBox1.Controls.Add(this.dpFechaHasta);
             this.groupBox1.Controls.Add(this.dpFechaDesde);
             this.groupBox1.Controls.Add(this.btnBorarCobranza);
-            this.groupBox1.Controls.Add(this.txtTotal);
+            this.groupBox1.Controls.Add(this.txtTotalSaldo);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnCobroCheque);
             this.groupBox1.Controls.Add(this.Grilla);
@@ -144,19 +148,19 @@
             this.btnBorarCobranza.TabIndex = 56;
             this.btnBorarCobranza.UseVisualStyleBackColor = true;
             // 
-            // txtTotal
+            // txtTotalSaldo
             // 
-            this.txtTotal.Location = new System.Drawing.Point(769, 456);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.ReadOnly = true;
-            this.txtTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTotal.Size = new System.Drawing.Size(100, 23);
-            this.txtTotal.TabIndex = 50;
+            this.txtTotalSaldo.Location = new System.Drawing.Point(769, 456);
+            this.txtTotalSaldo.Name = "txtTotalSaldo";
+            this.txtTotalSaldo.ReadOnly = true;
+            this.txtTotalSaldo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTotalSaldo.Size = new System.Drawing.Size(100, 23);
+            this.txtTotalSaldo.TabIndex = 50;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(684, 456);
+            this.label3.Location = new System.Drawing.Point(700, 456);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 17);
             this.label3.TabIndex = 49;
@@ -211,6 +215,24 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Hasta";
             // 
+            // txtTotalDeuda
+            // 
+            this.txtTotalDeuda.Location = new System.Drawing.Point(585, 453);
+            this.txtTotalDeuda.Name = "txtTotalDeuda";
+            this.txtTotalDeuda.ReadOnly = true;
+            this.txtTotalDeuda.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTotalDeuda.Size = new System.Drawing.Size(100, 23);
+            this.txtTotalDeuda.TabIndex = 80;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(516, 453);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 17);
+            this.label5.TabIndex = 79;
+            this.label5.Text = "Deuda";
+            // 
             // FrmListadoDeudaProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,7 +256,7 @@
         private System.Windows.Forms.DateTimePicker dpFechaHasta;
         private System.Windows.Forms.DateTimePicker dpFechaDesde;
         private System.Windows.Forms.Button btnBorarCobranza;
-        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.TextBox txtTotalSaldo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCobroCheque;
         private System.Windows.Forms.DataGridView Grilla;
@@ -245,5 +267,7 @@
         private System.Windows.Forms.Button btnAbrirDeuda;
         private System.Windows.Forms.TextBox txtProveedor;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtTotalDeuda;
+        private System.Windows.Forms.Label label5;
     }
 }
