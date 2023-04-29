@@ -96,7 +96,7 @@ namespace Concesionaria
                 return;
             }
 
-            string sCodPago = Grilla.CurrentRow.Cells[5].Value.ToString().Trim();
+            string sCodPago = Grilla.CurrentRow.Cells[6].Value.ToString().Trim();
             if (sCodPago !="")
             {
                 Msj("Debe anular el pago para poder borrarlo ");
@@ -106,7 +106,7 @@ namespace Concesionaria
             {  
                 cMovimientoProveedor mov = new cMovimientoProveedor();
                 Int32 CodDeuda = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value.ToString());
-                Int32 CodCuentaProveedor = Convert.ToInt32(Grilla.CurrentRow.Cells[6].Value.ToString());
+                Int32 CodCuentaProveedor = Convert.ToInt32(Grilla.CurrentRow.Cells[7].Value.ToString());
                 cDeudaProveedor Deuda = new cDeudaProveedor();
                 Deuda.Borrrar(CodDeuda);
                 cCosto Costo = new cCosto();
