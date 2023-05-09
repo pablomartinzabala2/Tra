@@ -40,6 +40,10 @@ namespace Concesionaria
         private void InicializarFechas()
         {  
             DateTime Fecha = DateTime.Now;
+            dpFechaHasta.Value = Fecha;
+            Fecha = Fecha.AddYears(-1);
+            dpFechaDesde.Value = Fecha;
+            /*
             int dia = Fecha.Day;
             int Mes = Fecha.Month;
             Fecha = Fecha.AddDays(-dia);
@@ -48,6 +52,7 @@ namespace Concesionaria
             Fecha = Fecha.AddMonths(1);
             Fecha = Fecha.AddDays(-1);
             dpFechaHasta.Value = Fecha;
+            */
         }
 
         private void FrmResumenCuentaProveedor_Load(object sender, EventArgs e)

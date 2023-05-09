@@ -2,20 +2,6 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Image Name="Image1">
-        <Source>Embedded</Source>
-        <Value>Logo1</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>1.48573cm</Top>
-        <Left>0.67875cm</Left>
-        <Height>1.36771cm</Height>
-        <Width>4.88667cm</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
       <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
@@ -316,7 +302,6 @@
         <Left>0.81796cm</Left>
         <Height>1.2cm</Height>
         <Width>15.37104cm</Width>
-        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -342,7 +327,7 @@
         <Left>0.81796cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>2</ZIndex>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -371,11 +356,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>3.02983cm</Top>
+        <Top>2.15671cm</Top>
         <Left>5.49688cm</Left>
         <Height>1.10271cm</Height>
         <Width>8.05291cm</Width>
-        <ZIndex>3</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -407,7 +392,7 @@
         <Left>3.73437cm</Left>
         <Height>0.6cm</Height>
         <Width>4.09442cm</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -437,7 +422,7 @@
         <Left>8.46971cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>5</ZIndex>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -469,7 +454,7 @@
         <Left>11.38612cm</Left>
         <Height>0.6cm</Height>
         <Width>3.92875cm</Width>
-        <ZIndex>6</ZIndex>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -499,7 +484,7 @@
         <Left>0.81796cm</Left>
         <Height>0.6cm</Height>
         <Width>2.36079cm</Width>
-        <ZIndex>7</ZIndex>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -531,7 +516,7 @@
         <Left>3.35514cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>8</ZIndex>
+        <ZIndex>7</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -563,7 +548,52 @@
         <Left>6.34683cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Image Name="Image1">
+        <Source>Embedded</Source>
+        <Value>Logo1</Value>
+        <Sizing>FitProportional</Sizing>
+        <Top>0.82427cm</Top>
+        <Left>0.30833cm</Left>
+        <Height>1.36771cm</Height>
+        <Width>4.88667cm</Width>
         <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Textbox Name="Textbox20">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>="Fecha: " + Now.ToShortDateString()</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox20</rd:DefaultName>
+        <Top>3.35125cm</Top>
+        <Left>0.81796cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.84937cm</Width>
+        <ZIndex>10</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
