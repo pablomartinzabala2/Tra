@@ -209,8 +209,10 @@ namespace Concesionaria
             string CodVenta = Grilla.CurrentRow.Cells[0].Value.ToString();
             Principal.CodigoPrincipalAbm = CodVenta;
             Principal.TablaPrincipal = Grilla.CurrentRow.Cells[8].Value.ToString();
-            FrmVistaPrevia form = new FrmVistaPrevia();
-            form.Show();
+            FrmBoletoTraut frm = new FrmBoletoTraut();
+            frm.Show();         
+            //  FrmVistaPrevia form = new FrmVistaPrevia();
+           // form.Show();
         }
 
         private void BtnVerGanancia_Click(object sender, EventArgs e)

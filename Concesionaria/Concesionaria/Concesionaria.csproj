@@ -279,6 +279,12 @@
     <Compile Include="FrmAutos.Designer.cs">
       <DependentUpon>FrmAutos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBoletoTraut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBoletoTraut.Designer.cs">
+      <DependentUpon>FrmBoletoTraut.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBorrarTablas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -956,6 +962,9 @@
     <EmbeddedResource Include="FrmAutos.resx">
       <DependentUpon>FrmAutos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmBoletoTraut.resx">
+      <DependentUpon>FrmBoletoTraut.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBorrarTablas.resx">
       <DependentUpon>FrmBorrarTablas.cs</DependentUpon>
     </EmbeddedResource>
@@ -1274,6 +1283,7 @@
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="ReporteListado.rdlc" />
+    <EmbeddedResource Include="Reportes\BoletoTraut.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteBoletoCompraventa.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteClientes.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePresupuesto.rdlc" />

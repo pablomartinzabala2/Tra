@@ -271,7 +271,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -388,7 +387,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>  Ing. Brutos: 20-24844804</Value>
+                <Value> Ing. Brutos: 20-24844804--1</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -399,7 +398,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Iva Responsable Inscripto</Value>
+                <Value>Iva Responsable Inscripto-</Value>
                 <Style />
               </TextRun>
             </TextRuns>
