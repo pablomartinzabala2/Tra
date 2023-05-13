@@ -3051,6 +3051,8 @@ namespace Concesionaria {
             
             private global::System.Data.DataColumn columnColor;
             
+            private global::System.Data.DataColumn columnImporteVenta;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ClienteDataTable() {
@@ -3174,6 +3176,14 @@ namespace Concesionaria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ImporteVentaColumn {
+                get {
+                    return this.columnImporteVenta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3209,7 +3219,7 @@ namespace Concesionaria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ClienteRow AddClienteRow(string Apellido, string Nombre, string NroDocumento, string Ciudad, string Direccion, string Email, string Descripcion, string chasis, string Marca, int Anio, string Color) {
+            public ClienteRow AddClienteRow(string Apellido, string Nombre, string NroDocumento, string Ciudad, string Direccion, string Email, string Descripcion, string chasis, string Marca, int Anio, string Color, decimal ImporteVenta) {
                 ClienteRow rowClienteRow = ((ClienteRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Apellido,
@@ -3222,7 +3232,8 @@ namespace Concesionaria {
                         chasis,
                         Marca,
                         Anio,
-                        Color};
+                        Color,
+                        ImporteVenta};
                 rowClienteRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowClienteRow);
                 return rowClienteRow;
@@ -3256,6 +3267,7 @@ namespace Concesionaria {
                 this.columnMarca = base.Columns["Marca"];
                 this.columnAnio = base.Columns["Anio"];
                 this.columnColor = base.Columns["Color"];
+                this.columnImporteVenta = base.Columns["ImporteVenta"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3283,6 +3295,8 @@ namespace Concesionaria {
                 base.Columns.Add(this.columnAnio);
                 this.columnColor = new global::System.Data.DataColumn("Color", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnColor);
+                this.columnImporteVenta = new global::System.Data.DataColumn("ImporteVenta", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImporteVenta);
                 this.columnApellido.MaxLength = 100;
                 this.columnNombre.MaxLength = 100;
                 this.columnNroDocumento.MaxLength = 50;
@@ -6205,6 +6219,22 @@ namespace Concesionaria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal ImporteVenta {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCliente.ImporteVentaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ImporteVenta\' in table \'Cliente\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCliente.ImporteVentaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsApellidoNull() {
                 return this.IsNull(this.tableCliente.ApellidoColumn);
             }
@@ -6333,6 +6363,18 @@ namespace Concesionaria {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetColorNull() {
                 this[this.tableCliente.ColorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsImporteVentaNull() {
+                return this.IsNull(this.tableCliente.ImporteVentaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetImporteVentaNull() {
+                this[this.tableCliente.ImporteVentaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7984,6 +8026,7 @@ order by rr.Orden";
             tableMapping.ColumnMappings.Add("Marca", "Marca");
             tableMapping.ColumnMappings.Add("Anio", "Anio");
             tableMapping.ColumnMappings.Add("Color", "Color");
+            tableMapping.ColumnMappings.Add("ImporteVenta", "ImporteVenta");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -8009,10 +8052,11 @@ a.Descripcion , a.chasis,
 (select m.Nombre from marca m where m.CodMarca=a.CodMarca) as Marca ,
 (select an.Nombre from Anio an where an.CodAnio=a.CodAnio) as Anio ,
 (select cc.Nombre  from Color cc where cc.CodColor=a.CodColor) as Color
+,v.ImporteVenta
 from venta v , cliente c , auto a
 where v.CodCliente = c.CodCliente
 and v.CodAutoVendido = a.CodAuto
-and v.CodVenta =@p";
+and v.CodVenta = @p";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "CodVenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
