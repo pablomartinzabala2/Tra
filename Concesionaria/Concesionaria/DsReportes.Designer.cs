@@ -3029,10 +3029,6 @@ namespace Concesionaria {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ClienteDataTable : global::System.Data.TypedTableBase<ClienteRow> {
             
-            private global::System.Data.DataColumn columnApellido;
-            
-            private global::System.Data.DataColumn columnNombre;
-            
             private global::System.Data.DataColumn columnNroDocumento;
             
             private global::System.Data.DataColumn columnCiudad;
@@ -3052,6 +3048,16 @@ namespace Concesionaria {
             private global::System.Data.DataColumn columnColor;
             
             private global::System.Data.DataColumn columnImporteVenta;
+            
+            private global::System.Data.DataColumn columnNombreCli;
+            
+            private global::System.Data.DataColumn columnTelefono;
+            
+            private global::System.Data.DataColumn columnMotor;
+            
+            private global::System.Data.DataColumn columnPatente;
+            
+            private global::System.Data.DataColumn columnImporte;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -3084,22 +3090,6 @@ namespace Concesionaria {
             protected ClienteDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ApellidoColumn {
-                get {
-                    return this.columnApellido;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NombreColumn {
-                get {
-                    return this.columnNombre;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3184,6 +3174,46 @@ namespace Concesionaria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NombreCliColumn {
+                get {
+                    return this.columnNombreCli;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TelefonoColumn {
+                get {
+                    return this.columnTelefono;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MotorColumn {
+                get {
+                    return this.columnMotor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PatenteColumn {
+                get {
+                    return this.columnPatente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ImporteColumn {
+                get {
+                    return this.columnImporte;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3219,11 +3249,9 @@ namespace Concesionaria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ClienteRow AddClienteRow(string Apellido, string Nombre, string NroDocumento, string Ciudad, string Direccion, string Email, string Descripcion, string chasis, string Marca, int Anio, string Color, decimal ImporteVenta) {
+            public ClienteRow AddClienteRow(string NroDocumento, string Ciudad, string Direccion, string Email, string Descripcion, string chasis, string Marca, int Anio, string Color, decimal ImporteVenta, string NombreCli, string Telefono, string Motor, string Patente, string Importe) {
                 ClienteRow rowClienteRow = ((ClienteRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Apellido,
-                        Nombre,
                         NroDocumento,
                         Ciudad,
                         Direccion,
@@ -3233,7 +3261,12 @@ namespace Concesionaria {
                         Marca,
                         Anio,
                         Color,
-                        ImporteVenta};
+                        ImporteVenta,
+                        NombreCli,
+                        Telefono,
+                        Motor,
+                        Patente,
+                        Importe};
                 rowClienteRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowClienteRow);
                 return rowClienteRow;
@@ -3256,8 +3289,6 @@ namespace Concesionaria {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnApellido = base.Columns["Apellido"];
-                this.columnNombre = base.Columns["Nombre"];
                 this.columnNroDocumento = base.Columns["NroDocumento"];
                 this.columnCiudad = base.Columns["Ciudad"];
                 this.columnDireccion = base.Columns["Direccion"];
@@ -3268,15 +3299,16 @@ namespace Concesionaria {
                 this.columnAnio = base.Columns["Anio"];
                 this.columnColor = base.Columns["Color"];
                 this.columnImporteVenta = base.Columns["ImporteVenta"];
+                this.columnNombreCli = base.Columns["NombreCli"];
+                this.columnTelefono = base.Columns["Telefono"];
+                this.columnMotor = base.Columns["Motor"];
+                this.columnPatente = base.Columns["Patente"];
+                this.columnImporte = base.Columns["Importe"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnApellido = new global::System.Data.DataColumn("Apellido", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnApellido);
-                this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombre);
                 this.columnNroDocumento = new global::System.Data.DataColumn("NroDocumento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNroDocumento);
                 this.columnCiudad = new global::System.Data.DataColumn("Ciudad", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3297,8 +3329,16 @@ namespace Concesionaria {
                 base.Columns.Add(this.columnColor);
                 this.columnImporteVenta = new global::System.Data.DataColumn("ImporteVenta", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnImporteVenta);
-                this.columnApellido.MaxLength = 100;
-                this.columnNombre.MaxLength = 100;
+                this.columnNombreCli = new global::System.Data.DataColumn("NombreCli", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombreCli);
+                this.columnTelefono = new global::System.Data.DataColumn("Telefono", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTelefono);
+                this.columnMotor = new global::System.Data.DataColumn("Motor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMotor);
+                this.columnPatente = new global::System.Data.DataColumn("Patente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPatente);
+                this.columnImporte = new global::System.Data.DataColumn("Importe", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImporte);
                 this.columnNroDocumento.MaxLength = 50;
                 this.columnCiudad.ReadOnly = true;
                 this.columnCiudad.MaxLength = 250;
@@ -3312,6 +3352,12 @@ namespace Concesionaria {
                 this.columnAnio.ReadOnly = true;
                 this.columnColor.ReadOnly = true;
                 this.columnColor.MaxLength = 50;
+                this.columnNombreCli.ReadOnly = true;
+                this.columnNombreCli.MaxLength = 201;
+                this.columnTelefono.MaxLength = 50;
+                this.columnMotor.MaxLength = 100;
+                this.columnPatente.MaxLength = 50;
+                this.columnImporte.MaxLength = 200;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6043,38 +6089,6 @@ namespace Concesionaria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Apellido {
-                get {
-                    try {
-                        return ((string)(this[this.tableCliente.ApellidoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Apellido\' in table \'Cliente\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCliente.ApellidoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Nombre {
-                get {
-                    try {
-                        return ((string)(this[this.tableCliente.NombreColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nombre\' in table \'Cliente\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCliente.NombreColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string NroDocumento {
                 get {
                     try {
@@ -6235,26 +6249,82 @@ namespace Concesionaria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsApellidoNull() {
-                return this.IsNull(this.tableCliente.ApellidoColumn);
+            public string NombreCli {
+                get {
+                    try {
+                        return ((string)(this[this.tableCliente.NombreCliColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NombreCli\' in table \'Cliente\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCliente.NombreCliColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetApellidoNull() {
-                this[this.tableCliente.ApellidoColumn] = global::System.Convert.DBNull;
+            public string Telefono {
+                get {
+                    try {
+                        return ((string)(this[this.tableCliente.TelefonoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Telefono\' in table \'Cliente\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCliente.TelefonoColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNombreNull() {
-                return this.IsNull(this.tableCliente.NombreColumn);
+            public string Motor {
+                get {
+                    try {
+                        return ((string)(this[this.tableCliente.MotorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Motor\' in table \'Cliente\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCliente.MotorColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNombreNull() {
-                this[this.tableCliente.NombreColumn] = global::System.Convert.DBNull;
+            public string Patente {
+                get {
+                    try {
+                        return ((string)(this[this.tableCliente.PatenteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Patente\' in table \'Cliente\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCliente.PatenteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Importe {
+                get {
+                    try {
+                        return ((string)(this[this.tableCliente.ImporteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Importe\' in table \'Cliente\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCliente.ImporteColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6375,6 +6445,66 @@ namespace Concesionaria {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetImporteVentaNull() {
                 this[this.tableCliente.ImporteVentaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNombreCliNull() {
+                return this.IsNull(this.tableCliente.NombreCliColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNombreCliNull() {
+                this[this.tableCliente.NombreCliColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTelefonoNull() {
+                return this.IsNull(this.tableCliente.TelefonoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTelefonoNull() {
+                this[this.tableCliente.TelefonoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMotorNull() {
+                return this.IsNull(this.tableCliente.MotorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMotorNull() {
+                this[this.tableCliente.MotorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPatenteNull() {
+                return this.IsNull(this.tableCliente.PatenteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPatenteNull() {
+                this[this.tableCliente.PatenteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsImporteNull() {
+                return this.IsNull(this.tableCliente.ImporteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetImporteNull() {
+                this[this.tableCliente.ImporteColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8015,8 +8145,6 @@ order by rr.Orden";
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Cliente";
-            tableMapping.ColumnMappings.Add("Apellido", "Apellido");
-            tableMapping.ColumnMappings.Add("Nombre", "Nombre");
             tableMapping.ColumnMappings.Add("NroDocumento", "NroDocumento");
             tableMapping.ColumnMappings.Add("Ciudad", "Ciudad");
             tableMapping.ColumnMappings.Add("Direccion", "Direccion");
@@ -8027,6 +8155,11 @@ order by rr.Orden";
             tableMapping.ColumnMappings.Add("Anio", "Anio");
             tableMapping.ColumnMappings.Add("Color", "Color");
             tableMapping.ColumnMappings.Add("ImporteVenta", "ImporteVenta");
+            tableMapping.ColumnMappings.Add("NombreCli", "NombreCli");
+            tableMapping.ColumnMappings.Add("Telefono", "Telefono");
+            tableMapping.ColumnMappings.Add("Motor", "Motor");
+            tableMapping.ColumnMappings.Add("Patente", "Patente");
+            tableMapping.ColumnMappings.Add("Importe", "Importe");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -8043,19 +8176,21 @@ order by rr.Orden";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"select c.Apellido ,c.Nombre , c.NroDocumento, c.Email,
+            this._commandCollection[0].CommandText = @"select  (c.Nombre + ' ' + c.Apellido) as NombreCli ,c.Telefono, c.NroDocumento, c.Email,
+rb.Importe,
 (c.Calle  + ' ' + c.Numero) as Direccion,
 (select ci.Nombre from ciudad ci , barrio b
 where ci.codciudad = b.codciudad 
 and b.CodBarrio = c.CodBarrio) as Ciudad ,
-a.Descripcion , a.chasis,
+a.Descripcion , a.chasis,a.Motor,a.Patente,
 (select m.Nombre from marca m where m.CodMarca=a.CodMarca) as Marca ,
 (select an.Nombre from Anio an where an.CodAnio=a.CodAnio) as Anio ,
 (select cc.Nombre  from Color cc where cc.CodColor=a.CodColor) as Color
 ,v.ImporteVenta
-from venta v , cliente c , auto a
+from venta v , cliente c , auto a ,ReporteBoleto rb
 where v.CodCliente = c.CodCliente
-and v.CodAutoVendido = a.CodAuto
+and v.CodAutoVendido = a.CodAuto 
+and v.CodVenta = rb.CodVenta
 and v.CodVenta = @p";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "CodVenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

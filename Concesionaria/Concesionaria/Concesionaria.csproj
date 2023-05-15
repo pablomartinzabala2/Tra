@@ -124,6 +124,7 @@
     <Compile Include="Clases\cPunitorioCuotasAnteriores.cs" />
     <Compile Include="Clases\cRecibo.cs" />
     <Compile Include="Clases\cReporte.cs" />
+    <Compile Include="Clases\cReporteBoleto.cs" />
     <Compile Include="Clases\cReportePresupuesto.cs" />
     <Compile Include="Clases\cResumenCuentas.cs" />
     <Compile Include="Clases\cSaldoCobranza.cs" />
@@ -147,6 +148,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>COPIACONCESIONARIADataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsReportes.cs">
+      <DependentUpon>DsReportes.xsd</DependentUpon>
     </Compile>
     <Compile Include="DsReportes.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1322,6 +1326,7 @@
     </None>
     <None Include="DsReportes.xsc">
       <DependentUpon>DsReportes.xsd</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="DsReportes.xsd">
       <SubType>Designer</SubType>

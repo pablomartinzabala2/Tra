@@ -98,6 +98,7 @@
             this.crearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoDeudasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoCuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listadoDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -118,7 +119,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.listadoDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -376,14 +376,14 @@
             this.interesesPagadosToolStripMenuItem,
             this.toolStripMenuItem4,
             this.menuPrendas,
+            this.toolStripMenuItem5,
+            this.presupuestoToolStripMenuItem,
             this.toolStripMenuItem11,
             this.rentabilidadToolStripMenuItem,
-            this.toolStripMenuItem5,
             this.toolStripMenuItem3,
             this.ventasToolStripMenuItem1,
             this.preVentasToolStripMenuItem,
-            this.ventasPorTarjetasToolStripMenuItem,
-            this.presupuestoToolStripMenuItem});
+            this.ventasPorTarjetasToolStripMenuItem});
             this.viewMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.viewMenu.Name = "viewMenu";
             this.viewMenu.Size = new System.Drawing.Size(73, 21);
@@ -679,6 +679,13 @@
             this.listadoCuentasToolStripMenuItem.Text = "Listado Cuentas";
             this.listadoCuentasToolStripMenuItem.Click += new System.EventHandler(this.listadoCuentasToolStripMenuItem_Click);
             // 
+            // listadoDePagosToolStripMenuItem
+            // 
+            this.listadoDePagosToolStripMenuItem.Name = "listadoDePagosToolStripMenuItem";
+            this.listadoDePagosToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.listadoDePagosToolStripMenuItem.Text = "Listado de Pagos";
+            this.listadoDePagosToolStripMenuItem.Click += new System.EventHandler(this.listadoDePagosToolStripMenuItem_Click);
+            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -884,13 +891,6 @@
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // listadoDePagosToolStripMenuItem
-            // 
-            this.listadoDePagosToolStripMenuItem.Name = "listadoDePagosToolStripMenuItem";
-            this.listadoDePagosToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.listadoDePagosToolStripMenuItem.Text = "Listado de Pagos";
-            this.listadoDePagosToolStripMenuItem.Click += new System.EventHandler(this.listadoDePagosToolStripMenuItem_Click);
             // 
             // Principal
             // 

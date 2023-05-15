@@ -30,13 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DsReportes = new Concesionaria.DsReportes();
             this.ClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DsReportes = new Concesionaria.DsReportes();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.ClienteTableAdapter = new Concesionaria.DsReportesTableAdapters.ClienteTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DsReportes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DsReportes)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ClienteBindingSource
+            // 
+            this.ClienteBindingSource.DataMember = "Cliente";
+            this.ClienteBindingSource.DataSource = this.DsReportes;
+            // 
+            // DsReportes
+            // 
+            this.DsReportes.DataSetName = "DsReportes";
+            this.DsReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -48,16 +58,6 @@
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(714, 503);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // DsReportes
-            // 
-            this.DsReportes.DataSetName = "DsReportes";
-            this.DsReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ClienteBindingSource
-            // 
-            this.ClienteBindingSource.DataMember = "Cliente";
-            this.ClienteBindingSource.DataSource = this.DsReportes;
             // 
             // ClienteTableAdapter
             // 
@@ -72,10 +72,11 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmBoletoTraut";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBoletoTraut";
             this.Load += new System.EventHandler(this.FrmBoletoTraut_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DsReportes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DsReportes)).EndInit();
             this.ResumeLayout(false);
 
         }

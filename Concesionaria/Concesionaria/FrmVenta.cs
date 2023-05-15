@@ -1194,7 +1194,7 @@ namespace Concesionaria
                     }
                 }
                 GuardarRecibo(con, Transaccion);
-
+                GuardarBoleto(con, Transaccion, Convert.ToInt32(CodVenta));
                 Transaccion.Commit();
               
                 con.Close();
@@ -1300,7 +1300,12 @@ namespace Concesionaria
 
         }
 
-
+        private void GuardarBoleto(SqlConnection con, SqlTransaction Transaccion, Int32 CodVenta)
+        {
+            cReporteBoleto boleto = new cReporteBoleto();
+            string Importe = txtTotalVenta.Text;
+            boleto.Insertar(con, Transaccion, CodVenta, Importe);
+        }
         private string GetSqlClientes()
         {
             string sql = "";
