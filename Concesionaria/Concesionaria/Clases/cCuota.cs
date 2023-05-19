@@ -341,7 +341,7 @@ namespace Concesionaria.Clases
                  if (ListaCliente =="()")
                      ListaCliente ="(-1)";
 
-                 sql = "select * ";
+                sql = "select * ";
                 sql = sql + " from Cuotas c,Venta v,Cliente cli,Auto a";
                 sql = sql + " where c.CodVenta=v.CodVenta";
                 sql = sql + " and v.CodCliente = cli.CodCliente ";

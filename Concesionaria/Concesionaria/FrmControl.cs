@@ -53,7 +53,7 @@ namespace Concesionaria
                 Valor = Valor + ";" + trdo.Rows[i]["Cuota"].ToString();
                 Valor = Valor + ";" + trdo.Rows[i]["Patente"].ToString();
                 Valor = Valor + ";" + trdo.Rows[i]["Descripcion"].ToString();
-                Valor = Valor + ";" + trdo.Rows[i]["Apellido"].ToString();
+                Valor = Valor + ";" + (trdo.Rows[i]["Apellido"].ToString() + " " + trdo.Rows[i]["Apellido"].ToString());
                 Valor = Valor + ";" + trdo.Rows[i]["Telefono"].ToString();
                 Valor = Valor + ";" + trdo.Rows[i]["Celular"].ToString();
                 Valor = Valor + ";" + trdo.Rows[i]["Importe"].ToString();
@@ -71,7 +71,7 @@ namespace Concesionaria
                 Valor = Valor + ";" + tcuotasAnt.Rows[i]["Cuota"].ToString();
                 Valor = Valor + ";" + tcuotasAnt.Rows[i]["Patente"].ToString();
                 Valor = Valor + ";" + tcuotasAnt.Rows[i]["Descripcion"].ToString();
-                Valor = Valor + ";" + tcuotasAnt.Rows[i]["Apellido"].ToString();
+                Valor = Valor + ";" + (tcuotasAnt.Rows[i]["Apellido"].ToString() + " " + tcuotasAnt.Rows[i]["Apellido"].ToString());
                 Valor = Valor + ";" + tcuotasAnt.Rows[i]["Telefono"].ToString();
                 Valor = Valor + ";" + tcuotasAnt.Rows[i]["Telefono"].ToString();
                 Valor = Valor + ";" + tcuotasAnt.Rows[i]["Importe"].ToString();
@@ -89,7 +89,7 @@ namespace Concesionaria
                 Valor = Valor + ";1";
                 Valor = Valor + ";" + tcob.Rows[i]["Patente"].ToString();
                 Valor = Valor + ";" + tcob.Rows[i]["Descripcion"].ToString();
-                Valor = Valor + ";" + tcob.Rows[i]["Apellido"].ToString();
+                Valor = Valor + ";" + (tcob.Rows[i]["Apellido"].ToString() + " " + tcob.Rows[i]["Apellido"].ToString());
                 Valor = Valor + ";" + tcob.Rows[i]["Telefono"].ToString();
                 Valor = Valor + ";" + tcob.Rows[i]["Celular"].ToString();
                 Valor = Valor + ";" + tcob.Rows[i]["Importe"].ToString();
@@ -106,7 +106,7 @@ namespace Concesionaria
                 Valor = Valor + ";1";
                 Valor = Valor + ";" + tcheque.Rows[i]["Patente"].ToString();
                 Valor = Valor + ";" + tcheque.Rows[i]["Descripcion"].ToString();
-                Valor = Valor + ";" + tcheque.Rows[i]["Apellido"].ToString();
+                Valor = Valor + ";" + (tcheque.Rows[i]["Apellido"].ToString() + " " + tcheque.Rows[i]["Apellido"].ToString());
                 Valor = Valor + ";" + tcheque.Rows[i]["Telefono"].ToString();
                 Valor = Valor + ";" + tcheque.Rows[i]["Celular"].ToString();
                 Valor = Valor + ";" + tcheque.Rows[i]["Importe"].ToString();
@@ -123,7 +123,7 @@ namespace Concesionaria
                 Valor = Valor + ";1";
                 Valor = Valor + ";" + tPrenda.Rows[i]["Patente"].ToString();
                 Valor = Valor + ";" + tPrenda.Rows[i]["Descripcion"].ToString();
-                Valor = Valor + ";" + tPrenda.Rows[i]["Apellido"].ToString();
+                Valor = Valor + ";" + (tPrenda.Rows[i]["Apellido"].ToString() + " " + tPrenda.Rows[i]["Apellido"].ToString());
                 Valor = Valor + ";" + tPrenda.Rows[i]["Telefono"].ToString();
                 Valor = Valor + ";" + tPrenda.Rows[i]["Celular"].ToString();
                 Valor = Valor + ";" + tPrenda.Rows[i]["Importe"].ToString();
@@ -131,6 +131,8 @@ namespace Concesionaria
                 Valor = Valor + ";";
                 tResul = fun.AgregarFilas(tResul, Valor);
             }
+
+            //de aca en adelante agregar el apellido y nombre concatenado..
             cCobranzaGeneral cobGen = new cCobranzaGeneral();
             // if (txtApellido.Text != "")
             // {
