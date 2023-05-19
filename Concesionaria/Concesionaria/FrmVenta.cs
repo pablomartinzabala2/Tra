@@ -1193,18 +1193,26 @@ namespace Concesionaria
                         }
                     }
                 }
-                GuardarRecibo(con, Transaccion);
+               // GuardarRecibo(con, Transaccion);
                 GuardarBoleto(con, Transaccion, Convert.ToInt32(CodVenta));
                 Transaccion.Commit();
               
                 con.Close();
                 ActualizarDiferenciaTransferencia(Convert.ToInt32(CodVenta));
                 MessageBox.Show("Datos grabados correctamente", Clases.cMensaje.Mensaje());
-               
+                FrmRecibo frm = new FrmRecibo();
+                Int32 CodCliente = 0;
+                if (txtCodCLiente.Text != "")
+                    CodCliente = Convert.ToInt32(txtCodCLiente.Text);
+                Principal.CodCliente = CodCliente;
+                frm.Show();
+                /*               
                 FrmReporteRecibo frm = new Concesionaria.FrmReporteRecibo();
                 frm.Show();
                 Principal.CodRecibo = null;
+                */
                 LimpiarPantalla(true);
+                Principal.CodCliente = null;
 
             }
             catch (Exception ex)

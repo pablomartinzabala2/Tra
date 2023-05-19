@@ -53,8 +53,8 @@ namespace Concesionaria.Clases
         public DataTable GetVentasxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,string Apellido)
         {
             string sql = "";
-            // sql = "select Distinct v.CodVenta,c.Apellido,c.Nombre,a.Patente,a.Descripcion,sa.DescripcionAutoPartePago";
-            sql = "select Distinct v.CodVenta,c.Apellido,c.Nombre,a.Patente,";
+            // sql = "select Distinct v.CodVenta,c.Apellido,(c.Nombre  + ' ' + c.Apellido) as Nombre ,a.Patente,a.Descripcion,sa.DescripcionAutoPartePago";
+            sql = "select Distinct v.CodVenta,c.Apellido,(c.Nombre  + ' ' + c.Apellido) as Nombre,a.Patente,";
             sql = sql + "(select mm.Nombre from Marca mm where mm.CodMarca=a.CodMarca) as Marca ";
             sql = sql + ", a.Descripcion";
             sql = sql + ",(select aaa.patente from auto aaa where aaa.CodAuto=(select max(sa.codauto) from VentasxAuto va, StockAuto sa where va.CodAuto = sa.CodAuto )) as DescripcionAutoPartePago ";

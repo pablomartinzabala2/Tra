@@ -132,7 +132,7 @@ namespace Concesionaria
 
                 }
             }
-            string Col = "0;10;10;5;10;10;0";
+            string Col = "0;0;20;5;10;10;0";
             Col = Col + ";5;10;10;0;0;10;10";
             Col = Col + ";10;0;0;0";
             fun.AnchoColumnas(Grilla, Col);

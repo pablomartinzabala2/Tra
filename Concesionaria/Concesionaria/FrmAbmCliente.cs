@@ -48,12 +48,13 @@ namespace Concesionaria
                 return false;
             }
 
+            /*
             if (txt_Apellido.Text == "")
             {
                 MessageBox.Show("Debe ingresar un apellido para continuar", Clases.cMensaje.Mensaje());
                 return false;
             }
-
+            */
             if (txt_Nombre.Text == "")
             {
                 MessageBox.Show("Debe ingresar un nombre para continuar", Clases.cMensaje.Mensaje());

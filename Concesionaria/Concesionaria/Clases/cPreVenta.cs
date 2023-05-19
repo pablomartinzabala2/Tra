@@ -10,7 +10,7 @@ namespace Concesionaria.Clases
         public DataTable GetPreVentasxFecha(DateTime FechaDesde, DateTime FechaHasta, string Patente,string Apellido)
         {
             string sql = "";
-            sql = "select Distinct v.CodPreVenta as CodVenta,c.Apellido,c.Nombre,a.Patente, ";
+            sql = "select Distinct v.CodPreVenta as CodVenta,c.Apellido,(c.Nombre + ' ' + c.Apellido) as Nombre ,a.Patente, ";
             sql = sql + "(select mm.Nombre from Marca mm where mm.CodMarca=a.CodMarca) as Marca ";
             sql = sql + ",a.Descripcion,sa.DescripcionAutoPartePago,";
             sql = sql + "v.Fecha,v.ImporteVenta,ImporteEfectivo,v.ImporteAutoPartePago,v.ImporteCredito,v.ImportePrenda";
