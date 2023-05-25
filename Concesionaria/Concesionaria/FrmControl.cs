@@ -131,11 +131,12 @@ namespace Concesionaria
                 Valor = Valor + ";";
                 tResul = fun.AgregarFilas(tResul, Valor);
             }
-
+            
             //de aca en adelante agregar el apellido y nombre concatenado..
             cCobranzaGeneral cobGen = new cCobranzaGeneral();
             // if (txtApellido.Text != "")
             // {
+            
             DataTable tCobGen = cobGen.GetDedudaCobranzaGeneral(txtApellido.Text, txtPatente.Text, Fecha);
             for (int i = 0; i < tCobGen.Rows.Count; i++)
             {
@@ -159,7 +160,7 @@ namespace Concesionaria
             Clases.cAlarma alarma = new Clases.cAlarma();
             DataTable talarma = alarma.GetAlertasxRangoFecha(FechaDesde, FechaHasta, "", txtPatente.Text, txtApellido.Text);
             for (int i = 0; i < talarma.Rows.Count; i++)
-            {
+            {  
                 Valor = talarma.Rows[i]["CodAlarma"].ToString();
                 Valor = Valor + ";" + "Alerta";
                 Valor = Valor + ";1";
