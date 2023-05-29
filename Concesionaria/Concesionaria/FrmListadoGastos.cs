@@ -45,6 +45,8 @@ namespace Concesionaria
                 return;
             }
 
+            string Nombre = txtNombre.Text;
+            string Apellido = txtApellido.Text;
             DateTime FechaDesde = Convert.ToDateTime(txtFechaDesde.Text);
             DateTime FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
             int Impagos = 0;
@@ -52,16 +54,20 @@ namespace Concesionaria
                 Impagos = 1;
             //Clases.cFunciones fun = new Clases.cFunciones();
             Clases.cGastosPagar gasto = new Clases.cGastosPagar();
-            DataTable trdo = gasto.GetGastosPagarxFecha(FechaDesde, FechaHasta, txtPatente.Text, Impagos);
+            DataTable trdo = gasto.GetGastosPagarxFecha(FechaDesde, FechaHasta, txtPatente.Text, Impagos, Nombre,Apellido);
             trdo = fun.TablaaMiles(trdo, "Importe");
+            trdo = fun.TablaaMiles(trdo, "importepagado");
+            trdo = fun.TablaaMiles(trdo, "Ganancia");
             txtTotal.Text = fun.TotalizarColumna(trdo, "Importe").ToString();
             Grilla.DataSource = trdo;
+            /*
             Grilla.Columns[5].HeaderText = "Fecha Pago";
             Grilla.Columns[0].Visible = false;
             Grilla.Columns[1].Width = 160;
             Grilla.Columns[2].Width = 355;
             Grilla.Columns[4].Width = 120;
             Grilla.Columns[5].Width = 110;
+            */
             if (txtTotal.Text != "")
             {
                 txtTotal.Text = fun.SepararDecimales(txtTotal.Text);

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Concesionaria.Clases;
 
 namespace Concesionaria
 {
@@ -43,6 +44,10 @@ namespace Concesionaria
                     txtTope.Text = txtImporte.Text;
                 }
                 txtFechaPago.Text = trdo.Rows[0]["FechaPago"].ToString ();
+                if (trdo.Rows[0]["FechaTramite"].ToString()!="")
+                {
+                    txtFechaTramite.Text = trdo.Rows[0]["FechaTramite"].ToString();
+                }
                 if (fun.ValidarFecha (txtFechaPago.Text)==true)
                 {
                     btnAnular.Enabled = true ;
@@ -67,7 +72,14 @@ namespace Concesionaria
                 MessageBox.Show("Debe ingresar una fecha válida", Clases.cMensaje.Mensaje());
                 return;
             }
+
+            if (txtImporteCobrado.Text =="")
+            {
+                MessageBox.Show("Debe ingresaR un importe a cobrar", Clases.cMensaje.Mensaje());
+                return;
+            }
             double Importe = fun.ToDouble(txtImporte.Text);
+            double ImporteCobrado = fun.ToDouble(txtImporteCobrado.Text);
             double Tope = fun.ToDouble(txtTope.Text);
             double dif = Tope - Importe;
             string Descrip2 = "";
@@ -92,7 +104,7 @@ namespace Concesionaria
             Clases.cMovimiento mov = new Clases.cMovimiento();
             DateTime Fecha = Convert.ToDateTime(txtFechaPago.Text);
             Clases.cGastosPagar gasto = new Clases.cGastosPagar();
-            gasto.ActualizarPago(Convert.ToInt32(Principal.CodigoPrincipalAbm), Fecha);
+            gasto.ActualizarPago(Convert.ToInt32(Principal.CodigoPrincipalAbm), Fecha, ImporteCobrado);
             mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado,-1* Importe, 0, 0, 0, 0, Fecha, Descripcion);
             if (dif != 0)
             {
@@ -122,7 +134,7 @@ namespace Concesionaria
             }
             Clases.cFunciones fun = new Clases.cFunciones();
             double Importe = fun.ToDouble(txtImporte.Text);
-            
+           
             string Descripcion = "PAGO ANULADO " + txtDescripcion.Text + " " + txtPatente.Text;
             Clases.cMovimiento mov = new Clases.cMovimiento();
             DateTime Fecha = Convert.ToDateTime(txtFechaPago.Text);
@@ -137,7 +149,7 @@ namespace Concesionaria
             if (positivo == 1)
                 Importe = Importe + ImporteDiferencia;
 
-            gasto.ActualizarPago(Convert.ToInt32(Principal.CodigoPrincipalAbm), null);
+            gasto.ActualizarPago(Convert.ToInt32(Principal.CodigoPrincipalAbm), null, 0);
             mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, Importe, 0, 0, 0, 0, Fecha, Descripcion);
             //saco el exedente
             mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, ImporteDiferencia , 0, 0, 0, 0, Fecha, "AJUSTE DE DIFERENCIA");
@@ -151,6 +163,22 @@ namespace Concesionaria
         {
             Clases.cFunciones fun = new Clases.cFunciones();
             txtImporte.Text = fun.FormatoEnteroMiles(txtImporte.Text);
+        }
+
+        private void BtnAgregarCheque_Click(object sender, EventArgs e)
+        {
+            cFunciones fun = new Clases.cFunciones();
+            if (fun.ValidarFecha (txtFechaTramite.Text)==false)
+            {
+                MessageBox.Show("La fecha ingresada de tramite es incorrecta ");
+                return;
+            }
+            DateTime FechaTramite = Convert.ToDateTime(txtFechaTramite.Text);
+            Int32 CodGasto = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            cGastosPagar gasto = new cGastosPagar();
+            gasto.ActualizarFechaTramite(CodGasto, FechaTramite);
+            MessageBox.Show("Datos Actualizados correctamente ");
+
         }
     }
 }

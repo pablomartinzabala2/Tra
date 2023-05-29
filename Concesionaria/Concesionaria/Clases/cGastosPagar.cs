@@ -21,21 +21,38 @@ namespace Concesionaria.Clases
             return Total;
         }
 
-        public DataTable GetGastosPagarxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,int SoloImpago)
+        public DataTable GetGastosPagarxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,int SoloImpago, string Nombre, string Apellido)
         {
-            string sql = "select g.CodGasto,a.Patente,g.Descripcion, g.Fecha,g.Importe,g.FechaPago";
-            sql = sql + " from GastosPagar g,auto a,StockAuto sa";
+            string sql = "select g.CodGasto,a.Patente,g.Descripcion  ";
+            sql = sql + ", (c.Nombre + ' ' + c.Apellido) as Cliente ";
+            sql = sql + " , g.Fecha,g.Importe,g.FechaPago,g.importepagado, ";
+            sql = sql + " (g.Importe - g.importepagado) as Ganancia ";
+
+
+            sql = sql + " from GastosPagar g,auto a,StockAuto sa ,venta v, cliente c ";
             sql = sql + " where g.CodStock = sa.CodStock ";
             sql = sql + " and sa.CodAuto=a.CodAuto";
-           // sql = sql + " and sa.FechaBaja is null";
+            sql = sql + " and v.CodVenta = g.CodVenta ";
+            sql = sql + " and v.CodCliente = c.CodCliente ";
             sql = sql + " and g.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and g.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
             if (Patente != "")
                 sql = sql + " and a.Patente like" + "'%" + Patente  + "%'" ;
             if (SoloImpago == 1)
                 sql = sql + " and g.FechaPago is null";
+            if (Nombre !="")
+            {
+                sql = sql + " and Nombre like " + "'%" + Nombre + "%'";
+            }
+
+            if (Apellido != "")
+            {
+                sql = sql + " and Apellido like " + "'%" + Apellido  + "%'";
+            }
+
             sql = sql + " order by g.CodGasto Desc";
-            
+            // falta agregarle union 
+            //cuando viene del lado de la compra de auto
             return cDb.ExecuteDataTable(sql);
         }
 
@@ -83,7 +100,7 @@ namespace Concesionaria.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
-        public void ActualizarPago(Int32 CodGasto, DateTime? FechaPago)
+        public void ActualizarPago(Int32 CodGasto, DateTime? FechaPago, Double ImportePagado)
         {
             string sql = "update GastosPagar set ";
             if (FechaPago == null)
@@ -95,6 +112,7 @@ namespace Concesionaria.Clases
                 sql = sql + " FechaPago=" + "'" + FechaPago +"'";
                 
             }
+            sql = sql + ",ImportePagado=" + ImportePagado.ToString().Replace(",", ".");
             sql = sql + " where CodGasto=" + CodGasto.ToString ();
             cDb.ExecutarNonQuery(sql);
         }
@@ -144,6 +162,14 @@ namespace Concesionaria.Clases
             comand.Transaction = Transaccion;
             comand.CommandText = sql;
             comand.ExecuteNonQuery();
+        }
+
+        public void ActualizarFechaTramite(Int32 CodGasto,DateTime FechaTramite)
+        {
+            string sql = "update GastosPagar ";
+            sql = sql + " set FechaTramite=" + "'" + FechaTramite + "'";
+            sql = sql + " where CodGasto=" + CodGasto.ToString();
+            cDb.ExecutarNonQuery(sql);
         }
     }
 }

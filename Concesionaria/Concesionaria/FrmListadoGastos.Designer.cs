@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCobroCheque = new System.Windows.Forms.Button();
@@ -39,14 +41,20 @@
             this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtApellido);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtNombre);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtPatente);
@@ -62,105 +70,10 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(931, 564);
+            this.groupBox1.Size = new System.Drawing.Size(1140, 564);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Gastos";
-            // 
-            // txtPatente
-            // 
-            this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPatente.Location = new System.Drawing.Point(681, 37);
-            this.txtPatente.Name = "txtPatente";
-            this.txtPatente.Size = new System.Drawing.Size(104, 23);
-            this.txtPatente.TabIndex = 54;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(618, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 17);
-            this.label3.TabIndex = 48;
-            this.label3.Text = "Patente";
-            // 
-            // btnCobroCheque
-            // 
-            this.btnCobroCheque.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroCheque.Location = new System.Drawing.Point(885, 33);
-            this.btnCobroCheque.Name = "btnCobroCheque";
-            this.btnCobroCheque.Size = new System.Drawing.Size(40, 28);
-            this.btnCobroCheque.TabIndex = 47;
-            this.btnCobroCheque.UseVisualStyleBackColor = true;
-            this.btnCobroCheque.Click += new System.EventHandler(this.btnCobroCheque_Click);
-            // 
-            // chkImpagos
-            // 
-            this.chkImpagos.AutoSize = true;
-            this.chkImpagos.Location = new System.Drawing.Point(427, 39);
-            this.chkImpagos.Name = "chkImpagos";
-            this.chkImpagos.Size = new System.Drawing.Size(112, 21);
-            this.chkImpagos.TabIndex = 46;
-            this.chkImpagos.Text = "Solo Impagos";
-            this.chkImpagos.UseVisualStyleBackColor = true;
-            // 
-            // Grilla
-            // 
-            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(17, 67);
-            this.Grilla.Name = "Grilla";
-            this.Grilla.ReadOnly = true;
-            this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(908, 440);
-            this.Grilla.TabIndex = 45;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(791, 32);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(88, 31);
-            this.btnBuscar.TabIndex = 44;
-            this.btnBuscar.Text = "&Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // txtFechaHasta
-            // 
-            this.txtFechaHasta.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFechaHasta.Location = new System.Drawing.Point(321, 37);
-            this.txtFechaHasta.Mask = "00/00/0000";
-            this.txtFechaHasta.Name = "txtFechaHasta";
-            this.txtFechaHasta.Size = new System.Drawing.Size(100, 23);
-            this.txtFechaHasta.TabIndex = 43;
-            this.txtFechaHasta.ValidatingType = typeof(System.DateTime);
-            // 
-            // txtFechaDesde
-            // 
-            this.txtFechaDesde.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFechaDesde.Location = new System.Drawing.Point(121, 34);
-            this.txtFechaDesde.Mask = "00/00/0000";
-            this.txtFechaDesde.Name = "txtFechaDesde";
-            this.txtFechaDesde.Size = new System.Drawing.Size(100, 23);
-            this.txtFechaDesde.TabIndex = 42;
-            this.txtFechaDesde.ValidatingType = typeof(System.DateTime);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 17);
-            this.label1.TabIndex = 41;
-            this.label1.Text = "Fecha Desde";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(227, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 17);
-            this.label2.TabIndex = 40;
-            this.label2.Text = "Fecha Hasta";
             // 
             // txtTotal
             // 
@@ -180,12 +93,141 @@
             this.label4.TabIndex = 55;
             this.label4.Text = "Total";
             // 
+            // txtPatente
+            // 
+            this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPatente.Location = new System.Drawing.Point(530, 34);
+            this.txtPatente.Name = "txtPatente";
+            this.txtPatente.Size = new System.Drawing.Size(104, 23);
+            this.txtPatente.TabIndex = 54;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(467, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 17);
+            this.label3.TabIndex = 48;
+            this.label3.Text = "Patente";
+            // 
+            // btnCobroCheque
+            // 
+            this.btnCobroCheque.Image = global::Concesionaria.Properties.Resources.money_euro;
+            this.btnCobroCheque.Location = new System.Drawing.Point(1077, 34);
+            this.btnCobroCheque.Name = "btnCobroCheque";
+            this.btnCobroCheque.Size = new System.Drawing.Size(40, 28);
+            this.btnCobroCheque.TabIndex = 47;
+            this.btnCobroCheque.UseVisualStyleBackColor = true;
+            this.btnCobroCheque.Click += new System.EventHandler(this.btnCobroCheque_Click);
+            // 
+            // chkImpagos
+            // 
+            this.chkImpagos.AutoSize = true;
+            this.chkImpagos.Location = new System.Drawing.Point(377, 34);
+            this.chkImpagos.Name = "chkImpagos";
+            this.chkImpagos.Size = new System.Drawing.Size(84, 21);
+            this.chkImpagos.TabIndex = 46;
+            this.chkImpagos.Text = " Impagos";
+            this.chkImpagos.UseVisualStyleBackColor = true;
+            // 
+            // Grilla
+            // 
+            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla.Location = new System.Drawing.Point(17, 67);
+            this.Grilla.Name = "Grilla";
+            this.Grilla.ReadOnly = true;
+            this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Grilla.Size = new System.Drawing.Size(1104, 440);
+            this.Grilla.TabIndex = 45;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(983, 34);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(88, 31);
+            this.btnBuscar.TabIndex = 44;
+            this.btnBuscar.Text = "&Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // txtFechaHasta
+            // 
+            this.txtFechaHasta.BackColor = System.Drawing.SystemColors.Control;
+            this.txtFechaHasta.Location = new System.Drawing.Point(287, 34);
+            this.txtFechaHasta.Mask = "00/00/0000";
+            this.txtFechaHasta.Name = "txtFechaHasta";
+            this.txtFechaHasta.Size = new System.Drawing.Size(84, 23);
+            this.txtFechaHasta.TabIndex = 43;
+            this.txtFechaHasta.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtFechaDesde
+            // 
+            this.txtFechaDesde.BackColor = System.Drawing.SystemColors.Control;
+            this.txtFechaDesde.Location = new System.Drawing.Point(112, 34);
+            this.txtFechaDesde.Mask = "00/00/0000";
+            this.txtFechaDesde.Name = "txtFechaDesde";
+            this.txtFechaDesde.Size = new System.Drawing.Size(75, 23);
+            this.txtFechaDesde.TabIndex = 42;
+            this.txtFechaDesde.ValidatingType = typeof(System.DateTime);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 17);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "Fecha Desde";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(193, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 17);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Fecha Hasta";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNombre.Location = new System.Drawing.Point(704, 34);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(104, 23);
+            this.txtNombre.TabIndex = 58;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(640, 34);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 17);
+            this.label5.TabIndex = 57;
+            this.label5.Text = "Nombre";
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtApellido.Location = new System.Drawing.Point(873, 34);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(104, 23);
+            this.txtApellido.TabIndex = 60;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(814, 34);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 17);
+            this.label6.TabIndex = 59;
+            this.label6.Text = "Apellido";
+            // 
             // FrmListadoGastos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(955, 588);
+            this.ClientSize = new System.Drawing.Size(1164, 588);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -215,5 +257,9 @@
         private System.Windows.Forms.TextBox txtPatente;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.Label label6;
     }
 }
