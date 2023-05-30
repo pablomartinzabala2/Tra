@@ -55,11 +55,18 @@ namespace Concesionaria
             //Clases.cFunciones fun = new Clases.cFunciones();
             Clases.cGastosPagar gasto = new Clases.cGastosPagar();
             DataTable trdo = gasto.GetGastosPagarxFecha(FechaDesde, FechaHasta, txtPatente.Text, Impagos, Nombre,Apellido);
+            Double TotalTransferencia = fun.TotalizarColumna(trdo, "Importe");
+            Double TotalCosto = fun.TotalizarColumna(trdo, "importepagado");
+            Double TotalGanancia = fun.TotalizarColumna(trdo, "Ganancia");
             trdo = fun.TablaaMiles(trdo, "Importe");
             trdo = fun.TablaaMiles(trdo, "importepagado");
             trdo = fun.TablaaMiles(trdo, "Ganancia");
-            txtTotal.Text = fun.TotalizarColumna(trdo, "Importe").ToString();
+            txtTotal.Text = fun.FormatoEnteroMiles(TotalTransferencia.ToString());
+            txtTotalCosto.Text = fun.FormatoEnteroMiles(TotalCosto.ToString());
+            txtTotalGanancia.Text = fun.FormatoEnteroMiles(TotalGanancia.ToString());
             Grilla.DataSource = trdo;
+            string  Col = "0;10;20;20;10;10;10;10;10";
+            fun.AnchoColumnas(Grilla, Col);
             /*
             Grilla.Columns[5].HeaderText = "Fecha Pago";
             Grilla.Columns[0].Visible = false;
@@ -68,11 +75,7 @@ namespace Concesionaria
             Grilla.Columns[4].Width = 120;
             Grilla.Columns[5].Width = 110;
             */
-            if (txtTotal.Text != "")
-            {
-                txtTotal.Text = fun.SepararDecimales(txtTotal.Text);
-                txtTotal.Text = fun.FormatoEnteroMiles(txtTotal.Text);
-            }
+           
         }
 
         private void btnCobroCheque_Click(object sender, EventArgs e)

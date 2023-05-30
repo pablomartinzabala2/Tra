@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPatente = new System.Windows.Forms.TextBox();
@@ -41,16 +45,20 @@
             this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.txtTotalGanancia = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtTotalCosto = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTotalCosto);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.txtTotalGanancia);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtApellido);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtNombre);
@@ -75,10 +83,44 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Gastos";
             // 
+            // txtApellido
+            // 
+            this.txtApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtApellido.Location = new System.Drawing.Point(873, 34);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(104, 23);
+            this.txtApellido.TabIndex = 60;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(814, 34);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 17);
+            this.label6.TabIndex = 59;
+            this.label6.Text = "Apellido";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNombre.Location = new System.Drawing.Point(704, 34);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(104, 23);
+            this.txtNombre.TabIndex = 58;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(640, 34);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 17);
+            this.label5.TabIndex = 57;
+            this.label5.Text = "Nombre";
+            // 
             // txtTotal
             // 
             this.txtTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTotal.Location = new System.Drawing.Point(807, 526);
+            this.txtTotal.Location = new System.Drawing.Point(538, 517);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTotal.Size = new System.Drawing.Size(118, 23);
@@ -87,11 +129,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(761, 526);
+            this.label4.Location = new System.Drawing.Point(392, 523);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 17);
+            this.label4.Size = new System.Drawing.Size(132, 17);
             this.label4.TabIndex = 55;
-            this.label4.Text = "Total";
+            this.label4.Text = "Total Transferencia";
             // 
             // txtPatente
             // 
@@ -188,39 +230,41 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Fecha Hasta";
             // 
-            // txtNombre
+            // txtTotalGanancia
             // 
-            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNombre.Location = new System.Drawing.Point(704, 34);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(104, 23);
-            this.txtNombre.TabIndex = 58;
+            this.txtTotalGanancia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTotalGanancia.Location = new System.Drawing.Point(1003, 520);
+            this.txtTotalGanancia.Name = "txtTotalGanancia";
+            this.txtTotalGanancia.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTotalGanancia.Size = new System.Drawing.Size(118, 23);
+            this.txtTotalGanancia.TabIndex = 62;
             // 
-            // label5
+            // label7
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(640, 34);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 17);
-            this.label5.TabIndex = 57;
-            this.label5.Text = "Nombre";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(892, 520);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(105, 17);
+            this.label7.TabIndex = 61;
+            this.label7.Text = "Total Ganancia";
             // 
-            // txtApellido
+            // txtTotalCosto
             // 
-            this.txtApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtApellido.Location = new System.Drawing.Point(873, 34);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(104, 23);
-            this.txtApellido.TabIndex = 60;
+            this.txtTotalCosto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTotalCosto.Location = new System.Drawing.Point(768, 520);
+            this.txtTotalCosto.Name = "txtTotalCosto";
+            this.txtTotalCosto.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTotalCosto.Size = new System.Drawing.Size(118, 23);
+            this.txtTotalCosto.TabIndex = 64;
             // 
-            // label6
+            // label8
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(814, 34);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 17);
-            this.label6.TabIndex = 59;
-            this.label6.Text = "Apellido";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(662, 523);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(80, 17);
+            this.label8.TabIndex = 63;
+            this.label8.Text = "Total Costo";
             // 
             // FrmListadoGastos
             // 
@@ -261,5 +305,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtTotalCosto;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtTotalGanancia;
+        private System.Windows.Forms.Label label7;
     }
 }
