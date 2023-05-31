@@ -30,10 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrarPagoGastos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtImporteCobrado = new System.Windows.Forms.TextBox();
+            this.btnActualizarFechaTramite = new System.Windows.Forms.Button();
+            this.txtFechaTramite = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtCodVenta = new System.Windows.Forms.TextBox();
             this.txtTope = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.txtFechaPago = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
@@ -41,12 +47,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtFechaPago = new System.Windows.Forms.MaskedTextBox();
-            this.txtFechaTramite = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnActualizarFechaTramite = new System.Windows.Forms.Button();
-            this.txtImporteCobrado = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +76,52 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de los gastos";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 84);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 17);
+            this.label5.TabIndex = 59;
+            this.label5.Text = "Importe Cobrado";
+            // 
+            // txtImporteCobrado
+            // 
+            this.txtImporteCobrado.BackColor = System.Drawing.SystemColors.Control;
+            this.txtImporteCobrado.Location = new System.Drawing.Point(130, 84);
+            this.txtImporteCobrado.Name = "txtImporteCobrado";
+            this.txtImporteCobrado.Size = new System.Drawing.Size(207, 23);
+            this.txtImporteCobrado.TabIndex = 58;
+            // 
+            // btnActualizarFechaTramite
+            // 
+            this.btnActualizarFechaTramite.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizarFechaTramite.Image")));
+            this.btnActualizarFechaTramite.Location = new System.Drawing.Point(232, 136);
+            this.btnActualizarFechaTramite.Name = "btnActualizarFechaTramite";
+            this.btnActualizarFechaTramite.Size = new System.Drawing.Size(40, 28);
+            this.btnActualizarFechaTramite.TabIndex = 57;
+            this.btnActualizarFechaTramite.UseVisualStyleBackColor = true;
+            this.btnActualizarFechaTramite.Click += new System.EventHandler(this.BtnAgregarCheque_Click);
+            // 
+            // txtFechaTramite
+            // 
+            this.txtFechaTramite.BackColor = System.Drawing.SystemColors.Control;
+            this.txtFechaTramite.Location = new System.Drawing.Point(126, 142);
+            this.txtFechaTramite.Mask = "00/00/0000";
+            this.txtFechaTramite.Name = "txtFechaTramite";
+            this.txtFechaTramite.Size = new System.Drawing.Size(100, 23);
+            this.txtFechaTramite.TabIndex = 55;
+            this.txtFechaTramite.ValidatingType = typeof(System.DateTime);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 142);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 17);
+            this.label4.TabIndex = 54;
+            this.label4.Text = "Fecha Trámite";
             // 
             // txtCodVenta
             // 
@@ -110,6 +156,16 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(207, 23);
             this.txtDescripcion.TabIndex = 50;
+            // 
+            // txtFechaPago
+            // 
+            this.txtFechaPago.BackColor = System.Drawing.SystemColors.Control;
+            this.txtFechaPago.Location = new System.Drawing.Point(126, 176);
+            this.txtFechaPago.Mask = "00/00/0000";
+            this.txtFechaPago.Name = "txtFechaPago";
+            this.txtFechaPago.Size = new System.Drawing.Size(100, 23);
+            this.txtFechaPago.TabIndex = 49;
+            this.txtFechaPago.ValidatingType = typeof(System.DateTime);
             // 
             // label2
             // 
@@ -178,62 +234,6 @@
             this.label16.Size = new System.Drawing.Size(57, 17);
             this.label16.TabIndex = 34;
             this.label16.Text = "Patente";
-            // 
-            // txtFechaPago
-            // 
-            this.txtFechaPago.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFechaPago.Location = new System.Drawing.Point(126, 176);
-            this.txtFechaPago.Mask = "00/00/0000";
-            this.txtFechaPago.Name = "txtFechaPago";
-            this.txtFechaPago.Size = new System.Drawing.Size(100, 23);
-            this.txtFechaPago.TabIndex = 49;
-            this.txtFechaPago.ValidatingType = typeof(System.DateTime);
-            // 
-            // txtFechaTramite
-            // 
-            this.txtFechaTramite.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFechaTramite.Location = new System.Drawing.Point(126, 142);
-            this.txtFechaTramite.Mask = "00/00/0000";
-            this.txtFechaTramite.Name = "txtFechaTramite";
-            this.txtFechaTramite.Size = new System.Drawing.Size(100, 23);
-            this.txtFechaTramite.TabIndex = 55;
-            this.txtFechaTramite.ValidatingType = typeof(System.DateTime);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 142);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 17);
-            this.label4.TabIndex = 54;
-            this.label4.Text = "Fecha Trámite";
-            // 
-            // btnActualizarFechaTramite
-            // 
-            this.btnActualizarFechaTramite.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizarFechaTramite.Image")));
-            this.btnActualizarFechaTramite.Location = new System.Drawing.Point(232, 136);
-            this.btnActualizarFechaTramite.Name = "btnActualizarFechaTramite";
-            this.btnActualizarFechaTramite.Size = new System.Drawing.Size(40, 28);
-            this.btnActualizarFechaTramite.TabIndex = 57;
-            this.btnActualizarFechaTramite.UseVisualStyleBackColor = true;
-            this.btnActualizarFechaTramite.Click += new System.EventHandler(this.BtnAgregarCheque_Click);
-            // 
-            // txtImporteCobrado
-            // 
-            this.txtImporteCobrado.BackColor = System.Drawing.SystemColors.Control;
-            this.txtImporteCobrado.Location = new System.Drawing.Point(130, 84);
-            this.txtImporteCobrado.Name = "txtImporteCobrado";
-            this.txtImporteCobrado.Size = new System.Drawing.Size(207, 23);
-            this.txtImporteCobrado.TabIndex = 58;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 84);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 17);
-            this.label5.TabIndex = 59;
-            this.label5.Text = "Importe Cobrado";
             // 
             // FrmRegistrarPagoGastos
             // 

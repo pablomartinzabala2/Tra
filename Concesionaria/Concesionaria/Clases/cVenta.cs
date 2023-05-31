@@ -50,7 +50,7 @@ namespace Concesionaria.Clases
             return CodVenta;
         }
 
-        public DataTable GetVentasxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,string Apellido)
+        public DataTable GetVentasxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,string Apellido, string Nombre)
         {
             string sql = "";
             // sql = "select Distinct v.CodVenta,c.Apellido,(c.Nombre  + ' ' + c.Apellido) as Nombre ,a.Patente,a.Descripcion,sa.DescripcionAutoPartePago";
@@ -93,6 +93,8 @@ namespace Concesionaria.Clases
                 sql = sql + " and a.Patente like" + "'%" + Patente + "%'";
             if (Apellido != null)
                 sql = sql + " and c.Apellido like" + "'%" + Apellido + "%'" ;
+            if (Nombre  != null)
+                sql = sql + " and c.Nombre like" + "'%" + Nombre + "%'";
             sql = sql + " order by v.CodVenta Desc";
             return cDb.ExecuteDataTable(sql);  
         }

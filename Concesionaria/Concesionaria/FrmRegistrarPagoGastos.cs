@@ -20,6 +20,7 @@ namespace Concesionaria
 
         private void FrmRegistrarPagoGastos_Load(object sender, EventArgs e)
         {
+            
             if (Principal.CodigoPrincipalAbm != null)
             {
                 CargarGasto(Convert.ToInt32(Principal.CodigoPrincipalAbm));

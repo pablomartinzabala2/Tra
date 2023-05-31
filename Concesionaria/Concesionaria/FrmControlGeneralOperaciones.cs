@@ -43,8 +43,12 @@ namespace Concesionaria
         private void ArmarDataTableDeudores()
         {
             string Apellido = null;
+            string Nombre = null;
             if (txtApellido.Text != "")
                 Apellido = txtApellido.Text;
+            if (txtNombre.Text != "")
+                Nombre = txtNombre.Text;
+
             Clases.cVenta objVenta = new Clases.cVenta();
             DateTime FechaDesde = dpFechaDesde.Value;
             DateTime FechaHasta = dpFechaHasta.Value;
@@ -66,7 +70,7 @@ namespace Concesionaria
             int TipoPantalla = 1;
             DataTable tb = new DataTable();
             tb = fun.CrearTabla(Col);
-            DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido);
+            DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido, Nombre);
             for (int i = 0; i < trdo.Rows.Count; i++)
             {
                 CodVenta = Convert.ToInt32(trdo.Rows[i]["CodVenta"].ToString());

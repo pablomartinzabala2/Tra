@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
+            this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnReporte2 = new System.Windows.Forms.Button();
@@ -44,14 +46,16 @@
             this.txtPrenda = new System.Windows.Forms.TextBox();
             this.txtVehículo = new System.Windows.Forms.TextBox();
             this.txtDocumentos = new System.Windows.Forms.TextBox();
-            this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
-            this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtNombre);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.dpFechaHasta);
             this.groupBox1.Controls.Add(this.dpFechaDesde);
             this.groupBox1.Controls.Add(this.txtApellido);
@@ -77,18 +81,34 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de ventas";
             // 
+            // dpFechaHasta
+            // 
+            this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaHasta.Location = new System.Drawing.Point(220, 27);
+            this.dpFechaHasta.Name = "dpFechaHasta";
+            this.dpFechaHasta.Size = new System.Drawing.Size(87, 22);
+            this.dpFechaHasta.TabIndex = 73;
+            // 
+            // dpFechaDesde
+            // 
+            this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaDesde.Location = new System.Drawing.Point(77, 25);
+            this.dpFechaDesde.Name = "dpFechaDesde";
+            this.dpFechaDesde.Size = new System.Drawing.Size(87, 22);
+            this.dpFechaDesde.TabIndex = 72;
+            // 
             // txtApellido
             // 
             this.txtApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtApellido.Location = new System.Drawing.Point(688, 27);
+            this.txtApellido.Location = new System.Drawing.Point(722, 25);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(166, 22);
+            this.txtApellido.Size = new System.Drawing.Size(132, 22);
             this.txtApellido.TabIndex = 60;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(624, 27);
+            this.label3.Location = new System.Drawing.Point(658, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 16);
             this.label3.TabIndex = 59;
@@ -116,7 +136,7 @@
             // txtPatente
             // 
             this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPatente.Location = new System.Drawing.Point(536, 27);
+            this.txtPatente.Location = new System.Drawing.Point(373, 27);
             this.txtPatente.Name = "txtPatente";
             this.txtPatente.Size = new System.Drawing.Size(82, 22);
             this.txtPatente.TabIndex = 53;
@@ -124,7 +144,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(476, 27);
+            this.label4.Location = new System.Drawing.Point(313, 27);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 16);
             this.label4.TabIndex = 52;
@@ -160,20 +180,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(256, 27);
+            this.label2.Location = new System.Drawing.Point(170, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 16);
+            this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 39;
-            this.label2.Text = "Fecha Hasta";
+            this.label2.Text = "Hasta";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(22, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 16);
+            this.label1.Size = new System.Drawing.Size(49, 16);
             this.label1.TabIndex = 29;
-            this.label1.Text = "Fecha Desde";
+            this.label1.Text = "Desde";
             // 
             // Grilla
             // 
@@ -211,21 +231,22 @@
             this.txtDocumentos.Size = new System.Drawing.Size(136, 22);
             this.txtDocumentos.TabIndex = 1;
             // 
-            // dpFechaHasta
+            // txtNombre
             // 
-            this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaHasta.Location = new System.Drawing.Point(356, 25);
-            this.dpFechaHasta.Name = "dpFechaHasta";
-            this.dpFechaHasta.Size = new System.Drawing.Size(87, 22);
-            this.dpFechaHasta.TabIndex = 73;
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNombre.Location = new System.Drawing.Point(520, 22);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(132, 22);
+            this.txtNombre.TabIndex = 75;
             // 
-            // dpFechaDesde
+            // label5
             // 
-            this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaDesde.Location = new System.Drawing.Point(118, 25);
-            this.dpFechaDesde.Name = "dpFechaDesde";
-            this.dpFechaDesde.Size = new System.Drawing.Size(87, 22);
-            this.dpFechaDesde.TabIndex = 72;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(456, 22);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 16);
+            this.label5.TabIndex = 74;
+            this.label5.Text = "Nombre";
             // 
             // FrmControlGeneralOperaciones
             // 
@@ -267,5 +288,7 @@
         private System.Windows.Forms.TextBox txtDocumentos;
         private System.Windows.Forms.DateTimePicker dpFechaHasta;
         private System.Windows.Forms.DateTimePicker dpFechaDesde;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label label5;
     }
 }

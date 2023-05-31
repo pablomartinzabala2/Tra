@@ -7,7 +7,7 @@ namespace Concesionaria.Clases
 {
     public class cPreVenta
     {
-        public DataTable GetPreVentasxFecha(DateTime FechaDesde, DateTime FechaHasta, string Patente,string Apellido)
+        public DataTable GetPreVentasxFecha(DateTime FechaDesde, DateTime FechaHasta, string Patente,string Apellido, string Nombre)
         {
             string sql = "";
             sql = "select Distinct v.CodPreVenta as CodVenta,c.Apellido,(c.Nombre + ' ' + c.Apellido) as Nombre ,a.Patente, ";
@@ -43,6 +43,8 @@ namespace Concesionaria.Clases
             sql = sql + " and v.FechaEjecucion is null";
             if (Apellido != null)
                 sql = sql + " and c.Apellido like " + "'" + Apellido +"'";
+            if (Nombre != null)
+                sql = sql + " and c.Nombre like " + "'" + Nombre + "'";
             sql = sql + " order by v.CodPreVenta Desc";
             return cDb.ExecuteDataTable(sql);
         }

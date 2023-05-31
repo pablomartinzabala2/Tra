@@ -47,15 +47,18 @@ namespace Concesionaria
                 return;
             }
             string Apellido = null;
+            string Nombre = null;
+            if (txtNombre.Text != "")
+                Nombre = txtNombre.Text;
             if (txtApellido.Text != "")
                 Apellido = txtApellido.Text;
             Clases.cVenta objVenta = new Clases.cVenta();
             DateTime FechaDesde = dpFechaDesde.Value;
             DateTime FechaHasta = dpFechaHasta.Value;
-            DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido);
+            DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido, Nombre);
             Clases.cPreVenta objPreVenta = new Clases.cPreVenta();
 
-            DataTable trdo2 = objPreVenta.GetPreVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido);
+            DataTable trdo2 = objPreVenta.GetPreVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido, Nombre);
             //le agre[g
             string Dato = "";
             Int32 PosPintar = 0;
