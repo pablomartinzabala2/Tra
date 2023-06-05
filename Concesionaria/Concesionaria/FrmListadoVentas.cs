@@ -375,6 +375,7 @@ namespace Concesionaria
             }
             cResponsabilidadCivil resp = new cResponsabilidadCivil();
             resp.ActualizarTexto(CodStock);
+            Principal.CodStock = CodStock; 
             FrmReporteResponsabilidadCivil frm = new FrmReporteResponsabilidadCivil();
             frm.Show();
         }

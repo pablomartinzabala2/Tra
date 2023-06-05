@@ -378,7 +378,7 @@
         <Top>6.11724cm</Top>
         <Left>12.79856cm</Left>
         <Height>0.93542cm</Height>
-        <Width>3.47833cm</Width>
+        <Width>3.47832cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -448,7 +448,7 @@
         </Paragraphs>
         <rd:DefaultName>Texto1</rd:DefaultName>
         <Top>7.66445cm</Top>
-        <Left>0.7112cm</Left>
+        <Left>0.63182cm</Left>
         <Height>0.6cm</Height>
         <Width>14.40625cm</Width>
         <ZIndex>6</ZIndex>
@@ -504,7 +504,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
         <Top>10.24149cm</Top>
-        <Left>0.7112cm</Left>
+        <Left>0.63182cm</Left>
         <Height>4.75396cm</Height>
         <Width>15.44892cm</Width>
         <ZIndex>7</ZIndex>
@@ -621,7 +621,7 @@
         </Paragraphs>
         <rd:DefaultName>Texto2</rd:DefaultName>
         <Top>8.44084cm</Top>
-        <Left>0.7112cm</Left>
+        <Left>0.63182cm</Left>
         <Height>0.6cm</Height>
         <Width>14.40625cm</Width>
         <ZIndex>11</ZIndex>
@@ -651,7 +651,7 @@
         </Paragraphs>
         <rd:DefaultName>Texto3</rd:DefaultName>
         <Top>9.21723cm</Top>
-        <Left>0.7112cm</Left>
+        <Left>0.63182cm</Left>
         <Height>0.6cm</Height>
         <Width>14.40625cm</Width>
         <ZIndex>12</ZIndex>
