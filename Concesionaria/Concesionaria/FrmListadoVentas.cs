@@ -357,5 +357,26 @@ namespace Concesionaria
                 }
             return Saldo;
         }
+
+        private void btnResponsabilidadCivil_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow ==null)
+            {
+                MessageBox.Show("Debe seleccionar un registro ");
+                return;
+            }
+            Int32 CodStock = 0;
+            Int32 CodVenta = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
+            cVenta venta = new cVenta();
+            DataTable tbventa = venta.GetVentaxCodigo(CodVenta);
+            if (tbventa.Rows.Count >0)
+            {
+                CodStock = Convert.ToInt32(tbventa.Rows[0]["CodStock"]);
+            }
+            cResponsabilidadCivil resp = new cResponsabilidadCivil();
+            resp.ActualizarTexto(CodStock);
+            FrmReporteResponsabilidadCivil frm = new FrmReporteResponsabilidadCivil();
+            frm.Show();
+        }
     }
 }

@@ -126,6 +126,7 @@
     <Compile Include="Clases\cReporte.cs" />
     <Compile Include="Clases\cReporteBoleto.cs" />
     <Compile Include="Clases\cReportePresupuesto.cs" />
+    <Compile Include="Clases\cResponsabilidadCivil.cs" />
     <Compile Include="Clases\cResumenCuentas.cs" />
     <Compile Include="Clases\cSaldoCobranza.cs" />
     <Compile Include="Clases\cSaldoCobranzaGeneral.cs" />
@@ -643,6 +644,12 @@
     <Compile Include="FrmReporteCliente.Designer.cs">
       <DependentUpon>FrmReporteCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReporteResponsabilidadCivil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteResponsabilidadCivil.Designer.cs">
+      <DependentUpon>FrmReporteResponsabilidadCivil.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReporteResumenProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1146,6 +1153,9 @@
     <EmbeddedResource Include="FrmReporteCliente.resx">
       <DependentUpon>FrmReporteCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteResponsabilidadCivil.resx">
+      <DependentUpon>FrmReporteResponsabilidadCivil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteResumenProveedor.resx">
       <DependentUpon>FrmReporteResumenProveedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -1293,6 +1303,7 @@
     <EmbeddedResource Include="Reportes\ReportePresupuesto.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePresupuesto2.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteRecibo.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteResponsabilidadCivil.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteResumenCuenta.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteStock.rdlc" />
     <EmbeddedResource Include="ReporteVentas.rdlc">
@@ -1354,6 +1365,7 @@
     <Content Include="Iconos\Agenda.png" />
     <Content Include="Iconos\AUTO2.png" />
     <Content Include="Iconos\Borrar.ico" />
+    <Content Include="Imagen\ListaItem.gif" />
     <None Include="Iconos\cal.ico" />
     <Content Include="Iconos\cancel.ico" />
     <Content Include="Iconos\CAR3.bmp" />
