@@ -28,7 +28,7 @@ namespace Concesionaria.Clases
             string Texto = "";
             string sql = " select * ";
             sql = sql + " ,(select m.Nombre  from Marca m where a.codmarca = m.CodMarca) as Marca, ";
-            sql = sql + " (select aa.Nombre from anio aa where aa.CodAnio = a.codanio) as anio ";
+            sql = sql + " (select aa.Nombre from anio aa where aa.CodAnio = a.codanio) as anioanio ";
             sql = sql + " from stockauto s, auto a ";
             sql = sql + " where s.CodAuto=a.CodAuto ";
             sql = sql + " and s.CodStock=" + CodStock.ToString();
@@ -37,7 +37,7 @@ namespace Concesionaria.Clases
             {
                 Texto = " Marca: " + trdo.Rows[0]["Marca"].ToString();
                 Texto = Texto + " Modelo: " + trdo.Rows[0]["Descripcion"].ToString();
-                Texto = Texto + " Año: " + trdo.Rows[0]["Anio"].ToString();
+                Texto = Texto + " Año: " + trdo.Rows[0]["anioanio"].ToString();
             }
             return Texto;
         }

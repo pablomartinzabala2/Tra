@@ -1365,6 +1365,7 @@
     <Content Include="Iconos\Agenda.png" />
     <Content Include="Iconos\AUTO2.png" />
     <Content Include="Iconos\Borrar.ico" />
+    <Content Include="Imagen\Lista.bmp" />
     <Content Include="Imagen\ListaItem.gif" />
     <None Include="Iconos\cal.ico" />
     <Content Include="Iconos\cancel.ico" />
