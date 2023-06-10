@@ -1193,7 +1193,17 @@ namespace Concesionaria
                         }
                     }
                 }
+
+                if (txtCodStock.Text!="")
+                {
+                    Int32 CodStock = Convert.ToInt32(txtCodStock.Text);
+                    cResponsabilidadCivil resp = new cResponsabilidadCivil();
+                    resp.Insertar(con, Transaccion, CodStock);
+                }
                // GuardarRecibo(con, Transaccion);
+                    
+                    
+                    
                 GuardarBoleto(con, Transaccion, Convert.ToInt32(CodVenta));
                 Transaccion.Commit();
               

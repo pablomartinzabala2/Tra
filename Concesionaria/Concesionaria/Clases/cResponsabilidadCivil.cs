@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.Data.SqlClient;
 namespace Concesionaria.Clases
 {
-    public  class cResponsabilidadCivil
+    public class cResponsabilidadCivil
     {
         public void ActualizarTexto(Int32 CodStock)
         {
@@ -15,13 +16,11 @@ namespace Concesionaria.Clases
 
             string sql = "update responsabilidadcivil ";
             sql = sql + " set Texto1=" + "'" + Texto + "'";
-            sql =sql + ", Texto2="  +"'" + Texto2 + "'";
+            sql = sql + ", Texto2=" + "'" + Texto2 + "'";
             sql = sql + ", Texto3=" + "'" + Texto3 + "'";
             sql = sql + " where CodStock=" + CodStock.ToString();
             cDb.ExecutarNonQuery(sql);
         }
-
-
 
         private string GetTexto(Int32 CodStock)
         {
@@ -33,7 +32,7 @@ namespace Concesionaria.Clases
             sql = sql + " where s.CodAuto=a.CodAuto ";
             sql = sql + " and s.CodStock=" + CodStock.ToString();
             DataTable trdo = cDb.ExecuteDataTable(sql);
-            if (trdo.Rows.Count >0)
+            if (trdo.Rows.Count > 0)
             {
                 Texto = " Marca: " + trdo.Rows[0]["Marca"].ToString();
                 Texto = Texto + " Modelo: " + trdo.Rows[0]["Descripcion"].ToString();
@@ -56,7 +55,7 @@ namespace Concesionaria.Clases
             {
                 Texto = " Con el siguiente Motor Nº: " + trdo.Rows[0]["Motor"].ToString();
                 Texto = Texto + " Chasis Nº: " + trdo.Rows[0]["Chasis"].ToString();
-                
+
             }
             return Texto;
         }
@@ -74,10 +73,20 @@ namespace Concesionaria.Clases
             if (trdo.Rows.Count > 0)
             {
                 Texto = " Patente : " + trdo.Rows[0]["Patente"].ToString();
-                
+
 
             }
             return Texto;
+        }
+
+        public void Insertar(SqlConnection con, SqlTransaction Transaccion,Int32 CodStock)
+        {
+            string sql = "Insert into ResponsabilidadCivil( ";
+            sql = sql + "CodStock)";
+            sql = sql + " values (" + CodStock.ToString();
+            sql = sql + ")";
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+
         }
     }
 }
