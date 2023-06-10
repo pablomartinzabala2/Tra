@@ -30,13 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DsReportes = new Concesionaria.DsReportes();
             this.AutoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DsReportes = new Concesionaria.DsReportes();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.AutoTableAdapter = new Concesionaria.DsReportesTableAdapters.AutoTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DsReportes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AutoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DsReportes)).BeginInit();
             this.SuspendLayout();
+            // 
+            // AutoBindingSource
+            // 
+            this.AutoBindingSource.DataMember = "Auto";
+            this.AutoBindingSource.DataSource = this.DsReportes;
+            // 
+            // DsReportes
+            // 
+            this.DsReportes.DataSetName = "DsReportes";
+            this.DsReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -49,16 +59,6 @@
             this.reportViewer1.Size = new System.Drawing.Size(685, 445);
             this.reportViewer1.TabIndex = 0;
             // 
-            // DsReportes
-            // 
-            this.DsReportes.DataSetName = "DsReportes";
-            this.DsReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // AutoBindingSource
-            // 
-            this.AutoBindingSource.DataMember = "Auto";
-            this.AutoBindingSource.DataSource = this.DsReportes;
-            // 
             // AutoTableAdapter
             // 
             this.AutoTableAdapter.ClearBeforeFill = true;
@@ -70,10 +70,11 @@
             this.ClientSize = new System.Drawing.Size(700, 482);
             this.Controls.Add(this.reportViewer1);
             this.Name = "FrmReporteResponsabilidadCivil";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmReporteResponsabilidadCivil";
             this.Load += new System.EventHandler(this.FrmReporteResponsabilidadCivil_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DsReportes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AutoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DsReportes)).EndInit();
             this.ResumeLayout(false);
 
         }
