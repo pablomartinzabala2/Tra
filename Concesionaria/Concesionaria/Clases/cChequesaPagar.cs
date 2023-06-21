@@ -28,10 +28,11 @@ namespace Concesionaria.Clases
             sql = sql + ",c.Fecha,c.Importe,c.Saldo, c.FechaPago,";
             sql = sql + "(select a.Patente from auto a where a.CodAuto = c.CodAuto) as Patente";
             sql = sql + ",(select a.Descripcion from auto a where a.CodAuto = c.CodAuto) as Descripcion";
-            sql = sql + ",FechaVencimiento";
-            sql = sql + " from ChequesPagar c, auto au";
-            sql = sql + " where c.CodAuto = au.CodAuto";
-            sql = sql + " and c.Fecha>=" + "'" + FechaDesde.ToShortDateString () + "'" ;
+            sql = sql + ",c.FechaVencimiento";
+            sql = sql + " from ChequesPagar c";
+           // sql = sql + " from ChequesPagar c, auto au";
+           // sql = sql + " where c.CodAuto = au.CodAuto";
+            sql = sql + " where c.Fecha>=" + "'" + FechaDesde.ToShortDateString () + "'" ;
             sql = sql + " and c.Fecha<=" + "'" + FechaHasta.ToShortDateString () + "'";
             if (Impago ==1)
                 sql = sql + " and FechaPago is null ";
@@ -90,10 +91,10 @@ namespace Concesionaria.Clases
         }
 
         public void InsertarCheque(string NroCheque,
-            Double Importe,Int32? CodBanco,DateTime Fecha,DateTime FechaVencimiento)
+            Double Importe,Int32? CodBanco,DateTime Fecha,DateTime FechaVencimiento, Int32? CodCLiente)
         {
             string sql = "insert into ChequesPagar(";
-            sql = sql + "NroCheque,Importe,CodBanco,Fecha,FechaVencimiento)";
+            sql = sql + "NroCheque,Importe,CodBanco,Fecha,FechaVencimiento,CodCliente)";
             sql = sql + " Values(" + "'" + NroCheque + "'";
             sql = sql + "," + Importe.ToString().Replace(",",".");
             if (CodBanco != null)
@@ -102,6 +103,8 @@ namespace Concesionaria.Clases
                 sql = sql + ",null"; 
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," +"'" + FechaVencimiento.ToShortDateString() + "'";
+            if (CodCLiente != null)
+                sql = sql + "," + CodCLiente.ToString();
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
         }

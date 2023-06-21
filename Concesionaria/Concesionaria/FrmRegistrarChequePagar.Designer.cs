@@ -50,11 +50,15 @@
             this.dpFecha = new System.Windows.Forms.DateTimePicker();
             this.dpFechaVencimiento = new System.Windows.Forms.DateTimePicker();
             this.txtCodCliente = new System.Windows.Forms.TextBox();
+            this.CmbTipoDoc = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CmbTipoDoc);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtCodCliente);
             this.groupBox1.Controls.Add(this.dpFechaVencimiento);
             this.groupBox1.Controls.Add(this.dpFecha);
@@ -77,16 +81,16 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(-6, -4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(590, 391);
+            this.groupBox1.Size = new System.Drawing.Size(406, 396);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del cheque";
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(108, 312);
+            this.btnGrabar.Location = new System.Drawing.Point(108, 343);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
             this.btnGrabar.TabIndex = 41;
@@ -96,15 +100,16 @@
             // 
             // txtNroDocumento
             // 
-            this.txtNroDocumento.Location = new System.Drawing.Point(118, 273);
+            this.txtNroDocumento.Location = new System.Drawing.Point(118, 218);
             this.txtNroDocumento.Name = "txtNroDocumento";
             this.txtNroDocumento.Size = new System.Drawing.Size(159, 23);
             this.txtNroDocumento.TabIndex = 40;
+            this.txtNroDocumento.TextChanged += new System.EventHandler(this.txtNroDocumento_TextChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(31, 276);
+            this.label9.Location = new System.Drawing.Point(35, 218);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 17);
             this.label9.TabIndex = 39;
@@ -112,7 +117,7 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(118, 244);
+            this.txtTelefono.Location = new System.Drawing.Point(118, 305);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(159, 23);
             this.txtTelefono.TabIndex = 38;
@@ -120,7 +125,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 247);
+            this.label8.Location = new System.Drawing.Point(31, 308);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 17);
             this.label8.TabIndex = 37;
@@ -137,7 +142,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(118, 215);
+            this.txtNombre.Location = new System.Drawing.Point(118, 276);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(245, 23);
             this.txtNombre.TabIndex = 34;
@@ -145,7 +150,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 218);
+            this.label6.Location = new System.Drawing.Point(31, 279);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 17);
             this.label6.TabIndex = 33;
@@ -153,7 +158,7 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(118, 186);
+            this.txtApellido.Location = new System.Drawing.Point(118, 247);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(245, 23);
             this.txtApellido.TabIndex = 32;
@@ -161,7 +166,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(35, 186);
+            this.label5.Location = new System.Drawing.Point(35, 247);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 17);
             this.label5.TabIndex = 31;
@@ -229,7 +234,7 @@
             // btnBuscarCliente
             // 
             this.btnBuscarCliente.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(374, 186);
+            this.btnBuscarCliente.Location = new System.Drawing.Point(283, 178);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(34, 24);
             this.btnBuscarCliente.TabIndex = 49;
@@ -255,24 +260,42 @@
             // txtCodCliente
             // 
             this.txtCodCliente.BackColor = System.Drawing.Color.Red;
-            this.txtCodCliente.Location = new System.Drawing.Point(283, 270);
+            this.txtCodCliente.Location = new System.Drawing.Point(330, 179);
             this.txtCodCliente.Name = "txtCodCliente";
             this.txtCodCliente.Size = new System.Drawing.Size(33, 23);
             this.txtCodCliente.TabIndex = 74;
             this.txtCodCliente.Visible = false;
+            // 
+            // CmbTipoDoc
+            // 
+            this.CmbTipoDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTipoDoc.FormattingEnabled = true;
+            this.CmbTipoDoc.Location = new System.Drawing.Point(118, 186);
+            this.CmbTipoDoc.Name = "CmbTipoDoc";
+            this.CmbTipoDoc.Size = new System.Drawing.Size(159, 24);
+            this.CmbTipoDoc.TabIndex = 76;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(34, 189);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(36, 17);
+            this.label10.TabIndex = 75;
+            this.label10.Text = "Tipo";
             // 
             // FrmRegistrarChequePagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(579, 382);
+            this.ClientSize = new System.Drawing.Size(441, 404);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmRegistrarChequePagar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmRegistrarChequePagar";
+            this.Text = "Registrar Formulario de Cheque a  Pagar";
             this.Load += new System.EventHandler(this.FrmRegistrarChequePagar_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -304,5 +327,7 @@
         private System.Windows.Forms.DateTimePicker dpFechaVencimiento;
         private System.Windows.Forms.DateTimePicker dpFecha;
         private System.Windows.Forms.TextBox txtCodCliente;
+        private System.Windows.Forms.ComboBox CmbTipoDoc;
+        private System.Windows.Forms.Label label10;
     }
 }

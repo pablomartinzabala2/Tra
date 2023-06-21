@@ -19,28 +19,17 @@ namespace Concesionaria
         private void FrmListadoChequesaPagar_Load(object sender, EventArgs e)
         {
             DateTime fechahoy = DateTime.Now;
-            txtFechaHasta.Text = fechahoy.ToShortDateString();
+            dpFechaHasta.Value = fechahoy;
             fechahoy = fechahoy.AddMonths(-1);
-            txtFechaDesde.Text = fechahoy.ToShortDateString();
+            dpFechaDesde.Value = fechahoy;
 
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (fun.ValidarFecha(txtFechaDesde.Text) == false)
-            {
-                MessageBox.Show("Fecha desde incorrecta", Clases.cMensaje.Mensaje());
-                return;
-            }
-
-            if (fun.ValidarFecha(txtFechaHasta.Text) == false)
-            {
-                MessageBox.Show("Fecha hasta incorrecta", Clases.cMensaje.Mensaje());
-                return;
-            }
-
-            if (Convert.ToDateTime(txtFechaDesde.Text) > Convert.ToDateTime(txtFechaHasta.Text))
+          
+            if (dpFechaDesde.Value > dpFechaHasta.Value)
             {
                 MessageBox.Show("La fecha desde debe ser inferior a la fecha hasta", Clases.cMensaje.Mensaje());
                 return;
@@ -50,8 +39,8 @@ namespace Concesionaria
             if (chkImpagos.Checked == true)
                 Impago = 1;
 
-            DateTime FechaDesde = Convert.ToDateTime(txtFechaDesde.Text);
-            DateTime FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
+            DateTime FechaDesde = dpFechaDesde.Value;
+            DateTime FechaHasta = dpFechaHasta.Value;
             int Impagos = 0;
             if (chkImpagos.Checked == true)
                 Impagos = 1;
@@ -71,7 +60,7 @@ namespace Concesionaria
             Grilla.Columns[3].Width = 100;
             Grilla.Columns[6].Width = 110;
             Grilla.Columns[7].Width = 180;
-            Grilla.Columns[7].HeaderText = "Descripción";
+          //  Grilla.Columns[7].HeaderText = "Descripción";
             Grilla.Columns[0].Visible = false;
         }
 
@@ -87,6 +76,12 @@ namespace Concesionaria
             FrmRegistrarPagoCheque frm = new FrmRegistrarPagoCheque();
             frm.ShowDialog();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarChequePagar frm = new FrmRegistrarChequePagar();
+            frm.Show();
         }
     }
 }

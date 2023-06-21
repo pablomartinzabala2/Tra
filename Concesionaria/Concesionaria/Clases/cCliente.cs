@@ -18,6 +18,13 @@ namespace Concesionaria.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
+        public DataTable GetClientesxNroDocSolo(string NroDocumento)
+        {
+            string sql = "select * from cliente";
+            sql = sql + " where NroDocumento =" + "'" + NroDocumento + "'";
+            return cDb.ExecuteDataTable(sql);
+        }
+
         public void InsertarCliente(Int32? CodTipoDoc,string NroDocumento,
             string Nombre,string Apellido,string Telefono,string Celular,
             string Calle, string Altura, Int32? CodBarrio

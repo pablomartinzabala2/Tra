@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnResponsabilidadCivil = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
@@ -52,7 +53,6 @@
             this.txtPrenda = new System.Windows.Forms.TextBox();
             this.txtVehículo = new System.Windows.Forms.TextBox();
             this.txtDocumentos = new System.Windows.Forms.TextBox();
-            this.btnResponsabilidadCivil = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
@@ -91,6 +91,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de ventas";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // btnResponsabilidadCivil
+            // 
+            this.btnResponsabilidadCivil.Image = global::Concesionaria.Properties.Resources.MOVIMIENTOS;
+            this.btnResponsabilidadCivil.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnResponsabilidadCivil.Location = new System.Drawing.Point(1135, 34);
+            this.btnResponsabilidadCivil.Name = "btnResponsabilidadCivil";
+            this.btnResponsabilidadCivil.Size = new System.Drawing.Size(43, 27);
+            this.btnResponsabilidadCivil.TabIndex = 74;
+            this.btnResponsabilidadCivil.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnResponsabilidadCivil.UseVisualStyleBackColor = true;
+            this.btnResponsabilidadCivil.Click += new System.EventHandler(this.btnResponsabilidadCivil_Click);
             // 
             // txtNombre
             // 
@@ -303,18 +315,6 @@
             this.txtDocumentos.ReadOnly = true;
             this.txtDocumentos.Size = new System.Drawing.Size(136, 22);
             this.txtDocumentos.TabIndex = 1;
-            // 
-            // btnResponsabilidadCivil
-            // 
-            this.btnResponsabilidadCivil.Image = global::Concesionaria.Properties.Resources.MOVIMIENTOS;
-            this.btnResponsabilidadCivil.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnResponsabilidadCivil.Location = new System.Drawing.Point(1135, 34);
-            this.btnResponsabilidadCivil.Name = "btnResponsabilidadCivil";
-            this.btnResponsabilidadCivil.Size = new System.Drawing.Size(43, 27);
-            this.btnResponsabilidadCivil.TabIndex = 74;
-            this.btnResponsabilidadCivil.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnResponsabilidadCivil.UseVisualStyleBackColor = true;
-            this.btnResponsabilidadCivil.Click += new System.EventHandler(this.btnResponsabilidadCivil_Click);
             // 
             // FrmListadoVentas
             // 
