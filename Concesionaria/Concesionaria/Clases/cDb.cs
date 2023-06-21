@@ -13,7 +13,7 @@ namespace Concesionaria.Clases
     {
         public static void ExecutarNonQuery(string sql)
         {
-            SqlHelper.ExecuteNonQuery(cConexion.Cadenacon(), CommandType.Text, sql);
+                    SqlHelper.ExecuteNonQuery(cConexion.Cadenacon(), CommandType.Text, sql);
         }
 
         public static DataTable ExecuteDataTable(string sql)

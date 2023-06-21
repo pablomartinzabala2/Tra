@@ -15,10 +15,10 @@ namespace Concesionaria
         {    
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-               Application.Run(new FrmLogin());
+              // Application.Run(new FrmLogin());
 
-            //  Principal.CodRecibo = 9;
-             // Application.Run(new FrmListadoRecibo());
+            
+             Application.Run(new FrmRegistrarChequePagar());
             //  Application.Run(new FrmListadoAbm());
             // A//pplication.Run(new FrmAbmEntidad());
             //   Application.Run(new FrmBorrarTablas ());

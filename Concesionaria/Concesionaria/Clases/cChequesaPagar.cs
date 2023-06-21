@@ -88,5 +88,22 @@ namespace Concesionaria.Clases
             sql = sql + " and c.CodCompra=" + CodCompra.ToString();
             return cDb.ExecuteDataTable(sql);
         }
+
+        public void InsertarCheque(string NroCheque,
+            Double Importe,Int32? CodBanco,DateTime Fecha,DateTime FechaVencimiento)
+        {
+            string sql = "insert into ChequesPagar(";
+            sql = sql + "NroCheque,Importe,CodBanco,Fecha,FechaVencimiento)";
+            sql = sql + " Values(" + "'" + NroCheque + "'";
+            sql = sql + "," + Importe.ToString().Replace(",",".");
+            if (CodBanco != null)
+                sql = sql + "," + CodBanco.ToString();
+            else
+                sql = sql + ",null"; 
+            sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
+            sql = sql + "," +"'" + FechaVencimiento.ToShortDateString() + "'";
+            sql = sql + ")";
+            cDb.ExecutarNonQuery(sql);
+        }
     }
 }

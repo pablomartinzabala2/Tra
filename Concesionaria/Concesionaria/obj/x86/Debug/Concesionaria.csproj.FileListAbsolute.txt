@@ -1009,3 +1009,4 @@ D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionari
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReporteResumenProveedor.resources
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmBoletoTraut.resources
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReporteResponsabilidadCivil.resources
+D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmRegistrarChequePagar.resources

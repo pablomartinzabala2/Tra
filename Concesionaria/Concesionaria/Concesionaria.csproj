@@ -638,6 +638,12 @@
     <Compile Include="FrmPagoCuentaProveedor.Designer.cs">
       <DependentUpon>FrmPagoCuentaProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRegistrarChequePagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrarChequePagar.Designer.cs">
+      <DependentUpon>FrmRegistrarChequePagar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReporteCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1149,6 +1155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPagoCuentaProveedor.resx">
       <DependentUpon>FrmPagoCuentaProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrarChequePagar.resx">
+      <DependentUpon>FrmRegistrarChequePagar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteCliente.resx">
       <DependentUpon>FrmReporteCliente.cs</DependentUpon>
