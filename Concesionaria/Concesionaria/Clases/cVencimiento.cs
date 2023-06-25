@@ -60,7 +60,7 @@ namespace Concesionaria.Clases
         public DataTable GetVencimiento()
         {
             CargarVencimientos();
-            string sql = "select * from Vencimiento ";
+            string sql = "select CodVencimiento,Tabla,Fecha,FechaVencimiento,Cliente,Importe from Vencimiento ";
             DataTable trdo = cDb.ExecuteDataTable(sql);
             return trdo;
         }

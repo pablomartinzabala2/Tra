@@ -154,8 +154,8 @@ namespace Concesionaria
         }
 
         private void Principal_Load(object sender, EventArgs e)
-
         {
+            VerificarVencimientos();
             //CodUsuarioLogueado = "1";
             /*
             Clases.cAlarma alarma = new Clases.cAlarma();
@@ -177,6 +177,20 @@ namespace Concesionaria
             //busca los cumpleaños y vencimiento prendas
             GetInfo(Ant, Fut);
            */
+        }
+
+        private void VerificarVencimientos()
+        {
+            cVencimiento venc = new cVencimiento();
+            DataTable trdo = venc.GetVencimiento();
+            if (trdo.Rows.Count>0)
+            {
+                if (trdo.Rows[0]["CodVencimiento"].ToString()!="")
+                {
+                    FrmVencimiento fr = new FrmVencimiento();
+                    fr.ShowDialog();
+                }
+            }
         }
 
         public void VerificarPablo()

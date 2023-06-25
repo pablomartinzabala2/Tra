@@ -19,9 +19,12 @@ namespace Concesionaria
 
         private void FrmVencimiento_Load(object sender, EventArgs e)
         {
+            cFunciones fun = new cFunciones();
             cVencimiento venc = new cVencimiento();
             DataTable trdo = venc.GetVencimiento();
+            trdo = fun.TablaaMiles(trdo, "Importe");
             Grilla.DataSource = trdo;
+            fun.AnchoColumnas(Grilla, "0;20;15;15;30;20");
         }
     }
 }
