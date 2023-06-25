@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Concesionaria.Clases;
 
 namespace Concesionaria
 {
@@ -27,8 +28,13 @@ namespace Concesionaria
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            Buscar();
+        }
+
+        private void Buscar()
+        {
             Clases.cFunciones fun = new Clases.cFunciones();
-          
+
             if (dpFechaDesde.Value > dpFechaHasta.Value)
             {
                 MessageBox.Show("La fecha desde debe ser inferior a la fecha hasta", Clases.cMensaje.Mensaje());
@@ -45,23 +51,16 @@ namespace Concesionaria
             if (chkImpagos.Checked == true)
                 Impagos = 1;
             Clases.cChequesaPagar cheque = new Clases.cChequesaPagar();
-            DataTable trdo = cheque.GetChequesPagar(FechaDesde, FechaHasta, Impago,txtPatente.Text);
+            DataTable trdo = cheque.GetChequesPagar(FechaDesde, FechaHasta, Impago, txtPatente.Text);
             txtTotal.Text = fun.TotalizarColumna(trdo, "Importe").ToString();
             txtTotal.Text = fun.FormatoEnteroMiles(txtTotal.Text);
             trdo = fun.TablaaMiles(trdo, "Importe");
             trdo = fun.TablaaMiles(trdo, "Saldo");
             Grilla.DataSource = trdo;
-            Grilla.Columns[1].HeaderText = "Nro de cheque";
-            Grilla.Columns[6].HeaderText = "Fecha Pago";
-            Grilla.Columns[9].HeaderText = "Fecha Vto";
-            Grilla.Columns[5].Width = 130;
-            Grilla.Columns[1].Width = 140;
-            Grilla.Columns[2].Width = 150;
-            Grilla.Columns[3].Width = 100;
-            Grilla.Columns[6].Width = 110;
-            Grilla.Columns[7].Width = 180;
-          //  Grilla.Columns[7].HeaderText = "Descripción";
-            Grilla.Columns[0].Visible = false;
+            string Col = "0;10;15;15;10;10;10;10;10;0;0;10";
+            fun.AnchoColumnas(Grilla, Col);
+            Grilla.Columns[8].HeaderText = "Fecha Pago";
+            Grilla.Columns[11].HeaderText = "Fecha Vto";
         }
 
         private void btnCobroCheque_Click(object sender, EventArgs e)
@@ -82,6 +81,40 @@ namespace Concesionaria
         {
             FrmRegistrarChequePagar frm = new FrmRegistrarChequePagar();
             frm.Show();
+        }
+
+        private void btnBorrarCheque_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow==null)
+            {
+                MessageBox.Show("Debe seleccionar un elemento ");
+                return;
+            }
+
+            Int32 CodCheque = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);    
+            string FechaPago = Grilla.CurrentRow.Cells[8].Value.ToString(); 
+            if (FechaPago =="")
+            {
+                var result = MessageBox.Show("Confirma eliminar el cheque", "Información",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question);
+
+                // If the no button was pressed ...
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+
+                cChequesaPagar cheque = new cChequesaPagar();
+                cheque.BorrarCheque(CodCheque);
+                Buscar();
+                MessageBox.Show("Datos Borrados Correctamente ");
+
+            }
+            else
+            {
+                MessageBox.Show("El cheque se debe anular para poder borrarlo ");
+            }
         }
     }
 }

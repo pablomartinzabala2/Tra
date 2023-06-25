@@ -54,8 +54,8 @@ namespace Concesionaria.Clases
         public DataTable GetCostoxCodigoStock(Int32 CodStock)
         {
             string sql = "select CodCosto,Patente,Descripcion,Fecha,Importe from Costo";
-            sql = sql + " where FechaBaja is null ";
-            sql = sql + " and CodStock =" + CodStock.ToString() ;
+          //  sql = sql + " where FechaBaja is null ";
+            sql = sql + " where CodStock =" + CodStock.ToString() ;
             return cDb.ExecuteDataTable(sql);
         }
 

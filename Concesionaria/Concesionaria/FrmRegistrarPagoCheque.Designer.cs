@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Grilla = new System.Windows.Forms.DataGridView();
+            this.txtImporteAPagar = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtSaldo = new System.Windows.Forms.TextBox();
             this.txtFechaVto = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
-            this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtImporte = new System.Windows.Forms.TextBox();
@@ -43,17 +47,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNroCheque = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSaldo = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtImporteAPagar = new System.Windows.Forms.TextBox();
-            this.Grilla = new System.Windows.Forms.DataGridView();
+            this.dpFecha = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dpFecha);
             this.groupBox1.Controls.Add(this.Grilla);
             this.groupBox1.Controls.Add(this.txtImporteAPagar);
             this.groupBox1.Controls.Add(this.label8);
@@ -63,7 +64,6 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.btnAnular);
             this.groupBox1.Controls.Add(this.btnGrabar);
-            this.groupBox1.Controls.Add(this.txtFecha);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtImporte);
@@ -81,10 +81,53 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pago de cheques";
             // 
+            // Grilla
+            // 
+            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla.Location = new System.Drawing.Point(23, 276);
+            this.Grilla.Name = "Grilla";
+            this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Grilla.Size = new System.Drawing.Size(441, 142);
+            this.Grilla.TabIndex = 52;
+            // 
+            // txtImporteAPagar
+            // 
+            this.txtImporteAPagar.Location = new System.Drawing.Point(153, 234);
+            this.txtImporteAPagar.Name = "txtImporteAPagar";
+            this.txtImporteAPagar.Size = new System.Drawing.Size(214, 23);
+            this.txtImporteAPagar.TabIndex = 51;
+            this.txtImporteAPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImporteAPagar_KeyPress);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(18, 237);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(112, 17);
+            this.label8.TabIndex = 50;
+            this.label8.Text = "Importe  a pagar";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(20, 148);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 17);
+            this.label7.TabIndex = 49;
+            this.label7.Text = "Saldo";
+            // 
+            // txtSaldo
+            // 
+            this.txtSaldo.Location = new System.Drawing.Point(153, 148);
+            this.txtSaldo.Name = "txtSaldo";
+            this.txtSaldo.ReadOnly = true;
+            this.txtSaldo.Size = new System.Drawing.Size(214, 23);
+            this.txtSaldo.TabIndex = 48;
+            // 
             // txtFechaVto
             // 
             this.txtFechaVto.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFechaVto.Location = new System.Drawing.Point(144, 177);
+            this.txtFechaVto.Location = new System.Drawing.Point(153, 177);
             this.txtFechaVto.Mask = "00/00/0000";
             this.txtFechaVto.Name = "txtFechaVto";
             this.txtFechaVto.ReadOnly = true;
@@ -103,7 +146,7 @@
             // 
             // btnAnular
             // 
-            this.btnAnular.Location = new System.Drawing.Point(225, 424);
+            this.btnAnular.Location = new System.Drawing.Point(246, 424);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(75, 39);
             this.btnAnular.TabIndex = 45;
@@ -113,7 +156,7 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(144, 424);
+            this.btnGrabar.Location = new System.Drawing.Point(165, 424);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 39);
             this.btnGrabar.TabIndex = 1;
@@ -121,20 +164,10 @@
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
-            // txtFecha
-            // 
-            this.txtFecha.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFecha.Location = new System.Drawing.Point(144, 206);
-            this.txtFecha.Mask = "00/00/0000";
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(100, 23);
-            this.txtFecha.TabIndex = 43;
-            this.txtFecha.ValidatingType = typeof(System.DateTime);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 209);
+            this.label5.Location = new System.Drawing.Point(20, 209);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 17);
             this.label5.TabIndex = 8;
@@ -205,48 +238,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Número de cheque";
             // 
-            // txtSaldo
+            // dpFecha
             // 
-            this.txtSaldo.Location = new System.Drawing.Point(153, 148);
-            this.txtSaldo.Name = "txtSaldo";
-            this.txtSaldo.ReadOnly = true;
-            this.txtSaldo.Size = new System.Drawing.Size(214, 23);
-            this.txtSaldo.TabIndex = 48;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(20, 148);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 17);
-            this.label7.TabIndex = 49;
-            this.label7.Text = "Saldo";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(28, 240);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(112, 17);
-            this.label8.TabIndex = 50;
-            this.label8.Text = "Importe  a pagar";
-            // 
-            // txtImporteAPagar
-            // 
-            this.txtImporteAPagar.Location = new System.Drawing.Point(146, 240);
-            this.txtImporteAPagar.Name = "txtImporteAPagar";
-            this.txtImporteAPagar.Size = new System.Drawing.Size(214, 23);
-            this.txtImporteAPagar.TabIndex = 51;
-            this.txtImporteAPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImporteAPagar_KeyPress);
-            // 
-            // Grilla
-            // 
-            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(23, 276);
-            this.Grilla.Name = "Grilla";
-            this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(441, 142);
-            this.Grilla.TabIndex = 52;
+            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFecha.Location = new System.Drawing.Point(153, 204);
+            this.dpFecha.Name = "dpFecha";
+            this.dpFecha.Size = new System.Drawing.Size(87, 23);
+            this.dpFecha.TabIndex = 71;
             // 
             // FrmRegistrarPagoCheque
             // 
@@ -280,7 +278,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNroCheque;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox txtFecha;
         private System.Windows.Forms.Button btnAnular;
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.MaskedTextBox txtFechaVto;
@@ -290,5 +287,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtImporteAPagar;
         private System.Windows.Forms.DataGridView Grilla;
+        private System.Windows.Forms.DateTimePicker dpFecha;
     }
 }

@@ -137,6 +137,7 @@
     <Compile Include="Clases\cTarjeta.cs" />
     <Compile Include="Clases\cTransferencia.cs" />
     <Compile Include="Clases\cUsuario.cs" />
+    <Compile Include="Clases\cVencimiento.cs" />
     <Compile Include="Clases\cVendedor.cs" />
     <Compile Include="Clases\cVenta.cs" />
     <Compile Include="Clases\cVentaxAuto.cs" />
@@ -884,6 +885,12 @@
     <Compile Include="FrmTest.Designer.cs">
       <DependentUpon>FrmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVencimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVencimiento.Designer.cs">
+      <DependentUpon>FrmVencimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1278,6 +1285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTest.resx">
       <DependentUpon>FrmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVencimiento.resx">
+      <DependentUpon>FrmVencimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVenta.resx">
       <DependentUpon>FrmVenta.cs</DependentUpon>

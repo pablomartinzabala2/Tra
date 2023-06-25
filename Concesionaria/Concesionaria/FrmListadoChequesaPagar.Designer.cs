@@ -29,25 +29,27 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
+            this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
+            this.btnCobroCheque = new System.Windows.Forms.Button();
             this.chkImpagos = new System.Windows.Forms.CheckBox();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnCobroCheque = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
-            this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
+            this.btnBorrarCheque = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnBorrarCheque);
             this.groupBox1.Controls.Add(this.dpFechaHasta);
             this.groupBox1.Controls.Add(this.dpFechaDesde);
             this.groupBox1.Controls.Add(this.button1);
@@ -68,6 +70,32 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Cheques";
+            // 
+            // dpFechaHasta
+            // 
+            this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaHasta.Location = new System.Drawing.Point(310, 34);
+            this.dpFechaHasta.Name = "dpFechaHasta";
+            this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaHasta.TabIndex = 74;
+            // 
+            // dpFechaDesde
+            // 
+            this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaDesde.Location = new System.Drawing.Point(112, 32);
+            this.dpFechaDesde.Name = "dpFechaDesde";
+            this.dpFechaDesde.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaDesde.TabIndex = 73;
+            // 
+            // button1
+            // 
+            this.button1.Image = global::Concesionaria.Properties.Resources.add;
+            this.button1.Location = new System.Drawing.Point(856, 30);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(39, 28);
+            this.button1.TabIndex = 52;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtPatente
             // 
@@ -102,6 +130,16 @@
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(100, 23);
             this.txtTotal.TabIndex = 48;
+            // 
+            // btnCobroCheque
+            // 
+            this.btnCobroCheque.Image = global::Concesionaria.Properties.Resources.money_euro;
+            this.btnCobroCheque.Location = new System.Drawing.Point(811, 30);
+            this.btnCobroCheque.Name = "btnCobroCheque";
+            this.btnCobroCheque.Size = new System.Drawing.Size(39, 28);
+            this.btnCobroCheque.TabIndex = 47;
+            this.btnCobroCheque.UseVisualStyleBackColor = true;
+            this.btnCobroCheque.Click += new System.EventHandler(this.btnCobroCheque_Click);
             // 
             // chkImpagos
             // 
@@ -151,41 +189,15 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Fecha Hasta";
             // 
-            // btnCobroCheque
+            // btnBorrarCheque
             // 
-            this.btnCobroCheque.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroCheque.Location = new System.Drawing.Point(811, 30);
-            this.btnCobroCheque.Name = "btnCobroCheque";
-            this.btnCobroCheque.Size = new System.Drawing.Size(39, 28);
-            this.btnCobroCheque.TabIndex = 47;
-            this.btnCobroCheque.UseVisualStyleBackColor = true;
-            this.btnCobroCheque.Click += new System.EventHandler(this.btnCobroCheque_Click);
-            // 
-            // button1
-            // 
-            this.button1.Image = global::Concesionaria.Properties.Resources.add;
-            this.button1.Location = new System.Drawing.Point(856, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(39, 28);
-            this.button1.TabIndex = 52;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // dpFechaDesde
-            // 
-            this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaDesde.Location = new System.Drawing.Point(112, 32);
-            this.dpFechaDesde.Name = "dpFechaDesde";
-            this.dpFechaDesde.Size = new System.Drawing.Size(87, 23);
-            this.dpFechaDesde.TabIndex = 73;
-            // 
-            // dpFechaHasta
-            // 
-            this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaHasta.Location = new System.Drawing.Point(310, 34);
-            this.dpFechaHasta.Name = "dpFechaHasta";
-            this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
-            this.dpFechaHasta.TabIndex = 74;
+            this.btnBorrarCheque.Image = global::Concesionaria.Properties.Resources.cancel;
+            this.btnBorrarCheque.Location = new System.Drawing.Point(901, 28);
+            this.btnBorrarCheque.Name = "btnBorrarCheque";
+            this.btnBorrarCheque.Size = new System.Drawing.Size(39, 28);
+            this.btnBorrarCheque.TabIndex = 75;
+            this.btnBorrarCheque.UseVisualStyleBackColor = true;
+            this.btnBorrarCheque.Click += new System.EventHandler(this.btnBorrarCheque_Click);
             // 
             // FrmListadoChequesaPagar
             // 
@@ -221,5 +233,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dpFechaHasta;
         private System.Windows.Forms.DateTimePicker dpFechaDesde;
+        private System.Windows.Forms.Button btnBorrarCheque;
     }
 }

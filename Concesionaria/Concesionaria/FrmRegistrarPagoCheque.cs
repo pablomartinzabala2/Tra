@@ -40,7 +40,7 @@ namespace Concesionaria
                 if (trdo.Rows[0]["FechaPago"].ToString() != "")
                 {
                     DateTime Fecha = Convert.ToDateTime(trdo.Rows[0]["FechaPago"].ToString());
-                    txtFecha.Text = Fecha.ToShortDateString();
+                    dpFecha.Value = Fecha;
                     
                 }
 
@@ -81,11 +81,7 @@ namespace Concesionaria
         private void btnGrabar_Click(object sender, EventArgs e)
         {
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (fun.ValidarFecha(txtFecha.Text) == false)
-            {
-                MessageBox.Show("La fecha ingresada es incorrecta", Clases.cMensaje.Mensaje());
-                return;
-            }
+           
 
             if (txtImporteAPagar.Text == "")
             {
@@ -103,7 +99,7 @@ namespace Concesionaria
             Clases.cPagoCheque pagoCheque = new Clases.cPagoCheque(); 
             Clases.cChequesaPagar cheque = new Clases.cChequesaPagar();
             Clases.cMovimiento mov = new Clases.cMovimiento();
-            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+            DateTime Fecha = dpFecha.Value;
             //cheque.PagarCheque(Convert.ToInt32(Principal.CodigoPrincipalAbm), Fecha);
             pagoCheque.InsertarPagoCheque(CodCheque, Importe, Fecha);
             string Descripcion = "PAGO DE CHEQUE " + txtCliente.Text.ToUpper ();
@@ -134,16 +130,12 @@ namespace Concesionaria
                 return;
             }
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (fun.ValidarFecha(txtFecha.Text) == false)
-            {
-                MessageBox.Show("La fecha ingresada es incorrecta", Clases.cMensaje.Mensaje());
-                return;
-            }
+           
             Clases.cPagoCheque objPago = new Clases.cPagoCheque();
             double Importe = fun.ToDouble(Grilla.CurrentRow.Cells[2].Value.ToString()); 
             Clases.cChequesaPagar cheque = new Clases.cChequesaPagar();
             Clases.cMovimiento mov = new Clases.cMovimiento();
-            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+            DateTime Fecha = dpFecha.Value;
             //cheque.AnularPagarCheque (Convert.ToInt32(Principal.CodigoPrincipalAbm));
             objPago.AnularPagoCheque(CodPago, CodCheque, Importe);
             string Descripcion = "ANULACION PAGO DE CHEQUE " + txtCliente.Text.ToUpper();

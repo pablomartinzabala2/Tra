@@ -24,7 +24,9 @@ namespace Concesionaria.Clases
         public DataTable GetChequesPagar(DateTime FechaDesde, DateTime FechaHasta, int Impago,string Patente)
         {
             string sql = "select c.CodCheque, c.NroCheque,";
-            sql = sql + "(select cli.Apellido from Cliente cli where cli.CodCliente =c.CodCliente) as Apellido";
+            sql = sql + "(select cli.Nombre from Cliente cli where cli.CodCliente =c.CodCliente) as Nombre ";
+            sql = sql + ",(select cli.Apellido from Cliente cli where cli.CodCliente =c.CodCliente) as Apellido";
+            sql = sql + ",(select bb.Nombre from Banco bb where bb.CodBanco =c.CodBanco) as Banco ";
             sql = sql + ",c.Fecha,c.Importe,c.Saldo, c.FechaPago,";
             sql = sql + "(select a.Patente from auto a where a.CodAuto = c.CodAuto) as Patente";
             sql = sql + ",(select a.Descripcion from auto a where a.CodAuto = c.CodAuto) as Descripcion";
@@ -94,7 +96,7 @@ namespace Concesionaria.Clases
             Double Importe,Int32? CodBanco,DateTime Fecha,DateTime FechaVencimiento, Int32? CodCLiente)
         {
             string sql = "insert into ChequesPagar(";
-            sql = sql + "NroCheque,Importe,CodBanco,Fecha,FechaVencimiento,CodCliente)";
+            sql = sql + "NroCheque,Importe,CodBanco,Fecha,FechaVencimiento,CodCliente,Saldo)";
             sql = sql + " Values(" + "'" + NroCheque + "'";
             sql = sql + "," + Importe.ToString().Replace(",",".");
             if (CodBanco != null)
@@ -105,7 +107,15 @@ namespace Concesionaria.Clases
             sql = sql + "," +"'" + FechaVencimiento.ToShortDateString() + "'";
             if (CodCLiente != null)
                 sql = sql + "," + CodCLiente.ToString();
+            sql = sql + "," + Importe.ToString().Replace(",", ".");
             sql = sql + ")";
+            cDb.ExecutarNonQuery(sql);
+        }
+
+        public void BorrarCheque(Int32 CodCheque)
+        {
+            string sql = "delete from ChequesPagar ";
+            sql = sql + " where CodCheque=" + CodCheque.ToString();
             cDb.ExecutarNonQuery(sql);
         }
     }
