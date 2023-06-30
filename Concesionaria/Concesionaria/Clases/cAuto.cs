@@ -513,22 +513,25 @@ namespace Concesionaria.Clases
             return  cDb.EjecutarEscalar (sql);
         }
 
-        public DataTable GetAutoResumido(string Patente, Int32? CodMarca)
+        public DataTable GetAutoResumido(string Patente, Int32? CodMarca,string Descripcion)
         {
             string sql = "";
             sql = "select a.CodAuto,a.Patente";
             sql = sql + ",m.Nombre";
             sql = sql + ",a.Descripcion as Descripción";
             sql = sql + ",(select aa.Nombre from anio aa where aa.CodAnio = a.CodAnio) as Modelo ";
-            sql = sql + " from auto a,marca m ";
-           
-            
-            sql = sql + " where a.CodMarca = m.CodMarca";
+            sql = sql + ",sa.CodStOCk ";
+            sql = sql + " from auto a,marca m,stockauto sa ";
+             
+            sql = sql + " where a.CodMarca = m.CodMarca ";
+            sql = sql + " and sa.CodAuto=a.CodAuto";
            
             if (Patente != "")
                 sql = sql + " and a.Patente like" + "'%" + Patente + "%'";
             if (CodMarca != null)
                 sql = sql + " and a.CodMarca =" + CodMarca.ToString();
+            if (Descripcion != "")
+                sql = sql + " and a.Descripcion like " + "'%" + Descripcion + "%'";
             sql = sql + " order by m.Nombre,a.Anio desc";
             return cDb.ExecuteDataTable(sql);
         }

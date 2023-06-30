@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPatente = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.chkStock = new System.Windows.Forms.CheckBox();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -37,14 +41,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.tableAdapterManager1 = new Concesionaria.COPIACONCESIONARIADataSetTableAdapters.TableAdapterManager();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtPatente = new System.Windows.Forms.TextBox();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.txtDescripcion);
+            this.Grupo.Controls.Add(this.label3);
             this.Grupo.Controls.Add(this.txtPatente);
             this.Grupo.Controls.Add(this.label2);
             this.Grupo.Controls.Add(this.flowLayoutPanel1);
@@ -60,6 +64,39 @@
             this.Grupo.Size = new System.Drawing.Size(641, 384);
             this.Grupo.TabIndex = 2;
             this.Grupo.TabStop = false;
+            this.Grupo.Enter += new System.EventHandler(this.Grupo_Enter);
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(100, 39);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(214, 23);
+            this.txtDescripcion.TabIndex = 81;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 17);
+            this.label3.TabIndex = 80;
+            this.label3.Text = "Descripción";
+            // 
+            // txtPatente
+            // 
+            this.txtPatente.Location = new System.Drawing.Point(383, 12);
+            this.txtPatente.Name = "txtPatente";
+            this.txtPatente.Size = new System.Drawing.Size(101, 23);
+            this.txtPatente.TabIndex = 79;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(320, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 17);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "Patente";
             // 
             // flowLayoutPanel1
             // 
@@ -104,9 +141,9 @@
             // 
             this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMarca.FormattingEnabled = true;
-            this.cmbMarca.Location = new System.Drawing.Point(68, 12);
+            this.cmbMarca.Location = new System.Drawing.Point(100, 12);
             this.cmbMarca.Name = "cmbMarca";
-            this.cmbMarca.Size = new System.Drawing.Size(246, 24);
+            this.cmbMarca.Size = new System.Drawing.Size(214, 24);
             this.cmbMarca.TabIndex = 41;
             // 
             // label1
@@ -121,12 +158,12 @@
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(15, 42);
+            this.Grilla.Location = new System.Drawing.Point(15, 86);
             this.Grilla.Name = "Grilla";
             this.Grilla.ReadOnly = true;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Grilla.ShowEditingIcon = false;
-            this.Grilla.Size = new System.Drawing.Size(603, 259);
+            this.Grilla.Size = new System.Drawing.Size(603, 228);
             this.Grilla.TabIndex = 26;
             // 
             // tableAdapterManager1
@@ -135,22 +172,6 @@
             this.tableAdapterManager1.Connection = null;
             this.tableAdapterManager1.ReporteAutoTableAdapter = null;
             this.tableAdapterManager1.UpdateOrder = Concesionaria.COPIACONCESIONARIADataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(320, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 17);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "Patente";
-            // 
-            // txtPatente
-            // 
-            this.txtPatente.Location = new System.Drawing.Point(383, 12);
-            this.txtPatente.Name = "txtPatente";
-            this.txtPatente.Size = new System.Drawing.Size(101, 23);
-            this.txtPatente.TabIndex = 79;
             // 
             // FrmBuscarAuto
             // 
@@ -185,5 +206,7 @@
         private COPIACONCESIONARIADataSetTableAdapters.TableAdapterManager tableAdapterManager1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPatente;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Label label3;
     }
 }

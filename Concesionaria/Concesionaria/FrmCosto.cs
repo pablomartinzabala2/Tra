@@ -437,11 +437,12 @@ namespace Concesionaria
         private void formBuscadorAuto_FormClosing(object sender, FormClosingEventArgs e)
         {
             Int32 CodAuto = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            Int32 CodStock = Convert.ToInt32(Principal.CodStock);
             cAuto auto = new Clases.cAuto();
-            BuscarAutoxCodigo(CodAuto);
+            BuscarAutoxCodigo(CodAuto, CodStock);
         }
 
-        private void BuscarAutoxCodigo(Int32 COdAuto)
+        private void BuscarAutoxCodigo(Int32 COdAuto,Int32 CodStock)
         {
 
             Clases.cAuto auto = new Clases.cAuto();
@@ -505,27 +506,16 @@ namespace Concesionaria
                     radioPropio.Checked = false;
                     radioConcesion.Checked = true;
                 }
-
+                txtCodStock.Text = CodStock.ToString();
+                
                 Clases.cStockAuto stock = new Clases.cStockAuto();
                 DataTable trdo2 = stock.GetStockAutosVigentes(Convert.ToInt32(txtCodAuto.Text));
-                if (trdo2.Rows.Count > 0)
-                {
-                    txtCodStock.Text = trdo2.Rows[0]["CodStock"].ToString();
-                    // GetExTitular(Convert.ToInt32(trdo2.Rows[0]["CodCliente"].ToString()));
-                    //  GetCostos(Convert.ToInt32(txtCodStock.Text));
-                    //  CargarGastosGeneralesxCodStoxk(Convert.ToInt32(txtCodStock.Text));
-                    if (trdo2.Rows[0]["CodCliente"].ToString() != "")
-                    {
-                        // txtCodCLiente.Text = trdo2.Rows[0]["CodCliente"].ToString();
-                        // GetClientesxCodigo(Convert.ToInt32(txtCodCLiente.Text));
-                    }
-
-                }
-
+               
                 if (txtCodStock.Text != "")
                 {
-                    //GetCostos(Convert.ToInt32(txtCodStock.Text));
-                    //CargarGastosGeneralesxCodStoxk(Convert.ToInt32(txtCodStock.Text));
+                    CargarCostoxstock(Convert.ToInt32(txtCodStock.Text));
+                   // GetCostos(Convert.ToInt32(txtCodStock.Text));
+                  //  CargarGastosGeneralesxCodStoxk(Convert.ToInt32(txtCodStock.Text));
                 }
 
             }

@@ -27,6 +27,7 @@ namespace Concesionaria
         {
             string Patente = "";
             Int32? CodMarca = null;
+            string Descripcion = "";
             if (cmbMarca.SelectedIndex > 0)
             {
                 CodMarca = Convert.ToInt32(cmbMarca.SelectedValue);
@@ -37,15 +38,20 @@ namespace Concesionaria
                 Patente = txtPatente.Text; 
             }
 
+            if (txtDescripcion.Text !="")
+            {
+                Descripcion = txtDescripcion.Text;
+            }
+
             DataTable trdo;
             cAuto auto = new cAuto();
             cStockAuto stock = new cStockAuto();
             if (chkStock.Checked == true)
-                trdo = stock.GetStockResumidoVigente(Patente, CodMarca);
+                trdo = stock.GetStockResumidoVigente(Patente, CodMarca, Descripcion);
             else
-                trdo = auto.GetAutoResumido(Patente, CodMarca);
+                trdo = auto.GetAutoResumido(Patente, CodMarca, Descripcion);
             Grilla.DataSource = trdo;
-            fun.AnchoColumnas(Grilla, "0;20;40;30;10");
+            fun.AnchoColumnas(Grilla, "0;20;40;20;10;10");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -61,7 +67,13 @@ namespace Concesionaria
                 return;
             }
             Principal.CodigoPrincipalAbm = Grilla.CurrentRow.Cells[0].Value.ToString();
+            Principal.CodStock = Convert.ToInt32(Grilla.CurrentRow.Cells[5].Value.ToString());
             this.Close();
+        }
+
+        private void Grupo_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

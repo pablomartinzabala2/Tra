@@ -240,13 +240,14 @@ namespace Concesionaria.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
-        public DataTable GetStockResumidoVigente(string Patente, Int32? CodMarca)
+        public DataTable GetStockResumidoVigente(string Patente, Int32? CodMarca, string Descripcion)
         {
             string sql = "";
             sql = "select a.CodAuto,a.Patente";
             sql = sql + ",m.Nombre";
             sql = sql + ",Descripcion as Descripción ";
             sql = sql + ",(select aa.Nombre from anio aa where aa.CodAnio = a.CodAnio) as Modelo ";
+            sql = sql + ",sa.CodStock";
             // sql = sql + ",sa.FechaAlta as Fecha";
             // sql = sql + ", (cli.Apellido + ' ' + Cli.Nombre) as Cliente";
             // sql = sql + ", ('') as Cliente";
@@ -272,6 +273,8 @@ namespace Concesionaria.Clases
                 sql = sql + " and a.Patente like" + "'%" + Patente + "%'";
             if (CodMarca != null)
                 sql = sql + " and a.CodMarca =" + CodMarca.ToString();
+            if (Descripcion != null)
+                sql = sql + " and a.Descripcion like " + "'%" + Descripcion + "%'";
             sql = sql + " order by m.Nombre,a.Anio desc";
             return cDb.ExecuteDataTable(sql);
         }
