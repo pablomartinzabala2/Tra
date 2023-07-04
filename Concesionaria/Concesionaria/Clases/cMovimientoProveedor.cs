@@ -9,10 +9,10 @@ namespace Concesionaria.Clases
     public class cMovimientoProveedor
     {
         public void InsertarTran(SqlConnection con, SqlTransaction Transaccion,
-            Int32 CodCuentaProveedor, DateTime Fecha, string Concepto,Double Debe, Double Haber,Double Saldo,Int32 CodDeuda,Int32 CodPago )
+            Int32 CodCuentaProveedor, DateTime Fecha, string Concepto,Double Debe, Double Haber,Double Saldo,Int32 CodDeuda,Int32 CodPago, Double SaldoAnterior )
         {
             string sql = "insert into MovimientoProveedor(CodCuentaProveedor,Fecha,Concepto,";
-            sql = sql + "Debe,Haber,Saldo,CodDeuda,CodPago)";
+            sql = sql + "Debe,Haber,Saldo,CodDeuda,CodPago,SaldoAnterior)";
             sql = sql + " values (" + CodCuentaProveedor.ToString();
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + "'" + Concepto + "'";
@@ -27,6 +27,7 @@ namespace Concesionaria.Clases
                 sql = sql + "," + CodPago.ToString();
             else
                 sql = sql + ",null";
+            sql = sql + "," + SaldoAnterior.ToString().Replace(",", ".");
             sql = sql + ")";
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
@@ -59,21 +60,45 @@ namespace Concesionaria.Clases
        public DataTable GetResumen(Int32 CodCuentaProveedor,DateTime FechaDesde,DateTime FechaHasta)
         {
             Double Saldo = 0;
+            Double SaldoAnterior = 0;
             Saldo = GetSaldo(CodCuentaProveedor);
+            SaldoAnterior = GetSaldoAnterior(CodCuentaProveedor,  FechaDesde, FechaHasta);
             string sql = " select 0 as CodCuentaProveedor,'' as Fecha,'Saldo Inicial' as Concepto";
-            sql = sql + "," + Saldo.ToString().Replace(",", ".") + " as Debe ";
+            sql = sql + "," + SaldoAnterior.ToString().Replace(",", ".") + " as Debe ";
             sql = sql + ",0 as Haber ";
-            sql = sql + "," + Saldo.ToString().Replace(",", ".") + " as Saldo ";
-            sql = sql + ",0 as CodDeuda ,0 as CodPago ";
+            sql = sql + "," + SaldoAnterior.ToString().Replace(",", ".") + " as Saldo ";
+            sql = sql + ",0 as CodDeuda ,0 as CodPago ,0 as CodMovimiento ";
             sql = sql + " union ";
            // string sql = "";
-            sql = sql + " select CodCuentaProveedor,Fecha,Concepto,Debe,Haber, Saldo,CodDeuda,CodPago";
+            sql = sql + " select CodCuentaProveedor,Fecha,Concepto,Debe,Haber, Saldo,CodDeuda,CodPago,CodMovimiento";
             sql = sql + " from MovimientoProveedor "; 
             sql = sql + " where CodCuentaProveedor=" + CodCuentaProveedor.ToString();
             sql = sql + " and Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and Fecha <=" +"'" + FechaHasta.ToShortDateString() + "'";
-            sql = sql + " order by Fecha asc ";
+            sql = sql + " order by CodMovimiento asc ";
+            // sql = sql + " order by Fecha asc ";
             return cDb.ExecuteDataTable(sql);
+        }
+
+        public Double GetSaldoAnterior(Int32 CodCuentaProveedor, DateTime FechaDesde, DateTime FechaHasta)
+        {
+            Double SaldoAnterior = 0;
+            string sql = "";
+            sql = " select CodMovimiento,SaldoAnterior ";
+            sql = sql + " from MovimientoProveedor ";
+            sql = sql + " where CodCuentaProveedor=" + CodCuentaProveedor.ToString();
+            sql = sql + " and Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            sql = sql + " order by CodMovimiento asc ";
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count >0)
+            {
+                if (trdo.Rows[0]["SaldoAnterior"].ToString ()!="")
+                {
+                    SaldoAnterior = Convert.ToDouble(trdo.Rows[0]["SaldoAnterior"].ToString());
+                }
+            }
+            return SaldoAnterior;
         }
 
         public Double GetSaldo(Int32 CodCuenta)

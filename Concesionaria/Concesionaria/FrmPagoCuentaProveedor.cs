@@ -68,6 +68,8 @@ namespace Concesionaria
             Int32 CodPago = 0;
             Int32 CodDeuda = 0;
             Double SaldoDeuda = 0;
+            Double SaldoAnterior = 0;
+
             DateTime Fecha = dpFecha.Value;
             string Concepto = txtConcepto.Text;
             if (txtEfectivo.Text != "")
@@ -75,6 +77,8 @@ namespace Concesionaria
             if (txtSaldo.Text !="")
             {
                 Saldo = fun.ToDouble(txtSaldo.Text);
+                SaldoAnterior =Saldo;
+                //si es engativo va en el debe ccomo positivo
             }
 
             if (txtImporteCheque.Text !="")
@@ -97,11 +101,11 @@ namespace Concesionaria
                 {
                     Descripcion = "Pago Cuenta " + txtCuentaProveedor.Text;
                     mov.RegistrarMovimientoDescripcionTransaccion(con, Transaccion, 0,
-                        Principal.CodUsuarioLogueado, (-1) * Efectivo,0,0,0,0,dpFecha.Value,Descripcion,0);
+                    Principal.CodUsuarioLogueado, (-1) * Efectivo,0,0,0,0,dpFecha.Value,Descripcion,0);
                     CodPago = pago.Insertar(con, Transaccion, Fecha, Efectivo, Concepto, 0, null, CodCuentaProveedor);
                     Double SaldoCuentaProv = movProv.GetSaldo(CodCuentaProveedor);
-                    SaldoCuentaProv = SaldoCuentaProv + Efectivo;
-                    movProv.InsertarTran(con, Transaccion, CodCuentaProveedor, Fecha, Concepto, 0, Efectivo, SaldoCuentaProv, 0, CodPago);
+                    SaldoCuentaProv = SaldoCuentaProv - Efectivo;
+                    movProv.InsertarTran(con, Transaccion, CodCuentaProveedor, Fecha, Concepto, 0, Efectivo, SaldoCuentaProv, 0, CodPago, SaldoAnterior);
                     cuentaProv.ActuaizarSaldoTran(con, Transaccion,CodCuentaProveedor, SaldoCuentaProv);
                     for (int i = 0; i < Grilla.Rows.Count - 1; i++)
                     {    // salgo es la deuda total y saldo deuda es cada deuada individual
@@ -137,7 +141,7 @@ namespace Concesionaria
                     CodPago = pago.Insertar(con, Transaccion, Fecha, 0, Concepto, TotalCheque, CodCheque, CodCuentaProveedor);
                     Double SaldoCuentaProv = movProv.GetSaldo(CodCuentaProveedor);
                     SaldoCuentaProv = SaldoCuentaProv + TotalCheque;
-                    movProv.InsertarTran(con, Transaccion, CodCuentaProveedor, Fecha, Concepto, 0, TotalCheque, SaldoCuentaProv, 0, CodPago);
+                    movProv.InsertarTran(con, Transaccion, CodCuentaProveedor, Fecha, Concepto, 0, TotalCheque, SaldoCuentaProv, 0, CodPago,SaldoAnterior);
                     cheque.ActualizarFechaCobro(con, Transaccion,Convert.ToInt32(CodCheque), Fecha);
                     for (int i = 0; i < Grilla.Rows.Count - 1; i++)
                     {    // salgo es la deuda total y saldo deuda es cada deuada individual
