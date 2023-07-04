@@ -78,8 +78,8 @@ namespace Concesionaria
             trdo = fun.TablaaMiles(trdo, "Debe");
             trdo = fun.TablaaMiles(trdo, "Haber");
             trdo = fun.TablaaMiles(trdo, "Saldo");
-            Grilla.DataSource = trdo;
-            fun.AnchoColumnas(Grilla, "0;15;45;20;20;0;0;0");
+            Grilla.DataSource = trdo;   
+            fun.AnchoColumnas(Grilla, "0;15;25;20;20;20;0;0");
             Grilla.Columns[2].HeaderText = "Concepto";
             Grilla.Columns[3].HeaderText = "Debe";
             Grilla.Columns[4].HeaderText = "Haber";

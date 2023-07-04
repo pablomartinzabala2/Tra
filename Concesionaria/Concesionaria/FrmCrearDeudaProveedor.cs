@@ -82,8 +82,9 @@ namespace Concesionaria
             Importe = fun.ToDouble(txtImporte.Text);
             CodDeuda = Deuda.Insertar(CodCuentaProveedor, COncepto,
              Fecha, FechaVto, Importe, Observacion, CodStock);
-            Saldo = Saldo - Importe;
-            mov.Insertar(CodCuentaProveedor, Fecha, COncepto, Importe, 0, Saldo, CodDeuda, 0);
+            Double SaldoAnterior = Saldo;
+            Saldo = Saldo + Importe;
+            mov.Insertar(CodCuentaProveedor, Fecha, COncepto, Importe, 0, Saldo, CodDeuda, 0, SaldoAnterior);
             if (txtCodStock.Text !="")
             {
                

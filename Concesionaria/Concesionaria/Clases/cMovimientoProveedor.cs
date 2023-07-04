@@ -32,11 +32,11 @@ namespace Concesionaria.Clases
         }
 
         public void Insertar(
-           Int32 CodCuentaProveedor, DateTime Fecha, string Concepto, Double Debe, Double Haber,Double Saldo, Int32 CodDeuda, Int32 CodPago)
+           Int32 CodCuentaProveedor, DateTime Fecha, string Concepto, Double Debe, Double Haber,Double Saldo, Int32 CodDeuda, Int32 CodPago,Double SaldoAnterior)
         {
 
             string sql = "insert into MovimientoProveedor(CodCuentaProveedor,Fecha,Concepto,";
-            sql = sql + "Debe,Haber,Saldo,CodDeuda,CodPago)";
+            sql = sql + "Debe,Haber,Saldo,CodDeuda,CodPago,SaldoAnterior)";
             sql = sql + " values (" + CodCuentaProveedor.ToString();
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + "'" + Concepto + "'";
@@ -51,19 +51,23 @@ namespace Concesionaria.Clases
                 sql = sql + "," + CodPago.ToString();
             else
                 sql = sql + ",null";
+            sql = sql + "," + SaldoAnterior.ToString().Replace(",", ".");
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
         }
 
        public DataTable GetResumen(Int32 CodCuentaProveedor,DateTime FechaDesde,DateTime FechaHasta)
         {
-            //  Double Saldo = 0;
-            //  Saldo = GetSaldo(CodCuentaProveedor);
-            //  string sql = " select 0,'' as Fecha,'',0,0"; 
-            //  sql = sql + "," + Saldo.ToString().Replace(",", ".") + " as Saldo ";
-            //   sql = sql + " union ";
-            string sql = "";
-            sql =   "select CodCuentaProveedor,Fecha,Concepto,Debe,Haber, Saldo,CodDeuda,CodPago";
+            Double Saldo = 0;
+            Saldo = GetSaldo(CodCuentaProveedor);
+            string sql = " select 0 as CodCuentaProveedor,'' as Fecha,'Saldo Inicial' as Concepto";
+            sql = sql + "," + Saldo.ToString().Replace(",", ".") + " as Debe ";
+            sql = sql + ",0 as Haber ";
+            sql = sql + "," + Saldo.ToString().Replace(",", ".") + " as Saldo ";
+            sql = sql + ",0 as CodDeuda ,0 as CodPago ";
+            sql = sql + " union ";
+           // string sql = "";
+            sql = sql + " select CodCuentaProveedor,Fecha,Concepto,Debe,Haber, Saldo,CodDeuda,CodPago";
             sql = sql + " from MovimientoProveedor "; 
             sql = sql + " where CodCuentaProveedor=" + CodCuentaProveedor.ToString();
             sql = sql + " and Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
