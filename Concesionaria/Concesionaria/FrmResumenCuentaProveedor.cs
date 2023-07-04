@@ -126,6 +126,7 @@ namespace Concesionaria
             string Concepto = "";
             string Debe = "";
             string Haber = "";
+            string Saldo = "";
             for (int i =0;i < Grilla.Rows.Count -1;i++)
             {
                 Fecha = Grilla.Rows[i].Cells[1].Value.ToString();
@@ -133,15 +134,16 @@ namespace Concesionaria
                 Concepto = Grilla.Rows[i].Cells[2].Value.ToString();
                 Debe = Grilla.Rows[i].Cells[3].Value.ToString();
                 Haber = Grilla.Rows[i].Cells[4].Value.ToString();
+                Saldo = Grilla.Rows[i].Cells[5].Value.ToString();
                 Reporte.Insertar(Orden, Proveedor, Cuenta, FechaDesde, FechaHasta,
-                    Fecha, Concepto, Debe, Haber);
+                    Fecha, Concepto, Debe, Haber,Saldo);
                 Orden = Orden + 1;
             }
-            string Saldo = txtSaldo.Text;
+            Saldo = txtSaldo.Text;
             Orden++;
-            Reporte.Insertar(Orden, "", "", "", "", "", "", "", "");
+            Reporte.Insertar(Orden, "", "", "", "", "", "", "", "","");
             Orden++;
-            Reporte.Insertar(Orden, "", "", "", "", "", "Saldo", Saldo, "");
+            Reporte.Insertar(Orden, "", "", "", "", "", "Saldo", Saldo, "","");
             FrmReporteResumenProveedor frm = new FrmReporteResumenProveedor();
             frm.Show();
         }

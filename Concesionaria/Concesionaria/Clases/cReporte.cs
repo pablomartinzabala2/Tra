@@ -10,12 +10,12 @@ namespace Concesionaria.Clases
     {
         public void Insertar(int Orden ,string Parte1,string Parte2,string Parte3,
             string Parte4, string Parte6,
-            string Parte7, string Parte8, string Parte9)
+            string Parte7, string Parte8, string Parte9, string Parte10)
         {
             string sql = "insert into Reporte(Orden,";
             sql = sql + "PARTE1,PARTE2,PARTE3,PARTE4,";
             sql = sql + "PARTE6,PARTE7,PARTE8";
-            sql = sql + ",PARTE9";
+            sql = sql + ",PARTE9,PARTE10";
             sql = sql + ")";
             sql = sql + " VALUES(" + Orden.ToString();
             sql = sql + "," + "'" + Parte1 + "'";
@@ -26,6 +26,7 @@ namespace Concesionaria.Clases
             sql = sql + "," + "'" + Parte7 + "'";
             sql = sql + "," + "'" + Parte8 + "'";
             sql = sql + "," + "'" + Parte9 + "'";
+            sql = sql + "," + "'" + Parte10 + "'";
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
         }
