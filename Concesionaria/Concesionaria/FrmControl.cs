@@ -53,7 +53,7 @@ namespace Concesionaria
                 Valor = Valor + ";" + trdo.Rows[i]["Cuota"].ToString();
                 Valor = Valor + ";" + trdo.Rows[i]["Patente"].ToString();
                 Valor = Valor + ";" + trdo.Rows[i]["Descripcion"].ToString();
-                Valor = Valor + ";" + (trdo.Rows[i]["Apellido"].ToString() + " " + trdo.Rows[i]["Apellido"].ToString());
+                Valor = Valor + ";" + (trdo.Rows[i]["Apellido"].ToString() + " " + trdo.Rows[i]["Nombre"].ToString());
                 Valor = Valor + ";" + trdo.Rows[i]["Telefono"].ToString();
                 Valor = Valor + ";" + trdo.Rows[i]["Celular"].ToString();
                 Valor = Valor + ";" + trdo.Rows[i]["Importe"].ToString();
@@ -89,7 +89,7 @@ namespace Concesionaria
                 Valor = Valor + ";1";
                 Valor = Valor + ";" + tcob.Rows[i]["Patente"].ToString();
                 Valor = Valor + ";" + tcob.Rows[i]["Descripcion"].ToString();
-                Valor = Valor + ";" + (tcob.Rows[i]["Apellido"].ToString() + " " + tcob.Rows[i]["Apellido"].ToString());
+                Valor = Valor + ";" + (tcob.Rows[i]["Apellido"].ToString() + " " + tcob.Rows[i]["Nombre"].ToString());
                 Valor = Valor + ";" + tcob.Rows[i]["Telefono"].ToString();
                 Valor = Valor + ";" + tcob.Rows[i]["Celular"].ToString();
                 Valor = Valor + ";" + tcob.Rows[i]["Importe"].ToString();

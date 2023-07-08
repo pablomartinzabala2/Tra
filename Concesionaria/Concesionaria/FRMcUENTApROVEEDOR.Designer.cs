@@ -69,6 +69,7 @@
             this.txtSaldo.Name = "txtSaldo";
             this.txtSaldo.Size = new System.Drawing.Size(217, 23);
             this.txtSaldo.TabIndex = 78;
+            this.txtSaldo.Visible = false;
             // 
             // label3
             // 
@@ -78,6 +79,7 @@
             this.label3.Size = new System.Drawing.Size(44, 17);
             this.label3.TabIndex = 77;
             this.label3.Text = "Saldo";
+            this.label3.Visible = false;
             // 
             // Grilla
             // 
