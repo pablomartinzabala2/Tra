@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNumeroCheque = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.daFechaCobro = new System.Windows.Forms.DateTimePicker();
+            this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
+            this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.chkSoloImpago = new System.Windows.Forms.CheckBox();
             this.btnAbrir = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -38,19 +45,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
-            this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
-            this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
-            this.daFechaCobro = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.txtNumeroCheque = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.checkVencidos = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkVencidos);
             this.groupBox1.Controls.Add(this.txtNumeroCheque);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtApellido);
@@ -75,10 +77,66 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado";
             // 
+            // txtNumeroCheque
+            // 
+            this.txtNumeroCheque.Location = new System.Drawing.Point(879, 24);
+            this.txtNumeroCheque.Name = "txtNumeroCheque";
+            this.txtNumeroCheque.Size = new System.Drawing.Size(120, 23);
+            this.txtNumeroCheque.TabIndex = 77;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(815, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 17);
+            this.label2.TabIndex = 76;
+            this.label2.Text = "Número";
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(636, 24);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(173, 23);
+            this.txtApellido.TabIndex = 75;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(572, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 17);
+            this.label1.TabIndex = 74;
+            this.label1.Text = "Apellido";
+            // 
+            // daFechaCobro
+            // 
+            this.daFechaCobro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.daFechaCobro.Location = new System.Drawing.Point(393, 24);
+            this.daFechaCobro.Name = "daFechaCobro";
+            this.daFechaCobro.Size = new System.Drawing.Size(87, 23);
+            this.daFechaCobro.TabIndex = 73;
+            // 
+            // dpFechaHasta
+            // 
+            this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaHasta.Location = new System.Drawing.Point(205, 24);
+            this.dpFechaHasta.Name = "dpFechaHasta";
+            this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaHasta.TabIndex = 72;
+            // 
+            // dpFechaDesde
+            // 
+            this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaDesde.Location = new System.Drawing.Point(61, 24);
+            this.dpFechaDesde.Name = "dpFechaDesde";
+            this.dpFechaDesde.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaDesde.TabIndex = 71;
+            // 
             // chkSoloImpago
             // 
             this.chkSoloImpago.AutoSize = true;
-            this.chkSoloImpago.Location = new System.Drawing.Point(486, 24);
+            this.chkSoloImpago.Location = new System.Drawing.Point(486, 11);
             this.chkSoloImpago.Name = "chkSoloImpago";
             this.chkSoloImpago.Size = new System.Drawing.Size(80, 21);
             this.chkSoloImpago.TabIndex = 60;
@@ -164,61 +222,15 @@
             this.Grilla.Size = new System.Drawing.Size(1161, 466);
             this.Grilla.TabIndex = 0;
             // 
-            // dpFechaDesde
+            // checkVencidos
             // 
-            this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaDesde.Location = new System.Drawing.Point(61, 24);
-            this.dpFechaDesde.Name = "dpFechaDesde";
-            this.dpFechaDesde.Size = new System.Drawing.Size(87, 23);
-            this.dpFechaDesde.TabIndex = 71;
-            // 
-            // dpFechaHasta
-            // 
-            this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaHasta.Location = new System.Drawing.Point(205, 24);
-            this.dpFechaHasta.Name = "dpFechaHasta";
-            this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
-            this.dpFechaHasta.TabIndex = 72;
-            // 
-            // daFechaCobro
-            // 
-            this.daFechaCobro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.daFechaCobro.Location = new System.Drawing.Point(393, 24);
-            this.daFechaCobro.Name = "daFechaCobro";
-            this.daFechaCobro.Size = new System.Drawing.Size(87, 23);
-            this.daFechaCobro.TabIndex = 73;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(572, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 17);
-            this.label1.TabIndex = 74;
-            this.label1.Text = "Apellido";
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(636, 24);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(173, 23);
-            this.txtApellido.TabIndex = 75;
-            // 
-            // txtNumeroCheque
-            // 
-            this.txtNumeroCheque.Location = new System.Drawing.Point(879, 24);
-            this.txtNumeroCheque.Name = "txtNumeroCheque";
-            this.txtNumeroCheque.Size = new System.Drawing.Size(120, 23);
-            this.txtNumeroCheque.TabIndex = 77;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(815, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 17);
-            this.label2.TabIndex = 76;
-            this.label2.Text = "Número";
+            this.checkVencidos.AutoSize = true;
+            this.checkVencidos.Location = new System.Drawing.Point(486, 28);
+            this.checkVencidos.Name = "checkVencidos";
+            this.checkVencidos.Size = new System.Drawing.Size(85, 21);
+            this.checkVencidos.TabIndex = 78;
+            this.checkVencidos.Text = "Vencidos";
+            this.checkVencidos.UseVisualStyleBackColor = true;
             // 
             // FrmListadoChequeCobrar
             // 
@@ -259,5 +271,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNumeroCheque;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkVencidos;
     }
 }

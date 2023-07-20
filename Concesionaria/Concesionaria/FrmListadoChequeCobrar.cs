@@ -39,20 +39,44 @@ namespace Concesionaria
                 NumeroCheque = txtNumeroCheque.Text;
 
             int SoloImpago = 0;
+            int Vencidos = 0;
             if (chkSoloImpago.Checked == true)
                 SoloImpago = 1;
+            if (checkVencidos.Checked == true)
+                Vencidos = 1;
             cChequeCobrar cheque = new cChequeCobrar();
-            DataTable trdo = cheque.GetChequesxFecha(Desde, Hasta, SoloImpago, Apellido, NumeroCheque);
+            DataTable trdo = cheque.GetChequesxFecha(Desde, Hasta, SoloImpago, Apellido, NumeroCheque, Vencidos);
             Clases.cFunciones fun = new Clases.cFunciones();
             trdo = fun.TablaaMiles(trdo, "Importe");
             Grilla.DataSource = trdo;
             Grilla.Columns[0].Visible = false;
+            Grilla.Columns[8].Visible = false;
             Grilla.Columns[2].HeaderText = "Nro Cheque";
             Grilla.Columns[5].HeaderText = "Fecha Cobro";
             Grilla.Columns[2].Width = 120;
             Grilla.Columns[3].Width = 200;
             Grilla.Columns[5].Width = 120;
             Grilla.Columns[9].Width = 160;
+            PintarVencidos();
+        }
+
+        public void PintarVencidos()
+        {
+            DateTime FechaHoy = DateTime.Now;
+            DateTime FechaVenciminto = DateTime.Now;
+            string FechaCobro = "";
+            for (int i=0;i< Grilla.Rows.Count -1;i++)
+            {  
+                FechaVenciminto = Convert.ToDateTime(Grilla.Rows[i].Cells[10].Value);
+                FechaCobro = Grilla.Rows[i].Cells[5].Value.ToString();
+                if (FechaCobro.Trim() =="")
+                {
+                    if (FechaVenciminto <=FechaHoy)
+                    {
+                        Grilla.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
+                    }
+                }
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
