@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbmProveedor));
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.btnBorrarProveedor = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,6 +60,16 @@
             this.Grupo.TabIndex = 15;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Informaci{on de Proveedores";
+            // 
+            // btnBorrarProveedor
+            // 
+            this.btnBorrarProveedor.Location = new System.Drawing.Point(175, 177);
+            this.btnBorrarProveedor.Name = "btnBorrarProveedor";
+            this.btnBorrarProveedor.Size = new System.Drawing.Size(143, 34);
+            this.btnBorrarProveedor.TabIndex = 16;
+            this.btnBorrarProveedor.Text = "Borrar Proveedor";
+            this.btnBorrarProveedor.UseVisualStyleBackColor = true;
+            this.btnBorrarProveedor.Click += new System.EventHandler(this.btnBorrarProveedor_Click);
             // 
             // txtCodigo
             // 
@@ -200,6 +211,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(443, 341);
+            this.Controls.Add(this.btnBorrarProveedor);
             this.Controls.Add(this.btnCrearCuentas);
             this.Controls.Add(this.Grupo);
             this.Controls.Add(this.BarraBotones);
@@ -231,5 +243,6 @@
         private System.Windows.Forms.ToolStripButton btnImprimir;
         private System.Windows.Forms.ToolStripButton btnSalir;
         private System.Windows.Forms.Button btnCrearCuentas;
+        private System.Windows.Forms.Button btnBorrarProveedor;
     }
 }

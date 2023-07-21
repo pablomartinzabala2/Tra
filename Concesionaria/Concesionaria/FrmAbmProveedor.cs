@@ -186,5 +186,38 @@ namespace Concesionaria
                 txt_Nombre.Text = "";
             }
         }
+
+        private void btnBorrarProveedor_Click(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text =="")
+            {
+                MessageBox.Show("Debe seleccionar un elemento");
+                return;
+            }
+            int CodCuenta = 0;
+            int CodProveedor = Convert.ToInt32(txtCodigo.Text);
+            string sql = "select * from CuentaProveedor where CodProveedor=" + CodProveedor.ToString ();
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count >0)
+            {
+                for (int i = 0; i < trdo.Rows.Count ; i++)
+                {
+                    CodCuenta = Convert.ToInt32(trdo.Rows[i]["CodCuenta"]);
+                    sql = "delete from PagoProveedor where CodCuentaProveedor=" + CodCuenta.ToString();
+                    cDb.ExecutarNonQuery(sql);
+                    sql = "delete from DeudaProveedor where CodCuentaProveedor=" + CodCuenta.ToString();
+                    cDb.ExecutarNonQuery(sql);
+                    sql = "delete from CuentaProveedor where CodCuenta=" + CodCuenta.ToString();
+                    cDb.ExecutarNonQuery(sql);
+                }
+                
+                sql = "delete from Proveedor where CodProveedor=" + CodProveedor.ToString();
+                cDb.ExecutarNonQuery(sql);
+                MessageBox.Show("Datos borrados correctamente ");
+                Botonera(1);
+                Grupo.Enabled = false;
+                txt_Nombre.Text = "";
+            }
+        }
     }
 }
