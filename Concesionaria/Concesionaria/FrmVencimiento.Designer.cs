@@ -38,7 +38,7 @@
             this.Grilla.Location = new System.Drawing.Point(12, 12);
             this.Grilla.Name = "Grilla";
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(607, 407);
+            this.Grilla.Size = new System.Drawing.Size(808, 482);
             this.Grilla.TabIndex = 53;
             // 
             // FrmVencimiento
@@ -46,7 +46,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(631, 431);
+            this.ClientSize = new System.Drawing.Size(832, 506);
             this.Controls.Add(this.Grilla);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

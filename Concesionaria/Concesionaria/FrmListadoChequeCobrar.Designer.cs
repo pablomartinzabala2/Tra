@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkVencidos = new System.Windows.Forms.CheckBox();
             this.txtNumeroCheque = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -45,13 +46,16 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
-            this.checkVencidos = new System.Windows.Forms.CheckBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.checkVencidos);
             this.groupBox1.Controls.Add(this.txtNumeroCheque);
             this.groupBox1.Controls.Add(this.label2);
@@ -72,10 +76,20 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1176, 525);
+            this.groupBox1.Size = new System.Drawing.Size(1176, 549);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado";
+            // 
+            // checkVencidos
+            // 
+            this.checkVencidos.AutoSize = true;
+            this.checkVencidos.Location = new System.Drawing.Point(486, 28);
+            this.checkVencidos.Name = "checkVencidos";
+            this.checkVencidos.Size = new System.Drawing.Size(85, 21);
+            this.checkVencidos.TabIndex = 78;
+            this.checkVencidos.Text = "Vencidos";
+            this.checkVencidos.UseVisualStyleBackColor = true;
             // 
             // txtNumeroCheque
             // 
@@ -219,25 +233,31 @@
             this.Grilla.Name = "Grilla";
             this.Grilla.ReadOnly = true;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(1161, 466);
+            this.Grilla.Size = new System.Drawing.Size(1161, 437);
             this.Grilla.TabIndex = 0;
             // 
-            // checkVencidos
+            // txtTotal
             // 
-            this.checkVencidos.AutoSize = true;
-            this.checkVencidos.Location = new System.Drawing.Point(486, 28);
-            this.checkVencidos.Name = "checkVencidos";
-            this.checkVencidos.Size = new System.Drawing.Size(85, 21);
-            this.checkVencidos.TabIndex = 78;
-            this.checkVencidos.Text = "Vencidos";
-            this.checkVencidos.UseVisualStyleBackColor = true;
+            this.txtTotal.Location = new System.Drawing.Point(1003, 520);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(173, 23);
+            this.txtTotal.TabIndex = 79;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(944, 523);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 17);
+            this.label3.TabIndex = 80;
+            this.label3.Text = "Total";
             // 
             // FrmListadoChequeCobrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1200, 540);
+            this.ClientSize = new System.Drawing.Size(1200, 574);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -272,5 +292,7 @@
         private System.Windows.Forms.TextBox txtNumeroCheque;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkVencidos;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtTotal;
     }
 }

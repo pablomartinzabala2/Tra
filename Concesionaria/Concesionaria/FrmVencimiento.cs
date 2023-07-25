@@ -24,7 +24,7 @@ namespace Concesionaria
             DataTable trdo = venc.GetVencimiento();
             trdo = fun.TablaaMiles(trdo, "Importe");
             Grilla.DataSource = trdo;
-            fun.AnchoColumnas(Grilla, "0;20;15;15;30;20");
+            fun.AnchoColumnas(Grilla, "0;15;15;15;15;15;25");
         }
     }
 }

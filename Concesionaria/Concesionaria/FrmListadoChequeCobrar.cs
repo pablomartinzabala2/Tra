@@ -29,6 +29,7 @@ namespace Concesionaria
 
         private void Buscar()
         {
+            Double Total = 0;
             DateTime Desde = dpFechaDesde.Value;
             DateTime Hasta = dpFechaHasta.Value;
             string Apellido = "";
@@ -47,6 +48,7 @@ namespace Concesionaria
             cChequeCobrar cheque = new cChequeCobrar();
             DataTable trdo = cheque.GetChequesxFecha(Desde, Hasta, SoloImpago, Apellido, NumeroCheque, Vencidos);
             Clases.cFunciones fun = new Clases.cFunciones();
+            Total = fun.TotalizarColumna(trdo, "Importe");
             trdo = fun.TablaaMiles(trdo, "Importe");
             Grilla.DataSource = trdo;
             Grilla.Columns[0].Visible = false;
@@ -58,6 +60,7 @@ namespace Concesionaria
             Grilla.Columns[5].Width = 120;
             Grilla.Columns[9].Width = 160;
             PintarVencidos();
+            txtTotal.Text = fun.FormatoEnteroMiles(Total.ToString());
         }
 
         public void PintarVencidos()

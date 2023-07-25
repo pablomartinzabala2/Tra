@@ -16,6 +16,7 @@ namespace Concesionaria.Clases
             string sql = "select c.* ";
             sql = sql + " ,(select cli.Nombre from Cliente cli where cli.CodCliente=c.CodCliente) as Nombre ";
             sql = sql + " ,(select cli.Apellido from Cliente cli where cli.CodCliente=c.CodCliente) as Apellido ";
+            sql = sql + ",(select  b.Nombre from Banco b where b.CodBanco=c.CodBanco) as Banco ";
             sql = sql + " from ChequesPagar c ";
             sql = sql + " where c.FechaPago is null ";
             sql = sql + " and c.FechaVencimiento <=" + "'" + Fecha.ToShortDateString() + "'";
@@ -29,6 +30,7 @@ namespace Concesionaria.Clases
                 string Nombre = "";
                 string Apellido = "";
                 string NomApe = "";
+                string Banco = "";
                 for (int i = 0; i < trdo.Rows.Count ; i++)
                 {
                     Tabla = "Cheque a Pagar ";
@@ -38,21 +40,23 @@ namespace Concesionaria.Clases
                     Nombre = trdo.Rows[i]["Nombre"].ToString();
                     Apellido = trdo.Rows[i]["Apellido"].ToString();
                     NomApe = Nombre + " " + Apellido;
-                    InsertarVencimiento(Tabla, FechaRegistro, FechaVto, Importe,NomApe);
+                    Banco = trdo.Rows[i]["Banco"].ToString();
+                    InsertarVencimiento(Tabla, FechaRegistro, FechaVto, Importe,NomApe,Banco);
                     
                 }
 
             }
         }
 
-        private void InsertarVencimiento(string Tabla,DateTime Fecha,DateTime FechaVencimiento,Double Importe,string Cliente)
+        private void InsertarVencimiento(string Tabla,DateTime Fecha,DateTime FechaVencimiento,Double Importe,string Cliente, string Banco)
         {
-            string sql = "insert into Vencimiento (Tabla,Fecha,FechaVencimiento,Importe,Cliente)";
+            string sql = "insert into Vencimiento (Tabla,Fecha,FechaVencimiento,Importe,Cliente,Banco)";
             sql = sql + " Values(" + "'" + Tabla + "'";
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + "'" + FechaVencimiento + "'";
             sql = sql + "," + Importe.ToString().Replace(",", ".");
             sql = sql + "," + "'" + Cliente + "'";
+            sql = sql + "," + "'" + Banco + "'";
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
         }
@@ -60,7 +64,7 @@ namespace Concesionaria.Clases
         public DataTable GetVencimiento()
         {
             CargarVencimientos();
-            string sql = "select CodVencimiento,Tabla,Fecha,FechaVencimiento,Cliente,Importe from Vencimiento ";
+            string sql = "select CodVencimiento,Tabla,Fecha,FechaVencimiento,Cliente,Importe,Banco from Vencimiento ";
             DataTable trdo = cDb.ExecuteDataTable(sql);
             return trdo;
         }
