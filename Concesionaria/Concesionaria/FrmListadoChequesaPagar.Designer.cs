@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBorrarCheque = new System.Windows.Forms.Button();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
@@ -42,13 +43,20 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnBorrarCheque = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtNumero = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtNombre);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtNumero);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnBorrarCheque);
             this.groupBox1.Controls.Add(this.dpFechaHasta);
             this.groupBox1.Controls.Add(this.dpFechaDesde);
@@ -71,10 +79,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Cheques";
             // 
+            // btnBorrarCheque
+            // 
+            this.btnBorrarCheque.Image = global::Concesionaria.Properties.Resources.cancel;
+            this.btnBorrarCheque.Location = new System.Drawing.Point(1146, 24);
+            this.btnBorrarCheque.Name = "btnBorrarCheque";
+            this.btnBorrarCheque.Size = new System.Drawing.Size(39, 28);
+            this.btnBorrarCheque.TabIndex = 75;
+            this.btnBorrarCheque.UseVisualStyleBackColor = true;
+            this.btnBorrarCheque.Click += new System.EventHandler(this.btnBorrarCheque_Click);
+            // 
             // dpFechaHasta
             // 
             this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaHasta.Location = new System.Drawing.Point(310, 34);
+            this.dpFechaHasta.Location = new System.Drawing.Point(290, 33);
             this.dpFechaHasta.Name = "dpFechaHasta";
             this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
             this.dpFechaHasta.TabIndex = 74;
@@ -82,7 +100,7 @@
             // dpFechaDesde
             // 
             this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaDesde.Location = new System.Drawing.Point(112, 32);
+            this.dpFechaDesde.Location = new System.Drawing.Point(103, 32);
             this.dpFechaDesde.Name = "dpFechaDesde";
             this.dpFechaDesde.Size = new System.Drawing.Size(87, 23);
             this.dpFechaDesde.TabIndex = 73;
@@ -90,7 +108,7 @@
             // button1
             // 
             this.button1.Image = global::Concesionaria.Properties.Resources.add;
-            this.button1.Location = new System.Drawing.Point(856, 30);
+            this.button1.Location = new System.Drawing.Point(1101, 22);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(39, 28);
             this.button1.TabIndex = 52;
@@ -100,15 +118,15 @@
             // txtPatente
             // 
             this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPatente.Location = new System.Drawing.Point(608, 35);
+            this.txtPatente.Location = new System.Drawing.Point(894, 31);
             this.txtPatente.Name = "txtPatente";
-            this.txtPatente.Size = new System.Drawing.Size(104, 23);
+            this.txtPatente.Size = new System.Drawing.Size(70, 23);
             this.txtPatente.TabIndex = 51;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(545, 37);
+            this.label4.Location = new System.Drawing.Point(831, 33);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 17);
             this.label4.TabIndex = 50;
@@ -134,7 +152,7 @@
             // btnCobroCheque
             // 
             this.btnCobroCheque.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroCheque.Location = new System.Drawing.Point(811, 30);
+            this.btnCobroCheque.Location = new System.Drawing.Point(1063, 22);
             this.btnCobroCheque.Name = "btnCobroCheque";
             this.btnCobroCheque.Size = new System.Drawing.Size(39, 28);
             this.btnCobroCheque.TabIndex = 47;
@@ -144,11 +162,11 @@
             // chkImpagos
             // 
             this.chkImpagos.AutoSize = true;
-            this.chkImpagos.Location = new System.Drawing.Point(427, 37);
+            this.chkImpagos.Location = new System.Drawing.Point(745, 31);
             this.chkImpagos.Name = "chkImpagos";
-            this.chkImpagos.Size = new System.Drawing.Size(112, 21);
+            this.chkImpagos.Size = new System.Drawing.Size(80, 21);
             this.chkImpagos.TabIndex = 46;
-            this.chkImpagos.Text = "Solo Impagos";
+            this.chkImpagos.Text = "Impagos";
             this.chkImpagos.UseVisualStyleBackColor = true;
             // 
             // Grilla
@@ -163,7 +181,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(718, 30);
+            this.btnBuscar.Location = new System.Drawing.Point(970, 24);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(87, 31);
             this.btnBuscar.TabIndex = 44;
@@ -183,21 +201,45 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(205, 38);
+            this.label2.Location = new System.Drawing.Point(196, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 17);
             this.label2.TabIndex = 40;
             this.label2.Text = "Fecha Hasta";
             // 
-            // btnBorrarCheque
+            // label5
             // 
-            this.btnBorrarCheque.Image = global::Concesionaria.Properties.Resources.cancel;
-            this.btnBorrarCheque.Location = new System.Drawing.Point(901, 28);
-            this.btnBorrarCheque.Name = "btnBorrarCheque";
-            this.btnBorrarCheque.Size = new System.Drawing.Size(39, 28);
-            this.btnBorrarCheque.TabIndex = 75;
-            this.btnBorrarCheque.UseVisualStyleBackColor = true;
-            this.btnBorrarCheque.Click += new System.EventHandler(this.btnBorrarCheque_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(383, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 17);
+            this.label5.TabIndex = 76;
+            this.label5.Text = "Número";
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNumero.Location = new System.Drawing.Point(447, 34);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(82, 23);
+            this.txtNumero.TabIndex = 77;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(535, 35);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 17);
+            this.label6.TabIndex = 78;
+            this.label6.Text = "Nombre";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNombre.Location = new System.Drawing.Point(599, 30);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(127, 23);
+            this.txtNombre.TabIndex = 79;
             // 
             // FrmListadoChequesaPagar
             // 
@@ -234,5 +276,9 @@
         private System.Windows.Forms.DateTimePicker dpFechaHasta;
         private System.Windows.Forms.DateTimePicker dpFechaDesde;
         private System.Windows.Forms.Button btnBorrarCheque;
+        private System.Windows.Forms.TextBox txtNumero;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label label6;
     }
 }

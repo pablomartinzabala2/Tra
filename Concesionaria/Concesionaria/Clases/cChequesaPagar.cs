@@ -21,7 +21,8 @@ namespace Concesionaria.Clases
             return Total;
         }
 
-        public DataTable GetChequesPagar(DateTime FechaDesde, DateTime FechaHasta, int Impago,string Patente)
+        public DataTable GetChequesPagar(DateTime FechaDesde, DateTime FechaHasta, int Impago,string Patente, 
+            string Numero, string Nombre)
         {
             string sql = "select c.CodCheque, c.NroCheque,";
             sql = sql + "(select cli.Nombre from Cliente cli where cli.CodCliente =c.CodCliente) as Nombre ";
@@ -40,8 +41,33 @@ namespace Concesionaria.Clases
                 sql = sql + " and FechaPago is null ";
             if (Patente != "")
                 sql = sql + " and au.Patente like " + "'%" + Patente + "%'";
+            if (Numero !="")
+                sql = sql + " and c.NroCheque like " + "'%" + Numero + "%'";
             sql = sql + " order by c.FechaVencimiento asc";
-                            
+            if (Nombre !="")
+            {
+                sql = "select c.CodCheque, c.NroCheque,cli.Nombre,Cli.Apellido ";
+               // sql = sql + "(select cli.Nombre from Cliente cli where cli.CodCliente =c.CodCliente) as Nombre ";
+               // sql = sql + ",(select cli.Apellido from Cliente cli where cli.CodCliente =c.CodCliente) as Apellido";
+                sql = sql + ",(select bb.Nombre from Banco bb where bb.CodBanco =c.CodBanco) as Banco ";
+                sql = sql + ",c.Fecha,c.Importe,c.Saldo, c.FechaPago,";
+                sql = sql + "(select a.Patente from auto a where a.CodAuto = c.CodAuto) as Patente";
+                sql = sql + ",(select a.Descripcion from auto a where a.CodAuto = c.CodAuto) as Descripcion";
+                sql = sql + ",c.FechaVencimiento";
+                sql = sql + " from ChequesPagar c, Cliente cli";
+                sql = sql + " where c.CodCliente = cli.CodCliente ";
+                sql = sql + " and c.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+                sql = sql + " and c.Fecha<=" + "'" + FechaHasta.ToShortDateString() + "'";
+                if (Impago == 1)
+                    sql = sql + " and FechaPago is null ";
+                if (Patente != "")
+                    sql = sql + " and au.Patente like " + "'%" + Patente + "%'";
+                if (Numero != "")
+                    sql = sql + " and c.NroCheque like " + "'%" + Numero + "%'";
+                if (Nombre !="")
+                    sql = sql + " and cli.Nombre like " + "'%" + Nombre + "%'";
+                sql = sql + " order by c.FechaVencimiento asc";
+            }                
             return cDb.ExecuteDataTable (sql);
         }
 

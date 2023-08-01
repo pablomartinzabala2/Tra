@@ -21,8 +21,10 @@ namespace Concesionaria
         {
             DateTime fechahoy = DateTime.Now;
             dpFechaHasta.Value = fechahoy;
-            fechahoy = fechahoy.AddMonths(-1);
-            dpFechaDesde.Value = fechahoy;
+            string PrimerDia = "01-01-" + DateTime.Now.Year;
+            DateTime FechaCorta = Convert.ToDateTime(PrimerDia);
+            dpFechaDesde.Value = Convert.ToDateTime (FechaCorta.ToShortDateString());
+            Buscar();
 
         }
 
@@ -47,11 +49,17 @@ namespace Concesionaria
 
             DateTime FechaDesde = dpFechaDesde.Value;
             DateTime FechaHasta = dpFechaHasta.Value;
+            string NroCheque = "";
+            string Nombre = "";
             int Impagos = 0;
             if (chkImpagos.Checked == true)
                 Impagos = 1;
+            if (txtNumero.Text != "")
+                NroCheque = txtNumero.Text;
+            if (txtNombre.Text != "")
+                Nombre = txtNombre.Text;
             Clases.cChequesaPagar cheque = new Clases.cChequesaPagar();
-            DataTable trdo = cheque.GetChequesPagar(FechaDesde, FechaHasta, Impago, txtPatente.Text);
+            DataTable trdo = cheque.GetChequesPagar(FechaDesde, FechaHasta, Impago, txtPatente.Text,NroCheque,Nombre);
             txtTotal.Text = fun.TotalizarColumna(trdo, "Importe").ToString();
             txtTotal.Text = fun.FormatoEnteroMiles(txtTotal.Text);
             trdo = fun.TablaaMiles(trdo, "Importe");
