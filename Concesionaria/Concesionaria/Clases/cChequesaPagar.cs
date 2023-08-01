@@ -40,7 +40,7 @@ namespace Concesionaria.Clases
                 sql = sql + " and FechaPago is null ";
             if (Patente != "")
                 sql = sql + " and au.Patente like " + "'%" + Patente + "%'";
-            sql = sql + " order by CodCheque desc";
+            sql = sql + " order by c.FechaVencimiento asc";
                             
             return cDb.ExecuteDataTable (sql);
         }
