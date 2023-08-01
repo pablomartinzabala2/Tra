@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkVencidas = new System.Windows.Forms.CheckBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtNumero = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnBorrarCheque = new System.Windows.Forms.Button();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
@@ -43,16 +48,13 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtNumero = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkVencidas);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtNumero);
@@ -78,6 +80,50 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Cheques";
+            // 
+            // chkVencidas
+            // 
+            this.chkVencidas.AutoSize = true;
+            this.chkVencidas.Location = new System.Drawing.Point(745, 40);
+            this.chkVencidas.Name = "chkVencidas";
+            this.chkVencidas.Size = new System.Drawing.Size(85, 21);
+            this.chkVencidas.TabIndex = 80;
+            this.chkVencidas.Text = "Vencidas";
+            this.chkVencidas.UseVisualStyleBackColor = true;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNombre.Location = new System.Drawing.Point(599, 30);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(127, 23);
+            this.txtNombre.TabIndex = 79;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(535, 35);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 17);
+            this.label6.TabIndex = 78;
+            this.label6.Text = "Nombre";
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNumero.Location = new System.Drawing.Point(447, 34);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(82, 23);
+            this.txtNumero.TabIndex = 77;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(383, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 17);
+            this.label5.TabIndex = 76;
+            this.label5.Text = "Número";
             // 
             // btnBorrarCheque
             // 
@@ -162,7 +208,7 @@
             // chkImpagos
             // 
             this.chkImpagos.AutoSize = true;
-            this.chkImpagos.Location = new System.Drawing.Point(745, 31);
+            this.chkImpagos.Location = new System.Drawing.Point(745, 22);
             this.chkImpagos.Name = "chkImpagos";
             this.chkImpagos.Size = new System.Drawing.Size(80, 21);
             this.chkImpagos.TabIndex = 46;
@@ -207,46 +253,12 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Fecha Hasta";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(383, 37);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 17);
-            this.label5.TabIndex = 76;
-            this.label5.Text = "Número";
-            // 
-            // txtNumero
-            // 
-            this.txtNumero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNumero.Location = new System.Drawing.Point(447, 34);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(82, 23);
-            this.txtNumero.TabIndex = 77;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(535, 35);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 17);
-            this.label6.TabIndex = 78;
-            this.label6.Text = "Nombre";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNombre.Location = new System.Drawing.Point(599, 30);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(127, 23);
-            this.txtNombre.TabIndex = 79;
-            // 
             // FrmListadoChequesaPagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1215, 507);
+            this.ClientSize = new System.Drawing.Size(1028, 507);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmListadoChequesaPagar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -280,5 +292,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox chkVencidas;
     }
 }

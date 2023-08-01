@@ -22,7 +22,7 @@ namespace Concesionaria.Clases
         }
 
         public DataTable GetChequesPagar(DateTime FechaDesde, DateTime FechaHasta, int Impago,string Patente, 
-            string Numero, string Nombre)
+            string Numero, string Nombre, int Vencidas)
         {
             string sql = "select c.CodCheque, c.NroCheque,";
             sql = sql + "(select cli.Nombre from Cliente cli where cli.CodCliente =c.CodCliente) as Nombre ";
@@ -43,6 +43,12 @@ namespace Concesionaria.Clases
                 sql = sql + " and au.Patente like " + "'%" + Patente + "%'";
             if (Numero !="")
                 sql = sql + " and c.NroCheque like " + "'%" + Numero + "%'";
+            if (Vencidas ==1)
+            {
+                DateTime FechaHoy = DateTime.Now;
+                sql = sql + " and c.FechaPago is null ";
+                sql = sql + " and c.FechaVencimiento <=" + "'" + FechaHoy.ToShortDateString() + "'";
+            }
             sql = sql + " order by c.FechaVencimiento asc";
             if (Nombre !="")
             {
@@ -66,6 +72,13 @@ namespace Concesionaria.Clases
                     sql = sql + " and c.NroCheque like " + "'%" + Numero + "%'";
                 if (Nombre !="")
                     sql = sql + " and cli.Nombre like " + "'%" + Nombre + "%'";
+
+                if (Vencidas == 1)
+                {
+                    DateTime FechaHoy = DateTime.Now;
+                    sql = sql + " and c.FechaPago is null ";
+                    sql = sql + " and c.FechaVencimiento <=" + "'" + FechaHoy.ToShortDateString() + "'";
+                }
                 sql = sql + " order by c.FechaVencimiento asc";
             }                
             return cDb.ExecuteDataTable (sql);

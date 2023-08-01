@@ -52,14 +52,17 @@ namespace Concesionaria
             string NroCheque = "";
             string Nombre = "";
             int Impagos = 0;
+            int Vencidas = 0;
             if (chkImpagos.Checked == true)
                 Impagos = 1;
+            if (chkVencidas.Checked == true)
+                Vencidas = 1;
             if (txtNumero.Text != "")
                 NroCheque = txtNumero.Text;
             if (txtNombre.Text != "")
                 Nombre = txtNombre.Text;
             Clases.cChequesaPagar cheque = new Clases.cChequesaPagar();
-            DataTable trdo = cheque.GetChequesPagar(FechaDesde, FechaHasta, Impago, txtPatente.Text,NroCheque,Nombre);
+            DataTable trdo = cheque.GetChequesPagar(FechaDesde, FechaHasta, Impago, txtPatente.Text, NroCheque, Nombre, Vencidas);
             txtTotal.Text = fun.TotalizarColumna(trdo, "Importe").ToString();
             txtTotal.Text = fun.FormatoEnteroMiles(txtTotal.Text);
             trdo = fun.TablaaMiles(trdo, "Importe");
