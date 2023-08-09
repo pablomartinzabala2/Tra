@@ -38,8 +38,6 @@
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtPatente = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.btnCobroCheque = new System.Windows.Forms.Button();
@@ -63,8 +61,6 @@
             this.groupBox1.Controls.Add(this.dpFechaHasta);
             this.groupBox1.Controls.Add(this.dpFechaDesde);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.txtPatente);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.btnCobroCheque);
@@ -128,7 +124,7 @@
             // btnBorrarCheque
             // 
             this.btnBorrarCheque.Image = global::Concesionaria.Properties.Resources.cancel;
-            this.btnBorrarCheque.Location = new System.Drawing.Point(1146, 24);
+            this.btnBorrarCheque.Location = new System.Drawing.Point(1039, 22);
             this.btnBorrarCheque.Name = "btnBorrarCheque";
             this.btnBorrarCheque.Size = new System.Drawing.Size(39, 28);
             this.btnBorrarCheque.TabIndex = 75;
@@ -154,29 +150,12 @@
             // button1
             // 
             this.button1.Image = global::Concesionaria.Properties.Resources.add;
-            this.button1.Location = new System.Drawing.Point(1101, 22);
+            this.button1.Location = new System.Drawing.Point(994, 22);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(39, 28);
             this.button1.TabIndex = 52;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txtPatente
-            // 
-            this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPatente.Location = new System.Drawing.Point(894, 31);
-            this.txtPatente.Name = "txtPatente";
-            this.txtPatente.Size = new System.Drawing.Size(70, 23);
-            this.txtPatente.TabIndex = 51;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(831, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 17);
-            this.label4.TabIndex = 50;
-            this.label4.Text = "Patente";
             // 
             // label3
             // 
@@ -198,7 +177,7 @@
             // btnCobroCheque
             // 
             this.btnCobroCheque.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroCheque.Location = new System.Drawing.Point(1063, 22);
+            this.btnCobroCheque.Location = new System.Drawing.Point(949, 22);
             this.btnCobroCheque.Name = "btnCobroCheque";
             this.btnCobroCheque.Size = new System.Drawing.Size(39, 28);
             this.btnCobroCheque.TabIndex = 47;
@@ -227,7 +206,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(970, 24);
+            this.btnBuscar.Location = new System.Drawing.Point(856, 22);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(87, 31);
             this.btnBuscar.TabIndex = 44;
@@ -258,7 +237,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1028, 507);
+            this.ClientSize = new System.Drawing.Size(1185, 507);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmListadoChequesaPagar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -282,8 +261,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.TextBox txtPatente;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dpFechaHasta;
         private System.Windows.Forms.DateTimePicker dpFechaDesde;

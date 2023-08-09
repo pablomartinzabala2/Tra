@@ -62,7 +62,7 @@ namespace Concesionaria
             if (txtNombre.Text != "")
                 Nombre = txtNombre.Text;
             Clases.cChequesaPagar cheque = new Clases.cChequesaPagar();
-            DataTable trdo = cheque.GetChequesPagar(FechaDesde, FechaHasta, Impago, txtPatente.Text, NroCheque, Nombre, Vencidas);
+            DataTable trdo = cheque.GetChequesPagar(FechaDesde, FechaHasta, Impago, "", NroCheque, Nombre, Vencidas);
             txtTotal.Text = fun.TotalizarColumna(trdo, "Importe").ToString();
             txtTotal.Text = fun.FormatoEnteroMiles(txtTotal.Text);
             trdo = fun.TablaaMiles(trdo, "Importe");
