@@ -294,9 +294,9 @@ namespace Concesionaria
             if (txtTotalCheque.Text != "")
                 TotalCheques = fun.ToDouble(txtTotalCheque.Text);
 
-            if (txtEfectivoaPagar.Text != "")
-                EfectivoaPagar = fun.ToDouble(txtEfectivoaPagar.Text);
-
+            if (txtTotalEfectivosaPagar.Text != "")
+                EfectivoaPagar = fun.ToDouble(txtTotalEfectivosaPagar.Text);
+            
             if (txtTotalGasto.Text != "")
                 Gastos = fun.ToDouble(txtTotalGasto.Text);
 
@@ -358,17 +358,40 @@ namespace Concesionaria
                     GrabarMovimientoGastoRecepcion(con, Transaccion, CodCompra);
                 if (txtTotalEfectivosaPagar.Text != "" && txtTotalEfectivosaPagar.Text != "0")
                 {
-                    Int32 CodAuto = Convert.ToInt32(txtCodAuto.Text);
-                    Int32? CodCliente = null;
-                    if (txtCodCLiente.Text != "")
-                        CodCliente = Convert.ToInt32(txtCodCLiente.Text);
-                    else
+                    if (txtEfectivoaPagar.Text !="" && txtEfectivoaPagar.Text !="0")
                     {
-                        CodCliente = Convert.ToInt32(GrillaCliente.Rows[0].Cells[0].Value.ToString());
+                        int CodTipo = 1;
+                        string Tipo = "Efectivo";
+                        Int32 CodAuto = Convert.ToInt32(txtCodAuto.Text);
+                        Int32? CodCliente = null;
+                        if (txtCodCLiente.Text != "")
+                            CodCliente = Convert.ToInt32(txtCodCLiente.Text);
+                        else
+                        {
+                            CodCliente = Convert.ToInt32(GrillaCliente.Rows[0].Cells[0].Value.ToString());
+                        }
+                        double ImporteaPagar = fun.ToDouble(txtEfectivoaPagar.Text);
+                        Clases.cEfectivoaPagar objEft = new Clases.cEfectivoaPagar();
+                        objEft.Insertar(con, Transaccion, Convert.ToDateTime(txtFecha.Text), ImporteaPagar, CodCompra, CodCliente, CodAuto, CodTipo, Tipo);
                     }
-                    double ImporteaPagar = fun.ToDouble(txtEfectivoaPagar.Text);
-                    Clases.cEfectivoaPagar objEft = new Clases.cEfectivoaPagar();
-                    objEft.Insertar(con, Transaccion, Convert.ToDateTime(txtFecha.Text), ImporteaPagar, CodCompra, CodCliente, CodAuto);
+                       
+                    if (txtImporteFacturado.Text != "" && txtImporteFacturado.Text != "0")
+                    {
+                        int CodTipo = 2;
+                        string Tipo = "Facturado";
+                        Int32 CodAuto = Convert.ToInt32(txtCodAuto.Text);
+                        Int32? CodCliente = null;
+                        if (txtCodCLiente.Text != "")
+                            CodCliente = Convert.ToInt32(txtCodCLiente.Text);
+                        else
+                        {
+                            CodCliente = Convert.ToInt32(GrillaCliente.Rows[0].Cells[0].Value.ToString());
+                        }
+                        double ImporteaPagar = fun.ToDouble(txtImporteFacturado.Text);
+                        Clases.cEfectivoaPagar objEft = new Clases.cEfectivoaPagar();
+                        objEft.Insertar(con, Transaccion, Convert.ToDateTime(txtFecha.Text), ImporteaPagar, CodCompra, CodCliente, CodAuto, CodTipo, Tipo);
+                    }
+
                 }
                 if (txtTotalVehiculo.Text != "")
                     GrabarVenta(con, Transaccion);
@@ -1786,8 +1809,31 @@ namespace Concesionaria
         {
             Clases.cFunciones fun = new Clases.cFunciones();
             txtEfectivoaPagar.Text = fun.FormatoEnteroMiles(txtEfectivoaPagar.Text);
-            txtTotalEfectivosaPagar.Text = txtEfectivoaPagar.Text;
+            // txtTotalEfectivosaPagar.Text = txtEfectivoaPagar.Text;
+            CalcularTotalEfectivoPagar();
             CalcularSubtotal();
+        }
+
+        private void CalcularTotalEfectivoPagar()
+        {
+            cFunciones fun = new Clases.cFunciones();
+            Double EfectivoPagar = 0;
+            Double ImporteFacturado = 0;
+            Double Total = 0;
+
+            if (txtEfectivoaPagar.Text !="")
+            {
+                EfectivoPagar = fun.ToDouble(txtEfectivoaPagar.Text);
+            }
+
+             
+            if (txtImporteFacturado.Text != "")
+            {
+                ImporteFacturado = fun.ToDouble(txtImporteFacturado.Text);
+            }
+
+            Total = EfectivoPagar + ImporteFacturado;
+            txtTotalEfectivosaPagar.Text = fun.FormatoEnteroMiles(Total.ToString());
         }
 
         private void bnAgregarGastosRecepcion_Click_1(object sender, EventArgs e)
@@ -2577,6 +2623,7 @@ namespace Concesionaria
             Double EfectivoPagar = 0;
             Double Gastos = 0;
             Double Subtotal = 0;
+            
 
             if (txtEfectivo.Text != "")
                 Efectivo = fun.ToDouble(txtEfectivo.Text);
@@ -2586,10 +2633,12 @@ namespace Concesionaria
                 Vehiculo = fun.ToDouble(txtTotalVehiculo.Text);
             if (txtTotalEfectivosaPagar.Text != "")
                 EfectivoPagar = fun.ToDouble(txtTotalEfectivosaPagar.Text);
-         //   if (txtTotalGasto.Text != "")
-         //       Gastos = fun.ToDouble(txtTotalGasto.Text);
+           
 
-            Subtotal = Efectivo + Cheque + Vehiculo + EfectivoPagar + Gastos;
+            //   if (txtTotalGasto.Text != "")
+            //       Gastos = fun.ToDouble(txtTotalGasto.Text);
+
+            Subtotal = Efectivo + Cheque + Vehiculo + EfectivoPagar + Gastos ;
             TxtSubTotal.Text = Subtotal.ToString();
             TxtSubTotal.Text = fun.FormatoEnteroMiles(TxtSubTotal.Text);
         }
@@ -2643,6 +2692,15 @@ namespace Concesionaria
         {
             Int32 CodCliente = Convert.ToInt32(Principal.CodigoPrincipalAbm);
             BuscarClientexCodigo(CodCliente);
+        }
+
+        private void txtImporteFacturado_Leave(object sender, EventArgs e)
+        {   
+            Clases.cFunciones fun = new Clases.cFunciones();
+            txtImporteFacturado.Text = fun.FormatoEnteroMiles(txtImporteFacturado.Text);
+           // txtTotalEfectivosaPagar.Text = txtEfectivoaPagar.Text;
+            CalcularTotalEfectivoPagar();
+            CalcularSubtotal();
         }
     }
 }

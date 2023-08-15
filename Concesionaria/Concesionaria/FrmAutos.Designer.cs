@@ -189,6 +189,8 @@
             this.label44 = new System.Windows.Forms.Label();
             this.TxtSubTotal = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
+            this.txtImporteFacturado = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCliente)).BeginInit();
@@ -1681,6 +1683,8 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.txtImporteFacturado);
             this.tabPage2.Controls.Add(this.txtEfectivoaPagar);
             this.tabPage2.Controls.Add(this.label32);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -1693,7 +1697,7 @@
             // txtEfectivoaPagar
             // 
             this.txtEfectivoaPagar.BackColor = System.Drawing.SystemColors.Control;
-            this.txtEfectivoaPagar.Location = new System.Drawing.Point(92, 27);
+            this.txtEfectivoaPagar.Location = new System.Drawing.Point(149, 27);
             this.txtEfectivoaPagar.Name = "txtEfectivoaPagar";
             this.txtEfectivoaPagar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtEfectivoaPagar.Size = new System.Drawing.Size(246, 23);
@@ -1704,7 +1708,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(31, 27);
+            this.label32.Location = new System.Drawing.Point(26, 27);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(55, 17);
             this.label32.TabIndex = 47;
@@ -1849,6 +1853,25 @@
             this.label45.Size = new System.Drawing.Size(60, 17);
             this.label45.TabIndex = 55;
             this.label45.Text = "Subtotal";
+            // 
+            // txtImporteFacturado
+            // 
+            this.txtImporteFacturado.BackColor = System.Drawing.SystemColors.Control;
+            this.txtImporteFacturado.Location = new System.Drawing.Point(149, 56);
+            this.txtImporteFacturado.Name = "txtImporteFacturado";
+            this.txtImporteFacturado.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtImporteFacturado.Size = new System.Drawing.Size(246, 23);
+            this.txtImporteFacturado.TabIndex = 49;
+            this.txtImporteFacturado.Leave += new System.EventHandler(this.txtImporteFacturado_Leave);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(20, 56);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(123, 17);
+            this.label8.TabIndex = 50;
+            this.label8.Text = "Importe Facturado";
             // 
             // FrmAutos
             // 
@@ -2078,5 +2101,7 @@
         private System.Windows.Forms.Label lblGuion2;
         private System.Windows.Forms.Label lblGuion1;
         private System.Windows.Forms.Button btnBuscarCliente;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtImporteFacturado;
     }
 }

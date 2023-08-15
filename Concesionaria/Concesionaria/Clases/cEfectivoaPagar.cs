@@ -8,9 +8,9 @@ namespace Concesionaria.Clases
 {
     public class cEfectivoaPagar
     {
-        public void Insertar(SqlConnection con, SqlTransaction Transaccion,DateTime Fecha,double Importe,Int32 CodCompra,Int32? CodCliente,Int32 CodAuto)
+        public void Insertar(SqlConnection con, SqlTransaction Transaccion,DateTime Fecha,double Importe,Int32 CodCompra,Int32? CodCliente,Int32 CodAuto, int CodTipo, string Tipo)
         {
-            string sql = "insert into EfectivosaPagar(Fecha,Importe,Saldo,CodCompra,CodCliente,CodAuto,ImportePagado)";
+            string sql = "insert into EfectivosaPagar(Fecha,Importe,Saldo,CodCompra,CodCliente,CodAuto,ImportePagado,CodTipo,Tipo)";
             sql = sql + "values(" + "'" + Fecha.ToShortDateString () + "'";
             sql = sql + "," + Importe.ToString().Replace(",", ".");
             sql = sql + "," + Importe.ToString().Replace(",", ".");
@@ -21,6 +21,8 @@ namespace Concesionaria.Clases
                 sql = sql + "," + CodCliente.ToString();
             sql = sql + "," + CodAuto.ToString();
             sql = sql + ",0";
+            sql = sql + "," + CodTipo.ToString();
+            sql = sql + "," + "'" + Tipo + "'";
             sql = sql + ")";
             SqlCommand comand = new SqlCommand();
             comand.Connection = con;
@@ -34,7 +36,8 @@ namespace Concesionaria.Clases
             string sql = "select e.CodRegistro,e.Fecha,e.Importe,e.FechaPago,e.Saldo,";
             sql = sql + "(select c.Apellido from Cliente c where c.CodCliente = e.CodCliente) as Apellido";
             sql = sql + ",(select a.Patente from auto a where a.CodAuto = e.CodAuto) as Patente";
-            sql = sql + ",(select a.Descripcion from auto a where a.CodAuto = e.CodAuto) as Descripcion";
+            sql = sql + ",(select a.Descripcion from auto a where a.CodAuto = e.CodAuto) as Descripcion ";
+            sql = sql + ",Tipo";
             sql = sql + " from EfectivosaPagar e,auto au";
             sql = sql + " where e.CodAuto = au.CodAuto";
             sql = sql + " and e.Fecha >=" + "'" + FechaDesde.ToShortDateString () + "'" ;

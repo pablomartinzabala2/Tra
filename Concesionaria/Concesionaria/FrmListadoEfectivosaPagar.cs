@@ -57,10 +57,14 @@ namespace Concesionaria
             trdo = fun.TablaaMiles(trdo, "Saldo");
             trdo = fun.TablaaMiles(trdo, "Importe");
             Grilla.DataSource = trdo;
+            string Col = "0;10;10;10;10;10;20;20;10";
+            fun.AnchoColumnas(Grilla, Col);
+            /*
             Grilla.Columns[0].Visible = true; 
             Grilla.Columns[5].Width = 150;
             Grilla.Columns[6].Width = 150;
             Grilla.Columns[7].Width = 240;
+            */
             txtTotal.Text = fun.TotalizarColumna(trdo, "Saldo").ToString();
             if (txtTotal.Text != "")
                 txtTotal.Text = fun.FormatoEnteroMiles(txtTotal.Text);
