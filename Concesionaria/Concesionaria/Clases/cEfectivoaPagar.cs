@@ -34,10 +34,10 @@ namespace Concesionaria.Clases
         public DataTable GetEfectivosaPagarxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,int SoloImpago)
         {
             string sql = "select e.CodRegistro,e.Fecha,e.Importe,e.FechaPago,e.Saldo,";
-            sql = sql + "(select c.Apellido from Cliente c where c.CodCliente = e.CodCliente) as Apellido";
+            sql = sql + "(select (c.Nombre + ' ' + c.Apellido) from Cliente c where c.CodCliente = e.CodCliente) as Apellido";
             sql = sql + ",(select a.Patente from auto a where a.CodAuto = e.CodAuto) as Patente";
             sql = sql + ",(select a.Descripcion from auto a where a.CodAuto = e.CodAuto) as Descripcion ";
-            sql = sql + ",Tipo";
+            sql = sql + ",e.Tipo,e.CodTipo ";
             sql = sql + " from EfectivosaPagar e,auto au";
             sql = sql + " where e.CodAuto = au.CodAuto";
             sql = sql + " and e.Fecha >=" + "'" + FechaDesde.ToShortDateString () + "'" ;
