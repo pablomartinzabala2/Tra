@@ -45,12 +45,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
+            this.txtProveedor = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtProveedor);
             this.groupBox1.Controls.Add(this.dpFechaHasta);
             this.groupBox1.Controls.Add(this.dpFechaDesde);
             this.groupBox1.Controls.Add(this.txtEfectivo);
@@ -78,19 +80,20 @@
             // txtPatente
             // 
             this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPatente.Location = new System.Drawing.Point(568, 33);
+            this.txtPatente.Location = new System.Drawing.Point(865, 28);
             this.txtPatente.Name = "txtPatente";
             this.txtPatente.Size = new System.Drawing.Size(100, 23);
             this.txtPatente.TabIndex = 56;
+            this.txtPatente.Visible = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(505, 35);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 17);
+            this.label4.Size = new System.Drawing.Size(74, 17);
             this.label4.TabIndex = 55;
-            this.label4.Text = "Patente";
+            this.label4.Text = "Proveedor";
             // 
             // txtTotal
             // 
@@ -114,7 +117,7 @@
             // btnCobroPrenda
             // 
             this.btnCobroPrenda.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroPrenda.Location = new System.Drawing.Point(759, 28);
+            this.btnCobroPrenda.Location = new System.Drawing.Point(807, 27);
             this.btnCobroPrenda.Name = "btnCobroPrenda";
             this.btnCobroPrenda.Size = new System.Drawing.Size(40, 31);
             this.btnCobroPrenda.TabIndex = 48;
@@ -143,7 +146,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(674, 30);
+            this.btnBuscar.Location = new System.Drawing.Point(703, 27);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(88, 31);
             this.btnBuscar.TabIndex = 44;
@@ -182,7 +185,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(713, 456);
+            this.label5.Location = new System.Drawing.Point(681, 453);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 17);
             this.label5.TabIndex = 58;
@@ -191,7 +194,7 @@
             // txtEfectivo
             // 
             this.txtEfectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEfectivo.Location = new System.Drawing.Point(587, 450);
+            this.txtEfectivo.Location = new System.Drawing.Point(569, 453);
             this.txtEfectivo.Name = "txtEfectivo";
             this.txtEfectivo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtEfectivo.Size = new System.Drawing.Size(100, 23);
@@ -201,7 +204,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(523, 453);
+            this.label6.Location = new System.Drawing.Point(505, 453);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 17);
             this.label6.TabIndex = 60;
@@ -222,6 +225,14 @@
             this.dpFechaHasta.Name = "dpFechaHasta";
             this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
             this.dpFechaHasta.TabIndex = 72;
+            // 
+            // txtProveedor
+            // 
+            this.txtProveedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtProveedor.Location = new System.Drawing.Point(587, 31);
+            this.txtProveedor.Name = "txtProveedor";
+            this.txtProveedor.Size = new System.Drawing.Size(100, 23);
+            this.txtProveedor.TabIndex = 73;
             // 
             // FrmListadoEfectivosaPagar
             // 
@@ -262,5 +273,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dpFechaDesde;
         private System.Windows.Forms.DateTimePicker dpFechaHasta;
+        private System.Windows.Forms.TextBox txtProveedor;
     }
 }

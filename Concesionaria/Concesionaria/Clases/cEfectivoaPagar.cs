@@ -31,21 +31,24 @@ namespace Concesionaria.Clases
             comand.ExecuteNonQuery();
         }
 
-        public DataTable GetEfectivosaPagarxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,int SoloImpago)
+        public DataTable GetEfectivosaPagarxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,int SoloImpago, string Nombre)
         {
             string sql = "select e.CodRegistro,e.Fecha,e.Importe,e.FechaPago,e.Saldo,";
             sql = sql + "(select (c.Nombre + ' ' + c.Apellido) from Cliente c where c.CodCliente = e.CodCliente) as Apellido";
             sql = sql + ",(select a.Patente from auto a where a.CodAuto = e.CodAuto) as Patente";
             sql = sql + ",(select a.Descripcion from auto a where a.CodAuto = e.CodAuto) as Descripcion ";
             sql = sql + ",e.Tipo,e.CodTipo ";
-            sql = sql + " from EfectivosaPagar e,auto au";
-            sql = sql + " where e.CodAuto = au.CodAuto";
+            sql = sql + " from EfectivosaPagar e,auto au,Cliente cli";
+            sql = sql + " where e.CodAuto = au.CodAuto ";
+            sql = sql + " and e.CodCliente = cli.CodCliente ";
             sql = sql + " and e.Fecha >=" + "'" + FechaDesde.ToShortDateString () + "'" ;
             sql = sql + " and e.Fecha<=" + "'" + FechaHasta.ToShortDateString() + "'";
             if (Patente != "")
                 sql = sql + " and au.Patente like " + "'%" + Patente + "%'";
             if (SoloImpago == 1)
                 sql = sql + " and e.Saldo >0";
+            if (Nombre != "")
+                sql = sql + " and cli.Nombre like " + "'%" + Nombre + "%'";
             return cDb.ExecuteDataTable(sql);
         }
 

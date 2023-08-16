@@ -31,9 +31,6 @@ namespace Concesionaria
         {
             Clases.cFunciones fun = new Clases.cFunciones();
            
-
-            
-
             if (dpFechaDesde.Value > dpFechaHasta.Value)
             {
                 MessageBox.Show("La fecha desde debe ser inferior a la fecha hasta", Clases.cMensaje.Mensaje());
@@ -47,8 +44,12 @@ namespace Concesionaria
             Clases.cPrenda prenda = new Clases.cPrenda();
             DateTime FechaDesde = dpFechaDesde.Value;
             DateTime FechaHasta = dpFechaHasta.Value;
+            string Nombre = "";
+            if (txtProveedor.Text != "")
+                Nombre = txtProveedor.Text;
+
             Clases.cEfectivoaPagar obj = new Clases.cEfectivoaPagar();
-            DataTable trdo = obj.GetEfectivosaPagarxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(),Impagos);
+            DataTable trdo = obj.GetEfectivosaPagarxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(),Impagos,Nombre);
             CalcularTotalFactrado(trdo);
             trdo = fun.TablaaMiles(trdo, "Saldo");
             trdo = fun.TablaaMiles(trdo, "Importe");
