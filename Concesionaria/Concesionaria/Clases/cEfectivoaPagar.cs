@@ -31,7 +31,7 @@ namespace Concesionaria.Clases
             comand.ExecuteNonQuery();
         }
 
-        public DataTable GetEfectivosaPagarxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,int SoloImpago, string Nombre)
+        public DataTable GetEfectivosaPagarxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,int SoloImpago, string Nombre, Int32? CodTipo, string Descriipcion)
         {
             string sql = "select e.CodRegistro,e.Fecha,e.Importe,e.FechaPago,e.Saldo,";
             sql = sql + "(select (c.Nombre + ' ' + c.Apellido) from Cliente c where c.CodCliente = e.CodCliente) as Apellido";
@@ -49,6 +49,12 @@ namespace Concesionaria.Clases
                 sql = sql + " and e.Saldo >0";
             if (Nombre != "")
                 sql = sql + " and cli.Nombre like " + "'%" + Nombre + "%'";
+            if (CodTipo !=null)
+            {
+                sql = sql + " and e.CodTipo=" + CodTipo.ToString();
+            }
+            if (Descriipcion != "")
+                sql = sql + " and au.Descripcion like " + "'%" + Descriipcion + "%'";
             return cDb.ExecuteDataTable(sql);
         }
 

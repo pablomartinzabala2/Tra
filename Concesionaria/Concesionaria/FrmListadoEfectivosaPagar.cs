@@ -19,12 +19,15 @@ namespace Concesionaria
 
         private void FrmListadoEfectivosaPagar_Load(object sender, EventArgs e)
         {
+            cFunciones fun = new cFunciones();
             DateTime fecha = DateTime.Now;
             DateTime fecha1 = fecha.AddMonths(-1);
-           
             dpFechaDesde.Value = fecha1;
-           
             dpFechaHasta.Value = fecha;
+            DataTable tr = fun.CrearTabla("Codigo;Nombre");
+            tr = fun.AgregarFilas(tr, "1;Efectivo");
+            tr = fun.AgregarFilas(tr, "2;Facturado");
+            fun.LlenarComboDatatable(cmbTipo, tr, "Nombre", "Codigo");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -41,15 +44,25 @@ namespace Concesionaria
             if (chkImpagos.Checked == true)
                 Impagos = 1;
 
+            Int32? CodTipo = null;
+            if (cmbTipo.SelectedIndex > 0)
+                CodTipo = Convert.ToInt32(cmbTipo.SelectedValue);
+
             Clases.cPrenda prenda = new Clases.cPrenda();
             DateTime FechaDesde = dpFechaDesde.Value;
             DateTime FechaHasta = dpFechaHasta.Value;
+            string Descripcion = "";
             string Nombre = "";
             if (txtProveedor.Text != "")
                 Nombre = txtProveedor.Text;
 
+            if (txtDescripcion.Text !="")
+            {
+                Descripcion = txtDescripcion.Text;
+            }
+
             Clases.cEfectivoaPagar obj = new Clases.cEfectivoaPagar();
-            DataTable trdo = obj.GetEfectivosaPagarxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(),Impagos,Nombre);
+            DataTable trdo = obj.GetEfectivosaPagarxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Impagos, Nombre, CodTipo, Descripcion);
             CalcularTotalFactrado(trdo);
             trdo = fun.TablaaMiles(trdo, "Saldo");
             trdo = fun.TablaaMiles(trdo, "Importe");
