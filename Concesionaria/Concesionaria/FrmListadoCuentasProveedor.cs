@@ -19,7 +19,18 @@ namespace Concesionaria
 
         private void FrmListadoCuentasProveedor_Load(object sender, EventArgs e)
         {
+            CargarOrden();
             Buscar("","");
+        }
+
+        private void CargarOrden()
+        {
+            cFunciones fun = new cFunciones();
+            DataTable tbOrden = new DataTable();
+            tbOrden = fun.CrearTabla("Codigo;Nombre");
+            tbOrden = fun.AgregarFilas(tbOrden, "1;Asc");
+            tbOrden = fun.AgregarFilas(tbOrden, "2;Desc");
+            fun.LlenarComboDatatable(cmbOrden, tbOrden, "Nombre", "Codigo");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -32,8 +43,12 @@ namespace Concesionaria
         private void Buscar(string NombreCuenta, string Proveedor)
         {
             cFunciones fun = new cFunciones();
+            int? Orden = null;
+            if (cmbOrden.SelectedIndex > 0)
+                Orden = Convert.ToInt32(cmbOrden.SelectedValue);
+
             cCuentaProveedor Cuenta = new Clases.cCuentaProveedor();
-            DataTable trdo = Cuenta.GetCuentasResumidas(NombreCuenta, Proveedor);
+            DataTable trdo = Cuenta.GetCuentasResumidas(NombreCuenta, Proveedor, Orden);
             trdo = fun.TablaaMiles(trdo, "Importe");
             Grilla.DataSource = trdo;
             fun.AnchoColumnas(Grilla, "10;30;30;30");

@@ -53,7 +53,7 @@ namespace Concesionaria.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
-        public DataTable GetCuentasResumidas(string Cuenta, string NombreProveedor)
+        public DataTable GetCuentasResumidas(string Cuenta, string NombreProveedor, int? Orden)
         {
            // string sql = "select c.CodCuenta,c.Nombre,P.Nombre as Proveedor,sum(d.Saldo) as Importe";
             string sql = "select c.CodCuenta,c.Nombre,P.Nombre as Proveedor ";
@@ -73,6 +73,21 @@ namespace Concesionaria.Clases
             }
 
             sql = sql + " group by c.CodCuenta,c.Nombre,P.Nombre ";
+            
+
+            if (Orden !=null)
+            {
+                if (Orden ==1)
+                {
+                    sql = sql + " order by importe asc,c.CodCuenta,c.Nombre,P.Nombre  ";
+                }
+
+                if (Orden == 2)
+                {
+                    sql = sql + " order by importe desc,c.CodCuenta,c.Nombre,P.Nombre ";
+                }
+            }
+           
             return cDb.ExecuteDataTable(sql);
         }
 
