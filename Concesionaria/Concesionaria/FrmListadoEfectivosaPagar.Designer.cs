@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.txtProveedor = new System.Windows.Forms.TextBox();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
@@ -46,15 +49,16 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbTipo = new System.Windows.Forms.ComboBox();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.txtTotalGeneral = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTotalGeneral);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.cmbTipo);
@@ -82,6 +86,32 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Efectivos a pagar";
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescripcion.Location = new System.Drawing.Point(702, 34);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(112, 23);
+            this.txtDescripcion.TabIndex = 76;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(614, 34);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 17);
+            this.label7.TabIndex = 75;
+            this.label7.Text = "Descripción";
+            // 
+            // cmbTipo
+            // 
+            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Location = new System.Drawing.Point(837, 34);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Size = new System.Drawing.Size(102, 24);
+            this.cmbTipo.TabIndex = 74;
             // 
             // txtProveedor
             // 
@@ -178,9 +208,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(928, 462);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 17);
+            this.label3.Size = new System.Drawing.Size(44, 17);
             this.label3.TabIndex = 50;
-            this.label3.Text = "Total";
+            this.label3.Text = "Saldo";
             // 
             // btnCobroPrenda
             // 
@@ -240,31 +270,24 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Hasta";
             // 
-            // cmbTipo
+            // txtTotalGeneral
             // 
-            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTipo.FormattingEnabled = true;
-            this.cmbTipo.Location = new System.Drawing.Point(837, 34);
-            this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(102, 24);
-            this.cmbTipo.TabIndex = 74;
+            this.txtTotalGeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalGeneral.Location = new System.Drawing.Point(447, 456);
+            this.txtTotalGeneral.Name = "txtTotalGeneral";
+            this.txtTotalGeneral.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTotalGeneral.Size = new System.Drawing.Size(100, 23);
+            this.txtTotalGeneral.TabIndex = 77;
             // 
-            // txtDescripcion
+            // label8
             // 
-            this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescripcion.Location = new System.Drawing.Point(702, 34);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(112, 23);
-            this.txtDescripcion.TabIndex = 76;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(614, 34);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 17);
-            this.label7.TabIndex = 75;
-            this.label7.Text = "Descripción";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(392, 459);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(40, 17);
+            this.label8.TabIndex = 78;
+            this.label8.Text = "Total";
             // 
             // FrmListadoEfectivosaPagar
             // 
@@ -309,5 +332,7 @@
         private System.Windows.Forms.ComboBox cmbTipo;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtTotalGeneral;
+        private System.Windows.Forms.Label label8;
     }
 }

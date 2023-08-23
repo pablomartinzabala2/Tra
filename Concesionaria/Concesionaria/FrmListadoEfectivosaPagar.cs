@@ -90,17 +90,20 @@ namespace Concesionaria
             {
                 if (trdo.Rows[i]["CodTipo"].ToString ()=="1")
                 {
-                    Efectivo = Efectivo + Convert.ToDouble(trdo.Rows[i]["Importe"]);
+                    Efectivo = Efectivo + Convert.ToDouble(trdo.Rows[i]["Saldo"]);
                 }
 
                 if (trdo.Rows[i]["CodTipo"].ToString() == "2")
                 {
-                    Facturado = Facturado + Convert.ToDouble(trdo.Rows[i]["Importe"]);
+                    Facturado = Facturado + Convert.ToDouble(trdo.Rows[i]["Saldo"]);
                 }
             }
 
             txtTotalFacturado.Text = fun.FormatoEnteroMiles(Facturado.ToString());
             txtEfectivo.Text = fun.FormatoEnteroMiles(Efectivo.ToString());
+            Double TotalGeneral = fun.TotalizarColumna(trdo, "Importe");
+            txtTotalGeneral.Text = fun.FormatoEnteroMiles(TotalGeneral.ToString());
+
         }
 
         private void btnCobroPrenda_Click(object sender, EventArgs e)
