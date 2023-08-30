@@ -98,6 +98,8 @@
             this.listadoDeudasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoCuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ingresoDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -118,8 +120,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.cajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ingresoDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -680,6 +680,21 @@
             this.listadoDePagosToolStripMenuItem.Text = "Listado de Pagos";
             this.listadoDePagosToolStripMenuItem.Click += new System.EventHandler(this.listadoDePagosToolStripMenuItem_Click);
             // 
+            // cajaToolStripMenuItem
+            // 
+            this.cajaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ingresoDeCajaToolStripMenuItem});
+            this.cajaToolStripMenuItem.Name = "cajaToolStripMenuItem";
+            this.cajaToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
+            this.cajaToolStripMenuItem.Text = "Caja";
+            // 
+            // ingresoDeCajaToolStripMenuItem
+            // 
+            this.ingresoDeCajaToolStripMenuItem.Name = "ingresoDeCajaToolStripMenuItem";
+            this.ingresoDeCajaToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.ingresoDeCajaToolStripMenuItem.Text = "Ingreso de Caja";
+            this.ingresoDeCajaToolStripMenuItem.Click += new System.EventHandler(this.ingresoDeCajaToolStripMenuItem_Click);
+            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -885,20 +900,6 @@
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // cajaToolStripMenuItem
-            // 
-            this.cajaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ingresoDeCajaToolStripMenuItem});
-            this.cajaToolStripMenuItem.Name = "cajaToolStripMenuItem";
-            this.cajaToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
-            this.cajaToolStripMenuItem.Text = "Caja";
-            // 
-            // ingresoDeCajaToolStripMenuItem
-            // 
-            this.ingresoDeCajaToolStripMenuItem.Name = "ingresoDeCajaToolStripMenuItem";
-            this.ingresoDeCajaToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.ingresoDeCajaToolStripMenuItem.Text = "Ingreso de Caja";
             // 
             // Principal
             // 

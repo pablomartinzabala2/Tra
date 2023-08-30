@@ -833,5 +833,11 @@ namespace Concesionaria
             FrmListadoPagoProveedor frm = new FrmListadoPagoProveedor();
             frm.Show();
         }
+
+        private void ingresoDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmIngresoCaja frm = new FrmIngresoCaja();
+            frm.Show();
+        }
     }
 }

@@ -29,15 +29,42 @@
         private void InitializeComponent()
         {
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.txtConcepto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.CmbTipoMov = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtImporte = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Grilla = new System.Windows.Forms.DataGridView();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtCuentaProveedor = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtProveedor = new System.Windows.Forms.TextBox();
+            this.btnBuscarCuenta = new System.Windows.Forms.Button();
+            this.txtCodCuenta = new System.Windows.Forms.TextBox();
             this.Grupo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.txtCodCuenta);
+            this.Grupo.Controls.Add(this.btnBuscarCuenta);
+            this.Grupo.Controls.Add(this.label10);
+            this.Grupo.Controls.Add(this.txtCuentaProveedor);
+            this.Grupo.Controls.Add(this.label5);
+            this.Grupo.Controls.Add(this.txtProveedor);
+            this.Grupo.Controls.Add(this.btnBuscar);
+            this.Grupo.Controls.Add(this.Grilla);
+            this.Grupo.Controls.Add(this.label4);
+            this.Grupo.Controls.Add(this.txtImporte);
+            this.Grupo.Controls.Add(this.label3);
+            this.Grupo.Controls.Add(this.CmbTipoMov);
+            this.Grupo.Controls.Add(this.btnGuardar);
             this.Grupo.Controls.Add(this.label2);
             this.Grupo.Controls.Add(this.dpFechaHasta);
             this.Grupo.Controls.Add(this.txtConcepto);
@@ -45,15 +72,32 @@
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(21, 21);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(556, 229);
+            this.Grupo.Size = new System.Drawing.Size(793, 439);
             this.Grupo.TabIndex = 14;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del Barrio";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 17);
+            this.label2.TabIndex = 73;
+            this.label2.Text = "Fecha";
+            // 
+            // dpFechaHasta
+            // 
+            this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaHasta.Location = new System.Drawing.Point(127, 38);
+            this.dpFechaHasta.Name = "dpFechaHasta";
+            this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaHasta.TabIndex = 72;
+            // 
             // txtConcepto
             // 
             this.txtConcepto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtConcepto.Location = new System.Drawing.Point(127, 66);
+            this.txtConcepto.Location = new System.Drawing.Point(127, 67);
             this.txtConcepto.Name = "txtConcepto";
             this.txtConcepto.Size = new System.Drawing.Size(287, 23);
             this.txtConcepto.TabIndex = 1;
@@ -67,36 +111,143 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Concepto";
             // 
-            // dpFechaHasta
+            // btnGuardar
             // 
-            this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaHasta.Location = new System.Drawing.Point(127, 38);
-            this.dpFechaHasta.Name = "dpFechaHasta";
-            this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
-            this.dpFechaHasta.TabIndex = 72;
+            this.btnGuardar.Location = new System.Drawing.Point(311, 183);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 34);
+            this.btnGuardar.TabIndex = 74;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // label2
+            // CmbTipoMov
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 17);
-            this.label2.TabIndex = 73;
-            this.label2.Text = "Fecha";
+            this.CmbTipoMov.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTipoMov.FormattingEnabled = true;
+            this.CmbTipoMov.Location = new System.Drawing.Point(127, 96);
+            this.CmbTipoMov.Name = "CmbTipoMov";
+            this.CmbTipoMov.Size = new System.Drawing.Size(178, 24);
+            this.CmbTipoMov.TabIndex = 75;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(25, 96);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 17);
+            this.label3.TabIndex = 76;
+            this.label3.Text = "Tipo";
+            // 
+            // txtImporte
+            // 
+            this.txtImporte.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtImporte.Location = new System.Drawing.Point(127, 183);
+            this.txtImporte.Name = "txtImporte";
+            this.txtImporte.Size = new System.Drawing.Size(178, 23);
+            this.txtImporte.TabIndex = 77;
+            this.txtImporte.Leave += new System.EventHandler(this.txtImporte_Leave);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(25, 183);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 17);
+            this.label4.TabIndex = 78;
+            this.label4.Text = "Importe";
+            // 
+            // Grilla
+            // 
+            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla.Location = new System.Drawing.Point(19, 223);
+            this.Grilla.Name = "Grilla";
+            this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Grilla.Size = new System.Drawing.Size(740, 189);
+            this.Grilla.TabIndex = 79;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom2;
+            this.btnBuscar.Location = new System.Drawing.Point(220, 34);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(40, 27);
+            this.btnBuscar.TabIndex = 80;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(25, 155);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 17);
+            this.label10.TabIndex = 84;
+            this.label10.Text = "Cuenta";
+            // 
+            // txtCuentaProveedor
+            // 
+            this.txtCuentaProveedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCuentaProveedor.Location = new System.Drawing.Point(127, 155);
+            this.txtCuentaProveedor.Name = "txtCuentaProveedor";
+            this.txtCuentaProveedor.Size = new System.Drawing.Size(178, 23);
+            this.txtCuentaProveedor.TabIndex = 83;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 17);
+            this.label5.TabIndex = 82;
+            this.label5.Text = "Proveedor";
+            // 
+            // txtProveedor
+            // 
+            this.txtProveedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtProveedor.Location = new System.Drawing.Point(127, 126);
+            this.txtProveedor.Name = "txtProveedor";
+            this.txtProveedor.Size = new System.Drawing.Size(178, 23);
+            this.txtProveedor.TabIndex = 81;
+            this.txtProveedor.TextChanged += new System.EventHandler(this.txtProveedor_TextChanged);
+            // 
+            // btnBuscarCuenta
+            // 
+            this.btnBuscarCuenta.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnBuscarCuenta.Location = new System.Drawing.Point(311, 129);
+            this.btnBuscarCuenta.Name = "btnBuscarCuenta";
+            this.btnBuscarCuenta.Size = new System.Drawing.Size(55, 34);
+            this.btnBuscarCuenta.TabIndex = 85;
+            this.btnBuscarCuenta.UseVisualStyleBackColor = true;
+            this.btnBuscarCuenta.Click += new System.EventHandler(this.btnBuscarCuenta_Click);
+            // 
+            // txtCodCuenta
+            // 
+            this.txtCodCuenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.txtCodCuenta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodCuenta.Enabled = false;
+            this.txtCodCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodCuenta.Location = new System.Drawing.Point(388, 135);
+            this.txtCodCuenta.Name = "txtCodCuenta";
+            this.txtCodCuenta.Size = new System.Drawing.Size(47, 23);
+            this.txtCodCuenta.TabIndex = 86;
+            this.txtCodCuenta.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // FrmIngresoCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(589, 324);
+            this.ClientSize = new System.Drawing.Size(826, 498);
             this.Controls.Add(this.Grupo);
             this.MaximizeBox = false;
             this.Name = "FrmIngresoCaja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingreso de Caja";
+            this.Load += new System.EventHandler(this.FrmIngresoCaja_Load);
             this.Grupo.ResumeLayout(false);
             this.Grupo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -108,5 +259,18 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dpFechaHasta;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.ComboBox CmbTipoMov;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtImporte;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView Grilla;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtCuentaProveedor;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtProveedor;
+        private System.Windows.Forms.Button btnBuscarCuenta;
+        private System.Windows.Forms.TextBox txtCodCuenta;
     }
 }
