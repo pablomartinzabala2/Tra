@@ -19,6 +19,10 @@ namespace Concesionaria
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (Validar ()==false)
+            {
+                return;
+            }
             cMovimientoCaja mov = new cMovimientoCaja();
             string Concepto = txtConcepto.Text;
             DateTime Fecha = Convert.ToDateTime(dpFechaHasta.Value);
@@ -33,6 +37,30 @@ namespace Concesionaria
                 CodCuenta = Convert.ToInt32(txtCodCuenta.Text);
             mov.Insertar(Concepto, Fecha,CodTipo,Importe,CodCuenta);
             MessageBox.Show("Datos grabados correctamente ");
+            CargarGrilla(Fecha);
+        }
+
+        public Boolean Validar()
+        {   
+            if (txtConcepto.Text =="")
+            {
+                MessageBox.Show("Debe ingresar un concepto");
+                return false;
+            }
+              
+            if (txtImporte.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un Importe");
+                return false;
+            }
+             
+            if (txtCodCuenta.Text == "")
+            {
+                MessageBox.Show("Debe ingresar una cuenta");
+                return false;
+            }
+
+            return true;
         }
 
         private void FrmIngresoCaja_Load(object sender, EventArgs e)

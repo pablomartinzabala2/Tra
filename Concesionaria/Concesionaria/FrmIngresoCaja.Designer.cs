@@ -231,6 +231,7 @@
             this.txtCodCuenta.Name = "txtCodCuenta";
             this.txtCodCuenta.Size = new System.Drawing.Size(47, 23);
             this.txtCodCuenta.TabIndex = 86;
+            this.txtCodCuenta.Visible = false;
             this.txtCodCuenta.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // FrmIngresoCaja
@@ -241,6 +242,7 @@
             this.ClientSize = new System.Drawing.Size(826, 498);
             this.Controls.Add(this.Grupo);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmIngresoCaja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingreso de Caja";
