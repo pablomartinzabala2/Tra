@@ -118,6 +118,8 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.cajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ingresoDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -132,6 +134,7 @@
             this.viewMenu,
             this.mnuMovimientos,
             this.proveedoresToolStripMenuItem,
+            this.cajaToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -883,6 +886,20 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // cajaToolStripMenuItem
+            // 
+            this.cajaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ingresoDeCajaToolStripMenuItem});
+            this.cajaToolStripMenuItem.Name = "cajaToolStripMenuItem";
+            this.cajaToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
+            this.cajaToolStripMenuItem.Text = "Caja";
+            // 
+            // ingresoDeCajaToolStripMenuItem
+            // 
+            this.ingresoDeCajaToolStripMenuItem.Name = "ingresoDeCajaToolStripMenuItem";
+            this.ingresoDeCajaToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.ingresoDeCajaToolStripMenuItem.Text = "Ingreso de Caja";
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -998,6 +1015,8 @@
         private System.Windows.Forms.ToolStripMenuItem chequeesGeneralToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
         private System.Windows.Forms.ToolStripMenuItem listadoDePagosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cajaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ingresoDeCajaToolStripMenuItem;
     }
 }
 

@@ -489,6 +489,12 @@
     <Compile Include="FrmInformeDeuda.Designer.cs">
       <DependentUpon>FrmInformeDeuda.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmIngresoCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmIngresoCaja.Designer.cs">
+      <DependentUpon>FrmIngresoCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmIngresoCheque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1093,6 +1099,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInformeDeuda.resx">
       <DependentUpon>FrmInformeDeuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIngresoCaja.resx">
+      <DependentUpon>FrmIngresoCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIngresoCheque.resx">
       <DependentUpon>FrmIngresoCheque.cs</DependentUpon>

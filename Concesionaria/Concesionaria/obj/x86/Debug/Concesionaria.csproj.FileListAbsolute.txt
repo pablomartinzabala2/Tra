@@ -1151,3 +1151,4 @@ D:\PABLO\PR\TRA\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.Prue
 D:\PABLO\PR\TRA\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.csproj.GenerateResource.Cache
 D:\PABLO\PR\TRA\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.cache
 D:\PABLO\PR\TRA\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.compiled
+D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmIngresoCaja.resources
