@@ -114,7 +114,10 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(813, 412);
             this.Controls.Add(this.Grupo);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmConsultaMovimientoCaja";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de movimiento de caja";
             this.Load += new System.EventHandler(this.FrmConsultaMovimientoCaja_Load);
             this.Grupo.ResumeLayout(false);
