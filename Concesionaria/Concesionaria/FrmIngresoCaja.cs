@@ -27,15 +27,24 @@ namespace Concesionaria
             string Concepto = txtConcepto.Text;
             DateTime Fecha = Convert.ToDateTime(dpFechaHasta.Value);
             Int32? CodTipo = null;
-            Double Importe = 0;
+            Double ImporteIngreso = 0;
+            Double ImporteEgreso = 0;
             Int32 CodCuenta = 0;
+            int TingoIngresoEgreso = Convert.ToInt32(cmbTipoIngresoEgreso.SelectedValue);
             if (txtImporte.Text != "")
-                Importe = fun.ToDouble(txtImporte.Text);
+            {
+                if (TingoIngresoEgreso ==1)
+                    ImporteIngreso = fun.ToDouble(txtImporte.Text);
+
+                if (TingoIngresoEgreso == 2)
+                    ImporteEgreso = fun.ToDouble(txtImporte.Text);
+            }
+                
             if (CmbTipoMov.SelectedIndex > 0)
                 CodTipo = Convert.ToInt32(CmbTipoMov.SelectedValue);
             if (txtCodCuenta.Text != "")
                 CodCuenta = Convert.ToInt32(txtCodCuenta.Text);
-            mov.Insertar(Concepto, Fecha,CodTipo,Importe,CodCuenta);
+            mov.Insertar(Concepto, Fecha,CodTipo,ImporteIngreso, ImporteEgreso,CodCuenta);
             MessageBox.Show("Datos grabados correctamente ");
             CargarGrilla(Fecha);
         }
@@ -60,6 +69,19 @@ namespace Concesionaria
                 return false;
             }
 
+            if (CmbTipoMov.SelectedIndex<1)
+            {
+                MessageBox.Show("Debe seleccionar un tipo ");
+                return false;
+
+            }
+
+            if (cmbTipoIngresoEgreso.SelectedIndex <1)
+            {
+                MessageBox.Show("Debe seleccionar un tipo de ingreso");
+                return false;
+            }
+
             return true;
         }
 
@@ -68,7 +90,17 @@ namespace Concesionaria
             fun = new Clases.cFunciones();
             fun.LlenarCombo(CmbTipoMov, "TipoMovimiento", "Nombre", "CodTipo");
             DateTime Fecha = dpFechaHasta.Value;
+            CargarComboIngresoEgreso();
             CargarGrilla(Fecha);
+        }
+
+        private void CargarComboIngresoEgreso()
+        {
+            DataTable trdo = new DataTable();
+            trdo = fun.CrearTabla("Codigo;Nombre");
+            trdo = fun.AgregarFilas(trdo,"1;Ingreso");
+            trdo = fun.AgregarFilas(trdo,"2;Egreso");
+            fun.LlenarComboDatatable(cmbTipoIngresoEgreso, trdo, "Nombre", "Codigo");
         }
 
         private void txtImporte_Leave(object sender, EventArgs e)
@@ -76,15 +108,19 @@ namespace Concesionaria
             if (txtImporte.Text != "")
                 txtImporte.Text = fun.FormatoEnteroMiles(txtImporte.Text);
         }
+            
+            
 
         private void CargarGrilla(DateTime Fecha)
         {
             cMovimientoCaja mov = new cMovimientoCaja();
-            DataTable trdo = mov.GetMovimientoxFecha(Fecha);
+            DataTable trdo = mov.GetMovimientoxFecha(Fecha,Fecha);
             trdo = fun.TablaaMiles(trdo, "ImporteIngreso");
+            trdo = fun.TablaaMiles(trdo, "ImporteEgreso");
             Grilla.DataSource = trdo;
-            Grilla.Columns[4].HeaderText = "Importe";
-            fun.AnchoColumnas(Grilla, "0;15;25;15;15;15;15");
+            Grilla.Columns[6].HeaderText = "Ingreso";
+            Grilla.Columns[7].HeaderText = "Egreso";
+            fun.AnchoColumnas(Grilla, "0;15;20;15;15;15;10;10");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -123,6 +159,34 @@ namespace Concesionaria
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow ==null)
+            {
+                MessageBox.Show("Debe seleccionar un elemento para continuar ");
+                return;
+            }
+
+            string msj = "Confirma eliminar el Cliente ";
+            var result = MessageBox.Show(msj, "Información",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
+
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            Int32 CodMovimiento = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
+            cMovimientoCaja mov = new cMovimientoCaja();
+            mov.Borrar(CodMovimiento);
+            MessageBox.Show("Datos borrados correctamente");
+            DateTime Fecha = dpFechaHasta.Value;
+            CargarGrilla(Fecha);
 
         }
     }

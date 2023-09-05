@@ -388,6 +388,12 @@
     <Compile Include="FrmConsultaMarca.Designer.cs">
       <DependentUpon>FrmConsultaMarca.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConsultaMovimientoCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultaMovimientoCaja.Designer.cs">
+      <DependentUpon>FrmConsultaMovimientoCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmControl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1049,6 +1055,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaMarca.resx">
       <DependentUpon>FrmConsultaMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaMovimientoCaja.resx">
+      <DependentUpon>FrmConsultaMovimientoCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmControl.resx">
       <DependentUpon>FrmControl.cs</DependentUpon>

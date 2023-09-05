@@ -129,5 +129,10 @@ namespace Concesionaria
             fun.LimpiarGenerico(this);
             txtCodigo.Text = "";
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
