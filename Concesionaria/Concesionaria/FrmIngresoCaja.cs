@@ -30,6 +30,8 @@ namespace Concesionaria
             Double ImporteIngreso = 0;
             Double ImporteEgreso = 0;
             Int32 CodCuenta = 0;
+            Int32? CodStock = null;
+
             int TingoIngresoEgreso = Convert.ToInt32(cmbTipoIngresoEgreso.SelectedValue);
             if (txtImporte.Text != "")
             {
@@ -39,14 +41,18 @@ namespace Concesionaria
                 if (TingoIngresoEgreso == 2)
                     ImporteEgreso = fun.ToDouble(txtImporte.Text);
             }
+
+            if (txtCodStock.Text != "")
+                CodStock = Convert.ToInt32(txtCodStock.Text);
                 
             if (CmbTipoMov.SelectedIndex > 0)
                 CodTipo = Convert.ToInt32(CmbTipoMov.SelectedValue);
             if (txtCodCuenta.Text != "")
                 CodCuenta = Convert.ToInt32(txtCodCuenta.Text);
-            mov.Insertar(Concepto, Fecha,CodTipo,ImporteIngreso, ImporteEgreso,CodCuenta);
+            mov.Insertar(Concepto, Fecha,CodTipo,ImporteIngreso, ImporteEgreso,CodCuenta, CodStock);
             MessageBox.Show("Datos grabados correctamente ");
             CargarGrilla(Fecha);
+            Limpiar();
         }
 
         public Boolean Validar()
@@ -108,9 +114,7 @@ namespace Concesionaria
             if (txtImporte.Text != "")
                 txtImporte.Text = fun.FormatoEnteroMiles(txtImporte.Text);
         }
-            
-            
-
+                      
         private void CargarGrilla(DateTime Fecha)
         {
             cMovimientoCaja mov = new cMovimientoCaja();
@@ -188,6 +192,49 @@ namespace Concesionaria
             DateTime Fecha = dpFechaHasta.Value;
             CargarGrilla(Fecha);
 
+        }
+
+        private void btnBuscarVehiculo_Click(object sender, EventArgs e)
+        {
+            FrmBuscarAuto form = new FrmBuscarAuto();
+            form.FormClosing += new FormClosingEventHandler(formBuscadorAuto_FormClosing);
+            form.ShowDialog();
+        }
+
+        private void formBuscadorAuto_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Int32 CodAuto = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            cAuto auto = new Clases.cAuto();
+            BuscarAutoxCodigo(CodAuto);
+        }
+
+        private void BuscarAutoxCodigo(Int32 COdAuto)
+        {
+            Clases.cAuto auto = new Clases.cAuto();
+            DataTable trdo = auto.GetAutoxCodigo(COdAuto);
+            if (trdo.Rows.Count > 0)
+            {
+                txtCodStock.Text = Principal.CodStock.ToString();
+                string NombreAuto = "";     
+                string Descripcion = trdo.Rows[0]["Descripcion"].ToString();
+                string Anio = trdo.Rows[0]["NombreAnio"].ToString();
+                NombreAuto = Descripcion + " " + Anio;
+                txtVehiculo.Text = NombreAuto;
+                txtConcepto.Text = NombreAuto;
+            }
+        }
+
+        private void Limpiar()
+        {
+            txtCodStock.Text = "";
+            txtVehiculo.Text = "";
+            txtConcepto.Text = "";
+            txtImporte.Text = "";
+            txtCodCuenta.Text = "";
+            txtProveedor.Text = "";
+            txtCuentaProveedor.Text = "";
+          //  cmbTipoIngresoEgreso.SelectedIndex = 0;
+          //  CmbTipoMov.SelectedIndex = 0;
         }
     }
 }

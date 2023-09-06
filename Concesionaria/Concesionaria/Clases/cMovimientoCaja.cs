@@ -8,10 +8,10 @@ namespace Concesionaria.Clases
 {
     public  class cMovimientoCaja
     {
-        public void Insertar(string Concepto,DateTime Fecha, Int32? CodTipo, Double ImporteIngreso,Double ImporteEgreso, Int32 CodCuentaProveedor)
+        public void Insertar(string Concepto,DateTime Fecha, Int32? CodTipo, Double ImporteIngreso,Double ImporteEgreso, Int32 CodCuentaProveedor,Int32? CodStock)
         {
             string sql = "insert into MovimientoCaja(";
-            sql = sql + "Concepto,Fecha,CodTipo,ImporteIngreso,ImporteEgreso,CodCuentaProveedor";
+            sql = sql + "Concepto,Fecha,CodTipo,ImporteIngreso,ImporteEgreso,CodCuentaProveedor,CodStock";
             sql = sql + ")";
             sql = sql + " values (" + "'" + Concepto + "'";
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
@@ -29,6 +29,11 @@ namespace Concesionaria.Clases
                 sql = sql + ",null";
             
             sql = sql + "," + CodCuentaProveedor.ToString();
+
+            if (CodStock != null)
+                sql = sql + "," + CodStock.ToString();
+            else
+                sql = sql + ",null";
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
         }
