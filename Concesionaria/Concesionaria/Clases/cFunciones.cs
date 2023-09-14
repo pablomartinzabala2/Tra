@@ -590,7 +590,7 @@ namespace Concesionaria.Clases
             Clases.cFunciones fun = new Clases.cFunciones ();
             for (int i = 0; i < trdo.Rows.Count; i++)
             {
-                if (trdo.Rows[i][Columna].ToString() != "")
+                     if (trdo.Rows[i][Columna].ToString() != "")
                     Total = Total + Convert.ToDouble(trdo.Rows[i][Columna].ToString());
             }
             return Total;

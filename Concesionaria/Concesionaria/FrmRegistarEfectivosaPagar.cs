@@ -41,15 +41,22 @@ namespace Concesionaria
                 txtPatente.Text = trdo.Rows[0]["Patente"].ToString();
                 txtImporte.Text = trdo.Rows[0]["Importe"].ToString (); 
                 txtSaldo.Text = trdo.Rows[0]["Saldo"].ToString ();
-                 txtFecha.Text =trdo.Rows[0]["FechaPago"].ToString ();
-                 
-                 if (txtImporte.Text != "")
-                 {
+                txtFecha.Text =trdo.Rows[0]["FechaPago"].ToString ();
+                txtFacturado.Text = trdo.Rows[0]["Facturado"].ToString();
+
+                if (txtImporte.Text != "")
+                {
                      txtImporte.Text = fun.SepararDecimales(txtImporte.Text);
                      txtImporte.Text = fun.FormatoEnteroMiles(txtImporte.Text);
-                 }
+                }
+                
+                if (txtFacturado.Text != "")
+                {
+                    txtFacturado.Text = fun.SepararDecimales(txtFacturado.Text);
+                    txtFacturado.Text = fun.FormatoEnteroMiles(txtFacturado.Text);
+                }
 
-                 if (txtSaldo.Text != "")
+                if (txtSaldo.Text != "")
                  {
                      txtSaldo.Text = fun.SepararDecimales(txtSaldo.Text);
                      txtSaldo.Text = fun.FormatoEnteroMiles(txtSaldo.Text);

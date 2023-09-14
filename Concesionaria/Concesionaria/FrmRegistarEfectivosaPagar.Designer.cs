@@ -47,11 +47,27 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtIngresarImporteFacturado = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtSaldoFacturado = new System.Windows.Forms.TextBox();
+            this.txtFacturado = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.txtIngresarImporteFacturado);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.txtSaldoFacturado);
+            this.groupBox1.Controls.Add(this.txtFacturado);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.btnAnular);
@@ -100,7 +116,7 @@
             // 
             // btnAnular
             // 
-            this.btnAnular.Location = new System.Drawing.Point(88, 243);
+            this.btnAnular.Location = new System.Drawing.Point(315, 149);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(75, 31);
             this.btnAnular.TabIndex = 53;
@@ -110,7 +126,7 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(179, 243);
+            this.btnGrabar.Location = new System.Drawing.Point(234, 152);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 31);
             this.btnGrabar.TabIndex = 52;
@@ -121,7 +137,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(25, 214);
+            this.label7.Location = new System.Drawing.Point(24, 214);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 17);
             this.label7.TabIndex = 51;
@@ -137,7 +153,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(25, 185);
+            this.label6.Location = new System.Drawing.Point(24, 185);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 17);
             this.label6.TabIndex = 49;
@@ -146,11 +162,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 156);
+            this.label5.Location = new System.Drawing.Point(24, 156);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 17);
+            this.label5.Size = new System.Drawing.Size(66, 17);
             this.label5.TabIndex = 48;
-            this.label5.Text = "Importe";
+            this.label5.Text = "Efedctivo";
             // 
             // txtSaldo
             // 
@@ -171,7 +187,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 127);
+            this.label4.Location = new System.Drawing.Point(24, 127);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 45;
@@ -197,7 +213,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 98);
+            this.label3.Location = new System.Drawing.Point(24, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 17);
             this.label3.TabIndex = 4;
@@ -213,7 +229,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 68);
+            this.label2.Location = new System.Drawing.Point(24, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 17);
             this.label2.TabIndex = 2;
@@ -229,11 +245,79 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 39);
+            this.label1.Location = new System.Drawing.Point(24, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cliente";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(24, 301);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 17);
+            this.label8.TabIndex = 68;
+            this.label8.Text = "a pagar";
+            // 
+            // txtIngresarImporteFacturado
+            // 
+            this.txtIngresarImporteFacturado.Location = new System.Drawing.Point(103, 301);
+            this.txtIngresarImporteFacturado.Name = "txtIngresarImporteFacturado";
+            this.txtIngresarImporteFacturado.Size = new System.Drawing.Size(114, 23);
+            this.txtIngresarImporteFacturado.TabIndex = 67;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(24, 272);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 17);
+            this.label9.TabIndex = 66;
+            this.label9.Text = "Saldo";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(24, 243);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 17);
+            this.label10.TabIndex = 65;
+            this.label10.Text = "Facturado";
+            // 
+            // txtSaldoFacturado
+            // 
+            this.txtSaldoFacturado.Location = new System.Drawing.Point(103, 272);
+            this.txtSaldoFacturado.Name = "txtSaldoFacturado";
+            this.txtSaldoFacturado.ReadOnly = true;
+            this.txtSaldoFacturado.Size = new System.Drawing.Size(114, 23);
+            this.txtSaldoFacturado.TabIndex = 64;
+            // 
+            // txtFacturado
+            // 
+            this.txtFacturado.Location = new System.Drawing.Point(103, 243);
+            this.txtFacturado.Name = "txtFacturado";
+            this.txtFacturado.ReadOnly = true;
+            this.txtFacturado.Size = new System.Drawing.Size(114, 23);
+            this.txtFacturado.TabIndex = 63;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(315, 235);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 31);
+            this.button3.TabIndex = 70;
+            this.button3.Text = "Anular";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(234, 238);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 31);
+            this.button4.TabIndex = 69;
+            this.button4.Text = "Grabar";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // FrmRegistarEfectivosaPagar
             // 
@@ -275,5 +359,13 @@
         private System.Windows.Forms.Button btnAnular;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtIngresarImporteFacturado;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtSaldoFacturado;
+        private System.Windows.Forms.TextBox txtFacturado;
     }
 }

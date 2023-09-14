@@ -66,15 +66,11 @@ namespace Concesionaria
             CalcularTotalFactrado(trdo);
             trdo = fun.TablaaMiles(trdo, "Saldo");
             trdo = fun.TablaaMiles(trdo, "Importe");
+            trdo = fun.TablaaMiles(trdo, "Facturado");
             Grilla.DataSource = trdo;
             string Col = "0;10;10;10;10;10;20;20;10;0";
-            fun.AnchoColumnas(Grilla, Col);
-            /*
-            Grilla.Columns[0].Visible = true; 
-            Grilla.Columns[5].Width = 150;
-            Grilla.Columns[6].Width = 150;
-            Grilla.Columns[7].Width = 240;
-            */
+           // fun.AnchoColumnas(Grilla, Col);
+           
             txtTotal.Text = fun.TotalizarColumna(trdo, "Saldo").ToString();
             if (txtTotal.Text != "")
                 txtTotal.Text = fun.FormatoEnteroMiles(txtTotal.Text);
@@ -86,23 +82,25 @@ namespace Concesionaria
             cFunciones fun = new cFunciones();
             Double Efectivo = 0;
             Double Facturado = 0;
+            Double Total = 0;
             for (int i = 0; i < trdo.Rows.Count ; i++)
             {
-                if (trdo.Rows[i]["CodTipo"].ToString ()=="1")
+                if (trdo.Rows[i]["Importe"].ToString ()!="0")
                 {
-                    Efectivo = Efectivo + Convert.ToDouble(trdo.Rows[i]["Saldo"]);
+                    Efectivo = Efectivo + Convert.ToDouble(trdo.Rows[i]["Importe"]);
                 }
 
-                if (trdo.Rows[i]["CodTipo"].ToString() == "2")
+                if (trdo.Rows[i]["Facturado"].ToString().Trim () != "")
                 {
-                    Facturado = Facturado + Convert.ToDouble(trdo.Rows[i]["Saldo"]);
+                    Facturado = Facturado + Convert.ToDouble(trdo.Rows[i]["Facturado"]);
                 }
             }
 
+            Total = Efectivo + Facturado;
             txtTotalFacturado.Text = fun.FormatoEnteroMiles(Facturado.ToString());
             txtEfectivo.Text = fun.FormatoEnteroMiles(Efectivo.ToString());
-            Double TotalGeneral = fun.TotalizarColumna(trdo, "Importe");
-            txtTotalGeneral.Text = fun.FormatoEnteroMiles(TotalGeneral.ToString());
+          //  Double TotalGeneral = fun.TotalizarColumna(trdo, "Total");
+         //   txtTotalGeneral.Text = fun.FormatoEnteroMiles(TotalGeneral.ToString());
 
         }
 
