@@ -80,6 +80,16 @@ namespace Concesionaria.Clases
             cDb.ExecutarNonQuery (sql);
         }
 
+        public void ActualizarPagoFacturado(Int32 CodRegistro, DateTime Fecha, double Importe)
+        {
+            string sql = "Update EfectivosaPagar";
+            sql = sql + " set SaldoFacturado = SaldoFacturado -" + Importe.ToString().Replace(",", ".");
+            sql = sql + ",ImportePagadoFacturado = ImportePagadoFacturado + " + Importe.ToString().Replace(",", ".");
+            sql = sql + ",FechaPago=" + "'" + Fecha.ToShortDateString() + "'";
+            sql = sql + " where CodRegistro=" + CodRegistro.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
+
         public Double TotalSaldo()
         {
             double Importe = 0;
@@ -97,6 +107,16 @@ namespace Concesionaria.Clases
             string sql = "update efectivosapagar";
             sql = sql + " set ImportePagado =0";
             sql = sql + ",Saldo = Importe";
+            sql = sql + ",FechaPago =null";
+            sql = sql + " where CodRegistro=" + CodRegistro.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
+
+        public void AnularFacturado(Int32 CodRegistro)
+        {
+            string sql = "update efectivosapagar";
+            sql = sql + " set ImportePagadoFacturado =0";
+            sql = sql + ",SaldoFacturado = Facturado ";
             sql = sql + ",FechaPago =null";
             sql = sql + " where CodRegistro=" + CodRegistro.ToString();
             cDb.ExecutarNonQuery(sql);

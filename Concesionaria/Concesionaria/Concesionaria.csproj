@@ -134,6 +134,7 @@
     <Compile Include="Clases\cSaldoCuota.cs" />
     <Compile Include="Clases\cSaldoCuotasAnteriores.cs" />
     <Compile Include="Clases\cSaldoEfectivoPagar.cs" />
+    <Compile Include="Clases\cSaldoEfectivoPagarFacturado.cs" />
     <Compile Include="Clases\cStockAuto.cs" />
     <Compile Include="Clases\cTarjeta.cs" />
     <Compile Include="Clases\cTransferencia.cs" />

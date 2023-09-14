@@ -41,6 +41,7 @@ namespace Concesionaria
                 txtPatente.Text = trdo.Rows[0]["Patente"].ToString();
                 txtImporte.Text = trdo.Rows[0]["Importe"].ToString (); 
                 txtSaldo.Text = trdo.Rows[0]["Saldo"].ToString ();
+                txtSaldoFacturado.Text = trdo.Rows[0]["SaldoFacturado"].ToString();
                 txtFecha.Text =trdo.Rows[0]["FechaPago"].ToString ();
                 txtFacturado.Text = trdo.Rows[0]["Facturado"].ToString();
 
@@ -57,11 +58,28 @@ namespace Concesionaria
                 }
 
                 if (txtSaldo.Text != "")
-                 {
+                {
                      txtSaldo.Text = fun.SepararDecimales(txtSaldo.Text);
                      txtSaldo.Text = fun.FormatoEnteroMiles(txtSaldo.Text);
-                 }
-                 txtIngresarImporte.Focus();
+                }
+                 
+                if (txtSaldoFacturado.Text != "")
+                {
+                    txtSaldoFacturado.Text = fun.SepararDecimales(txtSaldoFacturado.Text);
+                    txtSaldoFacturado.Text = fun.FormatoEnteroMiles(txtSaldoFacturado.Text);
+                }
+
+                if (txtSaldo.Text =="0")
+                {
+                    btnGrabar.Enabled = false;
+                }
+
+                if (txtSaldoFacturado.Text =="0")
+                {
+                    btnGuardarImporteFacturado.Enabled = false;
+                }
+
+                txtIngresarImporte.Focus();
             }
         }
 
@@ -151,6 +169,78 @@ namespace Concesionaria
         {
             FrmMensajeEfectivo frm = new FrmMensajeEfectivo();
             frm.ShowDialog();
+        }
+
+        private void btnGuardarImporteFacturado_Click(object sender, EventArgs e)
+        {
+            if (fun.ValidarFecha(txtFecha.Text) == false)
+            {
+                Mensaje("La fecha ingresada es incorrecta");
+                return;
+            }
+             
+            if (txtIngresarImporteFacturado.Text == "")
+            {
+                Mensaje("Debe ingresar un importe para continuar");
+                return;
+            }
+
+            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+            Int32 CodRegistro = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            double Importe = fun.ToDouble(txtIngresarImporteFacturado.Text);
+            double Saldo = fun.ToDouble(txtSaldoFacturado.Text);
+            double aPagar = fun.ToDouble(txtIngresarImporte.Text);
+            double ImporteInicial = fun.ToDouble(txtImporte.Text);
+            if (aPagar > Saldo)
+            {
+                Mensaje("El Importe a pagar supera el saldo");
+                return;
+            }
+            Clases.cSaldoEfectivoPagarFacturado objSaldo = new Clases.cSaldoEfectivoPagarFacturado();
+
+            Clases.cEfectivoaPagar obj = new Clases.cEfectivoaPagar();
+            obj.ActualizarPagoFacturado (CodRegistro, Fecha, Importe);
+            string Descripcion = "PAGO EFECTIVO " + txtCliente.Text;
+            objSaldo.InsertarSaldo(CodRegistro, Fecha, Importe);
+            Descripcion = Descripcion + ", PATENTE " + txtPatente.Text;
+            Clases.cMovimiento mov = new Clases.cMovimiento();
+            mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, -1 * Importe, 0, 0, 0, 0, Fecha, Descripcion);
+            Mensaje("Datos grabados correctamente");
+            
+            btnGuardarImporteFacturado.Enabled = false; 
+        }
+
+        private void btnAnularFacturado_Click(object sender, EventArgs e)
+        {
+            if (fun.ValidarFecha(txtFecha.Text) == false)
+            {
+                Mensaje("La fecha ingresada es incorrecta");
+                return;
+            }  
+            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+            Int32 CodRegistro = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            Clases.cEfectivoaPagar obj = new Clases.cEfectivoaPagar();
+            string Descripcion = "ANULACION DE PAGO A " + txtCliente.Text;
+            Descripcion = Descripcion + ", PATENTE " + txtPatente.Text;
+            double Total = fun.ToDouble(txtFacturado.Text);
+            double Saldo = fun.ToDouble(txtSaldoFacturado.Text);
+            double Pagado = Total - Saldo;
+
+            if (Total == Saldo)
+            {
+                Mensaje("No hay registros para anular");
+                return;
+            }
+            
+            Clases.cSaldoEfectivoPagarFacturado saldoEf = new Clases.cSaldoEfectivoPagarFacturado();
+            obj.AnularFacturado(CodRegistro);
+            saldoEf.Borrar(CodRegistro);
+            Clases.cMovimiento mov = new Clases.cMovimiento();
+            mov.RegistrarMovimientoDescripcion(-1, Convert.ToInt32(Principal.CodigoPrincipalAbm), Pagado, 0, 0, 0, 0, Fecha, Descripcion);
+            Mensaje("Datos grabados correctamente");
+            btnAnularFacturado.Enabled = false; 
+            btnGrabar.Enabled = false;
+
         }
     }
 }
