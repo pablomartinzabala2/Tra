@@ -8,9 +8,9 @@ namespace Concesionaria.Clases
 {
     public class cEfectivoaPagar
     {
-        public void Insertar(SqlConnection con, SqlTransaction Transaccion,DateTime Fecha,double Importe,Int32 CodCompra,Int32? CodCliente,Int32 CodAuto, Double Facturado)
+        public void Insertar(SqlConnection con, SqlTransaction Transaccion,DateTime Fecha,double Importe,Int32 CodCompra,Int32? CodCliente,Int32 CodAuto, Double Facturado,Double Total)
         {
-            string sql = "insert into EfectivosaPagar(Fecha,Importe,Saldo,CodCompra,CodCliente,CodAuto,ImportePagado,Facturado)";
+            string sql = "insert into EfectivosaPagar(Fecha,Importe,Saldo,CodCompra,CodCliente,CodAuto,ImportePagado,Facturado,SaldoFacturado,Total)";
             sql = sql + "values(" + "'" + Fecha.ToShortDateString () + "'";
             sql = sql + "," + Importe.ToString().Replace(",", ".");
             sql = sql + "," + Importe.ToString().Replace(",", ".");
@@ -22,7 +22,9 @@ namespace Concesionaria.Clases
             sql = sql + "," + CodAuto.ToString();
             sql = sql + ",0";
             sql = sql + "," + Facturado.ToString().Replace(",", ".");
-            sql = sql + ")";
+            sql = sql + "," + Facturado.ToString().Replace(",", ".");
+            sql = sql + "," + Total.ToString().Replace(",", ".");
+            sql = sql + ")"; 
             SqlCommand comand = new SqlCommand();
             comand.Connection = con;
             comand.Transaction = Transaccion;
@@ -36,7 +38,7 @@ namespace Concesionaria.Clases
             sql = sql + "(select (c.Nombre + ' ' + c.Apellido) from Cliente c where c.CodCliente = e.CodCliente) as Apellido";
             sql = sql + ",(select a.Patente from auto a where a.CodAuto = e.CodAuto) as Patente";
             sql = sql + ",(select a.Descripcion from auto a where a.CodAuto = e.CodAuto) as Descripcion ";
-            sql = sql + ",e.Facturado ";
+            sql = sql + ",e.Facturado, e.SaldoFacturado ,e.Total ";
             sql = sql + " from EfectivosaPagar e,auto au,Cliente cli";
             sql = sql + " where e.CodAuto = au.CodAuto ";
             sql = sql + " and e.CodCliente = cli.CodCliente ";

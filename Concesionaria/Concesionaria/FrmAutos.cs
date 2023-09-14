@@ -358,6 +358,7 @@ namespace Concesionaria
                     GrabarMovimientoGastoRecepcion(con, Transaccion, CodCompra);
                 if (txtTotalEfectivosaPagar.Text != "" && txtTotalEfectivosaPagar.Text != "0")
                 {
+                    Double TotalEfectivoPagar = fun.ToDouble(txtTotalEfectivosaPagar.Text);
                     Double ImporteEfectivo = 0;
                     Double Facturado = 0;
                     if (txtEfectivoaPagar.Text != "")
@@ -382,7 +383,7 @@ namespace Concesionaria
                         }
                        // double ImporteaPagar =
                          Clases.cEfectivoaPagar objEft = new Clases.cEfectivoaPagar();
-                        objEft.Insertar(con, Transaccion, Convert.ToDateTime(txtFecha.Text), ImporteEfectivo, CodCompra, CodCliente, CodAuto ,Facturado);
+                        objEft.Insertar(con, Transaccion, Convert.ToDateTime(txtFecha.Text), ImporteEfectivo, CodCompra, CodCliente, CodAuto ,Facturado, TotalEfectivoPagar);
                     }
                 }
                 if (txtTotalVehiculo.Text != "")
