@@ -173,6 +173,8 @@
             this.label26 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtImporteFacturado = new System.Windows.Forms.TextBox();
             this.txtEfectivoaPagar = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.txtTotalEfectivo = new System.Windows.Forms.TextBox();
@@ -189,8 +191,6 @@
             this.label44 = new System.Windows.Forms.Label();
             this.TxtSubTotal = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
-            this.txtImporteFacturado = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCliente)).BeginInit();
@@ -549,7 +549,7 @@
             // 
             this.cmbCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCiudad.FormattingEnabled = true;
-            this.cmbCiudad.Location = new System.Drawing.Point(506, 109);
+            this.cmbCiudad.Location = new System.Drawing.Point(497, 209);
             this.cmbCiudad.Name = "cmbCiudad";
             this.cmbCiudad.Size = new System.Drawing.Size(246, 24);
             this.cmbCiudad.TabIndex = 6;
@@ -1694,6 +1694,25 @@
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "Efectivos a pagar";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(20, 56);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(123, 17);
+            this.label8.TabIndex = 50;
+            this.label8.Text = "Importe Facturado";
+            // 
+            // txtImporteFacturado
+            // 
+            this.txtImporteFacturado.BackColor = System.Drawing.SystemColors.Control;
+            this.txtImporteFacturado.Location = new System.Drawing.Point(149, 56);
+            this.txtImporteFacturado.Name = "txtImporteFacturado";
+            this.txtImporteFacturado.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtImporteFacturado.Size = new System.Drawing.Size(246, 23);
+            this.txtImporteFacturado.TabIndex = 49;
+            this.txtImporteFacturado.Leave += new System.EventHandler(this.txtImporteFacturado_Leave);
+            // 
             // txtEfectivoaPagar
             // 
             this.txtEfectivoaPagar.BackColor = System.Drawing.SystemColors.Control;
@@ -1708,7 +1727,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(26, 27);
+            this.label32.Location = new System.Drawing.Point(20, 27);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(55, 17);
             this.label32.TabIndex = 47;
@@ -1853,25 +1872,6 @@
             this.label45.Size = new System.Drawing.Size(60, 17);
             this.label45.TabIndex = 55;
             this.label45.Text = "Subtotal";
-            // 
-            // txtImporteFacturado
-            // 
-            this.txtImporteFacturado.BackColor = System.Drawing.SystemColors.Control;
-            this.txtImporteFacturado.Location = new System.Drawing.Point(149, 56);
-            this.txtImporteFacturado.Name = "txtImporteFacturado";
-            this.txtImporteFacturado.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtImporteFacturado.Size = new System.Drawing.Size(246, 23);
-            this.txtImporteFacturado.TabIndex = 49;
-            this.txtImporteFacturado.Leave += new System.EventHandler(this.txtImporteFacturado_Leave);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(20, 56);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(123, 17);
-            this.label8.TabIndex = 50;
-            this.label8.Text = "Importe Facturado";
             // 
             // FrmAutos
             // 

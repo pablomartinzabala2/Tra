@@ -371,7 +371,7 @@ namespace Concesionaria
                         Facturado = fun.ToDouble(txtImporteFacturado.Text);
                     }
 
-                    if (txtEfectivoaPagar.Text != "" && txtEfectivoaPagar.Text != "0")
+                    if (txtTotalEfectivosaPagar.Text != "" && txtTotalEfectivosaPagar.Text != "0")
                     {
                         Int32 CodAuto = Convert.ToInt32(txtCodAuto.Text);
                         Int32? CodCliente = null;
@@ -2067,8 +2067,31 @@ namespace Concesionaria
                         txtCostoxAuto.Text = fun.FormatoEnteroMiles(txtCostoxAuto.Text);
                     }
                 }
+                BuscarEfectivoaPagar(CodCompra);
                 CalcularSubtotal();
             }
+        }
+
+        private void BuscarEfectivoaPagar(Int32 CodCompra)
+        {
+            cFunciones fun = new cFunciones();
+            Double Total = 0;
+            Double Importe = 0;
+            Double ImporteFacturado = 0;
+            cEfectivoaPagar efe = new cEfectivoaPagar();
+            DataTable trdo = efe.GetEfectivoPagarxCodCompra(CodCompra);
+            if (trdo.Rows.Count >0)
+            {
+                if (trdo.Rows[0]["CodCompra"].ToString ()!="")
+                {
+                    Importe = Convert.ToDouble(trdo.Rows[0]["Importe"]);
+                    ImporteFacturado = Convert.ToDouble(trdo.Rows[0]["Facturado"]);
+                    Total = Importe + ImporteFacturado;
+                }
+            }
+            txtTotalEfectivosaPagar.Text = fun.FormatoEnteroMiles(Total.ToString());
+            txtEfectivoaPagar.Text = fun.FormatoEnteroMiles(Importe.ToString());
+            txtImporteFacturado.Text = fun.FormatoEnteroMiles(ImporteFacturado.ToString());
         }
 
         private void BuscarChequexCompra(Int32 CodCompra)
