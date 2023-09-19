@@ -70,10 +70,10 @@ namespace Concesionaria
             trdo = fun.TablaaMiles(trdo, "SaldoFacturado");
             trdo = fun.TablaaMiles(trdo, "Total");
             Grilla.DataSource = trdo;
-            string Col = "0;10;10;10;10;10;10;10;10;10;10";
+            string Col = "0;10;20;10;10;10;10;10;10;10";
             fun.AnchoColumnas(Grilla, Col);
-            Grilla.Columns[5].HeaderText = "Proveedor";
-            Grilla.Columns[9].HeaderText = "Saldo Fac";
+            Grilla.Columns[2].HeaderText = "Proveedor";
+          //  Grilla.Columns[9].HeaderText = "Saldo Fac";
            
 
         }

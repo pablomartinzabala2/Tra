@@ -184,12 +184,12 @@ namespace Concesionaria
                 Mensaje("Debe ingresar un importe para continuar");
                 return;
             }
-
+            
             DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
             Int32 CodRegistro = Convert.ToInt32(Principal.CodigoPrincipalAbm);
-            double Importe = fun.ToDouble(txtIngresarImporteFacturado.Text);
+            double Importe = fun.ToDouble(txtFacturado.Text);
             double Saldo = fun.ToDouble(txtSaldoFacturado.Text);
-            double aPagar = fun.ToDouble(txtIngresarImporte.Text);
+            double aPagar = fun.ToDouble(txtIngresarImporteFacturado.Text);
             double ImporteInicial = fun.ToDouble(txtImporte.Text);
             if (aPagar > Saldo)
             {
