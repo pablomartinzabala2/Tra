@@ -199,7 +199,7 @@ namespace Concesionaria
             Clases.cSaldoEfectivoPagarFacturado objSaldo = new Clases.cSaldoEfectivoPagarFacturado();
 
             Clases.cEfectivoaPagar obj = new Clases.cEfectivoaPagar();
-            obj.ActualizarPagoFacturado (CodRegistro, Fecha, Importe);
+            obj.ActualizarPagoFacturado (CodRegistro, Fecha, aPagar);
             string Descripcion = "PAGO EFECTIVO " + txtCliente.Text;
             objSaldo.InsertarSaldo(CodRegistro, Fecha, Importe);
             Descripcion = Descripcion + ", PATENTE " + txtPatente.Text;
