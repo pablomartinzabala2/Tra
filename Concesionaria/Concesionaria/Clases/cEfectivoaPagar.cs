@@ -8,9 +8,9 @@ namespace Concesionaria.Clases
 {
     public class cEfectivoaPagar
     {
-        public void Insertar(SqlConnection con, SqlTransaction Transaccion,DateTime Fecha,double Importe,Int32 CodCompra,Int32? CodCliente,Int32 CodAuto, Double Facturado,Double Total)
+        public void Insertar(SqlConnection con, SqlTransaction Transaccion,DateTime Fecha,double Importe,Int32 CodCompra,Int32? CodCliente,Int32 CodAuto, Double Facturado,Double Total, DateTime FechaVencimiento)
         {
-            string sql = "insert into EfectivosaPagar(Fecha,Importe,Saldo,CodCompra,CodCliente,CodAuto,ImportePagado,Facturado,SaldoFacturado,Total)";
+            string sql = "insert into EfectivosaPagar(Fecha,Importe,Saldo,CodCompra,CodCliente,CodAuto,ImportePagado,Facturado,SaldoFacturado,Total,FechaVencimiento)";
             sql = sql + "values(" + "'" + Fecha.ToShortDateString () + "'";
             sql = sql + "," + Importe.ToString().Replace(",", ".");
             sql = sql + "," + Importe.ToString().Replace(",", ".");
@@ -24,6 +24,7 @@ namespace Concesionaria.Clases
             sql = sql + "," + Facturado.ToString().Replace(",", ".");
             sql = sql + "," + Facturado.ToString().Replace(",", ".");
             sql = sql + "," + Total.ToString().Replace(",", ".");
+            sql = sql + "," + "'" + FechaVencimiento.ToShortDateString() + "'";
             sql = sql + ")"; 
             SqlCommand comand = new SqlCommand();
             comand.Connection = con;
@@ -32,9 +33,10 @@ namespace Concesionaria.Clases
             comand.ExecuteNonQuery();
         }
 
-        public DataTable GetEfectivosaPagarxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,int SoloImpago, string Nombre, Int32? CodTipo, string Descriipcion)
+        public DataTable GetEfectivosaPagarxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,int SoloImpago, string Nombre, string Descriipcion, int Vencida)
         {
-            string sql = "select e.CodRegistro,e.Fecha,";
+            DateTime Hoy = DateTime.Now;
+            string sql = "select e.CodRegistro,e.FechaVencimiento,";
             sql = sql + "(select (c.Nombre + ' ' + c.Apellido) from Cliente c where c.CodCliente = e.CodCliente) as Apellido";
             sql = sql + ",(select a.Patente from auto a where a.CodAuto = e.CodAuto) as Patente";
             sql = sql + ",(select a.Descripcion from auto a where a.CodAuto = e.CodAuto) as Descripcion ";
@@ -50,9 +52,16 @@ namespace Concesionaria.Clases
                 sql = sql + " and ( e.Saldo + e.SaldoFacturado ) > 0 ";
             if (Nombre != "")
                 sql = sql + " and cli.Nombre like " + "'%" + Nombre + "%'";
+            /*
             if (CodTipo !=null)
             {
                 sql = sql + " and e.CodTipo=" + CodTipo.ToString();
+            }
+            */
+            if (Vencida == 1)
+            {
+                sql = sql + " and e.FechaVencimiento >=" + "'" + Hoy.ToShortDateString() + "'";
+                sql = sql + " and e.FechaPago is null ";
             }
             if (Descriipcion != "")
                 sql = sql + " and au.Descripcion like " + "'%" + Descriipcion + "%'";

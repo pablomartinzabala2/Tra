@@ -173,6 +173,8 @@
             this.label26 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dpFechaVencimientoEfePagar = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.txtImporteFacturado = new System.Windows.Forms.TextBox();
             this.txtEfectivoaPagar = new System.Windows.Forms.TextBox();
@@ -279,7 +281,7 @@
             // 
             this.cmbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAnio.FormattingEnabled = true;
-            this.cmbAnio.Location = new System.Drawing.Point(120, 79);
+            this.cmbAnio.Location = new System.Drawing.Point(120, 82);
             this.cmbAnio.Name = "cmbAnio";
             this.cmbAnio.Size = new System.Drawing.Size(246, 24);
             this.cmbAnio.TabIndex = 49;
@@ -307,7 +309,7 @@
             // 
             this.cmbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbColor.FormattingEnabled = true;
-            this.cmbColor.Location = new System.Drawing.Point(503, 201);
+            this.cmbColor.Location = new System.Drawing.Point(507, 200);
             this.cmbColor.Name = "cmbColor";
             this.cmbColor.Size = new System.Drawing.Size(258, 24);
             this.cmbColor.TabIndex = 47;
@@ -499,7 +501,7 @@
             // btnAgregarCiudad
             // 
             this.btnAgregarCiudad.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.btnAgregarCiudad.Location = new System.Drawing.Point(758, 106);
+            this.btnAgregarCiudad.Location = new System.Drawing.Point(755, 113);
             this.btnAgregarCiudad.Name = "btnAgregarCiudad";
             this.btnAgregarCiudad.Size = new System.Drawing.Size(40, 28);
             this.btnAgregarCiudad.TabIndex = 17;
@@ -549,7 +551,7 @@
             // 
             this.cmbCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCiudad.FormattingEnabled = true;
-            this.cmbCiudad.Location = new System.Drawing.Point(497, 209);
+            this.cmbCiudad.Location = new System.Drawing.Point(507, 116);
             this.cmbCiudad.Name = "cmbCiudad";
             this.cmbCiudad.Size = new System.Drawing.Size(246, 24);
             this.cmbCiudad.TabIndex = 6;
@@ -1683,6 +1685,8 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.dpFechaVencimientoEfePagar);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.txtImporteFacturado);
             this.tabPage2.Controls.Add(this.txtEfectivoaPagar);
@@ -1693,6 +1697,23 @@
             this.tabPage2.Size = new System.Drawing.Size(815, 168);
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "Efectivos a pagar";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(20, 94);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(72, 17);
+            this.label9.TabIndex = 52;
+            this.label9.Text = "Fecha Vto";
+            // 
+            // dpFechaVencimientoEfePagar
+            // 
+            this.dpFechaVencimientoEfePagar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaVencimientoEfePagar.Location = new System.Drawing.Point(149, 94);
+            this.dpFechaVencimientoEfePagar.Name = "dpFechaVencimientoEfePagar";
+            this.dpFechaVencimientoEfePagar.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaVencimientoEfePagar.TabIndex = 51;
             // 
             // label8
             // 
@@ -2103,5 +2124,7 @@
         private System.Windows.Forms.Button btnBuscarCliente;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtImporteFacturado;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dpFechaVencimientoEfePagar;
     }
 }

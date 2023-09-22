@@ -281,7 +281,8 @@ namespace Concesionaria
             double TotalCheques = 0;
             double EfectivoaPagar = 0;
             double Gastos = 0;
-
+            DateTime FechaVencimiento = Convert.ToDateTime(dpFechaVencimientoEfePagar.Value);
+                                                      //  dpFachaVencimiento
             if (txtTotal.Text != "")
                 Total = fun.ToDouble(txtTotal.Text);
 
@@ -331,7 +332,7 @@ namespace Concesionaria
                 }
 
             }
-
+            
             SqlConnection con = new SqlConnection();
             con.ConnectionString = Clases.cConexion.Cadenacon();
             con.Open();
@@ -383,7 +384,7 @@ namespace Concesionaria
                         }
                        // double ImporteaPagar =
                          Clases.cEfectivoaPagar objEft = new Clases.cEfectivoaPagar();
-                        objEft.Insertar(con, Transaccion, Convert.ToDateTime(txtFecha.Text), ImporteEfectivo, CodCompra, CodCliente, CodAuto ,Facturado, TotalEfectivoPagar);
+                        objEft.Insertar(con, Transaccion, Convert.ToDateTime(txtFecha.Text), ImporteEfectivo, CodCompra, CodCliente, CodAuto ,Facturado, TotalEfectivoPagar, FechaVencimiento);
                     }
                 }
                 if (txtTotalVehiculo.Text != "")
@@ -437,6 +438,8 @@ namespace Concesionaria
             tbListaPapeles.Rows.Clear();
             tbCliente.Rows.Clear();
             GrillaCliente.DataSource = tbCliente;
+            txtEfectivoaPagar.Text = "";
+            txtImporteFacturado.Text = "";
         }
 
         private void CargarImagen(Int32 CodAuto)
@@ -2073,7 +2076,7 @@ namespace Concesionaria
         }
 
         private void BuscarEfectivoaPagar(Int32 CodCompra)
-        {
+        {    
             cFunciones fun = new cFunciones();
             Double Total = 0;
             Double Importe = 0;
@@ -2087,6 +2090,10 @@ namespace Concesionaria
                     Importe = Convert.ToDouble(trdo.Rows[0]["Importe"]);
                     ImporteFacturado = Convert.ToDouble(trdo.Rows[0]["Facturado"]);
                     Total = Importe + ImporteFacturado;
+                    if (trdo.Rows[0]["FechaVencimiento"].ToString ()!="")
+                    {
+                        dpFechaVencimientoEfePagar.Value = Convert.ToDateTime(trdo.Rows[0]["FechaVencimiento"]);
+                    }
                 }
             }
             txtTotalEfectivosaPagar.Text = fun.FormatoEnteroMiles(Total.ToString());
@@ -2133,6 +2140,10 @@ namespace Concesionaria
             DataTable trdo = cliente.GetClientesxCodigo(CodCliente);
             if (trdo.Rows.Count > 0)
             {
+                if (trdo.Rows[0]["CodTipoDoc"].ToString()!="")
+                {
+                    cmbDocumento.SelectedValue = trdo.Rows[0]["CodTipoDoc"].ToString();
+                }
                 txtNroDoc.Text = trdo.Rows[0]["NroDocumento"].ToString();
                 txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
                 txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
