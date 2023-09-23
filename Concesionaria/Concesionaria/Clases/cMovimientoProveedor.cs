@@ -130,6 +130,41 @@ namespace Concesionaria.Clases
             cDb.ExecutarNonQuery(sql);
         }
 
+        public void CorregirSaldo(int CodCuentaProveedor)
+        {
+            Int32 CodMovimiento = 0;
+            Double Saldo = 0, Debe = 0, Haber = 0;
+            string sql = "select * from MovimientoProveedor ";
+            sql = sql + " where CodCuentaProveedor=" + CodCuentaProveedor.ToString();
+            sql = sql + " order by CodMovimiento asc ";
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            for (int i = 0; i < trdo.Rows.Count ; i++)
+            {
+                if (i==0)
+                {
+                    CodMovimiento = Convert.ToInt32(trdo.Rows[i]["CodMovimiento"]);
+                    Debe = Convert.ToDouble(trdo.Rows[i]["Debe"]);
+                    Haber = Convert.ToDouble(trdo.Rows[i]["Haber"]);
+                    Saldo = Debe - Haber;
+                    sql = "Update MovimientoProveedor ";
+                    sql = sql + " set Saldo =" + Saldo.ToString();
+                    sql = sql + " where CodMovimiento =" + CodMovimiento.ToString();
+                    cDb.ExecutarNonQuery(sql);
+                }
+                else
+                {
+                    CodMovimiento = Convert.ToInt32(trdo.Rows[i]["CodMovimiento"]);
+                    Debe = Convert.ToDouble(trdo.Rows[i]["Debe"]);
+                    Haber = Convert.ToDouble(trdo.Rows[i]["Haber"]);
+                    Saldo = Saldo + Debe - Haber;
+                    sql = "Update MovimientoProveedor ";
+                    sql = sql + " set Saldo =" + Saldo.ToString();
+                    sql = sql + " where CodMovimiento =" + CodMovimiento.ToString();
+                    cDb.ExecutarNonQuery(sql);
+                }
+            }
+        }
+
 
     }
 }

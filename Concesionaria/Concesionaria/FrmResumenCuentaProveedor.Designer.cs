@@ -44,12 +44,14 @@
             this.txtProveedor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCorregir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnCorregir);
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.btnImprimir);
             this.groupBox1.Controls.Add(this.label5);
@@ -205,6 +207,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Proveedor";
             // 
+            // btnCorregir
+            // 
+            this.btnCorregir.Location = new System.Drawing.Point(496, 422);
+            this.btnCorregir.Name = "btnCorregir";
+            this.btnCorregir.Size = new System.Drawing.Size(75, 23);
+            this.btnCorregir.TabIndex = 84;
+            this.btnCorregir.Text = "Corregir";
+            this.btnCorregir.UseVisualStyleBackColor = true;
+            this.btnCorregir.Click += new System.EventHandler(this.btnCorregir_Click);
+            // 
             // FrmResumenCuentaProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,5 +251,6 @@
         private System.Windows.Forms.DateTimePicker dpFechaDesde;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnCorregir;
     }
 }

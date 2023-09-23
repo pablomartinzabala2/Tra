@@ -10,7 +10,7 @@ namespace Concesionaria.Clases
     {
         public void InsertarMensaje(string Mensaje,DateTime Fecha,Int32 CodVenta)
         {
-            string sql = "Insert into MensajesCuotas";
+            string sql = "Insert into                   ";
             sql = sql + "(Mensaje,Fecha,CodVenta)";
             sql = sql + "values(" + "'" + Mensaje + "'";
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";

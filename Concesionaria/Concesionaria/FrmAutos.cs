@@ -2144,6 +2144,7 @@ namespace Concesionaria
                 {
                     cmbDocumento.SelectedValue = trdo.Rows[0]["CodTipoDoc"].ToString();
                 }
+
                 txtNroDoc.Text = trdo.Rows[0]["NroDocumento"].ToString();
                 txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
                 txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();

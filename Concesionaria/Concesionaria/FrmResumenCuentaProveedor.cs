@@ -152,5 +152,14 @@ namespace Concesionaria
         {
             Buscar();
         }
+
+        private void btnCorregir_Click(object sender, EventArgs e)
+        {
+            Int32 CodCuenta = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            cMovimientoProveedor mov = new cMovimientoProveedor();
+            mov.CorregirSaldo(CodCuenta);
+            MessageBox.Show("Datos grabados correctamente");
+            Buscar();
+        }
     }
 }
