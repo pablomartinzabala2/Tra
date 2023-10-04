@@ -41,14 +41,21 @@ namespace Concesionaria
 
         private void CargarGrilla(DateTime FechaDesde,DateTime FechaHasta)
         {
+            Double Ingreso = 0, Egreso = 0, Saldo = 0;
             cMovimientoCaja mov = new cMovimientoCaja();
             DataTable trdo = mov.GetMovimientoxFecha(FechaDesde, FechaHasta);
+            Ingreso = fun.TotalizarColumna(trdo, "ImporteIngreso");
+            Egreso = fun.TotalizarColumna(trdo, "ImporteEgreso");
+            Saldo = Ingreso - Egreso;
             trdo = fun.TablaaMiles(trdo, "ImporteIngreso");
             trdo = fun.TablaaMiles(trdo, "ImporteEgreso");
             Grilla.DataSource = trdo;
             Grilla.Columns[6].HeaderText = "Ingreso";
             Grilla.Columns[7].HeaderText = "Egreso";
             fun.AnchoColumnas(Grilla, "0;15;20;15;15;15;10;10");
+            txtIngresos.Text = fun.FormatoEnteroMiles(Ingreso.ToString());
+            txtEgresos.Text = fun.FormatoEnteroMiles(Egreso.ToString());
+            txtSaldo.Text = fun.FormatoEnteroMiles(Saldo.ToString());
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

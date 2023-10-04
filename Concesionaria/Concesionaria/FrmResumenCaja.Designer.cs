@@ -1,6 +1,6 @@
 ﻿namespace Concesionaria
 {
-    partial class FrmConsultaMovimientoCaja
+    partial class FrmResumenCaja
     {
         /// <summary>
         /// Required designer variable.
@@ -35,24 +35,12 @@
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtIngresos = new System.Windows.Forms.TextBox();
-            this.txtEgresos = new System.Windows.Forms.TextBox();
-            this.txtSaldo = new System.Windows.Forms.TextBox();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
-            this.Grupo.Controls.Add(this.txtSaldo);
-            this.Grupo.Controls.Add(this.txtEgresos);
-            this.Grupo.Controls.Add(this.txtIngresos);
-            this.Grupo.Controls.Add(this.label5);
-            this.Grupo.Controls.Add(this.label4);
-            this.Grupo.Controls.Add(this.label3);
             this.Grupo.Controls.Add(this.label1);
             this.Grupo.Controls.Add(this.dpFechaDesde);
             this.Grupo.Controls.Add(this.btnBuscar);
@@ -62,8 +50,8 @@
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(12, 12);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(789, 437);
-            this.Grupo.TabIndex = 15;
+            this.Grupo.Size = new System.Drawing.Size(500, 411);
+            this.Grupo.TabIndex = 16;
             this.Grupo.TabStop = false;
             // 
             // label1
@@ -99,7 +87,7 @@
             this.Grilla.Location = new System.Drawing.Point(6, 39);
             this.Grilla.Name = "Grilla";
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(777, 343);
+            this.Grilla.Size = new System.Drawing.Size(470, 343);
             this.Grilla.TabIndex = 79;
             // 
             // label2
@@ -119,67 +107,19 @@
             this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
             this.dpFechaHasta.TabIndex = 72;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(278, 408);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 17);
-            this.label3.TabIndex = 83;
-            this.label3.Text = "Ingresos";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(452, 408);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 17);
-            this.label4.TabIndex = 84;
-            this.label4.Text = "Egresos";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(636, 408);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 17);
-            this.label5.TabIndex = 85;
-            this.label5.Text = "Saldo";
-            // 
-            // txtIngresos
-            // 
-            this.txtIngresos.Location = new System.Drawing.Point(346, 408);
-            this.txtIngresos.Name = "txtIngresos";
-            this.txtIngresos.Size = new System.Drawing.Size(100, 23);
-            this.txtIngresos.TabIndex = 86;
-            // 
-            // txtEgresos
-            // 
-            this.txtEgresos.Location = new System.Drawing.Point(530, 408);
-            this.txtEgresos.Name = "txtEgresos";
-            this.txtEgresos.Size = new System.Drawing.Size(100, 23);
-            this.txtEgresos.TabIndex = 87;
-            // 
-            // txtSaldo
-            // 
-            this.txtSaldo.Location = new System.Drawing.Point(686, 408);
-            this.txtSaldo.Name = "txtSaldo";
-            this.txtSaldo.Size = new System.Drawing.Size(100, 23);
-            this.txtSaldo.TabIndex = 88;
-            // 
-            // FrmConsultaMovimientoCaja
+            // FrmResumenCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(813, 461);
+            this.ClientSize = new System.Drawing.Size(512, 433);
             this.Controls.Add(this.Grupo);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmConsultaMovimientoCaja";
+            this.Name = "FrmResumenCaja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Consulta de movimiento de caja";
-            this.Load += new System.EventHandler(this.FrmConsultaMovimientoCaja_Load);
+            this.Text = "FrmResumenCaja";
+            this.Load += new System.EventHandler(this.FrmResumenCaja_Load);
             this.Grupo.ResumeLayout(false);
             this.Grupo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
@@ -190,17 +130,11 @@
         #endregion
 
         private System.Windows.Forms.GroupBox Grupo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dpFechaDesde;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dpFechaHasta;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dpFechaDesde;
-        private System.Windows.Forms.TextBox txtSaldo;
-        private System.Windows.Forms.TextBox txtEgresos;
-        private System.Windows.Forms.TextBox txtIngresos;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
     }
 }

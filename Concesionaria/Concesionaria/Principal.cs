@@ -845,5 +845,11 @@ namespace Concesionaria
             FrmConsultaMovimientoCaja frm = new FrmConsultaMovimientoCaja();
             frm.Show();
         }
+
+        private void resumenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmResumenCaja frm = new FrmResumenCaja();
+            frm.Show();
+        }
     }
 }

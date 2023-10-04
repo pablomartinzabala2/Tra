@@ -677,6 +677,12 @@
     <Compile Include="FrmReporteResumenProveedor.Designer.cs">
       <DependentUpon>FrmReporteResumenProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmResumenCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmResumenCaja.Designer.cs">
+      <DependentUpon>FrmResumenCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmResumenCuentaProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1200,6 +1206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteResumenProveedor.resx">
       <DependentUpon>FrmReporteResumenProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmResumenCaja.resx">
+      <DependentUpon>FrmResumenCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmResumenCuentaProveedor.resx">
       <DependentUpon>FrmResumenCuentaProveedor.cs</DependentUpon>

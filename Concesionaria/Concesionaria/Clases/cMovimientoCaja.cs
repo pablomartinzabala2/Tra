@@ -57,5 +57,16 @@ namespace Concesionaria.Clases
             sql = sql + " where CodMovimiento=" + CodMovimiento.ToString();
             cDb.ExecutarNonQuery(sql);
         }
+
+        public DataTable GetResumenDiario(DateTime FechaDesde, DateTime FechaHasta)
+        {
+            string sql = "select m.Fecha, sum(m.ImporteIngreso) as Ingreso , sum(importeegreso) as Egreso ";
+            sql = sql + " from MovimientoCaja m ";
+            sql = sql + " where m.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and m.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            sql = sql + " group by m.fecha ";
+            sql = sql + " order by m.Fecha ";
+            return cDb.ExecuteDataTable(sql);
+        }
     }
 }
