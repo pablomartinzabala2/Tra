@@ -38,7 +38,7 @@ namespace Concesionaria.Clases
             cDb.ExecutarNonQuery(sql);
         }
 
-        public DataTable GetMovimientoxFecha(DateTime FechaDesde,DateTime FechaHasta)
+        public DataTable GetMovimientoxFecha(DateTime FechaDesde,DateTime FechaHasta, string Proveedor, string Cuenta, string Concepto)
         {
             string sql = "select m.CodMovimiento,m.Fecha, m.Concepto, t.Nombre ";
             sql = sql + " ,p.Nombre as Proveedor,c.Nombre as Cuenta,m.ImporteIngreso,m.ImporteEgreso ";
@@ -48,6 +48,20 @@ namespace Concesionaria.Clases
             sql = sql + " and c.CodProveedor = p.CodProveedor ";
             sql = sql + " and m.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and m.Fecha<= " + "'" + FechaHasta.ToShortDateString() + "'";
+            if (Proveedor !="")
+            {
+                sql = sql + " and p.Nombre like " + "'%" + Proveedor + "%'";
+            }
+            if (Cuenta !="")
+            {
+                sql = sql + " and c.Nombre like " + "'%" + Cuenta + "%'";
+            }
+
+            if (Concepto != "")
+            {
+                sql = sql + " and m.Concepto like " + "'%" + Concepto + "%'";
+            }
+
             return cDb.ExecuteDataTable(sql);
         }
 

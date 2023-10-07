@@ -29,24 +29,36 @@
         private void InitializeComponent()
         {
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.txtSaldo = new System.Windows.Forms.TextBox();
+            this.txtEgresos = new System.Windows.Forms.TextBox();
+            this.txtIngresos = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtIngresos = new System.Windows.Forms.TextBox();
-            this.txtEgresos = new System.Windows.Forms.TextBox();
-            this.txtSaldo = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtProveedor = new System.Windows.Forms.TextBox();
+            this.txtCuenta = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtConcepto = new System.Windows.Forms.TextBox();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.txtConcepto);
+            this.Grupo.Controls.Add(this.label8);
+            this.Grupo.Controls.Add(this.txtCuenta);
+            this.Grupo.Controls.Add(this.label7);
+            this.Grupo.Controls.Add(this.txtProveedor);
+            this.Grupo.Controls.Add(this.label6);
             this.Grupo.Controls.Add(this.txtSaldo);
             this.Grupo.Controls.Add(this.txtEgresos);
             this.Grupo.Controls.Add(this.txtIngresos);
@@ -66,76 +78,26 @@
             this.Grupo.TabIndex = 15;
             this.Grupo.TabStop = false;
             // 
-            // label1
+            // txtSaldo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(207, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 17);
-            this.label1.TabIndex = 82;
-            this.label1.Text = "Fecha Hasta";
+            this.txtSaldo.Location = new System.Drawing.Point(686, 408);
+            this.txtSaldo.Name = "txtSaldo";
+            this.txtSaldo.Size = new System.Drawing.Size(100, 23);
+            this.txtSaldo.TabIndex = 88;
             // 
-            // dpFechaDesde
+            // txtEgresos
             // 
-            this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaDesde.Location = new System.Drawing.Point(114, 10);
-            this.dpFechaDesde.Name = "dpFechaDesde";
-            this.dpFechaDesde.Size = new System.Drawing.Size(87, 23);
-            this.dpFechaDesde.TabIndex = 81;
+            this.txtEgresos.Location = new System.Drawing.Point(530, 408);
+            this.txtEgresos.Name = "txtEgresos";
+            this.txtEgresos.Size = new System.Drawing.Size(100, 23);
+            this.txtEgresos.TabIndex = 87;
             // 
-            // btnBuscar
+            // txtIngresos
             // 
-            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom2;
-            this.btnBuscar.Location = new System.Drawing.Point(394, 5);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(40, 27);
-            this.btnBuscar.TabIndex = 80;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // Grilla
-            // 
-            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(6, 39);
-            this.Grilla.Name = "Grilla";
-            this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(777, 343);
-            this.Grilla.TabIndex = 79;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 17);
-            this.label2.TabIndex = 73;
-            this.label2.Text = "Fecha Desde";
-            // 
-            // dpFechaHasta
-            // 
-            this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaHasta.Location = new System.Drawing.Point(301, 10);
-            this.dpFechaHasta.Name = "dpFechaHasta";
-            this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
-            this.dpFechaHasta.TabIndex = 72;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(278, 408);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 17);
-            this.label3.TabIndex = 83;
-            this.label3.Text = "Ingresos";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(452, 408);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 17);
-            this.label4.TabIndex = 84;
-            this.label4.Text = "Egresos";
+            this.txtIngresos.Location = new System.Drawing.Point(346, 408);
+            this.txtIngresos.Name = "txtIngresos";
+            this.txtIngresos.Size = new System.Drawing.Size(100, 23);
+            this.txtIngresos.TabIndex = 86;
             // 
             // label5
             // 
@@ -146,26 +108,124 @@
             this.label5.TabIndex = 85;
             this.label5.Text = "Saldo";
             // 
-            // txtIngresos
+            // label4
             // 
-            this.txtIngresos.Location = new System.Drawing.Point(346, 408);
-            this.txtIngresos.Name = "txtIngresos";
-            this.txtIngresos.Size = new System.Drawing.Size(100, 23);
-            this.txtIngresos.TabIndex = 86;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(452, 408);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 17);
+            this.label4.TabIndex = 84;
+            this.label4.Text = "Egresos";
             // 
-            // txtEgresos
+            // label3
             // 
-            this.txtEgresos.Location = new System.Drawing.Point(530, 408);
-            this.txtEgresos.Name = "txtEgresos";
-            this.txtEgresos.Size = new System.Drawing.Size(100, 23);
-            this.txtEgresos.TabIndex = 87;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(278, 408);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 17);
+            this.label3.TabIndex = 83;
+            this.label3.Text = "Ingresos";
             // 
-            // txtSaldo
+            // label1
             // 
-            this.txtSaldo.Location = new System.Drawing.Point(686, 408);
-            this.txtSaldo.Name = "txtSaldo";
-            this.txtSaldo.Size = new System.Drawing.Size(100, 23);
-            this.txtSaldo.TabIndex = 88;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 17);
+            this.label1.TabIndex = 82;
+            this.label1.Text = "Hasta";
+            // 
+            // dpFechaDesde
+            // 
+            this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaDesde.Location = new System.Drawing.Point(61, 8);
+            this.dpFechaDesde.Name = "dpFechaDesde";
+            this.dpFechaDesde.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaDesde.TabIndex = 81;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom2;
+            this.btnBuscar.Location = new System.Drawing.Point(577, -2);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(40, 27);
+            this.btnBuscar.TabIndex = 80;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // Grilla
+            // 
+            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla.Location = new System.Drawing.Point(6, 69);
+            this.Grilla.Name = "Grilla";
+            this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Grilla.Size = new System.Drawing.Size(777, 317);
+            this.Grilla.TabIndex = 79;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 17);
+            this.label2.TabIndex = 73;
+            this.label2.Text = "Desde";
+            // 
+            // dpFechaHasta
+            // 
+            this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaHasta.Location = new System.Drawing.Point(61, 35);
+            this.dpFechaHasta.Name = "dpFechaHasta";
+            this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaHasta.TabIndex = 72;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(154, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 17);
+            this.label6.TabIndex = 89;
+            this.label6.Text = "Proveedor";
+            // 
+            // txtProveedor
+            // 
+            this.txtProveedor.Location = new System.Drawing.Point(234, 7);
+            this.txtProveedor.Name = "txtProveedor";
+            this.txtProveedor.Size = new System.Drawing.Size(136, 23);
+            this.txtProveedor.TabIndex = 90;
+            // 
+            // txtCuenta
+            // 
+            this.txtCuenta.Location = new System.Drawing.Point(435, 6);
+            this.txtCuenta.Name = "txtCuenta";
+            this.txtCuenta.Size = new System.Drawing.Size(136, 23);
+            this.txtCuenta.TabIndex = 92;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(376, 8);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 17);
+            this.label7.TabIndex = 91;
+            this.label7.Text = "Cuenta";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(154, 35);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(68, 17);
+            this.label8.TabIndex = 93;
+            this.label8.Text = "Concepto";
+            // 
+            // txtConcepto
+            // 
+            this.txtConcepto.Location = new System.Drawing.Point(234, 35);
+            this.txtConcepto.Name = "txtConcepto";
+            this.txtConcepto.Size = new System.Drawing.Size(337, 23);
+            this.txtConcepto.TabIndex = 94;
             // 
             // FrmConsultaMovimientoCaja
             // 
@@ -202,5 +262,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCuenta;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtProveedor;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtConcepto;
+        private System.Windows.Forms.Label label8;
     }
 }

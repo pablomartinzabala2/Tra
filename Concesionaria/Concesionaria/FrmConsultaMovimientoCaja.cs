@@ -32,10 +32,7 @@ namespace Concesionaria
         {
             DateTime Hoy = DateTime.Now;
             dpFechaHasta.Value = Hoy;
-            int Mes = Hoy.Month;
-            int anio = Hoy.Year;
-            DateTime FechaInicio = Convert.ToDateTime(("01/" + Mes.ToString() + "/" + anio.ToString()));
-            dpFechaDesde.Value = FechaInicio;
+            dpFechaDesde.Value = Hoy;
 
         }
 
@@ -43,7 +40,17 @@ namespace Concesionaria
         {
             Double Ingreso = 0, Egreso = 0, Saldo = 0;
             cMovimientoCaja mov = new cMovimientoCaja();
-            DataTable trdo = mov.GetMovimientoxFecha(FechaDesde, FechaHasta);
+            string Proveedor = "";
+            if (txtProveedor.Text != "")
+                Proveedor = txtProveedor.Text;
+            string Cuenta = "";
+            if (txtCuenta.Text != "")
+                Cuenta = txtCuenta.Text;
+            string Concepto = "";
+            if (txtConcepto.Text != "")
+                Concepto = txtConcepto.Text;
+
+            DataTable trdo = mov.GetMovimientoxFecha(FechaDesde, FechaHasta,Proveedor,Cuenta,Concepto);
             Ingreso = fun.TotalizarColumna(trdo, "ImporteIngreso");
             Egreso = fun.TotalizarColumna(trdo, "ImporteEgreso");
             Saldo = Ingreso - Egreso;

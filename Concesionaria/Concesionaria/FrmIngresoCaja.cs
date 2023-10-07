@@ -118,7 +118,7 @@ namespace Concesionaria
         private void CargarGrilla(DateTime Fecha)
         {
             cMovimientoCaja mov = new cMovimientoCaja();
-            DataTable trdo = mov.GetMovimientoxFecha(Fecha,Fecha);
+            DataTable trdo = mov.GetMovimientoxFecha(Fecha,Fecha,"","","");
             trdo = fun.TablaaMiles(trdo, "ImporteIngreso");
             trdo = fun.TablaaMiles(trdo, "ImporteEgreso");
             Grilla.DataSource = trdo;
