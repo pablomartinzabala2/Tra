@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
+            this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
+            this.txtTotalCosto = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtTotalGanancia = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -41,20 +47,16 @@
             this.chkImpagos = new System.Windows.Forms.CheckBox();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtFechaHasta = new System.Windows.Forms.MaskedTextBox();
-            this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtTotalGanancia = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtTotalCosto = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dpFechaHasta);
+            this.groupBox1.Controls.Add(this.dpFechaDesde);
             this.groupBox1.Controls.Add(this.txtTotalCosto);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtTotalGanancia);
@@ -71,8 +73,6 @@
             this.groupBox1.Controls.Add(this.chkImpagos);
             this.groupBox1.Controls.Add(this.Grilla);
             this.groupBox1.Controls.Add(this.btnBuscar);
-            this.groupBox1.Controls.Add(this.txtFechaHasta);
-            this.groupBox1.Controls.Add(this.txtFechaDesde);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -82,6 +82,58 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Gastos";
+            // 
+            // dpFechaHasta
+            // 
+            this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaHasta.Location = new System.Drawing.Point(213, 30);
+            this.dpFechaHasta.Name = "dpFechaHasta";
+            this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaHasta.TabIndex = 72;
+            // 
+            // dpFechaDesde
+            // 
+            this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaDesde.Location = new System.Drawing.Point(69, 32);
+            this.dpFechaDesde.Name = "dpFechaDesde";
+            this.dpFechaDesde.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaDesde.TabIndex = 71;
+            // 
+            // txtTotalCosto
+            // 
+            this.txtTotalCosto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTotalCosto.Location = new System.Drawing.Point(768, 520);
+            this.txtTotalCosto.Name = "txtTotalCosto";
+            this.txtTotalCosto.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTotalCosto.Size = new System.Drawing.Size(118, 23);
+            this.txtTotalCosto.TabIndex = 64;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(662, 523);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(80, 17);
+            this.label8.TabIndex = 63;
+            this.label8.Text = "Total Costo";
+            // 
+            // txtTotalGanancia
+            // 
+            this.txtTotalGanancia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTotalGanancia.Location = new System.Drawing.Point(1003, 520);
+            this.txtTotalGanancia.Name = "txtTotalGanancia";
+            this.txtTotalGanancia.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTotalGanancia.Size = new System.Drawing.Size(118, 23);
+            this.txtTotalGanancia.TabIndex = 62;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(892, 520);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(105, 17);
+            this.label7.TabIndex = 61;
+            this.label7.Text = "Total Ganancia";
             // 
             // txtApellido
             // 
@@ -155,7 +207,7 @@
             // btnCobroCheque
             // 
             this.btnCobroCheque.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroCheque.Location = new System.Drawing.Point(1077, 34);
+            this.btnCobroCheque.Location = new System.Drawing.Point(1077, 27);
             this.btnCobroCheque.Name = "btnCobroCheque";
             this.btnCobroCheque.Size = new System.Drawing.Size(40, 28);
             this.btnCobroCheque.TabIndex = 47;
@@ -167,9 +219,9 @@
             this.chkImpagos.AutoSize = true;
             this.chkImpagos.Location = new System.Drawing.Point(377, 34);
             this.chkImpagos.Name = "chkImpagos";
-            this.chkImpagos.Size = new System.Drawing.Size(84, 21);
+            this.chkImpagos.Size = new System.Drawing.Size(91, 21);
             this.chkImpagos.TabIndex = 46;
-            this.chkImpagos.Text = " Impagos";
+            this.chkImpagos.Text = "Pendiente";
             this.chkImpagos.UseVisualStyleBackColor = true;
             // 
             // Grilla
@@ -184,7 +236,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(983, 34);
+            this.btnBuscar.Location = new System.Drawing.Point(983, 25);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(88, 31);
             this.btnBuscar.TabIndex = 44;
@@ -192,79 +244,23 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // txtFechaHasta
-            // 
-            this.txtFechaHasta.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFechaHasta.Location = new System.Drawing.Point(287, 34);
-            this.txtFechaHasta.Mask = "00/00/0000";
-            this.txtFechaHasta.Name = "txtFechaHasta";
-            this.txtFechaHasta.Size = new System.Drawing.Size(84, 23);
-            this.txtFechaHasta.TabIndex = 43;
-            this.txtFechaHasta.ValidatingType = typeof(System.DateTime);
-            // 
-            // txtFechaDesde
-            // 
-            this.txtFechaDesde.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFechaDesde.Location = new System.Drawing.Point(112, 34);
-            this.txtFechaDesde.Mask = "00/00/0000";
-            this.txtFechaDesde.Name = "txtFechaDesde";
-            this.txtFechaDesde.Size = new System.Drawing.Size(75, 23);
-            this.txtFechaDesde.TabIndex = 42;
-            this.txtFechaDesde.ValidatingType = typeof(System.DateTime);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 17);
+            this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 41;
-            this.label1.Text = "Fecha Desde";
+            this.label1.Text = "Desde";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(193, 34);
+            this.label2.Location = new System.Drawing.Point(162, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 17);
+            this.label2.Size = new System.Drawing.Size(45, 17);
             this.label2.TabIndex = 40;
-            this.label2.Text = "Fecha Hasta";
-            // 
-            // txtTotalGanancia
-            // 
-            this.txtTotalGanancia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTotalGanancia.Location = new System.Drawing.Point(1003, 520);
-            this.txtTotalGanancia.Name = "txtTotalGanancia";
-            this.txtTotalGanancia.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTotalGanancia.Size = new System.Drawing.Size(118, 23);
-            this.txtTotalGanancia.TabIndex = 62;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(892, 520);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(105, 17);
-            this.label7.TabIndex = 61;
-            this.label7.Text = "Total Ganancia";
-            // 
-            // txtTotalCosto
-            // 
-            this.txtTotalCosto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTotalCosto.Location = new System.Drawing.Point(768, 520);
-            this.txtTotalCosto.Name = "txtTotalCosto";
-            this.txtTotalCosto.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTotalCosto.Size = new System.Drawing.Size(118, 23);
-            this.txtTotalCosto.TabIndex = 64;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(662, 523);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 17);
-            this.label8.TabIndex = 63;
-            this.label8.Text = "Total Costo";
+            this.label2.Text = "Hasta";
             // 
             // FrmListadoGastos
             // 
@@ -293,8 +289,6 @@
         private System.Windows.Forms.CheckBox chkImpagos;
         private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.MaskedTextBox txtFechaHasta;
-        private System.Windows.Forms.MaskedTextBox txtFechaDesde;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -309,5 +303,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtTotalGanancia;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dpFechaDesde;
+        private System.Windows.Forms.DateTimePicker dpFechaHasta;
     }
 }

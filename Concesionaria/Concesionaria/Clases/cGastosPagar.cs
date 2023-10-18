@@ -23,12 +23,10 @@ namespace Concesionaria.Clases
 
         public DataTable GetGastosPagarxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,int SoloImpago, string Nombre, string Apellido)
         {
-            string sql = "select g.CodGasto,a.Patente,g.Descripcion  ";
+            string sql = "select g.CodGasto,a.Patente,a.Descripcion as Modelo,g.Descripcion  ";
             sql = sql + ", (c.Nombre + ' ' + c.Apellido) as Cliente ";
-            sql = sql + " , g.Fecha,g.Importe,g.FechaPago,g.importepagado, ";
+            sql = sql + " , g.Fecha,g.FechaTramite,g.Importe,g.FechaPago,g.importepagado, ";
             sql = sql + " (g.Importe - g.importepagado) as Ganancia ";
-
-
             sql = sql + " from GastosPagar g,auto a,StockAuto sa ,venta v, cliente c ";
             sql = sql + " where g.CodStock = sa.CodStock ";
             sql = sql + " and sa.CodAuto=a.CodAuto";

@@ -19,36 +19,20 @@ namespace Concesionaria
         private void FrmListadoGastos_Load(object sender, EventArgs e)
         {
             DateTime fechahoy = DateTime.Now;
-            txtFechaHasta.Text = fechahoy.ToShortDateString();
+           // txtFechaHasta.Text = fechahoy.ToShortDateString();
+            dpFechaHasta.Value = fechahoy;
             fechahoy = fechahoy.AddMonths(-1);
-            txtFechaDesde.Text = fechahoy.ToShortDateString();
+            dpFechaDesde.Value = fechahoy;
+            //txtFechaDesde.Text = fechahoy.ToShortDateString();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (fun.ValidarFecha(txtFechaDesde.Text) == false)
-            {
-                MessageBox.Show("Fecha desde incorrecta", Clases.cMensaje.Mensaje());
-                return;
-            }
-
-            if (fun.ValidarFecha(txtFechaHasta.Text) == false)
-            {
-                MessageBox.Show("Fecha hasta incorrecta", Clases.cMensaje.Mensaje());
-                return;
-            }
-
-            if (Convert.ToDateTime(txtFechaDesde.Text) > Convert.ToDateTime(txtFechaHasta.Text))
-            {
-                MessageBox.Show("La fecha desde debe ser inferior a la fecha hasta", Clases.cMensaje.Mensaje());
-                return;
-            }
-
             string Nombre = txtNombre.Text;
             string Apellido = txtApellido.Text;
-            DateTime FechaDesde = Convert.ToDateTime(txtFechaDesde.Text);
-            DateTime FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
+            DateTime FechaDesde = dpFechaDesde.Value;
+            DateTime FechaHasta = dpFechaHasta.Value;
             int Impagos = 0;
             if (chkImpagos.Checked == true)
                 Impagos = 1;
@@ -65,7 +49,7 @@ namespace Concesionaria
             txtTotalCosto.Text = fun.FormatoEnteroMiles(TotalCosto.ToString());
             txtTotalGanancia.Text = fun.FormatoEnteroMiles(TotalGanancia.ToString());
             Grilla.DataSource = trdo;
-            string  Col = "0;10;20;20;10;10;10;10;10";
+            string  Col = "0;10;10;10;10;10;10;10;10;10;10";
             fun.AnchoColumnas(Grilla, Col);
             /*
             Grilla.Columns[5].HeaderText = "Fecha Pago";
