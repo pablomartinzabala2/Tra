@@ -33,7 +33,7 @@ namespace Concesionaria
             Clases.cGastosPagar gasto = new Clases.cGastosPagar();
             DataTable trdo = gasto.GetGastosPagarxCodGasto(CodGasto);
             if (trdo.Rows.Count > 0)
-            {
+            {   
                 txtPatente.Text = trdo.Rows[0]["Patente"].ToString();
                 txtImporte.Text = trdo.Rows[0]["Importe"].ToString();
                 txtDescripcion.Text = trdo.Rows[0]["Descripcion"].ToString();
@@ -49,6 +49,12 @@ namespace Concesionaria
                 {
                     txtFechaTramite.Text = trdo.Rows[0]["FechaTramite"].ToString();
                 }
+
+                if (trdo.Rows[0]["FechaRetiro"].ToString() != "")
+                {
+                    txtFechaRetiro.Text = trdo.Rows[0]["FechaRetiro"].ToString();
+                }
+
                 if (fun.ValidarFecha (txtFechaPago.Text)==true)
                 {
                     btnAnular.Enabled = true ;
@@ -178,6 +184,22 @@ namespace Concesionaria
             Int32 CodGasto = Convert.ToInt32(Principal.CodigoPrincipalAbm);
             cGastosPagar gasto = new cGastosPagar();
             gasto.ActualizarFechaTramite(CodGasto, FechaTramite);
+            MessageBox.Show("Datos Actualizados correctamente ");
+
+        }
+
+        private void btnGrabarFechaRetiro_Click(object sender, EventArgs e)
+        {   
+            cFunciones fun = new Clases.cFunciones();
+            if (fun.ValidarFecha(txtFechaRetiro.Text) == false)
+            {
+                MessageBox.Show("La fecha ingresada de Retiro es incorrecta ");
+                return;
+            }
+            DateTime FechaRetiro = Convert.ToDateTime(txtFechaRetiro.Text);
+            Int32 CodGasto = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            cGastosPagar gasto = new cGastosPagar();
+            gasto.ActualizarFechaRetiro (CodGasto, FechaRetiro);
             MessageBox.Show("Datos Actualizados correctamente ");
 
         }

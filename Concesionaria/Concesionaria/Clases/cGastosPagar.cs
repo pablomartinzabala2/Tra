@@ -169,5 +169,13 @@ namespace Concesionaria.Clases
             sql = sql + " where CodGasto=" + CodGasto.ToString();
             cDb.ExecutarNonQuery(sql);
         }
+
+        public void ActualizarFechaRetiro(Int32 CodGasto, DateTime FechaRetiro)
+        {
+            string sql = "update GastosPagar ";
+            sql = sql + " set FechaRetiro=" + "'" + FechaRetiro + "'";
+            sql = sql + " where CodGasto=" + CodGasto.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
     }
 }

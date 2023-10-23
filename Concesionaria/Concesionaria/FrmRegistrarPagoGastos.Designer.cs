@@ -47,11 +47,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.txtFechaRetiro = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnGrabarFechaRetiro = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnGrabarFechaRetiro);
+            this.groupBox1.Controls.Add(this.txtFechaRetiro);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtImporteCobrado);
             this.groupBox1.Controls.Add(this.btnActualizarFechaTramite);
@@ -72,7 +78,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(451, 258);
+            this.groupBox1.Size = new System.Drawing.Size(451, 287);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de los gastos";
@@ -89,7 +95,7 @@
             // txtImporteCobrado
             // 
             this.txtImporteCobrado.BackColor = System.Drawing.SystemColors.Control;
-            this.txtImporteCobrado.Location = new System.Drawing.Point(130, 84);
+            this.txtImporteCobrado.Location = new System.Drawing.Point(126, 84);
             this.txtImporteCobrado.Name = "txtImporteCobrado";
             this.txtImporteCobrado.Size = new System.Drawing.Size(207, 23);
             this.txtImporteCobrado.TabIndex = 58;
@@ -152,7 +158,7 @@
             // 
             this.txtDescripcion.BackColor = System.Drawing.SystemColors.Control;
             this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescripcion.Location = new System.Drawing.Point(130, 113);
+            this.txtDescripcion.Location = new System.Drawing.Point(126, 113);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(207, 23);
             this.txtDescripcion.TabIndex = 50;
@@ -179,7 +185,7 @@
             // btnAnular
             // 
             this.btnAnular.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnular.Location = new System.Drawing.Point(118, 205);
+            this.btnAnular.Location = new System.Drawing.Point(126, 230);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(75, 36);
             this.btnAnular.TabIndex = 47;
@@ -190,7 +196,7 @@
             // btnGrabar
             // 
             this.btnGrabar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrabar.Location = new System.Drawing.Point(188, 205);
+            this.btnGrabar.Location = new System.Drawing.Point(196, 230);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 36);
             this.btnGrabar.TabIndex = 44;
@@ -221,7 +227,7 @@
             // 
             this.txtPatente.BackColor = System.Drawing.SystemColors.Control;
             this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPatente.Location = new System.Drawing.Point(130, 22);
+            this.txtPatente.Location = new System.Drawing.Point(126, 22);
             this.txtPatente.Name = "txtPatente";
             this.txtPatente.Size = new System.Drawing.Size(161, 23);
             this.txtPatente.TabIndex = 35;
@@ -234,6 +240,35 @@
             this.label16.Size = new System.Drawing.Size(57, 17);
             this.label16.TabIndex = 34;
             this.label16.Text = "Patente";
+            // 
+            // txtFechaRetiro
+            // 
+            this.txtFechaRetiro.BackColor = System.Drawing.SystemColors.Control;
+            this.txtFechaRetiro.Location = new System.Drawing.Point(126, 205);
+            this.txtFechaRetiro.Mask = "00/00/0000";
+            this.txtFechaRetiro.Name = "txtFechaRetiro";
+            this.txtFechaRetiro.Size = new System.Drawing.Size(100, 23);
+            this.txtFechaRetiro.TabIndex = 61;
+            this.txtFechaRetiro.ValidatingType = typeof(System.DateTime);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 205);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 17);
+            this.label6.TabIndex = 60;
+            this.label6.Text = "Fecha Retiro";
+            // 
+            // btnGrabarFechaRetiro
+            // 
+            this.btnGrabarFechaRetiro.Image = ((System.Drawing.Image)(resources.GetObject("btnGrabarFechaRetiro.Image")));
+            this.btnGrabarFechaRetiro.Location = new System.Drawing.Point(232, 199);
+            this.btnGrabarFechaRetiro.Name = "btnGrabarFechaRetiro";
+            this.btnGrabarFechaRetiro.Size = new System.Drawing.Size(40, 28);
+            this.btnGrabarFechaRetiro.TabIndex = 62;
+            this.btnGrabarFechaRetiro.UseVisualStyleBackColor = true;
+            this.btnGrabarFechaRetiro.Click += new System.EventHandler(this.btnGrabarFechaRetiro_Click);
             // 
             // FrmRegistrarPagoGastos
             // 
@@ -274,5 +309,8 @@
         private System.Windows.Forms.Button btnActualizarFechaTramite;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtImporteCobrado;
+        private System.Windows.Forms.Button btnGrabarFechaRetiro;
+        private System.Windows.Forms.MaskedTextBox txtFechaRetiro;
+        private System.Windows.Forms.Label label6;
     }
 }
