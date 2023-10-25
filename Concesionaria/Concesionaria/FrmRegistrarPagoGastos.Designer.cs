@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrarPagoGastos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnGrabarFechaRetiro = new System.Windows.Forms.Button();
+            this.txtFechaRetiro = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtImporteCobrado = new System.Windows.Forms.TextBox();
             this.btnActualizarFechaTramite = new System.Windows.Forms.Button();
@@ -47,9 +50,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtFechaRetiro = new System.Windows.Forms.MaskedTextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnGrabarFechaRetiro = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,14 +83,43 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de los gastos";
             // 
+            // btnGrabarFechaRetiro
+            // 
+            this.btnGrabarFechaRetiro.Image = ((System.Drawing.Image)(resources.GetObject("btnGrabarFechaRetiro.Image")));
+            this.btnGrabarFechaRetiro.Location = new System.Drawing.Point(232, 170);
+            this.btnGrabarFechaRetiro.Name = "btnGrabarFechaRetiro";
+            this.btnGrabarFechaRetiro.Size = new System.Drawing.Size(40, 28);
+            this.btnGrabarFechaRetiro.TabIndex = 62;
+            this.btnGrabarFechaRetiro.UseVisualStyleBackColor = true;
+            this.btnGrabarFechaRetiro.Click += new System.EventHandler(this.btnGrabarFechaRetiro_Click);
+            // 
+            // txtFechaRetiro
+            // 
+            this.txtFechaRetiro.BackColor = System.Drawing.SystemColors.Control;
+            this.txtFechaRetiro.Location = new System.Drawing.Point(126, 176);
+            this.txtFechaRetiro.Mask = "00/00/0000";
+            this.txtFechaRetiro.Name = "txtFechaRetiro";
+            this.txtFechaRetiro.Size = new System.Drawing.Size(100, 23);
+            this.txtFechaRetiro.TabIndex = 61;
+            this.txtFechaRetiro.ValidatingType = typeof(System.DateTime);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 176);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 17);
+            this.label6.TabIndex = 60;
+            this.label6.Text = "Fecha Retiro";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 84);
+            this.label5.Location = new System.Drawing.Point(19, 84);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 17);
+            this.label5.Size = new System.Drawing.Size(44, 17);
             this.label5.TabIndex = 59;
-            this.label5.Text = "Importe Cobrado";
+            this.label5.Text = "Costo";
             // 
             // txtImporteCobrado
             // 
@@ -123,7 +152,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 142);
+            this.label4.Location = new System.Drawing.Point(21, 142);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 17);
             this.label4.TabIndex = 54;
@@ -166,7 +195,7 @@
             // txtFechaPago
             // 
             this.txtFechaPago.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFechaPago.Location = new System.Drawing.Point(126, 176);
+            this.txtFechaPago.Location = new System.Drawing.Point(126, 209);
             this.txtFechaPago.Mask = "00/00/0000";
             this.txtFechaPago.Name = "txtFechaPago";
             this.txtFechaPago.Size = new System.Drawing.Size(100, 23);
@@ -176,11 +205,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 176);
+            this.label2.Location = new System.Drawing.Point(19, 209);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 17);
+            this.label2.Size = new System.Drawing.Size(101, 17);
             this.label2.TabIndex = 48;
-            this.label2.Text = "Fecha Pago";
+            this.label2.Text = "Fecha Entrega";
             // 
             // btnAnular
             // 
@@ -240,35 +269,6 @@
             this.label16.Size = new System.Drawing.Size(57, 17);
             this.label16.TabIndex = 34;
             this.label16.Text = "Patente";
-            // 
-            // txtFechaRetiro
-            // 
-            this.txtFechaRetiro.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFechaRetiro.Location = new System.Drawing.Point(126, 205);
-            this.txtFechaRetiro.Mask = "00/00/0000";
-            this.txtFechaRetiro.Name = "txtFechaRetiro";
-            this.txtFechaRetiro.Size = new System.Drawing.Size(100, 23);
-            this.txtFechaRetiro.TabIndex = 61;
-            this.txtFechaRetiro.ValidatingType = typeof(System.DateTime);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 205);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 17);
-            this.label6.TabIndex = 60;
-            this.label6.Text = "Fecha Retiro";
-            // 
-            // btnGrabarFechaRetiro
-            // 
-            this.btnGrabarFechaRetiro.Image = ((System.Drawing.Image)(resources.GetObject("btnGrabarFechaRetiro.Image")));
-            this.btnGrabarFechaRetiro.Location = new System.Drawing.Point(232, 199);
-            this.btnGrabarFechaRetiro.Name = "btnGrabarFechaRetiro";
-            this.btnGrabarFechaRetiro.Size = new System.Drawing.Size(40, 28);
-            this.btnGrabarFechaRetiro.TabIndex = 62;
-            this.btnGrabarFechaRetiro.UseVisualStyleBackColor = true;
-            this.btnGrabarFechaRetiro.Click += new System.EventHandler(this.btnGrabarFechaRetiro_Click);
             // 
             // FrmRegistrarPagoGastos
             // 

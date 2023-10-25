@@ -1426,6 +1426,7 @@
     <Content Include="Imagen\CUERPO.png" />
     <Content Include="Imagen\Lista.bmp" />
     <Content Include="Imagen\ListaItem.gif" />
+    <Content Include="Imagen\ListaItem2.jpg" />
     <None Include="Iconos\cal.ico" />
     <Content Include="Iconos\cancel.ico" />
     <Content Include="Iconos\CAR3.bmp" />

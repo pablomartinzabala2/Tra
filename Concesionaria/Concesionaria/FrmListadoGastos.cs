@@ -49,7 +49,7 @@ namespace Concesionaria
             txtTotalCosto.Text = fun.FormatoEnteroMiles(TotalCosto.ToString());
             txtTotalGanancia.Text = fun.FormatoEnteroMiles(TotalGanancia.ToString());
             Grilla.DataSource = trdo;
-            string  Col = "0;10;10;10;10;10;10;10;10;10;10";
+            string  Col = "0;10;10;10;10;10;10;10;10;10;0;10";
             fun.AnchoColumnas(Grilla, Col);
             /*
             Grilla.Columns[5].HeaderText = "Fecha Pago";
