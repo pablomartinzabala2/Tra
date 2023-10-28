@@ -71,5 +71,60 @@ namespace Concesionaria
             DateTime FechaHasta = Convert.ToDateTime(dpFechaHasta.Value);
             CargarGrilla(FechaDesde, FechaHasta);
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIngresos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSaldo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEgresos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {   
+            if (Grilla.CurrentRow ==null)
+            {
+                MessageBox.Show("Debe seleccionar un elemento");
+                return;
+            }
+
+            string msj = "Confirma eliminar el registro ";
+            var result = MessageBox.Show(msj, "Información",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
+
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            cCosto costo = new cCosto();
+            cMovimientoCaja mov = new cMovimientoCaja();
+            Int32 CodMovimiento = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
+            mov.Borrar(CodMovimiento);
+            costo.BorrarCostoxCodMovimientoCaja(CodMovimiento);
+            MessageBox.Show("Datos actualizados correctamente");
+            DateTime FechaDesde = Convert.ToDateTime(dpFechaDesde.Value);
+            DateTime FechaHasta = Convert.ToDateTime(dpFechaHasta.Value);
+            CargarGrilla(FechaDesde, FechaHasta);
+
+        }
     }
 }

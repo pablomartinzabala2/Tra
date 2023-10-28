@@ -23,6 +23,7 @@ namespace Concesionaria
             {
                 return;
             }
+            Int32 CodMovimiento = 0;
             cMovimientoCaja mov = new cMovimientoCaja();
             string Concepto = txtConcepto.Text;
             DateTime Fecha = Convert.ToDateTime(dpFechaHasta.Value);
@@ -49,9 +50,16 @@ namespace Concesionaria
                 CodTipo = Convert.ToInt32(CmbTipoMov.SelectedValue);
             if (txtCodCuenta.Text != "")
                 CodCuenta = Convert.ToInt32(txtCodCuenta.Text);
-            mov.Insertar(Concepto, Fecha,CodTipo,ImporteIngreso, ImporteEgreso,CodCuenta, CodStock);
+            CodMovimiento = mov.InsertarId(Concepto, Fecha,CodTipo,ImporteIngreso, ImporteEgreso,CodCuenta, CodStock);
             MessageBox.Show("Datos grabados correctamente ");
             CargarGrilla(Fecha);
+            if (txtCodStock.Text !="")
+            {
+                int CodAuto = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+                string Patente = txtPatente.Text;
+                cCosto costo = new cCosto();
+                costo.InsertarCosto(CodAuto, Patente, ImporteEgreso, Fecha.ToShortDateString(), Concepto, CodStock ,null , CodMovimiento);
+            }
             Limpiar();
         }
 
@@ -117,14 +125,23 @@ namespace Concesionaria
                       
         private void CargarGrilla(DateTime Fecha)
         {
+            Double Ingreso = 0;
+            Double Egreso = 0;
+            Double Saldo = 0;
             cMovimientoCaja mov = new cMovimientoCaja();
             DataTable trdo = mov.GetMovimientoxFecha(Fecha,Fecha,"","","");
+            Ingreso = fun.TotalizarColumna(trdo, "ImporteIngreso");
+            Egreso = fun.TotalizarColumna(trdo, "ImporteEgreso");
+            Saldo = Ingreso - Egreso;
             trdo = fun.TablaaMiles(trdo, "ImporteIngreso");
             trdo = fun.TablaaMiles(trdo, "ImporteEgreso");
             Grilla.DataSource = trdo;
             Grilla.Columns[6].HeaderText = "Ingreso";
             Grilla.Columns[7].HeaderText = "Egreso";
             fun.AnchoColumnas(Grilla, "0;15;20;15;15;15;10;10");
+            txtIngresos.Text = fun.FormatoEnteroMiles(Ingreso.ToString());
+            txtEgresos.Text = fun.FormatoEnteroMiles(Egreso.ToString());
+            txtSaldo.Text = fun.FormatoEnteroMiles(Saldo.ToString());
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -218,7 +235,9 @@ namespace Concesionaria
                 string NombreAuto = "";     
                 string Descripcion = trdo.Rows[0]["Descripcion"].ToString();
                 string Anio = trdo.Rows[0]["NombreAnio"].ToString();
-                NombreAuto = Descripcion + " " + Anio;
+                string Patente = trdo.Rows[0]["Patente"].ToString();
+                txtPatente.Text = Patente;
+                NombreAuto = Patente + " " + Descripcion + " " + Anio;
                 txtVehiculo.Text = NombreAuto;
                 txtConcepto.Text = NombreAuto;
             }

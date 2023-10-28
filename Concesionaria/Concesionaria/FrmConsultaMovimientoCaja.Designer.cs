@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.txtConcepto = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtCuenta = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtProveedor = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtSaldo = new System.Windows.Forms.TextBox();
             this.txtEgresos = new System.Windows.Forms.TextBox();
             this.txtIngresos = new System.Windows.Forms.TextBox();
@@ -41,18 +47,14 @@
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtProveedor = new System.Windows.Forms.TextBox();
-            this.txtCuenta = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtConcepto = new System.Windows.Forms.TextBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.btnEliminar);
             this.Grupo.Controls.Add(this.txtConcepto);
             this.Grupo.Controls.Add(this.label8);
             this.Grupo.Controls.Add(this.txtCuenta);
@@ -78,12 +80,61 @@
             this.Grupo.TabIndex = 15;
             this.Grupo.TabStop = false;
             // 
+            // txtConcepto
+            // 
+            this.txtConcepto.Location = new System.Drawing.Point(234, 35);
+            this.txtConcepto.Name = "txtConcepto";
+            this.txtConcepto.Size = new System.Drawing.Size(337, 23);
+            this.txtConcepto.TabIndex = 94;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(154, 35);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(68, 17);
+            this.label8.TabIndex = 93;
+            this.label8.Text = "Concepto";
+            // 
+            // txtCuenta
+            // 
+            this.txtCuenta.Location = new System.Drawing.Point(435, 6);
+            this.txtCuenta.Name = "txtCuenta";
+            this.txtCuenta.Size = new System.Drawing.Size(136, 23);
+            this.txtCuenta.TabIndex = 92;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(376, 8);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 17);
+            this.label7.TabIndex = 91;
+            this.label7.Text = "Cuenta";
+            // 
+            // txtProveedor
+            // 
+            this.txtProveedor.Location = new System.Drawing.Point(234, 7);
+            this.txtProveedor.Name = "txtProveedor";
+            this.txtProveedor.Size = new System.Drawing.Size(136, 23);
+            this.txtProveedor.TabIndex = 90;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(154, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 17);
+            this.label6.TabIndex = 89;
+            this.label6.Text = "Proveedor";
+            // 
             // txtSaldo
             // 
             this.txtSaldo.Location = new System.Drawing.Point(686, 408);
             this.txtSaldo.Name = "txtSaldo";
             this.txtSaldo.Size = new System.Drawing.Size(100, 23);
             this.txtSaldo.TabIndex = 88;
+            this.txtSaldo.TextChanged += new System.EventHandler(this.txtSaldo_TextChanged);
             // 
             // txtEgresos
             // 
@@ -91,6 +142,7 @@
             this.txtEgresos.Name = "txtEgresos";
             this.txtEgresos.Size = new System.Drawing.Size(100, 23);
             this.txtEgresos.TabIndex = 87;
+            this.txtEgresos.TextChanged += new System.EventHandler(this.txtEgresos_TextChanged);
             // 
             // txtIngresos
             // 
@@ -98,6 +150,7 @@
             this.txtIngresos.Name = "txtIngresos";
             this.txtIngresos.Size = new System.Drawing.Size(100, 23);
             this.txtIngresos.TabIndex = 86;
+            this.txtIngresos.TextChanged += new System.EventHandler(this.txtIngresos_TextChanged);
             // 
             // label5
             // 
@@ -107,6 +160,7 @@
             this.label5.Size = new System.Drawing.Size(44, 17);
             this.label5.TabIndex = 85;
             this.label5.Text = "Saldo";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -125,6 +179,7 @@
             this.label3.Size = new System.Drawing.Size(62, 17);
             this.label3.TabIndex = 83;
             this.label3.Text = "Ingresos";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label1
             // 
@@ -179,53 +234,15 @@
             this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
             this.dpFechaHasta.TabIndex = 72;
             // 
-            // label6
+            // btnEliminar
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(154, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 17);
-            this.label6.TabIndex = 89;
-            this.label6.Text = "Proveedor";
-            // 
-            // txtProveedor
-            // 
-            this.txtProveedor.Location = new System.Drawing.Point(234, 7);
-            this.txtProveedor.Name = "txtProveedor";
-            this.txtProveedor.Size = new System.Drawing.Size(136, 23);
-            this.txtProveedor.TabIndex = 90;
-            // 
-            // txtCuenta
-            // 
-            this.txtCuenta.Location = new System.Drawing.Point(435, 6);
-            this.txtCuenta.Name = "txtCuenta";
-            this.txtCuenta.Size = new System.Drawing.Size(136, 23);
-            this.txtCuenta.TabIndex = 92;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(376, 8);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 17);
-            this.label7.TabIndex = 91;
-            this.label7.Text = "Cuenta";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(154, 35);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 17);
-            this.label8.TabIndex = 93;
-            this.label8.Text = "Concepto";
-            // 
-            // txtConcepto
-            // 
-            this.txtConcepto.Location = new System.Drawing.Point(234, 35);
-            this.txtConcepto.Name = "txtConcepto";
-            this.txtConcepto.Size = new System.Drawing.Size(337, 23);
-            this.txtConcepto.TabIndex = 94;
+            this.btnEliminar.Image = global::Concesionaria.Properties.Resources.cancel;
+            this.btnEliminar.Location = new System.Drawing.Point(577, 31);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(40, 27);
+            this.btnEliminar.TabIndex = 95;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // FrmConsultaMovimientoCaja
             // 
@@ -268,5 +285,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtConcepto;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

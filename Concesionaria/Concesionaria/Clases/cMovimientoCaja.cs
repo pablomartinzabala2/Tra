@@ -38,6 +38,36 @@ namespace Concesionaria.Clases
             cDb.ExecutarNonQuery(sql);
         }
 
+        public Int32 InsertarId(string Concepto, DateTime Fecha, Int32? CodTipo, Double ImporteIngreso, Double ImporteEgreso, Int32 CodCuentaProveedor, Int32? CodStock)
+        {
+            string sql = "insert into MovimientoCaja(";
+            sql = sql + "Concepto,Fecha,CodTipo,ImporteIngreso,ImporteEgreso,CodCuentaProveedor,CodStock";
+            sql = sql + ")";
+            sql = sql + " values (" + "'" + Concepto + "'";
+            sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
+            if (CodTipo != null)
+                sql = sql + "," + CodTipo.ToString();
+            else
+                sql = sql + ",null";
+            if (ImporteIngreso > 0)
+                sql = sql + "," + ImporteIngreso.ToString().Replace(",", ".");
+            else
+                sql = sql + ",null";
+            if (ImporteEgreso > 0)
+                sql = sql + "," + ImporteEgreso.ToString().Replace(",", ".");
+            else
+                sql = sql + ",null";
+
+            sql = sql + "," + CodCuentaProveedor.ToString();
+
+            if (CodStock != null)
+                sql = sql + "," + CodStock.ToString();
+            else
+                sql = sql + ",null";
+            sql = sql + ")";
+            return cDb.EjecutarEscalar(sql);
+        }
+
         public DataTable GetMovimientoxFecha(DateTime FechaDesde,DateTime FechaHasta, string Proveedor, string Cuenta, string Concepto)
         {
             string sql = "select m.CodMovimiento,m.Fecha, m.Concepto, t.Nombre ";

@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.btnBuscarVehiculo = new System.Windows.Forms.Button();
+            this.txtCodStock = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtVehiculo = new System.Windows.Forms.TextBox();
             this.btnAnular = new System.Windows.Forms.Button();
             this.cmbTipoIngresoEgreso = new System.Windows.Forms.ComboBox();
             this.txtCodCuenta = new System.Windows.Forms.TextBox();
@@ -48,16 +52,26 @@
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.txtConcepto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtVehiculo = new System.Windows.Forms.TextBox();
-            this.txtCodStock = new System.Windows.Forms.TextBox();
-            this.btnBuscarVehiculo = new System.Windows.Forms.Button();
+            this.txtPatente = new System.Windows.Forms.TextBox();
+            this.txtSaldo = new System.Windows.Forms.TextBox();
+            this.txtEgresos = new System.Windows.Forms.TextBox();
+            this.txtIngresos = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.txtSaldo);
+            this.Grupo.Controls.Add(this.txtEgresos);
+            this.Grupo.Controls.Add(this.txtIngresos);
+            this.Grupo.Controls.Add(this.label7);
+            this.Grupo.Controls.Add(this.label8);
+            this.Grupo.Controls.Add(this.label9);
+            this.Grupo.Controls.Add(this.txtPatente);
             this.Grupo.Controls.Add(this.btnBuscarVehiculo);
             this.Grupo.Controls.Add(this.txtCodStock);
             this.Grupo.Controls.Add(this.label6);
@@ -84,10 +98,50 @@
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(21, 21);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(793, 439);
+            this.Grupo.Size = new System.Drawing.Size(793, 465);
             this.Grupo.TabIndex = 14;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información de ingreso y egreso de caja";
+            // 
+            // btnBuscarVehiculo
+            // 
+            this.btnBuscarVehiculo.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnBuscarVehiculo.Location = new System.Drawing.Point(704, 57);
+            this.btnBuscarVehiculo.Name = "btnBuscarVehiculo";
+            this.btnBuscarVehiculo.Size = new System.Drawing.Size(55, 34);
+            this.btnBuscarVehiculo.TabIndex = 92;
+            this.btnBuscarVehiculo.UseVisualStyleBackColor = true;
+            this.btnBuscarVehiculo.Click += new System.EventHandler(this.btnBuscarVehiculo_Click);
+            // 
+            // txtCodStock
+            // 
+            this.txtCodStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.txtCodStock.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodStock.Enabled = false;
+            this.txtCodStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodStock.Location = new System.Drawing.Point(523, 135);
+            this.txtCodStock.Name = "txtCodStock";
+            this.txtCodStock.Size = new System.Drawing.Size(47, 23);
+            this.txtCodStock.TabIndex = 91;
+            this.txtCodStock.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(420, 73);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 17);
+            this.label6.TabIndex = 90;
+            this.label6.Text = "Vehículo";
+            // 
+            // txtVehiculo
+            // 
+            this.txtVehiculo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtVehiculo.Enabled = false;
+            this.txtVehiculo.Location = new System.Drawing.Point(495, 66);
+            this.txtVehiculo.Name = "txtVehiculo";
+            this.txtVehiculo.Size = new System.Drawing.Size(202, 23);
+            this.txtVehiculo.TabIndex = 89;
             // 
             // btnAnular
             // 
@@ -265,45 +319,65 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Concepto";
             // 
-            // label6
+            // txtPatente
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(420, 73);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 17);
-            this.label6.TabIndex = 90;
-            this.label6.Text = "Vehículo";
+            this.txtPatente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPatente.Enabled = false;
+            this.txtPatente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPatente.Location = new System.Drawing.Point(595, 129);
+            this.txtPatente.Name = "txtPatente";
+            this.txtPatente.Size = new System.Drawing.Size(89, 23);
+            this.txtPatente.TabIndex = 93;
+            this.txtPatente.Visible = false;
             // 
-            // txtVehiculo
+            // txtSaldo
             // 
-            this.txtVehiculo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtVehiculo.Enabled = false;
-            this.txtVehiculo.Location = new System.Drawing.Point(495, 66);
-            this.txtVehiculo.Name = "txtVehiculo";
-            this.txtVehiculo.Size = new System.Drawing.Size(202, 23);
-            this.txtVehiculo.TabIndex = 89;
+            this.txtSaldo.Location = new System.Drawing.Point(685, 425);
+            this.txtSaldo.Name = "txtSaldo";
+            this.txtSaldo.Size = new System.Drawing.Size(100, 23);
+            this.txtSaldo.TabIndex = 99;
             // 
-            // txtCodStock
+            // txtEgresos
             // 
-            this.txtCodStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.txtCodStock.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodStock.Enabled = false;
-            this.txtCodStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodStock.Location = new System.Drawing.Point(523, 135);
-            this.txtCodStock.Name = "txtCodStock";
-            this.txtCodStock.Size = new System.Drawing.Size(47, 23);
-            this.txtCodStock.TabIndex = 91;
-            this.txtCodStock.Visible = false;
+            this.txtEgresos.Location = new System.Drawing.Point(529, 425);
+            this.txtEgresos.Name = "txtEgresos";
+            this.txtEgresos.Size = new System.Drawing.Size(100, 23);
+            this.txtEgresos.TabIndex = 98;
             // 
-            // btnBuscarVehiculo
+            // txtIngresos
             // 
-            this.btnBuscarVehiculo.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnBuscarVehiculo.Location = new System.Drawing.Point(704, 57);
-            this.btnBuscarVehiculo.Name = "btnBuscarVehiculo";
-            this.btnBuscarVehiculo.Size = new System.Drawing.Size(55, 34);
-            this.btnBuscarVehiculo.TabIndex = 92;
-            this.btnBuscarVehiculo.UseVisualStyleBackColor = true;
-            this.btnBuscarVehiculo.Click += new System.EventHandler(this.btnBuscarVehiculo_Click);
+            this.txtIngresos.Location = new System.Drawing.Point(345, 425);
+            this.txtIngresos.Name = "txtIngresos";
+            this.txtIngresos.Size = new System.Drawing.Size(100, 23);
+            this.txtIngresos.TabIndex = 97;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(635, 425);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 17);
+            this.label7.TabIndex = 96;
+            this.label7.Text = "Saldo";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(451, 425);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(60, 17);
+            this.label8.TabIndex = 95;
+            this.label8.Text = "Egresos";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(277, 425);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(62, 17);
+            this.label9.TabIndex = 94;
+            this.label9.Text = "Ingresos";
             // 
             // FrmIngresoCaja
             // 
@@ -351,5 +425,12 @@
         private System.Windows.Forms.TextBox txtCodStock;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtVehiculo;
+        private System.Windows.Forms.TextBox txtPatente;
+        private System.Windows.Forms.TextBox txtSaldo;
+        private System.Windows.Forms.TextBox txtEgresos;
+        private System.Windows.Forms.TextBox txtIngresos;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

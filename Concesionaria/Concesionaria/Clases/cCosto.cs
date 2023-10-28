@@ -10,11 +10,11 @@ namespace Concesionaria.Clases
 {
     public class cCosto
     {
-        public void InsertarCosto(Int32 CodAuto,string Patente,Double? Importe,string Fecha,string Descripcion, Int32? CodStock, Int32? CodDeuda )
+        public void InsertarCosto(Int32 CodAuto,string Patente,Double? Importe,string Fecha,string Descripcion, Int32? CodStock, Int32? CodDeuda , Int32? CodMovimientoCaja)
         {
             string sql = "";
             sql = "Insert into Costo(CodAuto,Patente,";
-            sql = sql + "Importe,Fecha,Descripcion,CodStock,CodDeuda)";
+            sql = sql + "Importe,Fecha,Descripcion,CodStock,CodDeuda,CodMovimientoCaja)";
             sql = sql + "values(" + CodAuto.ToString ();
             sql = sql + "," + "'" + Patente  +"'";
             if (Importe ==null)
@@ -32,6 +32,10 @@ namespace Concesionaria.Clases
                 sql = sql + ",null";
             else
                 sql = sql + "," + CodDeuda.ToString();
+            if (CodMovimientoCaja != null)
+                sql = sql + "," + CodMovimientoCaja.ToString();
+            else
+                sql = sql + ",null";
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
         }
@@ -65,6 +69,13 @@ namespace Concesionaria.Clases
             sql = sql + " where CodDeuda=" + CodDeuda.ToString();
             cDb.ExecutarNonQuery(sql);
               
+        }
+
+        public void BorrarCostoxCodMovimientoCaja(Int32 CodMovimientoCaja)
+        {
+            string sql = "delete from Costo ";
+            sql = sql + " where CodMovimientoCaja =" + CodMovimientoCaja.ToString();
+            cDb.ExecutarNonQuery(sql);
         }
     }
 }
