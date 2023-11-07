@@ -3902,6 +3902,8 @@ namespace Concesionaria {
             
             private global::System.Data.DataColumn columnsImporteEgreso;
             
+            private global::System.Data.DataColumn columnsSaldo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DtMovimientoCajaDataTable() {
@@ -4017,6 +4019,14 @@ namespace Concesionaria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn sSaldoColumn {
+                get {
+                    return this.columnsSaldo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4052,7 +4062,7 @@ namespace Concesionaria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DtMovimientoCajaRow AddDtMovimientoCajaRow(System.DateTime Fecha, string Concepto, string Nombre, string Proveedor, string Cuenta, decimal ImporteIngreso, decimal ImporteEgreso, string sImporteIngreso, string sImporteEgreso) {
+            public DtMovimientoCajaRow AddDtMovimientoCajaRow(System.DateTime Fecha, string Concepto, string Nombre, string Proveedor, string Cuenta, decimal ImporteIngreso, decimal ImporteEgreso, string sImporteIngreso, string sImporteEgreso, string sSaldo) {
                 DtMovimientoCajaRow rowDtMovimientoCajaRow = ((DtMovimientoCajaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4064,7 +4074,8 @@ namespace Concesionaria {
                         ImporteIngreso,
                         ImporteEgreso,
                         sImporteIngreso,
-                        sImporteEgreso};
+                        sImporteEgreso,
+                        sSaldo};
                 rowDtMovimientoCajaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDtMovimientoCajaRow);
                 return rowDtMovimientoCajaRow;
@@ -4104,6 +4115,7 @@ namespace Concesionaria {
                 this.columnImporteEgreso = base.Columns["ImporteEgreso"];
                 this.columnsImporteIngreso = base.Columns["sImporteIngreso"];
                 this.columnsImporteEgreso = base.Columns["sImporteEgreso"];
+                this.columnsSaldo = base.Columns["sSaldo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4129,6 +4141,8 @@ namespace Concesionaria {
                 base.Columns.Add(this.columnsImporteIngreso);
                 this.columnsImporteEgreso = new global::System.Data.DataColumn("sImporteEgreso", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsImporteEgreso);
+                this.columnsSaldo = new global::System.Data.DataColumn("sSaldo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsSaldo);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCodMovimiento}, true));
                 this.columnCodMovimiento.AutoIncrement = true;
@@ -4143,6 +4157,7 @@ namespace Concesionaria {
                 this.columnCuenta.MaxLength = 250;
                 this.columnsImporteIngreso.MaxLength = 100;
                 this.columnsImporteEgreso.MaxLength = 100;
+                this.columnsSaldo.MaxLength = 150;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7606,6 +7621,22 @@ namespace Concesionaria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string sSaldo {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtMovimientoCaja.sSaldoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'sSaldo\' de la tabla \'DtMovimientoCaja\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtMovimientoCaja.sSaldoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsFechaNull() {
                 return this.IsNull(this.tableDtMovimientoCaja.FechaColumn);
             }
@@ -7710,6 +7741,18 @@ namespace Concesionaria {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetsImporteEgresoNull() {
                 this[this.tableDtMovimientoCaja.sImporteEgresoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IssSaldoNull() {
+                return this.IsNull(this.tableDtMovimientoCaja.sSaldoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetsSaldoNull() {
+                this[this.tableDtMovimientoCaja.sSaldoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -9811,6 +9854,7 @@ and v.CodVenta = @p";
             tableMapping.ColumnMappings.Add("ImporteEgreso", "ImporteEgreso");
             tableMapping.ColumnMappings.Add("sImporteIngreso", "sImporteIngreso");
             tableMapping.ColumnMappings.Add("sImporteEgreso", "sImporteEgreso");
+            tableMapping.ColumnMappings.Add("sSaldo", "sSaldo");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -9829,7 +9873,7 @@ and v.CodVenta = @p";
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"select m.CodMovimiento,m.Fecha,m.sImporteIngreso , m.sImporteEgreso,
 m.Concepto, t.Nombre  ,p.Nombre as Proveedor,
-c.Nombre as Cuenta,m.ImporteIngreso,m.ImporteEgreso  
+c.Nombre as Cuenta,m.ImporteIngreso,m.ImporteEgreso  ,m.sSaldo
 from MovimientoCaja m ,tipomovimiento t , CuentaProveedor c, Proveedor p where m.CodTipo = t.CodTipo  and m.CodCuentaProveedor = c.CodCuenta  and c.CodProveedor = p.CodProveedor  
 and m.Fecha >=@p1 and m.Fecha<= @p1";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
