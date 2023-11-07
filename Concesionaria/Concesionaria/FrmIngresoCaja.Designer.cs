@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.txtSaldo = new System.Windows.Forms.TextBox();
             this.txtEgresos = new System.Windows.Forms.TextBox();
             this.txtIngresos = new System.Windows.Forms.TextBox();
@@ -59,7 +60,6 @@
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.txtConcepto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
@@ -100,21 +100,31 @@
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(21, 21);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(793, 465);
+            this.Grupo.Size = new System.Drawing.Size(803, 465);
             this.Grupo.TabIndex = 14;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información de ingreso y egreso de caja";
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer;
+            this.btnImprimir.Location = new System.Drawing.Point(704, 172);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(55, 34);
+            this.btnImprimir.TabIndex = 100;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // txtSaldo
             // 
-            this.txtSaldo.Location = new System.Drawing.Point(685, 425);
+            this.txtSaldo.Location = new System.Drawing.Point(687, 425);
             this.txtSaldo.Name = "txtSaldo";
             this.txtSaldo.Size = new System.Drawing.Size(100, 23);
             this.txtSaldo.TabIndex = 99;
             // 
             // txtEgresos
             // 
-            this.txtEgresos.Location = new System.Drawing.Point(529, 425);
+            this.txtEgresos.Location = new System.Drawing.Point(523, 425);
             this.txtEgresos.Name = "txtEgresos";
             this.txtEgresos.Size = new System.Drawing.Size(100, 23);
             this.txtEgresos.TabIndex = 98;
@@ -129,7 +139,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(635, 425);
+            this.label7.Location = new System.Drawing.Point(637, 428);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 17);
             this.label7.TabIndex = 96;
@@ -138,7 +148,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(451, 425);
+            this.label8.Location = new System.Drawing.Point(451, 428);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 17);
             this.label8.TabIndex = 95;
@@ -380,16 +390,6 @@
             this.label1.Size = new System.Drawing.Size(68, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Concepto";
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer;
-            this.btnImprimir.Location = new System.Drawing.Point(704, 172);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(55, 34);
-            this.btnImprimir.TabIndex = 100;
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // FrmIngresoCaja
             // 

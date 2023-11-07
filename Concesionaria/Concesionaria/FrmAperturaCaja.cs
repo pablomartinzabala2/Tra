@@ -44,15 +44,28 @@ namespace Concesionaria
                 return;
             }
 
+            if (txtCodCuenta.Text =="")
+            {
+                MessageBox.Show("Debe ingresar una cuenta de proveedor ");
+                return;
+
+            }
+
             cMovimientoCaja mov = new cMovimientoCaja();
             Int32 CodApertura = 0;
+            Int32 CodCuentaProveedor = 0;
             Int32 CodUsuario = Convert.ToInt32(CmbUsuario.SelectedValue);
+            String SImporteIngreso = "", sImporteEgreso = "";
+            
             cFunciones fun = new cFunciones();
+            SImporteIngreso = txtImporte.Text;
+            sImporteEgreso = "0";
             DateTime Fecha = dpFecha.Value;
+            CodCuentaProveedor = Convert.ToInt32(txtCodCuenta.Text);
             Double Importe = fun.ToDouble(txtImporte.Text);
             cAperturaCaja aper = new cAperturaCaja();
-            CodApertura = aper.AbrirCaja(Fecha, Importe,CodUsuario);
-            mov.Insertar("Apertura Caja", dpFecha.Value, 1, Importe, 0, null, null, CodApertura);
+            CodApertura = aper.AbrirCaja(Fecha, Importe,CodUsuario,CodCuentaProveedor);
+            mov.Insertar("Apertura Caja", dpFecha.Value, 1, Importe, 0,CodCuentaProveedor, null, CodApertura, SImporteIngreso, sImporteEgreso);
             MessageBox.Show("Datos grabados correctamente", "Sistema");
             VerificarApertura();
             txtCodApertura.Text = CodApertura.ToString();
@@ -100,6 +113,38 @@ namespace Concesionaria
             aper.CerrarCaja(CodApertura, dpFecha.Value);
             CargarCaja(dpFecha.Value);
             MessageBox.Show("Datos grabados correctamente", "Sistema");
+        }
+
+        private void btnBuscarCuenta_Click(object sender, EventArgs e)
+        {
+            FrmBuscadorCuentaProveedor frm = new FrmBuscadorCuentaProveedor();
+            frm.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            frm.ShowDialog();
+        }
+
+        private void form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Principal.CodigoPrincipalAbm != null)
+            {
+                Int32 CodCuenta = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+                txtCodCuenta.Text = CodCuenta.ToString();
+                cCuentaProveedor Cuenta = new Clases.cCuentaProveedor();
+                DataTable trdo = Cuenta.GetDetalleCuentas(CodCuenta);
+                if (trdo.Rows.Count > 0)
+                {
+                    txtProveedor.Text = trdo.Rows[0]["Proveedor"].ToString();
+                    txtCuentaProveedor.Text = trdo.Rows[0]["Nombre"].ToString();
+                }
+            }
+        }
+
+        private void txtImporte_Leave(object sender, EventArgs e)
+        {
+            if (txtImporte.Text !="")
+            {
+                cFunciones fun = new Clases.cFunciones();
+                txtImporte.Text = fun.FormatoEnteroMiles(txtImporte.Text);
+            }
         }
     }
 }

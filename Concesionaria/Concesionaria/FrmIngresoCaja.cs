@@ -43,6 +43,7 @@ namespace Concesionaria
                     ImporteIngreso = fun.ToDouble(txtImporte.Text);
                     ImporteEgreso = 0;
                     sImporteIngreso = txtImporte.Text;
+                    sImporteEgreso = "0";
                 }
                     
 
@@ -51,6 +52,7 @@ namespace Concesionaria
                     ImporteEgreso = fun.ToDouble(txtImporte.Text);
                     sImporteEgreso = txtImporte.Text;
                     ImporteIngreso = 0;
+                    sImporteIngreso = "0";
                 }
                     
             }
@@ -271,9 +273,22 @@ namespace Concesionaria
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
+            ActualizarSaldo();
             Principal.Fecha = dpFechaHasta.Value;
             FrmReporteCaja frm = new Concesionaria.FrmReporteCaja();
             frm.Show();
+        }
+
+        private void ActualizarSaldo()
+        {
+            cMovimientoCaja mov = new Clases.cMovimientoCaja();
+            Int32 CodMovimiento = 0;
+            string sSaldo = txtSaldo.Text;
+            for (int i=0;i< Grilla.Rows.Count - 1;i++)
+            {
+                CodMovimiento = Convert.ToInt32(Grilla.Rows[i].Cells[0].Value);
+                mov.ActualizarSaldo(CodMovimiento, sSaldo);
+            }
         }
     }
 }

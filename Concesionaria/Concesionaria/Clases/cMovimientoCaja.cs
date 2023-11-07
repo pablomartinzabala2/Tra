@@ -8,10 +8,11 @@ namespace Concesionaria.Clases
 {
     public  class cMovimientoCaja
     {
-        public void Insertar(string Concepto,DateTime Fecha, Int32? CodTipo, Double ImporteIngreso,Double ImporteEgreso, Int32? CodCuentaProveedor,Int32? CodStock,Int32? CodApertura)
+        public void Insertar(string Concepto,DateTime Fecha, Int32? CodTipo, Double ImporteIngreso,Double ImporteEgreso, Int32? CodCuentaProveedor,Int32? CodStock,Int32? CodApertura, string sImporteIngreso, string sImporteEgreso)
         {
             string sql = "insert into MovimientoCaja(";
             sql = sql + "Concepto,Fecha,CodTipo,ImporteIngreso,ImporteEgreso,CodCuentaProveedor,CodStock";
+            sql = sql + ",sImporteIngreso,sImporteEgreso";
             sql = sql + ")";
             sql = sql + " values (" + "'" + Concepto + "'";
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
@@ -37,6 +38,9 @@ namespace Concesionaria.Clases
                 sql = sql + "," + CodStock.ToString();
             else
                 sql = sql + ",null";
+
+            sql = sql + "," + "'" + sImporteIngreso + "'";
+            sql = sql + "," + "'" + sImporteEgreso + "'";
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
         }
@@ -118,6 +122,14 @@ namespace Concesionaria.Clases
             sql = sql + " group by m.fecha ";
             sql = sql + " order by m.Fecha ";
             return cDb.ExecuteDataTable(sql);
+        }
+
+        public void ActualizarSaldo(Int32 CodMovimiento, string sSaldo)
+        {
+            string sql = "update MovimientoCaja ";
+            sql = sql + " set sSaldo=" + "'" + sSaldo + "'";
+            sql = sql + " where CodMovimiento =" + CodMovimiento.ToString();
+            cDb.ExecutarNonQuery(sql);
         }
     }
 }

@@ -7,14 +7,15 @@ namespace Concesionaria.Clases
 {
     public class cAperturaCaja
     {
-        public Int32  AbrirCaja (DateTime Fecha, Double Importe, Int32 CodUsuario)
+        public Int32  AbrirCaja (DateTime Fecha, Double Importe, Int32 CodUsuario, Int32 CodCuentaProveedor)
         {
             string sql = "insert into AperturaCaja(";
-            sql = sql + "FechaApertura,Importe,CodUsuario";
+            sql = sql + "FechaApertura,Importe,CodUsuario,CodCuentaProveedor";
             sql = sql + ")";
             sql = sql + " values (" + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + Importe.ToString().Replace(",", ".");
             sql = sql + "," + CodUsuario.ToString();
+            sql = sql + "," + CodCuentaProveedor.ToString();
             sql = sql + ")";
             return cDb.EjecutarEscalar(sql);
            // cDb.ExecutarNonQuery(sql);
