@@ -27,5 +27,11 @@ namespace Concesionaria.Clases
                 user = trdo.Rows[0]["Nombre"].ToString();
             return user;
         }
+
+        public DataTable GetAllUsuarios()
+        {
+            string sql = "select * from Usuario ";
+            return cDb.ExecuteDataTable(sql);
+        }
     }
 }

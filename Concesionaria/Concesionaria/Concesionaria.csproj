@@ -62,6 +62,7 @@
     <Compile Include="Clases\cAgenda.cs" />
     <Compile Include="Clases\cAlarma.cs" />
     <Compile Include="Clases\cAnotacion.cs" />
+    <Compile Include="Clases\cAperturaCaja.cs" />
     <Compile Include="Clases\cAuto.cs" />
     <Compile Include="Clases\cBanco.cs" />
     <Compile Include="Clases\cBarrio.cs" />
@@ -280,6 +281,12 @@
     </Compile>
     <Compile Include="FrmAnularVenta.Designer.cs">
       <DependentUpon>FrmAnularVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAperturaCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAperturaCaja.Designer.cs">
+      <DependentUpon>FrmAperturaCaja.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAutos.cs">
       <SubType>Form</SubType>
@@ -659,6 +666,12 @@
     <Compile Include="FrmRegistrarChequePagar.Designer.cs">
       <DependentUpon>FrmRegistrarChequePagar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReporteCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteCaja.Designer.cs">
+      <DependentUpon>FrmReporteCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReporteCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1009,6 +1022,9 @@
     <EmbeddedResource Include="FrmAnularVenta.resx">
       <DependentUpon>FrmAnularVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAperturaCaja.resx">
+      <DependentUpon>FrmAperturaCaja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAutos.resx">
       <DependentUpon>FrmAutos.cs</DependentUpon>
     </EmbeddedResource>
@@ -1198,6 +1214,9 @@
     <EmbeddedResource Include="FrmRegistrarChequePagar.resx">
       <DependentUpon>FrmRegistrarChequePagar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteCaja.resx">
+      <DependentUpon>FrmReporteCaja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteCliente.resx">
       <DependentUpon>FrmReporteCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -1356,6 +1375,7 @@
     <EmbeddedResource Include="ReporteListado.rdlc" />
     <EmbeddedResource Include="Reportes\BoletoTraut.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteBoletoCompraventa.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteCaja.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteClientes.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePresupuesto.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePresupuesto2.rdlc" />

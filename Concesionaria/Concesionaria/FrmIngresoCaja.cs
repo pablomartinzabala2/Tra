@@ -32,15 +32,27 @@ namespace Concesionaria
             Double ImporteEgreso = 0;
             Int32 CodCuenta = 0;
             Int32? CodStock = null;
+            string sImporteIngreso = "";
+            string sImporteEgreso = "";
 
             int TingoIngresoEgreso = Convert.ToInt32(cmbTipoIngresoEgreso.SelectedValue);
             if (txtImporte.Text != "")
             {
                 if (TingoIngresoEgreso ==1)
+                {
                     ImporteIngreso = fun.ToDouble(txtImporte.Text);
+                    ImporteEgreso = 0;
+                    sImporteIngreso = txtImporte.Text;
+                }
+                    
 
                 if (TingoIngresoEgreso == 2)
+                {
                     ImporteEgreso = fun.ToDouble(txtImporte.Text);
+                    sImporteEgreso = txtImporte.Text;
+                    ImporteIngreso = 0;
+                }
+                    
             }
 
             if (txtCodStock.Text != "")
@@ -50,7 +62,7 @@ namespace Concesionaria
                 CodTipo = Convert.ToInt32(CmbTipoMov.SelectedValue);
             if (txtCodCuenta.Text != "")
                 CodCuenta = Convert.ToInt32(txtCodCuenta.Text);
-            CodMovimiento = mov.InsertarId(Concepto, Fecha,CodTipo,ImporteIngreso, ImporteEgreso,CodCuenta, CodStock);
+            CodMovimiento = mov.InsertarId(Concepto, Fecha,CodTipo,ImporteIngreso, ImporteEgreso,CodCuenta, CodStock,sImporteIngreso, sImporteEgreso);
             MessageBox.Show("Datos grabados correctamente ");
             CargarGrilla(Fecha);
             if (txtCodStock.Text !="")
@@ -61,6 +73,7 @@ namespace Concesionaria
                 costo.InsertarCosto(CodAuto, Patente, ImporteEgreso, Fecha.ToShortDateString(), Concepto, CodStock ,null , CodMovimiento);
             }
             Limpiar();
+            
         }
 
         public Boolean Validar()
@@ -138,7 +151,7 @@ namespace Concesionaria
             Grilla.DataSource = trdo;
             Grilla.Columns[6].HeaderText = "Ingreso";
             Grilla.Columns[7].HeaderText = "Egreso";
-            fun.AnchoColumnas(Grilla, "0;15;20;15;15;15;10;10");
+            fun.AnchoColumnas(Grilla, "0;0;35;15;15;15;10;10");
             txtIngresos.Text = fun.FormatoEnteroMiles(Ingreso.ToString());
             txtEgresos.Text = fun.FormatoEnteroMiles(Egreso.ToString());
             txtSaldo.Text = fun.FormatoEnteroMiles(Saldo.ToString());
@@ -254,6 +267,13 @@ namespace Concesionaria
             txtCuentaProveedor.Text = "";
           //  cmbTipoIngresoEgreso.SelectedIndex = 0;
           //  CmbTipoMov.SelectedIndex = 0;
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            Principal.Fecha = dpFechaHasta.Value;
+            FrmReporteCaja frm = new Concesionaria.FrmReporteCaja();
+            frm.Show();
         }
     }
 }

@@ -1150,6 +1150,8 @@ D:\PABLO\PR\TRA\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.cache
 D:\PABLO\PR\TRA\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.compiled
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmIngresoCaja.resources
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmConsultaMovimientoCaja.resources
+D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmResumenCaja.resources
+D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReporteCaja.resources
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\Microsoft.SqlServer.Types.dll
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
@@ -1164,4 +1166,4 @@ D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\zh-Hant\Microsof
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.csprojResolveAssemblyReference.cache
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.cache
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.compiled
-D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmResumenCaja.resources
+D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmAperturaCaja.resources

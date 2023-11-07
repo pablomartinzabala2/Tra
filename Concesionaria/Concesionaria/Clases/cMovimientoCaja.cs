@@ -8,7 +8,7 @@ namespace Concesionaria.Clases
 {
     public  class cMovimientoCaja
     {
-        public void Insertar(string Concepto,DateTime Fecha, Int32? CodTipo, Double ImporteIngreso,Double ImporteEgreso, Int32 CodCuentaProveedor,Int32? CodStock)
+        public void Insertar(string Concepto,DateTime Fecha, Int32? CodTipo, Double ImporteIngreso,Double ImporteEgreso, Int32? CodCuentaProveedor,Int32? CodStock,Int32? CodApertura)
         {
             string sql = "insert into MovimientoCaja(";
             sql = sql + "Concepto,Fecha,CodTipo,ImporteIngreso,ImporteEgreso,CodCuentaProveedor,CodStock";
@@ -27,8 +27,11 @@ namespace Concesionaria.Clases
                 sql = sql + "," + ImporteEgreso.ToString().Replace(",", ".");
             else
                 sql = sql + ",null";
-            
-            sql = sql + "," + CodCuentaProveedor.ToString();
+
+            if (CodCuentaProveedor != null)
+                sql = sql + "," + CodCuentaProveedor.ToString();
+            else
+                sql = sql + ",null";
 
             if (CodStock != null)
                 sql = sql + "," + CodStock.ToString();
@@ -38,10 +41,12 @@ namespace Concesionaria.Clases
             cDb.ExecutarNonQuery(sql);
         }
 
-        public Int32 InsertarId(string Concepto, DateTime Fecha, Int32? CodTipo, Double ImporteIngreso, Double ImporteEgreso, Int32 CodCuentaProveedor, Int32? CodStock)
+        public Int32 InsertarId(string Concepto, DateTime Fecha, Int32? CodTipo, Double ImporteIngreso, Double ImporteEgreso, 
+            Int32 CodCuentaProveedor, 
+            Int32? CodStock, string sImporteIngreso, string sImporteEgreso)
         {
             string sql = "insert into MovimientoCaja(";
-            sql = sql + "Concepto,Fecha,CodTipo,ImporteIngreso,ImporteEgreso,CodCuentaProveedor,CodStock";
+            sql = sql + "Concepto,Fecha,CodTipo,ImporteIngreso,ImporteEgreso,CodCuentaProveedor,CodStock,sImporteIngreso,sImporteEgreso";
             sql = sql + ")";
             sql = sql + " values (" + "'" + Concepto + "'";
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
@@ -63,7 +68,9 @@ namespace Concesionaria.Clases
             if (CodStock != null)
                 sql = sql + "," + CodStock.ToString();
             else
-                sql = sql + ",null";
+                sql = sql + ",null";  
+            sql = sql + "," + "'" + sImporteIngreso + "'";
+            sql = sql + "," + "'" + sImporteEgreso + "'";
             sql = sql + ")";
             return cDb.EjecutarEscalar(sql);
         }

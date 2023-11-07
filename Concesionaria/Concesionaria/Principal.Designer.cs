@@ -101,6 +101,7 @@
             this.cajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresoDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resumenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
@@ -121,7 +122,7 @@
             this.BtnBorrarTablas = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.resumenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAperturaCierreCaja = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -685,6 +686,7 @@
             // cajaToolStripMenuItem
             // 
             this.cajaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAperturaCierreCaja,
             this.consultasToolStripMenuItem,
             this.ingresoDeCajaToolStripMenuItem,
             this.resumenToolStripMenuItem});
@@ -705,6 +707,13 @@
             this.ingresoDeCajaToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.ingresoDeCajaToolStripMenuItem.Text = "Ingreso Egreso de Caja";
             this.ingresoDeCajaToolStripMenuItem.Click += new System.EventHandler(this.ingresoDeCajaToolStripMenuItem_Click);
+            // 
+            // resumenToolStripMenuItem
+            // 
+            this.resumenToolStripMenuItem.Name = "resumenToolStripMenuItem";
+            this.resumenToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.resumenToolStripMenuItem.Text = "Resumen";
+            this.resumenToolStripMenuItem.Click += new System.EventHandler(this.resumenToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -912,12 +921,12 @@
             this.toolStripButton6.Text = "toolStripButton6";
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
-            // resumenToolStripMenuItem
+            // mnuAperturaCierreCaja
             // 
-            this.resumenToolStripMenuItem.Name = "resumenToolStripMenuItem";
-            this.resumenToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
-            this.resumenToolStripMenuItem.Text = "Resumen";
-            this.resumenToolStripMenuItem.Click += new System.EventHandler(this.resumenToolStripMenuItem_Click);
+            this.mnuAperturaCierreCaja.Name = "mnuAperturaCierreCaja";
+            this.mnuAperturaCierreCaja.Size = new System.Drawing.Size(246, 22);
+            this.mnuAperturaCierreCaja.Text = "Apertura / Cierre Caja";
+            this.mnuAperturaCierreCaja.Click += new System.EventHandler(this.mnuAperturaCierreCaja_Click);
             // 
             // Principal
             // 
@@ -1038,6 +1047,7 @@
         private System.Windows.Forms.ToolStripMenuItem ingresoDeCajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resumenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuAperturaCierreCaja;
     }
 }
 

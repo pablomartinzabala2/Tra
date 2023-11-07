@@ -44,6 +44,7 @@ namespace Concesionaria
         public static Int32? CodCheque;
         public static Int32? Codigo;
         public static Int32? CodStock;
+        public static DateTime Fecha;
         public Principal()
         {
             InitializeComponent();
@@ -849,6 +850,12 @@ namespace Concesionaria
         private void resumenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmResumenCaja frm = new FrmResumenCaja();
+            frm.Show();
+        }
+
+        private void mnuAperturaCierreCaja_Click(object sender, EventArgs e)
+        {
+            FrmAperturaCaja frm = new FrmAperturaCaja();
             frm.Show();
         }
     }
