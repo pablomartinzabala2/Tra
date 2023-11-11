@@ -7,7 +7,7 @@
         <Value>LogoTraut</Value>
         <Sizing>Fit</Sizing>
         <Top>0.55969cm</Top>
-        <Left>0.68474cm</Left>
+        <Left>0.46249cm</Left>
         <Height>1.47354cm</Height>
         <Width>6.0647cm</Width>
         <Style>
@@ -34,7 +34,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
         <Top>3.00729cm</Top>
-        <Left>6.2762cm</Left>
+        <Left>7.01703cm</Left>
         <Height>0.6cm</Height>
         <Width>4.475cm</Width>
         <ZIndex>1</ZIndex>
@@ -66,7 +66,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
         <Top>1.43323cm</Top>
-        <Left>12.8174cm</Left>
+        <Left>13.45736cm</Left>
         <Height>0.6cm</Height>
         <Width>1.64616cm</Width>
         <ZIndex>2</ZIndex>
@@ -96,9 +96,9 @@
         </Paragraphs>
         <rd:DefaultName>Fecha</rd:DefaultName>
         <Top>1.43323cm</Top>
-        <Left>14.63995cm</Left>
+        <Left>15.27991cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
+        <Width>2.1825cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -114,7 +114,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.95521cm</Width>
+              <Width>5.32166cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
@@ -531,9 +531,9 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>3.96558cm</Top>
-        <Left>0.68474cm</Left>
+        <Left>0.42954cm</Left>
         <Height>1.2cm</Height>
-        <Width>16.45521cm</Width>
+        <Width>17.82166cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -559,7 +559,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
         <Top>5.73828cm</Top>
-        <Left>13.07537cm</Left>
+        <Left>14.14264cm</Left>
         <Height>0.6cm</Height>
         <Width>1.56458cm</Width>
         <ZIndex>5</ZIndex>
@@ -591,7 +591,7 @@
         </Paragraphs>
         <rd:DefaultName>sSaldo</rd:DefaultName>
         <Top>5.73828cm</Top>
-        <Left>14.21264cm</Left>
+        <Left>15.27991cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>6</ZIndex>
@@ -613,10 +613,10 @@
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>1cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>1cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>1.5cm</LeftMargin>
+    <RightMargin>1cm</RightMargin>
+    <TopMargin>0cm</TopMargin>
+    <BottomMargin>0cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
