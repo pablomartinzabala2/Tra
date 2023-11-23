@@ -43,17 +43,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
+            this.btnDetalle = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.btnDetalle);
             this.Grupo.Controls.Add(this.btnEliminar);
             this.Grupo.Controls.Add(this.txtConcepto);
             this.Grupo.Controls.Add(this.label8);
@@ -198,16 +200,6 @@
             this.dpFechaDesde.Size = new System.Drawing.Size(87, 23);
             this.dpFechaDesde.TabIndex = 81;
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom2;
-            this.btnBuscar.Location = new System.Drawing.Point(577, -2);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(40, 27);
-            this.btnBuscar.TabIndex = 80;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -234,6 +226,16 @@
             this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
             this.dpFechaHasta.TabIndex = 72;
             // 
+            // btnDetalle
+            // 
+            this.btnDetalle.Image = global::Concesionaria.Properties.Resources.Compra;
+            this.btnDetalle.Location = new System.Drawing.Point(623, 30);
+            this.btnDetalle.Name = "btnDetalle";
+            this.btnDetalle.Size = new System.Drawing.Size(40, 27);
+            this.btnDetalle.TabIndex = 96;
+            this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
+            // 
             // btnEliminar
             // 
             this.btnEliminar.Image = global::Concesionaria.Properties.Resources.cancel;
@@ -243,6 +245,16 @@
             this.btnEliminar.TabIndex = 95;
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom2;
+            this.btnBuscar.Location = new System.Drawing.Point(577, -2);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(40, 27);
+            this.btnBuscar.TabIndex = 80;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // FrmConsultaMovimientoCaja
             // 
@@ -286,5 +298,6 @@
         private System.Windows.Forms.TextBox txtConcepto;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnDetalle;
     }
 }

@@ -192,6 +192,12 @@
     <Compile Include="FrmAbmBarrio.designer.cs">
       <DependentUpon>FrmAbmBarrio.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAbmCategoriaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmCategoriaCliente.Designer.cs">
+      <DependentUpon>FrmAbmCategoriaCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAbmCategoriaGasto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -371,6 +377,12 @@
     </Compile>
     <Compile Include="FrmCobroPrenda.Designer.cs">
       <DependentUpon>FrmCobroPrenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConceptoCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConceptoCaja.Designer.cs">
+      <DependentUpon>FrmConceptoCaja.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmConsultaAgenda.cs">
       <SubType>Form</SubType>
@@ -977,6 +989,9 @@
     <EmbeddedResource Include="FrmAbmBarrio.resx">
       <DependentUpon>FrmAbmBarrio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmCategoriaCliente.resx">
+      <DependentUpon>FrmAbmCategoriaCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmCategoriaGasto.resx">
       <DependentUpon>FrmAbmCategoriaGasto.cs</DependentUpon>
     </EmbeddedResource>
@@ -1066,6 +1081,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCobroPrenda.resx">
       <DependentUpon>FrmCobroPrenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConceptoCaja.resx">
+      <DependentUpon>FrmConceptoCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaAgenda.resx">
       <DependentUpon>FrmConsultaAgenda.cs</DependentUpon>

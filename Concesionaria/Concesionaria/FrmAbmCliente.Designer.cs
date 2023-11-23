@@ -72,6 +72,9 @@
             this.btnAbrir = new System.Windows.Forms.ToolStripButton();
             this.btnImprimir = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
+            this.cmb_CodCategoria = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnCategoriaCliente = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Imagen)).BeginInit();
             this.BarraBotones.SuspendLayout();
@@ -79,6 +82,9 @@
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.btnCategoriaCliente);
+            this.Grupo.Controls.Add(this.cmb_CodCategoria);
+            this.Grupo.Controls.Add(this.label4);
             this.Grupo.Controls.Add(this.txt_Observacion);
             this.Grupo.Controls.Add(this.label3);
             this.Grupo.Controls.Add(this.Imagen);
@@ -131,7 +137,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(377, 214);
+            this.label3.Location = new System.Drawing.Point(377, 236);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 17);
             this.label3.TabIndex = 73;
@@ -139,9 +145,9 @@
             // 
             // Imagen
             // 
-            this.Imagen.Location = new System.Drawing.Point(121, 201);
+            this.Imagen.Location = new System.Drawing.Point(121, 252);
             this.Imagen.Name = "Imagen";
-            this.Imagen.Size = new System.Drawing.Size(246, 174);
+            this.Imagen.Size = new System.Drawing.Size(178, 93);
             this.Imagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Imagen.TabIndex = 72;
             this.Imagen.TabStop = false;
@@ -515,6 +521,34 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // cmb_CodCategoria
+            // 
+            this.cmb_CodCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_CodCategoria.FormattingEnabled = true;
+            this.cmb_CodCategoria.Location = new System.Drawing.Point(121, 207);
+            this.cmb_CodCategoria.Name = "cmb_CodCategoria";
+            this.cmb_CodCategoria.Size = new System.Drawing.Size(246, 24);
+            this.cmb_CodCategoria.TabIndex = 75;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(19, 207);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 17);
+            this.label4.TabIndex = 76;
+            this.label4.Text = "Categoría";
+            // 
+            // btnCategoriaCliente
+            // 
+            this.btnCategoriaCliente.Image = global::Concesionaria.Properties.Resources.page_add;
+            this.btnCategoriaCliente.Location = new System.Drawing.Point(380, 201);
+            this.btnCategoriaCliente.Name = "btnCategoriaCliente";
+            this.btnCategoriaCliente.Size = new System.Drawing.Size(40, 28);
+            this.btnCategoriaCliente.TabIndex = 77;
+            this.btnCategoriaCliente.UseVisualStyleBackColor = true;
+            this.btnCategoriaCliente.Click += new System.EventHandler(this.btnCategoriaCliente_Click);
+            // 
             // FrmAbmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -584,5 +618,8 @@
         private System.Windows.Forms.PictureBox Imagen;
         private System.Windows.Forms.TextBox txt_Observacion;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnCategoriaCliente;
+        private System.Windows.Forms.ComboBox cmb_CodCategoria;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -25,6 +25,8 @@ namespace Concesionaria
                 cmb_CodTipoDoc.SelectedIndex = 1;
            
             fun.LlenarCombo(cmbProvincia2, "Provincia", "Nombre", "CodProvincia");
+            fun.LlenarCombo(cmb_CodCategoria, "CategoriaCliente", "Nombre", "codcategoria");
+
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
@@ -509,6 +511,28 @@ namespace Concesionaria
         {
             FrmListadoCliente fr = new FrmListadoCliente();
             fr.Show();
+        }
+
+        private void btnCategoriaCliente_Click(object sender, EventArgs e)
+        {
+            // Principal.CodigoPrincipalAbm = null;
+            // Principal.CampoIdSecundario = "CodBarrio";
+            //  Principal.CampoNombreSecundario = "Nombre";
+            //  Principal.NombreTablaSecundario = "Barrio";
+            FrmAbmCategoriaCliente form = new FrmAbmCategoriaCliente();
+            form.FormClosing += new FormClosingEventHandler(ContinuarCategoria);
+            form.ShowDialog();
+        }
+
+        private void ContinuarCategoria(object sender, FormClosingEventArgs e)
+        {
+            if (Principal.CampoIdSecundarioGenerado !=null)
+            {
+                cFunciones fun = new cFunciones();
+                fun.LlenarCombo(cmb_CodCategoria, "CategoriaCliente", "Nombre", "codcategoria");
+                cmb_CodCategoria.SelectedValue = Principal.CampoIdSecundarioGenerado;
+            }
+            
         }
     }
 }

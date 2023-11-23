@@ -45,6 +45,7 @@ namespace Concesionaria
         public static Int32? Codigo;
         public static Int32? CodStock;
         public static DateTime Fecha;
+        public static string ConceptoCaja;
         public Principal()
         {
             InitializeComponent();

@@ -40,12 +40,16 @@
             this.btnCobroCheque = new System.Windows.Forms.Button();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtConcepto = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtConcepto);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cmbOrden);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtCuenta);
@@ -68,15 +72,15 @@
             // cmbOrden
             // 
             this.cmbOrden.FormattingEnabled = true;
-            this.cmbOrden.Location = new System.Drawing.Point(525, 27);
+            this.cmbOrden.Location = new System.Drawing.Point(630, 29);
             this.cmbOrden.Name = "cmbOrden";
-            this.cmbOrden.Size = new System.Drawing.Size(106, 24);
+            this.cmbOrden.Size = new System.Drawing.Size(66, 24);
             this.cmbOrden.TabIndex = 80;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 30);
+            this.label2.Location = new System.Drawing.Point(18, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 17);
             this.label2.TabIndex = 79;
@@ -86,13 +90,13 @@
             // 
             this.txtCuenta.Location = new System.Drawing.Point(77, 30);
             this.txtCuenta.Name = "txtCuenta";
-            this.txtCuenta.Size = new System.Drawing.Size(178, 23);
+            this.txtCuenta.Size = new System.Drawing.Size(122, 23);
             this.txtCuenta.TabIndex = 78;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(261, 30);
+            this.label1.Location = new System.Drawing.Point(205, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 17);
             this.label1.TabIndex = 77;
@@ -100,15 +104,15 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(341, 30);
+            this.txtNombre.Location = new System.Drawing.Point(285, 31);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(178, 23);
+            this.txtNombre.Size = new System.Drawing.Size(130, 23);
             this.txtNombre.TabIndex = 76;
             // 
             // btnVerResumen
             // 
             this.btnVerResumen.Image = global::Concesionaria.Properties.Resources.Folder1;
-            this.btnVerResumen.Location = new System.Drawing.Point(783, 26);
+            this.btnVerResumen.Location = new System.Drawing.Point(829, 23);
             this.btnVerResumen.Name = "btnVerResumen";
             this.btnVerResumen.Size = new System.Drawing.Size(40, 31);
             this.btnVerResumen.TabIndex = 75;
@@ -118,7 +122,7 @@
             // button1
             // 
             this.button1.Image = global::Concesionaria.Properties.Resources.add;
-            this.button1.Location = new System.Drawing.Point(829, 26);
+            this.button1.Location = new System.Drawing.Point(783, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 31);
             this.button1.TabIndex = 74;
@@ -137,7 +141,7 @@
             // btnCobroCheque
             // 
             this.btnCobroCheque.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroCheque.Location = new System.Drawing.Point(737, 26);
+            this.btnCobroCheque.Location = new System.Drawing.Point(783, 22);
             this.btnCobroCheque.Name = "btnCobroCheque";
             this.btnCobroCheque.Size = new System.Drawing.Size(40, 31);
             this.btnCobroCheque.TabIndex = 48;
@@ -156,13 +160,29 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(637, 27);
+            this.btnBuscar.Location = new System.Drawing.Point(702, 23);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(88, 28);
+            this.btnBuscar.Size = new System.Drawing.Size(75, 28);
             this.btnBuscar.TabIndex = 44;
             this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(421, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 17);
+            this.label3.TabIndex = 81;
+            this.label3.Text = "Concepto";
+            // 
+            // txtConcepto
+            // 
+            this.txtConcepto.Location = new System.Drawing.Point(495, 31);
+            this.txtConcepto.Name = "txtConcepto";
+            this.txtConcepto.Size = new System.Drawing.Size(129, 23);
+            this.txtConcepto.TabIndex = 82;
             // 
             // FrmListadoCuentasProveedor
             // 
@@ -194,5 +214,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCuenta;
         private System.Windows.Forms.ComboBox cmbOrden;
+        private System.Windows.Forms.TextBox txtConcepto;
+        private System.Windows.Forms.Label label3;
     }
 }

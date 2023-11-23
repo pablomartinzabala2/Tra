@@ -169,7 +169,7 @@
             this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPatente.Enabled = false;
             this.txtPatente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPatente.Location = new System.Drawing.Point(595, 129);
+            this.txtPatente.Location = new System.Drawing.Point(660, 67);
             this.txtPatente.Name = "txtPatente";
             this.txtPatente.Size = new System.Drawing.Size(89, 23);
             this.txtPatente.TabIndex = 93;
@@ -178,7 +178,7 @@
             // btnBuscarVehiculo
             // 
             this.btnBuscarVehiculo.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnBuscarVehiculo.Location = new System.Drawing.Point(704, 57);
+            this.btnBuscarVehiculo.Location = new System.Drawing.Point(580, 109);
             this.btnBuscarVehiculo.Name = "btnBuscarVehiculo";
             this.btnBuscarVehiculo.Size = new System.Drawing.Size(55, 34);
             this.btnBuscarVehiculo.TabIndex = 92;
@@ -191,7 +191,7 @@
             this.txtCodStock.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodStock.Enabled = false;
             this.txtCodStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodStock.Location = new System.Drawing.Point(523, 135);
+            this.txtCodStock.Location = new System.Drawing.Point(687, 99);
             this.txtCodStock.Name = "txtCodStock";
             this.txtCodStock.Size = new System.Drawing.Size(47, 23);
             this.txtCodStock.TabIndex = 91;
@@ -200,7 +200,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(420, 73);
+            this.label6.Location = new System.Drawing.Point(304, 122);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 17);
             this.label6.TabIndex = 90;
@@ -210,7 +210,7 @@
             // 
             this.txtVehiculo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVehiculo.Enabled = false;
-            this.txtVehiculo.Location = new System.Drawing.Point(495, 66);
+            this.txtVehiculo.Location = new System.Drawing.Point(372, 120);
             this.txtVehiculo.Name = "txtVehiculo";
             this.txtVehiculo.Size = new System.Drawing.Size(202, 23);
             this.txtVehiculo.TabIndex = 89;
@@ -250,7 +250,7 @@
             // btnBuscarCuenta
             // 
             this.btnBuscarCuenta.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnBuscarCuenta.Location = new System.Drawing.Point(311, 129);
+            this.btnBuscarCuenta.Location = new System.Drawing.Point(568, 155);
             this.btnBuscarCuenta.Name = "btnBuscarCuenta";
             this.btnBuscarCuenta.Size = new System.Drawing.Size(55, 34);
             this.btnBuscarCuenta.TabIndex = 85;
@@ -260,7 +260,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(25, 155);
+            this.label10.Location = new System.Drawing.Point(313, 158);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 17);
             this.label10.TabIndex = 84;
@@ -269,7 +269,7 @@
             // txtCuentaProveedor
             // 
             this.txtCuentaProveedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCuentaProveedor.Location = new System.Drawing.Point(127, 155);
+            this.txtCuentaProveedor.Location = new System.Drawing.Point(382, 155);
             this.txtCuentaProveedor.Name = "txtCuentaProveedor";
             this.txtCuentaProveedor.Size = new System.Drawing.Size(178, 23);
             this.txtCuentaProveedor.TabIndex = 83;
@@ -277,7 +277,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 129);
+            this.label5.Location = new System.Drawing.Point(25, 155);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 17);
             this.label5.TabIndex = 82;
@@ -286,7 +286,7 @@
             // txtProveedor
             // 
             this.txtProveedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtProveedor.Location = new System.Drawing.Point(127, 126);
+            this.txtProveedor.Location = new System.Drawing.Point(127, 152);
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.Size = new System.Drawing.Size(178, 23);
             this.txtProveedor.TabIndex = 81;
@@ -332,7 +332,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 96);
+            this.label3.Location = new System.Drawing.Point(25, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 17);
             this.label3.TabIndex = 76;
@@ -342,9 +342,9 @@
             // 
             this.CmbTipoMov.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbTipoMov.FormattingEnabled = true;
-            this.CmbTipoMov.Location = new System.Drawing.Point(127, 96);
+            this.CmbTipoMov.Location = new System.Drawing.Point(127, 119);
             this.CmbTipoMov.Name = "CmbTipoMov";
-            this.CmbTipoMov.Size = new System.Drawing.Size(178, 24);
+            this.CmbTipoMov.Size = new System.Drawing.Size(110, 24);
             this.CmbTipoMov.TabIndex = 75;
             // 
             // btnGuardar
@@ -378,8 +378,9 @@
             // 
             this.txtConcepto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtConcepto.Location = new System.Drawing.Point(127, 67);
+            this.txtConcepto.Multiline = true;
             this.txtConcepto.Name = "txtConcepto";
-            this.txtConcepto.Size = new System.Drawing.Size(287, 23);
+            this.txtConcepto.Size = new System.Drawing.Size(454, 46);
             this.txtConcepto.TabIndex = 1;
             // 
             // label1
