@@ -129,6 +129,7 @@
     <Compile Include="Clases\cReporteBoleto.cs" />
     <Compile Include="Clases\cReportePresupuesto.cs" />
     <Compile Include="Clases\cResponsabilidadCivil.cs" />
+    <Compile Include="Clases\cResponsable.cs" />
     <Compile Include="Clases\cResumenCuentas.cs" />
     <Compile Include="Clases\cSaldoCobranza.cs" />
     <Compile Include="Clases\cSaldoCobranzaGeneral.cs" />

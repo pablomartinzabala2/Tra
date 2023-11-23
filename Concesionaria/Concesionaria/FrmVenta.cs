@@ -22,6 +22,7 @@ namespace Concesionaria
         DataTable tbCobranza;
         DataTable tbFinaciacionCuota;
         DataTable tbTransferencia;
+        DataTable tbResponsable;
         //se utiliza para indicar en que combo debe seguir
         //cuadno regrese del alta basica y tengas dos
         //tablas iguales
@@ -89,6 +90,8 @@ namespace Concesionaria
             tbListaPapeles.Columns.Add("Texto");
             tbListaPapeles.Columns.Add("Fecha");
             tbListaPapeles.Columns.Add("FechaVencimiento");
+            string ColResponsable = "CodResponsable;Nombre;Apellido;Concepto;Telefono";
+            tbResponsable = fun.CrearTabla(ColResponsable);
             if (Principal.CodigoPrincipalAbm != null)
             {
                 txtCodVenta.Text = Principal.CodigoPrincipalAbm;
@@ -395,6 +398,7 @@ namespace Concesionaria
                 }
 
                 txtCodCLiente.Text = trdo.Rows[0]["CodCliente"].ToString();
+                BuscarResponsable(Convert.ToInt32(txtCodCLiente.Text));
             }
             else
                 LimpiarCliente();
@@ -1200,10 +1204,8 @@ namespace Concesionaria
                     cResponsabilidadCivil resp = new cResponsabilidadCivil();
                     resp.Insertar(con, Transaccion, CodStock);
                 }
-               // GuardarRecibo(con, Transaccion);
-                    
-                    
-                    
+                // GuardarRecibo(con, Transaccion);
+                GuardarResopnsable(con, Transaccion, Convert.ToInt32(txtCodCLiente.Text));
                 GuardarBoleto(con, Transaccion, Convert.ToInt32(CodVenta));
                 Transaccion.Commit();
               
@@ -1740,6 +1742,8 @@ namespace Concesionaria
             txtCobranzaPresupuesto.Text = "";
             txtChequePresupuesto.Text = "";
             txtTransferenciaPresupuesto.Text = "";
+            tbResponsable.Rows.Clear();
+            GrillaResponsable.DataSource = tbResponsable;
         }
 
         private Double CalcularTotalCuotas()
@@ -3272,6 +3276,7 @@ namespace Concesionaria
                 if (tVenta.Rows[0]["CodVendedor"].ToString() != "")
                     CmbVendedor.SelectedValue = tVenta.Rows[0]["CodVendedor"].ToString();
                 BuscarClientexCodigo(Convert.ToInt32(tVenta.Rows[0]["CodCliente"].ToString()));
+                BuscarResponsable(Convert.ToInt32(tVenta.Rows[0]["CodCliente"].ToString()));
                 BuscarGastosTransferencia(CodVenta);
                 BuscarAutoxCodVenta(CodVenta);
                 BuscarChequesxCodVenta(CodVenta);
@@ -6315,6 +6320,95 @@ namespace Concesionaria
         {
             Int32 CodCliente = Convert.ToInt32(Principal.CodigoPrincipalAbm);
             BuscarClientexCodigo(CodCliente);
+            BuscarResponsable(CodCliente);
+        }
+
+        private void btnAgregarResponsable_Click(object sender, EventArgs e)
+        {
+            cFunciones fun = new Clases.cFunciones();
+            string Apellido = txtApellidoResponsable.Text;
+            string Nombre = txtNombreResponsable.Text;
+            string Telefono = txtTelefonoResponsable.Text;
+            string Concepto = txtConceptoResponsable.Text;
+            string CodResponsable = "0";
+            string Val = "";
+            Val = CodResponsable + ";" + Nombre;
+            Val = Val + ";" + Apellido;
+            Val = Val + ";" + Concepto;
+            Val = Val + ";" + Telefono;
+            tbResponsable = fun.AgregarFilas(tbResponsable, Val);
+            GrillaResponsable.DataSource = tbResponsable;
+            fun.AnchoColumnas(GrillaResponsable, "0;25;25;25;25");
+            txtNombreResponsable.Text = "";
+            txtApellidoResponsable.Text = "";
+            txtConceptoResponsable.Text = "";
+            txtTelefonoResponsable.Text = "";
+        }
+
+        private void GuardarResopnsable(SqlConnection con, SqlTransaction Transaccion, Int32 CodCliente)
+        {
+            string Apellido = "";
+            string Nombre = "";
+            string Telefono = "";
+            string Concepto = "";
+            string CodResponsable = "";
+            cResponsable Resp = new cResponsable();
+            for (int i = 0; i < tbResponsable.Rows.Count ; i++)
+            {
+                CodResponsable = tbResponsable.Rows[i]["CodResponsable"].ToString();
+                Apellido = tbResponsable.Rows[i]["Apellido"].ToString();
+                Nombre = tbResponsable.Rows[i]["Nombre"].ToString();
+                Telefono = tbResponsable.Rows[i]["Telefono"].ToString();
+                Concepto = tbResponsable.Rows[i]["Concepto"].ToString();
+                Resp.Insertar(con, Transaccion, Nombre, Apellido, Concepto, Telefono, CodCliente);
+            }
+        }
+
+        private void BuscarResponsable(Int32 CodCliente)
+        {
+            cFunciones fun = new cFunciones();
+            Int32 CodResponsable = 0;
+            string Nombre = "", Apellido = "";
+            string Concepto = "", Telefono = "";
+            cResponsable resp = new cResponsable();
+            DataTable trdo = resp.GetResponsable(CodCliente);
+            string Val = "";
+            tbResponsable.Rows.Clear();
+            for (int i = 0; i < trdo.Rows.Count ; i++)
+            {
+                CodResponsable = Convert.ToInt32(trdo.Rows[i]["CodResponsable"]);
+                Nombre = trdo.Rows[i]["Nombre"].ToString();
+                Apellido  = trdo.Rows[i]["Apellido"].ToString();
+                Concepto = trdo.Rows[i]["Concepto"].ToString();
+                Telefono = trdo.Rows[i]["Telefono"].ToString();
+                Val = CodResponsable.ToString();
+                Val = Val + ";" + Nombre;
+                Val = Val + ";" + Apellido;
+                Val = Val + ";" + Concepto;
+                Val = Val + ";" + Telefono;
+                tbResponsable = fun.AgregarFilas(tbResponsable, Val);
+            }
+            GrillaResponsable.DataSource = tbResponsable;
+            fun.AnchoColumnas(GrillaResponsable, "0;25;25;25;25");
+        }
+
+        private void btnQuitarResponsable_Click(object sender, EventArgs e)
+        {   
+            if (GrillaResponsable.CurrentRow ==null)
+            {
+                MessageBox.Show("Debe seleccionar un elemento ");
+                return;
+            } 
+            cResponsable resp = new cResponsable();
+            Int32 CodResponsable = Convert.ToInt32(GrillaResponsable.CurrentRow.Cells[0].Value);
+            cFunciones fun = new cFunciones();
+            fun.EliminarFila(tbResponsable, "CodResponsable", CodResponsable.ToString());
+            if (CodResponsable>0)
+            {
+                resp.Borrar(CodResponsable);
+            }
+            GrillaResponsable.DataSource = tbResponsable;
+            fun.AnchoColumnas(GrillaResponsable, "0;25;25;25;25");
         }
     }
 }
