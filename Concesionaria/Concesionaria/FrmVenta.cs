@@ -68,6 +68,7 @@ namespace Concesionaria
             DataTable tbColor = cDb.ExecuteDataTable("select * from Color order by Nombre");
             fun.LlenarComboDatatable(cmbColor, tbColor, "Nombre", "CodColor");
             fun.LlenarComboDatatable(cmbColor2, tbColor, "Nombre", "CodColor");
+            fun.LlenarCombo (cmbCategoriaCliente,"CategoriaCliente", "Nombre", "CodCategoria");
             DataTable tbAnio = cDb.ExecuteDataTable("select * from anio Order by Nombre desc");
             fun.LlenarComboDatatable(cmbAnio, tbAnio, "Nombre", "CodAnio");
             LlenarFinanciacion();
@@ -1347,6 +1348,7 @@ namespace Concesionaria
             string Calle = txtCalle.Text;
             string Altura = txtAltura.Text;
             Int32? CodBarrio = null;
+            Int32? CodCategoria = null;
             string Observacion = txtObservacion.Text;
             string RutaImagen = txtRutaImagenCliente.Text;
             DateTime? FechaNacimiento = null;
@@ -1358,11 +1360,13 @@ namespace Concesionaria
             if (CmbBarrio.SelectedIndex > 0)
                 CodBarrio = Convert.ToInt32(CmbBarrio.SelectedValue);
 
+            if (cmbCategoriaCliente.SelectedIndex > 0)
+                CodCategoria = Convert.ToInt32(cmbCategoriaCliente.SelectedValue);
             if (Nuevo == true)
             {
                 GrabaClienteNuevo = true;
                 sql = cliente.GetSqlInsertarCliente(CodTipoDoc, NroDocumento, Nombre,
-                      Apellido, Telefono, Celular, Calle, Altura, CodBarrio, Observacion, RutaImagen, FechaNacimiento);
+                      Apellido, Telefono, Celular, Calle, Altura, CodBarrio, Observacion, RutaImagen, FechaNacimiento,CodCategoria);
                 txtCodCLiente.Text = cliente.GetMaxCliente().ToString();
             }
             else

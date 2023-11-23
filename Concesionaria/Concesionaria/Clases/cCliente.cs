@@ -55,11 +55,11 @@ namespace Concesionaria.Clases
         public string  GetSqlInsertarCliente(Int32? CodTipoDoc, string NroDocumento,
             string Nombre, string Apellido, string Telefono, string Celular,
             string Calle, string Altura, Int32? CodBarrio, string Observacion,
-            string RutaImagen, DateTime? FechaNacimiento
+            string RutaImagen, DateTime? FechaNacimiento , Int32? CodCategoria
             )
         {
             string sql = "Insert into Cliente(CodTipoDoc,NroDocumento,Nombre,Apellido";
-            sql = sql + ",Telefono,Celular, Calle,  Numero, CodBarrio,Observacion,RutaImagen,FechaNacimiento)";
+            sql = sql + ",Telefono,Celular, Calle,  Numero, CodBarrio,Observacion,RutaImagen,FechaNacimiento,CodCategoria)";
             sql = sql + "Values(";
             if (CodTipoDoc == null)
                 sql = sql + "null";
@@ -87,6 +87,10 @@ namespace Concesionaria.Clases
             {
                 sql = sql + ",null";
             }
+            if (CodCategoria != null)
+                sql = sql + "," + CodCategoria.ToString();
+            else
+                sql = sql + ",null";
             sql = sql + ")";
             return sql;
         }

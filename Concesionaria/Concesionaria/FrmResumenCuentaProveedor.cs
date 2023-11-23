@@ -66,7 +66,8 @@ namespace Concesionaria
             cMovimientoProveedor mov = new Clases.cMovimientoProveedor();
             DateTime FechaDesde = dpFechaDesde.Value;
             DateTime FechaHasta = dpFechaHasta.Value;
-            DataTable trdo = mov.GetResumen(CodCuentaProveedor, FechaDesde, FechaHasta);
+            string Concepto = txtConcepto.Text;
+            DataTable trdo = mov.GetResumen(CodCuentaProveedor, FechaDesde, FechaHasta, Concepto);
                 
             Double Debe = 0;
             Double Haber = 0;
@@ -160,6 +161,19 @@ namespace Concesionaria
             mov.CorregirSaldo(CodCuenta);
             MessageBox.Show("Datos grabados correctamente");
             Buscar();
+        }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow ==null)
+            {
+                MessageBox.Show("Debe seleccionar un elemento");
+                return;
+            }
+
+            Principal.ConceptoCaja = Grilla.CurrentRow.Cells[2].Value.ToString();
+            FrmConceptoCaja frm = new FrmConceptoCaja();
+            frm.ShowDialog();
         }
     }
 }

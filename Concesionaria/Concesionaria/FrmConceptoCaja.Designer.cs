@@ -46,7 +46,7 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.txtConcepto);
             this.Name = "FrmConceptoCaja";
-            this.Text = "FrmConceptoCaja";
+            this.Text = "";
             this.Load += new System.EventHandler(this.FrmConceptoCaja_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

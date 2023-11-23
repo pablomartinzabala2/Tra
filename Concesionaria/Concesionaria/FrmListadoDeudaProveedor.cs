@@ -31,15 +31,16 @@ namespace Concesionaria
 
             DateTime FechaDesde = Convert.ToDateTime(dpFechaDesde.Value);
             DateTime FechaHasta = Convert.ToDateTime(dpFechaHasta.Value);
-            Buscar(FechaDesde, FechaHasta, Proveedor);
+            string Concepto = txtConcepto.Text;
+            Buscar(FechaDesde, FechaHasta, Proveedor, Concepto);
         }
 
-        private void Buscar(DateTime FechaDesde,DateTime FechaHasta, string Proveedor)
+        private void Buscar(DateTime FechaDesde,DateTime FechaHasta, string Proveedor, string Concepto)
         {
             cFunciones fun = new cFunciones();
             cDeudaProveedor Deuda = new Clases.cDeudaProveedor();
             Double Total = 0, Saldo = 0;
-            DataTable trdo = Deuda.GetDeuda(FechaDesde, FechaHasta, Proveedor);
+            DataTable trdo = Deuda.GetDeuda(FechaDesde, FechaHasta, Proveedor, Concepto);
             Total = fun.TotalizarColumna(trdo, "Importe");
             Saldo = fun.TotalizarColumna(trdo, "Saldo");
             txtTotalDeuda.Text = fun.FormatoEnteroMiles(Total.ToString());
@@ -56,7 +57,7 @@ namespace Concesionaria
             InicializarFechas();
             DateTime FechaDesde = Convert.ToDateTime(dpFechaDesde.Value);
             DateTime FechaHasta = Convert.ToDateTime(dpFechaHasta.Value);
-            Buscar(FechaDesde, FechaHasta,"");
+            Buscar(FechaDesde, FechaHasta,"","");
         }
 
         private void InicializarFechas()
@@ -124,7 +125,8 @@ namespace Concesionaria
                 string Proveedor = "";
                 if (txtProveedor.Text != "")
                     Proveedor = txtProveedor.Text;
-                Buscar(FechaDesde, FechaHasta, Proveedor);
+                string Concepto = txtConcepto.Text;
+                Buscar(FechaDesde, FechaHasta, Proveedor,Concepto);
                 Msj("Datos grabados correctamente ");
             }
             
