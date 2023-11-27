@@ -28,10 +28,26 @@ namespace Concesionaria.Clases
             return user;
         }
 
+        public DataTable GetUsuarioxCodigo(Int32 CodUsuario)
+        {
+            string sql = "select * from Usuario";
+            sql = sql + " where CodUsuario=" + CodUsuario.ToString();
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            return trdo;
+        }
+
         public DataTable GetAllUsuarios()
         {
             string sql = "select * from Usuario ";
             return cDb.ExecuteDataTable(sql);
+        }
+
+        public void ActualizarClave(Int32 CodUsuario, string Clave)
+        {
+            string sql = "Update usuario ";
+            sql = sql + " set Clave =" + "'" + Clave + "'";
+            sql = sql + " where CodUsuario =" + CodUsuario.ToString();
+            cDb.ExecutarNonQuery(sql);
         }
     }
 }

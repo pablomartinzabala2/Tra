@@ -99,14 +99,12 @@
             this.listadoCuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAperturaCierreCaja = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresoDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resumenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
@@ -122,7 +120,10 @@
             this.BtnBorrarTablas = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.mnuAperturaCierreCaja = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.actualizarContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -149,6 +150,7 @@
             // 
             this.fileMenu.DoubleClickEnabled = true;
             this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.actualizarContraseñaToolStripMenuItem,
             this.toolStripMenuItem8,
             this.toolStripMenuItem7,
             this.toolStripMenuItem1,
@@ -694,6 +696,13 @@
             this.cajaToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
             this.cajaToolStripMenuItem.Text = "Caja";
             // 
+            // mnuAperturaCierreCaja
+            // 
+            this.mnuAperturaCierreCaja.Name = "mnuAperturaCierreCaja";
+            this.mnuAperturaCierreCaja.Size = new System.Drawing.Size(246, 22);
+            this.mnuAperturaCierreCaja.Text = "Apertura / Cierre Caja";
+            this.mnuAperturaCierreCaja.Click += new System.EventHandler(this.mnuAperturaCierreCaja_Click);
+            // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
@@ -749,22 +758,6 @@
             this.toolStrip.Stretch = true;
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
-            // 
-            // statusStrip
-            // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 431);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(632, 22);
-            this.statusStrip.TabIndex = 2;
-            this.statusStrip.Text = "StatusStrip";
-            // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
-            this.toolStripStatusLabel.Text = "Status";
             // 
             // newToolStripButton
             // 
@@ -921,12 +914,28 @@
             this.toolStripButton6.Text = "toolStripButton6";
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
-            // mnuAperturaCierreCaja
+            // statusStrip
             // 
-            this.mnuAperturaCierreCaja.Name = "mnuAperturaCierreCaja";
-            this.mnuAperturaCierreCaja.Size = new System.Drawing.Size(246, 22);
-            this.mnuAperturaCierreCaja.Text = "Apertura / Cierre Caja";
-            this.mnuAperturaCierreCaja.Click += new System.EventHandler(this.mnuAperturaCierreCaja_Click);
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 431);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(632, 22);
+            this.statusStrip.TabIndex = 2;
+            this.statusStrip.Text = "StatusStrip";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
+            this.toolStripStatusLabel.Text = "Status";
+            // 
+            // actualizarContraseñaToolStripMenuItem
+            // 
+            this.actualizarContraseñaToolStripMenuItem.Name = "actualizarContraseñaToolStripMenuItem";
+            this.actualizarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(292, 22);
+            this.actualizarContraseñaToolStripMenuItem.Text = "Actualizar Contraseña";
+            this.actualizarContraseñaToolStripMenuItem.Click += new System.EventHandler(this.actualizarContraseñaToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -1048,6 +1057,7 @@
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resumenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuAperturaCierreCaja;
+        private System.Windows.Forms.ToolStripMenuItem actualizarContraseñaToolStripMenuItem;
     }
 }
 

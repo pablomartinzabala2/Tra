@@ -290,5 +290,17 @@ namespace Concesionaria
                 mov.ActualizarSaldo(CodMovimiento, sSaldo);
             }
         }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow == null)
+            {
+                MessageBox.Show("Debe seleccionar un elelemtno ");
+                return;
+            }
+            Principal.ConceptoCaja = Grilla.CurrentRow.Cells[2].Value.ToString();
+            FrmConceptoCaja frm = new FrmConceptoCaja();
+            frm.ShowDialog();
+        }
     }
 }

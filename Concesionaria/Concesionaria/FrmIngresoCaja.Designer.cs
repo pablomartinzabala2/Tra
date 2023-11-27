@@ -60,12 +60,14 @@
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.txtConcepto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnDetalle = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.btnDetalle);
             this.Grupo.Controls.Add(this.btnImprimir);
             this.Grupo.Controls.Add(this.txtSaldo);
             this.Grupo.Controls.Add(this.txtEgresos);
@@ -108,9 +110,9 @@
             // btnImprimir
             // 
             this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer;
-            this.btnImprimir.Location = new System.Drawing.Point(704, 172);
+            this.btnImprimir.Location = new System.Drawing.Point(704, 180);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(55, 34);
+            this.btnImprimir.Size = new System.Drawing.Size(45, 28);
             this.btnImprimir.TabIndex = 100;
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
@@ -180,7 +182,7 @@
             this.btnBuscarVehiculo.Image = global::Concesionaria.Properties.Resources.carpeta;
             this.btnBuscarVehiculo.Location = new System.Drawing.Point(580, 109);
             this.btnBuscarVehiculo.Name = "btnBuscarVehiculo";
-            this.btnBuscarVehiculo.Size = new System.Drawing.Size(55, 34);
+            this.btnBuscarVehiculo.Size = new System.Drawing.Size(43, 29);
             this.btnBuscarVehiculo.TabIndex = 92;
             this.btnBuscarVehiculo.UseVisualStyleBackColor = true;
             this.btnBuscarVehiculo.Click += new System.EventHandler(this.btnBuscarVehiculo_Click);
@@ -217,7 +219,7 @@
             // 
             // btnAnular
             // 
-            this.btnAnular.Location = new System.Drawing.Point(576, 173);
+            this.btnAnular.Location = new System.Drawing.Point(580, 181);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(75, 33);
             this.btnAnular.TabIndex = 88;
@@ -250,9 +252,9 @@
             // btnBuscarCuenta
             // 
             this.btnBuscarCuenta.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnBuscarCuenta.Location = new System.Drawing.Point(568, 155);
+            this.btnBuscarCuenta.Location = new System.Drawing.Point(580, 141);
             this.btnBuscarCuenta.Name = "btnBuscarCuenta";
-            this.btnBuscarCuenta.Size = new System.Drawing.Size(55, 34);
+            this.btnBuscarCuenta.Size = new System.Drawing.Size(43, 34);
             this.btnBuscarCuenta.TabIndex = 85;
             this.btnBuscarCuenta.UseVisualStyleBackColor = true;
             this.btnBuscarCuenta.Click += new System.EventHandler(this.btnBuscarCuenta_Click);
@@ -349,7 +351,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(495, 174);
+            this.btnGuardar.Location = new System.Drawing.Point(499, 182);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 32);
             this.btnGuardar.TabIndex = 74;
@@ -391,6 +393,16 @@
             this.label1.Size = new System.Drawing.Size(68, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Concepto";
+            // 
+            // btnDetalle
+            // 
+            this.btnDetalle.Image = global::Concesionaria.Properties.Resources.Compra;
+            this.btnDetalle.Location = new System.Drawing.Point(661, 185);
+            this.btnDetalle.Name = "btnDetalle";
+            this.btnDetalle.Size = new System.Drawing.Size(40, 27);
+            this.btnDetalle.TabIndex = 101;
+            this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
             // FrmIngresoCaja
             // 
@@ -446,5 +458,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnDetalle;
     }
 }

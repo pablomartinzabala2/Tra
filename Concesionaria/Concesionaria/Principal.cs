@@ -859,5 +859,11 @@ namespace Concesionaria
             FrmAperturaCaja frm = new FrmAperturaCaja();
             frm.Show();
         }
+
+        private void actualizarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCambioClave frm = new FrmCambioClave();
+            frm.Show();
+        }
     }
 }

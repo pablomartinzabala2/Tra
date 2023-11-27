@@ -343,6 +343,12 @@
     <Compile Include="FrmBuscarCheque.Designer.cs">
       <DependentUpon>FrmBuscarCheque.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCambioClave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCambioClave.Designer.cs">
+      <DependentUpon>FrmCambioClave.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCobroCheque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1064,6 +1070,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarCheque.resx">
       <DependentUpon>FrmBuscarCheque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCambioClave.resx">
+      <DependentUpon>FrmCambioClave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCobroCheque.resx">
       <DependentUpon>FrmCobroCheque.cs</DependentUpon>
