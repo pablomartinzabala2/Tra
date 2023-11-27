@@ -18,6 +18,8 @@ namespace Concesionaria
 
         private void FrmCambioClave_Load(object sender, EventArgs e)
         {
+            txtClave.PasswordChar = '*';
+            txtReingresarClave.PasswordChar = '*';
             Int32 CodUsuario = Principal.CodUsuarioLogueado;
             cUsuario usuario = new cUsuario();
             DataTable trdo = usuario.GetUsuarioxCodigo(CodUsuario);
@@ -51,6 +53,27 @@ namespace Concesionaria
             cUsuario user = new cUsuario();
             user.ActualizarClave(CodUsuario, Clave);
             MessageBox.Show("Datos actualizados correctamente");
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            txtClave.Text = "";
+            txtReingresarClave.Text = "";
+        }
+
+        private void chkContraseña_Click(object sender, EventArgs e)
+        {
+            if (chkContraseña.Checked)
+            {
+                txtClave.PasswordChar = '\0';
+                txtReingresarClave.PasswordChar = '\0';
+               
+            }
+            else
+            {
+                txtClave.PasswordChar = '*';
+                txtReingresarClave.PasswordChar = '*';
+            }
         }
     }
 }
