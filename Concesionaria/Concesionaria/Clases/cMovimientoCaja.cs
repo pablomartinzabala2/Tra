@@ -47,10 +47,10 @@ namespace Concesionaria.Clases
 
         public Int32 InsertarId(string Concepto, DateTime Fecha, Int32? CodTipo, Double ImporteIngreso, Double ImporteEgreso, 
             Int32 CodCuentaProveedor, 
-            Int32? CodStock, string sImporteIngreso, string sImporteEgreso)
+            Int32? CodStock, string sImporteIngreso, string sImporteEgreso, Int32 CodUsuario)
         {
             string sql = "insert into MovimientoCaja(";
-            sql = sql + "Concepto,Fecha,CodTipo,ImporteIngreso,ImporteEgreso,CodCuentaProveedor,CodStock,sImporteIngreso,sImporteEgreso";
+            sql = sql + "Concepto,Fecha,CodTipo,ImporteIngreso,ImporteEgreso,CodCuentaProveedor,CodStock,sImporteIngreso,sImporteEgreso,CodUsuario";
             sql = sql + ")";
             sql = sql + " values (" + "'" + Concepto + "'";
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
@@ -75,6 +75,7 @@ namespace Concesionaria.Clases
                 sql = sql + ",null";  
             sql = sql + "," + "'" + sImporteIngreso + "'";
             sql = sql + "," + "'" + sImporteEgreso + "'";
+            sql = sql + "," + CodUsuario.ToString();
             sql = sql + ")";
             return cDb.EjecutarEscalar(sql);
         }

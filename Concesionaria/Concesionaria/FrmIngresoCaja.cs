@@ -34,6 +34,7 @@ namespace Concesionaria
             Int32? CodStock = null;
             string sImporteIngreso = "";
             string sImporteEgreso = "";
+            Int32 CodUsuario = Principal.CodUsuarioLogueado;
 
             int TingoIngresoEgreso = Convert.ToInt32(cmbTipoIngresoEgreso.SelectedValue);
             if (txtImporte.Text != "")
@@ -64,7 +65,7 @@ namespace Concesionaria
                 CodTipo = Convert.ToInt32(CmbTipoMov.SelectedValue);
             if (txtCodCuenta.Text != "")
                 CodCuenta = Convert.ToInt32(txtCodCuenta.Text);
-            CodMovimiento = mov.InsertarId(Concepto, Fecha,CodTipo,ImporteIngreso, ImporteEgreso,CodCuenta, CodStock,sImporteIngreso, sImporteEgreso);
+            CodMovimiento = mov.InsertarId(Concepto, Fecha, CodTipo, ImporteIngreso, ImporteEgreso, CodCuenta, CodStock, sImporteIngreso, sImporteEgreso, CodUsuario);
             MessageBox.Show("Datos grabados correctamente ");
             CargarGrilla(Fecha);
             if (txtCodStock.Text !="")
