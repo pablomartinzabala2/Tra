@@ -618,6 +618,10 @@ namespace Concesionaria {
             
             private global::System.Data.DataColumn columnCuotaPatente1;
             
+            private global::System.Data.DataColumn columnCuotaPatente2;
+            
+            private global::System.Data.DataColumn columnCuotaPatente21;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DataTable1DataTable() {
@@ -1029,6 +1033,22 @@ namespace Concesionaria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CuotaPatente2Column {
+                get {
+                    return this.columnCuotaPatente2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CuotaPatente21Column {
+                get {
+                    return this.columnCuotaPatente21;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1109,7 +1129,9 @@ namespace Concesionaria {
                         decimal ImporteDocumento, 
                         int Orden, 
                         string CuotaPatente, 
-                        string CuotaPatente1) {
+                        string CuotaPatente1, 
+                        string CuotaPatente2, 
+                        string CuotaPatente21) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1158,7 +1180,9 @@ namespace Concesionaria {
                         ImporteDocumento,
                         Orden,
                         CuotaPatente,
-                        CuotaPatente1};
+                        CuotaPatente1,
+                        CuotaPatente2,
+                        CuotaPatente21};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -1228,6 +1252,8 @@ namespace Concesionaria {
                 this.columnOrden = base.Columns["Orden"];
                 this.columnCuotaPatente = base.Columns["CuotaPatente"];
                 this.columnCuotaPatente1 = base.Columns["CuotaPatente1"];
+                this.columnCuotaPatente2 = base.Columns["CuotaPatente2"];
+                this.columnCuotaPatente21 = base.Columns["CuotaPatente21"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1327,6 +1353,10 @@ namespace Concesionaria {
                 base.Columns.Add(this.columnCuotaPatente);
                 this.columnCuotaPatente1 = new global::System.Data.DataColumn("CuotaPatente1", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCuotaPatente1);
+                this.columnCuotaPatente2 = new global::System.Data.DataColumn("CuotaPatente2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCuotaPatente2);
+                this.columnCuotaPatente21 = new global::System.Data.DataColumn("CuotaPatente21", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCuotaPatente21);
                 this.columnCodPresupuesto.AutoIncrement = true;
                 this.columnCodPresupuesto.AutoIncrementSeed = -1;
                 this.columnCodPresupuesto.AutoIncrementStep = -1;
@@ -1363,6 +1393,8 @@ namespace Concesionaria {
                 this.columnNumero.MaxLength = 200;
                 this.columnCuotaPatente.MaxLength = 50;
                 this.columnCuotaPatente1.MaxLength = 50;
+                this.columnCuotaPatente2.MaxLength = 50;
+                this.columnCuotaPatente21.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5075,6 +5107,38 @@ namespace Concesionaria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CuotaPatente2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.CuotaPatente2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CuotaPatente2\' de la tabla \'DataTable1\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.CuotaPatente2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CuotaPatente21 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.CuotaPatente21Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CuotaPatente21\' de la tabla \'DataTable1\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.CuotaPatente21Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsCodAutoNull() {
                 return this.IsNull(this.tableDataTable1.CodAutoColumn);
             }
@@ -5611,6 +5675,30 @@ namespace Concesionaria {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetCuotaPatente1Null() {
                 this[this.tableDataTable1.CuotaPatente1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCuotaPatente2Null() {
+                return this.IsNull(this.tableDataTable1.CuotaPatente2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCuotaPatente2Null() {
+                this[this.tableDataTable1.CuotaPatente2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCuotaPatente21Null() {
+                return this.IsNull(this.tableDataTable1.CuotaPatente21Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCuotaPatente21Null() {
+                this[this.tableDataTable1.CuotaPatente21Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -8288,6 +8376,8 @@ namespace Concesionaria.DsReportesTableAdapters {
             tableMapping.ColumnMappings.Add("Orden", "Orden");
             tableMapping.ColumnMappings.Add("CuotaPatente", "CuotaPatente");
             tableMapping.ColumnMappings.Add("CuotaPatente1", "CuotaPatente1");
+            tableMapping.ColumnMappings.Add("CuotaPatente2", "CuotaPatente2");
+            tableMapping.ColumnMappings.Add("CuotaPatente21", "CuotaPatente21");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -8308,7 +8398,7 @@ namespace Concesionaria.DsReportesTableAdapters {
 (c.Apellido + ' ' + c.Nombre) as Cliente,
 c.telefono,
 (select m.Nombre from Marca m where m.CodMarca = a.CodMarca) as Marca
-,(select tipo.Nombre from TipoUtilitario tipo where tipo.codtipo=a.CodTipoUtilitario) as tipo ,p.CuotaPatente
+,(select tipo.Nombre from TipoUtilitario tipo where tipo.codtipo=a.CodTipoUtilitario) as tipo ,p.CuotaPatente,p.CuotaPatente2
 from presupuesto p , cliente c, auto a ,ReportePresupuesto rp
 where p.CodCliente = c.CodCliente
 and p.CodAuto = a.codauto 

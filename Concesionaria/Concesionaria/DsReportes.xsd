@@ -16,7 +16,7 @@
 (c.Apellido + ' ' + c.Nombre) as Cliente,
 c.telefono,
 (select m.Nombre from Marca m where m.CodMarca = a.CodMarca) as Marca
-,(select tipo.Nombre from TipoUtilitario tipo where tipo.codtipo=a.CodTipoUtilitario) as tipo ,p.CuotaPatente
+,(select tipo.Nombre from TipoUtilitario tipo where tipo.codtipo=a.CodTipoUtilitario) as tipo ,p.CuotaPatente,p.CuotaPatente2
 from presupuesto p , cliente c, auto a ,ReportePresupuesto rp
 where p.CodCliente = c.CodCliente
 and p.CodAuto = a.codauto 
@@ -78,6 +78,8 @@ order by rp.Orden</CommandText>
               <Mapping SourceColumn="Orden" DataSetColumn="Orden" />
               <Mapping SourceColumn="CuotaPatente" DataSetColumn="CuotaPatente" />
               <Mapping SourceColumn="CuotaPatente1" DataSetColumn="CuotaPatente1" />
+              <Mapping SourceColumn="CuotaPatente2" DataSetColumn="CuotaPatente2" />
+              <Mapping SourceColumn="CuotaPatente21" DataSetColumn="CuotaPatente21" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -530,14 +532,28 @@ and m.Fecha &gt;=@p1 and m.Fecha&lt;= @p1</CommandText>
               <xs:element name="ImporteTransferencia" msprop:Generator_ColumnPropNameInTable="ImporteTransferenciaColumn" msprop:Generator_ColumnPropNameInRow="ImporteTransferencia" msprop:Generator_UserColumnName="ImporteTransferencia" msprop:Generator_ColumnVarNameInTable="columnImporteTransferencia" type="xs:decimal" minOccurs="0" />
               <xs:element name="ImporteDocumento" msprop:Generator_ColumnPropNameInTable="ImporteDocumentoColumn" msprop:Generator_ColumnPropNameInRow="ImporteDocumento" msprop:Generator_UserColumnName="ImporteDocumento" msprop:Generator_ColumnVarNameInTable="columnImporteDocumento" type="xs:decimal" minOccurs="0" />
               <xs:element name="Orden" msprop:Generator_ColumnPropNameInTable="OrdenColumn" msprop:Generator_ColumnPropNameInRow="Orden" msprop:Generator_UserColumnName="Orden" msprop:Generator_ColumnVarNameInTable="columnOrden" type="xs:int" minOccurs="0" />
-              <xs:element name="CuotaPatente" msprop:Generator_ColumnPropNameInRow="CuotaPatente" msprop:Generator_ColumnPropNameInTable="CuotaPatenteColumn" msprop:Generator_ColumnVarNameInTable="columnCuotaPatente" msprop:Generator_UserColumnName="CuotaPatente" minOccurs="0">
+              <xs:element name="CuotaPatente" msprop:Generator_ColumnPropNameInTable="CuotaPatenteColumn" msprop:Generator_ColumnPropNameInRow="CuotaPatente" msprop:Generator_UserColumnName="CuotaPatente" msprop:Generator_ColumnVarNameInTable="columnCuotaPatente" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CuotaPatente1" msprop:Generator_ColumnPropNameInRow="CuotaPatente1" msprop:Generator_ColumnPropNameInTable="CuotaPatente1Column" msprop:Generator_ColumnVarNameInTable="columnCuotaPatente1" msprop:Generator_UserColumnName="CuotaPatente1" minOccurs="0">
+              <xs:element name="CuotaPatente1" msprop:Generator_ColumnPropNameInTable="CuotaPatente1Column" msprop:Generator_ColumnPropNameInRow="CuotaPatente1" msprop:Generator_UserColumnName="CuotaPatente1" msprop:Generator_ColumnVarNameInTable="columnCuotaPatente1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CuotaPatente2" msprop:Generator_ColumnPropNameInRow="CuotaPatente2" msprop:Generator_ColumnPropNameInTable="CuotaPatente2Column" msprop:Generator_ColumnVarNameInTable="columnCuotaPatente2" msprop:Generator_UserColumnName="CuotaPatente2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CuotaPatente21" msprop:Generator_ColumnPropNameInRow="CuotaPatente21" msprop:Generator_ColumnPropNameInTable="CuotaPatente21Column" msprop:Generator_ColumnVarNameInTable="columnCuotaPatente21" msprop:Generator_UserColumnName="CuotaPatente21" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -1034,7 +1050,7 @@ and m.Fecha &gt;=@p1 and m.Fecha&lt;= @p1</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="sSaldo" msprop:Generator_UserColumnName="sSaldo" msprop:Generator_ColumnPropNameInTable="sSaldoColumn" msprop:Generator_ColumnPropNameInRow="sSaldo" msprop:Generator_ColumnVarNameInTable="columnsSaldo" minOccurs="0">
+              <xs:element name="sSaldo" msprop:Generator_ColumnPropNameInTable="sSaldoColumn" msprop:Generator_ColumnPropNameInRow="sSaldo" msprop:Generator_UserColumnName="sSaldo" msprop:Generator_ColumnVarNameInTable="columnsSaldo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />

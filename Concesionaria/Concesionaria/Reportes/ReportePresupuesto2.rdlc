@@ -533,8 +533,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>10.03363cm</Top>
-        <Left>0.41416cm</Left>
+        <Top>10.31cm</Top>
+        <Left>0.3937cm</Left>
         <Height>2.60703cm</Height>
         <Width>12.59354cm</Width>
         <ZIndex>5</ZIndex>
@@ -806,7 +806,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!CuotaPatente.Value, "DataSet1").ToString().Substring(0,17)</Value>
+                <Value>=First(Fields!CuotaPatente.Value, "DataSet1")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -836,18 +836,18 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!CuotaPatente.Value, "DataSet1").ToString().Substring(19, 45)</Value>
+                <Value>=First(Fields!CuotaPatente2.Value, "DataSet1")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>CuotaPatente</rd:DefaultName>
-        <Top>9.25724cm</Top>
-        <Left>4.74395cm</Left>
-        <Height>0.49417cm</Height>
-        <Width>8.26375cm</Width>
+        <rd:DefaultName>CuotaPatente2</rd:DefaultName>
+        <Top>9.75141cm</Top>
+        <Left>0.3937cm</Left>
+        <Height>0.6cm</Height>
+        <Width>7.44771cm</Width>
         <ZIndex>15</ZIndex>
         <Style>
           <Border>
@@ -1103,6 +1103,14 @@
         </Field>
         <Field Name="CuotaPatente1">
           <DataField>CuotaPatente1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CuotaPatente2">
+          <DataField>CuotaPatente2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CuotaPatente21">
+          <DataField>CuotaPatente21</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
