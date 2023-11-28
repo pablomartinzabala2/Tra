@@ -5295,6 +5295,15 @@ namespace Concesionaria
                 string sImporteGasto = "";
                 Double ImporteEfectivo = 0;
                 string CuotaPatente = "";
+                string CuotaPatente2 = "";
+
+
+                if (chkCuotaPatente.Checked == true)
+                {
+                    CuotaPatente = "Entrega Inmediata";
+                    CuotaPatente2 = "No Incluye 1era Cuota Patente";
+                }
+                    
 
                 if (txtEfectivoPresupuesto.Text != "")
                     ImporteEfectivo = fun.ToDouble(txtEfectivoPresupuesto.Text);
@@ -5312,9 +5321,8 @@ namespace Concesionaria
                     Documento = fun.ToDouble(txtDocumentoPresupuesto.Text);
 
                 //grabo el presupuesto
-                if (chkCuotaPatente.Checked == true)
-                    CuotaPatente = "No Incluye Cuota Patente ";
-                CodPresupuesto = presupuesto.Insertar(con, Transaccion, CodAuto, CodCliente, Fecha, Total, sTotal, ImporteEfectivo, Cheque, Cobranza, Transferencia, Documento,CuotaPatente);
+              
+                CodPresupuesto = presupuesto.Insertar(con, Transaccion, CodAuto, CodCliente, Fecha, Total, sTotal, ImporteEfectivo, Cheque, Cobranza, Transferencia, Documento,CuotaPatente, CuotaPatente2);
                 Numero = presupuesto.GetNumeroPresupueseto(CodPresupuesto);
                 presupuesto.ActualizarNumero(con, Transaccion, CodPresupuesto, Numero);
                 repPre.Insertar(con, Transaccion, CodPresupuesto, "Unidad", "", "", "",Orden);
