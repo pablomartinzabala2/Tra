@@ -16,7 +16,7 @@
 (c.Apellido + ' ' + c.Nombre) as Cliente,
 c.telefono,
 (select m.Nombre from Marca m where m.CodMarca = a.CodMarca) as Marca
-,(select tipo.Nombre from TipoUtilitario tipo where tipo.codtipo=a.CodTipoUtilitario) as tipo 
+,(select tipo.Nombre from TipoUtilitario tipo where tipo.codtipo=a.CodTipoUtilitario) as tipo ,p.CuotaPatente
 from presupuesto p , cliente c, auto a ,ReportePresupuesto rp
 where p.CodCliente = c.CodCliente
 and p.CodAuto = a.codauto 
@@ -76,6 +76,8 @@ order by rp.Orden</CommandText>
               <Mapping SourceColumn="ImporteTransferencia" DataSetColumn="ImporteTransferencia" />
               <Mapping SourceColumn="ImporteDocumento" DataSetColumn="ImporteDocumento" />
               <Mapping SourceColumn="Orden" DataSetColumn="Orden" />
+              <Mapping SourceColumn="CuotaPatente" DataSetColumn="CuotaPatente" />
+              <Mapping SourceColumn="CuotaPatente1" DataSetColumn="CuotaPatente1" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -528,6 +530,20 @@ and m.Fecha &gt;=@p1 and m.Fecha&lt;= @p1</CommandText>
               <xs:element name="ImporteTransferencia" msprop:Generator_ColumnPropNameInTable="ImporteTransferenciaColumn" msprop:Generator_ColumnPropNameInRow="ImporteTransferencia" msprop:Generator_UserColumnName="ImporteTransferencia" msprop:Generator_ColumnVarNameInTable="columnImporteTransferencia" type="xs:decimal" minOccurs="0" />
               <xs:element name="ImporteDocumento" msprop:Generator_ColumnPropNameInTable="ImporteDocumentoColumn" msprop:Generator_ColumnPropNameInRow="ImporteDocumento" msprop:Generator_UserColumnName="ImporteDocumento" msprop:Generator_ColumnVarNameInTable="columnImporteDocumento" type="xs:decimal" minOccurs="0" />
               <xs:element name="Orden" msprop:Generator_ColumnPropNameInTable="OrdenColumn" msprop:Generator_ColumnPropNameInRow="Orden" msprop:Generator_UserColumnName="Orden" msprop:Generator_ColumnVarNameInTable="columnOrden" type="xs:int" minOccurs="0" />
+              <xs:element name="CuotaPatente" msprop:Generator_ColumnPropNameInRow="CuotaPatente" msprop:Generator_ColumnPropNameInTable="CuotaPatenteColumn" msprop:Generator_ColumnVarNameInTable="columnCuotaPatente" msprop:Generator_UserColumnName="CuotaPatente" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CuotaPatente1" msprop:Generator_ColumnPropNameInRow="CuotaPatente1" msprop:Generator_ColumnPropNameInTable="CuotaPatente1Column" msprop:Generator_ColumnVarNameInTable="columnCuotaPatente1" msprop:Generator_UserColumnName="CuotaPatente1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1004,21 +1020,21 @@ and m.Fecha &gt;=@p1 and m.Fecha&lt;= @p1</CommandText>
               </xs:element>
               <xs:element name="ImporteIngreso" msprop:Generator_ColumnPropNameInTable="ImporteIngresoColumn" msprop:Generator_ColumnPropNameInRow="ImporteIngreso" msprop:Generator_UserColumnName="ImporteIngreso" msprop:Generator_ColumnVarNameInTable="columnImporteIngreso" type="xs:decimal" minOccurs="0" />
               <xs:element name="ImporteEgreso" msprop:Generator_ColumnPropNameInTable="ImporteEgresoColumn" msprop:Generator_ColumnPropNameInRow="ImporteEgreso" msprop:Generator_UserColumnName="ImporteEgreso" msprop:Generator_ColumnVarNameInTable="columnImporteEgreso" type="xs:decimal" minOccurs="0" />
-              <xs:element name="sImporteIngreso" msprop:Generator_UserColumnName="sImporteIngreso" msprop:Generator_ColumnPropNameInTable="sImporteIngresoColumn" msprop:Generator_ColumnPropNameInRow="sImporteIngreso" msprop:Generator_ColumnVarNameInTable="columnsImporteIngreso" minOccurs="0">
+              <xs:element name="sImporteIngreso" msprop:Generator_ColumnPropNameInTable="sImporteIngresoColumn" msprop:Generator_ColumnPropNameInRow="sImporteIngreso" msprop:Generator_UserColumnName="sImporteIngreso" msprop:Generator_ColumnVarNameInTable="columnsImporteIngreso" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="sImporteEgreso" msprop:Generator_UserColumnName="sImporteEgreso" msprop:Generator_ColumnPropNameInTable="sImporteEgresoColumn" msprop:Generator_ColumnPropNameInRow="sImporteEgreso" msprop:Generator_ColumnVarNameInTable="columnsImporteEgreso" minOccurs="0">
+              <xs:element name="sImporteEgreso" msprop:Generator_ColumnPropNameInTable="sImporteEgresoColumn" msprop:Generator_ColumnPropNameInRow="sImporteEgreso" msprop:Generator_UserColumnName="sImporteEgreso" msprop:Generator_ColumnVarNameInTable="columnsImporteEgreso" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="sSaldo" msprop:Generator_ColumnPropNameInRow="sSaldo" msprop:Generator_ColumnPropNameInTable="sSaldoColumn" msprop:Generator_ColumnVarNameInTable="columnsSaldo" msprop:Generator_UserColumnName="sSaldo" minOccurs="0">
+              <xs:element name="sSaldo" msprop:Generator_UserColumnName="sSaldo" msprop:Generator_ColumnPropNameInTable="sSaldoColumn" msprop:Generator_ColumnPropNameInRow="sSaldo" msprop:Generator_ColumnVarNameInTable="columnsSaldo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />

@@ -77,6 +77,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbCategoriaCliente = new System.Windows.Forms.ComboBox();
+            this.label90 = new System.Windows.Forms.Label();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.txtRutaImagenCliente = new System.Windows.Forms.TextBox();
             this.imgFotoCliente = new System.Windows.Forms.PictureBox();
@@ -350,8 +352,7 @@
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabarPreVenta = new System.Windows.Forms.Button();
             this.btnPresupuesto = new System.Windows.Forms.Button();
-            this.label90 = new System.Windows.Forms.Label();
-            this.cmbCategoriaCliente = new System.Windows.Forms.ComboBox();
+            this.chkCuotaPatente = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -435,6 +436,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.groupBox2.Controls.Add(this.chkCuotaPatente);
             this.groupBox2.Controls.Add(this.txtCodVenta);
             this.groupBox2.Controls.Add(this.dpFecha);
             this.groupBox2.Controls.Add(this.cmbAnio);
@@ -497,7 +499,7 @@
             // dpFecha
             // 
             this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFecha.Location = new System.Drawing.Point(753, 111);
+            this.dpFecha.Location = new System.Drawing.Point(709, 111);
             this.dpFecha.Name = "dpFecha";
             this.dpFecha.Size = new System.Drawing.Size(87, 22);
             this.dpFecha.TabIndex = 69;
@@ -523,7 +525,7 @@
             // label80
             // 
             this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(637, 54);
+            this.label80.Location = new System.Drawing.Point(654, 53);
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(36, 16);
             this.label80.TabIndex = 66;
@@ -533,9 +535,9 @@
             // 
             this.cmbTipoUtilitario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoUtilitario.FormattingEnabled = true;
-            this.cmbTipoUtilitario.Location = new System.Drawing.Point(679, 51);
+            this.cmbTipoUtilitario.Location = new System.Drawing.Point(709, 53);
             this.cmbTipoUtilitario.Name = "cmbTipoUtilitario";
-            this.cmbTipoUtilitario.Size = new System.Drawing.Size(161, 24);
+            this.cmbTipoUtilitario.Size = new System.Drawing.Size(123, 24);
             this.cmbTipoUtilitario.TabIndex = 65;
             // 
             // btnBuscarAuto
@@ -608,7 +610,7 @@
             // label61
             // 
             this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(445, 50);
+            this.label61.Location = new System.Drawing.Point(474, 51);
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(57, 16);
             this.label61.TabIndex = 42;
@@ -626,7 +628,7 @@
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(697, 112);
+            this.label57.Location = new System.Drawing.Point(652, 115);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(46, 16);
             this.label57.TabIndex = 39;
@@ -643,7 +645,7 @@
             // txtMotor
             // 
             this.txtMotor.BackColor = System.Drawing.SystemColors.Control;
-            this.txtMotor.Location = new System.Drawing.Point(541, 80);
+            this.txtMotor.Location = new System.Drawing.Point(535, 80);
             this.txtMotor.Name = "txtMotor";
             this.txtMotor.Size = new System.Drawing.Size(107, 22);
             this.txtMotor.TabIndex = 37;
@@ -679,7 +681,7 @@
             // txtImporteCompra
             // 
             this.txtImporteCompra.BackColor = System.Drawing.SystemColors.Control;
-            this.txtImporteCompra.Location = new System.Drawing.Point(542, 140);
+            this.txtImporteCompra.Location = new System.Drawing.Point(537, 140);
             this.txtImporteCompra.Name = "txtImporteCompra";
             this.txtImporteCompra.ReadOnly = true;
             this.txtImporteCompra.Size = new System.Drawing.Size(116, 22);
@@ -699,7 +701,7 @@
             // button1
             // 
             this.button1.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.button1.Location = new System.Drawing.Point(365, 47);
+            this.button1.Location = new System.Drawing.Point(274, 44);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 28);
             this.button1.TabIndex = 31;
@@ -797,7 +799,7 @@
             // txtKms
             // 
             this.txtKms.BackColor = System.Drawing.SystemColors.Control;
-            this.txtKms.Location = new System.Drawing.Point(542, 111);
+            this.txtKms.Location = new System.Drawing.Point(537, 109);
             this.txtKms.Name = "txtKms";
             this.txtKms.Size = new System.Drawing.Size(100, 22);
             this.txtKms.TabIndex = 5;
@@ -831,7 +833,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(442, 24);
+            this.label2.Location = new System.Drawing.Point(455, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 16);
             this.label2.TabIndex = 4;
@@ -841,9 +843,9 @@
             // 
             this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMarca.FormattingEnabled = true;
-            this.cmbMarca.Location = new System.Drawing.Point(113, 50);
+            this.cmbMarca.Location = new System.Drawing.Point(113, 47);
             this.cmbMarca.Name = "cmbMarca";
-            this.cmbMarca.Size = new System.Drawing.Size(246, 24);
+            this.cmbMarca.Size = new System.Drawing.Size(155, 24);
             this.cmbMarca.TabIndex = 2;
             // 
             // label1
@@ -937,6 +939,24 @@
             this.groupBox1.Size = new System.Drawing.Size(826, 179);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
+            // 
+            // cmbCategoriaCliente
+            // 
+            this.cmbCategoriaCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoriaCliente.FormattingEnabled = true;
+            this.cmbCategoriaCliente.Location = new System.Drawing.Point(485, 56);
+            this.cmbCategoriaCliente.Name = "cmbCategoriaCliente";
+            this.cmbCategoriaCliente.Size = new System.Drawing.Size(246, 24);
+            this.cmbCategoriaCliente.TabIndex = 77;
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(417, 59);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(67, 16);
+            this.label90.TabIndex = 76;
+            this.label90.Text = "Categoría";
             // 
             // btnBuscarCliente
             // 
@@ -3699,23 +3719,15 @@
             this.btnPresupuesto.UseVisualStyleBackColor = true;
             this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
             // 
-            // label90
+            // chkCuotaPatente
             // 
-            this.label90.AutoSize = true;
-            this.label90.Location = new System.Drawing.Point(417, 59);
-            this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(67, 16);
-            this.label90.TabIndex = 76;
-            this.label90.Text = "Categoría";
-            // 
-            // cmbCategoriaCliente
-            // 
-            this.cmbCategoriaCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategoriaCliente.FormattingEnabled = true;
-            this.cmbCategoriaCliente.Location = new System.Drawing.Point(485, 56);
-            this.cmbCategoriaCliente.Name = "cmbCategoriaCliente";
-            this.cmbCategoriaCliente.Size = new System.Drawing.Size(246, 24);
-            this.cmbCategoriaCliente.TabIndex = 77;
+            this.chkCuotaPatente.AutoSize = true;
+            this.chkCuotaPatente.Location = new System.Drawing.Point(317, 49);
+            this.chkCuotaPatente.Name = "chkCuotaPatente";
+            this.chkCuotaPatente.Size = new System.Drawing.Size(151, 20);
+            this.chkCuotaPatente.TabIndex = 71;
+            this.chkCuotaPatente.Text = "No Incluye Cuota Pat";
+            this.chkCuotaPatente.UseVisualStyleBackColor = true;
             // 
             // FrmVenta
             // 
@@ -4137,5 +4149,6 @@
         private System.Windows.Forms.DataGridView GrillaResponsable;
         private System.Windows.Forms.ComboBox cmbCategoriaCliente;
         private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.CheckBox chkCuotaPatente;
     }
 }
