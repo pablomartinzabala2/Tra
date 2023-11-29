@@ -185,7 +185,8 @@ namespace Concesionaria
                 txtVehiculo.Text = Descripcion;
             }
 
-            DataTable tstock = stock.GetStockAutosVigentes(CodAuto);
+            DataTable tstock = stock.GetStockUltimo(CodAuto);
+          //  DataTable tstock = stock.GetStockAutosVigentes(CodAuto);
             if (tstock.Rows.Count >0)
             {
                 txtCodAuto.Text = tstock.Rows[0]["CodAuto"].ToString();

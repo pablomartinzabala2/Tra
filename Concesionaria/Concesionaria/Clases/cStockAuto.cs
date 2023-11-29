@@ -60,6 +60,15 @@ namespace Concesionaria.Clases
             sql = sql + " where s.CodAuto =" + CodAuto.ToString();
             sql = sql + " and s.FechaBaja is null";
             return cDb.ExecuteDataTable(sql);
+        }
+
+        public DataTable GetStockUltimo(Int32 CodAuto)
+        {
+            string sql = "select * from StockAuto s";
+            sql = sql + " where s.CodAuto =" + CodAuto.ToString();
+            sql = sql + " order by CodStock desc ";
+            // sql = sql + " and s.FechaBaja is null";
+            return cDb.ExecuteDataTable(sql);
 
         }
 
