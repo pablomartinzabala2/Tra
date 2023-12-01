@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbmCliente));
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.btnCategoriaCliente = new System.Windows.Forms.Button();
+            this.cmb_CodCategoria = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.txt_Observacion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Imagen = new System.Windows.Forms.PictureBox();
@@ -72,9 +75,8 @@
             this.btnAbrir = new System.Windows.Forms.ToolStripButton();
             this.btnImprimir = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
-            this.cmb_CodCategoria = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnCategoriaCliente = new System.Windows.Forms.Button();
+            this.cmb_CodEstado = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Imagen)).BeginInit();
             this.BarraBotones.SuspendLayout();
@@ -82,6 +84,8 @@
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.label5);
+            this.Grupo.Controls.Add(this.cmb_CodEstado);
             this.Grupo.Controls.Add(this.btnCategoriaCliente);
             this.Grupo.Controls.Add(this.cmb_CodCategoria);
             this.Grupo.Controls.Add(this.label4);
@@ -126,6 +130,34 @@
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del Cliente";
             // 
+            // btnCategoriaCliente
+            // 
+            this.btnCategoriaCliente.Image = global::Concesionaria.Properties.Resources.page_add;
+            this.btnCategoriaCliente.Location = new System.Drawing.Point(380, 201);
+            this.btnCategoriaCliente.Name = "btnCategoriaCliente";
+            this.btnCategoriaCliente.Size = new System.Drawing.Size(40, 28);
+            this.btnCategoriaCliente.TabIndex = 77;
+            this.btnCategoriaCliente.UseVisualStyleBackColor = true;
+            this.btnCategoriaCliente.Click += new System.EventHandler(this.btnCategoriaCliente_Click);
+            // 
+            // cmb_CodCategoria
+            // 
+            this.cmb_CodCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_CodCategoria.FormattingEnabled = true;
+            this.cmb_CodCategoria.Location = new System.Drawing.Point(121, 201);
+            this.cmb_CodCategoria.Name = "cmb_CodCategoria";
+            this.cmb_CodCategoria.Size = new System.Drawing.Size(246, 24);
+            this.cmb_CodCategoria.TabIndex = 75;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(19, 201);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 17);
+            this.label4.TabIndex = 76;
+            this.label4.Text = "Categoría";
+            // 
             // txt_Observacion
             // 
             this.txt_Observacion.Location = new System.Drawing.Point(492, 214);
@@ -145,9 +177,9 @@
             // 
             // Imagen
             // 
-            this.Imagen.Location = new System.Drawing.Point(121, 252);
+            this.Imagen.Location = new System.Drawing.Point(121, 280);
             this.Imagen.Name = "Imagen";
-            this.Imagen.Size = new System.Drawing.Size(178, 93);
+            this.Imagen.Size = new System.Drawing.Size(155, 65);
             this.Imagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Imagen.TabIndex = 72;
             this.Imagen.TabStop = false;
@@ -521,33 +553,23 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // cmb_CodCategoria
+            // cmb_CodEstado
             // 
-            this.cmb_CodCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_CodCategoria.FormattingEnabled = true;
-            this.cmb_CodCategoria.Location = new System.Drawing.Point(121, 207);
-            this.cmb_CodCategoria.Name = "cmb_CodCategoria";
-            this.cmb_CodCategoria.Size = new System.Drawing.Size(246, 24);
-            this.cmb_CodCategoria.TabIndex = 75;
+            this.cmb_CodEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_CodEstado.FormattingEnabled = true;
+            this.cmb_CodEstado.Location = new System.Drawing.Point(125, 231);
+            this.cmb_CodEstado.Name = "cmb_CodEstado";
+            this.cmb_CodEstado.Size = new System.Drawing.Size(246, 24);
+            this.cmb_CodEstado.TabIndex = 78;
             // 
-            // label4
+            // label5
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 207);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 17);
-            this.label4.TabIndex = 76;
-            this.label4.Text = "Categoría";
-            // 
-            // btnCategoriaCliente
-            // 
-            this.btnCategoriaCliente.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.btnCategoriaCliente.Location = new System.Drawing.Point(380, 201);
-            this.btnCategoriaCliente.Name = "btnCategoriaCliente";
-            this.btnCategoriaCliente.Size = new System.Drawing.Size(40, 28);
-            this.btnCategoriaCliente.TabIndex = 77;
-            this.btnCategoriaCliente.UseVisualStyleBackColor = true;
-            this.btnCategoriaCliente.Click += new System.EventHandler(this.btnCategoriaCliente_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 231);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 17);
+            this.label5.TabIndex = 79;
+            this.label5.Text = "Estado Civil";
             // 
             // FrmAbmCliente
             // 
@@ -621,5 +643,7 @@
         private System.Windows.Forms.Button btnCategoriaCliente;
         private System.Windows.Forms.ComboBox cmb_CodCategoria;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmb_CodEstado;
     }
 }

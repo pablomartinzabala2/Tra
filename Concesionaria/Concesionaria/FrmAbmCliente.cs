@@ -26,7 +26,7 @@ namespace Concesionaria
            
             fun.LlenarCombo(cmbProvincia2, "Provincia", "Nombre", "CodProvincia");
             fun.LlenarCombo(cmb_CodCategoria, "CategoriaCliente", "Nombre", "codcategoria");
-
+            fun.LlenarCombo(cmb_CodEstado, "EstadoCivil", "Nombre", "CodEstado");
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
