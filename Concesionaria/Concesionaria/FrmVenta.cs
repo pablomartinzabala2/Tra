@@ -103,6 +103,7 @@ namespace Concesionaria
                 txtCodVenta.Text = Principal.CodigoPrincipalAbm;
                 string Cod = Principal.CodigoPrincipalAbm;
                 BuscarVenta(Convert.ToInt32(Cod));
+                BuscarClientexCodVenta(Convert.ToInt32(Cod));
                 GetVentaxtarjeta(Convert.ToInt32(Cod));
                 //  btnGrabar.Visible = false;
                 btnAnular.Visible = false;
@@ -156,6 +157,34 @@ namespace Concesionaria
             string ColCob = "Cuota;Importe;FechaVencimiento;FechaPago;Saldo;CodCobranza";
             tbCobranza = fun.CrearTabla(ColCob);
             Principal.CodPresupuesto = null;
+        }
+
+        private void BuscarClientexCodVenta(Int32 CodVenta)
+        {
+            cFunciones fun = new cFunciones();
+            cVentaxCliente obj = new Clases.cVentaxCliente();
+            DataTable trdo = obj.GetClientexCodVenta(CodVenta);
+            string NroDocumento = "";
+            string TipoDoc = "";
+            string Apellido = "";
+            string Nombre = "";
+            string CodCliente = "";
+            string val = "";
+            for (int i = 0; i < trdo.Rows.Count ; i++)
+            {
+                CodCliente = trdo.Rows[i]["CodCliente"].ToString();
+                NroDocumento = trdo.Rows[i]["NroDocumento"].ToString();
+                TipoDoc = trdo.Rows[i]["TipoDoc"].ToString();
+                Nombre = trdo.Rows[i]["Nombre"].ToString();
+                Apellido = trdo.Rows[i]["Apellido"].ToString();
+                val = CodCliente + ";" + TipoDoc;
+                val = val + ";" + NroDocumento ;
+                val = val + ";" + Apellido;
+                val = val + ";" + Nombre;
+                tbCliente = fun.AgregarFilas(tbCliente, val);
+            }
+            GrillaListadoCliente.DataSource = tbCliente;
+            fun.AnchoColumnas(GrillaListadoCliente, "0;20;20;30;30");
         }
 
         private void txtPatente_TextChanged(object sender, EventArgs e)
@@ -347,6 +376,10 @@ namespace Concesionaria
 
         private void txtNroDoc_TextChanged(object sender, EventArgs e)
         {
+            if (txtNroDoc.Text.Length <4)
+            {
+                return;
+            }
             Int32 CodTipoDoc = 0;
             if (cmbDocumento.SelectedIndex > 0)
                 CodTipoDoc = Convert.ToInt32(cmbDocumento.SelectedValue);
@@ -358,7 +391,7 @@ namespace Concesionaria
                 txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
                 txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
                 txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
-               
+                txtEmail.Text = trdo.Rows[0]["Email"].ToString();
                 txtCalle.Text = trdo.Rows[0]["Calle"].ToString();
                 txtAltura.Text = trdo.Rows[0]["Numero"].ToString();
                 txtEmail.Text = trdo.Rows[0]["Email"].ToString();
@@ -420,6 +453,8 @@ namespace Concesionaria
             CmbBarrio.SelectedIndex = 0;
             txtCalle.Text = "";
             txtAltura.Text = "";
+          
+            txtEmail.Text = "";
         }
 
         private void txtPatente2_TextChanged(object sender, EventArgs e)
@@ -775,6 +810,7 @@ namespace Concesionaria
            // cFunciones fun = new Clases.cFunciones();
             Clases.cVenta objVenta = new Clases.cVenta();
             double GastosTotalxAuto = objVenta.GetCostosTotalesxCodStock(Convert.ToInt32(txtCodStock.Text));
+           
             SqlConnection con = new SqlConnection();
             con.ConnectionString = Clases.cConexion.Cadenacon();
             con.Open();
@@ -1374,11 +1410,14 @@ namespace Concesionaria
 
             if (cmbCategoriaCliente.SelectedIndex > 0)
                 CodCategoria = Convert.ToInt32(cmbCategoriaCliente.SelectedValue);
+
+            string Mail = txtEmail.Text;
+
             if (Nuevo == true)
             {
                 GrabaClienteNuevo = true;
                 sql = cliente.GetSqlInsertarCliente(CodTipoDoc, NroDocumento, Nombre,
-                      Apellido, Telefono, Celular, Calle, Altura, CodBarrio, Observacion, RutaImagen, FechaNacimiento, CodCategoria, CodEstado);
+                      Apellido, Telefono, Celular, Calle, Altura, CodBarrio, Observacion, RutaImagen, FechaNacimiento, CodCategoria, CodEstado, Mail);
                 txtCodCLiente.Text = cliente.GetMaxCliente().ToString();
             }
             else
@@ -1386,7 +1425,7 @@ namespace Concesionaria
                 GrabaClienteNuevo = false;
                 sql = cliente.GetSqlModificarCliente(Convert.ToInt32(txtCodCLiente.Text), CodTipoDoc, NroDocumento, Nombre,
                       Apellido, Telefono, Celular,
-                      Calle, Altura, CodBarrio, Observacion, RutaImagen, CodEstado);
+                      Calle, Altura, CodBarrio, Observacion, RutaImagen, CodEstado, Mail);
             }
             return sql;
         }
@@ -1516,13 +1555,13 @@ namespace Concesionaria
             if (txtImporteSenia.Text != "")
                 PrecioSenia = fun.ToDouble(txtImporteSenia.Text);
 
-
+            string Titulares = GetTitulares();
 
             Int32 CodVendedor = Convert.ToInt32(CmbVendedor.SelectedValue);
             //Principal.CodUsuarioLogueado 
             sql = "insert into Venta(Fecha,CodUsuario,CodCliente";
             sql = sql + ",CodAutoVendido,CodAutoPartePago,ImporteVenta,";
-            sql = sql + "ImporteAutoPartePago,ImporteCredito,ImporteEfectivo,ImportePrenda,ImporteCobranza,ImporteBanco,CodVendedor,CodStock,PrecioSenia)";
+            sql = sql + "ImporteAutoPartePago,ImporteCredito,ImporteEfectivo,ImportePrenda,ImporteCobranza,ImporteBanco,CodVendedor,CodStock,PrecioSenia,Titulares)";
             sql = sql + "values(" + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + Principal.CodUsuarioLogueado.ToString();
             sql = sql + "," + CodCliente.ToString();
@@ -1541,6 +1580,7 @@ namespace Concesionaria
             sql = sql + "," + CodVendedor.ToString();
             sql = sql + "," + CodStock.ToString();
             sql = sql + "," + PrecioSenia.ToString();
+            sql = sql + "," + "'" + Titulares + "'";
             sql = sql + ")";
             return sql;
         }
@@ -1782,26 +1822,7 @@ namespace Concesionaria
                 return false;
             }
 
-            if (txtNombre.Text == "")
-            {
-                MessageBox.Show("Debe ingresar el nombre del cliente para continuar", Clases.cMensaje.Mensaje());
-                return false;
-            }
-
-          
-
-            if (txtNroDoc.Text == "")
-            {
-                MessageBox.Show("Debe ingresar el número de documento del cliente para continuar", Clases.cMensaje.Mensaje());
-                return false;
-            }
-
             Clases.cFunciones fun = new Clases.cFunciones();
-
-
-
-
-
             if (txtTotalPrenda.Text != "")
             {
                 if (txtTotalPrenda.Text != "0")
@@ -6631,8 +6652,28 @@ namespace Concesionaria
                 }
             }
             GrillaListadoCliente.DataSource = tbCliente;
+            fun.AnchoColumnas(GrillaListadoCliente, "0;20;20;30;30");
             MessageBox.Show("Datos grabados correctamnete ");
             LimpiarCliente();
+        }
+
+        public string GetTitulares()
+        {
+            string Titulares = "";
+            string Nombre = "";
+            string Apellido = "";
+            string NomApe = "";
+            for (int i = 0; i < tbCliente.Rows.Count ; i++)
+            {
+                Nombre = tbCliente.Rows[i]["Nombre"].ToString();
+                Apellido = tbCliente.Rows[i]["Apellido"].ToString();
+                NomApe = Nombre + " " + Apellido;
+                if (i == 0)
+                    Titulares = NomApe;
+                else
+                    Titulares = Titulares + " " + NomApe;
+            }
+            return Titulares;
         }
     }
 }

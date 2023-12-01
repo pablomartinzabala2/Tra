@@ -57,12 +57,12 @@ namespace Concesionaria.Clases
         public string  GetSqlInsertarCliente(Int32? CodTipoDoc, string NroDocumento,
             string Nombre, string Apellido, string Telefono, string Celular,
             string Calle, string Altura, Int32? CodBarrio, string Observacion,
-            string RutaImagen, DateTime? FechaNacimiento , Int32? CodCategoria , Int32? CodEstado
+            string RutaImagen, DateTime? FechaNacimiento , Int32? CodCategoria , Int32? CodEstado , string Email
             )
         {
             string NomApe = Nombre + " " + Apellido;
             string sql = "Insert into Cliente(CodTipoDoc,NroDocumento,Nombre,Apellido";
-            sql = sql + ",Telefono,Celular, Calle,  Numero, CodBarrio,Observacion,RutaImagen,FechaNacimiento,CodCategoria, CodEstado,NomApe)";
+            sql = sql + ",Telefono,Celular, Calle,  Numero, CodBarrio,Observacion,RutaImagen,FechaNacimiento,CodCategoria, CodEstado,NomApe,Email)";
             sql = sql + "Values(";
             if (CodTipoDoc == null)
                 sql = sql + "null";
@@ -100,6 +100,7 @@ namespace Concesionaria.Clases
             else
                 sql = sql + ",null";
             sql = sql + "," + "'" + NomApe + "'";
+            sql = sql + "," + "'" + Email + "'";
             sql = sql + ")";
             return sql;
         }
@@ -140,7 +141,7 @@ namespace Concesionaria.Clases
 
         public string GetSqlModificarCliente(Int32 CodCliente, Int32? CodTipoDoc, string NroDocumento,
             string Nombre, string Apellido, string Telefono, string Celular,
-            string Calle, string Numero, Int32? CodBarrio, string Observacion,string RutaImagen, Int32? CodEstado)
+            string Calle, string Numero, Int32? CodBarrio, string Observacion,string RutaImagen, Int32? CodEstado, string Email)
         {
             string sql = "Update Cliente ";
 
@@ -166,8 +167,8 @@ namespace Concesionaria.Clases
                 sql = sql + ",CodEstado =null";
             else
                 sql = sql + ",CodEstado =" + CodEstado.ToString();
-
-
+             
+            sql = sql + ",Email=" + "'" + Email + "'";
             sql = sql + " where CodCliente=" + CodCliente.ToString();
             return sql;
         }

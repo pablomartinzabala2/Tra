@@ -54,7 +54,8 @@ namespace Concesionaria.Clases
         {
             string sql = "";
             // sql = "select Distinct v.CodVenta,c.Apellido,(c.Nombre  + ' ' + c.Apellido) as Nombre ,a.Patente,a.Descripcion,sa.DescripcionAutoPartePago";
-            sql = "select Distinct v.CodVenta,c.Apellido,(c.Nombre  + ' ' + c.Apellido) as Nombre,a.Patente,";
+            //sql = "select Distinct v.CodVenta,c.Apellido,(c.Nombre  + ' ' + c.Apellido) as Nombre,a.Patente,";
+            sql = "select Distinct v.CodVenta,c.Apellido,v.Titulares as Nombre,a.Patente,";
             sql = sql + "(select mm.Nombre from Marca mm where mm.CodMarca=a.CodMarca) as Marca ";
             sql = sql + ", a.Descripcion";
             sql = sql + ",(select aaa.patente from auto aaa where aaa.CodAuto=(select max(sa.codauto) from VentasxAuto va, StockAuto sa where va.CodAuto = sa.CodAuto )) as DescripcionAutoPartePago ";
@@ -92,9 +93,9 @@ namespace Concesionaria.Clases
             if (Patente != "")
                 sql = sql + " and a.Patente like" + "'%" + Patente + "%'";
             if (Apellido != null)
-                sql = sql + " and c.Apellido like" + "'%" + Apellido + "%'" ;
+                sql = sql + " and v.Titulares like" + "'%" + Apellido + "%'" ;
             if (Nombre  != null)
-                sql = sql + " and c.Nombre like" + "'%" + Nombre + "%'";
+                sql = sql + " and v.Titulares like" + "'%" + Nombre + "%'";
             sql = sql + " order by v.CodVenta Desc";
             return cDb.ExecuteDataTable(sql);  
         }
