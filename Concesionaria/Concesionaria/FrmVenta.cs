@@ -6540,6 +6540,7 @@ namespace Concesionaria
                 cMensajeVenta msj = new Clases.cMensajeVenta();
                 msj.Borrar(CodMensaje);
                 Int32 CodVenta = Convert.ToInt32(txtCodVenta.Text);
+                BuscarMensajes(CodVenta);
             }
             else
             {
