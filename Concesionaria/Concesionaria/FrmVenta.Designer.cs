@@ -32,6 +32,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkCuotaPatente = new System.Windows.Forms.CheckBox();
             this.txtCodVenta = new System.Windows.Forms.TextBox();
             this.dpFecha = new System.Windows.Forms.DateTimePicker();
             this.cmbAnio = new System.Windows.Forms.ComboBox();
@@ -352,7 +353,12 @@
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabarPreVenta = new System.Windows.Forms.Button();
             this.btnPresupuesto = new System.Windows.Forms.Button();
-            this.chkCuotaPatente = new System.Windows.Forms.CheckBox();
+            this.cmbEstadoCivil = new System.Windows.Forms.ComboBox();
+            this.label91 = new System.Windows.Forms.Label();
+            this.btnQuitarObservacion = new System.Windows.Forms.Button();
+            this.btnAgregarObservacion = new System.Windows.Forms.Button();
+            this.GrillaObservacion = new System.Windows.Forms.DataGridView();
+            this.button7 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -402,6 +408,7 @@
             this.tabPage17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaTarjeta)).BeginInit();
             this.groupBox55.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaObservacion)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -486,6 +493,16 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // chkCuotaPatente
+            // 
+            this.chkCuotaPatente.AutoSize = true;
+            this.chkCuotaPatente.Location = new System.Drawing.Point(317, 49);
+            this.chkCuotaPatente.Name = "chkCuotaPatente";
+            this.chkCuotaPatente.Size = new System.Drawing.Size(151, 20);
+            this.chkCuotaPatente.TabIndex = 71;
+            this.chkCuotaPatente.Text = "No Incluye Cuota Pat";
+            this.chkCuotaPatente.UseVisualStyleBackColor = true;
             // 
             // txtCodVenta
             // 
@@ -899,6 +916,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label91);
+            this.groupBox1.Controls.Add(this.cmbEstadoCivil);
             this.groupBox1.Controls.Add(this.cmbCategoriaCliente);
             this.groupBox1.Controls.Add(this.label90);
             this.groupBox1.Controls.Add(this.btnBuscarCliente);
@@ -1134,27 +1153,27 @@
             // txtAltura
             // 
             this.txtAltura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtAltura.Location = new System.Drawing.Point(484, 83);
+            this.txtAltura.Location = new System.Drawing.Point(296, 83);
             this.txtAltura.MaxLength = 20;
             this.txtAltura.Name = "txtAltura";
-            this.txtAltura.Size = new System.Drawing.Size(246, 22);
+            this.txtAltura.Size = new System.Drawing.Size(71, 22);
             this.txtAltura.TabIndex = 18;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(417, 86);
+            this.label13.Location = new System.Drawing.Point(263, 86);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(56, 16);
+            this.label13.Size = new System.Drawing.Size(30, 16);
             this.label13.TabIndex = 21;
-            this.label13.Text = "Número";
+            this.label13.Text = "Nro";
             // 
             // txtCalle
             // 
             this.txtCalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCalle.Location = new System.Drawing.Point(121, 83);
             this.txtCalle.Name = "txtCalle";
-            this.txtCalle.Size = new System.Drawing.Size(246, 22);
+            this.txtCalle.Size = new System.Drawing.Size(143, 22);
             this.txtCalle.TabIndex = 17;
             // 
             // label12
@@ -1877,6 +1896,10 @@
             // tabPage18
             // 
             this.tabPage18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage18.Controls.Add(this.button7);
+            this.tabPage18.Controls.Add(this.GrillaObservacion);
+            this.tabPage18.Controls.Add(this.btnQuitarObservacion);
+            this.tabPage18.Controls.Add(this.btnAgregarObservacion);
             this.tabPage18.Controls.Add(this.txtObservacion);
             this.tabPage18.Location = new System.Drawing.Point(4, 25);
             this.tabPage18.Name = "tabPage18";
@@ -1889,7 +1912,7 @@
             this.txtObservacion.Location = new System.Drawing.Point(13, 15);
             this.txtObservacion.Multiline = true;
             this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(833, 137);
+            this.txtObservacion.Size = new System.Drawing.Size(463, 129);
             this.txtObservacion.TabIndex = 0;
             // 
             // groupBox3
@@ -3719,15 +3742,62 @@
             this.btnPresupuesto.UseVisualStyleBackColor = true;
             this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
             // 
-            // chkCuotaPatente
+            // cmbEstadoCivil
             // 
-            this.chkCuotaPatente.AutoSize = true;
-            this.chkCuotaPatente.Location = new System.Drawing.Point(317, 49);
-            this.chkCuotaPatente.Name = "chkCuotaPatente";
-            this.chkCuotaPatente.Size = new System.Drawing.Size(151, 20);
-            this.chkCuotaPatente.TabIndex = 71;
-            this.chkCuotaPatente.Text = "No Incluye Cuota Pat";
-            this.chkCuotaPatente.UseVisualStyleBackColor = true;
+            this.cmbEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstadoCivil.FormattingEnabled = true;
+            this.cmbEstadoCivil.Location = new System.Drawing.Point(484, 83);
+            this.cmbEstadoCivil.Name = "cmbEstadoCivil";
+            this.cmbEstadoCivil.Size = new System.Drawing.Size(246, 24);
+            this.cmbEstadoCivil.TabIndex = 78;
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(417, 86);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(58, 16);
+            this.label91.TabIndex = 79;
+            this.label91.Text = "Est. Civil";
+            // 
+            // btnQuitarObservacion
+            // 
+            this.btnQuitarObservacion.Image = global::Concesionaria.Properties.Resources.cancel;
+            this.btnQuitarObservacion.Location = new System.Drawing.Point(483, 54);
+            this.btnQuitarObservacion.Name = "btnQuitarObservacion";
+            this.btnQuitarObservacion.Size = new System.Drawing.Size(34, 24);
+            this.btnQuitarObservacion.TabIndex = 74;
+            this.btnQuitarObservacion.UseVisualStyleBackColor = true;
+            this.btnQuitarObservacion.Click += new System.EventHandler(this.btnQuitarObservacion_Click);
+            // 
+            // btnAgregarObservacion
+            // 
+            this.btnAgregarObservacion.Image = global::Concesionaria.Properties.Resources.add;
+            this.btnAgregarObservacion.Location = new System.Drawing.Point(483, 24);
+            this.btnAgregarObservacion.Name = "btnAgregarObservacion";
+            this.btnAgregarObservacion.Size = new System.Drawing.Size(34, 24);
+            this.btnAgregarObservacion.TabIndex = 73;
+            this.btnAgregarObservacion.UseVisualStyleBackColor = true;
+            this.btnAgregarObservacion.Click += new System.EventHandler(this.btnAgregarObservacion_Click);
+            // 
+            // GrillaObservacion
+            // 
+            this.GrillaObservacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaObservacion.Location = new System.Drawing.Point(523, 24);
+            this.GrillaObservacion.Name = "GrillaObservacion";
+            this.GrillaObservacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GrillaObservacion.Size = new System.Drawing.Size(323, 120);
+            this.GrillaObservacion.TabIndex = 75;
+            // 
+            // button7
+            // 
+            this.button7.Image = global::Concesionaria.Properties.Resources.zoom;
+            this.button7.Location = new System.Drawing.Point(483, 84);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(34, 24);
+            this.button7.TabIndex = 76;
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // FrmVenta
             // 
@@ -3820,6 +3890,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.GrillaTarjeta)).EndInit();
             this.groupBox55.ResumeLayout(false);
             this.groupBox55.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaObservacion)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4150,5 +4221,11 @@
         private System.Windows.Forms.ComboBox cmbCategoriaCliente;
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.CheckBox chkCuotaPatente;
+        private System.Windows.Forms.Label label91;
+        private System.Windows.Forms.ComboBox cmbEstadoCivil;
+        private System.Windows.Forms.DataGridView GrillaObservacion;
+        private System.Windows.Forms.Button btnQuitarObservacion;
+        private System.Windows.Forms.Button btnAgregarObservacion;
+        private System.Windows.Forms.Button button7;
     }
 }

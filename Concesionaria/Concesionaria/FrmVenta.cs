@@ -23,6 +23,7 @@ namespace Concesionaria
         DataTable tbFinaciacionCuota;
         DataTable tbTransferencia;
         DataTable tbResponsable;
+        DataTable tbMensaje;
         //se utiliza para indicar en que combo debe seguir
         //cuadno regrese del alta basica y tengas dos
         //tablas iguales
@@ -40,6 +41,7 @@ namespace Concesionaria
             Clases.cFunciones fun = new Clases.cFunciones();
             string Lista = "CodEntidad;Nombre;Fecha;Importe;CodPrenda;FechaVencimiento";
             tprenda = fun.CrearTabla(Lista);
+            tbMensaje = fun.CrearTabla("CodMensaje;CodVenta;Mensaje");
             tbFinaciacionCuota = fun.CrearTabla("CodTipo;Nombre;Importe");
             PintarFormulario();
             //Clases.cFunciones fun = new Clases.cFunciones();
@@ -65,6 +67,7 @@ namespace Concesionaria
             fun.LlenarCombo(cmbProvincia2, "Provincia", "Nombre", "CodProvincia");
             fun.LlenarCombo(cmbTipoUtilitario, "TipoUtilitario", "Nombre", "CodTipo");
             fun.LlenarCombo(CmbProvinciaAuto, "Provincia", "Nombre", "CodProvincia");
+            fun.LlenarCombo(cmbEstadoCivil, "EstadoCivil", "Nombre", "CodEstado");
             DataTable tbColor = cDb.ExecuteDataTable("select * from Color order by Nombre");
             fun.LlenarComboDatatable(cmbColor, tbColor, "Nombre", "CodColor");
             fun.LlenarComboDatatable(cmbColor2, tbColor, "Nombre", "CodColor");
@@ -357,7 +360,7 @@ namespace Concesionaria
                 txtCalle.Text = trdo.Rows[0]["Calle"].ToString();
                 txtAltura.Text = trdo.Rows[0]["Numero"].ToString();
                 txtEmail.Text = trdo.Rows[0]["Email"].ToString();
-                txtObservacion.Text = trdo.Rows[0]["Observacion"].ToString();
+              //  txtObservacion.Text = trdo.Rows[0]["Observacion"].ToString();
                 if (trdo.Rows[0]["RutaImagen"].ToString() != "")
                 {
                     string Ruta = trdo.Rows[0]["RutaImagen"].ToString();
@@ -1206,6 +1209,7 @@ namespace Concesionaria
                     resp.Insertar(con, Transaccion, CodStock);
                 }
                 // GuardarRecibo(con, Transaccion);
+                GrabarMensaje(con, Transaccion,Convert.ToInt32 (CodVenta));
                 GuardarResopnsable(con, Transaccion, Convert.ToInt32(txtCodCLiente.Text));
                 GuardarBoleto(con, Transaccion, Convert.ToInt32(CodVenta));
                 Transaccion.Commit();
@@ -1349,9 +1353,10 @@ namespace Concesionaria
             string Altura = txtAltura.Text;
             Int32? CodBarrio = null;
             Int32? CodCategoria = null;
-            string Observacion = txtObservacion.Text;
+            string Observacion = "";
             string RutaImagen = txtRutaImagenCliente.Text;
             DateTime? FechaNacimiento = null;
+            Int32? CodEstado = null;
             cFunciones func = new cFunciones();
             if (func.ValidarFecha(txtFechaNacimiento.Text) == true)
             {
@@ -1366,7 +1371,7 @@ namespace Concesionaria
             {
                 GrabaClienteNuevo = true;
                 sql = cliente.GetSqlInsertarCliente(CodTipoDoc, NroDocumento, Nombre,
-                      Apellido, Telefono, Celular, Calle, Altura, CodBarrio, Observacion, RutaImagen, FechaNacimiento,CodCategoria);
+                      Apellido, Telefono, Celular, Calle, Altura, CodBarrio, Observacion, RutaImagen, FechaNacimiento, CodCategoria, CodEstado);
                 txtCodCLiente.Text = cliente.GetMaxCliente().ToString();
             }
             else
@@ -1374,7 +1379,7 @@ namespace Concesionaria
                 GrabaClienteNuevo = false;
                 sql = cliente.GetSqlModificarCliente(Convert.ToInt32(txtCodCLiente.Text), CodTipoDoc, NroDocumento, Nombre,
                       Apellido, Telefono, Celular,
-                      Calle, Altura, CodBarrio, Observacion, RutaImagen);
+                      Calle, Altura, CodBarrio, Observacion, RutaImagen, CodEstado);
             }
             return sql;
         }
@@ -1737,6 +1742,7 @@ namespace Concesionaria
             GrillaCheques.DataSource = null;
             txtImporteCobranza.Text = "";
 
+            tbMensaje.Rows.Clear();
             tbCobranza.Rows.Clear();
             tbListaPapeles.Rows.Clear();
             tbTransferencia.Rows.Clear();
@@ -3368,6 +3374,7 @@ namespace Concesionaria
                     txtImporteSenia.Text = fun.SepararDecimales(txtImporteSenia.Text);
                     txtImporteSenia.Text = fun.FormatoEnteroMiles(txtImporteSenia.Text);
                 }
+                BuscarMensajes(CodVenta);
                 BuscarAutosPartePago(CodVenta);
                 CalcularSubTotal();
                 //buscamos el ex titular
@@ -3401,6 +3408,15 @@ namespace Concesionaria
                 Eft = Eft + TotalTransferencia;
                 txtTotalEfectivo.Text = fun.FormatoEnteroMiles(Eft.ToString());
             }
+        }
+
+        private void BuscarMensajes(Int32 CodVenta)
+        {
+            cMensajeVenta msj = new cMensajeVenta();
+            cFunciones fun = new cFunciones();
+            DataTable trdo = msj.GetMensajexCodVenta(CodVenta);
+            GrillaObservacion.DataSource = trdo;
+            fun.AnchoColumnas(GrillaObservacion, "0;0;100");
         }
 
         private void BuscarPresupuestoxCodigo(Int32 CodPresupuesto)
@@ -6412,6 +6428,20 @@ namespace Concesionaria
             }
         }
 
+        private void GrabarMensaje(SqlConnection con, SqlTransaction Transaccio, Int32 CodVenta)
+        {
+            string Mensaje = "";
+            cMensajeVenta msj = new Clases.cMensajeVenta();
+            for (int i = 0; i < tbMensaje.Rows.Count ; i++)
+            {
+                if (tbMensaje.Rows[i]["CodMensaje"].ToString ()=="0")
+                {
+                    Mensaje = tbMensaje.Rows[i]["Mensaje"].ToString();
+                    msj.InsertarTran(con, Transaccio, CodVenta, Mensaje);
+                }
+            }
+        }
+
         private void BuscarResponsable(Int32 CodCliente)
         {
             cFunciones fun = new cFunciones();
@@ -6457,6 +6487,69 @@ namespace Concesionaria
             }
             GrillaResponsable.DataSource = tbResponsable;
             fun.AnchoColumnas(GrillaResponsable, "0;25;25;25;25");
+        }
+
+        private void btnAgregarObservacion_Click(object sender, EventArgs e)
+        {
+            cMensajeVenta msj = new cMensajeVenta();
+            cFunciones fun = new cFunciones();
+            string Mensaje = txtObservacion.Text;
+            Int32 CodVenta = 0;
+            string CodMensaje = "0";
+            string val = "";
+            if (txtCodVenta.Text =="")
+            {
+                val = CodMensaje + ";" + CodVenta.ToString () + ";" + Mensaje;
+                tbMensaje = fun.AgregarFilas(tbMensaje, val);
+                GrillaObservacion.DataSource = tbMensaje;
+                fun.AnchoColumnas(GrillaObservacion, "0;0;100");
+            }
+            else
+            {
+                CodVenta = Convert.ToInt32(txtCodVenta.Text);
+                msj.Insertar(Mensaje, CodVenta);
+                BuscarMensajes(CodVenta);
+            }
+
+            txtObservacion.Text = "";
+            
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (GrillaObservacion.CurrentRow ==null)
+            {
+                MessageBox.Show("Debe seleccionar un elemento ");
+                return;
+            }
+
+            txtObservacion.Text = GrillaObservacion.CurrentRow.Cells[2].Value.ToString(); 
+        }
+
+        private void btnQuitarObservacion_Click(object sender, EventArgs e)
+        {
+            if (GrillaObservacion.CurrentRow ==null)
+            {
+                MessageBox.Show("Debge seleccionar un elelemnto");
+                return;
+            }
+
+            Int32 CodMensaje = Convert.ToInt32 (GrillaObservacion.CurrentRow.Cells[0].Value.ToString());
+            if (CodMensaje >0)
+            {
+                cMensajeVenta msj = new Clases.cMensajeVenta();
+                msj.Borrar(CodMensaje);
+                Int32 CodVenta = Convert.ToInt32(txtCodVenta.Text);
+            }
+            else
+            {
+                cFunciones fun = new cFunciones();
+                tbMensaje = fun.EliminarFila(tbMensaje, "cODmENSAJE", "0");
+                GrillaObservacion.DataSource = tbMensaje;
+                fun.AnchoColumnas(GrillaObservacion, "0;0;100");
+            }
+            
+           
         }
     }
 }
