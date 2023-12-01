@@ -24,6 +24,7 @@ namespace Concesionaria
         DataTable tbTransferencia;
         DataTable tbResponsable;
         DataTable tbMensaje;
+        DataTable tbCliente;
         //se utiliza para indicar en que combo debe seguir
         //cuadno regrese del alta basica y tengas dos
         //tablas iguales
@@ -96,6 +97,7 @@ namespace Concesionaria
             tbListaPapeles.Columns.Add("FechaVencimiento");
             string ColResponsable = "CodResponsable;Nombre;Apellido;Concepto;Telefono";
             tbResponsable = fun.CrearTabla(ColResponsable);
+            tbCliente = fun.CrearTabla("CodCliente;TipoDoc;NroDoc;Apellido;Nombre");
             if (Principal.CodigoPrincipalAbm != null)
             {
                 txtCodVenta.Text = Principal.CodigoPrincipalAbm;
@@ -414,7 +416,7 @@ namespace Concesionaria
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtTelefono.Text = "";
-            
+            cmbEstadoCivil.SelectedIndex = 0;
             CmbBarrio.SelectedIndex = 0;
             txtCalle.Text = "";
             txtAltura.Text = "";
@@ -789,11 +791,11 @@ namespace Concesionaria
                 ImporteSenia = GetTotalSenia(Convert.ToInt32(txtCodPreVenta.Text));
             try
             {
+                /*
                 sqlCLiente = GetSqlClientes();
                 Comand.CommandText = sqlCLiente;
                 Comand.ExecuteNonQuery();
-                //SI FUE UN CLIENTE NUEVO
-                //DEBO OBTENER EL COD CLIETNE
+              
                 if (GrabaClienteNuevo == true)
                 {
                     SqlCommand comand2 = new SqlCommand();
@@ -802,6 +804,9 @@ namespace Concesionaria
                     comand2.CommandText = "select max(CodCliente) as CodCliente from Cliente";
                     txtCodCLiente.Text = comand2.ExecuteScalar().ToString();
                 }
+                */
+                //saco el 1 codcliente de la grilla 
+                txtCodCLiente.Text = tbCliente.Rows[0]["CodCliente"].ToString(); 
 
                 //saco el auto del stock
                 string sqlStock = "update StockAuto";
@@ -1209,6 +1214,7 @@ namespace Concesionaria
                     resp.Insertar(con, Transaccion, CodStock);
                 }
                 // GuardarRecibo(con, Transaccion);
+                GrabarVentaxCliente(con, Transaccion, Convert.ToInt32 (CodVenta));
                 GrabarMensaje(con, Transaccion,Convert.ToInt32 (CodVenta));
                 GuardarResopnsable(con, Transaccion, Convert.ToInt32(txtCodCLiente.Text));
                 GuardarBoleto(con, Transaccion, Convert.ToInt32(CodVenta));
@@ -1347,6 +1353,7 @@ namespace Concesionaria
             }
             string Nombre = txtNombre.Text;
             string Apellido = txtApellido.Text;
+           
             string Telefono = txtTelefono.Text;
             string Celular = "";
             string Calle = txtCalle.Text;
@@ -1844,6 +1851,12 @@ namespace Concesionaria
                         return false;
                     }
                 }
+
+            if (tbCliente.Rows.Count <1)
+            {
+                MessageBox.Show("Debe ingresar un cliente para continuar ");
+                return false;
+            }
 
 
 
@@ -6442,6 +6455,17 @@ namespace Concesionaria
             }
         }
 
+        private void GrabarVentaxCliente(SqlConnection con, SqlTransaction Transaccio, Int32 CodVenta)
+        {
+            Int32 CodCliente = 0;
+            cVentaxCliente obj = new cVentaxCliente();
+            for (int i = 0; i < tbCliente.Rows.Count ; i++)
+            {
+                CodCliente = Convert.ToInt32(tbCliente.Rows[i]["CodCliente"].ToString());
+                obj.Insertar(con, Transaccio, CodVenta, CodCliente);
+            }
+        }
+
         private void BuscarResponsable(Int32 CodCliente)
         {
             cFunciones fun = new cFunciones();
@@ -6551,6 +6575,64 @@ namespace Concesionaria
             }
             
            
+        }
+
+        private void btnAgregarCliente_Click(object sender, EventArgs e)
+        {
+            cFunciones fun = new cFunciones();
+            if (txtNroDoc.Text =="")
+            {
+                MessageBox.Show("Debe ingresar un numero de coumento");
+                return;
+            }
+
+            if (txtNombre.Text =="")
+            {
+                MessageBox.Show("Debe ingresar un Nombre");
+                return;
+            }
+            Int32 CodCliente = 0;
+            string sql = GetSqlClientes();
+            if (GrabaClienteNuevo == true)
+            {
+                cDb.ExecutarNonQuery(sql);
+                sql = "select max(codCliente) as CodCliente from Cliente ";
+                DataTable trdo = cDb.ExecuteDataTable(sql);
+                if (trdo.Rows.Count >0)
+                {
+                    CodCliente = Convert.ToInt32(trdo.Rows[0]["CodCliente"].ToString());
+                    txtCodCLiente.Text = CodCliente.ToString();
+                }  
+            }
+            else
+            {
+                CodCliente = Convert.ToInt32(txtCodCLiente.Text);
+                cDb.ExecutarNonQuery(sql);
+            }
+
+            string Nombre = "";
+            string Apellido = "";
+            string NroDoc = "";
+            string TipoDoc = "";
+            string val = "";
+            cCliente cli = new cCliente();
+            DataTable tb = cli.GetClientesxCodigo(CodCliente);
+            if (tb.Rows.Count >0)
+            {
+                for (int i = 0; i < tb.Rows.Count ; i++)
+                {
+                    Nombre = tb.Rows[i]["Nombre"].ToString();
+                    Apellido = tb.Rows[i]["Apellido"].ToString();
+                    NroDoc = tb.Rows[i]["NroDocumento"].ToString();
+                    TipoDoc = tb.Rows[i]["TipoDoc"].ToString();
+                    val = CodCliente.ToString() + ";" + TipoDoc + ";" + NroDoc;
+                    val = val + ";" + Apellido + ";" + Nombre;
+                    tbCliente = fun.AgregarFilas(tbCliente, val);
+                }
+            }
+            GrillaListadoCliente.DataSource = tbCliente;
+            MessageBox.Show("Datos grabados correctamnete ");
+            LimpiarCliente();
         }
     }
 }

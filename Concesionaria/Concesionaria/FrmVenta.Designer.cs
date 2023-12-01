@@ -78,6 +78,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label91 = new System.Windows.Forms.Label();
+            this.cmbEstadoCivil = new System.Windows.Forms.ComboBox();
             this.cmbCategoriaCliente = new System.Windows.Forms.ComboBox();
             this.label90 = new System.Windows.Forms.Label();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
@@ -175,6 +177,10 @@
             this.label67 = new System.Windows.Forms.Label();
             this.btnAgregarImpuesto = new System.Windows.Forms.Button();
             this.tabPage18 = new System.Windows.Forms.TabPage();
+            this.button7 = new System.Windows.Forms.Button();
+            this.GrillaObservacion = new System.Windows.Forms.DataGridView();
+            this.btnQuitarObservacion = new System.Windows.Forms.Button();
+            this.btnAgregarObservacion = new System.Windows.Forms.Button();
             this.txtObservacion = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -353,12 +359,9 @@
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabarPreVenta = new System.Windows.Forms.Button();
             this.btnPresupuesto = new System.Windows.Forms.Button();
-            this.cmbEstadoCivil = new System.Windows.Forms.ComboBox();
-            this.label91 = new System.Windows.Forms.Label();
-            this.btnQuitarObservacion = new System.Windows.Forms.Button();
-            this.btnAgregarObservacion = new System.Windows.Forms.Button();
-            this.GrillaObservacion = new System.Windows.Forms.DataGridView();
-            this.button7 = new System.Windows.Forms.Button();
+            this.tabListadoClientes = new System.Windows.Forms.TabPage();
+            this.GrillaListadoCliente = new System.Windows.Forms.DataGridView();
+            this.btnAgregarCliente = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -378,6 +381,7 @@
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaImpuestos)).BeginInit();
             this.tabPage18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaObservacion)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage20.SuspendLayout();
@@ -408,13 +412,15 @@
             this.tabPage17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaTarjeta)).BeginInit();
             this.groupBox55.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GrillaObservacion)).BeginInit();
+            this.tabListadoClientes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaListadoCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabListadoClientes);
             this.tabControl1.Controls.Add(this.tabPage21);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage12);
@@ -916,6 +922,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAgregarCliente);
             this.groupBox1.Controls.Add(this.label91);
             this.groupBox1.Controls.Add(this.cmbEstadoCivil);
             this.groupBox1.Controls.Add(this.cmbCategoriaCliente);
@@ -958,6 +965,24 @@
             this.groupBox1.Size = new System.Drawing.Size(826, 179);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(417, 86);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(58, 16);
+            this.label91.TabIndex = 79;
+            this.label91.Text = "Est. Civil";
+            // 
+            // cmbEstadoCivil
+            // 
+            this.cmbEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstadoCivil.FormattingEnabled = true;
+            this.cmbEstadoCivil.Location = new System.Drawing.Point(484, 83);
+            this.cmbEstadoCivil.Name = "cmbEstadoCivil";
+            this.cmbEstadoCivil.Size = new System.Drawing.Size(246, 24);
+            this.cmbEstadoCivil.TabIndex = 78;
             // 
             // cmbCategoriaCliente
             // 
@@ -1906,6 +1931,45 @@
             this.tabPage18.Size = new System.Drawing.Size(863, 168);
             this.tabPage18.TabIndex = 7;
             this.tabPage18.Text = "Observaciones";
+            // 
+            // button7
+            // 
+            this.button7.Image = global::Concesionaria.Properties.Resources.zoom;
+            this.button7.Location = new System.Drawing.Point(483, 84);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(34, 24);
+            this.button7.TabIndex = 76;
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // GrillaObservacion
+            // 
+            this.GrillaObservacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaObservacion.Location = new System.Drawing.Point(523, 24);
+            this.GrillaObservacion.Name = "GrillaObservacion";
+            this.GrillaObservacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GrillaObservacion.Size = new System.Drawing.Size(323, 120);
+            this.GrillaObservacion.TabIndex = 75;
+            // 
+            // btnQuitarObservacion
+            // 
+            this.btnQuitarObservacion.Image = global::Concesionaria.Properties.Resources.cancel;
+            this.btnQuitarObservacion.Location = new System.Drawing.Point(483, 54);
+            this.btnQuitarObservacion.Name = "btnQuitarObservacion";
+            this.btnQuitarObservacion.Size = new System.Drawing.Size(34, 24);
+            this.btnQuitarObservacion.TabIndex = 74;
+            this.btnQuitarObservacion.UseVisualStyleBackColor = true;
+            this.btnQuitarObservacion.Click += new System.EventHandler(this.btnQuitarObservacion_Click);
+            // 
+            // btnAgregarObservacion
+            // 
+            this.btnAgregarObservacion.Image = global::Concesionaria.Properties.Resources.add;
+            this.btnAgregarObservacion.Location = new System.Drawing.Point(483, 24);
+            this.btnAgregarObservacion.Name = "btnAgregarObservacion";
+            this.btnAgregarObservacion.Size = new System.Drawing.Size(34, 24);
+            this.btnAgregarObservacion.TabIndex = 73;
+            this.btnAgregarObservacion.UseVisualStyleBackColor = true;
+            this.btnAgregarObservacion.Click += new System.EventHandler(this.btnAgregarObservacion_Click);
             // 
             // txtObservacion
             // 
@@ -3742,62 +3806,34 @@
             this.btnPresupuesto.UseVisualStyleBackColor = true;
             this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
             // 
-            // cmbEstadoCivil
+            // tabListadoClientes
             // 
-            this.cmbEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstadoCivil.FormattingEnabled = true;
-            this.cmbEstadoCivil.Location = new System.Drawing.Point(484, 83);
-            this.cmbEstadoCivil.Name = "cmbEstadoCivil";
-            this.cmbEstadoCivil.Size = new System.Drawing.Size(246, 24);
-            this.cmbEstadoCivil.TabIndex = 78;
+            this.tabListadoClientes.Controls.Add(this.GrillaListadoCliente);
+            this.tabListadoClientes.Location = new System.Drawing.Point(4, 25);
+            this.tabListadoClientes.Name = "tabListadoClientes";
+            this.tabListadoClientes.Size = new System.Drawing.Size(863, 168);
+            this.tabListadoClientes.TabIndex = 9;
+            this.tabListadoClientes.Text = "Listado Clientes";
+            this.tabListadoClientes.UseVisualStyleBackColor = true;
             // 
-            // label91
+            // GrillaListadoCliente
             // 
-            this.label91.AutoSize = true;
-            this.label91.Location = new System.Drawing.Point(417, 86);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(58, 16);
-            this.label91.TabIndex = 79;
-            this.label91.Text = "Est. Civil";
+            this.GrillaListadoCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaListadoCliente.Location = new System.Drawing.Point(17, 12);
+            this.GrillaListadoCliente.Name = "GrillaListadoCliente";
+            this.GrillaListadoCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GrillaListadoCliente.Size = new System.Drawing.Size(833, 138);
+            this.GrillaListadoCliente.TabIndex = 74;
             // 
-            // btnQuitarObservacion
+            // btnAgregarCliente
             // 
-            this.btnQuitarObservacion.Image = global::Concesionaria.Properties.Resources.cancel;
-            this.btnQuitarObservacion.Location = new System.Drawing.Point(483, 54);
-            this.btnQuitarObservacion.Name = "btnQuitarObservacion";
-            this.btnQuitarObservacion.Size = new System.Drawing.Size(34, 24);
-            this.btnQuitarObservacion.TabIndex = 74;
-            this.btnQuitarObservacion.UseVisualStyleBackColor = true;
-            this.btnQuitarObservacion.Click += new System.EventHandler(this.btnQuitarObservacion_Click);
-            // 
-            // btnAgregarObservacion
-            // 
-            this.btnAgregarObservacion.Image = global::Concesionaria.Properties.Resources.add;
-            this.btnAgregarObservacion.Location = new System.Drawing.Point(483, 24);
-            this.btnAgregarObservacion.Name = "btnAgregarObservacion";
-            this.btnAgregarObservacion.Size = new System.Drawing.Size(34, 24);
-            this.btnAgregarObservacion.TabIndex = 73;
-            this.btnAgregarObservacion.UseVisualStyleBackColor = true;
-            this.btnAgregarObservacion.Click += new System.EventHandler(this.btnAgregarObservacion_Click);
-            // 
-            // GrillaObservacion
-            // 
-            this.GrillaObservacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GrillaObservacion.Location = new System.Drawing.Point(523, 24);
-            this.GrillaObservacion.Name = "GrillaObservacion";
-            this.GrillaObservacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GrillaObservacion.Size = new System.Drawing.Size(323, 120);
-            this.GrillaObservacion.TabIndex = 75;
-            // 
-            // button7
-            // 
-            this.button7.Image = global::Concesionaria.Properties.Resources.zoom;
-            this.button7.Location = new System.Drawing.Point(483, 84);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(34, 24);
-            this.button7.TabIndex = 76;
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.btnAgregarCliente.Image = global::Concesionaria.Properties.Resources.add;
+            this.btnAgregarCliente.Location = new System.Drawing.Point(736, 131);
+            this.btnAgregarCliente.Name = "btnAgregarCliente";
+            this.btnAgregarCliente.Size = new System.Drawing.Size(34, 24);
+            this.btnAgregarCliente.TabIndex = 80;
+            this.btnAgregarCliente.UseVisualStyleBackColor = true;
+            this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
             // 
             // FrmVenta
             // 
@@ -3846,6 +3882,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.GrillaImpuestos)).EndInit();
             this.tabPage18.ResumeLayout(false);
             this.tabPage18.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaObservacion)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage20.ResumeLayout(false);
@@ -3890,7 +3927,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.GrillaTarjeta)).EndInit();
             this.groupBox55.ResumeLayout(false);
             this.groupBox55.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GrillaObservacion)).EndInit();
+            this.tabListadoClientes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaListadoCliente)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4227,5 +4265,8 @@
         private System.Windows.Forms.Button btnQuitarObservacion;
         private System.Windows.Forms.Button btnAgregarObservacion;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnAgregarCliente;
+        private System.Windows.Forms.TabPage tabListadoClientes;
+        private System.Windows.Forms.DataGridView GrillaListadoCliente;
     }
 }

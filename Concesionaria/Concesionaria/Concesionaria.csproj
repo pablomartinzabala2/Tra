@@ -146,6 +146,7 @@
     <Compile Include="Clases\cVendedor.cs" />
     <Compile Include="Clases\cVenta.cs" />
     <Compile Include="Clases\cVentaxAuto.cs" />
+    <Compile Include="Clases\cVentaxCliente.cs" />
     <Compile Include="CONCESIONARIADataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

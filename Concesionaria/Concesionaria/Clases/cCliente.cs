@@ -30,8 +30,9 @@ namespace Concesionaria.Clases
             string Calle, string Altura, Int32? CodBarrio
             )
         {
+            string NomApe = Nombre + " " + Apellido;
             string sql = "Insert into Cliente(CodTipoDoc,NroDocumento,Nombre,Apellido";
-            sql = sql + ",Telefono,Celular, Calle,  Numero, CodBarrio)";
+            sql = sql + ",Telefono,Celular, Calle,  Numero, CodBarrio,NomApe)";
             sql = sql + "Values(";
             if (CodTipoDoc == null)
                 sql = sql + "null";
@@ -48,6 +49,7 @@ namespace Concesionaria.Clases
                 sql = sql + ",null";
             else
                 sql = sql + "," + CodBarrio.ToString();
+            sql = sql + "," + "'" + NomApe + "'";
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
         }
@@ -58,8 +60,9 @@ namespace Concesionaria.Clases
             string RutaImagen, DateTime? FechaNacimiento , Int32? CodCategoria , Int32? CodEstado
             )
         {
+            string NomApe = Nombre + " " + Apellido;
             string sql = "Insert into Cliente(CodTipoDoc,NroDocumento,Nombre,Apellido";
-            sql = sql + ",Telefono,Celular, Calle,  Numero, CodBarrio,Observacion,RutaImagen,FechaNacimiento,CodCategoria, CodEstado)";
+            sql = sql + ",Telefono,Celular, Calle,  Numero, CodBarrio,Observacion,RutaImagen,FechaNacimiento,CodCategoria, CodEstado,NomApe)";
             sql = sql + "Values(";
             if (CodTipoDoc == null)
                 sql = sql + "null";
@@ -96,6 +99,7 @@ namespace Concesionaria.Clases
                 sql = sql + "," + CodEstado.ToString();
             else
                 sql = sql + ",null";
+            sql = sql + "," + "'" + NomApe + "'";
             sql = sql + ")";
             return sql;
         }
@@ -176,7 +180,11 @@ namespace Concesionaria.Clases
 
         public DataTable GetClientesxCodigo(Int32 CodCLiente)
         {
-            string sql = "select * from cliente where CodCLiente =" + CodCLiente.ToString();
+            //  string sql = "select * from cliente where CodCLiente =" + CodCLiente.ToString();
+            string sql = " select c.*, ";
+            sql = sql + " (select t.Nombre from TipoDocumento t where t.CodTipoDoc = c.CodTipoDoc) as TipoDoc ";
+            sql = sql + " from cliente c ";
+            sql = sql + " where c.CodCliente =" + CodCLiente.ToString();
             return cDb.ExecuteDataTable(sql);
         }
 
@@ -236,9 +244,10 @@ namespace Concesionaria.Clases
             
             )
         {
+            string NomApe = Nombre + " " + Apellido;
             string sql = "Insert into Cliente(CodTipoDoc,NroDocumento,Nombre,Apellido";
             sql = sql + ",Telefono,Celular, Calle,  Numero, CodBarrio";
-            sql = sql + ",FechaNacimiento,Email,Observacion)";
+            sql = sql + ",FechaNacimiento,Email,Observacion,NomApe)";
             sql = sql + "Values(";
             if (CodTipoDoc == null)
                 sql = sql + "null";
@@ -261,6 +270,7 @@ namespace Concesionaria.Clases
                 sql = sql + "," + "'" + FechaNacimiento.ToString() + "'";
             sql = sql + "," + "'" + Email + "'";
             sql = sql + ","  +"'" + Observacion + "'";
+            sql = sql + "," + "'" + NomApe + "'";
             sql = sql + ")";
             SqlCommand comand = new SqlCommand();
             comand.Connection = con;
