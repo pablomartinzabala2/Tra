@@ -102,7 +102,7 @@
             // 
             this.btnResponsabilidadCivil.Image = global::Concesionaria.Properties.Resources.MOVIMIENTOS;
             this.btnResponsabilidadCivil.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnResponsabilidadCivil.Location = new System.Drawing.Point(1213, 33);
+            this.btnResponsabilidadCivil.Location = new System.Drawing.Point(1213, 31);
             this.btnResponsabilidadCivil.Name = "btnResponsabilidadCivil";
             this.btnResponsabilidadCivil.Size = new System.Drawing.Size(43, 27);
             this.btnResponsabilidadCivil.TabIndex = 74;
@@ -113,7 +113,7 @@
             // txtNombre
             // 
             this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNombre.Location = new System.Drawing.Point(703, 36);
+            this.txtNombre.Location = new System.Drawing.Point(703, 39);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(133, 22);
             this.txtNombre.TabIndex = 73;
@@ -121,7 +121,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(640, 40);
+            this.label6.Location = new System.Drawing.Point(640, 42);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 16);
             this.label6.TabIndex = 72;
@@ -155,7 +155,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(465, 39);
+            this.label3.Location = new System.Drawing.Point(465, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 20);
             this.label3.TabIndex = 59;
@@ -166,7 +166,7 @@
             // 
             this.btnReporte2.Image = global::Concesionaria.Properties.Resources.MOVIMIENTOS;
             this.btnReporte2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReporte2.Location = new System.Drawing.Point(1174, 32);
+            this.btnReporte2.Location = new System.Drawing.Point(1175, 31);
             this.btnReporte2.Name = "btnReporte2";
             this.btnReporte2.Size = new System.Drawing.Size(43, 27);
             this.btnReporte2.TabIndex = 58;
@@ -177,7 +177,7 @@
             // BtnVerGanancia
             // 
             this.BtnVerGanancia.Image = global::Concesionaria.Properties.Resources.Linterna;
-            this.BtnVerGanancia.Location = new System.Drawing.Point(1128, 32);
+            this.BtnVerGanancia.Location = new System.Drawing.Point(1140, 31);
             this.BtnVerGanancia.Name = "BtnVerGanancia";
             this.BtnVerGanancia.Size = new System.Drawing.Size(40, 27);
             this.BtnVerGanancia.TabIndex = 57;
@@ -207,7 +207,7 @@
             this.btnImprimir.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnImprimir.Image = global::Concesionaria.Properties.Resources.COMPRA222;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(1091, 33);
+            this.btnImprimir.Location = new System.Drawing.Point(1094, 31);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(40, 27);
             this.btnImprimir.TabIndex = 54;
@@ -218,7 +218,7 @@
             // txtPatente
             // 
             this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPatente.Location = new System.Drawing.Point(385, 38);
+            this.txtPatente.Location = new System.Drawing.Point(385, 39);
             this.txtPatente.Name = "txtPatente";
             this.txtPatente.Size = new System.Drawing.Size(74, 22);
             this.txtPatente.TabIndex = 53;
@@ -263,7 +263,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom2;
-            this.btnBuscar.Location = new System.Drawing.Point(1002, 31);
+            this.btnBuscar.Location = new System.Drawing.Point(1002, 35);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(40, 27);
             this.btnBuscar.TabIndex = 40;
@@ -328,7 +328,7 @@
             // 
             this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMarca.FormattingEnabled = true;
-            this.cmbMarca.Location = new System.Drawing.Point(513, 37);
+            this.cmbMarca.Location = new System.Drawing.Point(513, 39);
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(121, 24);
             this.cmbMarca.TabIndex = 75;
@@ -336,7 +336,7 @@
             // txtModelo
             // 
             this.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtModelo.Location = new System.Drawing.Point(895, 33);
+            this.txtModelo.Location = new System.Drawing.Point(895, 39);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(101, 22);
             this.txtModelo.TabIndex = 77;
@@ -344,7 +344,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(842, 36);
+            this.label7.Location = new System.Drawing.Point(842, 42);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 16);
             this.label7.TabIndex = 76;
