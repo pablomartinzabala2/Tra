@@ -66,11 +66,12 @@ namespace Concesionaria
             Double Cuotas = 0;
             Double Prenda = 0;
             Double Cheque = 0;
+            Int32? CodMarca = null;
             string val = "";
             int TipoPantalla = 1;
             DataTable tb = new DataTable();
             tb = fun.CrearTabla(Col);
-            DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido, Nombre);
+            DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido, Nombre, CodMarca,"");
             for (int i = 0; i < trdo.Rows.Count; i++)
             {
                 CodVenta = Convert.ToInt32(trdo.Rows[i]["CodVenta"].ToString());

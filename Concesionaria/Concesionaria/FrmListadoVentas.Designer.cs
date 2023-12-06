@@ -53,12 +53,18 @@
             this.txtPrenda = new System.Windows.Forms.TextBox();
             this.txtVehículo = new System.Windows.Forms.TextBox();
             this.txtDocumentos = new System.Windows.Forms.TextBox();
+            this.cmbMarca = new System.Windows.Forms.ComboBox();
+            this.txtModelo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtModelo);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.cmbMarca);
             this.groupBox1.Controls.Add(this.btnResponsabilidadCivil);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label6);
@@ -96,7 +102,7 @@
             // 
             this.btnResponsabilidadCivil.Image = global::Concesionaria.Properties.Resources.MOVIMIENTOS;
             this.btnResponsabilidadCivil.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnResponsabilidadCivil.Location = new System.Drawing.Point(1135, 34);
+            this.btnResponsabilidadCivil.Location = new System.Drawing.Point(1213, 33);
             this.btnResponsabilidadCivil.Name = "btnResponsabilidadCivil";
             this.btnResponsabilidadCivil.Size = new System.Drawing.Size(43, 27);
             this.btnResponsabilidadCivil.TabIndex = 74;
@@ -107,7 +113,7 @@
             // txtNombre
             // 
             this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNombre.Location = new System.Drawing.Point(763, 37);
+            this.txtNombre.Location = new System.Drawing.Point(703, 36);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(133, 22);
             this.txtNombre.TabIndex = 73;
@@ -115,7 +121,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(700, 41);
+            this.label6.Location = new System.Drawing.Point(640, 40);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 16);
             this.label6.TabIndex = 72;
@@ -134,31 +140,33 @@
             this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpFechaDesde.Location = new System.Drawing.Point(77, 37);
             this.dpFechaDesde.Name = "dpFechaDesde";
-            this.dpFechaDesde.Size = new System.Drawing.Size(87, 22);
+            this.dpFechaDesde.Size = new System.Drawing.Size(85, 22);
             this.dpFechaDesde.TabIndex = 70;
             // 
             // txtApellido
             // 
             this.txtApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtApellido.Location = new System.Drawing.Point(561, 38);
+            this.txtApellido.Location = new System.Drawing.Point(1047, 8);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(133, 22);
+            this.txtApellido.Size = new System.Drawing.Size(33, 22);
             this.txtApellido.TabIndex = 60;
+            this.txtApellido.Visible = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(497, 40);
+            this.label3.Location = new System.Drawing.Point(465, 39);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 16);
+            this.label3.Size = new System.Drawing.Size(42, 20);
             this.label3.TabIndex = 59;
-            this.label3.Text = "Apellido";
+            this.label3.Text = "Marca";
+            this.label3.UseCompatibleTextRendering = true;
             // 
             // btnReporte2
             // 
             this.btnReporte2.Image = global::Concesionaria.Properties.Resources.MOVIMIENTOS;
             this.btnReporte2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReporte2.Location = new System.Drawing.Point(1086, 36);
+            this.btnReporte2.Location = new System.Drawing.Point(1174, 32);
             this.btnReporte2.Name = "btnReporte2";
             this.btnReporte2.Size = new System.Drawing.Size(43, 27);
             this.btnReporte2.TabIndex = 58;
@@ -169,7 +177,7 @@
             // BtnVerGanancia
             // 
             this.BtnVerGanancia.Image = global::Concesionaria.Properties.Resources.Linterna;
-            this.BtnVerGanancia.Location = new System.Drawing.Point(1040, 36);
+            this.BtnVerGanancia.Location = new System.Drawing.Point(1128, 32);
             this.BtnVerGanancia.Name = "BtnVerGanancia";
             this.BtnVerGanancia.Size = new System.Drawing.Size(40, 27);
             this.BtnVerGanancia.TabIndex = 57;
@@ -199,7 +207,7 @@
             this.btnImprimir.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnImprimir.Image = global::Concesionaria.Properties.Resources.COMPRA222;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(994, 36);
+            this.btnImprimir.Location = new System.Drawing.Point(1091, 33);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(40, 27);
             this.btnImprimir.TabIndex = 54;
@@ -210,15 +218,15 @@
             // txtPatente
             // 
             this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPatente.Location = new System.Drawing.Point(385, 37);
+            this.txtPatente.Location = new System.Drawing.Point(385, 38);
             this.txtPatente.Name = "txtPatente";
-            this.txtPatente.Size = new System.Drawing.Size(104, 22);
+            this.txtPatente.Size = new System.Drawing.Size(74, 22);
             this.txtPatente.TabIndex = 53;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(325, 40);
+            this.label4.Location = new System.Drawing.Point(325, 42);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 16);
             this.label4.TabIndex = 52;
@@ -227,7 +235,7 @@
             // btnAbrirVenta
             // 
             this.btnAbrirVenta.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnAbrirVenta.Location = new System.Drawing.Point(948, 36);
+            this.btnAbrirVenta.Location = new System.Drawing.Point(1048, 32);
             this.btnAbrirVenta.Name = "btnAbrirVenta";
             this.btnAbrirVenta.Size = new System.Drawing.Size(40, 27);
             this.btnAbrirVenta.TabIndex = 43;
@@ -255,7 +263,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom2;
-            this.btnBuscar.Location = new System.Drawing.Point(902, 36);
+            this.btnBuscar.Location = new System.Drawing.Point(1002, 31);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(40, 27);
             this.btnBuscar.TabIndex = 40;
@@ -316,6 +324,32 @@
             this.txtDocumentos.Size = new System.Drawing.Size(136, 22);
             this.txtDocumentos.TabIndex = 1;
             // 
+            // cmbMarca
+            // 
+            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMarca.FormattingEnabled = true;
+            this.cmbMarca.Location = new System.Drawing.Point(513, 37);
+            this.cmbMarca.Name = "cmbMarca";
+            this.cmbMarca.Size = new System.Drawing.Size(121, 24);
+            this.cmbMarca.TabIndex = 75;
+            // 
+            // txtModelo
+            // 
+            this.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtModelo.Location = new System.Drawing.Point(895, 33);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(101, 22);
+            this.txtModelo.TabIndex = 77;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(842, 36);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 16);
+            this.label7.TabIndex = 76;
+            this.label7.Text = "Modelo";
+            // 
             // FrmListadoVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,5 +397,8 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnResponsabilidadCivil;
+        private System.Windows.Forms.ComboBox cmbMarca;
+        private System.Windows.Forms.TextBox txtModelo;
+        private System.Windows.Forms.Label label7;
     }
 }

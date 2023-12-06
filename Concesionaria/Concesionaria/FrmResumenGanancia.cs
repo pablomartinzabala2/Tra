@@ -26,14 +26,14 @@ namespace Concesionaria
 
         private void GetGanancia()
         {
-
+            Int32? CodMarca = null;
             Clases.cFunciones fun = new Clases.cFunciones();
             Clases.cVenta objVenta = new Clases.cVenta();
             Clases.cPunitorioCobranza objPunitorioCobranza= new Clases.cPunitorioCobranza();
             Clases.cPunitorioCuota objPunitorioCuota = new Clases.cPunitorioCuota();
             DateTime FechaDesde = Convert.ToDateTime(txtFechaDesde.Text);
             DateTime FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
-            DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, "",null,null);
+            DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, "",null,null, CodMarca, "");
             Clases.cPreVenta objPreVenta = new Clases.cPreVenta();
             DataTable trdo2 = objPreVenta.GetPreVentasxFecha(FechaDesde, FechaHasta, "", null,null);
             //le agre[g

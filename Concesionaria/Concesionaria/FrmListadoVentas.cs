@@ -17,7 +17,14 @@ namespace Concesionaria
             InicializarFechas();
             txtTotal.BackColor = cColor.CajaTexto();
             txtCantidadVentas.BackColor = cColor.CajaTexto();
+            CargarMarca();
             Buscar();
+        }
+
+        private void CargarMarca()
+        {
+            cFunciones fun = new cFunciones();
+            fun.LlenarCombo(cmbMarca, "Marca", "Nombre", "CodMarca");
         }
 
         private void InicializarFechas()
@@ -46,7 +53,11 @@ namespace Concesionaria
                 MessageBox.Show("La fecha desde debe ser inferior a la fecha hasta", Clases.cMensaje.Mensaje());
                 return;
             }
+            string Descripcion = txtModelo.Text.Trim();
             string Apellido = null;
+            Int32? CodMarca = null;
+            if (cmbMarca.SelectedIndex > 0)
+                CodMarca = Convert.ToInt32(cmbMarca.SelectedValue);
             string Nombre = null;
             if (txtNombre.Text != "")
                 Nombre = txtNombre.Text;
@@ -55,7 +66,7 @@ namespace Concesionaria
             Clases.cVenta objVenta = new Clases.cVenta();
             DateTime FechaDesde = dpFechaDesde.Value;
             DateTime FechaHasta = dpFechaHasta.Value;
-            DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido, Nombre);
+            DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido, Nombre, CodMarca , Descripcion);
             Clases.cPreVenta objPreVenta = new Clases.cPreVenta();
 
             DataTable trdo2 = objPreVenta.GetPreVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido, Nombre);
