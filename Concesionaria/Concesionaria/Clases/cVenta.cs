@@ -50,7 +50,7 @@ namespace Concesionaria.Clases
             return CodVenta;
         }
 
-        public DataTable GetVentasxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,string Apellido, string Nombre, Int32? CodMarca, string Descripcion)
+        public DataTable GetVentasxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,string Apellido, string Nombre, Int32? CodMarca, string Descripcion , int OrdenDescendente)
         {
             string sql = "";
             // sql = "select Distinct v.CodVenta,c.Apellido,(c.Nombre  + ' ' + c.Apellido) as Nombre ,a.Patente,a.Descripcion,sa.DescripcionAutoPartePago";
@@ -83,9 +83,10 @@ namespace Concesionaria.Clases
             sql = sql + ",v.CodCliente";
             sql = sql + ",'Venta' as TpoVenta ";
             sql = sql + ",(";
-            sql = sql + " (select sum(Saldo) from Cuotas  where Cuotas.CodVenta = v.CodVenta)";
+            sql = sql + " (select isnull(sum(Saldo),0) from Cuotas  where Cuotas.CodVenta = v.CodVenta)";
             sql = sql + " + (select isnull(sum(Importe),0) from cheque where cheque.codventa = v.CodVenta and cheque.FechaPago is null) ";
             sql = sql + " + (select isnull(sum(Saldo),0) from Prenda where Prenda.codventa = v.CodVenta ) ";
+            sql = sql + " + (select isnull(sum(Saldo),0) from Cobranza  where Cobranza.CodVenta = v.CodVenta)";
             sql = sql + ") As Saldo ";
             sql = sql + " from venta v,cliente c,auto a,stockauto sa";
             sql = sql + " where v.CodCliente = c.CodCliente";
@@ -112,7 +113,16 @@ namespace Concesionaria.Clases
                 sql = sql + " and a.Descripcion like " + "'%" + Descripcion + "%'";
             }
 
-            sql = sql + " order by v.CodVenta Desc";
+            if (OrdenDescendente == 1)
+            {
+                sql = sql + " order by v.Fecha Desc ";
+            }
+            else
+            {
+                sql = sql + " order by v.Fecha Asc ";
+            }
+
+            
             return cDb.ExecuteDataTable(sql);  
         }
 

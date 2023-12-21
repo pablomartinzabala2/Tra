@@ -33,7 +33,7 @@ namespace Concesionaria
             Clases.cPunitorioCuota objPunitorioCuota = new Clases.cPunitorioCuota();
             DateTime FechaDesde = Convert.ToDateTime(txtFechaDesde.Text);
             DateTime FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
-            DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, "",null,null, CodMarca, "");
+            DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, "",null,null, CodMarca, "",1);
             Clases.cPreVenta objPreVenta = new Clases.cPreVenta();
             DataTable trdo2 = objPreVenta.GetPreVentasxFecha(FechaDesde, FechaHasta, "", null,null);
             //le agre[g

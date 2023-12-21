@@ -71,7 +71,7 @@ namespace Concesionaria
             int TipoPantalla = 1;
             DataTable tb = new DataTable();
             tb = fun.CrearTabla(Col);
-            DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido, Nombre, CodMarca,"");
+            DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido, Nombre, CodMarca,"",1);
             for (int i = 0; i < trdo.Rows.Count; i++)
             {
                 CodVenta = Convert.ToInt32(trdo.Rows[i]["CodVenta"].ToString());

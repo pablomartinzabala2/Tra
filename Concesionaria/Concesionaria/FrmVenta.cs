@@ -4988,8 +4988,9 @@ namespace Concesionaria
 
             tbCobranza = fun.TablaaFechas(tbCobranza, "Importe");
             tbCobranza = fun.TablaaFechas(tbCobranza, "Saldo");
-
-            Double TotalCobranza = fun.TotalizarColumna(tbCobranza, "Importe");
+            //txtImporteCobranza
+            // Double TotalCobranza = fun.TotalizarColumna(tbCobranza, "Importe");
+            Double TotalCobranza = fun.ToDouble(txtImporteCobranza.Text);
             // tbCobranza = fun.TablaaMiles(tbCobranza, "Importe");
             GrillaCobranza.DataSource = tbCobranza;
             // txtTotalCobranza.Text = TotalCobranza.ToString();

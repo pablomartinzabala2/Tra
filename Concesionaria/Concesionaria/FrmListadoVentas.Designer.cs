@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtModelo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.btnResponsabilidadCivil = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,15 +56,14 @@
             this.txtPrenda = new System.Windows.Forms.TextBox();
             this.txtVehículo = new System.Windows.Forms.TextBox();
             this.txtDocumentos = new System.Windows.Forms.TextBox();
-            this.cmbMarca = new System.Windows.Forms.ComboBox();
-            this.txtModelo = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.chkOrden = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkOrden);
             this.groupBox1.Controls.Add(this.txtModelo);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.cmbMarca);
@@ -98,6 +100,32 @@
             this.groupBox1.Text = "Listado de ventas";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // txtModelo
+            // 
+            this.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtModelo.Location = new System.Drawing.Point(895, 39);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(101, 22);
+            this.txtModelo.TabIndex = 77;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(842, 42);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 16);
+            this.label7.TabIndex = 76;
+            this.label7.Text = "Modelo";
+            // 
+            // cmbMarca
+            // 
+            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMarca.FormattingEnabled = true;
+            this.cmbMarca.Location = new System.Drawing.Point(513, 39);
+            this.cmbMarca.Name = "cmbMarca";
+            this.cmbMarca.Size = new System.Drawing.Size(121, 24);
+            this.cmbMarca.TabIndex = 75;
+            // 
             // btnResponsabilidadCivil
             // 
             this.btnResponsabilidadCivil.Image = global::Concesionaria.Properties.Resources.MOVIMIENTOS;
@@ -123,14 +151,14 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(640, 42);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 16);
+            this.label6.Size = new System.Drawing.Size(49, 16);
             this.label6.TabIndex = 72;
-            this.label6.Text = "Nombre";
+            this.label6.Text = "Cliente";
             // 
             // dpFechaHasta
             // 
             this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaHasta.Location = new System.Drawing.Point(232, 39);
+            this.dpFechaHasta.Location = new System.Drawing.Point(221, 35);
             this.dpFechaHasta.Name = "dpFechaHasta";
             this.dpFechaHasta.Size = new System.Drawing.Size(87, 22);
             this.dpFechaHasta.TabIndex = 71;
@@ -228,9 +256,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(325, 42);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 16);
+            this.label4.Size = new System.Drawing.Size(58, 16);
             this.label4.TabIndex = 52;
-            this.label4.Text = "Patente";
+            this.label4.Text = "Dominio";
             // 
             // btnAbrirVenta
             // 
@@ -273,7 +301,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(179, 42);
+            this.label2.Location = new System.Drawing.Point(168, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 16);
             this.label2.TabIndex = 39;
@@ -282,7 +310,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 36);
+            this.label1.Location = new System.Drawing.Point(22, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 16);
             this.label1.TabIndex = 29;
@@ -324,31 +352,17 @@
             this.txtDocumentos.Size = new System.Drawing.Size(136, 22);
             this.txtDocumentos.TabIndex = 1;
             // 
-            // cmbMarca
+            // chkOrden
             // 
-            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMarca.FormattingEnabled = true;
-            this.cmbMarca.Location = new System.Drawing.Point(513, 39);
-            this.cmbMarca.Name = "cmbMarca";
-            this.cmbMarca.Size = new System.Drawing.Size(121, 24);
-            this.cmbMarca.TabIndex = 75;
-            // 
-            // txtModelo
-            // 
-            this.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtModelo.Location = new System.Drawing.Point(895, 39);
-            this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(101, 22);
-            this.txtModelo.TabIndex = 77;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(842, 42);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 16);
-            this.label7.TabIndex = 76;
-            this.label7.Text = "Modelo";
+            this.chkOrden.AutoSize = true;
+            this.chkOrden.Checked = true;
+            this.chkOrden.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkOrden.Location = new System.Drawing.Point(215, 10);
+            this.chkOrden.Name = "chkOrden";
+            this.chkOrden.Size = new System.Drawing.Size(108, 20);
+            this.chkOrden.TabIndex = 78;
+            this.chkOrden.Text = "Descendente";
+            this.chkOrden.UseVisualStyleBackColor = true;
             // 
             // FrmListadoVentas
             // 
@@ -400,5 +414,6 @@
         private System.Windows.Forms.ComboBox cmbMarca;
         private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox chkOrden;
     }
 }

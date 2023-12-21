@@ -66,7 +66,12 @@ namespace Concesionaria
             Clases.cVenta objVenta = new Clases.cVenta();
             DateTime FechaDesde = dpFechaDesde.Value;
             DateTime FechaHasta = dpFechaHasta.Value;
-            DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido, Nombre, CodMarca , Descripcion);
+            int OrdenDescendente = 0;
+            if (chkOrden.Checked == true)
+                OrdenDescendente = 1;
+            else
+                OrdenDescendente = 0;
+            DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido, Nombre, CodMarca, Descripcion, OrdenDescendente);
             Clases.cPreVenta objPreVenta = new Clases.cPreVenta();
 
             DataTable trdo2 = objPreVenta.GetPreVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido, Nombre);
@@ -147,39 +152,17 @@ namespace Concesionaria
 
                 }
             }
-            string Col = "0;0;20;5;10;10;0";
-            Col = Col + ";5;10;10;0;0;10;10";
+            string Col = "0;0;20;10;10;30;0";
+            Col = Col + ";10;10;0;0;0;0;0";
             Col = Col + ";0;0;0;0;10";
             fun.AnchoColumnas(Grilla, Col);
-            //
-         //   Grilla.Columns[0].Visible = false;
-            /*
-            Grilla.Columns[2].HeaderText = "Descripción";
-            Grilla.Columns[7].HeaderText = "Total";
-            Grilla.Columns[8].HeaderText = "Efectivo";
-            Grilla.Columns[9].HeaderText = "Vehículo";
-            Grilla.Columns[10].HeaderText = "Documentos";
-            Grilla.Columns[11].HeaderText = "Prenda";
-            Grilla.Columns[13].HeaderText = "Cobranza";
-        //    Grilla.Columns[15].Visible = false;
 
-            Grilla.Columns[1].Width = 105;
-           // Grilla.Columns[5].Visible = false;
-            Grilla.Columns[3].HeaderText = "Parte Pago";
-            Grilla.Columns[7].Width = 80;
-            Grilla.Columns[8].Width = 80;
-            Grilla.Columns[9].Width = 80;
-            Grilla.Columns[10].Width = 80;
-            Grilla.Columns[11].Width = 80;
-            Grilla.Columns[12].Width = 80;
-            Grilla.Columns[13].Width = 80;
-            Grilla.Columns[16].Visible = false;
-            for (int k = 0; k < Grilla.Rows.Count - 1; k++)
-            {
-                if (k >= PosPintar)
-                    Grilla.Rows[k].DefaultCellStyle.BackColor = Color.LightGray;
-            }
-            */
+            Grilla.Columns[2].HeaderText = "Cliente";
+            Grilla.Columns[3].HeaderText = "Dominio";
+            Grilla.Columns[5].HeaderText = "Modelo";
+            Grilla.Columns[18].HeaderText = "Deuda";
+
+
         }
 
         private void btnAbrirVenta_Click(object sender, EventArgs e)
