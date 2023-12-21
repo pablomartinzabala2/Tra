@@ -98,6 +98,7 @@ namespace Concesionaria
             trdo = fun.TablaaMiles(trdo, "Cheque");
             trdo = fun.TablaaMiles(trdo, "ImporteCobranza");
             trdo = fun.TablaaMiles(trdo, "Ganancia");
+            trdo = fun.TablaaMiles(trdo, "Saldo");
             txtTotal.Text = fun.TotalizarColumna(trdo, "Ganancia").ToString();
             txtTotal.Text = fun.FormatoEnteroMiles(txtTotal.Text);
             Grilla.DataSource = trdo;
@@ -148,7 +149,7 @@ namespace Concesionaria
             }
             string Col = "0;0;20;5;10;10;0";
             Col = Col + ";5;10;10;0;0;10;10";
-            Col = Col + ";10;0;0;0";
+            Col = Col + ";0;0;0;0;10";
             fun.AnchoColumnas(Grilla, Col);
             //
          //   Grilla.Columns[0].Visible = false;
