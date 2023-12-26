@@ -175,7 +175,7 @@ namespace Concesionaria
             Int32 CodAuto = Convert.ToInt32(Principal.CodigoPrincipalAbm);
             cAuto auto = new Clases.cAuto();
             cStockAuto stock = new cStockAuto();
-
+            String NombreAuto = "";
             DataTable trdo = auto.GetAutoxCodigo(CodAuto);
             if (trdo.Rows.Count >0)
             {
@@ -183,6 +183,9 @@ namespace Concesionaria
                 string Descripcion = trdo.Rows[0]["Descripcion"].ToString();
                 txtPatente.Text = Patente;
                 txtVehiculo.Text = Descripcion;
+                string Anio = trdo.Rows[0]["NombreAnio"].ToString();
+                NombreAuto = Patente + " " + Descripcion + " " + Anio;
+                txtDescripcion.Text = NombreAuto;
             }
 
             DataTable tstock = stock.GetStockUltimo(CodAuto);

@@ -55,12 +55,12 @@ namespace Concesionaria.Clases
             string sql = "";
             // sql = "select Distinct v.CodVenta,c.Apellido,(c.Nombre  + ' ' + c.Apellido) as Nombre ,a.Patente,a.Descripcion,sa.DescripcionAutoPartePago";
             //sql = "select Distinct v.CodVenta,c.Apellido,(c.Nombre  + ' ' + c.Apellido) as Nombre,a.Patente,";
-            sql = "select Distinct v.CodVenta,c.Apellido,v.Titulares as Nombre,a.Patente,";
+            sql = "select Distinct v.CodVenta,v.Fecha,c.Apellido,v.Titulares as Nombre,a.Patente,";
             sql = sql + "(select mm.Nombre from Marca mm where mm.CodMarca=a.CodMarca) as Marca ";
             sql = sql + ", a.Descripcion";
             sql = sql + ",(select aaa.patente from auto aaa where aaa.CodAuto=(select max(sa.codauto) from VentasxAuto va, StockAuto sa where va.CodAuto = sa.CodAuto )) as DescripcionAutoPartePago ";
             
-            sql = sql + ",v.Fecha,(v.ImporteVenta + ";
+            sql = sql + ",(v.ImporteVenta + ";
             sql = sql + " (select isnull(sum(gg.Importe),0) from GastosTransferencia gg where gg.CodVenta=v.CodVenta)";
             sql = sql + " + (select isnull(sum(gr.Importe),0) from GastosRecepcion gr where gr.CodVenta=v.CodVenta)";
             sql = sql + ") as ImporteVenta ";
