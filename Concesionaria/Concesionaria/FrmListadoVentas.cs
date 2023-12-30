@@ -218,7 +218,7 @@ namespace Concesionaria
             if (Grilla.Columns[14].Visible == false)
             {
                 Grilla.Columns[14].Visible = true;
-                Grilla.Columns[2].Width = 100;
+               // Grilla.Columns[2].Width = 100;
                 lblGanancia.Visible = true;
                 txtTotal.Visible = true; 
             }
@@ -234,7 +234,8 @@ namespace Concesionaria
 
         private void FrmListadoVentas_Load(object sender, EventArgs e)
         {
-
+            lblGanancia.Visible = false;
+            txtTotal.Visible = false;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -249,13 +250,13 @@ namespace Concesionaria
             string sql = "";
             for (int i = 0; i < Grilla.Rows.Count - 1; i++)
             {
-                string Modelo = (Grilla.Rows[i].Cells[1].Value.ToString());
-                string Descripcion = (Grilla.Rows[i].Cells[2].Value.ToString());
-                Int32 CodCliente = Convert.ToInt32(Grilla.Rows[i].Cells[15].Value.ToString());
+                string Modelo = (Grilla.Rows[i].Cells[4].Value.ToString());
+                string Descripcion = (Grilla.Rows[i].Cells[6].Value.ToString());
+                Int32 CodCliente = Convert.ToInt32(Grilla.Rows[i].Cells[16].Value.ToString());
                 string Cliente = GetCliente(CodCliente, "NOMBRE");
                 string Telefono = GetCliente(CodCliente, "TELEFONO");
                 string Celular = GetCliente(CodCliente, "CELULAR");
-                string Fecha = (Grilla.Rows[i].Cells[6].Value.ToString());
+                string Fecha = (Grilla.Rows[i].Cells[1].Value.ToString());
                 if (Fecha.Length > 11)
                     Fecha = Fecha.Substring(0, 10);
                 sql = "insert into ReporteAuto(Marca,Descripcion,Extra1,Extra2,Extra3,Extra4)";

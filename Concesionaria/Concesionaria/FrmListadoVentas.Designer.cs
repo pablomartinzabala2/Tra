@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkOrden = new System.Windows.Forms.CheckBox();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
@@ -56,7 +57,6 @@
             this.txtPrenda = new System.Windows.Forms.TextBox();
             this.txtVehículo = new System.Windows.Forms.TextBox();
             this.txtDocumentos = new System.Windows.Forms.TextBox();
-            this.chkOrden = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
@@ -100,10 +100,22 @@
             this.groupBox1.Text = "Listado de ventas";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // chkOrden
+            // 
+            this.chkOrden.AutoSize = true;
+            this.chkOrden.Checked = true;
+            this.chkOrden.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkOrden.Location = new System.Drawing.Point(215, 10);
+            this.chkOrden.Name = "chkOrden";
+            this.chkOrden.Size = new System.Drawing.Size(108, 20);
+            this.chkOrden.TabIndex = 78;
+            this.chkOrden.Text = "Descendente";
+            this.chkOrden.UseVisualStyleBackColor = true;
+            // 
             // txtModelo
             // 
             this.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtModelo.Location = new System.Drawing.Point(895, 39);
+            this.txtModelo.Location = new System.Drawing.Point(895, 32);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(101, 22);
             this.txtModelo.TabIndex = 77;
@@ -111,7 +123,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(842, 42);
+            this.label7.Location = new System.Drawing.Point(835, 37);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 16);
             this.label7.TabIndex = 76;
@@ -121,7 +133,7 @@
             // 
             this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMarca.FormattingEnabled = true;
-            this.cmbMarca.Location = new System.Drawing.Point(513, 39);
+            this.cmbMarca.Location = new System.Drawing.Point(696, 31);
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(121, 24);
             this.cmbMarca.TabIndex = 75;
@@ -141,7 +153,7 @@
             // txtNombre
             // 
             this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNombre.Location = new System.Drawing.Point(703, 39);
+            this.txtNombre.Location = new System.Drawing.Point(373, 37);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(133, 22);
             this.txtNombre.TabIndex = 73;
@@ -149,7 +161,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(640, 42);
+            this.label6.Location = new System.Drawing.Point(318, 41);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 16);
             this.label6.TabIndex = 72;
@@ -183,7 +195,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(465, 42);
+            this.label3.Location = new System.Drawing.Point(648, 38);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 20);
             this.label3.TabIndex = 59;
@@ -246,7 +258,7 @@
             // txtPatente
             // 
             this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPatente.Location = new System.Drawing.Point(385, 39);
+            this.txtPatente.Location = new System.Drawing.Point(568, 34);
             this.txtPatente.Name = "txtPatente";
             this.txtPatente.Size = new System.Drawing.Size(74, 22);
             this.txtPatente.TabIndex = 53;
@@ -254,7 +266,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(325, 42);
+            this.label4.Location = new System.Drawing.Point(512, 40);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 16);
             this.label4.TabIndex = 52;
@@ -351,18 +363,6 @@
             this.txtDocumentos.ReadOnly = true;
             this.txtDocumentos.Size = new System.Drawing.Size(136, 22);
             this.txtDocumentos.TabIndex = 1;
-            // 
-            // chkOrden
-            // 
-            this.chkOrden.AutoSize = true;
-            this.chkOrden.Checked = true;
-            this.chkOrden.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkOrden.Location = new System.Drawing.Point(215, 10);
-            this.chkOrden.Name = "chkOrden";
-            this.chkOrden.Size = new System.Drawing.Size(108, 20);
-            this.chkOrden.TabIndex = 78;
-            this.chkOrden.Text = "Descendente";
-            this.chkOrden.UseVisualStyleBackColor = true;
             // 
             // FrmListadoVentas
             // 
