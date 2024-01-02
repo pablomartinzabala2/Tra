@@ -15,9 +15,10 @@ namespace Concesionaria
         {    
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
-            //   Application.Run(new FrmAbmCategoriaCliente());
-           
+            // Application.Run(new FrmLogin());
+            Principal.CodigoPrincipalAbm = "313";
+           Application.Run(new FrmBoletoTraut());
+
             //   Application.Run(new FrmVistaPrevia  ());
             //   Application.Run(new FrmIngresoCheque());
         }

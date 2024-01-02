@@ -220,7 +220,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Documento</Value>
+                <Value>DNI / CUIT</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -228,7 +228,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>6.7776cm</Top>
+        <Top>6.54036cm</Top>
         <Left>0.7179cm</Left>
         <Height>0.6cm</Height>
         <Width>2.44863cm</Width>
@@ -258,7 +258,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NroDocumento</rd:DefaultName>
-        <Top>6.7776cm</Top>
+        <Top>6.54036cm</Top>
         <Left>3.65512cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -280,7 +280,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Teléfono::</Value>
+                <Value>Domicilio</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -288,10 +288,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>6.7776cm</Top>
-        <Left>6.46903cm</Left>
+        <Top>7.28147cm</Top>
+        <Left>0.74436cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.73426cm</Width>
+        <Width>1.99884cm</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -743,8 +743,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Telefono</rd:DefaultName>
-        <Top>6.7776cm</Top>
-        <Left>8.51641cm</Left>
+        <Top>6.68119cm</Top>
+        <Left>9.12653cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>23</ZIndex>
@@ -908,6 +908,96 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox34">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>DNI / CUIT</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>6.68119cm</Top>
+        <Left>7.03068cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.0253cm</Width>
+        <ZIndex>29</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Campo1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Campo1.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Campo1</rd:DefaultName>
+        <Top>7.35175cm</Top>
+        <Left>3.64808cm</Left>
+        <Height>0.6cm</Height>
+        <Width>9.76546cm</Width>
+        <ZIndex>30</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Campo11">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Campo1.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Campo11</rd:DefaultName>
+        <Top>6.29391cm</Top>
+        <Left>12.27349cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.55833cm</Width>
+        <ZIndex>31</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>5.497in</Height>
     <Style />
@@ -998,6 +1088,42 @@
         </Field>
         <Field Name="Importe">
           <DataField>Importe</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Campo1">
+          <DataField>Campo1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Campo2">
+          <DataField>Campo2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Campo3">
+          <DataField>Campo3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Campo4">
+          <DataField>Campo4</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Campo5">
+          <DataField>Campo5</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Campo6">
+          <DataField>Campo6</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Campo7">
+          <DataField>Campo7</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Campo8">
+          <DataField>Campo8</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Campo9">
+          <DataField>Campo9</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
