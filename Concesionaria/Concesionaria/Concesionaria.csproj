@@ -66,6 +66,7 @@
     <Compile Include="Clases\cAuto.cs" />
     <Compile Include="Clases\cBanco.cs" />
     <Compile Include="Clases\cBarrio.cs" />
+    <Compile Include="Clases\cBoletoTraut.cs" />
     <Compile Include="Clases\cCategoriaGasto.cs" />
     <Compile Include="Clases\cCheque.cs" />
     <Compile Include="Clases\cChequeCobrar.cs" />
@@ -161,6 +162,11 @@
       <DependentUpon>DsReportes.xsd</DependentUpon>
     </Compile>
     <Compile Include="DsReportes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsReportes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsReportes1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DsReportes.xsd</DependentUpon>
@@ -1449,7 +1455,7 @@
     <None Include="DsReportes.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DsReportes.Designer.cs</LastGenOutput>
+      <LastGenOutput>DsReportes1.Designer.cs</LastGenOutput>
     </None>
     <None Include="DsReportes.xss">
       <DependentUpon>DsReportes.xsd</DependentUpon>

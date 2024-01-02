@@ -205,6 +205,7 @@ namespace Concesionaria
                 return;
             }
             string CodVenta = Grilla.CurrentRow.Cells[0].Value.ToString();
+            GrabarBoletoTraut(Convert.ToInt32(CodVenta));
             Principal.CodigoPrincipalAbm = CodVenta;
             Principal.TablaPrincipal = Grilla.CurrentRow.Cells[8].Value.ToString();
             FrmBoletoTraut frm = new FrmBoletoTraut();
@@ -212,6 +213,50 @@ namespace Concesionaria
             //  FrmVistaPrevia form = new FrmVistaPrevia();
            // form.Show();
         }
+
+        public void GrabarBoletoTraut(Int32 CodVenta)
+        {
+            cBoletoTraut boleto = new cBoletoTraut();
+            boleto.Borrar();
+            string Domicilio = GetDomicilio(CodVenta);
+            boleto.Insertar(CodVenta, Domicilio);
+        }
+        
+        public string GetDomicilio(Int32 CodVenta)
+        {
+            string Domicilio = "";
+            Int32 CodClietne = 0;
+            cVenta venta = new cVenta();
+            DataTable tbVenta = venta.GetVentaxCodigo(CodVenta);
+            if (tbVenta.Rows.Count >0)
+            {
+                CodClietne = Convert.ToInt32(tbVenta.Rows[0]["CodCliente"].ToString());
+
+            }
+            string Calle = "", Altura = "";
+            string Ciudad = "", Provincia = "";
+            cCliente cliente = new cCliente();
+            DataTable tbCli = cliente.GetClientesxCodigo(CodClietne);
+            if (tbCli.Rows.Count >0)
+            {
+                Calle = tbCli.Rows[0]["Calle"].ToString();
+                Altura = tbCli.Rows[0]["Numero"].ToString();
+                if (tbCli.Rows[0]["CodBarrio"].ToString ()!="")
+                {
+                    Int32 CodBarrrio = Convert.ToInt32(tbCli.Rows[0]["CodBarrio"]);
+                    cBarrio barrio = new cBarrio();
+                    DataTable tbBarrio = barrio.GetBarrioCiudadProvincia(CodBarrrio);
+                    if (tbBarrio.Rows.Count >0)
+                    {
+                        Ciudad = tbBarrio.Rows[0]["Ciudad"].ToString();
+                        Provincia = tbBarrio.Rows[0]["Provincia"].ToString();
+                    }
+                }
+            }
+            Domicilio = Calle + " " + Altura + " " + Ciudad + " " + Provincia;
+            return Domicilio;
+        }
+        
 
         private void BtnVerGanancia_Click(object sender, EventArgs e)
         {
