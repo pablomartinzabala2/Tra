@@ -1369,9 +1369,12 @@ namespace Concesionaria
 
         private void GuardarBoleto(SqlConnection con, SqlTransaction Transaccion, Int32 CodVenta)
         {
+            
             cReporteBoleto boleto = new cReporteBoleto();
-            string Importe = txtTotalVenta.Text;
-            boleto.Insertar(con, Transaccion, CodVenta, Importe);
+            string Importe = txtPrecioVenta.Text;
+            string Gasto = txtTotalGasto.Text;
+            string TotalVenta = txtTotalVenta.Text;
+            boleto.Insertar(con, Transaccion, CodVenta, Importe, Gasto, TotalVenta);
         }
         private string GetSqlClientes()
         {

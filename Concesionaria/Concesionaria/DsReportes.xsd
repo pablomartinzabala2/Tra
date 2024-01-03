@@ -264,7 +264,8 @@ a.Descripcion , a.chasis,a.Motor,a.Patente,
 (select cc.Nombre  from Color cc where cc.CodColor=a.CodColor) as Color
 ,v.ImporteVenta , bt.Campo1 , bt.Campo2 , bt.Campo3 ,
  bt.Campo4 , bt.Campo5 , bt.Campo6 ,
-  bt.Campo7 , bt.Campo8 , bt.Campo9
+  bt.Campo7 , bt.Campo8 , bt.Campo9 ,
+rb.Gasto , rb.TotalVenta
 from venta v , cliente c , auto a ,ReporteBoleto rb ,
 BoletoTraut bt
 where v.CodCliente = c.CodCliente
@@ -304,6 +305,8 @@ and v.CodVenta = @p</CommandText>
               <Mapping SourceColumn="Campo7" DataSetColumn="Campo7" />
               <Mapping SourceColumn="Campo8" DataSetColumn="Campo8" />
               <Mapping SourceColumn="Campo9" DataSetColumn="Campo9" />
+              <Mapping SourceColumn="Gasto" DataSetColumn="Gasto" />
+              <Mapping SourceColumn="TotalVenta" DataSetColumn="TotalVenta" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -559,14 +562,14 @@ and m.Fecha &gt;=@p1 and m.Fecha&lt;= @p1</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CuotaPatente2" msprop:Generator_UserColumnName="CuotaPatente2" msprop:Generator_ColumnPropNameInTable="CuotaPatente2Column" msprop:Generator_ColumnPropNameInRow="CuotaPatente2" msprop:Generator_ColumnVarNameInTable="columnCuotaPatente2" minOccurs="0">
+              <xs:element name="CuotaPatente2" msprop:Generator_ColumnPropNameInTable="CuotaPatente2Column" msprop:Generator_ColumnPropNameInRow="CuotaPatente2" msprop:Generator_UserColumnName="CuotaPatente2" msprop:Generator_ColumnVarNameInTable="columnCuotaPatente2" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CuotaPatente21" msprop:Generator_UserColumnName="CuotaPatente21" msprop:Generator_ColumnPropNameInTable="CuotaPatente21Column" msprop:Generator_ColumnPropNameInRow="CuotaPatente21" msprop:Generator_ColumnVarNameInTable="columnCuotaPatente21" minOccurs="0">
+              <xs:element name="CuotaPatente21" msprop:Generator_ColumnPropNameInTable="CuotaPatente21Column" msprop:Generator_ColumnPropNameInRow="CuotaPatente21" msprop:Generator_UserColumnName="CuotaPatente21" msprop:Generator_ColumnVarNameInTable="columnCuotaPatente21" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -982,63 +985,77 @@ and m.Fecha &gt;=@p1 and m.Fecha&lt;= @p1</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Campo1" msprop:Generator_ColumnPropNameInRow="Campo1" msprop:Generator_ColumnPropNameInTable="Campo1Column" msprop:Generator_ColumnVarNameInTable="columnCampo1" msprop:Generator_UserColumnName="Campo1" minOccurs="0">
+              <xs:element name="Campo1" msprop:Generator_UserColumnName="Campo1" msprop:Generator_ColumnPropNameInTable="Campo1Column" msprop:Generator_ColumnPropNameInRow="Campo1" msprop:Generator_ColumnVarNameInTable="columnCampo1" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Campo2" msprop:Generator_ColumnPropNameInRow="Campo2" msprop:Generator_ColumnPropNameInTable="Campo2Column" msprop:Generator_ColumnVarNameInTable="columnCampo2" msprop:Generator_UserColumnName="Campo2" minOccurs="0">
+              <xs:element name="Campo2" msprop:Generator_UserColumnName="Campo2" msprop:Generator_ColumnPropNameInTable="Campo2Column" msprop:Generator_ColumnPropNameInRow="Campo2" msprop:Generator_ColumnVarNameInTable="columnCampo2" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Campo3" msprop:Generator_ColumnPropNameInRow="Campo3" msprop:Generator_ColumnPropNameInTable="Campo3Column" msprop:Generator_ColumnVarNameInTable="columnCampo3" msprop:Generator_UserColumnName="Campo3" minOccurs="0">
+              <xs:element name="Campo3" msprop:Generator_UserColumnName="Campo3" msprop:Generator_ColumnPropNameInTable="Campo3Column" msprop:Generator_ColumnPropNameInRow="Campo3" msprop:Generator_ColumnVarNameInTable="columnCampo3" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Campo4" msprop:Generator_ColumnPropNameInRow="Campo4" msprop:Generator_ColumnPropNameInTable="Campo4Column" msprop:Generator_ColumnVarNameInTable="columnCampo4" msprop:Generator_UserColumnName="Campo4" minOccurs="0">
+              <xs:element name="Campo4" msprop:Generator_UserColumnName="Campo4" msprop:Generator_ColumnPropNameInTable="Campo4Column" msprop:Generator_ColumnPropNameInRow="Campo4" msprop:Generator_ColumnVarNameInTable="columnCampo4" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Campo5" msprop:Generator_ColumnPropNameInRow="Campo5" msprop:Generator_ColumnPropNameInTable="Campo5Column" msprop:Generator_ColumnVarNameInTable="columnCampo5" msprop:Generator_UserColumnName="Campo5" minOccurs="0">
+              <xs:element name="Campo5" msprop:Generator_UserColumnName="Campo5" msprop:Generator_ColumnPropNameInTable="Campo5Column" msprop:Generator_ColumnPropNameInRow="Campo5" msprop:Generator_ColumnVarNameInTable="columnCampo5" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Campo6" msprop:Generator_ColumnPropNameInRow="Campo6" msprop:Generator_ColumnPropNameInTable="Campo6Column" msprop:Generator_ColumnVarNameInTable="columnCampo6" msprop:Generator_UserColumnName="Campo6" minOccurs="0">
+              <xs:element name="Campo6" msprop:Generator_UserColumnName="Campo6" msprop:Generator_ColumnPropNameInTable="Campo6Column" msprop:Generator_ColumnPropNameInRow="Campo6" msprop:Generator_ColumnVarNameInTable="columnCampo6" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Campo7" msprop:Generator_ColumnPropNameInRow="Campo7" msprop:Generator_ColumnPropNameInTable="Campo7Column" msprop:Generator_ColumnVarNameInTable="columnCampo7" msprop:Generator_UserColumnName="Campo7" minOccurs="0">
+              <xs:element name="Campo7" msprop:Generator_UserColumnName="Campo7" msprop:Generator_ColumnPropNameInTable="Campo7Column" msprop:Generator_ColumnPropNameInRow="Campo7" msprop:Generator_ColumnVarNameInTable="columnCampo7" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Campo8" msprop:Generator_ColumnPropNameInRow="Campo8" msprop:Generator_ColumnPropNameInTable="Campo8Column" msprop:Generator_ColumnVarNameInTable="columnCampo8" msprop:Generator_UserColumnName="Campo8" minOccurs="0">
+              <xs:element name="Campo8" msprop:Generator_UserColumnName="Campo8" msprop:Generator_ColumnPropNameInTable="Campo8Column" msprop:Generator_ColumnPropNameInRow="Campo8" msprop:Generator_ColumnVarNameInTable="columnCampo8" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Campo9" msprop:Generator_ColumnPropNameInRow="Campo9" msprop:Generator_ColumnPropNameInTable="Campo9Column" msprop:Generator_ColumnVarNameInTable="columnCampo9" msprop:Generator_UserColumnName="Campo9" minOccurs="0">
+              <xs:element name="Campo9" msprop:Generator_UserColumnName="Campo9" msprop:Generator_ColumnPropNameInTable="Campo9Column" msprop:Generator_ColumnPropNameInRow="Campo9" msprop:Generator_ColumnVarNameInTable="columnCampo9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Gasto" msprop:Generator_ColumnPropNameInRow="Gasto" msprop:Generator_ColumnPropNameInTable="GastoColumn" msprop:Generator_ColumnVarNameInTable="columnGasto" msprop:Generator_UserColumnName="Gasto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TotalVenta" msprop:Generator_ColumnPropNameInRow="TotalVenta" msprop:Generator_ColumnPropNameInTable="TotalVentaColumn" msprop:Generator_ColumnVarNameInTable="columnTotalVenta" msprop:Generator_UserColumnName="TotalVenta" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />

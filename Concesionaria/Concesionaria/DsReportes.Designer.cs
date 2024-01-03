@@ -9682,11 +9682,15 @@ a.Descripcion , a.chasis,a.Motor,a.Patente,
 (select m.Nombre from marca m where m.CodMarca=a.CodMarca) as Marca ,
 (select an.Nombre from Anio an where an.CodAnio=a.CodAnio) as Anio ,
 (select cc.Nombre  from Color cc where cc.CodColor=a.CodColor) as Color
-,v.ImporteVenta
-from venta v , cliente c , auto a ,ReporteBoleto rb
+,v.ImporteVenta  , bt.Campo1 , bt.Campo2 , bt.Campo3 ,
+bt.Campo4, bt.Campo5, bt.Campo6 ,bt.Campo7 ,bt.Campo8 ,bt.Campo9,
+rb.Gasto , rb.TotalVenta
+from venta v , cliente c , auto a ,ReporteBoleto rb ,
+BoletoTraut bt
 where v.CodCliente = c.CodCliente
 and v.CodAutoVendido = a.CodAuto 
-and v.CodVenta = rb.CodVenta
+and v.CodVenta = rb.CodVenta 
+and v.CodVenta = bt.CodVenta
 and v.CodVenta = @p";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "CodVenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

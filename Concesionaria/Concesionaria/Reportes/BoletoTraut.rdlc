@@ -166,7 +166,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>5.76397cm</Top>
+        <Top>5.60522cm</Top>
         <Left>0.69673cm</Left>
         <Height>0.6cm</Height>
         <Width>3.93511cm</Width>
@@ -228,7 +228,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>6.54036cm</Top>
+        <Top>6.38161cm</Top>
         <Left>0.7179cm</Left>
         <Height>0.6cm</Height>
         <Width>2.44863cm</Width>
@@ -258,7 +258,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NroDocumento</rd:DefaultName>
-        <Top>6.54036cm</Top>
+        <Top>6.38161cm</Top>
         <Left>3.65512cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -288,7 +288,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>7.28147cm</Top>
+        <Top>7.12272cm</Top>
         <Left>0.74436cm</Left>
         <Height>0.6cm</Height>
         <Width>1.99884cm</Width>
@@ -342,7 +342,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Modelo</Value>
+                <Value>Modelo:</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -351,7 +351,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
         <Top>9.04095cm</Top>
-        <Left>0.69673cm</Left>
+        <Left>0.66144cm</Left>
         <Height>0.6cm</Height>
         <Width>1.57551cm</Width>
         <ZIndex>10</ZIndex>
@@ -473,7 +473,7 @@
         <Top>9.15141cm</Top>
         <Left>12.43106cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.09926cm</Width>
+        <Width>0.98248cm</Width>
         <ZIndex>14</ZIndex>
         <Style>
           <Border>
@@ -680,7 +680,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NombreCli</rd:DefaultName>
-        <Top>5.84412cm</Top>
+        <Top>5.68537cm</Top>
         <Left>5.10328cm</Left>
         <Height>0.6cm</Height>
         <Width>5.27812cm</Width>
@@ -743,7 +743,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Telefono</rd:DefaultName>
-        <Top>6.68119cm</Top>
+        <Top>6.52244cm</Top>
         <Left>9.12653cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -765,7 +765,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Patente:</Value>
+                <Value>Dominio:</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -923,7 +923,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>6.68119cm</Top>
+        <Top>6.52244cm</Top>
         <Left>7.03068cm</Left>
         <Height>0.6cm</Height>
         <Width>2.0253cm</Width>
@@ -953,7 +953,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Campo1</rd:DefaultName>
-        <Top>7.35175cm</Top>
+        <Top>7.193cm</Top>
         <Left>3.64808cm</Left>
         <Height>0.6cm</Height>
         <Width>9.76546cm</Width>
@@ -968,25 +968,27 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Campo11">
+      <Textbox Name="Textbox35">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!Campo1.Value, "DataSet1")</Value>
-                <Style />
+                <Value>Resumen Precio</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Campo11</rd:DefaultName>
-        <Top>6.29391cm</Top>
-        <Left>12.27349cm</Left>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>12.52848cm</Top>
+        <Left>0.61736cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.55833cm</Width>
+        <Width>14.57136cm</Width>
         <ZIndex>31</ZIndex>
         <Style>
           <Border>
@@ -998,8 +1000,188 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox36">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Precio de la Unidad: $</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>13.30487cm</Top>
+        <Left>0.61736cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.88748cm</Width>
+        <ZIndex>32</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Importe1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Importe.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Importe1</rd:DefaultName>
+        <Top>13.30487cm</Top>
+        <Left>4.80823cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.01815cm</Width>
+        <ZIndex>33</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox37">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Gastos $</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>13.30487cm</Top>
+        <Left>8.03805cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.57551cm</Width>
+        <ZIndex>34</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Gasto">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Gasto.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Gasto</rd:DefaultName>
+        <Top>13.30487cm</Top>
+        <Left>9.78995cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>35</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox38">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Precio Total $: </Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>14.08126cm</Top>
+        <Left>0.56598cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.93886cm</Width>
+        <ZIndex>36</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="TotalVenta">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!TotalVenta.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>TotalVenta</rd:DefaultName>
+        <Top>14.08126cm</Top>
+        <Left>4.80823cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.01815cm</Width>
+        <ZIndex>37</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>5.497in</Height>
+    <Height>5.97455in</Height>
     <Style />
   </Body>
   <Width>6.5in</Width>
@@ -1124,6 +1306,14 @@
         </Field>
         <Field Name="Campo9">
           <DataField>Campo9</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Gasto">
+          <DataField>Gasto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalVenta">
+          <DataField>TotalVenta</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
