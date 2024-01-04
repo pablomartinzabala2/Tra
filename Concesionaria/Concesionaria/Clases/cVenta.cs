@@ -252,6 +252,14 @@ namespace Concesionaria.Clases
             return Deuda;
         }
 
+        public DataTable GetClientesxCodVenta(Int32 CodVenta)
+        {
+            string sql = "select * from  VentaxCliente v, cliente cli ";
+            sql = sql + " where v.CodCliente = cli.CodCliente ";
+            sql = sql + " and v.CodVenta =" + CodVenta.ToString();
+            return cDb.ExecuteDataTable(sql);
+        }
+
 
     }
 }

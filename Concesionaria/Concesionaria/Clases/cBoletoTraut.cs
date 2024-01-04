@@ -12,15 +12,22 @@ namespace Concesionaria.Clases
             string sql = "delete from BoletoTraut ";
             cDb.ExecutarNonQuery(sql);
         }
-        public void Insertar(Int32 CodVenta,string Campo1)
+        public void Insertar(Int32 CodVenta,string Campo1, string Campo2,string  Campo3, 
+            string Campo4, string Campo5)
         {
-            //Campo1 domicilio 
+            //Campo1 domicilio , campo2 nombre aderente
+            //Campo3 aderente , campo4 telefono adherente
+            //Campo5 código de venta
             string sql = "Insert into BoletoTraut (";
-            sql = sql + "CodVenta,Campo1";
+            sql = sql + "CodVenta,Campo1, Campo2, Campo3 , Campo4 ,Campo5";
             sql = sql + ")";
             sql = sql + " values (" + CodVenta.ToString();
             sql = sql + "," + "'" + Campo1 + "'";
-            sql = sql + ")";
+            sql = sql + "," + "'" + Campo2 + "'";
+            sql = sql + "," + "'" + Campo3 + "'";
+            sql = sql + "," + "'" + Campo4 + "'";
+            sql = sql + "," + "'" + Campo5 + "'";
+            sql = sql + ")";  
             cDb.ExecutarNonQuery(sql);
         }
     }

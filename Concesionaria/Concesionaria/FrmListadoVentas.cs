@@ -219,7 +219,11 @@ namespace Concesionaria
             cBoletoTraut boleto = new cBoletoTraut();
             boleto.Borrar();
             string Domicilio = GetDomicilio(CodVenta);
-            boleto.Insertar(CodVenta, Domicilio);
+            string Adherente = GetNombre2Titular(CodVenta);
+            string NrodocAdehrente = GetNro2Titular(CodVenta);
+            string Telefono = GetTelefonoAdherente(CodVenta);
+            string Campo5 = "Código Venta " + CodVenta.ToString();
+            boleto.Insertar(CodVenta, Domicilio, Adherente, NrodocAdehrente, Telefono, Campo5);
         }
         
         public string GetDomicilio(Int32 CodVenta)
@@ -256,7 +260,107 @@ namespace Concesionaria
             Domicilio = Calle + " " + Altura + " " + Ciudad + " " + Provincia;
             return Domicilio;
         }
-        
+
+        public string GetNombre2Titular(Int32 CodVenta)
+        {
+            Int32  CodClienteTitular = 0;
+            Int32 CodClienteSecundario = 0;
+            string NombreAdeherente = "";
+            cVenta venta = new cVenta();
+            cCliente cli = new cCliente();
+            //1 obtengo el titular
+            DataTable tbventa = venta.GetVentaxCodigo(CodVenta);
+            if (tbventa.Rows.Count >0)
+            {
+                CodClienteTitular = Convert.ToInt32(tbventa.Rows[0]["CodCliente"].ToString());
+            }
+            //2 obtengo los demas clientes 
+            DataTable tbClientes = venta.GetClientesxCodVenta(CodVenta);
+            if (tbClientes.Rows.Count >0)
+            {
+                for (int i = 0; i < tbClientes.Rows.Count ; i++)
+                {
+                    if (tbClientes.Rows[i]["CodCliente"].ToString ()!=CodClienteTitular.ToString () )
+                    {
+                        CodClienteSecundario = Convert.ToInt32(tbClientes.Rows[i]["CodCliente"]);
+                        DataTable tbClie = cli.GetClientesxCodigo(CodClienteSecundario);
+                        if (tbClie.Rows.Count >0)
+                        {
+                            string Nom = tbClie.Rows[0]["Nombre"].ToString();
+                            string Ape = tbClie.Rows[0]["Apellido"].ToString();
+                            NombreAdeherente = Nom + " " + Ape;
+                        }
+                    }
+                }
+            }
+            return NombreAdeherente;
+        }
+
+        public string GetNro2Titular(Int32 CodVenta)
+        {
+            Int32 CodClienteTitular = 0;
+            Int32 CodClienteSecundario = 0;
+            string NroDocumento = "";
+            cVenta venta = new cVenta();
+            cCliente cli = new cCliente();
+            //1 obtengo el titular
+            DataTable tbventa = venta.GetVentaxCodigo(CodVenta);
+            if (tbventa.Rows.Count > 0)
+            {
+                CodClienteTitular = Convert.ToInt32(tbventa.Rows[0]["CodCliente"].ToString());
+            }
+            //2 obtengo los demas clientes 
+            DataTable tbClientes = venta.GetClientesxCodVenta(CodVenta);
+            if (tbClientes.Rows.Count > 0)
+            {
+                for (int i = 0; i < tbClientes.Rows.Count; i++)
+                {
+                    if (tbClientes.Rows[i]["CodCliente"].ToString() != CodClienteTitular.ToString())
+                    {
+                        CodClienteSecundario = Convert.ToInt32(tbClientes.Rows[i]["CodCliente"]);
+                        DataTable tbClie = cli.GetClientesxCodigo(CodClienteSecundario);
+                        if (tbClie.Rows.Count > 0)
+                        {
+                            NroDocumento = tbClie.Rows[0]["NroDocumento"].ToString();
+                        }
+                    }
+                }
+            }
+            return NroDocumento;
+        }
+
+        public string GetTelefonoAdherente(Int32 CodVenta)
+        {
+            Int32 CodClienteTitular = 0;
+            Int32 CodClienteSecundario = 0;
+            string Telefono = "";
+            cVenta venta = new cVenta();
+            cCliente cli = new cCliente();
+            //1 obtengo el titular
+            DataTable tbventa = venta.GetVentaxCodigo(CodVenta);
+            if (tbventa.Rows.Count > 0)
+            {
+                CodClienteTitular = Convert.ToInt32(tbventa.Rows[0]["CodCliente"].ToString());
+            }
+            //2 obtengo los demas clientes 
+            DataTable tbClientes = venta.GetClientesxCodVenta(CodVenta);
+            if (tbClientes.Rows.Count > 0)
+            {
+                for (int i = 0; i < tbClientes.Rows.Count; i++)
+                {
+                    if (tbClientes.Rows[i]["CodCliente"].ToString() != CodClienteTitular.ToString())
+                    {
+                        CodClienteSecundario = Convert.ToInt32(tbClientes.Rows[i]["CodCliente"]);
+                        DataTable tbClie = cli.GetClientesxCodigo(CodClienteSecundario);
+                        if (tbClie.Rows.Count > 0)
+                        {
+                            Telefono = tbClie.Rows[0]["Telefono"].ToString();
+                        }
+                    }
+                }
+            }
+            return Telefono;
+        }
 
         private void BtnVerGanancia_Click(object sender, EventArgs e)
         {
