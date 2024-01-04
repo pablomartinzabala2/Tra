@@ -895,7 +895,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>12.21098cm</Top>
+        <Top>11.67123cm</Top>
         <Left>0.61736cm</Left>
         <Height>0.6cm</Height>
         <Width>14.57136cm</Width>
@@ -925,7 +925,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>12.92387cm</Top>
+        <Top>12.38412cm</Top>
         <Left>0.61736cm</Left>
         <Height>0.6cm</Height>
         <Width>3.88748cm</Width>
@@ -955,7 +955,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Importe1</rd:DefaultName>
-        <Top>12.92387cm</Top>
+        <Top>12.38412cm</Top>
         <Left>4.80823cm</Left>
         <Height>0.6cm</Height>
         <Width>3.01815cm</Width>
@@ -985,7 +985,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>12.92387cm</Top>
+        <Top>12.38412cm</Top>
         <Left>8.03805cm</Left>
         <Height>0.6cm</Height>
         <Width>1.57551cm</Width>
@@ -1015,7 +1015,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Gasto</rd:DefaultName>
-        <Top>12.92387cm</Top>
+        <Top>12.38412cm</Top>
         <Left>9.75467cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -1045,7 +1045,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>13.44626cm</Top>
+        <Top>12.90651cm</Top>
         <Left>0.61736cm</Left>
         <Height>0.6cm</Height>
         <Width>3.93886cm</Width>
@@ -1075,7 +1075,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TotalVenta</rd:DefaultName>
-        <Top>13.44626cm</Top>
+        <Top>12.90651cm</Top>
         <Left>4.80823cm</Left>
         <Height>0.6cm</Height>
         <Width>3.01815cm</Width>
@@ -1366,8 +1366,240 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox30">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>El precio incluye Transferencia / Patentamiento a nombre ndel comprador </Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>13.69853cm</Top>
+        <Left>0.69315cm</Left>
+        <Height>0.6cm</Height>
+        <Width>13.03964cm</Width>
+        <ZIndex>44</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line1">
+        <Top>14.29853cm</Top>
+        <Left>12.81098cm</Left>
+        <Height>0cm</Height>
+        <Width>3.11397cm</Width>
+        <ZIndex>45</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox42">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>El precio incluye 1 era / Última Cuota Patente </Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>14.47492cm</Top>
+        <Left>0.7179cm</Left>
+        <Height>0.6cm</Height>
+        <Width>8.85158cm</Width>
+        <ZIndex>46</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line2">
+        <Top>15.07492cm</Top>
+        <Left>8.51256cm</Left>
+        <Height>0cm</Height>
+        <Width>3.11397cm</Width>
+        <ZIndex>47</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox43">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>A PARTIR DE LA SIGUIENTE FORMA</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>15.18075cm</Top>
+        <Left>0.7179cm</Left>
+        <Height>0.6cm</Height>
+        <Width>14.57136cm</Width>
+        <ZIndex>48</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox44">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>QUEDA UN SALDO DE LA OPERACIÓN DE  $</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>15.95714cm</Top>
+        <Left>0.76198cm</Left>
+        <Height>0.6cm</Height>
+        <Width>7.81971cm</Width>
+        <ZIndex>49</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line3">
+        <Top>16.55714cm</Top>
+        <Left>8.51256cm</Left>
+        <Height>0cm</Height>
+        <Width>3.11397cm</Width>
+        <ZIndex>50</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox45">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Fecha límite de pago</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>16.66297cm</Top>
+        <Left>0.7179cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.15136cm</Width>
+        <ZIndex>51</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line4">
+        <Top>17.26297cm</Top>
+        <Left>5.10328cm</Left>
+        <Height>0cm</Height>
+        <Width>4.00916cm</Width>
+        <ZIndex>52</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox46">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Una vez vencido este plazo, el vendedor dispondrá de la unidad quedando esta operación sin efectivo</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>17.55351cm</Top>
+        <Left>0.76198cm</Left>
+        <Height>1.19372cm</Height>
+        <Width>14.57136cm</Width>
+        <ZIndex>53</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>6.15163in</Height>
+    <Height>8.74538in</Height>
     <Style />
   </Body>
   <Width>6.5in</Width>
@@ -1375,7 +1607,7 @@
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
     <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
+    <RightMargin>1cm</RightMargin>
     <TopMargin>2cm</TopMargin>
     <BottomMargin>2cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
