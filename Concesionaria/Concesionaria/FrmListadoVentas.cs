@@ -221,9 +221,10 @@ namespace Concesionaria
             string Domicilio = GetDomicilio(CodVenta);
             string Adherente = GetNombre2Titular(CodVenta);
             string NrodocAdehrente = GetNro2Titular(CodVenta);
+            string Titular = GetNombrTitular(CodVenta);
             string Telefono = GetTelefonoAdherente(CodVenta);
             string Campo5 = "Código Venta " + CodVenta.ToString();
-            boleto.Insertar(CodVenta, Domicilio, Adherente, NrodocAdehrente, Telefono, Campo5);
+            boleto.Insertar(CodVenta, Domicilio, Adherente, NrodocAdehrente, Telefono, Campo5, Titular);
         }
         
         public string GetDomicilio(Int32 CodVenta)
@@ -294,6 +295,29 @@ namespace Concesionaria
                 }
             }
             return NombreAdeherente;
+        }
+
+        public string GetNombrTitular(Int32 CodVenta)
+        {
+            Int32 CodClienteTitular = 0;
+            string Titular = "";
+            cVenta venta = new cVenta();
+            cCliente cli = new cCliente();
+            //1 obtengo el titular
+            DataTable tbventa = venta.GetVentaxCodigo(CodVenta);
+            if (tbventa.Rows.Count > 0)
+            {
+                CodClienteTitular = Convert.ToInt32(tbventa.Rows[0]["CodCliente"].ToString());
+            }
+
+            DataTable tbClie = cli.GetClientesxCodigo(CodClienteTitular);
+            if (tbClie.Rows.Count > 0)
+            {
+                string Nom = tbClie.Rows[0]["Nombre"].ToString();
+                string Ape = tbClie.Rows[0]["Apellido"].ToString();
+                Titular = Nom + " " + Ape;
+            }           
+            return Titular;
         }
 
         public string GetNro2Titular(Int32 CodVenta)
