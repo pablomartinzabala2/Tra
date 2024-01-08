@@ -9678,7 +9678,7 @@ rb.Importe,
 (select ci.Nombre from ciudad ci , barrio b
 where ci.codciudad = b.codciudad 
 and b.CodBarrio = c.CodBarrio) as Ciudad ,
-('Modelo: ' +a.Descripcion) as Descripcion , a.chasis,a.Motor,('Dominio: ' + a.Patente) as Patente,
+('Modelo: ' +a.Descripcion) as Descripcion , ('Chasis: '+ a.chasis) as Chasis ,('Motor: ' + a.Motor) as Motor,('Dominio: ' + a.Patente) as Patente,
 (select 'Marca: ' +m.Nombre from marca m where m.CodMarca=a.CodMarca) as Marca ,
 (select an.Nombre from Anio an where an.CodAnio=a.CodAnio) as Anio ,
 (select 'Color: ' + cc.Nombre  from Color cc where cc.CodColor=a.CodColor) as Color
