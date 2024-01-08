@@ -9672,16 +9672,16 @@ order by rr.Orden";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"select  (c.Nombre + ' ' + c.Apellido) as NombreCli ,c.Telefono, c.NroDocumento, c.Email,
+            this._commandCollection[0].CommandText = @"select  (c.Nombre + ' ' + c.Apellido) as NombreCli ,('Teléfono: ' + c.Telefono) as Telefono,('Dni / Cuit: ' + c.NroDocumento) as NroDocumento, c.Email,
 rb.Importe,
 (c.Calle  + ' ' + c.Numero) as Direccion,
 (select ci.Nombre from ciudad ci , barrio b
 where ci.codciudad = b.codciudad 
 and b.CodBarrio = c.CodBarrio) as Ciudad ,
-a.Descripcion , a.chasis,a.Motor,a.Patente,
-(select m.Nombre from marca m where m.CodMarca=a.CodMarca) as Marca ,
+('Modelo: ' +a.Descripcion) as Descripcion , a.chasis,a.Motor,('Dominio: ' + a.Patente) as Patente,
+(select 'Marca: ' +m.Nombre from marca m where m.CodMarca=a.CodMarca) as Marca ,
 (select an.Nombre from Anio an where an.CodAnio=a.CodAnio) as Anio ,
-(select cc.Nombre  from Color cc where cc.CodColor=a.CodColor) as Color
+(select 'Color: ' + cc.Nombre  from Color cc where cc.CodColor=a.CodColor) as Color
 ,v.ImporteVenta  , bt.Campo1 , bt.Campo2 , bt.Campo3 ,
 bt.Campo4, bt.Campo5, bt.Campo6 ,bt.Campo7 ,bt.Campo8 ,bt.Campo9,
 rb.Gasto , rb.TotalVenta
