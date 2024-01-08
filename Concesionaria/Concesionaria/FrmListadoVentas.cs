@@ -218,10 +218,10 @@ namespace Concesionaria
         {
             cBoletoTraut boleto = new cBoletoTraut();
             boleto.Borrar();
-            string Domicilio = GetDomicilio(CodVenta);
+            string Domicilio ="Domicilio: " + GetDomicilio(CodVenta);
             string Adherente = GetNombre2Titular(CodVenta);
             string NrodocAdehrente = GetNro2Titular(CodVenta);
-            string Titular = GetNombrTitular(CodVenta);
+            string Titular ="Nombre / Razón Social " + GetNombrTitular(CodVenta);
             string Telefono = GetTelefonoAdherente(CodVenta);
             string Campo5 = "Código Venta " + CodVenta.ToString();
             boleto.Insertar(CodVenta, Domicilio, Adherente, NrodocAdehrente, Telefono, Campo5, Titular);
