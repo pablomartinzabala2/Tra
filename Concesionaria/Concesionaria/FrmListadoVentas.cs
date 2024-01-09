@@ -224,7 +224,13 @@ namespace Concesionaria
             string Titular ="Nombre / Razón Social " + GetNombrTitular(CodVenta);
             string Telefono = GetTelefonoAdherente(CodVenta);
             string Campo5 = "Código Venta " + CodVenta.ToString();
-            boleto.Insertar(CodVenta, Domicilio, Adherente, NrodocAdehrente, Telefono, Campo5, Titular);
+            string Campo7 = "";
+            string ListadoAutoPartePago = GetAutosxPartePago(CodVenta);
+            if (ListadoAutoPartePago !="")
+            {
+                Campo7 = "Datos de la unidad que entrega en parte de pago";
+            }
+            boleto.Insertar(CodVenta, Domicilio, Adherente, NrodocAdehrente, Telefono, Campo5, Titular, Campo7, ListadoAutoPartePago);
         }
         
         public string GetDomicilio(Int32 CodVenta)
@@ -409,7 +415,24 @@ namespace Concesionaria
         {
             lblGanancia.Visible = false;
             txtTotal.Visible = false;
+            CargarToolTip();
         }
+
+        private void CargarToolTip()
+        {
+            ToolTip Var1 = new ToolTip();
+            ToolTip Var2 = new ToolTip();
+            ToolTip Var3 = new ToolTip();
+            ToolTip Var4 = new ToolTip();
+            ToolTip Var5 = new ToolTip();
+            Var1.SetToolTip(btnBuscar, "Buscar ventas");
+            Var2.SetToolTip(btnAbrirVenta, "Abrir la venta seleccionada");
+            Var3.SetToolTip(btnImprimir, "Boleto Compra Venta");
+            Var4.SetToolTip(btnReporte2, "Reporte de VCenta");
+            Var5.SetToolTip(btnResponsabilidadCivil, "Reporte de responsabilidad social");
+
+        }
+
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -548,5 +571,46 @@ namespace Concesionaria
             FrmReporteResponsabilidadCivil frm = new FrmReporteResponsabilidadCivil();
             frm.Show();
         }
+
+        private string GetAutosxPartePago(Int32 CodVenta)
+        {
+            string Listado = "";
+            Int32 CodAuto = 0;
+            cVentaxAuto venta = new cVentaxAuto();
+            DataTable trdo = venta.GetAutosxCodVenta(CodVenta);
+            Double Precio = 0;
+            if (trdo.Rows.Count >0)
+            {
+                for (int i = 0; i < trdo.Rows.Count ; i++)
+                {
+                    CodAuto = Convert.ToInt32 (trdo.Rows[i]["CodAuto"].ToString());
+                    Precio = Convert.ToDouble(trdo.Rows[i]["Importe"]);
+                    if (i == 0)
+                        Listado = GetDetalleAuto(CodAuto, Precio);
+                    else
+                        Listado = Listado + " " + GetDetalleAuto(CodAuto, Precio);
+                }
+            }
+            return Listado;
+        }
+
+        public string GetDetalleAuto(Int32 CodAuto, Double Precio)
+        {
+            cFunciones fun = new cFunciones();
+            string Detalle = "";
+            cAuto auto = new cAuto();
+            DataTable trdo = auto.GetAutoxCodigo(CodAuto);
+            if (trdo.Rows.Count >0)
+            {   //NombreColor
+                Detalle = "Modelo: " + trdo.Rows[0]["Descripcion"].ToString(); 
+                Detalle = Detalle +  " Marca: " + trdo.Rows[0]["Marca"].ToString();
+                Detalle = Detalle + " Color: " + trdo.Rows[0]["NombreColor"].ToString();
+                Detalle = Detalle + " Chasis: " + trdo.Rows[0]["Chasis"].ToString();
+                Detalle = Detalle + " Motor: " + trdo.Rows[0]["Motor"].ToString();
+                Detalle = Detalle + " " + "Precio $ " + fun.FormatoEnteroMiles(Precio.ToString()); 
+            }
+            return Detalle;
+        }
+
     }
 }

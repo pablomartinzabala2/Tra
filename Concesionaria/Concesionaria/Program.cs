@@ -16,8 +16,8 @@ namespace Concesionaria
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
              Application.Run(new FrmLogin());
-         //   Principal.CodigoPrincipalAbm = "437";
-        //    Application.Run(new FrmBoletoTraut());
+          //     Principal.CodigoPrincipalAbm = "432";
+           //     Application.Run(new FrmBoletoTraut());
 
             //   Application.Run(new FrmVistaPrevia  ());
             //   Application.Run(new FrmIngresoCheque());

@@ -107,7 +107,7 @@
             this.chkOrden.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkOrden.Location = new System.Drawing.Point(215, 10);
             this.chkOrden.Name = "chkOrden";
-            this.chkOrden.Size = new System.Drawing.Size(108, 20);
+            this.chkOrden.Size = new System.Drawing.Size(107, 20);
             this.chkOrden.TabIndex = 78;
             this.chkOrden.Text = "Descendente";
             this.chkOrden.UseVisualStyleBackColor = true;
@@ -125,7 +125,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(835, 37);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 16);
+            this.label7.Size = new System.Drawing.Size(53, 16);
             this.label7.TabIndex = 76;
             this.label7.Text = "Modelo";
             // 
@@ -163,7 +163,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(318, 41);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 16);
+            this.label6.Size = new System.Drawing.Size(48, 16);
             this.label6.TabIndex = 72;
             this.label6.Text = "Cliente";
             // 
@@ -268,7 +268,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(512, 40);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 16);
+            this.label4.Size = new System.Drawing.Size(57, 16);
             this.label4.TabIndex = 52;
             this.label4.Text = "Dominio";
             // 
@@ -315,7 +315,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(168, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 16);
+            this.label2.Size = new System.Drawing.Size(46, 16);
             this.label2.TabIndex = 39;
             this.label2.Text = " Hasta";
             // 
@@ -324,7 +324,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(22, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 16);
+            this.label1.Size = new System.Drawing.Size(48, 16);
             this.label1.TabIndex = 29;
             this.label1.Text = "Desde";
             // 
