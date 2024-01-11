@@ -8,16 +8,17 @@ namespace Concesionaria.Clases
     public  class cReporteBoleto
     {
         public void Insertar(SqlConnection con, SqlTransaction Transaccion, int CodVenta,
-            string Importe, string Gasto , string TotalVenta)
+            string Importe, string Gasto , string TotalVenta,  string Saldo)
         {
             string sql = "insert into ReporteBoleto(";
-            sql = sql + "CodVenta,Importe,Gasto,TotalVenta";
+            sql = sql + "CodVenta,Importe,Gasto,TotalVenta, Saldo";
             sql = sql + ")";
             sql = sql + " Values(";
             sql = sql + CodVenta.ToString();
             sql = sql + "," + "'" + Importe + "'";
             sql = sql + "," + "'" + Gasto + "'";
             sql = sql + "," + "'" + TotalVenta + "'";
+            sql = sql + "," + "'" + Saldo + "'";
             sql = sql + ")";
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }

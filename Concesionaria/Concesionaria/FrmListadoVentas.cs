@@ -223,7 +223,7 @@ namespace Concesionaria
             string NrodocAdehrente = GetNro2Titular(CodVenta);
             string Titular ="Nombre / Razón Social " + GetNombrTitular(CodVenta);
             string Telefono = GetTelefonoAdherente(CodVenta);
-            string Campo5 = "Código Venta " + CodVenta.ToString();
+            string Campo5 = "RESERVA / PEDIDO DE UNIDAD Nº " + CodVenta.ToString();
             string Campo7 = "";
             string ListadoAutoPartePago = GetAutosxPartePago(CodVenta);
             if (ListadoAutoPartePago !="")

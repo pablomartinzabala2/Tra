@@ -429,39 +429,6 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox31">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Boleto de Compra Venta</Value>
-                <Style>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>4.23231cm</Top>
-        <Left>6.46903cm</Left>
-        <Height>0.6cm</Height>
-        <Width>5.99886cm</Width>
-        <ZIndex>13</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="Telefono">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -481,7 +448,7 @@
         <Left>6.65003cm</Left>
         <Height>0.6cm</Height>
         <Width>6.01081cm</Width>
-        <ZIndex>14</ZIndex>
+        <ZIndex>13</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -511,7 +478,7 @@
         <Left>0.56598cm</Left>
         <Height>0.6cm</Height>
         <Width>3.93886cm</Width>
-        <ZIndex>15</ZIndex>
+        <ZIndex>14</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -541,7 +508,7 @@
         <Left>4.90454cm</Left>
         <Height>0.6cm</Height>
         <Width>4.2198cm</Width>
-        <ZIndex>16</ZIndex>
+        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -573,7 +540,7 @@
         <Left>0.56598cm</Left>
         <Height>0.6cm</Height>
         <Width>14.57136cm</Width>
-        <ZIndex>17</ZIndex>
+        <ZIndex>16</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -603,7 +570,7 @@
         <Left>0.61736cm</Left>
         <Height>0.6cm</Height>
         <Width>3.88748cm</Width>
-        <ZIndex>18</ZIndex>
+        <ZIndex>17</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -633,7 +600,7 @@
         <Left>4.80823cm</Left>
         <Height>0.6cm</Height>
         <Width>3.01815cm</Width>
-        <ZIndex>19</ZIndex>
+        <ZIndex>18</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -663,7 +630,7 @@
         <Left>8.03805cm</Left>
         <Height>0.6cm</Height>
         <Width>1.57551cm</Width>
-        <ZIndex>20</ZIndex>
+        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -693,7 +660,7 @@
         <Left>9.75467cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>21</ZIndex>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -723,7 +690,7 @@
         <Left>0.61736cm</Left>
         <Height>0.6cm</Height>
         <Width>3.93886cm</Width>
-        <ZIndex>22</ZIndex>
+        <ZIndex>21</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -753,7 +720,7 @@
         <Left>4.80823cm</Left>
         <Height>0.6cm</Height>
         <Width>3.01815cm</Width>
-        <ZIndex>23</ZIndex>
+        <ZIndex>22</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -785,7 +752,7 @@
         <Left>0.69673cm</Left>
         <Height>0.6cm</Height>
         <Width>14.57136cm</Width>
-        <ZIndex>24</ZIndex>
+        <ZIndex>23</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -815,7 +782,7 @@
         <Left>0.66144cm</Left>
         <Height>0.6cm</Height>
         <Width>3.93511cm</Width>
-        <ZIndex>25</ZIndex>
+        <ZIndex>24</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -845,7 +812,7 @@
         <Left>0.7179cm</Left>
         <Height>0.6cm</Height>
         <Width>2.44863cm</Width>
-        <ZIndex>26</ZIndex>
+        <ZIndex>25</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -875,7 +842,7 @@
         <Left>7.08714cm</Left>
         <Height>0.6cm</Height>
         <Width>2.0253cm</Width>
-        <ZIndex>27</ZIndex>
+        <ZIndex>26</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -905,7 +872,7 @@
         <Left>5.05565cm</Left>
         <Height>0.6cm</Height>
         <Width>10.21244cm</Width>
-        <ZIndex>28</ZIndex>
+        <ZIndex>27</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -935,7 +902,7 @@
         <Left>3.70454cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>29</ZIndex>
+        <ZIndex>28</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -965,7 +932,7 @@
         <Left>9.18299cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>30</ZIndex>
+        <ZIndex>29</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -985,21 +952,22 @@
               <TextRun>
                 <Value>=First(Fields!Campo5.Value, "DataSet1")</Value>
                 <Style>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Right</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Campo5</rd:DefaultName>
-        <Top>1.89724cm</Top>
-        <Left>12.81098cm</Left>
+        <Top>4.12223cm</Top>
+        <Left>4.80823cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.31739cm</Width>
-        <ZIndex>31</ZIndex>
+        <Width>9.2176cm</Width>
+        <ZIndex>30</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1029,7 +997,7 @@
         <Left>0.69673cm</Left>
         <Height>0.6cm</Height>
         <Width>14.44061cm</Width>
-        <ZIndex>32</ZIndex>
+        <ZIndex>31</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1059,7 +1027,7 @@
         <Left>0.69315cm</Left>
         <Height>0.6cm</Height>
         <Width>13.03964cm</Width>
-        <ZIndex>33</ZIndex>
+        <ZIndex>32</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1075,7 +1043,7 @@
         <Left>12.81098cm</Left>
         <Height>0cm</Height>
         <Width>3.11397cm</Width>
-        <ZIndex>34</ZIndex>
+        <ZIndex>33</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1101,7 +1069,7 @@
         <Left>0.7179cm</Left>
         <Height>0.6cm</Height>
         <Width>8.85158cm</Width>
-        <ZIndex>35</ZIndex>
+        <ZIndex>34</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1117,7 +1085,7 @@
         <Left>8.51256cm</Left>
         <Height>0cm</Height>
         <Width>3.11397cm</Width>
-        <ZIndex>36</ZIndex>
+        <ZIndex>35</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1145,7 +1113,7 @@
         <Left>0.7179cm</Left>
         <Height>0.6cm</Height>
         <Width>14.57136cm</Width>
-        <ZIndex>37</ZIndex>
+        <ZIndex>36</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1175,7 +1143,7 @@
         <Left>0.76198cm</Left>
         <Height>0.6cm</Height>
         <Width>7.81971cm</Width>
-        <ZIndex>38</ZIndex>
+        <ZIndex>37</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1191,7 +1159,7 @@
         <Left>8.51256cm</Left>
         <Height>0cm</Height>
         <Width>3.11397cm</Width>
-        <ZIndex>39</ZIndex>
+        <ZIndex>38</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1217,7 +1185,7 @@
         <Left>0.7179cm</Left>
         <Height>0.6cm</Height>
         <Width>4.15136cm</Width>
-        <ZIndex>40</ZIndex>
+        <ZIndex>39</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1233,7 +1201,7 @@
         <Left>5.10328cm</Left>
         <Height>0cm</Height>
         <Width>4.00916cm</Width>
-        <ZIndex>41</ZIndex>
+        <ZIndex>40</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1261,7 +1229,7 @@
         <Left>0.76198cm</Left>
         <Height>1.19372cm</Height>
         <Width>14.57136cm</Width>
-        <ZIndex>42</ZIndex>
+        <ZIndex>41</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1291,7 +1259,7 @@
         <Left>0.76198cm</Left>
         <Height>0.6cm</Height>
         <Width>14.37536cm</Width>
-        <ZIndex>43</ZIndex>
+        <ZIndex>42</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1323,7 +1291,7 @@
         <Left>0.56598cm</Left>
         <Height>0.6cm</Height>
         <Width>14.57136cm</Width>
-        <ZIndex>44</ZIndex>
+        <ZIndex>43</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1353,7 +1321,67 @@
         <Left>0.56598cm</Left>
         <Height>0.6cm</Height>
         <Width>14.57136cm</Width>
+        <ZIndex>44</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox47">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Saldo   $</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>13.50422cm</Top>
+        <Left>8.03805cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.57551cm</Width>
         <ZIndex>45</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Saldo">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Saldo.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Saldo</rd:DefaultName>
+        <Top>13.50976cm</Top>
+        <Left>9.64884cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>46</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1396,10 +1424,6 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="NroDocumento">
-          <DataField>NroDocumento</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="Ciudad">
           <DataField>Ciudad</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -1438,10 +1462,6 @@
         </Field>
         <Field Name="NombreCli">
           <DataField>NombreCli</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Telefono">
-          <DataField>Telefono</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Motor">
@@ -1498,6 +1518,18 @@
         </Field>
         <Field Name="TotalVenta">
           <DataField>TotalVenta</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Telefono">
+          <DataField>Telefono</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NroDocumento">
+          <DataField>NroDocumento</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Saldo">
+          <DataField>Saldo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

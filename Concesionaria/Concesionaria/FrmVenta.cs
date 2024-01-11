@@ -1374,7 +1374,8 @@ namespace Concesionaria
             string Importe = txtPrecioVenta.Text;
             string Gasto = txtTotalGasto.Text;
             string TotalVenta = txtTotalVenta.Text;
-            boleto.Insertar(con, Transaccion, CodVenta, Importe, Gasto, TotalVenta);
+            string Saldo = CalcularSaldo();
+;            boleto.Insertar(con, Transaccion, CodVenta, Importe, Gasto, TotalVenta, Saldo);
         }
         private string GetSqlClientes()
         {
@@ -6678,6 +6679,33 @@ namespace Concesionaria
                     Titulares = Titulares + " " + NomApe;
             }
             return Titulares;
+        }
+
+        private string  CalcularSaldo()
+        {
+            Clases.cFunciones fun = new Clases.cFunciones();
+            double Subtotal = 0;
+
+            
+            if (txtTotalDocumentos.Text != "")
+                Subtotal = Subtotal + fun.ToDouble(txtTotalDocumentos.Text);
+
+            if (txtTotalPrenda.Text != "")
+                Subtotal = Subtotal + fun.ToDouble(txtTotalPrenda.Text);
+
+            if (txtTotalCobranza.Text != "")
+                Subtotal = Subtotal + fun.ToDouble(txtTotalCobranza.Text);
+
+
+            if (txtTotalCheque.Text != "")
+            {
+                if (txtTotalCheque.Text != "")
+                    Subtotal = Subtotal + fun.ToDouble(txtTotalCheque.Text);
+            }
+
+            string Saldo = fun.FormatoEnteroMiles(Subtotal.ToString());
+            return Saldo;
+
         }
     }
 }
