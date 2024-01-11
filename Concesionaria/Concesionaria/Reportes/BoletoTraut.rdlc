@@ -507,7 +507,7 @@
         <Top>10.60909cm</Top>
         <Left>4.90454cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.2198cm</Width>
+        <Width>5.32385cm</Width>
         <ZIndex>15</ZIndex>
         <Style>
           <Border>
@@ -1008,42 +1008,12 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox30">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>El precio incluye Transferencia / Patentamiento a nombre del comprador </Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>14.17478cm</Top>
-        <Left>0.69315cm</Left>
-        <Height>0.6cm</Height>
-        <Width>13.03964cm</Width>
-        <ZIndex>32</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Line Name="Line1">
         <Top>14.77478cm</Top>
         <Left>12.81098cm</Left>
         <Height>0cm</Height>
         <Width>3.11397cm</Width>
-        <ZIndex>33</ZIndex>
+        <ZIndex>32</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1057,7 +1027,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>El precio incluye 1 era / Última Cuota Patente </Value>
+                <Value>No Incluye Cuota Patente</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1065,11 +1035,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>15.10992cm</Top>
-        <Left>0.7179cm</Left>
+        <Top>14.15742cm</Top>
+        <Left>0.6544cm</Left>
         <Height>0.6cm</Height>
         <Width>8.85158cm</Width>
-        <ZIndex>34</ZIndex>
+        <ZIndex>33</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1085,7 +1055,7 @@
         <Left>8.51256cm</Left>
         <Height>0cm</Height>
         <Width>3.11397cm</Width>
-        <ZIndex>35</ZIndex>
+        <ZIndex>34</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1113,7 +1083,7 @@
         <Left>0.7179cm</Left>
         <Height>0.6cm</Height>
         <Width>14.57136cm</Width>
-        <ZIndex>36</ZIndex>
+        <ZIndex>35</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1143,7 +1113,7 @@
         <Left>0.76198cm</Left>
         <Height>0.6cm</Height>
         <Width>7.81971cm</Width>
-        <ZIndex>37</ZIndex>
+        <ZIndex>36</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1159,7 +1129,7 @@
         <Left>8.51256cm</Left>
         <Height>0cm</Height>
         <Width>3.11397cm</Width>
-        <ZIndex>38</ZIndex>
+        <ZIndex>37</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1185,7 +1155,7 @@
         <Left>0.7179cm</Left>
         <Height>0.6cm</Height>
         <Width>4.15136cm</Width>
-        <ZIndex>39</ZIndex>
+        <ZIndex>38</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1201,7 +1171,7 @@
         <Left>5.10328cm</Left>
         <Height>0cm</Height>
         <Width>4.00916cm</Width>
-        <ZIndex>40</ZIndex>
+        <ZIndex>39</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1229,7 +1199,7 @@
         <Left>0.76198cm</Left>
         <Height>1.19372cm</Height>
         <Width>14.57136cm</Width>
-        <ZIndex>41</ZIndex>
+        <ZIndex>40</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1259,7 +1229,7 @@
         <Left>0.76198cm</Left>
         <Height>0.6cm</Height>
         <Width>14.37536cm</Width>
-        <ZIndex>42</ZIndex>
+        <ZIndex>41</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1291,7 +1261,7 @@
         <Left>0.56598cm</Left>
         <Height>0.6cm</Height>
         <Width>14.57136cm</Width>
-        <ZIndex>43</ZIndex>
+        <ZIndex>42</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1321,7 +1291,7 @@
         <Left>0.56598cm</Left>
         <Height>0.6cm</Height>
         <Width>14.57136cm</Width>
-        <ZIndex>44</ZIndex>
+        <ZIndex>43</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1351,7 +1321,7 @@
         <Left>8.03805cm</Left>
         <Height>0.6cm</Height>
         <Width>1.57551cm</Width>
-        <ZIndex>45</ZIndex>
+        <ZIndex>44</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1381,6 +1351,36 @@
         <Left>9.64884cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
+        <ZIndex>45</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Patentamiento">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Patentamiento.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Patentamiento</rd:DefaultName>
+        <Top>14.676cm</Top>
+        <Left>0.6544cm</Left>
+        <Height>0.6cm</Height>
+        <Width>6.73333cm</Width>
         <ZIndex>46</ZIndex>
         <Style>
           <Border>
@@ -1530,6 +1530,10 @@
         </Field>
         <Field Name="Saldo">
           <DataField>Saldo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Patentamiento">
+          <DataField>Patentamiento</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

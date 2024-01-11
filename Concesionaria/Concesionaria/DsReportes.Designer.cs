@@ -9684,7 +9684,7 @@ and b.CodBarrio = c.CodBarrio) as Ciudad ,
 (select 'Color: ' + cc.Nombre  from Color cc where cc.CodColor=a.CodColor) as Color
 ,v.ImporteVenta  , bt.Campo1 , bt.Campo2 , bt.Campo3 ,
 bt.Campo4, bt.Campo5, bt.Campo6 ,bt.Campo7 ,bt.Campo8 ,bt.Campo9,
-rb.Gasto , rb.TotalVenta , rb.Saldo
+rb.Gasto , rb.TotalVenta , rb.Saldo , rb.Patentamiento
 from venta v , cliente c , auto a ,ReporteBoleto rb ,
 BoletoTraut bt
 where v.CodCliente = c.CodCliente

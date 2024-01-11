@@ -1375,7 +1375,12 @@ namespace Concesionaria
             string Gasto = txtTotalGasto.Text;
             string TotalVenta = txtTotalVenta.Text;
             string Saldo = CalcularSaldo();
-;            boleto.Insertar(con, Transaccion, CodVenta, Importe, Gasto, TotalVenta, Saldo);
+            string Patentamiento = "";
+            if (chkPatentamiento.Checked == true)
+                Patentamiento = "Incluye Transferencia / Patentamiento ";
+            else
+                Patentamiento = "No Incluye Transferencia / Patentamiento ";
+            boleto.Insertar(con, Transaccion, CodVenta, Importe, Gasto, TotalVenta, Saldo, Patentamiento);
         }
         private string GetSqlClientes()
         {
