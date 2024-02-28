@@ -5361,7 +5361,12 @@ namespace Concesionaria
                 if (chkCuotaPatente.Checked == true)
                 {
                     CuotaPatente = "Entrega Inmediata";
-                    CuotaPatente2 = "No Incluye 1era Cuota Patente";
+                    CuotaPatente2 = "No Incluye  Cuota Patente";
+                }
+
+                if (chkNoIncluyeGastos.Checked==true)
+                {
+                    CuotaPatente2 = "No Incluye Gastos";
                 }
                     
 
@@ -6711,6 +6716,22 @@ namespace Concesionaria
             string Saldo = fun.FormatoEnteroMiles(Subtotal.ToString());
             return Saldo;
 
+        }
+
+        private void chkNoIncluyeGastos_Click(object sender, EventArgs e)
+        {
+            if (chkNoIncluyeGastos.Checked==true)
+            {
+                chkCuotaPatente.Checked = false;
+            }
+        }
+
+        private void chkCuotaPatente_Click(object sender, EventArgs e)
+        {
+            if (chkCuotaPatente.Checked==true)
+            {
+                chkNoIncluyeGastos.Checked = false;
+            }
         }
     }
 }

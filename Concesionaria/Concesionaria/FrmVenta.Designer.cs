@@ -137,6 +137,7 @@
             this.txtTotalCossto = new System.Windows.Forms.TextBox();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.chkPatentamiento = new System.Windows.Forms.CheckBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.GrillaGastos = new System.Windows.Forms.DataGridView();
             this.txtImporteGastoTransferencia = new System.Windows.Forms.TextBox();
@@ -362,7 +363,7 @@
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabarPreVenta = new System.Windows.Forms.Button();
             this.btnPresupuesto = new System.Windows.Forms.Button();
-            this.chkPatentamiento = new System.Windows.Forms.CheckBox();
+            this.chkNoIncluyeGastos = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -510,6 +511,7 @@
             this.chkCuotaPatente.TabIndex = 71;
             this.chkCuotaPatente.Text = "No Incluye Cuota Pat";
             this.chkCuotaPatente.UseVisualStyleBackColor = true;
+            this.chkCuotaPatente.Click += new System.EventHandler(this.chkCuotaPatente_Click);
             // 
             // txtCodVenta
             // 
@@ -1510,6 +1512,7 @@
             // tabPage12
             // 
             this.tabPage12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage12.Controls.Add(this.chkNoIncluyeGastos);
             this.tabPage12.Controls.Add(this.chkPatentamiento);
             this.tabPage12.Controls.Add(this.btnEliminar);
             this.tabPage12.Controls.Add(this.GrillaGastos);
@@ -1527,6 +1530,18 @@
             this.tabPage12.TabIndex = 3;
             this.tabPage12.Text = "Gastos Generales";
             this.tabPage12.Click += new System.EventHandler(this.tabPage12_Click);
+            // 
+            // chkPatentamiento
+            // 
+            this.chkPatentamiento.AutoSize = true;
+            this.chkPatentamiento.Checked = true;
+            this.chkPatentamiento.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkPatentamiento.Location = new System.Drawing.Point(24, 124);
+            this.chkPatentamiento.Name = "chkPatentamiento";
+            this.chkPatentamiento.Size = new System.Drawing.Size(157, 20);
+            this.chkPatentamiento.TabIndex = 46;
+            this.chkPatentamiento.Text = "Incluye Patentamiento";
+            this.chkPatentamiento.UseVisualStyleBackColor = true;
             // 
             // btnEliminar
             // 
@@ -3837,17 +3852,16 @@
             this.btnPresupuesto.UseVisualStyleBackColor = true;
             this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
             // 
-            // chkPatentamiento
+            // chkNoIncluyeGastos
             // 
-            this.chkPatentamiento.AutoSize = true;
-            this.chkPatentamiento.Checked = true;
-            this.chkPatentamiento.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkPatentamiento.Location = new System.Drawing.Point(24, 124);
-            this.chkPatentamiento.Name = "chkPatentamiento";
-            this.chkPatentamiento.Size = new System.Drawing.Size(157, 20);
-            this.chkPatentamiento.TabIndex = 46;
-            this.chkPatentamiento.Text = "Incluye Patentamiento";
-            this.chkPatentamiento.UseVisualStyleBackColor = true;
+            this.chkNoIncluyeGastos.AutoSize = true;
+            this.chkNoIncluyeGastos.Location = new System.Drawing.Point(267, 124);
+            this.chkNoIncluyeGastos.Name = "chkNoIncluyeGastos";
+            this.chkNoIncluyeGastos.Size = new System.Drawing.Size(135, 20);
+            this.chkNoIncluyeGastos.TabIndex = 47;
+            this.chkNoIncluyeGastos.Text = "No Incluye Gastos";
+            this.chkNoIncluyeGastos.UseVisualStyleBackColor = true;
+            this.chkNoIncluyeGastos.Click += new System.EventHandler(this.chkNoIncluyeGastos_Click);
             // 
             // FrmVenta
             // 
@@ -4283,5 +4297,6 @@
         private System.Windows.Forms.TabPage tabListadoClientes;
         private System.Windows.Forms.DataGridView GrillaListadoCliente;
         private System.Windows.Forms.CheckBox chkPatentamiento;
+        private System.Windows.Forms.CheckBox chkNoIncluyeGastos;
     }
 }
