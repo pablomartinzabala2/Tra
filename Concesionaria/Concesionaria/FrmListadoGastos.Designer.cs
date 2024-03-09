@@ -49,12 +49,18 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCantidad);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.cmbCategoria);
             this.groupBox1.Controls.Add(this.dpFechaHasta);
             this.groupBox1.Controls.Add(this.dpFechaDesde);
             this.groupBox1.Controls.Add(this.txtTotalCosto);
@@ -78,7 +84,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1140, 564);
+            this.groupBox1.Size = new System.Drawing.Size(1140, 551);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Gastos";
@@ -102,7 +108,7 @@
             // txtTotalCosto
             // 
             this.txtTotalCosto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTotalCosto.Location = new System.Drawing.Point(768, 520);
+            this.txtTotalCosto.Location = new System.Drawing.Point(768, 514);
             this.txtTotalCosto.Name = "txtTotalCosto";
             this.txtTotalCosto.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTotalCosto.Size = new System.Drawing.Size(118, 23);
@@ -111,7 +117,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(662, 523);
+            this.label8.Location = new System.Drawing.Point(662, 520);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(80, 17);
             this.label8.TabIndex = 63;
@@ -120,7 +126,7 @@
             // txtTotalGanancia
             // 
             this.txtTotalGanancia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTotalGanancia.Location = new System.Drawing.Point(1003, 520);
+            this.txtTotalGanancia.Location = new System.Drawing.Point(1003, 514);
             this.txtTotalGanancia.Name = "txtTotalGanancia";
             this.txtTotalGanancia.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTotalGanancia.Size = new System.Drawing.Size(118, 23);
@@ -138,7 +144,7 @@
             // txtApellido
             // 
             this.txtApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtApellido.Location = new System.Drawing.Point(873, 34);
+            this.txtApellido.Location = new System.Drawing.Point(773, 31);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(104, 23);
             this.txtApellido.TabIndex = 60;
@@ -146,7 +152,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(814, 34);
+            this.label6.Location = new System.Drawing.Point(709, 34);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 17);
             this.label6.TabIndex = 59;
@@ -155,7 +161,7 @@
             // txtNombre
             // 
             this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNombre.Location = new System.Drawing.Point(704, 34);
+            this.txtNombre.Location = new System.Drawing.Point(599, 29);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(104, 23);
             this.txtNombre.TabIndex = 58;
@@ -163,7 +169,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(640, 34);
+            this.label5.Location = new System.Drawing.Point(535, 34);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 17);
             this.label5.TabIndex = 57;
@@ -172,7 +178,7 @@
             // txtTotal
             // 
             this.txtTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTotal.Location = new System.Drawing.Point(538, 517);
+            this.txtTotal.Location = new System.Drawing.Point(538, 514);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTotal.Size = new System.Drawing.Size(118, 23);
@@ -181,7 +187,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(392, 523);
+            this.label4.Location = new System.Drawing.Point(392, 520);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(132, 17);
             this.label4.TabIndex = 55;
@@ -190,15 +196,15 @@
             // txtPatente
             // 
             this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPatente.Location = new System.Drawing.Point(530, 34);
+            this.txtPatente.Location = new System.Drawing.Point(455, 28);
             this.txtPatente.Name = "txtPatente";
-            this.txtPatente.Size = new System.Drawing.Size(104, 23);
+            this.txtPatente.Size = new System.Drawing.Size(74, 23);
             this.txtPatente.TabIndex = 54;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(467, 42);
+            this.label3.Location = new System.Drawing.Point(392, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 17);
             this.label3.TabIndex = 48;
@@ -217,7 +223,7 @@
             // chkImpagos
             // 
             this.chkImpagos.AutoSize = true;
-            this.chkImpagos.Location = new System.Drawing.Point(377, 34);
+            this.chkImpagos.Location = new System.Drawing.Point(306, 33);
             this.chkImpagos.Name = "chkImpagos";
             this.chkImpagos.Size = new System.Drawing.Size(91, 21);
             this.chkImpagos.TabIndex = 46;
@@ -236,11 +242,11 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(983, 25);
+            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom;
+            this.btnBuscar.Location = new System.Drawing.Point(1034, 25);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(88, 31);
+            this.btnBuscar.Size = new System.Drawing.Size(37, 31);
             this.btnBuscar.TabIndex = 44;
-            this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -262,12 +268,39 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Hasta";
             // 
+            // cmbCategoria
+            // 
+            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Location = new System.Drawing.Point(883, 31);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(145, 24);
+            this.cmbCategoria.TabIndex = 73;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(236, 520);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 17);
+            this.label9.TabIndex = 74;
+            this.label9.Text = "Cantidad";
+            // 
+            // txtCantidad
+            // 
+            this.txtCantidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCantidad.Location = new System.Drawing.Point(305, 514);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtCantidad.Size = new System.Drawing.Size(81, 23);
+            this.txtCantidad.TabIndex = 75;
+            // 
             // FrmListadoGastos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1164, 588);
+            this.ClientSize = new System.Drawing.Size(1164, 570);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -305,5 +338,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dpFechaDesde;
         private System.Windows.Forms.DateTimePicker dpFechaHasta;
+        private System.Windows.Forms.ComboBox cmbCategoria;
+        private System.Windows.Forms.TextBox txtCantidad;
+        private System.Windows.Forms.Label label9;
     }
 }

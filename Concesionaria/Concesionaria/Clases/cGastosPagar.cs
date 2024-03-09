@@ -21,7 +21,7 @@ namespace Concesionaria.Clases
             return Total;
         }
 
-        public DataTable GetGastosPagarxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,int SoloImpago, string Nombre, string Apellido)
+        public DataTable GetGastosPagarxFecha(DateTime FechaDesde, DateTime FechaHasta,string Patente,int SoloImpago, string Nombre, string Apellido, string Categoria)
         {
             string sql = "select g.CodGasto,a.Patente,a.Descripcion as Modelo,g.Descripcion  ";
             sql = sql + ", (c.Nombre + ' ' + c.Apellido) as Cliente ";
@@ -46,6 +46,11 @@ namespace Concesionaria.Clases
             if (Apellido != "")
             {
                 sql = sql + " and Apellido like " + "'%" + Apellido  + "%'";
+            }
+
+            if (Categoria !="")
+            {
+                sql = sql + " and g.Descripcion like " + "'%" + Categoria + "%'";
             }
 
             sql = sql + " order by g.CodGasto Desc";
@@ -99,19 +104,29 @@ namespace Concesionaria.Clases
         }
 
         public void ActualizarPago(Int32 CodGasto, DateTime? FechaPago, Double ImportePagado)
-        {
+        {   //FechaTramite
             string sql = "update GastosPagar set ";
             if (FechaPago == null)
             {
-                sql = sql + " FechaPago=null";
+              //  sql = sql + " FechaPago=null";
+                sql = sql + " FechaTramite=null";
             }
             else
             {
-                sql = sql + " FechaPago=" + "'" + FechaPago +"'";
-                
+              //  sql = sql + " FechaPago=" + "'" + FechaPago +"'";
+                sql = sql + " FechaTramite=" + "'" + FechaPago + "'";
+
             }
             sql = sql + ",ImportePagado=" + ImportePagado.ToString().Replace(",", ".");
             sql = sql + " where CodGasto=" + CodGasto.ToString ();
+            cDb.ExecutarNonQuery(sql);
+        }
+
+        public void ActualizarFechaPago(Int32 CodGasto, DateTime? FechaPago)
+        {
+            string sql = "update GastosPagar set ";
+            sql = sql + " FechaPago=" + "'" + FechaPago + "'";
+            sql = sql + " where CodGasto=" + CodGasto.ToString();
             cDb.ExecutarNonQuery(sql);
         }
 
@@ -166,6 +181,14 @@ namespace Concesionaria.Clases
         {
             string sql = "update GastosPagar ";
             sql = sql + " set FechaTramite=" + "'" + FechaTramite + "'";
+            sql = sql + " where CodGasto=" + CodGasto.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
+
+        public void AnularFechaTramite(Int32 CodGasto)
+        {
+            string sql = "update GastosPagar ";
+            sql = sql + " set FechaTramite=null";
             sql = sql + " where CodGasto=" + CodGasto.ToString();
             cDb.ExecutarNonQuery(sql);
         }

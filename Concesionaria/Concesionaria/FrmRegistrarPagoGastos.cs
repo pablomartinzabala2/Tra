@@ -54,16 +54,18 @@ namespace Concesionaria
                 {
                     txtFechaRetiro.Text = trdo.Rows[0]["FechaRetiro"].ToString();
                 }
+                
+               //if (fun.ValidarFecha (txtFechaPago.Text)==true)
+                if (fun.ValidarFecha (txtFechaTramite.Text)==true)
 
-                if (fun.ValidarFecha (txtFechaPago.Text)==true)
                 {
                     btnAnular.Enabled = true ;
                     btnGrabar.Enabled = false ;
                     txtImporte.Enabled = false;
-                    
-
+                 //   btnActualizarFechaPago.Visible = true;
                 }
                 else{
+                   // btnActualizarFechaPago.Visible = false;
                     btnAnular.Enabled = false ;
                     btnGrabar.Enabled = true ;
                     txtImporte.Enabled = true;
@@ -73,13 +75,22 @@ namespace Concesionaria
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
+            //
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (fun.ValidarFecha(txtFechaPago.Text) == false)
+            // if (fun.ValidarFecha(txtFechaPago.Text) == false)
+            if (fun.ValidarFecha(txtFechaTramite.Text) == false)
             {
                 MessageBox.Show("Debe ingresar una fecha válida", Clases.cMensaje.Mensaje());
                 return;
             }
-
+            
+            /*
+            if (fun.ValidarFecha(txtFechaTramite.Text) == false)
+            {
+                MessageBox.Show("Debe ingresar una fecha válida", Clases.cMensaje.Mensaje());
+                return;
+            }
+            */
             if (txtImporteCobrado.Text =="")
             {
                 MessageBox.Show("Debe ingresaR un importe a cobrar", Clases.cMensaje.Mensaje());
@@ -109,7 +120,8 @@ namespace Concesionaria
 
             string Descripcion = txtDescripcion.Text + " " + txtPatente.Text;
             Clases.cMovimiento mov = new Clases.cMovimiento();
-            DateTime Fecha = Convert.ToDateTime(txtFechaPago.Text);
+          //  DateTime Fecha = Convert.ToDateTime(txtFechaPago.Text);
+            DateTime Fecha = Convert.ToDateTime(txtFechaTramite.Text);  
             Clases.cGastosPagar gasto = new Clases.cGastosPagar();
             gasto.ActualizarPago(Convert.ToInt32(Principal.CodigoPrincipalAbm), Fecha, ImporteCobrado);
             mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado,-1* Importe, 0, 0, 0, 0, Fecha, Descripcion);
@@ -202,6 +214,36 @@ namespace Concesionaria
             gasto.ActualizarFechaRetiro (CodGasto, FechaRetiro);
             MessageBox.Show("Datos Actualizados correctamente ");
 
+        }
+
+        private void btnActualizarFechaPago_Click(object sender, EventArgs e)
+        {
+            cFunciones fun = new Clases.cFunciones();
+            if (fun.ValidarFecha (txtFechaPago.Text)==false)
+            {
+                MessageBox.Show("La fecha ingresada es incorrecta");
+                return;
+            }
+            //ActualizarFechaPago
+            DateTime Fecha = Convert.ToDateTime(txtFechaPago.Text);
+            Clases.cGastosPagar gasto = new Clases.cGastosPagar();
+            gasto.ActualizarFechaPago(Convert.ToInt32(Principal.CodigoPrincipalAbm), Fecha);
+            MessageBox.Show("Datos grabados correctamente");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Int32 CodGasto = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            cGastosPagar gasto = new cGastosPagar();
+            gasto.AnularFechaTramite(CodGasto);
+            MessageBox.Show("Datos Actualizados correctamente ");
+            CargarGasto(Convert.ToInt32(Principal.CodigoPrincipalAbm));
+        }
+
+        private void btnMensaje_Click(object sender, EventArgs e)
+        {
+            FrmMensajesGastosTransferencia frm = new FrmMensajesGastosTransferencia();
+            frm.Show();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Concesionaria.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,12 +19,14 @@ namespace Concesionaria
 
         private void FrmListadoGastos_Load(object sender, EventArgs e)
         {
+            cFunciones fun = new cFunciones();
             DateTime fechahoy = DateTime.Now;
            // txtFechaHasta.Text = fechahoy.ToShortDateString();
             dpFechaHasta.Value = fechahoy;
             fechahoy = fechahoy.AddMonths(-1);
-            dpFechaDesde.Value = fechahoy;
-            //txtFechaDesde.Text = fechahoy.ToShortDateString();
+            dpFechaDesde.Value = fechahoy;  
+            //txtFechaDesde.Text = fechahoy.ToShortDateString(); 
+            fun.LlenarCombo(cmbCategoria, "CategoriaGastoTransferencia", "Descripcion", "Codigo");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -36,9 +39,13 @@ namespace Concesionaria
             int Impagos = 0;
             if (chkImpagos.Checked == true)
                 Impagos = 1;
+
+            string Categoria = "";
+            if (cmbCategoria.SelectedIndex > 0)
+                Categoria = cmbCategoria.Text;
             //Clases.cFunciones fun = new Clases.cFunciones();
             Clases.cGastosPagar gasto = new Clases.cGastosPagar();
-            DataTable trdo = gasto.GetGastosPagarxFecha(FechaDesde, FechaHasta, txtPatente.Text, Impagos, Nombre,Apellido);
+            DataTable trdo = gasto.GetGastosPagarxFecha(FechaDesde, FechaHasta, txtPatente.Text, Impagos, Nombre, Apellido, Categoria);
             Double TotalTransferencia = fun.TotalizarColumna(trdo, "Importe");
             Double TotalCosto = fun.TotalizarColumna(trdo, "importepagado");
             Double TotalGanancia = fun.TotalizarColumna(trdo, "Ganancia");
@@ -51,14 +58,7 @@ namespace Concesionaria
             Grilla.DataSource = trdo;
             string  Col = "0;10;10;10;10;10;10;10;10;10;0;10";
             fun.AnchoColumnas(Grilla, Col);
-            /*
-            Grilla.Columns[5].HeaderText = "Fecha Pago";
-            Grilla.Columns[0].Visible = false;
-            Grilla.Columns[1].Width = 160;
-            Grilla.Columns[2].Width = 355;
-            Grilla.Columns[4].Width = 120;
-            Grilla.Columns[5].Width = 110;
-            */
+            txtCantidad.Text = trdo.Rows.Count.ToString();
            
         }
 
