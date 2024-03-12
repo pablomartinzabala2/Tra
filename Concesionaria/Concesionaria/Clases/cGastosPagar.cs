@@ -59,6 +59,44 @@ namespace Concesionaria.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
+        public DataTable GetGastosPagarxFecha2(DateTime FechaDesde, DateTime FechaHasta, string Patente, int SoloImpago, string Nombre, string Apellido, string Categoria)
+        {
+            string sql = "select g.CodGasto,a.Patente as Dominio,a.Descripcion as Modelo,g.Descripcion as Tramite ";
+            sql = sql + ", (c.Nombre + ' ' + c.Apellido) as Cliente ";
+            sql = sql + " , g.Fecha as Venta,g.FechaTramite  ,g.FechaRetiro,g.FechaPago,g.importepagado, g.Importe , ";
+            sql = sql + " (g.Importe - g.importepagado) as Ganancia  ";
+            sql = sql + " from GastosPagar g,auto a,StockAuto sa ,venta v, cliente c ";
+            sql = sql + " where g.CodStock = sa.CodStock ";
+            sql = sql + " and sa.CodAuto=a.CodAuto";
+            sql = sql + " and v.CodVenta = g.CodVenta ";
+            sql = sql + " and v.CodCliente = c.CodCliente ";
+            sql = sql + " and g.Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and g.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            if (Patente != "")
+                sql = sql + " and a.Patente like" + "'%" + Patente + "%'";
+            if (SoloImpago == 1)
+                sql = sql + " and g.FechaPago is null";
+            if (Nombre != "")
+            {
+                sql = sql + " and Nombre like " + "'%" + Nombre + "%'";
+            }
+
+            if (Apellido != "")
+            {
+                sql = sql + " and Apellido like " + "'%" + Apellido + "%'";
+            }
+
+            if (Categoria != "")
+            {
+                sql = sql + " and g.Descripcion like " + "'%" + Categoria + "%'";
+            }
+
+            sql = sql + " order by g.CodGasto Desc";
+            // falta agregarle union 
+            //cuando viene del lado de la compra de auto
+            return cDb.ExecuteDataTable(sql);
+        }
+
         public void InsertarGastosPagar(Int32 CodAuto,string Descripcion,DateTime Fecha,double Importe,Int32? CodVenta,Int32 CodStock)
         {
             string sqlGastosPagar = ""; 

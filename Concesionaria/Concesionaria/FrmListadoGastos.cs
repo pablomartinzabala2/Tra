@@ -21,10 +21,11 @@ namespace Concesionaria
         {
             cFunciones fun = new cFunciones();
             DateTime fechahoy = DateTime.Now;
+            DateTime Desde = Convert.ToDateTime("01/01/2022");
            // txtFechaHasta.Text = fechahoy.ToShortDateString();
             dpFechaHasta.Value = fechahoy;
             fechahoy = fechahoy.AddMonths(-1);
-            dpFechaDesde.Value = fechahoy;  
+            dpFechaDesde.Value = Desde;
             //txtFechaDesde.Text = fechahoy.ToShortDateString(); 
             fun.LlenarCombo(cmbCategoria, "CategoriaGastoTransferencia", "Descripcion", "Codigo");
         }
@@ -45,7 +46,8 @@ namespace Concesionaria
                 Categoria = cmbCategoria.Text;
             //Clases.cFunciones fun = new Clases.cFunciones();
             Clases.cGastosPagar gasto = new Clases.cGastosPagar();
-            DataTable trdo = gasto.GetGastosPagarxFecha(FechaDesde, FechaHasta, txtPatente.Text, Impagos, Nombre, Apellido, Categoria);
+            DataTable trdo = gasto.GetGastosPagarxFecha2(FechaDesde, FechaHasta, txtPatente.Text, Impagos, Nombre, Apellido, Categoria);
+         //   DataTable trdo = gasto.GetGastosPagarxFecha(FechaDesde, FechaHasta, txtPatente.Text, Impagos, Nombre, Apellido, Categoria);
             Double TotalTransferencia = fun.TotalizarColumna(trdo, "Importe");
             Double TotalCosto = fun.TotalizarColumna(trdo, "importepagado");
             Double TotalGanancia = fun.TotalizarColumna(trdo, "Ganancia");
@@ -56,7 +58,7 @@ namespace Concesionaria
             txtTotalCosto.Text = fun.FormatoEnteroMiles(TotalCosto.ToString());
             txtTotalGanancia.Text = fun.FormatoEnteroMiles(TotalGanancia.ToString());
             Grilla.DataSource = trdo;
-            string  Col = "0;10;10;10;10;10;10;10;10;10;0;10";
+            string  Col = "0;10;10;10;10;10;10;10;10;10;10;0";
             fun.AnchoColumnas(Grilla, Col);
             txtCantidad.Text = trdo.Rows.Count.ToString();
            
