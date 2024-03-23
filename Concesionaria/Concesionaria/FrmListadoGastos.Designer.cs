@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtVencida = new System.Windows.Forms.TextBox();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.txtTotalCosto = new System.Windows.Forms.TextBox();
@@ -49,15 +53,15 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbCategoria = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnImprimir);
+            this.groupBox1.Controls.Add(this.txtVencida);
             this.groupBox1.Controls.Add(this.txtCantidad);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.cmbCategoria);
@@ -88,6 +92,43 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Gastos";
+            // 
+            // txtVencida
+            // 
+            this.txtVencida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVencida.Location = new System.Drawing.Point(17, 520);
+            this.txtVencida.Name = "txtVencida";
+            this.txtVencida.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtVencida.Size = new System.Drawing.Size(74, 23);
+            this.txtVencida.TabIndex = 76;
+            this.txtVencida.Text = "Vencidas";
+            // 
+            // txtCantidad
+            // 
+            this.txtCantidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCantidad.Location = new System.Drawing.Point(305, 514);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtCantidad.Size = new System.Drawing.Size(81, 23);
+            this.txtCantidad.TabIndex = 75;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(236, 520);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 17);
+            this.label9.TabIndex = 74;
+            this.label9.Text = "Cantidad";
+            // 
+            // cmbCategoria
+            // 
+            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Location = new System.Drawing.Point(883, 31);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(114, 24);
+            this.cmbCategoria.TabIndex = 73;
             // 
             // dpFechaHasta
             // 
@@ -213,7 +254,7 @@
             // btnCobroCheque
             // 
             this.btnCobroCheque.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroCheque.Location = new System.Drawing.Point(1077, 27);
+            this.btnCobroCheque.Location = new System.Drawing.Point(1046, 27);
             this.btnCobroCheque.Name = "btnCobroCheque";
             this.btnCobroCheque.Size = new System.Drawing.Size(40, 28);
             this.btnCobroCheque.TabIndex = 47;
@@ -223,6 +264,8 @@
             // chkImpagos
             // 
             this.chkImpagos.AutoSize = true;
+            this.chkImpagos.Checked = true;
+            this.chkImpagos.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkImpagos.Location = new System.Drawing.Point(306, 33);
             this.chkImpagos.Name = "chkImpagos";
             this.chkImpagos.Size = new System.Drawing.Size(91, 21);
@@ -243,7 +286,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom;
-            this.btnBuscar.Location = new System.Drawing.Point(1034, 25);
+            this.btnBuscar.Location = new System.Drawing.Point(1003, 25);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(37, 31);
             this.btnBuscar.TabIndex = 44;
@@ -268,32 +311,15 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Hasta";
             // 
-            // cmbCategoria
+            // btnImprimir
             // 
-            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(883, 31);
-            this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(145, 24);
-            this.cmbCategoria.TabIndex = 73;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(236, 520);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(64, 17);
-            this.label9.TabIndex = 74;
-            this.label9.Text = "Cantidad";
-            // 
-            // txtCantidad
-            // 
-            this.txtCantidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCantidad.Location = new System.Drawing.Point(305, 514);
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtCantidad.Size = new System.Drawing.Size(81, 23);
-            this.txtCantidad.TabIndex = 75;
+            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer1;
+            this.btnImprimir.Location = new System.Drawing.Point(1087, 24);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(34, 30);
+            this.btnImprimir.TabIndex = 77;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // FrmListadoGastos
             // 
@@ -341,5 +367,7 @@
         private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtVencida;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

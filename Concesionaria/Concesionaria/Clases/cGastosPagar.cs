@@ -63,7 +63,7 @@ namespace Concesionaria.Clases
         {
             string sql = "select g.CodGasto,a.Patente as Dominio,a.Descripcion as Modelo,g.Descripcion as Tramite ";
             sql = sql + ", (c.Nombre + ' ' + c.Apellido) as Cliente ";
-            sql = sql + " , g.Fecha as Venta,g.FechaTramite  ,g.FechaRetiro,g.FechaPago,g.importepagado, g.Importe , ";
+            sql = sql + " , g.Fecha as Venta,g.FechaTramite  ,g.FechaRetiro,g.FechaPago, g.Importe ,g.importepagado , ";
             sql = sql + " (g.Importe - g.importepagado) as Ganancia  ";
             sql = sql + " from GastosPagar g,auto a,StockAuto sa ,venta v, cliente c ";
             sql = sql + " where g.CodStock = sa.CodStock ";

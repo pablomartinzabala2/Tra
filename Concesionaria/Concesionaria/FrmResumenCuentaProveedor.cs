@@ -137,14 +137,14 @@ namespace Concesionaria
                 Haber = Grilla.Rows[i].Cells[4].Value.ToString();
                 Saldo = Grilla.Rows[i].Cells[5].Value.ToString();
                 Reporte.Insertar(Orden, Proveedor, Cuenta, FechaDesde, FechaHasta,
-                    Fecha, Concepto, Debe, Haber,Saldo);
+                    Fecha, Concepto, Debe, Haber,Saldo,"");
                 Orden = Orden + 1;
             }
             Saldo = txtSaldo.Text;
             Orden++;
-            Reporte.Insertar(Orden, "", "", "", "", "", "", "", "","");
+            Reporte.Insertar(Orden, "", "", "", "", "", "", "", "","","");
             Orden++;
-            Reporte.Insertar(Orden, "", "", "", "", "", "Saldo", Saldo, "","");
+            Reporte.Insertar(Orden, "", "", "", "", "", "Saldo", Saldo, "","","");
             FrmReporteResumenProveedor frm = new FrmReporteResumenProveedor();
             frm.Show();
         }

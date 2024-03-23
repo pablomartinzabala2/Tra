@@ -61,7 +61,10 @@ namespace Concesionaria
             string  Col = "0;10;10;10;10;10;10;10;10;10;10;0";
             fun.AnchoColumnas(Grilla, Col);
             txtCantidad.Text = trdo.Rows.Count.ToString();
-           
+            Grilla.Columns[8].HeaderText = "F. Entrega";
+            Grilla.Columns[5].HeaderText = "F. Venta";
+            Grilla.Columns[10].HeaderText = "Costo";
+            Pintar();
         }
 
         private void btnCobroCheque_Click(object sender, EventArgs e)
@@ -76,6 +79,68 @@ namespace Concesionaria
             Principal.CodigoPrincipalAbm = CodGasto.ToString();
             FrmRegistrarPagoGastos frm = new FrmRegistrarPagoGastos();
             frm.ShowDialog();
+        }
+
+
+        private void Pintar()
+        {
+            
+            DateTime Hoy = DateTime.Now;
+            DateTime FechaVenta = DateTime.Now;
+            string FechaTramite = "";
+            for (int i = 0; i < Grilla.Rows.Count -1; i++)
+            {
+                FechaTramite = Grilla.Rows[i].Cells[6].Value.ToString();  
+                FechaVenta = Convert.ToDateTime(Grilla.Rows[i].Cells[5].Value);
+                var Dif = (Hoy - FechaVenta).Days;
+                if (Dif>30)
+                {
+                    if (FechaTramite =="")
+                    {
+                        Grilla.Rows[i].DefaultCellStyle.BackColor = Color.LightPink;
+                    }
+                }
+            }
+
+            txtVencida.BackColor = Color.LightPink;
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            int Orden = 0;
+            string Campo1 = "", Campo2 = "", Campo3 = "", Campo4 = "";
+            string Campo5 = "", Campo6 = "", Campo7 = "", Campo8 = "";
+            string Campo9 = "", Campo10 = "";
+            cReporte reporte = new cReporte();
+            reporte.Borrar();
+            for (int i = 0; i < Grilla.Rows.Count - 1 ; i++)
+            {
+                Orden++;
+                Campo1 = Grilla.Rows[i].Cells[1].Value.ToString();
+                Campo2 = Grilla.Rows[i].Cells[2].Value.ToString();
+                Campo3 = Grilla.Rows[i].Cells[3].Value.ToString();
+                Campo4 = Grilla.Rows[i].Cells[4].Value.ToString();
+
+                Campo5 = Grilla.Rows[i].Cells[5].Value.ToString();
+                Campo6 = Grilla.Rows[i].Cells[6].Value.ToString();
+                if (Campo6.Length > 8)
+                    Campo6 = Campo6.Substring(0, 10);  
+                Campo7 = Grilla.Rows[i].Cells[7].Value.ToString();
+
+                if (Campo5.Length > 8)
+                    Campo5 = Campo5.Substring(0, 10);
+                Campo8 = Grilla.Rows[i].Cells[8].Value.ToString();
+
+                Campo9 = Grilla.Rows[i].Cells[9].Value.ToString();
+                Campo10 = Grilla.Rows[i].Cells[10].Value.ToString();
+
+                reporte.Insertar(Orden, Campo1, Campo2, Campo3, Campo4, Campo5,
+                    Campo6, Campo7, Campo8, Campo9, Campo10);
+            }
+
+            FrmReporteGastosTransferencia frm = new FrmReporteGastosTransferencia();
+            frm.Show();
+
         }
     }
 }
