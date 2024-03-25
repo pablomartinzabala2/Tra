@@ -107,7 +107,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Trámite</Value>
+                              <Value>Cliente</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -139,7 +139,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Cliente</Value>
+                              <Value>F.Venta</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -171,7 +171,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>F. Venta</Value>
+                              <Value>F. Trámite</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -203,7 +203,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>F. Trámite</Value>
+                              <Value>F. Retiro</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -569,7 +569,7 @@
         <Top>5.24616cm</Top>
         <Left>0.29105cm</Left>
         <Height>1.2cm</Height>
-        <Width>19.25917cm</Width>
+        <Width>19.25916cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -734,7 +734,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Listado de Gastos de Transferencia</Value>
+                <Value>Listado de Trámites</Value>
                 <Style>
                   <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -746,9 +746,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox18</rd:DefaultName>
         <Top>4.32567cm</Top>
-        <Left>5.29105cm</Left>
+        <Left>6.4662cm</Left>
         <Height>0.6cm</Height>
-        <Width>10.02901cm</Width>
+        <Width>5.95443cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -764,7 +764,7 @@
     <Height>3.55208in</Height>
     <Style />
   </Body>
-  <Width>7.69693in</Width>
+  <Width>7.69694in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

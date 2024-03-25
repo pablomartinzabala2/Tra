@@ -118,11 +118,16 @@ namespace Concesionaria
                 Orden++;
                 Campo1 = Grilla.Rows[i].Cells[1].Value.ToString();
                 Campo2 = Grilla.Rows[i].Cells[2].Value.ToString();
-                Campo3 = Grilla.Rows[i].Cells[3].Value.ToString();
-                Campo4 = Grilla.Rows[i].Cells[4].Value.ToString();
+                Campo3 = Grilla.Rows[i].Cells[4].Value.ToString();
+                Campo4 = Grilla.Rows[i].Cells[5].Value.ToString();
+                if (Campo4.Length > 8)
+                    Campo4 = Campo4.Substring(0, 10);
 
-                Campo5 = Grilla.Rows[i].Cells[5].Value.ToString();
-                Campo6 = Grilla.Rows[i].Cells[6].Value.ToString();
+                Campo5 = Grilla.Rows[i].Cells[6].Value.ToString();
+
+                if (Campo5.Length > 8)
+                    Campo5 = Campo5.Substring(0, 10);
+                Campo6 = Grilla.Rows[i].Cells[7].Value.ToString();
                 if (Campo6.Length > 8)
                     Campo6 = Campo6.Substring(0, 10);  
                 Campo7 = Grilla.Rows[i].Cells[7].Value.ToString();
