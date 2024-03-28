@@ -83,7 +83,7 @@ namespace Concesionaria.Clases
         public DataTable GetMovimientoxFecha(DateTime FechaDesde,DateTime FechaHasta, string Proveedor, string Cuenta, string Concepto)
         {
             string sql = "select m.CodMovimiento,m.Fecha, m.Concepto, t.Nombre ";
-            sql = sql + " ,p.Nombre as Proveedor,c.Nombre as Cuenta,m.ImporteIngreso,m.ImporteEgreso ";
+            sql = sql + " ,p.Nombre as Proveedor,c.Nombre as Cuenta,m.ImporteIngreso,m.ImporteEgreso , t.CodTipo ";
             sql = sql + " from MovimientoCaja m ,tipomovimiento t , CuentaProveedor c, Proveedor p";
             sql = sql + " where m.CodTipo = t.CodTipo ";
             sql = sql + " and m.CodCuentaProveedor = c.CodCuenta ";
@@ -130,6 +130,24 @@ namespace Concesionaria.Clases
             string sql = "update MovimientoCaja ";
             sql = sql + " set sSaldo=" + "'" + sSaldo + "'";
             sql = sql + " where CodMovimiento =" + CodMovimiento.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
+
+        public void ActualizarTotales(Int32 CodMovimiento,
+            string sTotalIngreso,string sTotalEgreso,string sIngresoEfectivo,
+            string sEgresoEfectivo, string sIngresoCheque , 
+            string sEgresoCheque , string sIngresoTrnasferencia , string sEgresoTransferencia)
+        {
+            string sql = "update MovimientoCaja ";
+            sql = sql + " set sTotalIngreso=" + "'" + sTotalIngreso + "'";
+            sql = sql + " , sTotalEgreso=" + "'" + sTotalEgreso + "'";
+            sql = sql + " , sIngresoEfectivo=" + "'" + sIngresoEfectivo + "'";
+            sql = sql + " , sEgresoEfectivo=" + "'" + sEgresoEfectivo + "'";
+            sql = sql + " , sIngresoCheque=" + "'" + sIngresoCheque + "'";
+            sql = sql + " , sEgresoCheque=" + "'" + sEgresoCheque + "'";
+            sql = sql + " , sIngresoTrnasferencia=" + "'" + sIngresoTrnasferencia + "'";
+            sql = sql + " , sEgresoTransferencia=" + "'" + sEgresoTransferencia + "'";
+            sql = sql + " where CodMovimiento=" + CodMovimiento.ToString();
             cDb.ExecutarNonQuery(sql);
         }
     }

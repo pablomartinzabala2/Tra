@@ -275,6 +275,7 @@ namespace Concesionaria
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             ActualizarSaldo();
+            ActualizarTotales();
             Principal.Fecha = dpFechaHasta.Value;
             FrmReporteCaja frm = new Concesionaria.FrmReporteCaja();
             frm.Show();
@@ -289,6 +290,85 @@ namespace Concesionaria
             {
                 CodMovimiento = Convert.ToInt32(Grilla.Rows[i].Cells[0].Value);
                 mov.ActualizarSaldo(CodMovimiento, sSaldo);
+            }
+        }
+
+        private void ActualizarTotales()
+        {
+            cMovimientoCaja mov = new Clases.cMovimientoCaja();
+            cFunciones fun = new cFunciones();
+            Int32 CodMovimiento = 0;
+            int CodTipo = 0;
+            Double IngresoEfectivo = 0;
+            Double EgresoEfectivo = 0;
+            Double IngresoCheque = 0;
+            Double EgresoCheque = 0;
+            Double IngresoTransferencia = 0;
+            Double EgresoTransferencia = 0;
+
+            string sImporte = "";
+
+            string sSaldo = txtSaldo.Text;
+            for (int i = 0; i < Grilla.Rows.Count - 1; i++)
+            {
+                CodMovimiento = Convert.ToInt32(Grilla.Rows[i].Cells[0].Value);
+                CodTipo = Convert.ToInt32(Grilla.Rows[i].Cells[8].Value);
+                if (CodTipo ==1)
+                {
+                    //efectivo
+                    if (Grilla.Rows[i].Cells[6].Value.ToString ()!="")
+                    {
+                        sImporte = Grilla.Rows[i].Cells[6].Value.ToString();
+                        IngresoEfectivo = IngresoEfectivo + fun.ToDouble(sImporte);
+                    }
+
+                    if (Grilla.Rows[i].Cells[7].Value.ToString() != "")
+                    {
+                        sImporte = Grilla.Rows[i].Cells[7].Value.ToString();
+                        EgresoEfectivo = EgresoEfectivo + fun.ToDouble(sImporte);
+                    }
+                }
+
+                if (CodTipo == 2)
+                {
+                    //transferencia
+                    if (Grilla.Rows[i].Cells[6].Value.ToString() != "")
+                    {
+                        sImporte = Grilla.Rows[i].Cells[6].Value.ToString();
+                        IngresoTransferencia = IngresoTransferencia + fun.ToDouble(sImporte);
+                    }
+
+                    if (Grilla.Rows[i].Cells[7].Value.ToString() != "")
+                    {
+                        sImporte = Grilla.Rows[i].Cells[7].Value.ToString();
+                        EgresoTransferencia = EgresoTransferencia + fun.ToDouble(sImporte);
+                    }
+                }
+
+                if (CodTipo == 3)
+                {
+                    //Cheque
+                    if (Grilla.Rows[i].Cells[6].Value.ToString() != "")
+                    {
+                        sImporte = Grilla.Rows[i].Cells[6].Value.ToString();
+                        IngresoCheque = IngresoCheque + fun.ToDouble(sImporte);
+                    }
+
+                    if (Grilla.Rows[i].Cells[7].Value.ToString() != "")
+                    {
+                        sImporte = Grilla.Rows[i].Cells[7].Value.ToString();
+                        EgresoCheque = EgresoCheque + fun.ToDouble(sImporte);
+                    }
+                }
+            }
+
+            for (int i = 0; i < Grilla.Rows.Count - 1; i++)
+            {
+                CodMovimiento = Convert.ToInt32(Grilla.Rows[i].Cells[0].Value);
+                mov.ActualizarTotales(CodMovimiento, txtIngresos.Text, txtEgresos.Text,
+                    fun.FormatoEnteroMiles(IngresoEfectivo.ToString ()), fun.FormatoEnteroMiles(EgresoEfectivo.ToString ()),
+                    fun.FormatoEnteroMiles(IngresoCheque.ToString()),fun.FormatoEnteroMiles (EgresoCheque.ToString ()),
+                    fun.FormatoEnteroMiles(IngresoTransferencia.ToString()), fun.FormatoEnteroMiles(EgresoTransferencia.ToString()));
             }
         }
 

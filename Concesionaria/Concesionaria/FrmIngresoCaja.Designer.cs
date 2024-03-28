@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.btnDetalle = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.txtSaldo = new System.Windows.Forms.TextBox();
             this.txtEgresos = new System.Windows.Forms.TextBox();
@@ -60,7 +61,6 @@
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.txtConcepto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnDetalle = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
@@ -102,10 +102,20 @@
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(21, 21);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(803, 465);
+            this.Grupo.Size = new System.Drawing.Size(937, 465);
             this.Grupo.TabIndex = 14;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información de ingreso y egreso de caja";
+            // 
+            // btnDetalle
+            // 
+            this.btnDetalle.Image = global::Concesionaria.Properties.Resources.Compra;
+            this.btnDetalle.Location = new System.Drawing.Point(661, 185);
+            this.btnDetalle.Name = "btnDetalle";
+            this.btnDetalle.Size = new System.Drawing.Size(40, 27);
+            this.btnDetalle.TabIndex = 101;
+            this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
             // btnImprimir
             // 
@@ -119,21 +129,21 @@
             // 
             // txtSaldo
             // 
-            this.txtSaldo.Location = new System.Drawing.Point(687, 425);
+            this.txtSaldo.Location = new System.Drawing.Point(816, 425);
             this.txtSaldo.Name = "txtSaldo";
             this.txtSaldo.Size = new System.Drawing.Size(100, 23);
             this.txtSaldo.TabIndex = 99;
             // 
             // txtEgresos
             // 
-            this.txtEgresos.Location = new System.Drawing.Point(523, 425);
+            this.txtEgresos.Location = new System.Drawing.Point(652, 425);
             this.txtEgresos.Name = "txtEgresos";
             this.txtEgresos.Size = new System.Drawing.Size(100, 23);
             this.txtEgresos.TabIndex = 98;
             // 
             // txtIngresos
             // 
-            this.txtIngresos.Location = new System.Drawing.Point(345, 425);
+            this.txtIngresos.Location = new System.Drawing.Point(474, 425);
             this.txtIngresos.Name = "txtIngresos";
             this.txtIngresos.Size = new System.Drawing.Size(100, 23);
             this.txtIngresos.TabIndex = 97;
@@ -141,7 +151,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(637, 428);
+            this.label7.Location = new System.Drawing.Point(766, 428);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 17);
             this.label7.TabIndex = 96;
@@ -150,7 +160,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(451, 428);
+            this.label8.Location = new System.Drawing.Point(580, 428);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 17);
             this.label8.TabIndex = 95;
@@ -159,7 +169,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(277, 425);
+            this.label9.Location = new System.Drawing.Point(397, 428);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(62, 17);
             this.label9.TabIndex = 94;
@@ -171,7 +181,7 @@
             this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPatente.Enabled = false;
             this.txtPatente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPatente.Location = new System.Drawing.Point(660, 67);
+            this.txtPatente.Location = new System.Drawing.Point(640, 63);
             this.txtPatente.Name = "txtPatente";
             this.txtPatente.Size = new System.Drawing.Size(89, 23);
             this.txtPatente.TabIndex = 93;
@@ -180,7 +190,7 @@
             // btnBuscarVehiculo
             // 
             this.btnBuscarVehiculo.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnBuscarVehiculo.Location = new System.Drawing.Point(580, 109);
+            this.btnBuscarVehiculo.Location = new System.Drawing.Point(587, 33);
             this.btnBuscarVehiculo.Name = "btnBuscarVehiculo";
             this.btnBuscarVehiculo.Size = new System.Drawing.Size(43, 29);
             this.btnBuscarVehiculo.TabIndex = 92;
@@ -193,7 +203,7 @@
             this.txtCodStock.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodStock.Enabled = false;
             this.txtCodStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodStock.Location = new System.Drawing.Point(687, 99);
+            this.txtCodStock.Location = new System.Drawing.Point(587, 67);
             this.txtCodStock.Name = "txtCodStock";
             this.txtCodStock.Size = new System.Drawing.Size(47, 23);
             this.txtCodStock.TabIndex = 91;
@@ -202,7 +212,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(304, 122);
+            this.label6.Location = new System.Drawing.Point(266, 43);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 17);
             this.label6.TabIndex = 90;
@@ -212,9 +222,9 @@
             // 
             this.txtVehiculo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVehiculo.Enabled = false;
-            this.txtVehiculo.Location = new System.Drawing.Point(372, 120);
+            this.txtVehiculo.Location = new System.Drawing.Point(334, 38);
             this.txtVehiculo.Name = "txtVehiculo";
-            this.txtVehiculo.Size = new System.Drawing.Size(202, 23);
+            this.txtVehiculo.Size = new System.Drawing.Size(247, 23);
             this.txtVehiculo.TabIndex = 89;
             // 
             // btnAnular
@@ -242,7 +252,7 @@
             this.txtCodCuenta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodCuenta.Enabled = false;
             this.txtCodCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodCuenta.Location = new System.Drawing.Point(280, 36);
+            this.txtCodCuenta.Location = new System.Drawing.Point(735, 60);
             this.txtCodCuenta.Name = "txtCodCuenta";
             this.txtCodCuenta.Size = new System.Drawing.Size(47, 23);
             this.txtCodCuenta.TabIndex = 86;
@@ -307,10 +317,10 @@
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(19, 223);
+            this.Grilla.Location = new System.Drawing.Point(28, 220);
             this.Grilla.Name = "Grilla";
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(768, 189);
+            this.Grilla.Size = new System.Drawing.Size(888, 189);
             this.Grilla.TabIndex = 79;
             // 
             // label4
@@ -394,22 +404,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Concepto";
             // 
-            // btnDetalle
-            // 
-            this.btnDetalle.Image = global::Concesionaria.Properties.Resources.Compra;
-            this.btnDetalle.Location = new System.Drawing.Point(661, 185);
-            this.btnDetalle.Name = "btnDetalle";
-            this.btnDetalle.Size = new System.Drawing.Size(40, 27);
-            this.btnDetalle.TabIndex = 101;
-            this.btnDetalle.UseVisualStyleBackColor = true;
-            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
-            // 
             // FrmIngresoCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(826, 498);
+            this.ClientSize = new System.Drawing.Size(970, 498);
             this.Controls.Add(this.Grupo);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
