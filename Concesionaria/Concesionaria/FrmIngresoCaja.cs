@@ -305,6 +305,9 @@ namespace Concesionaria
             Double EgresoCheque = 0;
             Double IngresoTransferencia = 0;
             Double EgresoTransferencia = 0;
+            Double IngresoDolares = 0;
+            Double EgresoDolares = 0;
+
 
             string sImporte = "";
 
@@ -360,6 +363,23 @@ namespace Concesionaria
                         EgresoCheque = EgresoCheque + fun.ToDouble(sImporte);
                     }
                 }
+
+                if (CodTipo == 4)
+                {
+                    //Cheque
+                    if (Grilla.Rows[i].Cells[6].Value.ToString() != "")
+                    {
+                        sImporte = Grilla.Rows[i].Cells[6].Value.ToString();
+                        IngresoDolares = IngresoDolares + fun.ToDouble(sImporte);
+                    }
+                     
+                    if (Grilla.Rows[i].Cells[7].Value.ToString() != "")
+                    {
+                        sImporte = Grilla.Rows[i].Cells[7].Value.ToString();
+                        EgresoDolares = EgresoDolares + fun.ToDouble(sImporte);
+                    }
+                }
+
             }
 
             for (int i = 0; i < Grilla.Rows.Count - 1; i++)
@@ -368,7 +388,8 @@ namespace Concesionaria
                 mov.ActualizarTotales(CodMovimiento, txtIngresos.Text, txtEgresos.Text,
                     fun.FormatoEnteroMiles(IngresoEfectivo.ToString ()), fun.FormatoEnteroMiles(EgresoEfectivo.ToString ()),
                     fun.FormatoEnteroMiles(IngresoCheque.ToString()),fun.FormatoEnteroMiles (EgresoCheque.ToString ()),
-                    fun.FormatoEnteroMiles(IngresoTransferencia.ToString()), fun.FormatoEnteroMiles(EgresoTransferencia.ToString()));
+                    fun.FormatoEnteroMiles(IngresoTransferencia.ToString()), fun.FormatoEnteroMiles(EgresoTransferencia.ToString()),
+                    fun.FormatoEnteroMiles(IngresoDolares.ToString()), fun.FormatoEnteroMiles(EgresoDolares.ToString()));
             }
         }
 

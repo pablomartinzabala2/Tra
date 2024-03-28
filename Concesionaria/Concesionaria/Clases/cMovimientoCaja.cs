@@ -136,7 +136,8 @@ namespace Concesionaria.Clases
         public void ActualizarTotales(Int32 CodMovimiento,
             string sTotalIngreso,string sTotalEgreso,string sIngresoEfectivo,
             string sEgresoEfectivo, string sIngresoCheque , 
-            string sEgresoCheque , string sIngresoTrnasferencia , string sEgresoTransferencia)
+            string sEgresoCheque , string sIngresoTrnasferencia , string sEgresoTransferencia,
+            string sIngresoDolares,string sEgresoDolares)
         {
             string sql = "update MovimientoCaja ";
             sql = sql + " set sTotalIngreso=" + "'" + sTotalIngreso + "'";
@@ -147,6 +148,8 @@ namespace Concesionaria.Clases
             sql = sql + " , sEgresoCheque=" + "'" + sEgresoCheque + "'";
             sql = sql + " , sIngresoTrnasferencia=" + "'" + sIngresoTrnasferencia + "'";
             sql = sql + " , sEgresoTransferencia=" + "'" + sEgresoTransferencia + "'";
+            sql = sql + " , sIngresoDolares=" + "'" + sIngresoDolares + "'";
+            sql = sql + " , sEgresoDolares=" + "'" + sEgresoDolares + "'";
             sql = sql + " where CodMovimiento=" + CodMovimiento.ToString();
             cDb.ExecutarNonQuery(sql);
         }
