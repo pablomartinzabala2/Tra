@@ -707,6 +707,18 @@
     <Compile Include="FrmReporteCliente.Designer.cs">
       <DependentUpon>FrmReporteCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReportedeEfectivoaPagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportedeEfectivoaPagar.Designer.cs">
+      <DependentUpon>FrmReportedeEfectivoaPagar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReporteEfectivoPagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteEfectivoPagar.Designer.cs">
+      <DependentUpon>FrmReporteEfectivoPagar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReporteGastosTransferencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -814,12 +826,6 @@
     </Compile>
     <Compile Include="FrmPagoInteres.Designer.cs">
       <DependentUpon>FrmPagoInteres.cs</DependentUpon>
-    </Compile>
-    <Compile Include="fRMpRUEBA.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fRMpRUEBA.Designer.cs">
-      <DependentUpon>fRMpRUEBA.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRecibo.cs">
       <SubType>Form</SubType>
@@ -1267,6 +1273,12 @@
     <EmbeddedResource Include="FrmReporteCliente.resx">
       <DependentUpon>FrmReporteCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportedeEfectivoaPagar.resx">
+      <DependentUpon>FrmReportedeEfectivoaPagar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteEfectivoPagar.resx">
+      <DependentUpon>FrmReporteEfectivoPagar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteGastosTransferencia.resx">
       <DependentUpon>FrmReporteGastosTransferencia.cs</DependentUpon>
     </EmbeddedResource>
@@ -1320,9 +1332,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPagoInteres.resx">
       <DependentUpon>FrmPagoInteres.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fRMpRUEBA.resx">
-      <DependentUpon>fRMpRUEBA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRecibo.resx">
       <DependentUpon>FrmRecibo.cs</DependentUpon>
@@ -1427,6 +1436,7 @@
     <EmbeddedResource Include="Reportes\ReporteBoletoCompraventa.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteCaja.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteClientes.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteEfectivoPagar.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteGastosTransferencia.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePresupuesto.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePresupuesto2.rdlc" />

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkVencidas = new System.Windows.Forms.CheckBox();
             this.txtTotalGeneral = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -50,13 +51,14 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.chkVencidas = new System.Windows.Forms.CheckBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnImprimir);
             this.groupBox1.Controls.Add(this.chkVencidas);
             this.groupBox1.Controls.Add(this.txtTotalGeneral);
             this.groupBox1.Controls.Add(this.label8);
@@ -87,10 +89,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Efectivos a pagar";
             // 
+            // chkVencidas
+            // 
+            this.chkVencidas.AutoSize = true;
+            this.chkVencidas.Location = new System.Drawing.Point(822, 34);
+            this.chkVencidas.Name = "chkVencidas";
+            this.chkVencidas.Size = new System.Drawing.Size(85, 21);
+            this.chkVencidas.TabIndex = 79;
+            this.chkVencidas.Text = "Vencidas";
+            this.chkVencidas.UseVisualStyleBackColor = true;
+            // 
             // txtTotalGeneral
             // 
             this.txtTotalGeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalGeneral.Location = new System.Drawing.Point(447, 456);
+            this.txtTotalGeneral.Location = new System.Drawing.Point(416, 456);
             this.txtTotalGeneral.Name = "txtTotalGeneral";
             this.txtTotalGeneral.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTotalGeneral.Size = new System.Drawing.Size(100, 23);
@@ -100,7 +112,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(392, 459);
+            this.label8.Location = new System.Drawing.Point(361, 459);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 17);
             this.label8.TabIndex = 78;
@@ -160,11 +172,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(572, 462);
+            this.label6.Location = new System.Drawing.Point(522, 459);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 17);
+            this.label6.Size = new System.Drawing.Size(98, 17);
             this.label6.TabIndex = 60;
-            this.label6.Text = "Efectivo";
+            this.label6.Text = "Saldo Efectivo";
             // 
             // txtTotalFacturado
             // 
@@ -280,15 +292,15 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Hasta";
             // 
-            // chkVencidas
+            // btnImprimir
             // 
-            this.chkVencidas.AutoSize = true;
-            this.chkVencidas.Location = new System.Drawing.Point(822, 34);
-            this.chkVencidas.Name = "chkVencidas";
-            this.chkVencidas.Size = new System.Drawing.Size(85, 21);
-            this.chkVencidas.TabIndex = 79;
-            this.chkVencidas.Text = "Vencidas";
-            this.chkVencidas.UseVisualStyleBackColor = true;
+            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.print;
+            this.btnImprimir.Location = new System.Drawing.Point(913, 27);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(40, 31);
+            this.btnImprimir.TabIndex = 80;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // FrmListadoEfectivosaPagar
             // 
@@ -335,5 +347,6 @@
         private System.Windows.Forms.TextBox txtTotalGeneral;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox chkVencidas;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

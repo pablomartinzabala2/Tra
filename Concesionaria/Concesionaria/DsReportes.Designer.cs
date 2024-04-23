@@ -10057,7 +10057,11 @@ and v.CodVenta = @p";
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"select m.CodMovimiento,m.Fecha,m.sImporteIngreso , m.sImporteEgreso,
 m.Concepto, t.Nombre  ,p.Nombre as Proveedor,
-c.Nombre as Cuenta,m.ImporteIngreso,m.ImporteEgreso  ,m.sSaldo
+c.Nombre as Cuenta,m.ImporteIngreso,m.ImporteEgreso  ,m.sSaldo ,
+m.sTotalIngreso,m.sTotalEgreso ,sIngresoEfectivo,sEgresoEfectivo ,
+sIngresoCheque,sEgresoCheque ,sIngresoTrnasferencia,sEgresoTransferencia ,
+sIngresoDolares , sEgresoDolares
+
 from MovimientoCaja m ,tipomovimiento t , CuentaProveedor c, Proveedor p where m.CodTipo = t.CodTipo  and m.CodCuentaProveedor = c.CodCuenta  and c.CodProveedor = p.CodProveedor  
 and m.Fecha >=@p1 and m.Fecha<= @p1";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;

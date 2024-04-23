@@ -62,8 +62,8 @@ namespace Concesionaria
             Clases.cEfectivoaPagar obj = new Clases.cEfectivoaPagar();
             DataTable trdo = obj.GetEfectivosaPagarxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Impagos, Nombre, Descripcion, Vencida);
             CalcularTotalFactrado(trdo);
-            trdo = fun.TablaaMiles(trdo, "Saldo");
-            trdo = fun.TablaaMiles(trdo, "Importe");
+            trdo = fun.TablaaMiles(trdo, "SaldoEfectivo");
+            trdo = fun.TablaaMiles(trdo, "Efectivo");
             trdo = fun.TablaaMiles(trdo, "Facturado");
             trdo = fun.TablaaMiles(trdo, "SaldoFacturado");
             trdo = fun.TablaaMiles(trdo, "Total");
@@ -86,13 +86,13 @@ namespace Concesionaria
             Double Total = 0;
             for (int i = 0; i < trdo.Rows.Count ; i++)
             {
-                if (trdo.Rows[i]["Importe"].ToString() != "")
+                if (trdo.Rows[i]["Efectivo"].ToString() != "")
                 {
-                    Total = Total + Convert.ToDouble(trdo.Rows[i]["Importe"]);
+                    Total = Total + Convert.ToDouble(trdo.Rows[i]["Efectivo"]);
                 }
-                if (trdo.Rows[i]["Saldo"].ToString ()!="0")
+                if (trdo.Rows[i]["SaldoEfectivo"].ToString ()!="0")
                 {
-                    Efectivo = Efectivo + Convert.ToDouble(trdo.Rows[i]["Saldo"]);
+                    Efectivo = Efectivo + Convert.ToDouble(trdo.Rows[i]["SaldoEfectivo"]);
                 }
 
                 if (trdo.Rows[i]["SaldoFacturado"].ToString().Trim () != "")
@@ -126,6 +126,48 @@ namespace Concesionaria
         private void button2_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if (Grilla.Rows.Count <1)
+            {
+                MessageBox.Show("La grilla no tiene elementos para imprimir");
+                return;
+            }
+
+            cReporte reporte = new cReporte();
+            reporte.Borrar();
+            int Orden = 1;
+            string Vencimiento = "", Apellido = "", Modelo = "";
+            string Total = "", Efectivo = "", SaldoEfectivo = "";
+            string Fecturado = "", SaldoFacturado = "";
+            string ResumenTotal = "";
+            ResumenTotal = "Total " + txtTotalGeneral.Text;
+            ResumenTotal = ResumenTotal + " Saldo Efectivo "+ txtEfectivo.Text;
+            ResumenTotal = ResumenTotal + " Facturado " + txtTotalFacturado.Text;
+            ResumenTotal = ResumenTotal + " Saldo " + txtTotal.Text; 
+
+            for (int i = 0; i < Grilla.Rows.Count - 1; i++)
+            {
+                Vencimiento = Grilla.Rows[i].Cells[1].Value.ToString();
+                if (Vencimiento.Length >10)
+                {
+                    Vencimiento = Vencimiento.Substring(0, 10);
+                }
+                Apellido = Grilla.Rows[i].Cells[2].Value.ToString();
+                Modelo = Grilla.Rows[i].Cells[4].Value.ToString();
+                Total = Grilla.Rows[i].Cells[5].Value.ToString();
+                Efectivo = Grilla.Rows[i].Cells[6].Value.ToString();
+                SaldoEfectivo =  Grilla.Rows[i].Cells[7].Value.ToString();
+                Fecturado = Grilla.Rows[i].Cells[8].Value.ToString();
+                SaldoFacturado = Grilla.Rows[i].Cells[9].Value.ToString();
+                reporte.Insertar(Orden, Vencimiento, Apellido, Modelo, Total,
+                    Efectivo, SaldoEfectivo, Fecturado, SaldoFacturado, ResumenTotal, "");
+                Orden++; 
+            }
+            FrmReporteEfectivoPagar frm = new FrmReporteEfectivoPagar();
+            frm.Show();
         }
     }
 }

@@ -39,8 +39,8 @@ namespace Concesionaria.Clases
             string sql = "select e.CodRegistro,e.FechaVencimiento,";
             sql = sql + "(select (c.Nombre + ' ' + c.Apellido) from Cliente c where c.CodCliente = e.CodCliente) as Apellido";
             sql = sql + ",(select a.Patente from auto a where a.CodAuto = e.CodAuto) as Patente";
-            sql = sql + ",(select a.Descripcion from auto a where a.CodAuto = e.CodAuto) as Descripcion ";
-            sql = sql + ",e.Total,e.Importe,e.Saldo,e.Facturado, e.SaldoFacturado  ";
+            sql = sql + ",(select a.Descripcion from auto a where a.CodAuto = e.CodAuto) as Modelo ";
+            sql = sql + ",e.Total,e.Importe as Efectivo,e.Saldo as SaldoEfectivo,e.Facturado, e.SaldoFacturado  ";
             sql = sql + " from EfectivosaPagar e,auto au,Cliente cli";
             sql = sql + " where e.CodAuto = au.CodAuto ";
             sql = sql + " and e.CodCliente = cli.CodCliente ";
