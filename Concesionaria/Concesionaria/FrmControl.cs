@@ -41,6 +41,9 @@ namespace Concesionaria
                 ConDeuda = 1;
             Clases.cFunciones fun = new Clases.cFunciones();
             DataTable tResul = fun.CrearTabla("Codigo;Tipo;Cuota;Patente;Descripcion;Apellido;Telefono;Celular;Importe;Saldo;Vencimiento");
+            string Descripcion = "";
+            if (txtDescripcion.Text != "")
+                Descripcion = txtDescripcion.Text;
 
             DateTime Fecha = dpFecha.Value;
             string Valor = "";
@@ -81,7 +84,7 @@ namespace Concesionaria
 
             }
             cCobranza cob = new cCobranza();
-            DataTable tcob = cob.GetCobranzasAdeudadas(txtPatente.Text, txtApellido.Text, Fecha, ConDeuda);
+            DataTable tcob = cob.GetCobranzasAdeudadas(txtPatente.Text, txtApellido.Text, Fecha, ConDeuda, Descripcion );
             for (int i = 0; i < tcob.Rows.Count; i++)
             {
                 Valor = tcob.Rows[i]["CodCobranza"].ToString();
@@ -115,7 +118,7 @@ namespace Concesionaria
                 tResul = fun.AgregarFilas(tResul, Valor);
             }
             cPrenda prenda = new cPrenda();
-            DataTable tPrenda = prenda.GetPrendasAdeudadas(txtPatente.Text, txtApellido.Text, Fecha, ConDeuda);
+            DataTable tPrenda = prenda.GetPrendasAdeudadas(txtPatente.Text, txtApellido.Text, Fecha, ConDeuda, Descripcion);
             for (int i = 0; i < tPrenda.Rows.Count; i++)
             {
                 Valor = tPrenda.Rows[i]["CodPrenda"].ToString();
@@ -137,7 +140,7 @@ namespace Concesionaria
             // if (txtApellido.Text != "")
             // {
             
-            DataTable tCobGen = cobGen.GetDedudaCobranzaGeneral(txtApellido.Text, txtPatente.Text, Fecha);
+            DataTable tCobGen = cobGen.GetDedudaCobranzaGeneral(txtApellido.Text, txtPatente.Text, Fecha, Descripcion );
             for (int i = 0; i < tCobGen.Rows.Count; i++)
             {
                 Valor = tCobGen.Rows[i]["CodCobranza"].ToString();
@@ -186,6 +189,7 @@ namespace Concesionaria
             tResul = fun.AgregarFilas(tResul, Valor);
             tResul = fun.TablaaMiles(tResul, "Importe");
             tResul = fun.TablaaMiles(tResul, "Saldo");
+           
             Grilla.DataSource = tResul;
             fun.AnchoColumnas(Grilla, "0;0;0;0;30;30;10;0;10;10;10");
             /*
@@ -203,6 +207,16 @@ namespace Concesionaria
                 if (i == (Grilla.Rows.Count - 2))
                     Grilla.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
             }
+            Grilla.Columns[5].HeaderText = "Cliente";
+        }
+
+        private DataTable Filtrar(DataTable tresul, string Criterio)
+        {
+           // DataRow[] rows = new DataRow();
+            DataTable dtNew = new DataTable();
+            dtNew = tresul.Clone();
+            DataRow[] rows = tresul.Select(Criterio, "");
+            return dtNew;
         }
 
         private void btnCobroPrenda_Click(object sender, EventArgs e)
@@ -285,5 +299,38 @@ namespace Concesionaria
             }
         }
 
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnImprimirReporte_Click(object sender, EventArgs e)
+        {
+            cReporte Reporte = new Clases.cReporte();
+            Reporte.Borrar();
+            string Cliente = "";
+            string Descripcion = "";
+            string Patente = "";
+            string Importe = "";
+            string Saldo = "";
+            string Vencimiento = "";
+            int Orden = 1;
+            for (int i = 0; i < Grilla.Rows.Count - 1; i++)
+            {
+                Cliente = Grilla.Rows[i].Cells[5].Value.ToString();
+                Descripcion = Grilla.Rows[i].Cells[4].Value.ToString();
+                Patente = Grilla.Rows[i].Cells[3].Value.ToString();
+                Importe = Grilla.Rows[i].Cells[8].Value.ToString();
+                Saldo = Grilla.Rows[i].Cells[9].Value.ToString();
+                Vencimiento = Grilla.Rows[i].Cells[10].Value.ToString();
+                if (Vencimiento.Length > 10)
+                    Vencimiento = Vencimiento.Substring(0, 10);
+                Reporte.Insertar(Orden, Cliente, Descripcion, Patente, Importe, Saldo, Vencimiento, "",
+                    "", "", "");
+            }
+
+            FrmReporteControlOperaciones frm = new FrmReporteControlOperaciones();
+            frm.Show();
+        }
     }
 }

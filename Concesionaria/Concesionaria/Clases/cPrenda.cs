@@ -118,7 +118,7 @@ namespace Concesionaria.Clases
             return Importe;
         }
 
-        public DataTable GetPrendasAdeudadas(string Patente, string Apellido, DateTime Fecha, int ConDeuda)
+        public DataTable GetPrendasAdeudadas(string Patente, string Apellido, DateTime Fecha, int ConDeuda, string Descripcion)
         {
             int b = 0;
             Int32 CodAuto = 0;
@@ -156,6 +156,11 @@ namespace Concesionaria.Clases
                     sql = sql + " and v.CodAutoVendido in " + ListaCodAuto.ToString();
                 else
                     sql = sql + " and v.CodAutoVendido=-1";
+
+                if (Descripcion !="")
+                {
+                    sql = sql + " and a.Descripcion like " + "'%" + Descripcion  +"%'";
+                }
             }
             if (b == 0)
             {
@@ -184,6 +189,12 @@ namespace Concesionaria.Clases
                     sql = sql + " and v.CodCliente in " + ListaCliente.ToString();
                 else
                     sql = sql + " and v.CodCliente=-1";
+
+                if (Descripcion != "")
+                {
+                    sql = sql + " and a.Descripcion like " + "'%" + Descripcion + "%'";
+                }
+
             }
             return cDb.ExecuteDataTable(sql);
         }

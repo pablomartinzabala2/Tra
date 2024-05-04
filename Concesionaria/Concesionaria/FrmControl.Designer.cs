@@ -30,6 +30,9 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.btnImprimirReporte = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Label();
+            this.dpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblVencidas = new System.Windows.Forms.Label();
             this.ChkVencida = new System.Windows.Forms.CheckBox();
             this.btnCobroPrenda = new System.Windows.Forms.Button();
@@ -40,7 +43,8 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dpFecha = new System.Windows.Forms.DateTimePicker();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +62,10 @@
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.txtDescripcion);
+            this.Grupo.Controls.Add(this.label5);
+            this.Grupo.Controls.Add(this.btnImprimirReporte);
+            this.Grupo.Controls.Add(this.btnImprimir);
             this.Grupo.Controls.Add(this.dpFecha);
             this.Grupo.Controls.Add(this.lblVencidas);
             this.Grupo.Controls.Add(this.ChkVencida);
@@ -77,10 +85,38 @@
             this.Grupo.TabIndex = 60;
             this.Grupo.TabStop = false;
             // 
+            // btnImprimirReporte
+            // 
+            this.btnImprimirReporte.Image = global::Concesionaria.Properties.Resources.printer1;
+            this.btnImprimirReporte.Location = new System.Drawing.Point(924, 1);
+            this.btnImprimirReporte.Name = "btnImprimirReporte";
+            this.btnImprimirReporte.Size = new System.Drawing.Size(40, 26);
+            this.btnImprimirReporte.TabIndex = 72;
+            this.btnImprimirReporte.UseVisualStyleBackColor = true;
+            this.btnImprimirReporte.Click += new System.EventHandler(this.btnImprimirReporte_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.AutoSize = true;
+            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer;
+            this.btnImprimir.Location = new System.Drawing.Point(1028, 10);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(0, 17);
+            this.btnImprimir.TabIndex = 71;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // dpFecha
+            // 
+            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFecha.Location = new System.Drawing.Point(459, 12);
+            this.dpFecha.Name = "dpFecha";
+            this.dpFecha.Size = new System.Drawing.Size(87, 23);
+            this.dpFecha.TabIndex = 70;
+            // 
             // lblVencidas
             // 
             this.lblVencidas.AutoSize = true;
-            this.lblVencidas.Location = new System.Drawing.Point(805, 13);
+            this.lblVencidas.Location = new System.Drawing.Point(980, 10);
             this.lblVencidas.Name = "lblVencidas";
             this.lblVencidas.Size = new System.Drawing.Size(66, 17);
             this.lblVencidas.TabIndex = 64;
@@ -91,7 +127,7 @@
             this.ChkVencida.AutoSize = true;
             this.ChkVencida.Checked = true;
             this.ChkVencida.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ChkVencida.Location = new System.Drawing.Point(597, 13);
+            this.ChkVencida.Location = new System.Drawing.Point(741, 9);
             this.ChkVencida.Name = "ChkVencida";
             this.ChkVencida.Size = new System.Drawing.Size(85, 21);
             this.ChkVencida.TabIndex = 63;
@@ -101,7 +137,7 @@
             // btnCobroPrenda
             // 
             this.btnCobroPrenda.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroPrenda.Location = new System.Drawing.Point(758, 7);
+            this.btnCobroPrenda.Location = new System.Drawing.Point(878, 4);
             this.btnCobroPrenda.Name = "btnCobroPrenda";
             this.btnCobroPrenda.Size = new System.Drawing.Size(40, 26);
             this.btnCobroPrenda.TabIndex = 62;
@@ -111,7 +147,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(438, 14);
+            this.label4.Location = new System.Drawing.Point(406, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 61;
@@ -130,7 +166,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom2;
-            this.btnBuscar.Location = new System.Drawing.Point(712, 7);
+            this.btnBuscar.Location = new System.Drawing.Point(832, 4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(40, 26);
             this.btnBuscar.TabIndex = 51;
@@ -140,9 +176,9 @@
             // txtApellido
             // 
             this.txtApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtApellido.Location = new System.Drawing.Point(240, 13);
+            this.txtApellido.Location = new System.Drawing.Point(233, 14);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(192, 23);
+            this.txtApellido.Size = new System.Drawing.Size(158, 23);
             this.txtApellido.TabIndex = 3;
             // 
             // txtPatente
@@ -158,9 +194,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(176, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 17);
+            this.label3.Size = new System.Drawing.Size(51, 17);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Apellido";
+            this.label3.Text = "Cliente";
             // 
             // label1
             // 
@@ -171,13 +207,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Patente";
             // 
-            // dpFecha
+            // txtDescripcion
             // 
-            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFecha.Location = new System.Drawing.Point(491, 10);
-            this.dpFecha.Name = "dpFecha";
-            this.dpFecha.Size = new System.Drawing.Size(87, 23);
-            this.dpFecha.TabIndex = 70;
+            this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescripcion.Location = new System.Drawing.Point(611, 13);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(124, 23);
+            this.txtDescripcion.TabIndex = 74;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(554, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 17);
+            this.label5.TabIndex = 73;
+            this.label5.Text = "Descr.";
             // 
             // FrmControl
             // 
@@ -214,5 +259,9 @@
         private System.Windows.Forms.CheckBox ChkVencida;
         private System.Windows.Forms.Label lblVencidas;
         private System.Windows.Forms.DateTimePicker dpFecha;
+        private System.Windows.Forms.Label btnImprimir;
+        private System.Windows.Forms.Button btnImprimirReporte;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Label label5;
     }
 }

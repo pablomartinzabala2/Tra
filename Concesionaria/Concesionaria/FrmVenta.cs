@@ -3568,7 +3568,7 @@ namespace Concesionaria
             DataTable trdo = obj.GetAutosxCodVenta(CodVenta);
             trdo = fun.TablaaMiles(trdo, "Importe");
             GrillaVehiculos.DataSource = trdo;
-            string Col = "0;15;35;35;15;0";
+            string Col = "0;15;35;35;15";
             fun.AnchoColumnas(GrillaVehiculos, Col);
 
         }

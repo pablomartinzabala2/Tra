@@ -93,7 +93,7 @@ namespace Concesionaria.Clases
             cDb.ExecutarNonQuery(sql);
         }
 
-        public DataTable GetDedudaCobranzaGeneral(string Apellido,string Patente, DateTime FechaVencimiento)
+        public DataTable GetDedudaCobranzaGeneral(string Apellido,string Patente, DateTime FechaVencimiento, string Descripcion)
         {
             int b = 0;
             string sql = "select * from CobranzaGeneral ";
@@ -105,7 +105,7 @@ namespace Concesionaria.Clases
           
                 b = 1;
             }
-            sql = sql + " order by Cliente ";
+            
             if (Patente != "")
             {
                 if (b == 0)
@@ -118,7 +118,14 @@ namespace Concesionaria.Clases
                     sql = sql + " and Patente like "  +"'%" + Patente + "%'";
                 }
             }
-            
+
+            if (Descripcion !="")
+            {
+                sql = sql + " and Descripcion like " + "'%" + Descripcion + "%'";
+            }
+
+            sql = sql + " order by Cliente ";
+
             return cDb.ExecuteDataTable(sql);
         }
 
