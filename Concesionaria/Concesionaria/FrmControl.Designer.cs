@@ -30,6 +30,8 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnImprimirReporte = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Label();
             this.dpFecha = new System.Windows.Forms.DateTimePicker();
@@ -43,8 +45,6 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
@@ -53,9 +53,9 @@
             // 
             this.label2.BackColor = System.Drawing.Color.Silver;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Location = new System.Drawing.Point(6, 39);
+            this.label2.Location = new System.Drawing.Point(10, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1050, 25);
+            this.label2.Size = new System.Drawing.Size(1117, 25);
             this.label2.TabIndex = 59;
             this.label2.Text = "Control de operaciones";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -81,9 +81,26 @@
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(5, 12);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(1067, 462);
+            this.Grupo.Size = new System.Drawing.Size(1133, 504);
             this.Grupo.TabIndex = 60;
             this.Grupo.TabStop = false;
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescripcion.Location = new System.Drawing.Point(611, 13);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(124, 23);
+            this.txtDescripcion.TabIndex = 74;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(554, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 17);
+            this.label5.TabIndex = 73;
+            this.label5.Text = "Descr.";
             // 
             // btnImprimirReporte
             // 
@@ -160,7 +177,7 @@
             this.Grilla.Name = "Grilla";
             this.Grilla.ReadOnly = true;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(1046, 389);
+            this.Grilla.Size = new System.Drawing.Size(1117, 415);
             this.Grilla.TabIndex = 52;
             // 
             // btnBuscar
@@ -207,29 +224,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Patente";
             // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescripcion.Location = new System.Drawing.Point(611, 13);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(124, 23);
-            this.txtDescripcion.TabIndex = 74;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(554, 15);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 17);
-            this.label5.TabIndex = 73;
-            this.label5.Text = "Descr.";
-            // 
             // FrmControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1073, 486);
+            this.ClientSize = new System.Drawing.Size(1150, 518);
             this.Controls.Add(this.Grupo);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

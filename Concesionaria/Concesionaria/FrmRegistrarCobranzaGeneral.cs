@@ -18,12 +18,23 @@ namespace Concesionaria
 
         private void FrmRegistrarCobranzaGeneral_Load(object sender, EventArgs e)
         {
+            CargarMonedas();
             cFunciones fun = new cFunciones();
             string sqlDoc = "select * from TipoDocumento order by CodTipoDoc";
             DataTable tbDoc = cDb.ExecuteDataTable(sqlDoc);
             fun.LlenarComboDatatable(cmbDocumento, tbDoc, "Nombre", "CodTipoDoc");
             if (cmbDocumento.Items.Count > 1)
                 cmbDocumento.SelectedIndex = 1;
+        }
+
+        private void CargarMonedas()
+        {   
+            cFunciones fun = new cFunciones();
+            string sql = "select * from Moneda order by CodMoneda";
+            DataTable dt = cDb.ExecuteDataTable(sql);
+            fun.LlenarComboDatatable(CmbMoneda, dt, "Nombre", "CodMoneda");
+            if (CmbMoneda.Items.Count > 1)
+                CmbMoneda.SelectedIndex = 1;
         }
 
         private void Mensaje(string msj)
@@ -46,6 +57,7 @@ namespace Concesionaria
                 return;
             }
 
+            Int32? CodMoneda = null;
             Int32? CodCLi = 0;
             cCliente cli = new cCliente();
             DateTime Fecha = dpFecha.Value;
@@ -59,6 +71,10 @@ namespace Concesionaria
             string Patente = txtPatente.Text;
             string Direccion = txtDireccion.Text;
             string Nombrecliente = txtNombre.Text + " " + txtApellido.Text;
+
+            if (CmbMoneda.SelectedIndex > 0)
+                CodMoneda = Convert.ToInt32(CmbMoneda.SelectedValue);
+
             cCobranzaGeneral cob = new cCobranzaGeneral();
             if (txtCodCLiente.Text =="")
             {
@@ -69,7 +85,7 @@ namespace Concesionaria
                 CodCLi = Convert.ToInt32(txtCodCLiente.Text);
             }
 
-            cob.InsertarCobranza(Fecha, Descripcion, Importe, Nombrecliente, Telefono, Direccion, Patente, FechaVencimiento,CodCLi);
+            cob.InsertarCobranza(Fecha, Descripcion, Importe, Nombrecliente, Telefono, Direccion, Patente, FechaVencimiento,CodCLi, CodMoneda);
             Mensaje("Datos grabados correctamente");
             txtDescripcion.Text = "";
             txtEfectivo.Text = "";
@@ -169,5 +185,42 @@ namespace Concesionaria
             FrmMensajeCobranzas frm = new FrmMensajeCobranzas();
             frm.Show();
         }
+
+        private void btnBuscarVehiculo_Click(object sender, EventArgs e)
+        {
+            FrmBuscarAuto form = new FrmBuscarAuto();
+            form.FormClosing += new FormClosingEventHandler(formBuscadorAuto_FormClosing);
+            form.ShowDialog();
+        }
+
+        private void formBuscadorAuto_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Int32 CodAuto = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            cAuto auto = new Clases.cAuto();
+            BuscarAutoxCodigo(CodAuto);
+        }
+
+        private void BuscarAutoxCodigo(Int32 COdAuto)
+        {
+            Clases.cAuto auto = new Clases.cAuto();
+            DataTable trdo = auto.GetAutoxCodigo(COdAuto);
+            if (trdo.Rows.Count > 0)
+            {
+                txtPatente.Text = trdo.Rows[0]["Patente"].ToString();
+                
+              //  txtCodStock.Text = Principal.CodStock.ToString();
+                string NombreAuto = "";
+                string Descripcion = trdo.Rows[0]["Descripcion"].ToString();
+                string Anio = trdo.Rows[0]["NombreAnio"].ToString();
+                string Patente = trdo.Rows[0]["Patente"].ToString();
+                txtPatente.Text = Patente;
+                NombreAuto = Patente + " " + Descripcion + " " + Anio;
+              //  txtVehiculo.Text = NombreAuto;
+                txtConcepto.Text = NombreAuto;
+                
+
+            }
+        }
+
     }
 }
