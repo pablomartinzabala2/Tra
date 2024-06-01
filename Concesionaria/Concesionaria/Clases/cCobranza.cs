@@ -149,7 +149,7 @@ namespace Concesionaria.Clases
                 sql = sql + " where c.CodVenta=v.CodVenta";
                 sql = sql + " and v.CodCliente = cli.CodCliente ";
                 sql = sql + " and v.CodAutoVendido = a.CodAuto";
-                sql = sql + " and c.Saldo >0 ";
+                sql = sql + " and c.Saldo >0 and c.FechaCompromiso is not null ";
                 if (ConDeuda == 1)
                     sql = sql + " and c.FechaCompromiso <" + "'" + Fecha.ToShortDateString() + "'";
                 if (ListaCodAuto != "(")
@@ -185,7 +185,7 @@ namespace Concesionaria.Clases
                 sql = sql + " where c.CodVenta=v.CodVenta";
                 sql = sql + " and v.CodCliente = cli.CodCliente ";
                 sql = sql + " and v.CodAutoVendido = a.CodAuto";
-                sql = sql + " and c.Saldo >0 ";
+                sql = sql + " and c.Saldo >0 and c.FechaCompromiso is not null ";
                 if (ConDeuda == 1)
                  sql = sql + " and c.FechaCompromiso <" + "'" + Fecha.ToShortDateString() + "'";
                 if (ListaCliente != "(")

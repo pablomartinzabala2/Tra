@@ -102,7 +102,7 @@ namespace Concesionaria.Clases
         {
             int b = 0;
             string sql = "select * from CobranzaGeneral ";
-            sql = sql + " where Saldo >0 ";
+            sql = sql + " where Saldo >0 and FechaCompromiso is not null  ";
           //  sql = sql + " and FechaCompromiso <" + "'" + FechaVencimiento.ToShortDateString() + "'";
             if (Apellido != "")
             {
@@ -125,6 +125,46 @@ namespace Concesionaria.Clases
             }
 
             if (Descripcion !="")
+            {
+                sql = sql + " and Descripcion like " + "'%" + Descripcion + "%'";
+            }
+
+            sql = sql + " order by Cliente ";
+
+            return cDb.ExecuteDataTable(sql);
+        }
+
+
+        public DataTable GetDedudaCobranzaGeneralDetallada(string Apellido, string Patente, DateTime FechaVencimiento, string Descripcion)
+        {
+            int b = 0;
+            string sql = "select c.CodCobranza, 'Cobranza General' , c.Patente, ";
+            sql = sql + " c.Descripcion,c.Cliente , c.Telefono , ";
+            sql = sql + " c.Importe ,c.Saldo , c.FechaCompromiso";
+            sql = sql + " from CobranzaGeneral c  ";
+            sql = sql + " where Saldo >0 and FechaCompromiso is not null  ";
+            //  sql = sql + " and FechaCompromiso <" + "'" + FechaVencimiento.ToShortDateString() + "'";
+            if (Apellido != "")
+            {
+                sql = sql + " and Cliente like " + "'%" + Apellido + "%'";
+
+                b = 1;
+            }
+
+            if (Patente != "")
+            {
+                if (b == 0)
+                {
+                    sql = sql + " and Patente like " + "'%" + Patente + "%'";
+
+                }
+                else
+                {
+                    sql = sql + " and Patente like " + "'%" + Patente + "%'";
+                }
+            }
+
+            if (Descripcion != "")
             {
                 sql = sql + " and Descripcion like " + "'%" + Descripcion + "%'";
             }

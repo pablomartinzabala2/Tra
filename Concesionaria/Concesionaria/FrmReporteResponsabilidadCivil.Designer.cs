@@ -54,9 +54,9 @@
             reportDataSource1.Value = this.AutoBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Concesionaria.Reportes.ReporteResponsabilidadCivil.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(12, 1);
+            this.reportViewer1.Location = new System.Drawing.Point(12, 12);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(685, 445);
+            this.reportViewer1.Size = new System.Drawing.Size(822, 651);
             this.reportViewer1.TabIndex = 0;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
@@ -68,7 +68,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 482);
+            this.ClientSize = new System.Drawing.Size(835, 667);
             this.Controls.Add(this.reportViewer1);
             this.Name = "FrmReporteResponsabilidadCivil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

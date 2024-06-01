@@ -136,6 +136,7 @@ namespace Concesionaria.Clases
                 sql = sql + " where c.CodVenta = v.CodVenta ";
                 sql = sql + " and v.CodAutoVendido = a.CodAuto";
                 sql = sql + " and v.CodCliente = cli.CodCliente";
+                sql = sql + " and FechaVencimiento is not null ";
                 if (ConDeuda == 1)
                     sql = sql + " and c.FechaVencimiento <" + "'" + Fecha.ToShortDateString () + "'" ;
                 sql = sql + " and c.FechaPago is null";
@@ -169,6 +170,7 @@ namespace Concesionaria.Clases
                 sql = sql + " where c.CodVenta = v.CodVenta ";
                 sql = sql + " and v.CodAutoVendido = a.CodAuto";
                 sql = sql + " and v.CodCliente = cli.CodCliente";
+                sql = sql + "  and FechaVencimiento is not null";
                 if (ConDeuda == 1)
                     sql = sql + " and c.FechaVencimiento <" + "'" + Fecha.ToShortDateString() + "'";
                 sql = sql + " and c.FechaPago is null";

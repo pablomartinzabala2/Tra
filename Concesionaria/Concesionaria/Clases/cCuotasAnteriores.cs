@@ -295,7 +295,7 @@ namespace Concesionaria.Clases
             {
                 sql = "select * from CuotasAnteriores ";
                 sql = sql + " where Patente like " + "'%" + Patente + "%'";
-                sql = sql + " and Saldo >0 ";
+                sql = sql + " and Saldo >0 and FechaVencimiento is not null ";
                 if (ConDeuda == 1)
                     sql = sql + " and FechaVencimiento <" + "'" + Fecha.ToShortDateString() + "'";
                 sql = sql + " order by Apellido,Nombre ";
@@ -304,7 +304,7 @@ namespace Concesionaria.Clases
             {
                 sql = "select * from CuotasAnteriores ";
                 sql = sql + " where Apellido like " + "'%" + Apellido + "%'";
-                sql = sql + " and Saldo >0 ";
+                sql = sql + " and Saldo >0 and FechaVencimiento is not null ";
                 if (ConDeuda == 1)
                     sql = sql + " and FechaVencimiento <" + "'" + Fecha.ToShortDateString() + "'";
                 sql = sql + " order by Apellido,Nombre ";

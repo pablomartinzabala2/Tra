@@ -865,5 +865,11 @@ namespace Concesionaria
             FrmCambioClave frm = new FrmCambioClave();
             frm.Show();
         }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            FrmDeudaCobranzaGeneral frm = new FrmDeudaCobranzaGeneral();
+            frm.Show();
+        }
     }
 }

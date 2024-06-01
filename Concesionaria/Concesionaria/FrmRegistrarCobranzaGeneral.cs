@@ -216,8 +216,8 @@ namespace Concesionaria
                 txtPatente.Text = Patente;
                 NombreAuto = Patente + " " + Descripcion + " " + Anio;
               //  txtVehiculo.Text = NombreAuto;
-                txtConcepto.Text = NombreAuto;
-                
+              //  txtConcepto.Text = NombreAuto;
+                txtDescripcion.Text = NombreAuto;
 
             }
         }

@@ -40,7 +40,14 @@ namespace Concesionaria
             if (ChkVencida.Checked == true)
                 ConDeuda = 1;
             Clases.cFunciones fun = new Clases.cFunciones();
-            DataTable tResul = fun.CrearTabla("Codigo;Tipo;Cuota;Patente;Descripcion;Apellido;Telefono;Celular;Importe;Saldo;Vencimiento");
+          //  DataTable tResul = fun.CrearTabla("Codigo;Tipo;Cuota;Patente;Descripcion;Apellido;Telefono;Celular;Importe;Saldo;Vencimiento");
+            DataTable tResul = fun.CrearTabla("Codigo;Tipo;Cuota;Patente;Descripcion;Apellido;Telefono;Celular;Importe;Saldo");
+
+            DataColumn Vencimiento = new DataColumn();  
+            Vencimiento.DataType = System.Type.GetType("System.DateTime");
+            Vencimiento.ColumnName = "Vencimiento";
+
+            tResul.Columns.Add(Vencimiento);
             string Descripcion = "";
             if (txtDescripcion.Text != "")
                 Descripcion = txtDescripcion.Text;
@@ -132,7 +139,7 @@ namespace Concesionaria
                 Valor = Valor + ";" + tPrenda.Rows[i]["Importe"].ToString();
                 Valor = Valor + ";" + tPrenda.Rows[i]["Importe"].ToString();
                 Valor = Valor + ";";
-                tResul = fun.AgregarFilas(tResul, Valor);
+               // tResul = fun.AgregarFilas(tResul, Valor);
             }
             
             //de aca en adelante agregar el apellido y nombre concatenado..
@@ -181,16 +188,21 @@ namespace Concesionaria
             Double TotalSaldo = 0;
             TotalImporte = fun.TotalizarColumna(tResul, "Importe");
             TotalSaldo = fun.TotalizarColumna(tResul, "Saldo");
+            
             Valor = ";" + "Total";
             Valor = Valor + ";;;;;;";
             Valor = Valor + ";" + TotalImporte.ToString();
             Valor = Valor + ";" + TotalSaldo.ToString();
-            Valor = Valor + ";";
+            Valor = Valor + ";01/01/1900";
             tResul = fun.AgregarFilas(tResul, Valor);
             tResul = fun.TablaaMiles(tResul, "Importe");
             tResul = fun.TablaaMiles(tResul, "Saldo");
-           
-            Grilla.DataSource = tResul;
+
+            DataView dv = tResul.DefaultView;
+            dv.Sort = "Vencimiento Desc";
+
+            //  Grilla.DataSource = tResul;
+            Grilla.DataSource = dv;
             fun.AnchoColumnas(Grilla, "0;0;0;0;30;30;10;0;10;10;10");
             /*
             Grilla.Columns[0].Visible = false;

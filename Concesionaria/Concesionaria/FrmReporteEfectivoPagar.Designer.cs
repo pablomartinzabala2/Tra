@@ -70,16 +70,16 @@
             reportDataSource1.Value = this.reporte1BindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Concesionaria.Reportes.ReporteEfectivoPagar.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(2, 2);
+            this.reportViewer1.Location = new System.Drawing.Point(12, 2);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(786, 449);
+            this.reportViewer1.Size = new System.Drawing.Size(853, 472);
             this.reportViewer1.TabIndex = 0;
             // 
             // FrmReporteEfectivoPagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 450);
+            this.ClientSize = new System.Drawing.Size(866, 472);
             this.Controls.Add(this.reportViewer1);
             this.Name = "FrmReporteEfectivoPagar";
             this.Text = "FrmReporteEfectivoPagar";
