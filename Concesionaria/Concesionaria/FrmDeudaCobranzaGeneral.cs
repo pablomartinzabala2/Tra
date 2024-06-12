@@ -18,8 +18,10 @@ namespace Concesionaria
 
         private void FrmDeudaCobranzaGeneral_Load(object sender, EventArgs e)
         {
+            cFunciones fun = new cFunciones();
             dpFecha.Value = DateTime.Now;
             lblVencidas.BackColor = Color.LightGreen;
+            fun.LlenarCombo(CmbMoneda, "Moneda", "Nombre", "CodMoneda");
             Buscar();
         }
 
@@ -33,9 +35,14 @@ namespace Concesionaria
             int ConDeuda = 0;
             if (ChkVencida.Checked == true)
                 ConDeuda = 1;
+
+            Int32? CodMoneda = null;
             Clases.cFunciones fun = new Clases.cFunciones();
-           //   DataTable tResul = fun.CrearTabla("Codigo;Tipo;Cuota;Patente;Descripcion;Apellido;Telefono;Celular;Importe;Saldo;Vencimiento");
-          //  DataTable tResul = fun.CrearTabla("Codigo;Tipo;Cuota;Patente;Descripcion;Apellido;Telefono;Celular;Importe;Saldo");
+            //   DataTable tResul = fun.CrearTabla("Codigo;Tipo;Cuota;Patente;Descripcion;Apellido;Telefono;Celular;Importe;Saldo;Vencimiento");
+            //  DataTable tResul = fun.CrearTabla("Codigo;Tipo;Cuota;Patente;Descripcion;Apellido;Telefono;Celular;Importe;Saldo");
+
+            if (CmbMoneda.SelectedIndex > 0)
+                CodMoneda = Convert.ToInt32(CmbMoneda.SelectedValue);
 
             string Descripcion = "";
             if (txtDescripcion.Text != "")
@@ -48,7 +55,7 @@ namespace Concesionaria
             cCobranzaGeneral cobGen = new cCobranzaGeneral();
             //GetDedudaCobranzaGeneralDetallada
           //  DataTable tResul = cobGen.GetDedudaCobranzaGeneral(txtApellido.Text, txtPatente.Text, Fecha, Descripcion);
-            DataTable tResul = cobGen.GetDedudaCobranzaGeneralDetallada(txtApellido.Text, txtPatente.Text, Fecha, Descripcion);
+            DataTable tResul = cobGen.GetDedudaCobranzaGeneralDetallada(txtApellido.Text, txtPatente.Text, Fecha, Descripcion, CodMoneda);
             /*
             for (int i = 0; i < tCobGen.Rows.Count; i++)
             {
@@ -83,8 +90,8 @@ namespace Concesionaria
 
             Grilla.DataSource = tResul;
             //Grilla.DataSource = dv;
-            fun.AnchoColumnas(Grilla, "0;0;0;30;30;10;10;10;10");
-          
+            fun.AnchoColumnas(Grilla, "0;0;0;25;30;10;10;10;10;5");
+            Pintar();
             /*
             Grilla.Columns["Apellido"].DisplayIndex = 1;
             Grilla.Columns["Telefono"].DisplayIndex = 2;
@@ -96,6 +103,78 @@ namespace Concesionaria
             }
             Grilla.Columns[5].HeaderText = "Cliente";
             */
+        }
+
+        private void Pintar()
+        {
+            cFunciones fun = new cFunciones();
+            Double Saldo = 0;
+            DateTime Fecha = DateTime.Now;
+            DateTime FechaCompromiso = DateTime.Now;
+            for (int i = 0; i < Grilla.Rows.Count - 1; i++)
+            {
+                if (Grilla.Rows[i].Cells[8].Value.ToString ()!="")
+                {
+                    FechaCompromiso = Convert.ToDateTime(Grilla.Rows[i].Cells[8].Value.ToString());
+                }
+
+                if (Grilla.Rows[i].Cells[7].Value.ToString() != "")
+                { 
+                    Saldo =fun.ToDouble(Grilla.Rows[i].Cells[7].Value.ToString());
+                }
+
+                if (FechaCompromiso < Fecha && Saldo >0)
+                {
+                    Grilla.Rows[i].DefaultCellStyle.BackColor = Color.LightBlue;
+                }
+
+              //  if (i == (Grilla.Rows.Count - 2))
+              //      Grilla.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
+            }
+        }
+
+        private void btnCobroPrenda_Click(object sender, EventArgs e)
+        {    
+            if (Grilla.CurrentRow == null)
+            {
+                MessageBox.Show("Debe seleccionar un registro para continuar");
+                return;
+            }
+            
+            string CodidoCobranza = Grilla.CurrentRow.Cells[0].Value.ToString();
+            Principal.CodigoPrincipalAbm = CodidoCobranza.ToString();
+            FrmRegistrarCobroCobranzasGenerales FrmCob = new FrmRegistrarCobroCobranzasGenerales();
+            FrmCob.ShowDialog();
+          
+        }
+
+        private void btnImprimirReporte_Click(object sender, EventArgs e)
+        {
+            cReporte Reporte = new Clases.cReporte();
+            Reporte.Borrar();
+            string Cliente = "";
+            string Descripcion = "";
+            string Patente = "";
+            string Importe = "";
+            string Saldo = "";
+            string Vencimiento = "";
+            int Orden = 1;
+            for (int i = 0; i < Grilla.Rows.Count - 1; i++)
+            {
+                Cliente = Grilla.Rows[i].Cells[4].Value.ToString();
+                Descripcion = Grilla.Rows[i].Cells[3].Value.ToString();
+                Patente = Grilla.Rows[i].Cells[2].Value.ToString();
+                Importe = Grilla.Rows[i].Cells[6].Value.ToString();
+                Saldo = Grilla.Rows[i].Cells[7].Value.ToString();
+                Vencimiento = Grilla.Rows[i].Cells[8].Value.ToString();
+                if (Vencimiento.Length > 10)
+                    Vencimiento = Vencimiento.Substring(0, 10);
+                Reporte.Insertar(Orden, Cliente, Descripcion, Patente, Importe, Saldo, Vencimiento, "",
+                    "", "", "");
+            }
+
+            FrmReporteControlOperaciones frm = new FrmReporteControlOperaciones();
+            frm.Show();
         }
     }
 }

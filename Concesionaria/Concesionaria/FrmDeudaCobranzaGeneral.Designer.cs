@@ -31,26 +31,28 @@
             this.Grupo = new System.Windows.Forms.GroupBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnImprimirReporte = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Label();
             this.dpFecha = new System.Windows.Forms.DateTimePicker();
-            this.lblVencidas = new System.Windows.Forms.Label();
             this.ChkVencida = new System.Windows.Forms.CheckBox();
+            this.btnCobroPrenda = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnImprimirReporte = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Label();
-            this.btnCobroPrenda = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.lblVencidas = new System.Windows.Forms.Label();
+            this.CmbMoneda = new System.Windows.Forms.ComboBox();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.CmbMoneda);
             this.Grupo.Controls.Add(this.txtDescripcion);
             this.Grupo.Controls.Add(this.label5);
             this.Grupo.Controls.Add(this.btnImprimirReporte);
@@ -70,7 +72,7 @@
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(12, 14);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(1133, 504);
+            this.Grupo.Size = new System.Drawing.Size(1189, 504);
             this.Grupo.TabIndex = 61;
             this.Grupo.TabStop = false;
             // 
@@ -91,6 +93,25 @@
             this.label5.TabIndex = 73;
             this.label5.Text = "Descr.";
             // 
+            // btnImprimirReporte
+            // 
+            this.btnImprimirReporte.Image = global::Concesionaria.Properties.Resources.printer1;
+            this.btnImprimirReporte.Location = new System.Drawing.Point(1143, -2);
+            this.btnImprimirReporte.Name = "btnImprimirReporte";
+            this.btnImprimirReporte.Size = new System.Drawing.Size(40, 26);
+            this.btnImprimirReporte.TabIndex = 72;
+            this.btnImprimirReporte.UseVisualStyleBackColor = true;
+            this.btnImprimirReporte.Click += new System.EventHandler(this.btnImprimirReporte_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.AutoSize = true;
+            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer;
+            this.btnImprimir.Location = new System.Drawing.Point(1028, 10);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(0, 17);
+            this.btnImprimir.TabIndex = 71;
+            // 
             // dpFecha
             // 
             this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -98,15 +119,6 @@
             this.dpFecha.Name = "dpFecha";
             this.dpFecha.Size = new System.Drawing.Size(87, 23);
             this.dpFecha.TabIndex = 70;
-            // 
-            // lblVencidas
-            // 
-            this.lblVencidas.AutoSize = true;
-            this.lblVencidas.Location = new System.Drawing.Point(980, 10);
-            this.lblVencidas.Name = "lblVencidas";
-            this.lblVencidas.Size = new System.Drawing.Size(66, 17);
-            this.lblVencidas.TabIndex = 64;
-            this.lblVencidas.Text = "Vencidas";
             // 
             // ChkVencida
             // 
@@ -120,6 +132,16 @@
             this.ChkVencida.Text = "Vencidas";
             this.ChkVencida.UseVisualStyleBackColor = true;
             // 
+            // btnCobroPrenda
+            // 
+            this.btnCobroPrenda.Image = global::Concesionaria.Properties.Resources.money_euro;
+            this.btnCobroPrenda.Location = new System.Drawing.Point(1097, 1);
+            this.btnCobroPrenda.Name = "btnCobroPrenda";
+            this.btnCobroPrenda.Size = new System.Drawing.Size(40, 26);
+            this.btnCobroPrenda.TabIndex = 62;
+            this.btnCobroPrenda.UseVisualStyleBackColor = true;
+            this.btnCobroPrenda.Click += new System.EventHandler(this.btnCobroPrenda_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -132,23 +154,33 @@
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(10, 67);
+            this.Grilla.Location = new System.Drawing.Point(6, 66);
             this.Grilla.Name = "Grilla";
             this.Grilla.ReadOnly = true;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(1117, 415);
+            this.Grilla.Size = new System.Drawing.Size(1177, 415);
             this.Grilla.TabIndex = 52;
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Silver;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Location = new System.Drawing.Point(10, 38);
+            this.label2.Location = new System.Drawing.Point(6, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1117, 25);
+            this.label2.Size = new System.Drawing.Size(1173, 25);
             this.label2.TabIndex = 59;
             this.label2.Text = "Control de operaciones";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom2;
+            this.btnBuscar.Location = new System.Drawing.Point(1051, 1);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(40, 26);
+            this.btnBuscar.TabIndex = 51;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtApellido
             // 
@@ -184,55 +216,36 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Patente";
             // 
-            // btnImprimirReporte
+            // lblVencidas
             // 
-            this.btnImprimirReporte.Image = global::Concesionaria.Properties.Resources.printer1;
-            this.btnImprimirReporte.Location = new System.Drawing.Point(924, 1);
-            this.btnImprimirReporte.Name = "btnImprimirReporte";
-            this.btnImprimirReporte.Size = new System.Drawing.Size(40, 26);
-            this.btnImprimirReporte.TabIndex = 72;
-            this.btnImprimirReporte.UseVisualStyleBackColor = true;
+            this.lblVencidas.AutoSize = true;
+            this.lblVencidas.Location = new System.Drawing.Point(956, 9);
+            this.lblVencidas.Name = "lblVencidas";
+            this.lblVencidas.Size = new System.Drawing.Size(66, 17);
+            this.lblVencidas.TabIndex = 64;
+            this.lblVencidas.Text = "Vencidas";
             // 
-            // btnImprimir
+            // CmbMoneda
             // 
-            this.btnImprimir.AutoSize = true;
-            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer;
-            this.btnImprimir.Location = new System.Drawing.Point(1028, 10);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(0, 17);
-            this.btnImprimir.TabIndex = 71;
-            // 
-            // btnCobroPrenda
-            // 
-            this.btnCobroPrenda.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroPrenda.Location = new System.Drawing.Point(878, 4);
-            this.btnCobroPrenda.Name = "btnCobroPrenda";
-            this.btnCobroPrenda.Size = new System.Drawing.Size(40, 26);
-            this.btnCobroPrenda.TabIndex = 62;
-            this.btnCobroPrenda.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom2;
-            this.btnBuscar.Location = new System.Drawing.Point(832, 4);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(40, 26);
-            this.btnBuscar.TabIndex = 51;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.CmbMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbMoneda.FormattingEnabled = true;
+            this.CmbMoneda.Location = new System.Drawing.Point(832, 5);
+            this.CmbMoneda.Name = "CmbMoneda";
+            this.CmbMoneda.Size = new System.Drawing.Size(100, 24);
+            this.CmbMoneda.TabIndex = 75;
             // 
             // FrmDeudaCobranzaGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1156, 530);
+            this.ClientSize = new System.Drawing.Size(1213, 530);
             this.Controls.Add(this.Grupo);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmDeudaCobranzaGeneral";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmDeudaCobranzaGeneral";
+            this.Text = "Formulario De Control de Deuda de Cobranza General";
             this.Load += new System.EventHandler(this.FrmDeudaCobranzaGeneral_Load);
             this.Grupo.ResumeLayout(false);
             this.Grupo.PerformLayout();
@@ -249,7 +262,6 @@
         private System.Windows.Forms.Button btnImprimirReporte;
         private System.Windows.Forms.Label btnImprimir;
         private System.Windows.Forms.DateTimePicker dpFecha;
-        private System.Windows.Forms.Label lblVencidas;
         private System.Windows.Forms.CheckBox ChkVencida;
         private System.Windows.Forms.Button btnCobroPrenda;
         private System.Windows.Forms.Label label4;
@@ -260,5 +272,7 @@
         private System.Windows.Forms.TextBox txtPatente;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox CmbMoneda;
+        private System.Windows.Forms.Label lblVencidas;
     }
 }

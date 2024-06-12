@@ -135,12 +135,13 @@ namespace Concesionaria.Clases
         }
 
 
-        public DataTable GetDedudaCobranzaGeneralDetallada(string Apellido, string Patente, DateTime FechaVencimiento, string Descripcion)
+        public DataTable GetDedudaCobranzaGeneralDetallada(string Apellido, string Patente, DateTime FechaVencimiento, string Descripcion, Int32? CodMoneda)
         {
             int b = 0;
             string sql = "select c.CodCobranza, 'Cobranza General' , c.Patente, ";
             sql = sql + " c.Descripcion,c.Cliente , c.Telefono , ";
-            sql = sql + " c.Importe ,c.Saldo , c.FechaCompromiso";
+            sql = sql + " c.Importe ,c.Saldo , c.FechaCompromiso ";
+            sql = sql + " ,(select m.Nombre from Moneda m where m.CodMoneda = c.CodMoneda) as Moneda ";
             sql = sql + " from CobranzaGeneral c  ";
             sql = sql + " where Saldo >0 and FechaCompromiso is not null  ";
             //  sql = sql + " and FechaCompromiso <" + "'" + FechaVencimiento.ToShortDateString() + "'";
@@ -169,7 +170,12 @@ namespace Concesionaria.Clases
                 sql = sql + " and Descripcion like " + "'%" + Descripcion + "%'";
             }
 
-            sql = sql + " order by Cliente ";
+            if (CodMoneda !=null)
+            {
+                sql = sql + " and CodMoneda =" + CodMoneda.ToString();
+            }
+
+            sql = sql + " order by FechaCompromiso asc, Cliente ";
 
             return cDb.ExecuteDataTable(sql);
         }
