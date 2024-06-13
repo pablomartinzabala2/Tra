@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.CmbMoneda = new System.Windows.Forms.ComboBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnImprimirReporte = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Label();
             this.dpFecha = new System.Windows.Forms.DateTimePicker();
+            this.lblVencidas = new System.Windows.Forms.Label();
             this.ChkVencida = new System.Windows.Forms.CheckBox();
             this.btnCobroPrenda = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,14 +46,14 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblVencidas = new System.Windows.Forms.Label();
-            this.CmbMoneda = new System.Windows.Forms.ComboBox();
+            this.cmbOrdenSaldo = new System.Windows.Forms.ComboBox();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.cmbOrdenSaldo);
             this.Grupo.Controls.Add(this.CmbMoneda);
             this.Grupo.Controls.Add(this.txtDescripcion);
             this.Grupo.Controls.Add(this.label5);
@@ -75,6 +77,15 @@
             this.Grupo.Size = new System.Drawing.Size(1189, 504);
             this.Grupo.TabIndex = 61;
             this.Grupo.TabStop = false;
+            // 
+            // CmbMoneda
+            // 
+            this.CmbMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbMoneda.FormattingEnabled = true;
+            this.CmbMoneda.Location = new System.Drawing.Point(832, 5);
+            this.CmbMoneda.Name = "CmbMoneda";
+            this.CmbMoneda.Size = new System.Drawing.Size(100, 24);
+            this.CmbMoneda.TabIndex = 75;
             // 
             // txtDescripcion
             // 
@@ -119,6 +130,15 @@
             this.dpFecha.Name = "dpFecha";
             this.dpFecha.Size = new System.Drawing.Size(87, 23);
             this.dpFecha.TabIndex = 70;
+            // 
+            // lblVencidas
+            // 
+            this.lblVencidas.AutoSize = true;
+            this.lblVencidas.Location = new System.Drawing.Point(1117, 484);
+            this.lblVencidas.Name = "lblVencidas";
+            this.lblVencidas.Size = new System.Drawing.Size(66, 17);
+            this.lblVencidas.TabIndex = 64;
+            this.lblVencidas.Text = "Vencidas";
             // 
             // ChkVencida
             // 
@@ -216,23 +236,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Patente";
             // 
-            // lblVencidas
+            // cmbOrdenSaldo
             // 
-            this.lblVencidas.AutoSize = true;
-            this.lblVencidas.Location = new System.Drawing.Point(956, 9);
-            this.lblVencidas.Name = "lblVencidas";
-            this.lblVencidas.Size = new System.Drawing.Size(66, 17);
-            this.lblVencidas.TabIndex = 64;
-            this.lblVencidas.Text = "Vencidas";
-            // 
-            // CmbMoneda
-            // 
-            this.CmbMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbMoneda.FormattingEnabled = true;
-            this.CmbMoneda.Location = new System.Drawing.Point(832, 5);
-            this.CmbMoneda.Name = "CmbMoneda";
-            this.CmbMoneda.Size = new System.Drawing.Size(100, 24);
-            this.CmbMoneda.TabIndex = 75;
+            this.cmbOrdenSaldo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbOrdenSaldo.FormattingEnabled = true;
+            this.cmbOrdenSaldo.Location = new System.Drawing.Point(938, 3);
+            this.cmbOrdenSaldo.Name = "cmbOrdenSaldo";
+            this.cmbOrdenSaldo.Size = new System.Drawing.Size(100, 24);
+            this.cmbOrdenSaldo.TabIndex = 76;
             // 
             // FrmDeudaCobranzaGeneral
             // 
@@ -274,5 +285,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CmbMoneda;
         private System.Windows.Forms.Label lblVencidas;
+        private System.Windows.Forms.ComboBox cmbOrdenSaldo;
     }
 }

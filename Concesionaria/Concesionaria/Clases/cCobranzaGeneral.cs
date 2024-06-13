@@ -135,7 +135,8 @@ namespace Concesionaria.Clases
         }
 
 
-        public DataTable GetDedudaCobranzaGeneralDetallada(string Apellido, string Patente, DateTime FechaVencimiento, string Descripcion, Int32? CodMoneda)
+        public DataTable GetDedudaCobranzaGeneralDetallada(string Apellido, string Patente, DateTime FechaVencimiento, 
+            string Descripcion, Int32? CodMoneda, Int32? OrdenSaldo)
         {
             int b = 0;
             string sql = "select c.CodCobranza, 'Cobranza General' , c.Patente, ";
@@ -174,8 +175,19 @@ namespace Concesionaria.Clases
             {
                 sql = sql + " and CodMoneda =" + CodMoneda.ToString();
             }
+            if (OrdenSaldo ==null)
+                sql = sql + " order by FechaCompromiso asc, Cliente ";
 
-            sql = sql + " order by FechaCompromiso asc, Cliente ";
+            if (OrdenSaldo !=null)
+            {
+                int Orden = Convert.ToInt32(OrdenSaldo);
+                if (Orden ==1)
+                    sql = sql + " order by Saldo asc, Cliente ";
+
+                if (Orden == 2)
+                    sql = sql + " order by Saldo desc, Cliente ";
+
+            }
 
             return cDb.ExecuteDataTable(sql);
         }

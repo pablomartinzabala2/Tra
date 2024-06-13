@@ -21,10 +21,20 @@ namespace Concesionaria
             cFunciones fun = new cFunciones();
             dpFecha.Value = DateTime.Now;
             lblVencidas.BackColor = Color.LightGreen;
+            CargarComboSaldo();
             fun.LlenarCombo(CmbMoneda, "Moneda", "Nombre", "CodMoneda");
             Buscar();
         }
 
+        private void CargarComboSaldo()
+        {
+            cFunciones fun = new cFunciones();
+            DataTable tb = fun.CrearTabla("Codigo;Nombre");
+            tb = fun.AgregarFilas(tb, "1;Saldo Asc");
+            tb = fun.AgregarFilas(tb, "2;Saldo Desc");
+            fun.LlenarComboDatatable(cmbOrdenSaldo, tb, "Nombre", "Codigo");
+        }
+        
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             Buscar();
@@ -49,13 +59,18 @@ namespace Concesionaria
                 Descripcion = txtDescripcion.Text;
 
             DateTime Fecha = dpFecha.Value;
+
+            Int32? OrdenSaldo = null;
+            if (cmbOrdenSaldo.SelectedIndex > 0)
+                OrdenSaldo = Convert.ToInt32(cmbOrdenSaldo.SelectedValue);
+
             string Valor = "";
           
             //de aca en adelante agregar el apellido y nombre concatenado..
             cCobranzaGeneral cobGen = new cCobranzaGeneral();
             //GetDedudaCobranzaGeneralDetallada
           //  DataTable tResul = cobGen.GetDedudaCobranzaGeneral(txtApellido.Text, txtPatente.Text, Fecha, Descripcion);
-            DataTable tResul = cobGen.GetDedudaCobranzaGeneralDetallada(txtApellido.Text, txtPatente.Text, Fecha, Descripcion, CodMoneda);
+            DataTable tResul = cobGen.GetDedudaCobranzaGeneralDetallada(txtApellido.Text, txtPatente.Text, Fecha, Descripcion, CodMoneda, OrdenSaldo);
             /*
             for (int i = 0; i < tCobGen.Rows.Count; i++)
             {
