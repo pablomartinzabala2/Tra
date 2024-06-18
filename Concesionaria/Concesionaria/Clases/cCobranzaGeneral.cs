@@ -139,9 +139,9 @@ namespace Concesionaria.Clases
             string Descripcion, Int32? CodMoneda, Int32? OrdenSaldo)
         {
             int b = 0;
-            string sql = "select c.CodCobranza, 'Cobranza General' , c.Patente, ";
-            sql = sql + " c.Descripcion,c.Cliente , c.Telefono , ";
-            sql = sql + " c.Importe ,c.Saldo , c.FechaCompromiso ";
+            string sql = "select c.CodCobranza, 'Cobranza General',c.FechaCompromiso ,c.Cliente,c.Descripcion ,c.Importe ,c.Saldo , c.Patente  ";
+            sql = sql + "  , c.Telefono  ";
+            
             sql = sql + " ,(select m.Nombre from Moneda m where m.CodMoneda = c.CodMoneda) as Moneda ";
             sql = sql + " from CobranzaGeneral c  ";
             sql = sql + " where Saldo >0 and FechaCompromiso is not null  ";

@@ -94,18 +94,18 @@ namespace Concesionaria
             TotalImporte = fun.TotalizarColumna(tResul, "Importe");
             TotalSaldo = fun.TotalizarColumna(tResul, "Saldo");
 
-            Valor = "1;" + "Total";
-            Valor = Valor + ";;;;";
+            Valor = "1;" + "Total;01/01/1900;";
+            Valor = Valor + ";";
             Valor = Valor + ";" + TotalImporte.ToString();
             Valor = Valor + ";" + TotalSaldo.ToString();
-            Valor = Valor + ";01/01/1900";
+            Valor = Valor + ";;";
             tResul = fun.AgregarFilas(tResul, Valor);
             tResul = fun.TablaaMiles(tResul, "Importe");
             tResul = fun.TablaaMiles(tResul, "Saldo");
 
             Grilla.DataSource = tResul;
             //Grilla.DataSource = dv;
-            fun.AnchoColumnas(Grilla, "0;0;0;25;30;10;10;10;10;5");
+            fun.AnchoColumnas(Grilla, "0;0;10;22;23;10;10;10;10;5");
             Pintar();
             /*
             Grilla.Columns["Apellido"].DisplayIndex = 1;
@@ -128,14 +128,14 @@ namespace Concesionaria
             DateTime FechaCompromiso = DateTime.Now;
             for (int i = 0; i < Grilla.Rows.Count - 1; i++)
             {
-                if (Grilla.Rows[i].Cells[8].Value.ToString ()!="")
+                if (Grilla.Rows[i].Cells[2].Value.ToString ()!="")
                 {
-                    FechaCompromiso = Convert.ToDateTime(Grilla.Rows[i].Cells[8].Value.ToString());
+                    FechaCompromiso = Convert.ToDateTime(Grilla.Rows[i].Cells[2].Value.ToString());
                 }
 
-                if (Grilla.Rows[i].Cells[7].Value.ToString() != "")
+                if (Grilla.Rows[i].Cells[6].Value.ToString() != "")
                 { 
-                    Saldo =fun.ToDouble(Grilla.Rows[i].Cells[7].Value.ToString());
+                    Saldo =fun.ToDouble(Grilla.Rows[i].Cells[6].Value.ToString());
                 }
 
                 if (FechaCompromiso < Fecha && Saldo >0)

@@ -489,7 +489,7 @@
             // 
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
             this.toolStripMenuItem12.Size = new System.Drawing.Size(228, 22);
-            this.toolStripMenuItem12.Text = "Deuda Cibranza";
+            this.toolStripMenuItem12.Text = "Deuda Cobranzas";
             this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
             // 
             // efectivosAPagarToolStripMenuItem
