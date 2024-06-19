@@ -176,15 +176,15 @@ namespace Concesionaria
             int Orden = 1;
             for (int i = 0; i < Grilla.Rows.Count - 1; i++)
             {
-                Cliente = Grilla.Rows[i].Cells[4].Value.ToString();
-                Descripcion = Grilla.Rows[i].Cells[3].Value.ToString();
+                Cliente = Grilla.Rows[i].Cells[3].Value.ToString();
+                Descripcion = Grilla.Rows[i].Cells[4].Value.ToString();
                 Patente = Grilla.Rows[i].Cells[2].Value.ToString();
-                Importe = Grilla.Rows[i].Cells[6].Value.ToString();
-                Saldo = Grilla.Rows[i].Cells[7].Value.ToString();
-                Vencimiento = Grilla.Rows[i].Cells[8].Value.ToString();
+                Importe = Grilla.Rows[i].Cells[5].Value.ToString();
+                Saldo = Grilla.Rows[i].Cells[6].Value.ToString();
+                Vencimiento = Grilla.Rows[i].Cells[2].Value.ToString();
                 if (Vencimiento.Length > 10)
                     Vencimiento = Vencimiento.Substring(0, 10);
-                Reporte.Insertar(Orden, Cliente, Descripcion, Patente, Importe, Saldo, Vencimiento, "",
+                Reporte.Insertar(Orden, Vencimiento, Cliente, Descripcion, Patente, Importe, Saldo,  "",
                     "", "", "");
             }
 
