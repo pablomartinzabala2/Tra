@@ -871,5 +871,11 @@ namespace Concesionaria
             FrmDeudaCobranzaGeneral frm = new FrmDeudaCobranzaGeneral();
             frm.Show();
         }
+
+        private void ButtonResumenDewuda_Click(object sender, EventArgs e)
+        {
+            FrmResumenDeuda frm = new FrmResumenDeuda();
+            frm.Show();
+        }
     }
 }

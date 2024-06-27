@@ -107,6 +107,9 @@
             this.resumenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
@@ -122,9 +125,7 @@
             this.BtnBorrarTablas = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.ButtonResumenDewuda = new System.Windows.Forms.ToolStripButton();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -370,7 +371,7 @@
             // 
             this.registrarCobranzasGeneralesToolStripMenuItem.Name = "registrarCobranzasGeneralesToolStripMenuItem";
             this.registrarCobranzasGeneralesToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
-            this.registrarCobranzasGeneralesToolStripMenuItem.Text = "Registrar cobranzas generales";
+            this.registrarCobranzasGeneralesToolStripMenuItem.Text = "Registrar Deuda";
             this.registrarCobranzasGeneralesToolStripMenuItem.Click += new System.EventHandler(this.registrarCobranzasGeneralesToolStripMenuItem_Click);
             // 
             // viewMenu
@@ -767,13 +768,30 @@
             this.toolStripButton2,
             this.BtnBorrarTablas,
             this.toolStripButton4,
-            this.toolStripButton6});
+            this.toolStripButton6,
+            this.ButtonResumenDewuda});
             this.toolStrip.Location = new System.Drawing.Point(0, 25);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(632, 39);
             this.toolStrip.Stretch = true;
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 431);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(632, 22);
+            this.statusStrip.TabIndex = 2;
+            this.statusStrip.Text = "StatusStrip";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
+            this.toolStripStatusLabel.Text = "Status";
             // 
             // newToolStripButton
             // 
@@ -930,21 +948,15 @@
             this.toolStripButton6.Text = "toolStripButton6";
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
-            // statusStrip
+            // ButtonResumenDewuda
             // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 431);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(632, 22);
-            this.statusStrip.TabIndex = 2;
-            this.statusStrip.Text = "StatusStrip";
-            // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
-            this.toolStripStatusLabel.Text = "Status";
+            this.ButtonResumenDewuda.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ButtonResumenDewuda.Image = ((System.Drawing.Image)(resources.GetObject("ButtonResumenDewuda.Image")));
+            this.ButtonResumenDewuda.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ButtonResumenDewuda.Name = "ButtonResumenDewuda";
+            this.ButtonResumenDewuda.Size = new System.Drawing.Size(36, 36);
+            this.ButtonResumenDewuda.Text = "Deuda Clientes";
+            this.ButtonResumenDewuda.Click += new System.EventHandler(this.ButtonResumenDewuda_Click);
             // 
             // Principal
             // 
@@ -1068,6 +1080,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuAperturaCierreCaja;
         private System.Windows.Forms.ToolStripMenuItem actualizarContraseñaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
+        private System.Windows.Forms.ToolStripButton ButtonResumenDewuda;
     }
 }
 

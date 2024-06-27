@@ -234,5 +234,24 @@ namespace Concesionaria.Clases
             cDb.ExecutarNonQuery(sql);
 
         }
+
+        public DataTable GetDeudaCliente(string Apellido)
+        {
+            string sql = "select Cli.CodCliente,Cli.Apellido,Cli.Nombre ";
+            sql = sql + " , sum(c.Saldo) as Saldo ,m.Nombre as Moneda";
+            sql = sql + " from CobranzaGeneral c, Cliente Cli , Moneda m ";
+            sql = sql + " where c.CodCliente = cli.CodCliente ";
+            sql = sql + " and c.CodMoneda = m.CodMoneda ";
+            sql = sql + " and c.Saldo > 0 ";
+            if (Apellido !="")
+            {
+                sql = sql + " and cli.Apellido like " + "'%" + Apellido + "%'";
+            }
+
+            sql = sql + " group by Cli.CodCliente,Cli.Apellido,Cli.Nombre ,m.Nombre";
+
+            sql = sql + " order by cli.CodCliente ";
+            return cDb.ExecuteDataTable(sql);
+        }
     }
 }
