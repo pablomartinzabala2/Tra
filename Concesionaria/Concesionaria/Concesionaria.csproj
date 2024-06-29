@@ -725,6 +725,12 @@
     <Compile Include="FrmReportedeEfectivoaPagar.Designer.cs">
       <DependentUpon>FrmReportedeEfectivoaPagar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReporteDeudaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteDeudaCliente.Designer.cs">
+      <DependentUpon>FrmReporteDeudaCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReporteEfectivoPagar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1300,6 +1306,9 @@
     <EmbeddedResource Include="FrmReportedeEfectivoaPagar.resx">
       <DependentUpon>FrmReportedeEfectivoaPagar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteDeudaCliente.resx">
+      <DependentUpon>FrmReporteDeudaCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteEfectivoPagar.resx">
       <DependentUpon>FrmReporteEfectivoPagar.cs</DependentUpon>
     </EmbeddedResource>
@@ -1464,6 +1473,7 @@
     <EmbeddedResource Include="Reportes\ReporteCaja.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteClientes.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteControlOperaciones.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteDeudaCliente.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteEfectivoPagar.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteGastosTransferencia.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePresupuesto.rdlc" />

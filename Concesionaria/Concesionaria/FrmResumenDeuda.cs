@@ -116,6 +116,7 @@ namespace Concesionaria
             string Pesos = "";
             string Dolares = "";
             cReporte reporte = new cReporte();
+            reporte.Borrar();
             for (int i = 0; i < Grilla.Rows.Count - 1; i++)
             {
                 Cliente = Grilla.Rows[i].Cells[1].Value.ToString();
@@ -126,6 +127,10 @@ namespace Concesionaria
                     Pesos, Dolares, txtTotalPesos.Text, txtTotalDolares.Text, "",
                     "", "", "");
             }
+
+            FrmReporteDeudaCliente frm = new FrmReporteDeudaCliente();
+            frm.Show();
+
         }
     }
 }
