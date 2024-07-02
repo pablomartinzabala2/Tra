@@ -179,21 +179,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="PARTE3">
+                    <Textbox Name="PARTE2">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!PARTE3.Value</Value>
+                              <Value>=Fields!PARTE2.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>PARTE3</rd:DefaultName>
+                      <rd:DefaultName>PARTE2</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -205,6 +205,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -293,7 +294,7 @@
         <Top>3.22474cm</Top>
         <Left>0.56598cm</Left>
         <Height>1.2cm</Height>
-        <Width>15.63562cm</Width>
+        <Width>15.63563cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
