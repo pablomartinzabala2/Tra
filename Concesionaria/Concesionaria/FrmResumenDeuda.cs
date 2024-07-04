@@ -18,7 +18,7 @@ namespace Concesionaria
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-           
+            
             cCobranzaGeneral cob = new Clases.cCobranzaGeneral();
             string Apellido = "";
             if (txtApellido.Text != "")
@@ -131,6 +131,48 @@ namespace Concesionaria
             FrmReporteDeudaCliente frm = new FrmReporteDeudaCliente();
             frm.Show();
 
+        }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow ==null)
+            {
+                MessageBox.Show("Debe seleccionar un cliente", "Sistema");
+                return;
+            }
+
+            cFunciones fun = new cFunciones();
+            Int32 CodCliente = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
+            DateTime FechaHoy = DateTime.Now;
+            cCobranzaGeneral cob = new cCobranzaGeneral();
+            DataTable trdo = cob.GetDedudaCobranzaGeneralDetalladaxCodCliente("", "",FechaHoy  ,"", null, null, CodCliente);
+            cReporte reporte = new cReporte();
+            reporte.Borrar();
+            int orden = 1;
+            string Vencimiento = "";
+            string Descripcion = "";
+            string Cliente = "";
+            string Saldo = "";
+            string Moneda = "";
+            string Importe = "";
+            trdo = fun.TablaaMiles(trdo, "Importe");
+            trdo = fun.TablaaMiles(trdo, "Saldo");
+            for (int i = 0; i < trdo.Rows.Count ; i++)
+            {
+                Cliente = trdo.Rows[i]["Cliente"].ToString();
+                Descripcion = trdo.Rows[i]["Descripcion"].ToString();
+                Vencimiento = trdo.Rows[i]["FechaCompromiso"].ToString();
+                if (Vencimiento.Length > 8)
+                    Vencimiento = Vencimiento.Substring(0, 10);
+                Importe = trdo.Rows[i]["Importe"].ToString();
+                Saldo = trdo.Rows[i]["Saldo"].ToString();
+               
+                Moneda = trdo.Rows[i]["Moneda"].ToString();
+                reporte.Insertar(orden, Cliente, Vencimiento, Descripcion, Importe, Saldo, Moneda, "", "", "", "");
+                orden++;
+            }
+            FrmDetalleDeudaxCliente frm = new FrmDetalleDeudaxCliente();
+            frm.Show();
         }
     }
 }

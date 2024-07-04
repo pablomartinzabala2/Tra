@@ -253,5 +253,69 @@ namespace Concesionaria.Clases
             sql = sql + " order by  c.Cliente   ";
             return cDb.ExecuteDataTable(sql);
         }
+
+        public DataTable GetDedudaCobranzaGeneralDetalladaxCodCliente(string Apellido, string Patente, DateTime FechaVencimiento,
+           string Descripcion, Int32? CodMoneda, Int32? OrdenSaldo, Int32? CodCliente)
+        {
+            int b = 0;
+            string sql = "select c.CodCobranza, 'Cobranza General',c.FechaCompromiso ,c.Cliente,c.Descripcion ,c.Importe ,c.Saldo , c.Patente  ";
+            sql = sql + "  , c.Telefono  ";
+
+            sql = sql + " ,(select m.Nombre from Moneda m where m.CodMoneda = c.CodMoneda) as Moneda ";
+            sql = sql + " from CobranzaGeneral c  ";
+            sql = sql + " where Saldo >0 and FechaCompromiso is not null  ";
+            //  sql = sql + " and FechaCompromiso <" + "'" + FechaVencimiento.ToShortDateString() + "'";
+            if (Apellido != "")
+            {
+                sql = sql + " and Cliente like " + "'%" + Apellido + "%'";
+
+                b = 1;
+            }
+
+            if (Patente != "")
+            {
+                if (b == 0)
+                {
+                    sql = sql + " and Patente like " + "'%" + Patente + "%'";
+
+                }
+                else
+                {
+                    sql = sql + " and Patente like " + "'%" + Patente + "%'";
+                }
+            }
+
+            if (Descripcion != "")
+            {
+                sql = sql + " and Descripcion like " + "'%" + Descripcion + "%'";
+            }
+
+            if (CodCliente != null)
+            {
+                sql = sql + " and c.CodCliente = " + CodCliente.ToString();
+            }
+
+            if (CodMoneda != null)
+            {
+                sql = sql + " and CodMoneda =" + CodMoneda.ToString();
+            }
+            if (OrdenSaldo == null)
+                sql = sql + " order by FechaCompromiso asc, Cliente ";
+
+           
+
+            if (OrdenSaldo != null)
+            {
+                int Orden = Convert.ToInt32(OrdenSaldo);
+                if (Orden == 1)
+                    sql = sql + " order by Saldo asc, Cliente ";
+
+                if (Orden == 2)
+                    sql = sql + " order by Saldo desc, Cliente ";
+
+            }
+
+            return cDb.ExecuteDataTable(sql);
+        }
     }
 }

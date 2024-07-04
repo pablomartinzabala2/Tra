@@ -29,22 +29,24 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtTotalPesos = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtTotalDolares = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTotalDolares = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtTotalPesos = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnDetalle = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnDetalle);
             this.groupBox1.Controls.Add(this.btnImprimir);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtTotalPesos);
@@ -62,6 +64,59 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Deudas de Clientes";
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(355, 32);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(75, 23);
+            this.btnImprimir.TabIndex = 9;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(361, 466);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 17);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Totales";
+            // 
+            // txtTotalPesos
+            // 
+            this.txtTotalPesos.Location = new System.Drawing.Point(495, 466);
+            this.txtTotalPesos.Name = "txtTotalPesos";
+            this.txtTotalPesos.ReadOnly = true;
+            this.txtTotalPesos.Size = new System.Drawing.Size(132, 23);
+            this.txtTotalPesos.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(438, 466);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 17);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Pesos";
+            // 
+            // txtTotalDolares
+            // 
+            this.txtTotalDolares.Location = new System.Drawing.Point(690, 466);
+            this.txtTotalDolares.Name = "txtTotalDolares";
+            this.txtTotalDolares.ReadOnly = true;
+            this.txtTotalDolares.Size = new System.Drawing.Size(132, 23);
+            this.txtTotalDolares.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(633, 466);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 17);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Dolares";
             // 
             // btnBuscar
             // 
@@ -98,58 +153,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Cliente";
             // 
-            // txtTotalDolares
+            // btnDetalle
             // 
-            this.txtTotalDolares.Location = new System.Drawing.Point(690, 466);
-            this.txtTotalDolares.Name = "txtTotalDolares";
-            this.txtTotalDolares.ReadOnly = true;
-            this.txtTotalDolares.Size = new System.Drawing.Size(132, 23);
-            this.txtTotalDolares.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(633, 466);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Dolares";
-            // 
-            // txtTotalPesos
-            // 
-            this.txtTotalPesos.Location = new System.Drawing.Point(495, 466);
-            this.txtTotalPesos.Name = "txtTotalPesos";
-            this.txtTotalPesos.ReadOnly = true;
-            this.txtTotalPesos.Size = new System.Drawing.Size(132, 23);
-            this.txtTotalPesos.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(438, 466);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 17);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Pesos";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(361, 466);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Totales";
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Location = new System.Drawing.Point(355, 32);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(75, 23);
-            this.btnImprimir.TabIndex = 9;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            this.btnDetalle.Location = new System.Drawing.Point(436, 32);
+            this.btnDetalle.Name = "btnDetalle";
+            this.btnDetalle.Size = new System.Drawing.Size(75, 23);
+            this.btnDetalle.TabIndex = 10;
+            this.btnDetalle.Text = "Detalle";
+            this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
             // FrmResumenDeuda
             // 
@@ -183,5 +195,6 @@
         private System.Windows.Forms.TextBox txtTotalDolares;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnDetalle;
     }
 }
