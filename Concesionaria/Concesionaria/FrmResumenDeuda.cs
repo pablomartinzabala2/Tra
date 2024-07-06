@@ -142,11 +142,18 @@ namespace Concesionaria
             }
 
             cFunciones fun = new cFunciones();
+            Double SaldoPesos = 0;
+            Double SaldoDolares = 0;
+            string TextoSaldos = "";
             Int32 CodCliente = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
             DateTime FechaHoy = DateTime.Now;
             cCobranzaGeneral cob = new cCobranzaGeneral();
             DataTable trdo = cob.GetDedudaCobranzaGeneralDetalladaxCodCliente("", "",FechaHoy  ,"", null, null, CodCliente);
+            SaldoPesos = GetTotalxMoneda(trdo, "Pesos");
+            SaldoDolares = GetTotalxMoneda(trdo, "Dolares");
             cReporte reporte = new cReporte();
+            //obtiene la leyenda de cuanto debe
+            TextoSaldos = LeyendaSaldo(SaldoPesos, SaldoDolares);
             reporte.Borrar();
             int orden = 1;
             string Vencimiento = "";
@@ -166,13 +173,47 @@ namespace Concesionaria
                     Vencimiento = Vencimiento.Substring(0, 10);
                 Importe = trdo.Rows[i]["Importe"].ToString();
                 Saldo = trdo.Rows[i]["Saldo"].ToString();
-               
+                //parte 8 tiene la leyenda de los saldos
                 Moneda = trdo.Rows[i]["Moneda"].ToString();
-                reporte.Insertar(orden, Cliente, Vencimiento, Descripcion, Importe, Saldo, Moneda, "", "", "", "");
+                reporte.Insertar(orden, Cliente, Vencimiento, Descripcion, Importe, Saldo, Moneda, TextoSaldos, "", "", "");
                 orden++;
             }
             FrmDetalleDeudaxCliente frm = new FrmDetalleDeudaxCliente();
             frm.Show();
+        }
+
+        public Double GetTotalxMoneda(DataTable trdo , string Moneda)
+        {
+            Double Saldo = 0;
+            for (int i = 0; i < trdo.Rows.Count ; i++)
+            {
+                if (trdo.Rows[i]["Moneda"].ToString ()== Moneda)
+                {
+                    Saldo = Saldo + Convert.ToDouble(trdo.Rows[i]["Saldo"]);
+                }
+            }
+            return Saldo;
+        }
+
+        public string LeyendaSaldo(Double Pesos, Double Dolares)
+        {
+            cFunciones fun = new Clases.cFunciones();
+            string Texto = "Saldo Total ";
+            string sPesos = "";
+            string sDolares = "";
+            if (Pesos >0)
+            {
+                sPesos = fun.FormatoEnteroMiles(Pesos.ToString());
+                Texto = Texto + " Pesos: " + sPesos;
+            }
+
+            if (Dolares > 0)
+            {
+                sDolares = fun.FormatoEnteroMiles(Dolares.ToString());
+                Texto = Texto + " Dolares: " + sDolares;
+            }
+
+            return Texto;
         }
     }
 }
