@@ -84,7 +84,7 @@ namespace Concesionaria.Clases
 
         public DataTable GetRecibos(DateTime FechaDesde,DateTime FechaHasta, string Nombre)
         {
-            string sql = " select r.CodRecibo,c.Apellido ,c.Nombre ";
+            string sql = " select r.CodRecibo,c.Apellido ,(c.Nombre + ' ' + c.Apellido) as Nombre ";
             sql = sql + " ,r.Fecha,r.Concepto, r.Total,NroRecibo ";
             sql = sql + ", (select ve.Nombre from Vendedor ve where ve.CodVendedor =r.CodEmpleado) as Empleado";
             sql = sql + " from recibo r , cliente c ";
@@ -93,7 +93,8 @@ namespace Concesionaria.Clases
             sql = sql + " and r.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
             if (Nombre !="")
             {
-                sql = sql + " and c.Nombre like " + "'%" + Nombre + "%'";
+                // sql = sql + " and c.Nombre like " + "'%" + Nombre + "%'";
+                sql = sql + " and (c.Nombre + ' ' + c.Apellido )  like " + "'%" + Nombre + "%'";
             }
             sql = sql + " order by r.CodRecibo desc";
             DataTable trdo = cDb.ExecuteDataTable(sql);

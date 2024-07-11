@@ -25,7 +25,7 @@ namespace Concesionaria.Clases
             string Numero, string Nombre, int Vencidas)
         {
             string sql = "select c.CodCheque, c.NroCheque,";
-            sql = sql + "(select cli.Nombre from Cliente cli where cli.CodCliente =c.CodCliente) as Nombre ";
+            sql = sql + "(select (cli.Nombre + ' ' + cli.Apellido)  from Cliente cli where cli.CodCliente =c.CodCliente) as Nombre ";
             sql = sql + ",(select cli.Apellido from Cliente cli where cli.CodCliente =c.CodCliente) as Apellido";
             sql = sql + ",(select bb.Nombre from Banco bb where bb.CodBanco =c.CodBanco) as Banco ";
             sql = sql + ",c.Fecha,c.Importe,c.Saldo, c.FechaPago,";
@@ -71,7 +71,7 @@ namespace Concesionaria.Clases
                 if (Numero != "")
                     sql = sql + " and c.NroCheque like " + "'%" + Numero + "%'";
                 if (Nombre !="")
-                    sql = sql + " and cli.Nombre like " + "'%" + Nombre + "%'";
+                    sql = sql + " and (cli.Nombre + ' ' + cli.Apellido) like " + "'%" + Nombre + "%'";
 
                 if (Vencidas == 1)
                 {

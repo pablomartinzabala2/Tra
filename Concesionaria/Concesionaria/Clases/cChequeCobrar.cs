@@ -47,7 +47,7 @@ namespace Concesionaria.Clases
             string sql = "select c.CodCheque,c.Fecha,c.NumeroCheque,";
             sql = sql + "(select b.Nombre from Banco b where b.CodBanco = c.CodBanco) as Banco";
             sql = sql + ",c.Importe,c.FechaPago";
-            sql = sql + ",C.Apellido,c.Nombre,c.Telefono,c.EntregadoA,c.Vencimiento ";
+            sql = sql + ",C.Apellido,(c.Nombre + ' ' + c.Apellido) as Nombre ,c.Telefono,c.EntregadoA,c.Vencimiento ";
             sql = sql + " from chequecobrar c";
             sql = sql + " where c.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and c.Fecha<=" + "'" + FechaHasta.ToShortDateString() + "'";
@@ -55,7 +55,8 @@ namespace Concesionaria.Clases
                 sql = sql + " and c.FechaPago is null";
             if (Apellido !="")
             {
-                sql = sql + " and c.Apellido like " + "'%" + Apellido +"%'";
+               // sql = sql + " and c.Apellido like " + "'%" + Apellido +"%'";
+                sql = sql + " and (c.Nombre + ' ' + c.Apellido) like " + "'%" + Apellido + "%'";
             }
 
             if (NumeroCheque != "")

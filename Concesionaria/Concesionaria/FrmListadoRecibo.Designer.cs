@@ -145,9 +145,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(399, 34);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 17);
+            this.label3.Size = new System.Drawing.Size(51, 17);
             this.label3.TabIndex = 49;
-            this.label3.Text = "Nombre";
+            this.label3.Text = "Cliente";
             // 
             // Grilla
             // 

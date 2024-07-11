@@ -90,7 +90,7 @@
             // txtNombre
             // 
             this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNombre.Location = new System.Drawing.Point(599, 30);
+            this.txtNombre.Location = new System.Drawing.Point(599, 35);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(127, 23);
             this.txtNombre.TabIndex = 79;

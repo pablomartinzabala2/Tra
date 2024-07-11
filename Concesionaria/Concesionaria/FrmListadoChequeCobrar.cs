@@ -59,6 +59,9 @@ namespace Concesionaria
             Grilla.Columns[3].Width = 200;
             Grilla.Columns[5].Width = 120;
             Grilla.Columns[9].Width = 160;
+            Grilla.Columns[6].Width = 0;
+            Grilla.Columns[7].Width = 190;
+            Grilla.Columns[7].HeaderText = "Cliente"; 
             PintarVencidos();
             txtTotal.Text = fun.FormatoEnteroMiles(Total.ToString());
         }
