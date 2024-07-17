@@ -29,22 +29,30 @@
         private void InitializeComponent()
         {
             this.Grupo = new System.Windows.Forms.GroupBox();
-            this.lblVencidas = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnImprimirReporte = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Label();
+            this.btnCobrar = new System.Windows.Forms.Button();
             this.GrillaDeuda = new System.Windows.Forms.DataGridView();
             this.Cobrar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnCobrar = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Label();
+            this.lblVencidas = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnCalcularSaldo = new System.Windows.Forms.Button();
+            this.lblMoneda = new System.Windows.Forms.Label();
+            this.txtSaldo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtImporte = new System.Windows.Forms.TextBox();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaDeuda)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.txtImporte);
+            this.Grupo.Controls.Add(this.label1);
+            this.Grupo.Controls.Add(this.txtSaldo);
+            this.Grupo.Controls.Add(this.lblMoneda);
+            this.Grupo.Controls.Add(this.btnCalcularSaldo);
             this.Grupo.Controls.Add(this.btnCobrar);
             this.Grupo.Controls.Add(this.GrillaDeuda);
-            this.Grupo.Controls.Add(this.btnImprimirReporte);
             this.Grupo.Controls.Add(this.btnImprimir);
             this.Grupo.Controls.Add(this.lblVencidas);
             this.Grupo.Controls.Add(this.label2);
@@ -54,6 +62,41 @@
             this.Grupo.Size = new System.Drawing.Size(973, 485);
             this.Grupo.TabIndex = 62;
             this.Grupo.TabStop = false;
+            // 
+            // btnCobrar
+            // 
+            this.btnCobrar.Location = new System.Drawing.Point(559, 10);
+            this.btnCobrar.Name = "btnCobrar";
+            this.btnCobrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCobrar.TabIndex = 74;
+            this.btnCobrar.Text = "Cobrar";
+            this.btnCobrar.UseVisualStyleBackColor = true;
+            this.btnCobrar.Click += new System.EventHandler(this.btnCobrar_Click);
+            // 
+            // GrillaDeuda
+            // 
+            this.GrillaDeuda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaDeuda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Cobrar});
+            this.GrillaDeuda.Location = new System.Drawing.Point(0, 70);
+            this.GrillaDeuda.Name = "GrillaDeuda";
+            this.GrillaDeuda.Size = new System.Drawing.Size(961, 409);
+            this.GrillaDeuda.TabIndex = 73;
+            this.GrillaDeuda.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaDeuda_CellClick);
+            // 
+            // Cobrar
+            // 
+            this.Cobrar.HeaderText = "Cobrar";
+            this.Cobrar.Name = "Cobrar";
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.AutoSize = true;
+            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer;
+            this.btnImprimir.Location = new System.Drawing.Point(1028, 10);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(0, 17);
+            this.btnImprimir.TabIndex = 71;
             // 
             // lblVencidas
             // 
@@ -75,48 +118,49 @@
             this.label2.Text = "Listado de Deuda por Cliente";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnImprimirReporte
+            // btnCalcularSaldo
             // 
-            this.btnImprimirReporte.Image = global::Concesionaria.Properties.Resources.printer1;
-            this.btnImprimirReporte.Location = new System.Drawing.Point(322, 13);
-            this.btnImprimirReporte.Name = "btnImprimirReporte";
-            this.btnImprimirReporte.Size = new System.Drawing.Size(40, 26);
-            this.btnImprimirReporte.TabIndex = 72;
-            this.btnImprimirReporte.UseVisualStyleBackColor = true;
+            this.btnCalcularSaldo.Location = new System.Drawing.Point(0, 10);
+            this.btnCalcularSaldo.Name = "btnCalcularSaldo";
+            this.btnCalcularSaldo.Size = new System.Drawing.Size(125, 23);
+            this.btnCalcularSaldo.TabIndex = 75;
+            this.btnCalcularSaldo.Text = "Calcular Saldo";
+            this.btnCalcularSaldo.UseVisualStyleBackColor = true;
+            this.btnCalcularSaldo.Click += new System.EventHandler(this.btnCalcularSaldo_Click);
             // 
-            // btnImprimir
+            // lblMoneda
             // 
-            this.btnImprimir.AutoSize = true;
-            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer;
-            this.btnImprimir.Location = new System.Drawing.Point(1028, 10);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(0, 17);
-            this.btnImprimir.TabIndex = 71;
+            this.lblMoneda.AutoSize = true;
+            this.lblMoneda.Location = new System.Drawing.Point(131, 13);
+            this.lblMoneda.Name = "lblMoneda";
+            this.lblMoneda.Size = new System.Drawing.Size(38, 17);
+            this.lblMoneda.TabIndex = 76;
+            this.lblMoneda.Text = "xxxxx";
             // 
-            // GrillaDeuda
+            // txtSaldo
             // 
-            this.GrillaDeuda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GrillaDeuda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Cobrar});
-            this.GrillaDeuda.Location = new System.Drawing.Point(0, 70);
-            this.GrillaDeuda.Name = "GrillaDeuda";
-            this.GrillaDeuda.Size = new System.Drawing.Size(961, 409);
-            this.GrillaDeuda.TabIndex = 73;
+            this.txtSaldo.Location = new System.Drawing.Point(175, 10);
+            this.txtSaldo.Name = "txtSaldo";
+            this.txtSaldo.ReadOnly = true;
+            this.txtSaldo.Size = new System.Drawing.Size(117, 23);
+            this.txtSaldo.TabIndex = 77;
             // 
-            // Cobrar
+            // label1
             // 
-            this.Cobrar.HeaderText = "Cobrar";
-            this.Cobrar.Name = "Cobrar";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(298, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 17);
+            this.label1.TabIndex = 78;
+            this.label1.Text = "Ingresar Importe";
             // 
-            // btnCobrar
+            // txtImporte
             // 
-            this.btnCobrar.Location = new System.Drawing.Point(43, 13);
-            this.btnCobrar.Name = "btnCobrar";
-            this.btnCobrar.Size = new System.Drawing.Size(75, 23);
-            this.btnCobrar.TabIndex = 74;
-            this.btnCobrar.Text = "Cobrar";
-            this.btnCobrar.UseVisualStyleBackColor = true;
-            this.btnCobrar.Click += new System.EventHandler(this.btnCobrar_Click);
+            this.txtImporte.Location = new System.Drawing.Point(415, 10);
+            this.txtImporte.Name = "txtImporte";
+            this.txtImporte.Size = new System.Drawing.Size(138, 23);
+            this.txtImporte.TabIndex = 79;
+            this.txtImporte.Leave += new System.EventHandler(this.txtImporte_Leave);
             // 
             // FrmListadoDeudaCoibranzaxCliente
             // 
@@ -137,12 +181,16 @@
         #endregion
 
         private System.Windows.Forms.GroupBox Grupo;
-        private System.Windows.Forms.Button btnImprimirReporte;
         private System.Windows.Forms.Label btnImprimir;
         private System.Windows.Forms.Label lblVencidas;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView GrillaDeuda;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Cobrar;
         private System.Windows.Forms.Button btnCobrar;
+        private System.Windows.Forms.TextBox txtSaldo;
+        private System.Windows.Forms.Label lblMoneda;
+        private System.Windows.Forms.Button btnCalcularSaldo;
+        private System.Windows.Forms.TextBox txtImporte;
+        private System.Windows.Forms.Label label1;
     }
 }
