@@ -629,6 +629,12 @@
     <Compile Include="FrmListadoCuentasProveedor.Designer.cs">
       <DependentUpon>FrmListadoCuentasProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoDeudaCoibranzaxCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoDeudaCoibranzaxCliente.Designer.cs">
+      <DependentUpon>FrmListadoDeudaCoibranzaxCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoDeudaProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1263,6 +1269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoCuentasProveedor.resx">
       <DependentUpon>FrmListadoCuentasProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoDeudaCoibranzaxCliente.resx">
+      <DependentUpon>FrmListadoDeudaCoibranzaxCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoDeudaProveedor.resx">
       <DependentUpon>FrmListadoDeudaProveedor.cs</DependentUpon>

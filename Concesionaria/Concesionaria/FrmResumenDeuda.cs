@@ -215,5 +215,23 @@ namespace Concesionaria
 
             return Texto;
         }
+
+        private void btnCobrar_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow ==null)
+            {
+                MessageBox.Show("Debe seleccionar un cliente");
+                return;
+            }
+            Int32 CodCliente = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
+            Principal.CodCliente = CodCliente;
+            FrmListadoDeudaCoibranzaxCliente form = new FrmListadoDeudaCoibranzaxCliente();
+            form.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

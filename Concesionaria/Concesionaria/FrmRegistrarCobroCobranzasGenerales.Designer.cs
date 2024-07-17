@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCodCliente = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtFechaCobro = new System.Windows.Forms.MaskedTextBox();
@@ -52,7 +53,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtImporte = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCodCliente = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,10 +85,20 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(520, 403);
+            this.groupBox1.Size = new System.Drawing.Size(520, 427);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registrar efectivo";
+            // 
+            // txtCodCliente
+            // 
+            this.txtCodCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.txtCodCliente.Location = new System.Drawing.Point(333, 29);
+            this.txtCodCliente.Name = "txtCodCliente";
+            this.txtCodCliente.ReadOnly = true;
+            this.txtCodCliente.Size = new System.Drawing.Size(74, 23);
+            this.txtCodCliente.TabIndex = 69;
+            this.txtCodCliente.Visible = false;
             // 
             // button1
             // 
@@ -103,7 +113,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(43, 173);
+            this.label8.Location = new System.Drawing.Point(34, 173);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(87, 17);
             this.label8.TabIndex = 67;
@@ -131,7 +141,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(43, 147);
+            this.label7.Location = new System.Drawing.Point(34, 147);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 17);
             this.label7.TabIndex = 64;
@@ -167,7 +177,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(38, 121);
+            this.label6.Location = new System.Drawing.Point(34, 118);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 17);
             this.label6.TabIndex = 33;
@@ -221,7 +231,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 337);
+            this.label5.Location = new System.Drawing.Point(34, 337);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 17);
             this.label5.TabIndex = 27;
@@ -230,7 +240,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 86);
+            this.label4.Location = new System.Drawing.Point(38, 89);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 17);
             this.label4.TabIndex = 26;
@@ -256,7 +266,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 207);
+            this.label3.Location = new System.Drawing.Point(38, 207);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 17);
             this.label3.TabIndex = 23;
@@ -296,16 +306,6 @@
             this.label1.Size = new System.Drawing.Size(51, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = " Monto";
-            // 
-            // txtCodCliente
-            // 
-            this.txtCodCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.txtCodCliente.Location = new System.Drawing.Point(333, 29);
-            this.txtCodCliente.Name = "txtCodCliente";
-            this.txtCodCliente.ReadOnly = true;
-            this.txtCodCliente.Size = new System.Drawing.Size(74, 23);
-            this.txtCodCliente.TabIndex = 69;
-            this.txtCodCliente.Visible = false;
             // 
             // FrmRegistrarCobroCobranzasGenerales
             // 

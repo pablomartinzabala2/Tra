@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDetalle = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTotalPesos = new System.Windows.Forms.TextBox();
@@ -39,13 +40,14 @@
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnDetalle = new System.Windows.Forms.Button();
+            this.btnCobrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnCobrar);
             this.groupBox1.Controls.Add(this.btnDetalle);
             this.groupBox1.Controls.Add(this.btnImprimir);
             this.groupBox1.Controls.Add(this.label4);
@@ -64,6 +66,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Deudas de Clientes";
+            // 
+            // btnDetalle
+            // 
+            this.btnDetalle.Location = new System.Drawing.Point(436, 32);
+            this.btnDetalle.Name = "btnDetalle";
+            this.btnDetalle.Size = new System.Drawing.Size(75, 23);
+            this.btnDetalle.TabIndex = 10;
+            this.btnDetalle.Text = "Detalle";
+            this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
             // btnImprimir
             // 
@@ -153,15 +165,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Cliente";
             // 
-            // btnDetalle
+            // btnCobrar
             // 
-            this.btnDetalle.Location = new System.Drawing.Point(436, 32);
-            this.btnDetalle.Name = "btnDetalle";
-            this.btnDetalle.Size = new System.Drawing.Size(75, 23);
-            this.btnDetalle.TabIndex = 10;
-            this.btnDetalle.Text = "Detalle";
-            this.btnDetalle.UseVisualStyleBackColor = true;
-            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
+            this.btnCobrar.Location = new System.Drawing.Point(517, 29);
+            this.btnCobrar.Name = "btnCobrar";
+            this.btnCobrar.Size = new System.Drawing.Size(74, 23);
+            this.btnCobrar.TabIndex = 12;
+            this.btnCobrar.Text = "Cobrar";
+            this.btnCobrar.UseVisualStyleBackColor = true;
+            this.btnCobrar.Click += new System.EventHandler(this.btnCobrar_Click);
             // 
             // FrmResumenDeuda
             // 
@@ -196,5 +208,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnDetalle;
+        private System.Windows.Forms.Button btnCobrar;
     }
 }

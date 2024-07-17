@@ -317,5 +317,20 @@ namespace Concesionaria.Clases
 
             return cDb.ExecuteDataTable(sql);
         }
+
+        public DataTable GetDedudaCobranzaGeneralxCodCliente(Int32 CodCliente)
+        {
+            string sql = "select c.CodCobranza, 'Cobranza General',c.FechaCompromiso ,c.Cliente,c.Descripcion ,c.Importe ,c.Saldo , c.Patente  ";
+            sql = sql + "  , c.Telefono  ";
+
+            sql = sql + " ,(select m.Nombre from Moneda m where m.CodMoneda = c.CodMoneda) as Moneda ";
+            sql = sql + " from CobranzaGeneral c  ";
+            sql = sql + " ";
+            sql = sql + " where Saldo >0 and FechaCompromiso is not null  ";
+            sql = sql + " and CodCliente =" + CodCliente.ToString();
+            //  sql = sql + " and FechaCompromiso <" + "'" + FechaVencimiento.ToShortDateString() + "'";
+          
+            return cDb.ExecuteDataTable(sql);
+        }
     }
 }

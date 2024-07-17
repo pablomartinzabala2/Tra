@@ -209,7 +209,16 @@ namespace Concesionaria
             mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, Importe, 0, 0, 0, 0, Fecha, Descripción);
             Mensaje("Datos grabados correctamente ");
             GetCobranzas(CodCobranza);
-            
+            if (txtCodCliente.Text != "")
+            {
+                Double? ImportePagado = fun.ToDouble(txtMontoaPagar.Text);
+                Principal.CodCliente = Convert.ToInt32(txtCodCliente.Text);
+                Principal.Importe = ImportePagado;
+                FrmRecibo rec = new FrmRecibo();
+                rec.ShowDialog();
+                Principal.CodCliente = null;
+
+            }
 
         }
 
