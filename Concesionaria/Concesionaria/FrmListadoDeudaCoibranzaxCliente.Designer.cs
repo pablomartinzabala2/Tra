@@ -30,25 +30,28 @@
         {
             this.Grupo = new System.Windows.Forms.GroupBox();
             this.lblVencidas = new System.Windows.Forms.Label();
-            this.Grilla = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.btnImprimirReporte = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Label();
+            this.GrillaDeuda = new System.Windows.Forms.DataGridView();
+            this.Cobrar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnCobrar = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaDeuda)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.btnCobrar);
+            this.Grupo.Controls.Add(this.GrillaDeuda);
             this.Grupo.Controls.Add(this.btnImprimirReporte);
             this.Grupo.Controls.Add(this.btnImprimir);
             this.Grupo.Controls.Add(this.lblVencidas);
-            this.Grupo.Controls.Add(this.Grilla);
             this.Grupo.Controls.Add(this.label2);
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(12, 12);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(1013, 485);
+            this.Grupo.Size = new System.Drawing.Size(973, 485);
             this.Grupo.TabIndex = 62;
             this.Grupo.TabStop = false;
             // 
@@ -61,25 +64,15 @@
             this.lblVencidas.TabIndex = 64;
             this.lblVencidas.Text = "Vencidas";
             // 
-            // Grilla
-            // 
-            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(-173, 70);
-            this.Grilla.Name = "Grilla";
-            this.Grilla.ReadOnly = true;
-            this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(1177, 404);
-            this.Grilla.TabIndex = 52;
-            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Silver;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Location = new System.Drawing.Point(0, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1004, 25);
+            this.label2.Size = new System.Drawing.Size(961, 25);
             this.label2.TabIndex = 59;
-            this.label2.Text = "Control de operaciones";
+            this.label2.Text = "Listado de Deuda por Cliente";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnImprimirReporte
@@ -100,18 +93,43 @@
             this.btnImprimir.Size = new System.Drawing.Size(0, 17);
             this.btnImprimir.TabIndex = 71;
             // 
+            // GrillaDeuda
+            // 
+            this.GrillaDeuda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaDeuda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Cobrar});
+            this.GrillaDeuda.Location = new System.Drawing.Point(0, 70);
+            this.GrillaDeuda.Name = "GrillaDeuda";
+            this.GrillaDeuda.Size = new System.Drawing.Size(961, 409);
+            this.GrillaDeuda.TabIndex = 73;
+            // 
+            // Cobrar
+            // 
+            this.Cobrar.HeaderText = "Cobrar";
+            this.Cobrar.Name = "Cobrar";
+            // 
+            // btnCobrar
+            // 
+            this.btnCobrar.Location = new System.Drawing.Point(43, 13);
+            this.btnCobrar.Name = "btnCobrar";
+            this.btnCobrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCobrar.TabIndex = 74;
+            this.btnCobrar.Text = "Cobrar";
+            this.btnCobrar.UseVisualStyleBackColor = true;
+            this.btnCobrar.Click += new System.EventHandler(this.btnCobrar_Click);
+            // 
             // FrmListadoDeudaCoibranzaxCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1027, 509);
+            this.ClientSize = new System.Drawing.Size(988, 509);
             this.Controls.Add(this.Grupo);
             this.Name = "FrmListadoDeudaCoibranzaxCliente";
             this.Text = "FrmListadoDeudaCoibranzaxCliente";
             this.Load += new System.EventHandler(this.FrmListadoDeudaCoibranzaxCliente_Load);
             this.Grupo.ResumeLayout(false);
             this.Grupo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaDeuda)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -122,7 +140,9 @@
         private System.Windows.Forms.Button btnImprimirReporte;
         private System.Windows.Forms.Label btnImprimir;
         private System.Windows.Forms.Label lblVencidas;
-        private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView GrillaDeuda;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Cobrar;
+        private System.Windows.Forms.Button btnCobrar;
     }
 }

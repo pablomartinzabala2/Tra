@@ -30,8 +30,23 @@ namespace Concesionaria
             cFunciones fun = new cFunciones();
             cCobranzaGeneral cob = new cCobranzaGeneral();
             DataTable trdo = cob.GetDedudaCobranzaGeneralxCodCliente(CodCliente);
-            Grilla.DataSource = trdo;
-            fun.AnchoColumnas(Grilla, "0;0;10;22;23;10;10;10;10;5");
+            trdo = fun.TablaaMiles(trdo, "Importe");
+            trdo = fun.TablaaMiles(trdo, "Saldo");
+            GrillaDeuda.DataSource = trdo;
+            GrillaDeuda.Columns[1].Visible = false;
+            GrillaDeuda.Columns[2].Visible = false;
+        }
+
+        private void btnCobrar_Click(object sender, EventArgs e)
+        {
+            string Codigo = "";
+            foreach (DataGridViewRow r in GrillaDeuda.Rows)
+            {
+                if (Convert.ToBoolean (r.Cells["Cobrar"].Value)==true)
+                {
+                    Codigo = r.Cells[1].Value.ToString(); 
+                }
+            }
         }
     }
 }
