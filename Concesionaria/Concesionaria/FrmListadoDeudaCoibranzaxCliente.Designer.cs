@@ -133,9 +133,9 @@
             this.lblMoneda.AutoSize = true;
             this.lblMoneda.Location = new System.Drawing.Point(131, 13);
             this.lblMoneda.Name = "lblMoneda";
-            this.lblMoneda.Size = new System.Drawing.Size(38, 17);
+            this.lblMoneda.Size = new System.Drawing.Size(59, 17);
             this.lblMoneda.TabIndex = 76;
-            this.lblMoneda.Text = "xxxxx";
+            this.lblMoneda.Text = "Moneda";
             // 
             // txtSaldo
             // 
@@ -166,10 +166,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(988, 509);
             this.Controls.Add(this.Grupo);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmListadoDeudaCoibranzaxCliente";
-            this.Text = "FrmListadoDeudaCoibranzaxCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Formulario de cobro de deudas";
             this.Load += new System.EventHandler(this.FrmListadoDeudaCoibranzaxCliente_Load);
             this.Grupo.ResumeLayout(false);
             this.Grupo.PerformLayout();

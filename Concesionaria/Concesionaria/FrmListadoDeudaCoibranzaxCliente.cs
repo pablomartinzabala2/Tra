@@ -39,16 +39,79 @@ namespace Concesionaria
 
         private void btnCobrar_Click(object sender, EventArgs e)
         {
+            cFunciones fun = new cFunciones();
+            cCobranzaGeneral Cobranza = new cCobranzaGeneral();
+            Double SaldoGeneral = 0;
+            Double Importe = 0;
+            Double Saldo = 0;
             if (CalcularTotalSeleccionado() == false )
             {
                 return;
             }
-            string Codigo = "";
+            Importe = Convert.ToDouble(fun.FormatoEnteroMiles(txtImporte.Text));
+            SaldoGeneral = Convert.ToDouble(fun.FormatoEnteroMiles(txtSaldo.Text));
+            if (Importe >SaldoGeneral)
+            {
+                MessageBox.Show("El importe a pagar supera el saldo");
+                return;
+            }
+            DateTime Fecha = DateTime.Now;
+            int Filas = GrillaDeuda.Rows.Count;
+            int i = 1;
+            int b = 0;
+            Int32 CodCobranza = 0;
+            string Cliente = "";
+            string Descripción = "";
+            Clases.cMovimiento mov = new Clases.cMovimiento();
+
             foreach (DataGridViewRow r in GrillaDeuda.Rows)
             {
-                if (Convert.ToBoolean (r.Cells["Cobrar"].Value)==true)
+                if (i<Filas)
                 {
-                    Codigo = r.Cells[1].Value.ToString(); 
+                    if (Convert.ToBoolean(r.Cells["Cobrar"].Value) == true)
+                    {
+                        CodCobranza = Convert.ToInt32 (r.Cells[1].Value.ToString());
+                        Saldo = Convert.ToDouble(fun.FormatoEnteroMiles(r.Cells[7].Value.ToString()));
+                        Cliente = r.Cells[4].Value.ToString();
+                        Descripción = "Pago de deuda " + Cliente;
+                        if (Importe >=Saldo && Importe >0)
+                        {
+                            Cobranza.RegistrarCobro(CodCobranza, Fecha, Saldo);
+                            Importe = Importe - Saldo;
+                            b = 1;
+                            mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, Saldo, 0, 0, 0, 0, Fecha, Descripción);
+                        }
+                        else
+                        {
+                            Cobranza.RegistrarCobro(CodCobranza, Fecha, Importe);
+                            mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, Importe, 0, 0, 0, 0, Fecha, Descripción);
+                            Importe = 0;
+                            b = 1;
+                        }
+                       
+                        
+                    }
+                }
+                i++;
+               
+            }
+            if (b==1)
+            {
+                MessageBox.Show("Datos grabados correctamente ");
+                if (Principal.CodCliente != null)
+                {
+                    Int32 CodCliente = Convert.ToInt32(Principal.CodCliente);
+                    BuscarDeuda(CodCliente);
+                    if (CodCliente > 0)
+                    {
+                        Double? ImportePagado = fun.ToDouble(txtImporte.Text);
+                        Principal.CodCliente = CodCliente;
+                        Principal.Importe = ImportePagado;
+                        FrmRecibo rec = new FrmRecibo();
+                        rec.ShowDialog();
+                        Principal.CodCliente = null;
+
+                    }
                 }
             }
         }
