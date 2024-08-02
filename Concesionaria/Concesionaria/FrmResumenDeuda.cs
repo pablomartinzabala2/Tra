@@ -20,10 +20,13 @@ namespace Concesionaria
         {
             
             cCobranzaGeneral cob = new Clases.cCobranzaGeneral();
+            int? CodMoneda = null;
+            if (cmbMoneda.SelectedIndex > 0)
+                CodMoneda = Convert.ToInt32(cmbMoneda.SelectedValue);
             string Apellido = "";
             if (txtApellido.Text != "")
                 Apellido = txtApellido.Text;
-            DataTable trdo = cob.GetDeudaCliente(Apellido);
+            DataTable trdo = cob.GetDeudaCliente(Apellido, CodMoneda);
             ArmarTabla(trdo);
         }
 
@@ -232,6 +235,12 @@ namespace Concesionaria
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FrmResumenDeuda_Load(object sender, EventArgs e)
+        {
+            cFunciones fun = new cFunciones();
+            fun.LlenarCombo(cmbMoneda, "Moneda", "Nombre", "CodMoneda");
         }
     }
 }

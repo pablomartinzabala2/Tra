@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnCobrar = new System.Windows.Forms.Button();
             this.btnDetalle = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,13 +41,16 @@
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCobrar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbMoneda = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbMoneda);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnCobrar);
             this.groupBox1.Controls.Add(this.btnDetalle);
             this.groupBox1.Controls.Add(this.btnImprimir);
@@ -67,9 +71,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Deudas de Clientes";
             // 
+            // btnCobrar
+            // 
+            this.btnCobrar.Location = new System.Drawing.Point(748, 29);
+            this.btnCobrar.Name = "btnCobrar";
+            this.btnCobrar.Size = new System.Drawing.Size(74, 23);
+            this.btnCobrar.TabIndex = 12;
+            this.btnCobrar.Text = "Cobrar";
+            this.btnCobrar.UseVisualStyleBackColor = true;
+            this.btnCobrar.Click += new System.EventHandler(this.btnCobrar_Click);
+            // 
             // btnDetalle
             // 
-            this.btnDetalle.Location = new System.Drawing.Point(436, 32);
+            this.btnDetalle.Location = new System.Drawing.Point(667, 32);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(75, 23);
             this.btnDetalle.TabIndex = 10;
@@ -79,7 +93,7 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(355, 32);
+            this.btnImprimir.Location = new System.Drawing.Point(586, 32);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(75, 23);
             this.btnImprimir.TabIndex = 9;
@@ -132,7 +146,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(274, 32);
+            this.btnBuscar.Location = new System.Drawing.Point(505, 32);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 3;
@@ -165,15 +179,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Cliente";
             // 
-            // btnCobrar
+            // label5
             // 
-            this.btnCobrar.Location = new System.Drawing.Point(517, 29);
-            this.btnCobrar.Name = "btnCobrar";
-            this.btnCobrar.Size = new System.Drawing.Size(74, 23);
-            this.btnCobrar.TabIndex = 12;
-            this.btnCobrar.Text = "Cobrar";
-            this.btnCobrar.UseVisualStyleBackColor = true;
-            this.btnCobrar.Click += new System.EventHandler(this.btnCobrar_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(274, 38);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 17);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Ordenar por";
+            // 
+            // cmbMoneda
+            // 
+            this.cmbMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoneda.FormattingEnabled = true;
+            this.cmbMoneda.Location = new System.Drawing.Point(366, 32);
+            this.cmbMoneda.Name = "cmbMoneda";
+            this.cmbMoneda.Size = new System.Drawing.Size(133, 24);
+            this.cmbMoneda.TabIndex = 14;
             // 
             // FrmResumenDeuda
             // 
@@ -187,6 +209,7 @@
             this.Name = "FrmResumenDeuda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario de Resumen de Deuda";
+            this.Load += new System.EventHandler(this.FrmResumenDeuda_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
@@ -209,5 +232,7 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnDetalle;
         private System.Windows.Forms.Button btnCobrar;
+        private System.Windows.Forms.ComboBox cmbMoneda;
+        private System.Windows.Forms.Label label5;
     }
 }
