@@ -32,7 +32,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtCodAuto = new System.Windows.Forms.TextBox();
             this.btnEditarAuto = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.txtCodStock = new System.Windows.Forms.TextBox();
             this.btnGrabarPrecio = new System.Windows.Forms.Button();
             this.txtPrecioVenta = new System.Windows.Forms.TextBox();
@@ -79,6 +78,8 @@
             this.chkEntrego = new System.Windows.Forms.CheckBox();
             this.Lista = new System.Windows.Forms.ListBox();
             this.BtnGraparPapel = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.GrillaProveedor = new System.Windows.Forms.DataGridView();
             this.txtAutoPartePago = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtExTitular = new System.Windows.Forms.TextBox();
@@ -99,8 +100,9 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.GrillaProveedor = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cmbEstadoVehiculo = new System.Windows.Forms.ComboBox();
+            this.btnGrabarEstado = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -118,9 +120,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnGrabarEstado);
+            this.groupBox1.Controls.Add(this.cmbEstadoVehiculo);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtCodAuto);
             this.groupBox1.Controls.Add(this.btnEditarAuto);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txtCodStock);
             this.groupBox1.Controls.Add(this.btnGrabarPrecio);
             this.groupBox1.Controls.Add(this.txtPrecioVenta);
@@ -187,15 +191,6 @@
             this.btnEditarAuto.TabIndex = 61;
             this.btnEditarAuto.UseVisualStyleBackColor = true;
             this.btnEditarAuto.Click += new System.EventHandler(this.btnEditarAuto_Click);
-            // 
-            // button1
-            // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(361, 243);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 28);
-            this.button1.TabIndex = 60;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // txtCodStock
             // 
@@ -265,7 +260,7 @@
             this.txtNroDoc.Location = new System.Drawing.Point(97, 230);
             this.txtNroDoc.Name = "txtNroDoc";
             this.txtNroDoc.ReadOnly = true;
-            this.txtNroDoc.Size = new System.Drawing.Size(245, 22);
+            this.txtNroDoc.Size = new System.Drawing.Size(268, 22);
             this.txtNroDoc.TabIndex = 36;
             // 
             // label21
@@ -636,6 +631,25 @@
             this.BtnGraparPapel.UseVisualStyleBackColor = true;
             this.BtnGraparPapel.Click += new System.EventHandler(this.BtnGraparPapel_Click);
             // 
+            // tabPage6
+            // 
+            this.tabPage6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage6.Controls.Add(this.GrillaProveedor);
+            this.tabPage6.Location = new System.Drawing.Point(4, 25);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(764, 221);
+            this.tabPage6.TabIndex = 6;
+            this.tabPage6.Text = "Deuda Proveedor";
+            // 
+            // GrillaProveedor
+            // 
+            this.GrillaProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaProveedor.Location = new System.Drawing.Point(9, 15);
+            this.GrillaProveedor.Name = "GrillaProveedor";
+            this.GrillaProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GrillaProveedor.Size = new System.Drawing.Size(729, 166);
+            this.GrillaProveedor.TabIndex = 3;
+            // 
             // txtAutoPartePago
             // 
             this.txtAutoPartePago.Location = new System.Drawing.Point(97, 174);
@@ -675,7 +689,7 @@
             this.txtMotor.Location = new System.Drawing.Point(454, 68);
             this.txtMotor.Name = "txtMotor";
             this.txtMotor.ReadOnly = true;
-            this.txtMotor.Size = new System.Drawing.Size(293, 22);
+            this.txtMotor.Size = new System.Drawing.Size(88, 22);
             this.txtMotor.TabIndex = 15;
             // 
             // label8
@@ -777,7 +791,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(97, 62);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.ReadOnly = true;
-            this.txtDescripcion.Size = new System.Drawing.Size(278, 22);
+            this.txtDescripcion.Size = new System.Drawing.Size(268, 22);
             this.txtDescripcion.TabIndex = 3;
             // 
             // txtPatente
@@ -806,24 +820,33 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Patente";
             // 
-            // tabPage6
+            // label11
             // 
-            this.tabPage6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.tabPage6.Controls.Add(this.GrillaProveedor);
-            this.tabPage6.Location = new System.Drawing.Point(4, 25);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(764, 221);
-            this.tabPage6.TabIndex = 6;
-            this.tabPage6.Text = "Deuda Proveedor";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(548, 71);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(51, 16);
+            this.label11.TabIndex = 63;
+            this.label11.Text = "Estado";
             // 
-            // GrillaProveedor
+            // cmbEstadoVehiculo
             // 
-            this.GrillaProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GrillaProveedor.Location = new System.Drawing.Point(9, 15);
-            this.GrillaProveedor.Name = "GrillaProveedor";
-            this.GrillaProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GrillaProveedor.Size = new System.Drawing.Size(729, 166);
-            this.GrillaProveedor.TabIndex = 3;
+            this.cmbEstadoVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstadoVehiculo.FormattingEnabled = true;
+            this.cmbEstadoVehiculo.Location = new System.Drawing.Point(605, 66);
+            this.cmbEstadoVehiculo.Name = "cmbEstadoVehiculo";
+            this.cmbEstadoVehiculo.Size = new System.Drawing.Size(109, 24);
+            this.cmbEstadoVehiculo.TabIndex = 64;
+            // 
+            // btnGrabarEstado
+            // 
+            this.btnGrabarEstado.Image = ((System.Drawing.Image)(resources.GetObject("btnGrabarEstado.Image")));
+            this.btnGrabarEstado.Location = new System.Drawing.Point(716, 65);
+            this.btnGrabarEstado.Name = "btnGrabarEstado";
+            this.btnGrabarEstado.Size = new System.Drawing.Size(40, 28);
+            this.btnGrabarEstado.TabIndex = 65;
+            this.btnGrabarEstado.UseVisualStyleBackColor = true;
+            this.btnGrabarEstado.Click += new System.EventHandler(this.btnGrabarEstado_Click);
             // 
             // FrmDetalleAuto
             // 
@@ -929,9 +952,11 @@
         private System.Windows.Forms.TextBox txtCodCompra;
         private System.Windows.Forms.TextBox txtCodStock;
         private System.Windows.Forms.Button btnEditarAuto;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtCodAuto;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.DataGridView GrillaProveedor;
+        private System.Windows.Forms.Button btnGrabarEstado;
+        private System.Windows.Forms.ComboBox cmbEstadoVehiculo;
+        private System.Windows.Forms.Label label11;
     }
 }

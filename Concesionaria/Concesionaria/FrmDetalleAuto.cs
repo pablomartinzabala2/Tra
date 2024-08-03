@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Concesionaria.Clases;
 using System.Data.SqlClient;
+
 namespace Concesionaria
 {
     public partial class FrmDetalleAuto : Form
@@ -20,12 +21,14 @@ namespace Concesionaria
             if (Principal.CodigoPrincipalAbm != "")
             {
                 txtCodStock.Text = Principal.CodigoPrincipalAbm.ToString();
+                CargarEstados();
                 CargarAuto(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 CargarCostoxstock(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 CargarGastosGeneralesxCodStoxk(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 CargarCheques(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 GetTelefonoCliente(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 CargarDeudaProveedor(Convert.ToInt32(Principal.CodigoPrincipalAbm));
+                
                 // GetEfectivoPagar(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 CargarPapeles();
                 if (txtCodCompra.Text !="")
@@ -40,6 +43,12 @@ namespace Concesionaria
                     BuscarPapelesxCodStco(CodStock);
                 }
             }
+        }
+
+        private void CargarEstados()
+        {
+            cFunciones fun = new cFunciones();
+            fun.LlenarCombo(cmbEstadoVehiculo, "EstadoAuto", "Nombre", "CodEstado");
         }
 
         private void CargarAuto(Int32 CodStock)
@@ -82,6 +91,12 @@ namespace Concesionaria
                 }
                 txtExTitular.Text = trdoAuto.Rows[0]["ApeNom"].ToString();
                 txtAutoPartePago.Text = trdoAuto.Rows[0]["DescripcionAutoPartePago"].ToString();
+
+                if (trdoAuto.Rows[0]["CodEstado"].ToString() != "")
+                {
+                    string CodEstado = trdoAuto.Rows[0]["CodEstado"].ToString();
+                    cmbEstadoVehiculo.SelectedValue = CodEstado;
+                }
             }
 
         }
@@ -516,6 +531,21 @@ namespace Concesionaria
             trdo = fun.TablaaMiles(trdo, "Importe");
             GrillaProveedor.DataSource = trdo;
             fun.AnchoColumnas(GrillaProveedor, "30;30;30;10");
+        }
+
+        private void btnGrabarEstado_Click(object sender, EventArgs e)
+        {
+            if (cmbEstadoVehiculo.SelectedIndex<1)
+            {
+                MessageBox.Show("Debe seleccionar un estado");
+                return;
+            }
+
+            cStockAuto stock = new cStockAuto();
+            int CodEstado = Convert.ToInt32(cmbEstadoVehiculo.SelectedValue);
+            Int32 CodsStock = Convert.ToInt32(txtCodStock.Text);
+            stock.ActualizarEstadoAuto(CodsStock, CodEstado);
+            MessageBox.Show("Datos guardados correctamente ");
         }
     }
 }

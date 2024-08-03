@@ -29,15 +29,15 @@ namespace Concesionaria
             tbOrden = fun.AgregarFilas(tbOrden, "1;Asc");
             tbOrden = fun.AgregarFilas(tbOrden, "2;Desc");
             fun.LlenarComboDatatable(cmbOrden, tbOrden, "Nombre", "Codigo");
-            
+
         }
 
-        private void BuscarAutosdeStock(string Patente,Int32? CodMarca, string Modelo)
+        private void BuscarAutosdeStock(string Patente, Int32? CodMarca, string Modelo)
         {
             int? OrdenaPrecio = null;
             if (cmbOrden.SelectedIndex > 0)
                 OrdenaPrecio = Convert.ToInt32(cmbOrden.SelectedValue);
-               
+
             double Total = 0;
             Clases.cFunciones fun = new Clases.cFunciones();
             Clases.cStockAuto stock = new Clases.cStockAuto();
@@ -53,14 +53,14 @@ namespace Concesionaria
             Grilla.Columns[5].Width = 200;
             Grilla.Columns[4].HeaderText = "Fecha";
             Grilla.Columns[5].HeaderText = "Ex Titular";
-            Grilla.Columns[7].HeaderText = "Concesión"; 
+            Grilla.Columns[7].HeaderText = "Concesión";
             txtMontoTotal.Text = Total.ToString();
             if (txtMontoTotal.Text != "")
             {
                 txtMontoTotal.Text = fun.SepararDecimales(txtMontoTotal.Text);
                 txtMontoTotal.Text = fun.FormatoEnteroMiles(txtMontoTotal.Text);
             }
-            
+
 
         }
 
@@ -86,7 +86,7 @@ namespace Concesionaria
             Clases.cStockAuto stock = new Clases.cStockAuto();
             DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio);
             txtTotalVehiculos.Text = trdo.Rows.Count.ToString();
-           // trdo = fun.TablaaMiles(trdo, "Costo");
+            // trdo = fun.TablaaMiles(trdo, "Costo");
             trdo = fun.TablaaMiles(trdo, "PrecioVenta");
             Grilla.DataSource = trdo;
             /*
@@ -103,20 +103,40 @@ namespace Concesionaria
             Grilla.Columns[5].Width = 180;
             */
             Grilla.Columns[2].HeaderText = "Marca";
-            Double Total = fun.TotalizarColumna(trdo,"PrecioVenta");
+            Double Total = fun.TotalizarColumna(trdo, "PrecioVenta");
             txtMontoTotal.Text = Total.ToString();
-           
-            
+
+
             txtMontoTotal.Text = Total.ToString();
-           
+
             if (txtMontoTotal.Text != "")
             {
                 txtMontoTotal.Text = fun.SepararDecimales(txtMontoTotal.Text);
                 txtMontoTotal.Text = fun.FormatoEnteroMiles(txtMontoTotal.Text);
             }
 
-            fun.AnchoColumnas(Grilla, "0;8;10;28;8;10;8;8;10;0;10");
-             
+            fun.AnchoColumnas(Grilla, "0;8;10;28;8;10;8;8;10;0;10;0");
+
+        }
+
+        private void PintarEstados()
+        {
+            string Estado = "";
+            for (int i = 0; i < Grilla.Rows.Count - 1; i++)
+            {
+                Estado = Grilla.Rows[i].Cells[11].Value.ToString();
+                switch (Estado)
+                {
+                    case 1:
+                        1111
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                }
+
+            }
         }
 
         private void PintarFormulario()
@@ -139,10 +159,10 @@ namespace Concesionaria
         }
 
         private void button1_Click(object sender, EventArgs e)
-        { 
+        {
             if (Grilla.CurrentRow == null)
             {
-                MessageBox.Show ("Debe seleccionar un registro para continuar",Clases.cMensaje.Mensaje ());
+                MessageBox.Show("Debe seleccionar un registro para continuar", Clases.cMensaje.Mensaje());
                 return;
             }
             string CodStock = Grilla.CurrentRow.Cells[0].Value.ToString();
@@ -177,7 +197,7 @@ namespace Concesionaria
             stock.InsertarBajaStock(CodStock, DateTime.Now);
             MessageBox.Show("Datos grabados correctamente", Clases.cMensaje.Mensaje());
             Buscar();
-         
+
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -191,17 +211,17 @@ namespace Concesionaria
             string Kilometros = "";
             string Combustible = "";
             string NumeroInterno = "";
-            string Ubicacion ="";
+            string Ubicacion = "";
             string Color = "";
             string Anio = "";
             string sql = "";
-           
+
             Clases.cFunciones fun = new Clases.cFunciones();
             Clases.cDb.ExecutarNonQuery("delete from ReporteAuto");
             for (int i = 0; i < Grilla.Rows.Count - 1; i++)
             {
                 CodStock = Convert.ToInt32(Grilla.Rows[i].Cells[0].Value.ToString());
-                Modelo = GetModeloxCodStock (CodStock);
+                Modelo = GetModeloxCodStock(CodStock);
                 Precio = GetPrecioxCodStock(CodStock);
                 Kilometros = GetKilometrosxCodStock(CodStock);
                 Combustible = GetCombustiblexCodStock(CodStock);
@@ -210,12 +230,12 @@ namespace Concesionaria
                     Precio = fun.SepararDecimales(Precio);
                     Precio = fun.FormatoEnteroMiles(Precio);
                 }
-                
-               
+
+
                 Patente = Grilla.Rows[i].Cells[1].Value.ToString();
                 NumeroInterno = GetNumeroInternoxPatente(Patente);
-              //  Ubicacion = GetUbicacion (Patente);
-               // Ubicacion = Grilla.Rows[i].Cells[10].Value.ToString();
+                //  Ubicacion = GetUbicacion (Patente);
+                // Ubicacion = Grilla.Rows[i].Cells[10].Value.ToString();
                 Descripcion = Grilla.Rows[i].Cells[3].Value.ToString();
                 Marca = Grilla.Rows[i].Cells[2].Value.ToString();
                 Color = Grilla.Rows[i].Cells[5].Value.ToString();
@@ -223,10 +243,10 @@ namespace Concesionaria
 
                 sql = "Insert into ReporteAuto(Extra1,Descripcion,Marca,Modelo,Precio,Kilometros,Combustible,Extra2,Extra3)";
                 sql = sql + "values(" + "'" + Patente + "'";
-                sql = sql + "," + "'" + Descripcion  +"'";
-                sql = sql + "," + "'" + Marca +"'";
-                sql = sql + "," + "'" + Modelo +"'";
-                sql = sql + "," + "'" + Precio +"'";
+                sql = sql + "," + "'" + Descripcion + "'";
+                sql = sql + "," + "'" + Marca + "'";
+                sql = sql + "," + "'" + Modelo + "'";
+                sql = sql + "," + "'" + Precio + "'";
                 sql = sql + "," + "'" + Kilometros + "'";
                 sql = sql + "," + "'" + Combustible + "'";
                 sql = sql + "," + "'" + Anio + "'";
@@ -247,13 +267,13 @@ namespace Concesionaria
             {
                 if (trdo.Rows[0]["CodAuto"].ToString() != "")
                 {
-                    NumeroInterno = trdo.Rows[0]["NumeroInterno"].ToString(); 
+                    NumeroInterno = trdo.Rows[0]["NumeroInterno"].ToString();
                 }
             }
             return NumeroInterno;
         }
 
-         private string GetUbicacion(string Patente)
+        private string GetUbicacion(string Patente)
         {
             Clases.cAuto auto = new Clases.cAuto();
             DataTable trdo = auto.GetAutoxPatente(Patente);
@@ -262,7 +282,7 @@ namespace Concesionaria
             {
                 if (trdo.Rows[0]["CodAuto"].ToString() != "")
                 {
-                    Ubicacion = trdo.Rows[0]["Ubicacion"].ToString(); 
+                    Ubicacion = trdo.Rows[0]["Ubicacion"].ToString();
                 }
             }
             return Ubicacion;
@@ -274,7 +294,7 @@ namespace Concesionaria
             string Modelo = "";
             if (trdo.Rows.Count > 0)
             {
-                Modelo = trdo.Rows[0]["Anio"].ToString(); 
+                Modelo = trdo.Rows[0]["Anio"].ToString();
             }
             return Modelo;
         }

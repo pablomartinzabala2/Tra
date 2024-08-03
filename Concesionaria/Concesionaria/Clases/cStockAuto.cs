@@ -94,7 +94,8 @@ namespace Concesionaria.Clases
             sql = sql + ") as Costo";
             */
             sql = sql + ",sa.PrecioVenta";
-            
+            sql = sql + ",sa.CodEstado";
+
             sql = sql + " from auto a, StockAuto sa,marca m";
             sql = sql + " where a.Codauto =sa.CodAuto ";
            // sql = sql + " and sa.CodCliente = cli.CodCliente";
@@ -321,6 +322,14 @@ namespace Concesionaria.Clases
                 sql = sql + " and a.CodMarca =" + CodMarca.ToString();
             sql = sql + " order by m.Nombre,a.Anio desc";
             return cDb.ExecuteDataTable(sql);
+        }
+
+        public void ActualizarEstadoAuto(Int32 CodStock, int CodEstado)
+        {
+            string sql = "update StockAuto ";
+            sql = sql + " set CodEstado=" + CodEstado.ToString();
+            sql = sql + " where CodStock=" + CodStock.ToString();
+            cDb.ExecutarNonQuery(sql);
         }
     }
 }
