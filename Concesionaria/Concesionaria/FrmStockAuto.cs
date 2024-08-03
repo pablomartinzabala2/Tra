@@ -116,6 +116,7 @@ namespace Concesionaria
             }
 
             fun.AnchoColumnas(Grilla, "0;8;10;28;8;10;8;8;10;0;10;0");
+            PintarEstados();
 
         }
 
@@ -127,12 +128,14 @@ namespace Concesionaria
                 Estado = Grilla.Rows[i].Cells[11].Value.ToString();
                 switch (Estado)
                 {
-                    case 1:
-                        1111
+                    case "1":
+                        Grilla.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                         break;
-                    case 2:
+                    case "2":
+                        Grilla.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
                         break;
-                    case 3:
+                    case "3":
+                        Grilla.Rows[i].DefaultCellStyle.BackColor = Color.Green;
                         break;
                 }
 
