@@ -30,6 +30,7 @@
         {
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbOrden = new System.Windows.Forms.ComboBox();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
@@ -44,7 +45,6 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbOrden = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +84,14 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Autos en Stock";
+            // 
+            // cmbOrden
+            // 
+            this.cmbOrden.FormattingEnabled = true;
+            this.cmbOrden.Location = new System.Drawing.Point(776, 23);
+            this.cmbOrden.Name = "cmbOrden";
+            this.cmbOrden.Size = new System.Drawing.Size(121, 24);
+            this.cmbOrden.TabIndex = 58;
             // 
             // txtModelo
             // 
@@ -216,14 +224,6 @@
             this.label1.Size = new System.Drawing.Size(61, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = " Patente";
-            // 
-            // cmbOrden
-            // 
-            this.cmbOrden.FormattingEnabled = true;
-            this.cmbOrden.Location = new System.Drawing.Point(776, 23);
-            this.cmbOrden.Name = "cmbOrden";
-            this.cmbOrden.Size = new System.Drawing.Size(121, 24);
-            this.cmbOrden.TabIndex = 58;
             // 
             // FrmStockAuto
             // 

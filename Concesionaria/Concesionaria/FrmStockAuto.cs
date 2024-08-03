@@ -18,10 +18,10 @@ namespace Concesionaria
 
         private void FrmStockAuto_Load(object sender, EventArgs e)
         {
-            PintarFormulario();
+           // PintarFormulario();
             Clases.cFunciones fun = new Clases.cFunciones();
             fun.LlenarCombo(cmbMarca, "Marca", "Nombre", "CodMarca");
-            Buscar();
+           
             txtTotalVehiculos.BackColor = cColor.CajaTexto();
             txtMontoTotal.BackColor = cColor.CajaTexto();
             DataTable tbOrden = new DataTable();
@@ -29,7 +29,7 @@ namespace Concesionaria
             tbOrden = fun.AgregarFilas(tbOrden, "1;Asc");
             tbOrden = fun.AgregarFilas(tbOrden, "2;Desc");
             fun.LlenarComboDatatable(cmbOrden, tbOrden, "Nombre", "Codigo");
-
+            Buscar();
         }
 
         private void BuscarAutosdeStock(string Patente, Int32? CodMarca, string Modelo)
@@ -89,19 +89,7 @@ namespace Concesionaria
             // trdo = fun.TablaaMiles(trdo, "Costo");
             trdo = fun.TablaaMiles(trdo, "PrecioVenta");
             Grilla.DataSource = trdo;
-            /*
-            Grilla.Columns[0].Visible = false;
-            Grilla.Columns[5].Visible = false;
-            Grilla.Columns[10].Visible = false;
-            Grilla.Columns[7].HeaderText = "Concesión";
-            Grilla.Columns[9].HeaderText = "Precio Venta";
-            //Grilla.Columns[7].Visible = false; 
-            Grilla.Columns[2].Width = 170;
-            Grilla.Columns[3].Width = 270;
-            Grilla.Columns[4].Width = 100;
-            Grilla.Columns[9].Width = 130;
-            Grilla.Columns[5].Width = 180;
-            */
+          
             Grilla.Columns[2].HeaderText = "Marca";
             Double Total = fun.TotalizarColumna(trdo, "PrecioVenta");
             txtMontoTotal.Text = Total.ToString();
@@ -114,10 +102,9 @@ namespace Concesionaria
                 txtMontoTotal.Text = fun.SepararDecimales(txtMontoTotal.Text);
                 txtMontoTotal.Text = fun.FormatoEnteroMiles(txtMontoTotal.Text);
             }
-
-            fun.AnchoColumnas(Grilla, "0;8;10;28;8;10;8;8;10;0;10;0");
             PintarEstados();
-
+            fun.AnchoColumnas(Grilla, "0;8;10;28;8;10;8;8;10;0;10;0");
+           
         }
 
         private void PintarEstados()
@@ -130,12 +117,14 @@ namespace Concesionaria
                 {
                     case "1":
                         Grilla.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                        Grilla.Rows[i].DefaultCellStyle.ForeColor = Color.White;
                         break;
                     case "2":
                         Grilla.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
                         break;
                     case "3":
                         Grilla.Rows[i].DefaultCellStyle.BackColor = Color.Green;
+                        Grilla.Rows[i].DefaultCellStyle.ForeColor = Color.White;
                         break;
                 }
 
@@ -336,6 +325,11 @@ namespace Concesionaria
                 Combustible = trdo.Rows[0]["Combustible"].ToString();
             }
             return Combustible;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
