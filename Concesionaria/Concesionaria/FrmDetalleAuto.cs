@@ -42,6 +42,8 @@ namespace Concesionaria
                     Int32 CodStock = Convert.ToInt32(txtCodStock.Text);
                     BuscarPapelesxCodStco(CodStock);
                 }
+
+                CalcularTotalGeneralCosto();
             }
         }
 
@@ -546,6 +548,34 @@ namespace Concesionaria
             Int32 CodsStock = Convert.ToInt32(txtCodStock.Text);
             stock.ActualizarEstadoAuto(CodsStock, CodEstado);
             MessageBox.Show("Datos guardados correctamente ");
+        }
+
+        private void CalcularTotalGeneralCosto()
+        {
+            cFunciones fun = new cFunciones();
+            Double Importe = 0;
+            Double EfectivoPagar = 0;
+            Double Costos = 0;
+
+            Double TotalGeneral = 0;
+            if (txtImporte.Text !="")
+            {
+                Importe = fun.ToDouble(txtImporte.Text);
+            }
+
+            if (txtEfectivoPagar.Text !="")
+            {
+                EfectivoPagar = fun.ToDouble(txtEfectivoPagar.Text);
+            }
+             
+          
+            if (txtTotal.Text !="")
+            {
+                Costos = fun.ToDouble(txtTotal.Text);
+            }
+
+            TotalGeneral = Importe + EfectivoPagar + Costos;
+            txtTotalGeneral.Text = fun.FormatoEnteroMiles(TotalGeneral.ToString());
         }
     }
 }

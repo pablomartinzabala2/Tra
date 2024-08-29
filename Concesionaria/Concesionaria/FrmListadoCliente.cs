@@ -19,11 +19,12 @@ namespace Concesionaria
         }
 
         private void Inicializar()
-        {
+        { /*
             Clases.cFunciones fun = new Clases.cFunciones();
             fun.LlenarCombo(cmb_CodTipoDoc, "TipoDocumento", "Nombre", "CodTipoDoc");
             if (cmb_CodTipoDoc.Items.Count > 0)
                 cmb_CodTipoDoc.SelectedIndex = 1;
+                */
         }
 
         private void btnBuscarCompra_Click(object sender, EventArgs e)
@@ -34,15 +35,20 @@ namespace Concesionaria
         private void Buscar ()
         {
             Int32? CodTipoDoc = null;
+            /*
             if (cmb_CodTipoDoc.SelectedIndex > 0)
                 CodTipoDoc = Convert.ToInt32(cmb_CodTipoDoc.SelectedValue);
+                */
+            string Nombre = "";
+            if (txtNonbre.Text != "")
+                Nombre = txtNonbre.Text;
 
             cFunciones fun = new cFunciones();
             cCliente cli = new cCliente();
-            DataTable trdo = cli.GetClientes(CodTipoDoc);
+            DataTable trdo = cli.GetClientes(CodTipoDoc, Nombre);
             Grilla.DataSource = trdo;
             Grilla.DataSource = trdo;
-            fun.AnchoColumnas(Grilla ,"25;25;15;25;10");
+            fun.AnchoColumnas(Grilla ,"0;50;15;25;10");
 
         }
 

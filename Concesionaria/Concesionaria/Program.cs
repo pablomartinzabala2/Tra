@@ -12,15 +12,15 @@ namespace Concesionaria
         /// </summary>
         [STAThread]
         static void Main()
-        {     
+        {      
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-             Application.Run(new FrmLogin());
+          //   Application.Run(new FrmLogin());
             //     Principal.CodigoPrincipalAbm = "432";
             //     Application.Run(new FrmBoletoTraut());
 
             //   Application.Run(new FrmReporteControlOperaciones  ());
-            //   Application.Run(new FrmIngresoCheque());
+               Application.Run(new FrmListadoCliente());
         }
     }
 }

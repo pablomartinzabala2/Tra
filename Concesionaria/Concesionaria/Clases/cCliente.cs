@@ -444,15 +444,21 @@ namespace Concesionaria.Clases
 
         }
 
-        public DataTable GetClientes(Int32? CodTipoDoc)
+        public DataTable GetClientes(Int32? CodTipoDoc, string Nombre)
         {
-            string sql = "select c.Apellido,c.Nombre,c.Telefono, ";
+            string sql = "select c.CodCliente, (c.Apellido + ' ' + c.Nombre) as Cliente,c.Telefono, ";
             sql = sql + "c.Calle,c.Numero ";
             sql = sql + " from Cliente c";
+            if (Nombre !="")
+            {
+                sql = sql + " where (c.Apellido + ' ' + c.Nombre) like " + "'%" + Nombre + "%'";
+            }
+            /*
             if (CodTipoDoc !=null)
             {
                 sql = sql + " where c.CodTipoDoc=" + CodTipoDoc.ToString();
             }
+            */
             sql = sql + " order by c.Apellido,c.Nombre ";
             return cDb.ExecuteDataTable(sql);
         }

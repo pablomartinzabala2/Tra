@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetalleAuto));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnGrabarEstado = new System.Windows.Forms.Button();
+            this.cmbEstadoVehiculo = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.txtCodAuto = new System.Windows.Forms.TextBox();
             this.btnEditarAuto = new System.Windows.Forms.Button();
             this.txtCodStock = new System.Windows.Forms.TextBox();
@@ -52,6 +55,8 @@
             this.txtEfectivo = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtTotalGeneral = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -100,9 +105,6 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cmbEstadoVehiculo = new System.Windows.Forms.ComboBox();
-            this.btnGrabarEstado = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -171,6 +173,34 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle vehículo";
+            // 
+            // btnGrabarEstado
+            // 
+            this.btnGrabarEstado.Image = ((System.Drawing.Image)(resources.GetObject("btnGrabarEstado.Image")));
+            this.btnGrabarEstado.Location = new System.Drawing.Point(716, 65);
+            this.btnGrabarEstado.Name = "btnGrabarEstado";
+            this.btnGrabarEstado.Size = new System.Drawing.Size(40, 28);
+            this.btnGrabarEstado.TabIndex = 65;
+            this.btnGrabarEstado.UseVisualStyleBackColor = true;
+            this.btnGrabarEstado.Click += new System.EventHandler(this.btnGrabarEstado_Click);
+            // 
+            // cmbEstadoVehiculo
+            // 
+            this.cmbEstadoVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstadoVehiculo.FormattingEnabled = true;
+            this.cmbEstadoVehiculo.Location = new System.Drawing.Point(605, 66);
+            this.cmbEstadoVehiculo.Name = "cmbEstadoVehiculo";
+            this.cmbEstadoVehiculo.Size = new System.Drawing.Size(109, 24);
+            this.cmbEstadoVehiculo.TabIndex = 64;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(548, 71);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(51, 16);
+            this.label11.TabIndex = 63;
+            this.label11.Text = "Estado";
             // 
             // txtCodAuto
             // 
@@ -365,6 +395,8 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage1.Controls.Add(this.txtTotalGeneral);
+            this.tabPage1.Controls.Add(this.label20);
             this.tabPage1.Controls.Add(this.Grilla);
             this.tabPage1.Controls.Add(this.txtTotal);
             this.tabPage1.Controls.Add(this.label10);
@@ -374,6 +406,24 @@
             this.tabPage1.Size = new System.Drawing.Size(764, 221);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Costos";
+            // 
+            // txtTotalGeneral
+            // 
+            this.txtTotalGeneral.Location = new System.Drawing.Point(100, 193);
+            this.txtTotalGeneral.Name = "txtTotalGeneral";
+            this.txtTotalGeneral.ReadOnly = true;
+            this.txtTotalGeneral.Size = new System.Drawing.Size(155, 22);
+            this.txtTotalGeneral.TabIndex = 22;
+            this.txtTotalGeneral.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(3, 193);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(97, 16);
+            this.label20.TabIndex = 21;
+            this.label20.Text = "Totaln General";
             // 
             // Grilla
             // 
@@ -387,7 +437,7 @@
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(519, 196);
+            this.txtTotal.Location = new System.Drawing.Point(581, 196);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(155, 22);
@@ -397,11 +447,11 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(456, 196);
+            this.label10.Location = new System.Drawing.Point(484, 196);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(39, 16);
+            this.label10.Size = new System.Drawing.Size(91, 16);
             this.label10.TabIndex = 19;
-            this.label10.Text = "Total";
+            this.label10.Text = "Totaln Costos";
             // 
             // tabPage3
             // 
@@ -549,7 +599,7 @@
             // btnQuitarPapel
             // 
             this.btnQuitarPapel.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitarPapel.Image")));
-            this.btnQuitarPapel.Location = new System.Drawing.Point(251, 0);
+            this.btnQuitarPapel.Location = new System.Drawing.Point(251, 3);
             this.btnQuitarPapel.Name = "btnQuitarPapel";
             this.btnQuitarPapel.Size = new System.Drawing.Size(40, 28);
             this.btnQuitarPapel.TabIndex = 67;
@@ -820,34 +870,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Patente";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(548, 71);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(51, 16);
-            this.label11.TabIndex = 63;
-            this.label11.Text = "Estado";
-            // 
-            // cmbEstadoVehiculo
-            // 
-            this.cmbEstadoVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstadoVehiculo.FormattingEnabled = true;
-            this.cmbEstadoVehiculo.Location = new System.Drawing.Point(605, 66);
-            this.cmbEstadoVehiculo.Name = "cmbEstadoVehiculo";
-            this.cmbEstadoVehiculo.Size = new System.Drawing.Size(109, 24);
-            this.cmbEstadoVehiculo.TabIndex = 64;
-            // 
-            // btnGrabarEstado
-            // 
-            this.btnGrabarEstado.Image = ((System.Drawing.Image)(resources.GetObject("btnGrabarEstado.Image")));
-            this.btnGrabarEstado.Location = new System.Drawing.Point(716, 65);
-            this.btnGrabarEstado.Name = "btnGrabarEstado";
-            this.btnGrabarEstado.Size = new System.Drawing.Size(40, 28);
-            this.btnGrabarEstado.TabIndex = 65;
-            this.btnGrabarEstado.UseVisualStyleBackColor = true;
-            this.btnGrabarEstado.Click += new System.EventHandler(this.btnGrabarEstado_Click);
-            // 
             // FrmDetalleAuto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -958,5 +980,7 @@
         private System.Windows.Forms.Button btnGrabarEstado;
         private System.Windows.Forms.ComboBox cmbEstadoVehiculo;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtTotalGeneral;
+        private System.Windows.Forms.Label label20;
     }
 }

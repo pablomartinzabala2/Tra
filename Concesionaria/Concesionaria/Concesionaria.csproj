@@ -46,7 +46,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.WinForms\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.WinForms.DLL</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
@@ -304,6 +306,12 @@
     </Compile>
     <Compile Include="FrmAutos.Designer.cs">
       <DependentUpon>FrmAutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBase.Designer.cs">
+      <DependentUpon>FrmBase.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmBoletoTraut.cs">
       <SubType>Form</SubType>
@@ -1107,6 +1115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAutos.resx">
       <DependentUpon>FrmAutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBase.resx">
+      <DependentUpon>FrmBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBoletoTraut.resx">
       <DependentUpon>FrmBoletoTraut.cs</DependentUpon>

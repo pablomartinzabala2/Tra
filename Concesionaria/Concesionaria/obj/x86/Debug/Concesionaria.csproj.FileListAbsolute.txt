@@ -1159,6 +1159,12 @@ D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionari
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReporteGastosTransferencia.resources
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReporteEfectivoPagar.resources
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReportedeEfectivoaPagar.resources
+D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReporteControlOperaciones.resources
+D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmDeudaCobranzaGeneral.resources
+D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmResumenDeuda.resources
+D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReporteDeudaCliente.resources
+D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmDetalleDeudaxCliente.resources
+D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmListadoDeudaCoibranzaxCliente.resources
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\Microsoft.SqlServer.Types.dll
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
@@ -1170,12 +1176,7 @@ D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\pt\Microsoft.Sql
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.csprojResolveAssemblyReference.cache
+D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmBase.resources
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.cache
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.compiled
-D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReporteControlOperaciones.resources
-D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.csprojResolveAssemblyReference.cache
-D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmDeudaCobranzaGeneral.resources
-D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmResumenDeuda.resources
-D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReporteDeudaCliente.resources
-D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmDetalleDeudaxCliente.resources
-D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmListadoDeudaCoibranzaxCliente.resources
