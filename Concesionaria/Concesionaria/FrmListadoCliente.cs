@@ -60,6 +60,16 @@ namespace Concesionaria
                 return;
 
             }
+
+            string Ape = "";
+            string Nom = "";
+            string Telefono = "";
+            string Calle = "";
+            string Numero = "";
+            int Orden = 0;
+            cReporte report = new cReporte();
+            report.Borrar();
+            /*
             Clases.cDb.ExecutarNonQuery("delete from Reporte");
             string Ape = "";
             string Nom = "";
@@ -86,6 +96,19 @@ namespace Concesionaria
                 cDb.ExecutarNonQuery(sql);
             }
             FrmReporteCliente frm = new FrmReporteCliente();
+            frm.Show();
+            */
+
+            for (int i = 0; i < Grilla.Rows.Count - 1; i++)
+            {
+                Orden++; 
+                Nom = Grilla.Rows[i].Cells[1].Value.ToString();
+                Telefono = Grilla.Rows[i].Cells[2].Value.ToString();
+                Calle = Grilla.Rows[i].Cells[3].Value.ToString();
+                Numero = Grilla.Rows[i].Cells[4].Value.ToString();
+                report.Insertar(Orden, Nom, Telefono, Calle, Numero, "", "", "", "", "", "");       
+            }
+            FrmReporteClientes frm = new FrmReporteClientes();
             frm.Show();
         }
     }

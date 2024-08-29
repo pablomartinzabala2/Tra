@@ -53,10 +53,11 @@ namespace Concesionaria
 
         private void ShowNewForm(object sender, EventArgs e)
         {
-            FrmAbmCliente childForm = new FrmAbmCliente();
+            // FrmAbmCliente childForm = new FrmAbmCliente();
+            FrmListadoCliente childForm = new FrmListadoCliente();
             childForm.MdiParent = this;
             childForm.Text = "Formulario de altas, bajas y modificación de clientes";
-            childForm.Show();
+            childForm.Show(); 
         }
 
         private void OpenFile(object sender, EventArgs e)
