@@ -67,8 +67,15 @@ namespace Concesionaria
 
         private void FrmAbmCliente_Load(object sender, EventArgs e)
         {
+            cFunciones fun = new cFunciones();
             Botonera(1);
             Grupo.Enabled = true;
+            if (Principal.CodigoPrincipalAbm != "")
+            {
+                txtCodCLiente.Text = Principal.CodigoPrincipalAbm.ToString();
+                fun.CargarControles(this, "Cliente", "CodCliente", txtCodCLiente.Text);
+            }
+                
         }
 
         private void Botonera(int Jugada)

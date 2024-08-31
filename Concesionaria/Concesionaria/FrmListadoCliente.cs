@@ -111,5 +111,18 @@ namespace Concesionaria
             FrmReporteClientes frm = new FrmReporteClientes();
             frm.Show();
         }
+
+        private void ntmAbrirCliente_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow ==null)
+            {
+                MessageBox.Show("Debe seleccionar un elemento ");
+                return;
+            }
+            string Codigo = Grilla.CurrentRow.Cells[0].Value.ToString();
+            Principal.CodigoPrincipalAbm = Codigo;
+            FrmAbmCliente frm = new FrmAbmCliente();
+            frm.Show(); 
+        }
     }
 }

@@ -785,7 +785,7 @@
             this.newToolStripButton.Name = "newToolStripButton";
             this.newToolStripButton.Size = new System.Drawing.Size(36, 36);
             this.newToolStripButton.Text = "Ingreso de clientes";
-            this.newToolStripButton.Click += new System.EventHandler(this.ShowNewForm);
+            this.newToolStripButton.Click += new System.EventHandler(this.newToolStripButton_Click);
             // 
             // openToolStripButton
             // 

@@ -34,6 +34,7 @@
             this.txtNonbre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAbrirVenta = new System.Windows.Forms.Button();
+            this.ntmAbrirCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ntmAbrirCliente);
             this.groupBox1.Controls.Add(this.txtNonbre);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnAbrirVenta);
@@ -92,12 +94,22 @@
             // btnAbrirVenta
             // 
             this.btnAbrirVenta.Image = global::Concesionaria.Properties.Resources.printer;
-            this.btnAbrirVenta.Location = new System.Drawing.Point(362, 21);
+            this.btnAbrirVenta.Location = new System.Drawing.Point(362, 24);
             this.btnAbrirVenta.Name = "btnAbrirVenta";
             this.btnAbrirVenta.Size = new System.Drawing.Size(40, 27);
             this.btnAbrirVenta.TabIndex = 54;
             this.btnAbrirVenta.UseVisualStyleBackColor = true;
             this.btnAbrirVenta.Click += new System.EventHandler(this.btnAbrirVenta_Click);
+            // 
+            // ntmAbrirCliente
+            // 
+            this.ntmAbrirCliente.Image = global::Concesionaria.Properties.Resources.Folder1;
+            this.ntmAbrirCliente.Location = new System.Drawing.Point(408, 22);
+            this.ntmAbrirCliente.Name = "ntmAbrirCliente";
+            this.ntmAbrirCliente.Size = new System.Drawing.Size(40, 27);
+            this.ntmAbrirCliente.TabIndex = 57;
+            this.ntmAbrirCliente.UseVisualStyleBackColor = true;
+            this.ntmAbrirCliente.Click += new System.EventHandler(this.ntmAbrirCliente_Click);
             // 
             // FrmListadoCliente
             // 
@@ -122,5 +134,6 @@
         private System.Windows.Forms.Button btnAbrirVenta;
         private System.Windows.Forms.TextBox txtNonbre;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button ntmAbrirCliente;
     }
 }

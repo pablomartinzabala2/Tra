@@ -53,8 +53,9 @@ namespace Concesionaria
 
         private void ShowNewForm(object sender, EventArgs e)
         {
-            // FrmAbmCliente childForm = new FrmAbmCliente();
-            FrmListadoCliente childForm = new FrmListadoCliente();
+            Principal.CodigoPrincipalAbm = "";
+             FrmAbmCliente childForm = new FrmAbmCliente();
+            //FrmListadoCliente childForm = new FrmListadoCliente();
             childForm.MdiParent = this;
             childForm.Text = "Formulario de altas, bajas y modificación de clientes";
             childForm.Show(); 
@@ -877,6 +878,14 @@ namespace Concesionaria
         {
             FrmResumenDeuda frm = new FrmResumenDeuda();
             frm.Show();
+        }
+
+        private void newToolStripButton_Click(object sender, EventArgs e)
+        {
+            FrmListadoCliente childForm = new FrmListadoCliente();
+            childForm.MdiParent = this;
+            childForm.Text = "Formulario de altas, bajas y modificación de clientes";
+            childForm.Show();
         }
     }
 }
