@@ -120,6 +120,7 @@
     <Compile Include="Clases\cPagoIntereses.cs" />
     <Compile Include="Clases\cPagoProveedor.cs" />
     <Compile Include="Clases\cPapeles.cs" />
+    <Compile Include="Clases\cPersonal.cs" />
     <Compile Include="Clases\cPrenda.cs" />
     <Compile Include="Clases\cPrestamo.cs" />
     <Compile Include="Clases\cPresupuesto.cs" />
@@ -720,6 +721,12 @@
     </Compile>
     <Compile Include="FrmPagoCuentaProveedor.Designer.cs">
       <DependentUpon>FrmPagoCuentaProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPersonal.Designer.cs">
+      <DependentUpon>FrmPersonal.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRegistrarChequePagar.cs">
       <SubType>Form</SubType>
@@ -1334,6 +1341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPagoCuentaProveedor.resx">
       <DependentUpon>FrmPagoCuentaProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPersonal.resx">
+      <DependentUpon>FrmPersonal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarChequePagar.resx">
       <DependentUpon>FrmRegistrarChequePagar.cs</DependentUpon>
