@@ -38,12 +38,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnNuevoCargo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnNuevoCargo);
             this.groupBox1.Controls.Add(this.Grilla);
             this.groupBox1.Controls.Add(this.btnQuitarResponsable);
             this.groupBox1.Controls.Add(this.btnAgregarResponsable);
@@ -140,6 +142,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
+            // btnNuevoCargo
+            // 
+            this.btnNuevoCargo.Image = global::Concesionaria.Properties.Resources.page_add;
+            this.btnNuevoCargo.Location = new System.Drawing.Point(335, 70);
+            this.btnNuevoCargo.Name = "btnNuevoCargo";
+            this.btnNuevoCargo.Size = new System.Drawing.Size(40, 28);
+            this.btnNuevoCargo.TabIndex = 80;
+            this.btnNuevoCargo.UseVisualStyleBackColor = true;
+            this.btnNuevoCargo.Click += new System.EventHandler(this.btnNuevoCargo_Click);
+            // 
             // FrmPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,5 +180,6 @@
         private System.Windows.Forms.Button btnQuitarResponsable;
         private System.Windows.Forms.Button btnAgregarResponsable;
         private System.Windows.Forms.DataGridView Grilla;
+        private System.Windows.Forms.Button btnNuevoCargo;
     }
 }

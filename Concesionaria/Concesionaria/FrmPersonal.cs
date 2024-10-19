@@ -88,5 +88,28 @@ namespace Concesionaria
             Int32 CodCliente = Convert.ToInt32(Principal.CodCliente);
             CargarGrilla(CodCliente);
         }
+
+        private void btnNuevoCargo_Click(object sender, EventArgs e)
+        {
+
+            // Principal.CodigoPrincipalAbm = null;
+            // Principal.CampoIdSecundario = "CodBarrio";
+            //  Principal.CampoNombreSecundario = "Nombre";
+            //  Principal.NombreTablaSecundario = "Barrio";
+            FrmAbmRubro form = new FrmAbmRubro();
+            form.FormClosing += new FormClosingEventHandler(ContinuarCargo);
+            form.ShowDialog();
+        }
+
+        private void ContinuarCargo(object sender, FormClosingEventArgs e)
+        {
+            if (Principal.CampoIdSecundarioGenerado != null)
+            {  
+                cFunciones fun = new cFunciones();
+                fun.LlenarCombo(cmbCargo, "Cargo", "Nombre", "CodCargo");
+                cmbCargo.SelectedValue = Principal.CampoIdSecundarioGenerado;
+            }
+
+        }
     }
 }

@@ -19,6 +19,7 @@ namespace Concesionaria
 
         private void InicializarComponentes()
         {
+            
             Clases.cFunciones fun = new Clases.cFunciones();
             fun.LlenarCombo(cmb_CodTipoDoc, "TipoDocumento", "Nombre", "CodTipoDoc");
             if (cmb_CodTipoDoc.Items.Count > 0)
@@ -27,6 +28,7 @@ namespace Concesionaria
             fun.LlenarCombo(cmbProvincia2, "Provincia", "Nombre", "CodProvincia");
             fun.LlenarCombo(cmb_CodCategoria, "CategoriaCliente", "Nombre", "codcategoria");
             fun.LlenarCombo(cmb_CodEstado, "EstadoCivil", "Nombre", "CodEstado");
+            fun.LlenarCombo(cmb_CodCategoriaIva, "CategoriaIva", "Nombre", "Codigo");
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
@@ -75,7 +77,10 @@ namespace Concesionaria
                 txtCodCLiente.Text = Principal.CodigoPrincipalAbm.ToString();
                 fun.CargarControles(this, "Cliente", "CodCliente", txtCodCLiente.Text);
             }
-                
+
+            Botonera(1);
+            Grupo.Enabled = false;
+
         }
 
         private void Botonera(int Jugada)
@@ -206,6 +211,10 @@ namespace Concesionaria
                          DataTable tbCiudad = city.GetCiudadxCodProvincia(CodProvincia);
                          fun.LlenarComboDatatable(cmbCiudad2, tbCiudad, "Nombre", "CodCiudad");
                          cmbCiudad2.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                        break;
+                    case "CategoriaIva":  
+                        fun.LlenarCombo(cmb_CodCategoriaIva, "CategoriaIva", "Nombre", "Codigo");
+                        cmb_CodCategoriaIva.SelectedValue = Principal.CampoIdSecundarioGenerado;
                         break;
                 }
             }
@@ -553,6 +562,17 @@ namespace Concesionaria
             Principal.CodCliente = Convert.ToInt32(txtCodCLiente.Text);
             FrmPersonal frm = new FrmPersonal();
             frm.Show(); 
+        }
+
+        private void btnNuevaCategoriaIva_Click(object sender, EventArgs e)
+        {  
+            Principal.CampoIdSecundario = "Codigo";
+            Principal.CampoNombreSecundario = "Nombre";
+            Principal.NombreTablaSecundario = "CategoriaIva";
+            Principal.CampoIdSecundarioGenerado = "";
+            FrmAltaBasica form = new FrmAltaBasica();
+            form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            form.ShowDialog();
         }
     }
 }

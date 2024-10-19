@@ -266,6 +266,12 @@
     <Compile Include="FrmAbmProveedor.Designer.cs">
       <DependentUpon>FrmAbmProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAbmRubro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmRubro.Designer.cs">
+      <DependentUpon>FrmAbmRubro.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAbmTarjeta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1113,6 +1119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmProveedor.resx">
       <DependentUpon>FrmAbmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmRubro.resx">
+      <DependentUpon>FrmAbmRubro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmTarjeta.resx">
       <DependentUpon>FrmAbmTarjeta.cs</DependentUpon>
