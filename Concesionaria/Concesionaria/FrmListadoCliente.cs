@@ -124,5 +124,20 @@ namespace Concesionaria
             FrmAbmCliente frm = new FrmAbmCliente();
             frm.Show(); 
         }
+
+        private void btnPersonal_Click(object sender, EventArgs e)
+        {   
+            if (Grilla.CurrentRow == null)
+            {
+                MessageBox.Show("Debe registrar primero el cliente para continuar ");
+                return;
+            }
+
+            Int32 CodCliente = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
+            Principal.CodCliente = CodCliente;
+            FrmPersonal frm = new FrmPersonal();
+            frm.Show();
+
+        }
     }
 }
