@@ -108,6 +108,7 @@ namespace Concesionaria
                     //viene del buscador
                     btnNuevo.Enabled = true;
                     btnEditar.Enabled = true;
+
                     btnEliminar.Enabled = true;
                     btnAceptar.Enabled = false;
                     btnCancelar.Enabled = false;
@@ -160,7 +161,7 @@ namespace Concesionaria
                     
                     if (Principal.CodigoPrincipalAbm != "")
                         fun.CargarControles(this, "Cliente", "CodCliente", txtCodCLiente.Text);
-                    Grupo.Enabled = false;
+                    Grupo.Enabled = true;
 
                     if (txt_RutaImagen.Text !="")
                     {

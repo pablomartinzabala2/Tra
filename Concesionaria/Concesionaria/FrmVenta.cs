@@ -6733,6 +6733,19 @@ namespace Concesionaria
                 chkNoIncluyeGastos.Checked = false;
             }
         }
+
+        private void btnPersonal_Click(object sender, EventArgs e)
+        {
+            if (txtCodCLiente.Text == "")
+            {
+                MessageBox.Show("Debe registrar primero el cliente para continuar ");
+                return;
+            }
+
+            Principal.CodCliente = Convert.ToInt32(txtCodCLiente.Text);
+            FrmPersonal frm = new FrmPersonal();
+            frm.Show();
+        }
     }
 }
 

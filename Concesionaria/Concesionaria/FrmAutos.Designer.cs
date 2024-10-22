@@ -193,6 +193,7 @@
             this.label44 = new System.Windows.Forms.Label();
             this.TxtSubTotal = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
+            this.btnPersonal = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCliente)).BeginInit();
@@ -698,6 +699,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnPersonal);
             this.groupBox2.Controls.Add(this.btnBuscarCliente);
             this.groupBox2.Controls.Add(this.lblGuion2);
             this.groupBox2.Controls.Add(this.lblGuion1);
@@ -746,7 +748,7 @@
             // btnBuscarCliente
             // 
             this.btnBuscarCliente.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(604, 19);
+            this.btnBuscarCliente.Location = new System.Drawing.Point(604, 14);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(40, 27);
             this.btnBuscarCliente.TabIndex = 76;
@@ -1894,6 +1896,16 @@
             this.label45.TabIndex = 55;
             this.label45.Text = "Subtotal";
             // 
+            // btnPersonal
+            // 
+            this.btnPersonal.Image = global::Concesionaria.Properties.Resources.clie1;
+            this.btnPersonal.Location = new System.Drawing.Point(650, 13);
+            this.btnPersonal.Name = "btnPersonal";
+            this.btnPersonal.Size = new System.Drawing.Size(40, 28);
+            this.btnPersonal.TabIndex = 81;
+            this.btnPersonal.UseVisualStyleBackColor = true;
+            this.btnPersonal.Click += new System.EventHandler(this.btnPersonal_Click);
+            // 
             // FrmAutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2126,5 +2138,6 @@
         private System.Windows.Forms.TextBox txtImporteFacturado;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dpFechaVencimientoEfePagar;
+        private System.Windows.Forms.Button btnPersonal;
     }
 }
