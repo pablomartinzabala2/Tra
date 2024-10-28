@@ -12,11 +12,11 @@ namespace Concesionaria
         /// </summary>
         [STAThread]
         static void Main()
-        {      
+        {       
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
              Application.Run(new FrmLogin());
-           //  Application.Run(new FrmPersonal());
+           //   Application.Run(new FrmMail());
         }
     }
 }

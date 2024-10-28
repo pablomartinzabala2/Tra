@@ -179,10 +179,12 @@ namespace Concesionaria.Clases
         public string FormatoEnteroMiles(string Nro)
         {
             Nro = Nro.Replace(".", "");
-            int n = 0;
+            //int n = 0;
+            Int64 n = 0;
             if (Nro != "")
             {
-                n = Convert.ToInt32(Nro);
+               // n = Convert.ToInt32(Nro);
+                n = Convert.ToInt64(Nro);
                 Nro = n.ToString("N0");
             }
             return Nro;
