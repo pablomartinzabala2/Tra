@@ -39,12 +39,14 @@ namespace Concesionaria
             Double Pesos = 0;
             Double Dolares = 0;
             string Val = "";
-           
-            string Col = "CodCliente;Cliente;Apellido;Telefono;Pesos;Dolares";
+            cCliente cli = new cCliente();
+            string Responsable = "";
+            string Col = "CodCliente;Cliente;Apellido;Telefono;Pesos;Dolares;Responsable";
             DataTable tbDeudores = fun.CrearTabla(Col);
             for (int i = 0; i < trdo.Rows.Count ; i++)
             {
                 CodCliente = Convert.ToInt32(trdo.Rows[i]["CodCliente"]);
+                Responsable = cli.GetVendedorxCodCliente(CodCliente);
                 SaldoPesos = GetSaldo(CodCliente, "Pesos", trdo);
                 SaldoDolares = GetSaldo(CodCliente, "Dolares", trdo);
                 if (Buscar (tbDeudores ,CodCliente)==0)
@@ -55,6 +57,7 @@ namespace Concesionaria
                     Val = Val + ";" + trdo.Rows[i]["Telefono"].ToString();
                     Val = Val + ";" + SaldoPesos.ToString();
                     Val = Val + ";" + SaldoDolares.ToString();
+                    Val = Val + ";" + Responsable.ToString();
                     tbDeudores = fun.AgregarFilas(tbDeudores, Val);
                 }
                         
@@ -65,7 +68,7 @@ namespace Concesionaria
             txtTotalDolares.Text = fun.FormatoEnteroMiles(Dolares.ToString());
             tbDeudores = fun.TablaaMiles(tbDeudores, "Pesos");
             tbDeudores = fun.TablaaMiles(tbDeudores, "Dolares");
-            string AnchoCol = "0;45;0;15;20;20";
+            string AnchoCol = "0;25;0;15;20;20;20";
             Grilla.DataSource = tbDeudores;
             fun.AnchoColumnas(Grilla, AnchoCol);
         }
@@ -241,6 +244,19 @@ namespace Concesionaria
         {
             cFunciones fun = new cFunciones();
             fun.LlenarCombo(cmbMoneda, "Moneda", "Nombre", "CodMoneda");
+        }
+
+        private void btnMensaje_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow == null)
+            {
+                MessageBox.Show("Debe seleccionar un cliente");
+                return;
+            }
+            Int32 CodCliente = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
+            Principal.CodCliente = CodCliente;
+            FrmMensajeCliente frm = new FrmMensajeCliente();
+            frm.Show();
         }
     }
 }

@@ -104,6 +104,7 @@
     <Compile Include="Clases\cImpuesto.cs" />
     <Compile Include="Clases\cMarca.cs" />
     <Compile Include="Clases\cMensaje.cs" />
+    <Compile Include="Clases\cMensajeCliente.cs" />
     <Compile Include="Clases\cMensajeCobranza.cs" />
     <Compile Include="Clases\cMensajeCobranzaGeneral.cs" />
     <Compile Include="Clases\cMensajeCuotasAnteriores.cs" />
@@ -715,6 +716,12 @@
     </Compile>
     <Compile Include="FrmMail.Designer.cs">
       <DependentUpon>FrmMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMensajeCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMensajeCliente.Designer.cs">
+      <DependentUpon>FrmMensajeCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMensajeCobranzas.cs">
       <SubType>Form</SubType>
@@ -1350,6 +1357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMail.resx">
       <DependentUpon>FrmMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMensajeCliente.resx">
+      <DependentUpon>FrmMensajeCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMensajeCobranzas.resx">
       <DependentUpon>FrmMensajeCobranzas.cs</DependentUpon>

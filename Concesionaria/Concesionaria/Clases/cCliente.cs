@@ -482,5 +482,47 @@ namespace Concesionaria.Clases
             return cDb.EjecutarEscalar(sql);
         }
 
+        public void ActualizarVendedor(Int32 CodCliente, Int32 CodVendedor)
+        {
+            string sql = "update Cliente ";
+            sql = sql + " set CodVendedor =" + CodVendedor.ToString();
+            sql = sql + " where CodCliente =" + CodCliente.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
+
+        public string GetVendedorxCodCliente(Int32 CodCliente)
+        {
+            string Nombre = "";
+            string sql = "";
+            sql = "select (v.Nombre + ' ' + v.Apellido) as Responsable ";
+            sql = sql + " from Cliente cli, Vendedor v ";
+            sql = sql + " where cli.CodVendedor = v.CodVendedor ";
+            sql = sql + " and cli.CodCliente=" + CodCliente.ToString();
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count >0)
+            {
+                Nombre = trdo.Rows[0]["Responsable"].ToString(); 
+            }
+            return Nombre;
+        }
+
+        public Int32  GetCodVendedorxCodCliente(Int32 CodCliente)
+        {
+            Int32 CodVendedor = 0;
+            string sql = "";
+            sql = "select CodVendedor ";
+            sql = sql + " from Cliente cli  ";
+            
+            sql = sql + " where cli.CodCliente=" + CodCliente.ToString();
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count > 0)
+            {
+                if (trdo.Rows[0]["CodVendedor"].ToString ()!="")
+                    CodVendedor = Convert.ToInt32 (trdo.Rows[0]["CodVendedor"].ToString());
+            }
+            return CodVendedor;
+        }
+
+
     }
 }
