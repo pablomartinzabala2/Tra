@@ -201,7 +201,7 @@
             // 
             // btnMensaje
             // 
-            this.btnMensaje.Location = new System.Drawing.Point(284, 4);
+            this.btnMensaje.Location = new System.Drawing.Point(825, 32);
             this.btnMensaje.Name = "btnMensaje";
             this.btnMensaje.Size = new System.Drawing.Size(75, 23);
             this.btnMensaje.TabIndex = 15;
