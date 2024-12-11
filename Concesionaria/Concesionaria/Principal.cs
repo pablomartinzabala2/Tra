@@ -887,5 +887,11 @@ namespace Concesionaria
             childForm.Text = "Formulario de altas, bajas y modificación de clientes";
             childForm.Show();
         }
+
+        private void vendedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAbmVendedor frm = new FrmAbmVendedor();
+            frm.Show();
+        }
     }
 }

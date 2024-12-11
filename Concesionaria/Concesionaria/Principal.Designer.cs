@@ -126,6 +126,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.vendedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -164,6 +165,7 @@
             this.papelesToolStripMenuItem,
             this.tarjetaToolStripMenuItem,
             this.openToolStripMenuItem,
+            this.vendedorToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
@@ -958,6 +960,13 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // vendedorToolStripMenuItem
+            // 
+            this.vendedorToolStripMenuItem.Name = "vendedorToolStripMenuItem";
+            this.vendedorToolStripMenuItem.Size = new System.Drawing.Size(292, 22);
+            this.vendedorToolStripMenuItem.Text = "Vendedor";
+            this.vendedorToolStripMenuItem.Click += new System.EventHandler(this.vendedorToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1081,6 +1090,7 @@
         private System.Windows.Forms.ToolStripMenuItem actualizarContraseñaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
         private System.Windows.Forms.ToolStripButton ButtonResumenDewuda;
+        private System.Windows.Forms.ToolStripMenuItem vendedorToolStripMenuItem;
     }
 }
 

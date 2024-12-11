@@ -11,16 +11,17 @@ namespace Concesionaria.Clases
          public DataTable GetVendedores()
          {
              string sql = "Select CodVendedor, (Apellido + ' ' + Nombre) as Apellido";
-             sql = sql + " from Vendedor ";
+             sql = sql + " from Vendedor where Activo=1 ";
              sql = sql + " order by Apellido ";
              return cDb.ExecuteDataTable(sql);
          }
 
          public void GrabarVendedor(string Ape, string Nom)
          {
-             string sql = "insert into Vendedor(Nombre,Apellido)";
+             string sql = "insert into Vendedor(Nombre,Apellido,Activo)";
              sql = sql + " values (" + "'" + Nom + "'";
              sql = sql + "," + "'" + Ape + "'";
+            sql = sql + ",1";
              sql = sql + ")";
              cDb.ExecutarNonQuery(sql);
          }

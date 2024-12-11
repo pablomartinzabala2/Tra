@@ -385,8 +385,31 @@ namespace Concesionaria.Clases
                                 else
                                     values = values + ",null";
                             }
+                                        
+                        }
+
+                        if (nombre.Substring(0, 4) == "chk_")
+                        {
+                            CheckBox chk = (CheckBox)g;
+                            int Activo = 0;
+                            if (chk.Checked == true)
+                                Activo = 1;
+                          
+                            string[] vec = nombre.Split('_');
+                            if (ban == 0)
+                            {
+                                sql = sql + vec[1].ToString();
+                                values = " Values(" + Activo.ToString();
+                              
+                                ban = 1;
+                            }
+                            else
+                            {
+                                sql = sql + "," + vec[1].ToString();
+                                values = values + "," + Activo.ToString();
                                 
-                            
+                            }
+
                         }
                     }
                 }
@@ -451,6 +474,20 @@ namespace Concesionaria.Clases
                                     sql = sql + "," + vec[1].ToString() + "=" + Combo.SelectedValue.ToString();
                                 else
                                     sql = sql + "," + vec[1].ToString() + "=null";
+                            ban = 1;
+                        }
+
+                        if (nombre.Substring(0, 4) == "chk_")
+                        {
+                            CheckBox chk = (CheckBox)g;
+                            int Activo = 0;
+                            if (chk.Checked == true)
+                                Activo = 1;
+                            string[] vec = nombre.Split('_');
+                            if (ban == 0)
+                                sql = sql + vec[1].ToString() + "=" + "'" + Activo.ToString() + "'";
+                            else
+                                sql = sql + "," + vec[1].ToString() + "=" + "'" + Activo.ToString() + "'";
                             ban = 1;
                         }
                     }
@@ -551,6 +588,20 @@ namespace Concesionaria.Clases
                             string[] vec = nombre.Split('_');
                             MaskedTextBox CajaTextoMascara = (MaskedTextBox)g;
                             CajaTextoMascara.Text = trdo.Rows[0][vec[1]].ToString();
+                        }
+
+                        if (nombre.Substring(0, 4) == "chk_")
+                        {
+                            int Activo = 0;  
+                            string[] vec = nombre.Split('_');
+                            CheckBox CHK = (CheckBox)g;
+                            if (trdo.Rows[0][vec[1]].ToString() == "1")
+                                Activo = 1;
+                            if (Activo == 1)
+                                CHK.Checked = true;
+                            else
+                                CHK.Checked = false;
+
                         }
                     }
                 }
