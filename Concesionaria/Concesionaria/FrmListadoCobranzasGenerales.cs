@@ -62,11 +62,12 @@ namespace Concesionaria
         private void FrmListadoCobranzasGenerales_Load(object sender, EventArgs e)
         {
             DateTime fechahoy = DateTime.Now;
+            DateTime fechaAnterior = fechahoy.AddYears(-1);
             int Anio = fechahoy.Year;
-            string FechaDesde = "01/01/" + Anio.ToString();
-            string FechaHasta = "31/12/" + Anio.ToString();
-            dpFechaDesde.Value = Convert.ToDateTime(FechaDesde);
-            dpFechaHasta.Value = Convert.ToDateTime(FechaHasta);
+          //  string FechaDesde = "01/01/" + Anio.ToString();
+          //  string FechaHasta = "31/12/" + Anio.ToString();
+            dpFechaDesde.Value = Convert.ToDateTime(fechaAnterior);
+            dpFechaHasta.Value = Convert.ToDateTime(fechahoy);
             Buscar();
         }
 

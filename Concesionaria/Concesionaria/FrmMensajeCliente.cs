@@ -23,7 +23,8 @@ namespace Concesionaria
             CargarEmpleado();
             BuscarVendedorxCliente(Convert.ToInt32 (txtCodigo.Text));
             CargarMensajes(Convert.ToInt32(txtCodigo.Text));
-            if (Principal.NombreUsuarioLogueado.ToUpper() == "ADMIN")
+            string Nombre = Principal.NombreUsuarioLogueado.ToUpper();
+            if (Nombre == "ADMIN" || Nombre =="VENTAS" )
                 btnGuardarVendedor.Enabled = true;
             else
                 btnGuardarVendedor.Enabled = false;
