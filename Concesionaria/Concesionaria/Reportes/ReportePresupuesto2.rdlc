@@ -859,6 +859,21 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Image Name="Image2">
+        <Source>Embedded</Source>
+        <Value>FirmaTraut</Value>
+        <Sizing>FitProportional</Sizing>
+        <Top>13.76397cm</Top>
+        <Left>10.37245cm</Left>
+        <Height>2.05317cm</Height>
+        <Width>3.93418cm</Width>
+        <ZIndex>16</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
     </ReportItems>
     <Height>6.34375in</Height>
     <Style />

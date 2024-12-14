@@ -22,7 +22,7 @@ namespace Concesionaria
             DateTime Fecha = DateTime.Now;
             daFechaCobro.Value = Fecha;
             dpFechaHasta.Value = Fecha;
-            Fecha = Fecha.AddMonths(-1);
+            Fecha = Fecha.AddYears(-1);
             dpFechaDesde.Value = Fecha;
             Buscar();
         }
