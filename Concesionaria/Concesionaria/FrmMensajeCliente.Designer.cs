@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMensajeCliente));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnVerMensaje = new System.Windows.Forms.Button();
             this.btnGuardarVendedor = new System.Windows.Forms.Button();
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,6 +46,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnVerMensaje);
             this.groupBox1.Controls.Add(this.btnGuardarVendedor);
             this.groupBox1.Controls.Add(this.cmbEmpleado);
             this.groupBox1.Controls.Add(this.label2);
@@ -61,6 +63,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mensajes";
+            // 
+            // btnVerMensaje
+            // 
+            this.btnVerMensaje.Image = global::Concesionaria.Properties.Resources.zoom1;
+            this.btnVerMensaje.Location = new System.Drawing.Point(461, 30);
+            this.btnVerMensaje.Name = "btnVerMensaje";
+            this.btnVerMensaje.Size = new System.Drawing.Size(40, 28);
+            this.btnVerMensaje.TabIndex = 78;
+            this.btnVerMensaje.UseVisualStyleBackColor = true;
+            this.btnVerMensaje.Click += new System.EventHandler(this.btnVerMensaje_Click);
             // 
             // btnGuardarVendedor
             // 
@@ -110,16 +122,16 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(473, 33);
+            this.txtCodigo.Location = new System.Drawing.Point(550, 32);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(69, 23);
+            this.txtCodigo.Size = new System.Drawing.Size(38, 23);
             this.txtCodigo.TabIndex = 49;
             this.txtCodigo.Visible = false;
             // 
             // btnAgregar
             // 
             this.btnAgregar.Image = global::Concesionaria.Properties.Resources.add;
-            this.btnAgregar.Location = new System.Drawing.Point(548, 28);
+            this.btnAgregar.Location = new System.Drawing.Point(507, 30);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(40, 28);
             this.btnAgregar.TabIndex = 48;
@@ -171,5 +183,6 @@
         private System.Windows.Forms.DateTimePicker dpFechaDesde;
         private System.Windows.Forms.ComboBox cmbEmpleado;
         private System.Windows.Forms.Button btnGuardarVendedor;
+        private System.Windows.Forms.Button btnVerMensaje;
     }
 }

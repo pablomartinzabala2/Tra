@@ -344,5 +344,24 @@ namespace Concesionaria.Clases
           
             return cDb.ExecuteDataTable(sql);
         }
+
+        public string GetMenorFechaVencimiento(Int32 CodCliente)
+        {
+            string sql = " select min(c.FechaCompromiso) as Fecha ";
+            sql = sql + " from CobranzaGeneral c where c.CodCliente = " + CodCliente.ToString();
+            sql = sql + " and c.Saldo>0 ";
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            string sFecha = "";
+            if (trdo.Rows.Count >0)
+            {
+                if (trdo.Rows[0]["Fecha"].ToString ()!="")
+                {
+                    DateTime Fecha = Convert.ToDateTime(trdo.Rows[0]["Fecha"].ToString());
+                    sFecha = Fecha.ToShortDateString();
+                }
+            }
+            return sFecha;
+
+        }
     }
 }

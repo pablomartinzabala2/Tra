@@ -90,5 +90,29 @@ namespace Concesionaria
             txtMensaje.Text = "";
             fun.AnchoColumnas(Grilla, "0;20;80");
         }
+
+        private void btnVerMensaje_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow ==null)
+            {
+                MessageBox.Show("Debe seleccionar un elemento ");
+                return;
+            }
+
+            Int32 CodMensaje = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value.ToString());
+            cMensajeCliente msj = new cMensajeCliente();
+            DataTable trdo = msj.GetMensajesxCodMensaje(CodMensaje);
+            if (trdo.Rows.Count >0)
+            {
+                if (trdo.Rows[0]["CodMensaje"].ToString ()!="")
+                {
+                    string Mensaje = trdo.Rows[0]["Mensaje"].ToString();
+                    txtMensaje.Text = Mensaje; 
+                }
+            }
+        }
+
+
     }
+                
 }

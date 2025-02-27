@@ -33,5 +33,13 @@ namespace Concesionaria.Clases
             sql = sql + " where CodMensaje=" + CodMensaje.ToString();
             cDb.ExecutarNonQuery(sql);
         }
+
+        public DataTable GetMensajesxCodMensaje(Int32 CodMensaje)
+        {
+            string sql = "select CodMensaje,Fecha,Mensaje from MensajeCliente ";
+            sql = sql + " where CodMensaje =" + CodMensaje.ToString();
+            sql = sql + " order by CodMensaje Desc";
+            return cDb.ExecuteDataTable(sql);
+        }
     }
 }

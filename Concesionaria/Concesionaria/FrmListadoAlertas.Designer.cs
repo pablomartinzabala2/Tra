@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAgregarAlerta = new System.Windows.Forms.Button();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPatente = new System.Windows.Forms.TextBox();
@@ -38,18 +39,19 @@
             this.txtCliente = new System.Windows.Forms.Button();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.txtFechaHasta = new System.Windows.Forms.MaskedTextBox();
-            this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
-            this.btnAgregarAlerta = new System.Windows.Forms.Button();
+            this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
+            this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dpFechaHasta);
+            this.groupBox1.Controls.Add(this.dpFechaDesde);
             this.groupBox1.Controls.Add(this.btnAgregarAlerta);
             this.groupBox1.Controls.Add(this.txtNombreCliente);
             this.groupBox1.Controls.Add(this.label3);
@@ -60,8 +62,6 @@
             this.groupBox1.Controls.Add(this.txtCliente);
             this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.txtFechaHasta);
-            this.groupBox1.Controls.Add(this.txtFechaDesde);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.Grilla);
@@ -72,6 +72,17 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado";
+            // 
+            // btnAgregarAlerta
+            // 
+            this.btnAgregarAlerta.Image = global::Concesionaria.Properties.Resources.add;
+            this.btnAgregarAlerta.Location = new System.Drawing.Point(627, 21);
+            this.btnAgregarAlerta.Name = "btnAgregarAlerta";
+            this.btnAgregarAlerta.Size = new System.Drawing.Size(34, 24);
+            this.btnAgregarAlerta.TabIndex = 57;
+            this.btnAgregarAlerta.Text = "º";
+            this.btnAgregarAlerta.UseVisualStyleBackColor = true;
+            this.btnAgregarAlerta.Click += new System.EventHandler(this.btnAgregarAlerta_Click);
             // 
             // txtNombreCliente
             // 
@@ -156,26 +167,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // txtFechaHasta
-            // 
-            this.txtFechaHasta.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFechaHasta.Location = new System.Drawing.Point(288, 22);
-            this.txtFechaHasta.Mask = "00/00/0000";
-            this.txtFechaHasta.Name = "txtFechaHasta";
-            this.txtFechaHasta.Size = new System.Drawing.Size(72, 23);
-            this.txtFechaHasta.TabIndex = 47;
-            this.txtFechaHasta.ValidatingType = typeof(System.DateTime);
-            // 
-            // txtFechaDesde
-            // 
-            this.txtFechaDesde.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFechaDesde.Location = new System.Drawing.Point(113, 24);
-            this.txtFechaDesde.Mask = "00/00/0000";
-            this.txtFechaDesde.Name = "txtFechaDesde";
-            this.txtFechaDesde.Size = new System.Drawing.Size(75, 23);
-            this.txtFechaDesde.TabIndex = 46;
-            this.txtFechaDesde.ValidatingType = typeof(System.DateTime);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -188,7 +179,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(194, 27);
+            this.label8.Location = new System.Drawing.Point(204, 27);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 17);
             this.label8.TabIndex = 44;
@@ -204,16 +195,21 @@
             this.Grilla.Size = new System.Drawing.Size(702, 370);
             this.Grilla.TabIndex = 0;
             // 
-            // btnAgregarAlerta
+            // dpFechaDesde
             // 
-            this.btnAgregarAlerta.Image = global::Concesionaria.Properties.Resources.add;
-            this.btnAgregarAlerta.Location = new System.Drawing.Point(627, 21);
-            this.btnAgregarAlerta.Name = "btnAgregarAlerta";
-            this.btnAgregarAlerta.Size = new System.Drawing.Size(34, 24);
-            this.btnAgregarAlerta.TabIndex = 57;
-            this.btnAgregarAlerta.Text = "º";
-            this.btnAgregarAlerta.UseVisualStyleBackColor = true;
-            this.btnAgregarAlerta.Click += new System.EventHandler(this.btnAgregarAlerta_Click);
+            this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaDesde.Location = new System.Drawing.Point(113, 24);
+            this.dpFechaDesde.Name = "dpFechaDesde";
+            this.dpFechaDesde.Size = new System.Drawing.Size(85, 23);
+            this.dpFechaDesde.TabIndex = 71;
+            // 
+            // dpFechaHasta
+            // 
+            this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaHasta.Location = new System.Drawing.Point(298, 22);
+            this.dpFechaHasta.Name = "dpFechaHasta";
+            this.dpFechaHasta.Size = new System.Drawing.Size(85, 23);
+            this.dpFechaHasta.TabIndex = 72;
             // 
             // FrmListadoAlertas
             // 
@@ -239,8 +235,6 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView Grilla;
-        private System.Windows.Forms.MaskedTextBox txtFechaHasta;
-        private System.Windows.Forms.MaskedTextBox txtFechaDesde;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button3;
@@ -253,5 +247,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAgregarAlerta;
+        private System.Windows.Forms.DateTimePicker dpFechaHasta;
+        private System.Windows.Forms.DateTimePicker dpFechaDesde;
     }
 }

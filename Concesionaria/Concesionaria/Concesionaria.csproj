@@ -1639,6 +1639,7 @@
     <Content Include="Iconos\Borrar.ico" />
     <Content Include="Iconos\Imagen\CUADRITOS.png" />
     <Content Include="Iconos\Imagen\CUERPO.png" />
+    <Content Include="Iconos\Imagen\FIRMA.jpg" />
     <Content Include="Iconos\Imagen\Lista 3.jpg" />
     <Content Include="Iconos\Imagen\Lista 4.jpg" />
     <Content Include="Iconos\Imagen\Lista.bmp" />

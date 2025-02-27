@@ -41,11 +41,13 @@ namespace Concesionaria
             string Val = "";
             cCliente cli = new cCliente();
             string Responsable = "";
-            string Col = "CodCliente;Cliente;Apellido;Telefono;Pesos;Dolares;Responsable";
+            string FechaVto = "";
+            string Col = "CodCliente;Cliente;Apellido;Telefono;Pesos;Dolares;Responsable;FechaVto";
             DataTable tbDeudores = fun.CrearTabla(Col);
             for (int i = 0; i < trdo.Rows.Count ; i++)
             {
                 CodCliente = Convert.ToInt32(trdo.Rows[i]["CodCliente"]);
+                FechaVto = GetFechaCompromiso(CodCliente);
                 Responsable = cli.GetVendedorxCodCliente(CodCliente);
                 SaldoPesos = GetSaldo(CodCliente, "Pesos", trdo);
                 SaldoDolares = GetSaldo(CodCliente, "Dolares", trdo);
@@ -58,6 +60,7 @@ namespace Concesionaria
                     Val = Val + ";" + SaldoPesos.ToString();
                     Val = Val + ";" + SaldoDolares.ToString();
                     Val = Val + ";" + Responsable.ToString();
+                    Val = Val + ";" + FechaVto;
                     tbDeudores = fun.AgregarFilas(tbDeudores, Val);
                 }
                         
@@ -68,9 +71,48 @@ namespace Concesionaria
             txtTotalDolares.Text = fun.FormatoEnteroMiles(Dolares.ToString());
             tbDeudores = fun.TablaaMiles(tbDeudores, "Pesos");
             tbDeudores = fun.TablaaMiles(tbDeudores, "Dolares");
-            string AnchoCol = "0;25;0;15;20;20;20";
+            string AnchoCol = "0;25;0;15;20;15;15;10";
             Grilla.DataSource = tbDeudores;
             fun.AnchoColumnas(Grilla, AnchoCol);
+            PintarGrilla();
+        }
+
+        private void PintarGrilla()
+        {
+            DateTime FechaHOy = DateTime.Now;
+            DateTime Fecha = DateTime.Now;
+            int b = 0;
+            for (int i = 0; i < Grilla.Rows.Count -1 ; i++)
+            {
+                Fecha = Convert.ToDateTime(Grilla.Rows[i].Cells[7].Value.ToString());
+                if (Fecha < FechaHOy)
+                {
+                    Grilla.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+                    Grilla.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    b = 1;
+                }
+
+                if (b ==0)
+                {
+                    if (Fecha.Month ==FechaHOy.Month)
+                    {
+                        if (Fecha.Year ==FechaHOy.Year)
+                        {
+                            Grilla.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
+                        }
+                    }
+                }
+
+
+                b = 0;
+            }
+        }
+
+        private string GetFechaCompromiso(Int32 CodCliente)
+        {
+            cCobranzaGeneral cob = new cCobranzaGeneral();
+            string Fecha = cob.GetMenorFechaVencimiento(CodCliente);
+            return Fecha;
         }
 
         private Double GetSaldo (Int32 CodCliente, string Moneda , DataTable trdo)

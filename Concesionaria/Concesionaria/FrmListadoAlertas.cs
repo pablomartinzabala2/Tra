@@ -15,17 +15,24 @@ namespace Concesionaria
         {
             InitializeComponent();
             DateTime fechahoy = DateTime.Now;
-            txtFechaHasta.Text = fechahoy.ToShortDateString();
+            int anio = DateTime.Now.Year;
+            string sFecha = "31/12/" + anio.ToString();
+
             fechahoy = fechahoy.AddMonths(-1);
-            txtFechaDesde.Text = fechahoy.ToShortDateString();
+            dpFechaDesde.Value = fechahoy;
+            dpFechaHasta.Value = Convert.ToDateTime(sFecha);
+            
         }
 
         private void FrmListadoAlertas_Load(object sender, EventArgs e)
-        {
+        { 
             DateTime fechahoy = DateTime.Now;
-            txtFechaHasta.Text = fechahoy.ToShortDateString();
+            int anio = DateTime.Now.Year;
+            string sFecha = "31/12/" + anio.ToString();
             fechahoy = fechahoy.AddMonths(-1);
-            txtFechaDesde.Text = fechahoy.ToShortDateString();
+            dpFechaDesde.Value = fechahoy;
+            fechahoy = fechahoy.AddMonths(-1);
+            dpFechaHasta.Value = Convert.ToDateTime(sFecha);
             Buscar();
         }
 
@@ -37,26 +44,10 @@ namespace Concesionaria
         private void Buscar()
         {
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (fun.ValidarFecha(txtFechaDesde.Text) == false)
-            {
-                MessageBox.Show("Fecha desde incorrecta", Clases.cMensaje.Mensaje());
-                return;
-            }
 
-            if (fun.ValidarFecha(txtFechaHasta.Text) == false)
-            {
-                MessageBox.Show("Fecha hasta incorrecta", Clases.cMensaje.Mensaje());
-                return;
-            }
 
-            if (Convert.ToDateTime(txtFechaDesde.Text) > Convert.ToDateTime(txtFechaHasta.Text))
-            {
-                MessageBox.Show("La fecha desde debe ser inferior a la fecha hasta", Clases.cMensaje.Mensaje());
-                return;
-            }
-
-            DateTime FechaDesde = Convert.ToDateTime(txtFechaDesde.Text);
-            DateTime FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
+            DateTime FechaDesde = dpFechaDesde.Value;
+            DateTime FechaHasta = dpFechaHasta.Value;
             string texto = txtDescripcion.Text;
             Clases.cAlarma alarma = new Clases.cAlarma();
             DataTable trdo = alarma.GetAlertasxRangoFecha(FechaDesde, FechaHasta, texto, txtPatente.Text.Trim(), txtNombreCliente.Text.Trim());
