@@ -40,12 +40,14 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMensaje = new System.Windows.Forms.TextBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Controls.Add(this.btnVerMensaje);
             this.groupBox1.Controls.Add(this.btnGuardarVendedor);
             this.groupBox1.Controls.Add(this.cmbEmpleado);
@@ -122,7 +124,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(550, 32);
+            this.txtCodigo.Location = new System.Drawing.Point(296, 0);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(38, 23);
             this.txtCodigo.TabIndex = 49;
@@ -155,6 +157,16 @@
             this.txtMensaje.Size = new System.Drawing.Size(571, 149);
             this.txtMensaje.TabIndex = 0;
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Image = global::Concesionaria.Properties.Resources.cancel;
+            this.btnEliminar.Location = new System.Drawing.Point(548, 28);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(40, 28);
+            this.btnEliminar.TabIndex = 79;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // FrmMensajeCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,5 +196,6 @@
         private System.Windows.Forms.ComboBox cmbEmpleado;
         private System.Windows.Forms.Button btnGuardarVendedor;
         private System.Windows.Forms.Button btnVerMensaje;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

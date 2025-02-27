@@ -34,6 +34,8 @@ namespace Concesionaria.Clases
             cDb.ExecutarNonQuery(sql);
         }
 
+       
+
         public DataTable GetMensajesxCodMensaje(Int32 CodMensaje)
         {
             string sql = "select CodMensaje,Fecha,Mensaje from MensajeCliente ";

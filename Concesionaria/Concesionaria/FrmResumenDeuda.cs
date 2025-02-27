@@ -87,8 +87,8 @@ namespace Concesionaria
                 Fecha = Convert.ToDateTime(Grilla.Rows[i].Cells[7].Value.ToString());
                 if (Fecha < FechaHOy)
                 {
-                    Grilla.Rows[i].DefaultCellStyle.ForeColor = Color.White;
-                    Grilla.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    // Grilla.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+                    Grilla.Rows[i].DefaultCellStyle.BackColor = Color.LightPink;
                     b = 1;
                 }
 

@@ -116,8 +116,8 @@ namespace Concesionaria
                 switch (Estado)
                 {
                     case "1":
-                        Grilla.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                        Grilla.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+                        Grilla.Rows[i].DefaultCellStyle.BackColor = Color.LightPink;
+                       // Grilla.Rows[i].DefaultCellStyle.ForeColor = Color.White;
                         break;
                     case "2":
                         Grilla.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;

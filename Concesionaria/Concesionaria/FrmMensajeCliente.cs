@@ -28,6 +28,8 @@ namespace Concesionaria
                 btnGuardarVendedor.Enabled = true;
             else
                 btnGuardarVendedor.Enabled = false;
+
+            ValidarUsuario();
         }
 
         private void BuscarVendedorxCliente(Int32 CodCliente)
@@ -62,6 +64,7 @@ namespace Concesionaria
             cCliente cli = new cCliente();
             cli.ActualizarVendedor(CodCliente, CodVendedor);
             MessageBox.Show("Datos actualizados correctamente");
+            CargarMensajes(Convert.ToInt32(txtCodigo.Text));
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -78,7 +81,7 @@ namespace Concesionaria
             DateTime Fecha = dpFechaDesde.Value;
             msj.InsertarMensaje(Mensaje, Fecha, CodCliente);
             MessageBox.Show("Datos Grabados Correctamente", Clases.cMensaje.Mensaje());
-           
+            CargarMensajes(Convert.ToInt32(txtCodigo.Text));
         }
 
         private void CargarMensajes(Int32 CodCliente)
@@ -112,7 +115,37 @@ namespace Concesionaria
             }
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow ==null)
+            {
+                MessageBox.Show("Debe seleccionar un elemento ");
+                return;
+            }
 
+            Int32 CodMensaje = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
+            cMensajeCliente msj = new cMensajeCliente();
+            msj.borrar(CodMensaje);
+            MessageBox.Show(" Se ha borrado el mensaje correctamente ");
+            CargarMensajes(Convert.ToInt32(txtCodigo.Text));
+        }
+
+        private void ValidarUsuario()
+        {
+            int b = 0;
+            string Usuario = Principal.NombreUsuarioLogueado;
+            if (Usuario.ToUpper()=="ADMIN" || Usuario.ToUpper() == "VENTAS")
+            {
+                b = 1;
+            }
+
+            if (b==0)
+            {
+                btnEliminar.Enabled = false;
+                btnAgregar.Enabled = false;
+                btnGuardarVendedor.Enabled = false;
+            }
+        }
     }
                 
 }
