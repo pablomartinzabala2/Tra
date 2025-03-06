@@ -26,7 +26,10 @@ namespace Concesionaria
             string Apellido = "";
             if (txtApellido.Text != "")
                 Apellido = txtApellido.Text;
-            DataTable trdo = cob.GetDeudaCliente(Apellido, CodMoneda);
+            Int32? CodVendedor = null;
+            if (CmbVendedor.SelectedIndex > 0)
+                CodVendedor = Convert.ToInt32(CmbVendedor.SelectedValue);
+            DataTable trdo = cob.GetDeudaCliente(Apellido, CodMoneda , CodVendedor);
             ArmarTabla(trdo);
         }
 
@@ -42,7 +45,9 @@ namespace Concesionaria
             cCliente cli = new cCliente();
             string Responsable = "";
             string FechaVto = "";
-            string Col = "CodCliente;Cliente;Apellido;Telefono;Pesos;Dolares;Responsable;FechaVto";
+            string UltimaFecha = "";
+            //ultima fecha es para sacar la ulitam fecha del contacto
+            string Col = "CodCliente;Cliente;Apellido;Telefono;Pesos;Dolares;Responsable;FechaVto;UltimaFecha";
             DataTable tbDeudores = fun.CrearTabla(Col);
             for (int i = 0; i < trdo.Rows.Count ; i++)
             {
@@ -51,6 +56,7 @@ namespace Concesionaria
                 Responsable = cli.GetVendedorxCodCliente(CodCliente);
                 SaldoPesos = GetSaldo(CodCliente, "Pesos", trdo);
                 SaldoDolares = GetSaldo(CodCliente, "Dolares", trdo);
+                UltimaFecha = GetUltimaFecha(CodCliente);
                 if (Buscar (tbDeudores ,CodCliente)==0)
                 {
                     Val = CodCliente.ToString();
@@ -61,6 +67,7 @@ namespace Concesionaria
                     Val = Val + ";" + SaldoDolares.ToString();
                     Val = Val + ";" + Responsable.ToString();
                     Val = Val + ";" + FechaVto;
+                    Val = Val + ";" + UltimaFecha;
                     tbDeudores = fun.AgregarFilas(tbDeudores, Val);
                 }
                         
@@ -71,10 +78,19 @@ namespace Concesionaria
             txtTotalDolares.Text = fun.FormatoEnteroMiles(Dolares.ToString());
             tbDeudores = fun.TablaaMiles(tbDeudores, "Pesos");
             tbDeudores = fun.TablaaMiles(tbDeudores, "Dolares");
-            string AnchoCol = "0;25;0;15;20;15;15;10";
+            string AnchoCol = "0;25;0;15;10;15;15;10;10";
             Grilla.DataSource = tbDeudores;
             fun.AnchoColumnas(Grilla, AnchoCol);
+            Grilla.Columns[8].HeaderText = "Contacto ";
             PintarGrilla();
+        }
+
+        private string GetUltimaFecha(Int32 CodCliente)
+        {
+            string Fecha = "";
+            cMensajeCliente msj = new cMensajeCliente();
+            Fecha = msj.GetUltimaFecha(CodCliente);
+            return Fecha;
         }
 
         private void PintarGrilla()
@@ -286,6 +302,16 @@ namespace Concesionaria
         {
             cFunciones fun = new cFunciones();
             fun.LlenarCombo(cmbMoneda, "Moneda", "Nombre", "CodMoneda");
+            CargarVendedor();
+        }
+
+        private void CargarVendedor()
+        {
+            cVendedor Vendedor = new cVendedor();
+            DataTable trdo = Vendedor.GetVendedores();
+            cFunciones fun = new cFunciones();
+            fun.LlenarComboDatatable (CmbVendedor, trdo, "Apellido", "CodVendedor");
+
         }
 
         private void btnMensaje_Click(object sender, EventArgs e)

@@ -24,11 +24,6 @@ namespace Concesionaria
             BuscarVendedorxCliente(Convert.ToInt32 (txtCodigo.Text));
             CargarMensajes(Convert.ToInt32(txtCodigo.Text));
             string Nombre = Principal.NombreUsuarioLogueado.ToUpper();
-            if (Nombre == "ADMIN" || Nombre =="VENTAS" )
-                btnGuardarVendedor.Enabled = true;
-            else
-                btnGuardarVendedor.Enabled = false;
-
             ValidarUsuario();
         }
 
@@ -142,7 +137,7 @@ namespace Concesionaria
             if (b==0)
             {
                 btnEliminar.Enabled = false;
-                btnAgregar.Enabled = false;
+              //  btnAgregar.Enabled = false;
                 btnGuardarVendedor.Enabled = false;
             }
         }

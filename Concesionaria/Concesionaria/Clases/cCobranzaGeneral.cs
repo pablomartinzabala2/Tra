@@ -235,7 +235,7 @@ namespace Concesionaria.Clases
 
         }
 
-        public DataTable GetDeudaCliente(string Apellido, int? CodMoneda)
+        public DataTable GetDeudaCliente(string Apellido, int? CodMoneda, Int32? CodVendedor)
         {
             string sql = "select Cli.CodCliente,c.Cliente ,cli.Apellido,cli.Telefono ";
             sql = sql + " , sum(c.Saldo) as Saldo ,m.Nombre as Moneda";
@@ -251,6 +251,11 @@ namespace Concesionaria.Clases
             if (CodMoneda != null)
             {
                 sql = sql + " and m.CodMoneda=" + CodMoneda.ToString();
+            }
+
+            if (CodVendedor !=null)
+            {
+                sql = sql + " and cli.CodVendedor =" + CodVendedor.ToString();
             }
 
             sql = sql + " group by Cli.CodCliente,C.Cliente ,cli.Apellido,cli.Telefono , m.Nombre";

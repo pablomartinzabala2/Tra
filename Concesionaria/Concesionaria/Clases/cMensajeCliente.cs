@@ -43,5 +43,20 @@ namespace Concesionaria.Clases
             sql = sql + " order by CodMensaje Desc";
             return cDb.ExecuteDataTable(sql);
         }
+
+        public string GetUltimaFecha(Int32 CodCliente)
+        {
+            string Fecha = "";
+            string sql = "select * from MensajeCliente ";
+            sql = sql + " where CodCliente =" + CodCliente.ToString();
+            sql = sql + " order by CodMensaje desc";
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count >0)
+            {
+                if (trdo.Rows[0]["CodMensaje"].ToString() != "")
+                    Fecha = trdo.Rows[0]["Fecha"].ToString();
+            }
+            return Fecha;
+        }
     }
 }
