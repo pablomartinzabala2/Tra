@@ -21,7 +21,7 @@ namespace Concesionaria
            // PintarFormulario();
             Clases.cFunciones fun = new Clases.cFunciones();
             fun.LlenarCombo(cmbMarca, "Marca", "Nombre", "CodMarca");
-           
+            CargarEstado();
             txtTotalVehiculos.BackColor = cColor.CajaTexto();
             txtMontoTotal.BackColor = cColor.CajaTexto();
             DataTable tbOrden = new DataTable();
@@ -37,11 +37,14 @@ namespace Concesionaria
             int? OrdenaPrecio = null;
             if (cmbOrden.SelectedIndex > 0)
                 OrdenaPrecio = Convert.ToInt32(cmbOrden.SelectedValue);
+            Int32? Concesion = null;
 
+            if (CmbEstado.SelectedIndex > 0)
+                Concesion = Convert.ToInt32(CmbEstado.SelectedValue);
             double Total = 0;
             Clases.cFunciones fun = new Clases.cFunciones();
             Clases.cStockAuto stock = new Clases.cStockAuto();
-            DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio);
+            DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio, Concesion);
             trdo = fun.TablaaMiles(trdo, "Costo");
             Total = fun.TotalizarColumna(trdo, "Costo");
             txtTotalVehiculos.Text = trdo.Rows.Count.ToString();
@@ -83,8 +86,12 @@ namespace Concesionaria
             Int32? CodMarca = null;
             if (cmbMarca.SelectedIndex > 0)
                 CodMarca = Convert.ToInt32(cmbMarca.SelectedValue);
+            Int32? Concesion = null;
+            if (CmbEstado.SelectedIndex > 0)
+                Concesion = Convert.ToInt32(CmbEstado.SelectedValue);
+
             Clases.cStockAuto stock = new Clases.cStockAuto();
-            DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio);
+            DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio, Concesion);
             txtTotalVehiculos.Text = trdo.Rows.Count.ToString();
             // trdo = fun.TablaaMiles(trdo, "Costo");
             trdo = fun.TablaaMiles(trdo, "PrecioVenta");
@@ -329,6 +336,19 @@ namespace Concesionaria
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void CargarEstado()
+        {
+            cFunciones fun = new cFunciones();
+            DataTable trdo = fun.CrearTabla("Codigo;Nombre");
+            string Val = "1;Concesion";
+            trdo = fun.AgregarFilas(trdo, Val);
+            Val = "2;Propio";
+            trdo = fun.AgregarFilas(trdo, Val);
+            Val = "2;Propio";
+            fun.LlenarComboDatatable(CmbEstado, trdo, "Nombre", "Codigo");
 
         }
     }

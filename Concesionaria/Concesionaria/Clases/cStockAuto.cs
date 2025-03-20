@@ -72,7 +72,7 @@ namespace Concesionaria.Clases
 
         }
 
-        public DataTable GetStockDetalladosVigente(string Patente,Int32? CodMarca, string Modelo, int? OrdenarPrecio )
+        public DataTable GetStockDetalladosVigente(string Patente,Int32? CodMarca, string Modelo, int? OrdenarPrecio ,Int32? Concesion )
         {
             string sql = "";
             sql = "select sa.CodStock,a.Patente";
@@ -107,6 +107,20 @@ namespace Concesionaria.Clases
                 sql = sql + " and a.CodMarca =" + CodMarca.ToString();
             if (Modelo != "")
                 sql = sql + " and a.Descripcion like " + "'%" + Modelo + "%'";
+
+            if (Concesion !=null)
+            {
+                if (Concesion ==1)
+                {
+                    sql = sql + " and a.Concesion =1";
+                }
+
+                if (Concesion == 2)
+                {
+                    sql = sql + " and a.Concesion !=1";
+                }
+            }
+
             if (OrdenarPrecio !=null)
             {
                 if (OrdenarPrecio ==1)
