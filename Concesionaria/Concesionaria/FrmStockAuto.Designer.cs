@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Grilla = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbOrden = new System.Windows.Forms.ComboBox();
             this.txtModelo = new System.Windows.Forms.TextBox();
@@ -47,22 +46,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.CmbEstado = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
+            this.Grilla = new System.Windows.Forms.DataGridView();
+            this.Sel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.txtPorcentaje = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnAplicarIncremento = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Grilla
-            // 
-            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(6, 62);
-            this.Grilla.Name = "Grilla";
-            this.Grilla.ReadOnly = true;
-            this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(1131, 409);
-            this.Grilla.TabIndex = 0;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAplicarIncremento);
+            this.groupBox1.Controls.Add(this.txtPorcentaje);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.Grilla);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.CmbEstado);
             this.groupBox1.Controls.Add(this.cmbOrden);
@@ -80,7 +78,6 @@
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.txtPatente);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.Grilla);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -91,8 +88,9 @@
             // 
             // cmbOrden
             // 
+            this.cmbOrden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOrden.FormattingEnabled = true;
-            this.cmbOrden.Location = new System.Drawing.Point(746, 26);
+            this.cmbOrden.Location = new System.Drawing.Point(851, 26);
             this.cmbOrden.Name = "cmbOrden";
             this.cmbOrden.Size = new System.Drawing.Size(72, 24);
             this.cmbOrden.TabIndex = 58;
@@ -235,7 +233,7 @@
             this.CmbEstado.FormattingEnabled = true;
             this.CmbEstado.Location = new System.Drawing.Point(646, 26);
             this.CmbEstado.Name = "CmbEstado";
-            this.CmbEstado.Size = new System.Drawing.Size(94, 24);
+            this.CmbEstado.Size = new System.Drawing.Size(199, 24);
             this.CmbEstado.TabIndex = 59;
             // 
             // label6
@@ -246,6 +244,48 @@
             this.label6.Size = new System.Drawing.Size(52, 17);
             this.label6.TabIndex = 60;
             this.label6.Text = "Estado";
+            // 
+            // Grilla
+            // 
+            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Sel});
+            this.Grilla.Location = new System.Drawing.Point(6, 88);
+            this.Grilla.Name = "Grilla";
+            this.Grilla.Size = new System.Drawing.Size(1125, 387);
+            this.Grilla.TabIndex = 74;
+            // 
+            // Sel
+            // 
+            this.Sel.HeaderText = "Sel";
+            this.Sel.Name = "Sel";
+            // 
+            // txtPorcentaje
+            // 
+            this.txtPorcentaje.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPorcentaje.Location = new System.Drawing.Point(248, 59);
+            this.txtPorcentaje.Name = "txtPorcentaje";
+            this.txtPorcentaje.Size = new System.Drawing.Size(104, 23);
+            this.txtPorcentaje.TabIndex = 76;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 59);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(236, 17);
+            this.label7.TabIndex = 75;
+            this.label7.Text = "Porcentaje de aumento por Inflación";
+            // 
+            // btnAplicarIncremento
+            // 
+            this.btnAplicarIncremento.Location = new System.Drawing.Point(358, 55);
+            this.btnAplicarIncremento.Name = "btnAplicarIncremento";
+            this.btnAplicarIncremento.Size = new System.Drawing.Size(85, 30);
+            this.btnAplicarIncremento.TabIndex = 77;
+            this.btnAplicarIncremento.Text = "Aplicar";
+            this.btnAplicarIncremento.UseVisualStyleBackColor = true;
+            this.btnAplicarIncremento.Click += new System.EventHandler(this.btnAplicarIncremento_Click);
             // 
             // FrmStockAuto
             // 
@@ -260,16 +300,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmStockAuto";
             this.Load += new System.EventHandler(this.FrmStockAuto_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtPatente;
         private System.Windows.Forms.Label label1;
@@ -288,5 +326,10 @@
         private System.Windows.Forms.ComboBox cmbOrden;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox CmbEstado;
+        private System.Windows.Forms.DataGridView Grilla;
+        private System.Windows.Forms.Button btnAplicarIncremento;
+        private System.Windows.Forms.TextBox txtPorcentaje;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Sel;
     }
 }

@@ -179,7 +179,7 @@ namespace Concesionaria
                 CodStock = Convert.ToInt32(txtCodStock.Text);
 
             Clases.cCosto costo = new Clases.cCosto();
-            costo.InsertarCosto(CodAuto, Patente, Importe, Fecha, Descripcion.ToUpper(), CodStock,CodDeuda,null);
+            costo.InsertarCosto(CodAuto, Patente, Importe, Fecha, Descripcion.ToUpper(), CodStock,CodDeuda,null,null);
             CargarCostoxstock(Convert.ToInt32(CodStock));
             DateTime FechaCosto = Convert.ToDateTime(dpFecha.Value);
 

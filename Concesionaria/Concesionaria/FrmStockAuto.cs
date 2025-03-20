@@ -110,7 +110,7 @@ namespace Concesionaria
                 txtMontoTotal.Text = fun.FormatoEnteroMiles(txtMontoTotal.Text);
             }
             PintarEstados();
-            fun.AnchoColumnas(Grilla, "0;8;10;28;8;10;8;8;10;0;10;0");
+            fun.AnchoColumnas(Grilla, "5;0;8;10;23;8;10;8;8;10;0;10;0");
            
         }
 
@@ -164,7 +164,7 @@ namespace Concesionaria
                 MessageBox.Show("Debe seleccionar un registro para continuar", Clases.cMensaje.Mensaje());
                 return;
             }
-            string CodStock = Grilla.CurrentRow.Cells[0].Value.ToString();
+            string CodStock = Grilla.CurrentRow.Cells[1].Value.ToString();
             Principal.CodigoPrincipalAbm = CodStock.ToString();
             FrmDetalleAuto childForm = new FrmDetalleAuto();
             childForm.Text = "Detalle del vehículo";
@@ -219,7 +219,7 @@ namespace Concesionaria
             Clases.cDb.ExecutarNonQuery("delete from ReporteAuto");
             for (int i = 0; i < Grilla.Rows.Count - 1; i++)
             {
-                CodStock = Convert.ToInt32(Grilla.Rows[i].Cells[0].Value.ToString());
+                CodStock = Convert.ToInt32(Grilla.Rows[i].Cells[1].Value.ToString());
                 Modelo = GetModeloxCodStock(CodStock);
                 Precio = GetPrecioxCodStock(CodStock);
                 Kilometros = GetKilometrosxCodStock(CodStock);
@@ -231,14 +231,14 @@ namespace Concesionaria
                 }
 
 
-                Patente = Grilla.Rows[i].Cells[1].Value.ToString();
+                Patente = Grilla.Rows[i].Cells[2].Value.ToString();
                 NumeroInterno = GetNumeroInternoxPatente(Patente);
                 //  Ubicacion = GetUbicacion (Patente);
-                // Ubicacion = Grilla.Rows[i].Cells[10].Value.ToString();
-                Descripcion = Grilla.Rows[i].Cells[3].Value.ToString();
-                Marca = Grilla.Rows[i].Cells[2].Value.ToString();
-                Color = Grilla.Rows[i].Cells[5].Value.ToString();
-                Anio = Grilla.Rows[i].Cells[6].Value.ToString();
+                // Ubicacion = Grilla.Rows[i].Cells[11].Value.ToString();
+                Descripcion = Grilla.Rows[i].Cells[4].Value.ToString();
+                Marca = Grilla.Rows[i].Cells[3].Value.ToString();
+                Color = Grilla.Rows[i].Cells[6].Value.ToString();
+                Anio = Grilla.Rows[i].Cells[8].Value.ToString();
 
                 sql = "Insert into ReporteAuto(Extra1,Descripcion,Marca,Modelo,Precio,Kilometros,Combustible,Extra2,Extra3)";
                 sql = sql + "values(" + "'" + Patente + "'";
@@ -350,6 +350,63 @@ namespace Concesionaria
             Val = "2;Propio";
             fun.LlenarComboDatatable(CmbEstado, trdo, "Nombre", "Codigo");
 
+        }
+
+        private void btnAplicarIncremento_Click(object sender, EventArgs e)
+        {
+            if (txtPorcentaje.Text =="")
+            {
+                MessageBox.Show("Debe ingresar un porcentaje ");
+                return;
+            }
+            Double Porcentaje = 0;
+            int i = 0;
+            int b = 0;
+           
+            Int32 CodStock = 0;
+            int Filas = Grilla.Rows.Count;
+            foreach (DataGridViewRow r in Grilla.Rows)
+            {
+                if (i < Filas)
+                {
+                    if (Convert.ToBoolean(r.Cells["Sel"].Value) == true)
+                    {
+                        b = 1;
+                        CodStock = Convert.ToInt32(r.Cells[1].Value);
+                        AplicarPorcentaje(CodStock, Porcentaje);                     
+                    }
+                }
+                i++;
+
+            }
+
+            if (b ==0)
+            {
+                MessageBox.Show("Debe seleccionar un elemento ");
+            }
+        }
+
+        private void AplicarPorcentaje (Int32 CodStock, Double Porcentaje)
+        {
+            cCosto Costo = new Clases.cCosto();
+            cStockAuto stock = new cStockAuto();
+            Int32 CodAuto = 0;
+            DateTime Fecha = DateTime.Now;
+            string Patente = "";
+            Double? Importe = null;
+            Double ImporteAplicado = 0;
+            int? Inflacion = 1;
+            Importe = stock.GetPrecioCompraInflacion(CodStock);
+            ImporteAplicado = Importe * Porcentaje / 100;
+            string Descripcion = "Ajusto por inflación ";
+            DataTable trdo = stock.GetStockxCodigo(CodStock);
+            if (trdo.Rows.Count >0)
+            {
+                CodAuto = Convert.ToInt32(trdo.Rows[0]["CodAuto"]);
+                Patente = trdo.Rows[0]["Patente"].ToString();
+            }
+
+            Costo.InsertarCosto(CodAuto, Patente, ImporteAplicado, Fecha.ToShortDateString() , Descripcion, CodStock, null, null, Inflacion);
         }
     }
 }

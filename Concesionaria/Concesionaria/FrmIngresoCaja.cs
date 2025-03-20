@@ -73,7 +73,7 @@ namespace Concesionaria
                 int CodAuto = Convert.ToInt32(Principal.CodigoPrincipalAbm);
                 string Patente = txtPatente.Text;
                 cCosto costo = new cCosto();
-                costo.InsertarCosto(CodAuto, Patente, ImporteEgreso, Fecha.ToShortDateString(), Concepto, CodStock ,null , CodMovimiento);
+                costo.InsertarCosto(CodAuto, Patente, ImporteEgreso, Fecha.ToShortDateString(), Concepto, CodStock ,null , CodMovimiento,null);
             }
             Limpiar();
             

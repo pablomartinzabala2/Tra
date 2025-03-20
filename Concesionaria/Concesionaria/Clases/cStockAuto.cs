@@ -345,5 +345,23 @@ namespace Concesionaria.Clases
             sql = sql + " where CodStock=" + CodStock.ToString();
             cDb.ExecutarNonQuery(sql);
         }
+
+        public Double GetPrecioCompraInflacion(Int32 CodStock)
+        {
+            Double ImporteCompra = 0;
+            Double ImporteInflacion = 0;
+            Double Importe = 0;
+            Clases.cStockAuto stock = new Clases.cStockAuto();
+            cCosto Costo = new cCosto();
+            DataTable trdoAuto = stock.GetStockxCodigo(CodStock);
+            if (trdoAuto.Rows.Count > 0)
+            {
+                ImporteCompra = Convert.ToDouble (trdoAuto.Rows[0]["ImporteCompra"].ToString());
+            }
+
+            ImporteInflacion = Costo.GetTotalInflacion(CodStock);
+            Importe = ImporteCompra + ImporteInflacion;
+            return Importe;
+        }
     }
 }
