@@ -362,7 +362,7 @@ namespace Concesionaria
             Double Porcentaje = 0;
             int i = 0;
             int b = 0;
-           
+            Porcentaje = Convert.ToDouble(txtPorcentaje.Text);
             Int32 CodStock = 0;
             int Filas = Grilla.Rows.Count;
             foreach (DataGridViewRow r in Grilla.Rows)
@@ -378,6 +378,11 @@ namespace Concesionaria
                 }
                 i++;
 
+            }
+
+            if (b==1)
+            {
+                MessageBox.Show("Datos guardados correctamente ");
             }
 
             if (b ==0)
@@ -397,7 +402,7 @@ namespace Concesionaria
             Double ImporteAplicado = 0;
             int? Inflacion = 1;
             Importe = stock.GetPrecioCompraInflacion(CodStock);
-            ImporteAplicado = Importe * Porcentaje / 100;
+            ImporteAplicado = Convert.ToDouble (Importe) * Porcentaje / 100;
             string Descripcion = "Ajusto por inflación ";
             DataTable trdo = stock.GetStockxCodigo(CodStock);
             if (trdo.Rows.Count >0)
