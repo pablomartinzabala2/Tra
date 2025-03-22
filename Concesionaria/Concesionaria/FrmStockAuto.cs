@@ -190,7 +190,7 @@ namespace Concesionaria
                 return;
             }
 
-            Int32 CodStock = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
+            Int32 CodStock = Convert.ToInt32(Grilla.CurrentRow.Cells[1].Value);
             Int32 Concesion = Convert.ToInt32(Grilla.CurrentRow.Cells[7].Value);
             Clases.cStockAuto stock = new Clases.cStockAuto();
             stock.InsertarBajaStock(CodStock, DateTime.Now);
