@@ -25,6 +25,7 @@ namespace Concesionaria
             fun.LlenarComboDatatable(cmbDocumento, tbDoc, "Nombre", "CodTipoDoc");
             if (cmbDocumento.Items.Count > 1)
                 cmbDocumento.SelectedIndex = 1;
+            SetearUltimodia();
         }
 
         private void CargarMonedas()
@@ -220,6 +221,58 @@ namespace Concesionaria
                 txtDescripcion.Text = NombreAuto;
 
             }
+        }
+
+        private void SetearUltimodia()
+        {
+            DateTime Fecha = DateTime.Now;
+            int dia = Fecha.Day;
+            int mes = Fecha.Month;
+            int anio = Fecha.Year;
+            string sFecha = "";
+            switch(mes)
+            {
+                case 1:
+                    dia = 31;
+                    break;
+                case 2:
+                    dia = 28;
+                    break;
+                case 3:
+                    dia = 31;
+                    break;
+                case 4:
+                    dia = 30;
+                    break;
+                case 5:
+                    dia = 31;
+                    break;
+                case 6:
+                    dia = 30;
+                    break;
+                case 7:
+                    dia = 31;
+                    break;
+                case 8:
+                    dia = 31;
+                    break;
+                case 9:
+                    dia = 30;
+                    break;
+                case 10:
+                    dia = 31;
+                    break;
+                case 11:
+                    dia = 30;
+                    break;
+                case 12:
+                    dia = 31;
+                    break;
+            }
+            sFecha = dia.ToString() + "/" + mes.ToString() + "/" + anio.ToString();
+            Fecha = Convert.ToDateTime(sFecha);
+            dpFechaVencimiento.Value = Fecha;
+
         }
 
     }

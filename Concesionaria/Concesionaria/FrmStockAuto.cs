@@ -30,6 +30,7 @@ namespace Concesionaria
             tbOrden = fun.AgregarFilas(tbOrden, "2;Desc");
             fun.LlenarComboDatatable(cmbOrden, tbOrden, "Nombre", "Codigo");
             Buscar();
+            PintarEstados();
         }
 
         private void BuscarAutosdeStock(string Patente, Int32? CodMarca, string Modelo)
@@ -109,9 +110,9 @@ namespace Concesionaria
                 txtMontoTotal.Text = fun.SepararDecimales(txtMontoTotal.Text);
                 txtMontoTotal.Text = fun.FormatoEnteroMiles(txtMontoTotal.Text);
             }
-            PintarEstados();
-            fun.AnchoColumnas(Grilla, "5;0;8;10;23;8;10;8;8;10;0;10;0");
            
+            fun.AnchoColumnas(Grilla, "5;0;8;10;23;8;10;8;8;10;0;10;0");
+            PintarEstados();
         }
 
         private void PintarEstados()
@@ -119,7 +120,7 @@ namespace Concesionaria
             string Estado = "";
             for (int i = 0; i < Grilla.Rows.Count - 1; i++)
             {
-                Estado = Grilla.Rows[i].Cells[11].Value.ToString();
+                Estado = Grilla.Rows[i].Cells[12].Value.ToString();
                 switch (Estado)
                 {
                     case "1":

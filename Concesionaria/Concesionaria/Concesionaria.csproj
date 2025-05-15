@@ -759,6 +759,12 @@
     <Compile Include="FrmRegistrarChequePagar.Designer.cs">
       <DependentUpon>FrmRegistrarChequePagar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRegistrarGastosTransferencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrarGastosTransferencia.Designer.cs">
+      <DependentUpon>FrmRegistrarGastosTransferencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReporteCaja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1384,6 +1390,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarChequePagar.resx">
       <DependentUpon>FrmRegistrarChequePagar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrarGastosTransferencia.resx">
+      <DependentUpon>FrmRegistrarGastosTransferencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteCaja.resx">
       <DependentUpon>FrmReporteCaja.cs</DependentUpon>
