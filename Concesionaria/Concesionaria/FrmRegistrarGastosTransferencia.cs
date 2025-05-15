@@ -25,6 +25,13 @@ namespace Concesionaria
             fun.LlenarComboDatatable(cmbDocumento, tbDoc, "Nombre", "CodTipoDoc");
             if (cmbDocumento.Items.Count > 1)
                 cmbDocumento.SelectedIndex = 1;
+
+            fun.LlenarCombo(cmbTipoUtilitario, "TipoUtilitario", "Nombre", "CodTipo");
+            fun.LlenarCombo(cmbMarca, "Marca", "Nombre", "CodMarca");
+            DataTable tbColor = cDb.ExecuteDataTable("select * from Color order by Nombre");
+            fun.LlenarComboDatatable(cmbColor, tbColor, "Nombre", "CodColor");
+            DataTable tbAnio = cDb.ExecuteDataTable("select * from anio Order by Nombre desc");
+            fun.LlenarComboDatatable(cmbAnio, tbAnio, "Nombre", "CodAnio");
         }
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
