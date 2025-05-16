@@ -47,7 +47,6 @@
             this.btnPersonal = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chkCuotaPatente = new System.Windows.Forms.CheckBox();
             this.txtCodVenta = new System.Windows.Forms.TextBox();
             this.dpFecha = new System.Windows.Forms.DateTimePicker();
             this.cmbAnio = new System.Windows.Forms.ComboBox();
@@ -57,10 +56,7 @@
             this.btnBuscarAuto = new System.Windows.Forms.Button();
             this.txtRutaAuto = new System.Windows.Forms.TextBox();
             this.BtnVerFoto = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.btnAbrirPreVenta = new System.Windows.Forms.Button();
             this.txtCodPreVenta = new System.Windows.Forms.TextBox();
-            this.btnVerDetalleStock = new System.Windows.Forms.Button();
             this.label61 = new System.Windows.Forms.Label();
             this.txtExTitular = new System.Windows.Forms.TextBox();
             this.label57 = new System.Windows.Forms.Label();
@@ -68,11 +64,8 @@
             this.txtMotor = new System.Windows.Forms.TextBox();
             this.label54 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
-            this.BtnVerCostoAuto = new System.Windows.Forms.Button();
             this.txtImporteCompra = new System.Windows.Forms.TextBox();
             this.lblImporteCompra = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnAgregarCiudad = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.txtCodStock = new System.Windows.Forms.TextBox();
             this.txtPrecioVenta = new System.Windows.Forms.MaskedTextBox();
@@ -90,14 +83,32 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.lblPatente = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.GrillaGastos = new System.Windows.Forms.DataGridView();
+            this.txtImporteGastoTransferencia = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.txtTotalGasto = new System.Windows.Forms.TextBox();
+            this.CmbGastosTransferencia = new System.Windows.Forms.ComboBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.bnAgegargastoTranasferencia = new System.Windows.Forms.Button();
+            this.btnAgregarGastoTransferencia = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaGastos)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 18);
+            this.label6.Location = new System.Drawing.Point(14, 15);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 16);
             this.label6.TabIndex = 7;
@@ -260,17 +271,15 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(8, 30);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(794, 124);
+            this.groupBox1.Size = new System.Drawing.Size(794, 101);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cliente";
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.groupBox2.Controls.Add(this.chkCuotaPatente);
             this.groupBox2.Controls.Add(this.txtCodVenta);
             this.groupBox2.Controls.Add(this.dpFecha);
             this.groupBox2.Controls.Add(this.cmbAnio);
@@ -280,10 +289,7 @@
             this.groupBox2.Controls.Add(this.btnBuscarAuto);
             this.groupBox2.Controls.Add(this.txtRutaAuto);
             this.groupBox2.Controls.Add(this.BtnVerFoto);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.btnAbrirPreVenta);
             this.groupBox2.Controls.Add(this.txtCodPreVenta);
-            this.groupBox2.Controls.Add(this.btnVerDetalleStock);
             this.groupBox2.Controls.Add(this.label61);
             this.groupBox2.Controls.Add(this.txtExTitular);
             this.groupBox2.Controls.Add(this.label57);
@@ -291,11 +297,8 @@
             this.groupBox2.Controls.Add(this.txtMotor);
             this.groupBox2.Controls.Add(this.label54);
             this.groupBox2.Controls.Add(this.label53);
-            this.groupBox2.Controls.Add(this.BtnVerCostoAuto);
             this.groupBox2.Controls.Add(this.txtImporteCompra);
             this.groupBox2.Controls.Add(this.lblImporteCompra);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.btnAgregarCiudad);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.txtCodStock);
             this.groupBox2.Controls.Add(this.txtPrecioVenta);
@@ -314,22 +317,11 @@
             this.groupBox2.Controls.Add(this.txtPatente);
             this.groupBox2.Controls.Add(this.lblPatente);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(16, 158);
+            this.groupBox2.Location = new System.Drawing.Point(8, 162);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(851, 165);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Vehículo";
-            // 
-            // chkCuotaPatente
-            // 
-            this.chkCuotaPatente.AutoSize = true;
-            this.chkCuotaPatente.Location = new System.Drawing.Point(317, 49);
-            this.chkCuotaPatente.Name = "chkCuotaPatente";
-            this.chkCuotaPatente.Size = new System.Drawing.Size(151, 20);
-            this.chkCuotaPatente.TabIndex = 71;
-            this.chkCuotaPatente.Text = "No Incluye Cuota Pat";
-            this.chkCuotaPatente.UseVisualStyleBackColor = true;
             // 
             // txtCodVenta
             // 
@@ -412,24 +404,6 @@
             this.BtnVerFoto.UseVisualStyleBackColor = true;
             this.BtnVerFoto.Visible = false;
             // 
-            // button4
-            // 
-            this.button4.Image = global::Concesionaria.Properties.Resources.email;
-            this.button4.Location = new System.Drawing.Point(806, 133);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(34, 28);
-            this.button4.TabIndex = 60;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // btnAbrirPreVenta
-            // 
-            this.btnAbrirPreVenta.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnAbrirPreVenta.Location = new System.Drawing.Point(763, 133);
-            this.btnAbrirPreVenta.Name = "btnAbrirPreVenta";
-            this.btnAbrirPreVenta.Size = new System.Drawing.Size(34, 28);
-            this.btnAbrirPreVenta.TabIndex = 45;
-            this.btnAbrirPreVenta.UseVisualStyleBackColor = true;
-            // 
             // txtCodPreVenta
             // 
             this.txtCodPreVenta.Location = new System.Drawing.Point(386, 19);
@@ -437,15 +411,6 @@
             this.txtCodPreVenta.Size = new System.Drawing.Size(34, 22);
             this.txtCodPreVenta.TabIndex = 44;
             this.txtCodPreVenta.Visible = false;
-            // 
-            // btnVerDetalleStock
-            // 
-            this.btnVerDetalleStock.Image = global::Concesionaria.Properties.Resources.car_add;
-            this.btnVerDetalleStock.Location = new System.Drawing.Point(723, 133);
-            this.btnVerDetalleStock.Name = "btnVerDetalleStock";
-            this.btnVerDetalleStock.Size = new System.Drawing.Size(34, 28);
-            this.btnVerDetalleStock.TabIndex = 43;
-            this.btnVerDetalleStock.UseVisualStyleBackColor = true;
             // 
             // label61
             // 
@@ -508,15 +473,6 @@
             this.label53.TabIndex = 35;
             this.label53.Text = "Motor";
             // 
-            // BtnVerCostoAuto
-            // 
-            this.BtnVerCostoAuto.Image = global::Concesionaria.Properties.Resources.Linterna;
-            this.BtnVerCostoAuto.Location = new System.Drawing.Point(686, 133);
-            this.BtnVerCostoAuto.Name = "BtnVerCostoAuto";
-            this.BtnVerCostoAuto.Size = new System.Drawing.Size(34, 28);
-            this.BtnVerCostoAuto.TabIndex = 34;
-            this.BtnVerCostoAuto.UseVisualStyleBackColor = true;
-            // 
             // txtImporteCompra
             // 
             this.txtImporteCompra.BackColor = System.Drawing.SystemColors.Control;
@@ -536,24 +492,6 @@
             this.lblImporteCompra.TabIndex = 32;
             this.lblImporteCompra.Text = "Costo";
             this.lblImporteCompra.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.button1.Location = new System.Drawing.Point(274, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 28);
-            this.button1.TabIndex = 31;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregarCiudad
-            // 
-            this.btnAgregarCiudad.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.btnAgregarCiudad.Location = new System.Drawing.Point(365, 105);
-            this.btnAgregarCiudad.Name = "btnAgregarCiudad";
-            this.btnAgregarCiudad.Size = new System.Drawing.Size(40, 28);
-            this.btnAgregarCiudad.TabIndex = 30;
-            this.btnAgregarCiudad.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
@@ -707,11 +645,184 @@
             this.lblPatente.TabIndex = 0;
             this.lblPatente.Text = "Patente";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnEliminar);
+            this.groupBox3.Controls.Add(this.GrillaGastos);
+            this.groupBox3.Controls.Add(this.txtImporteGastoTransferencia);
+            this.groupBox3.Controls.Add(this.label41);
+            this.groupBox3.Controls.Add(this.label43);
+            this.groupBox3.Controls.Add(this.txtTotalGasto);
+            this.groupBox3.Controls.Add(this.CmbGastosTransferencia);
+            this.groupBox3.Controls.Add(this.label39);
+            this.groupBox3.Controls.Add(this.bnAgegargastoTranasferencia);
+            this.groupBox3.Controls.Add(this.btnAgregarGastoTransferencia);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(17, 356);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(860, 144);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Image = global::Concesionaria.Properties.Resources.cancel;
+            this.btnEliminar.Location = new System.Drawing.Point(372, 88);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(40, 28);
+            this.btnEliminar.TabIndex = 53;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
+            // 
+            // GrillaGastos
+            // 
+            this.GrillaGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaGastos.Location = new System.Drawing.Point(418, 17);
+            this.GrillaGastos.Name = "GrillaGastos";
+            this.GrillaGastos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GrillaGastos.Size = new System.Drawing.Size(425, 113);
+            this.GrillaGastos.TabIndex = 52;
+            // 
+            // txtImporteGastoTransferencia
+            // 
+            this.txtImporteGastoTransferencia.BackColor = System.Drawing.SystemColors.Control;
+            this.txtImporteGastoTransferencia.Location = new System.Drawing.Point(155, 49);
+            this.txtImporteGastoTransferencia.Name = "txtImporteGastoTransferencia";
+            this.txtImporteGastoTransferencia.Size = new System.Drawing.Size(100, 21);
+            this.txtImporteGastoTransferencia.TabIndex = 50;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(-3, 49);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(53, 16);
+            this.label41.TabIndex = 49;
+            this.label41.Text = "Importe";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(2, 81);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(39, 16);
+            this.label43.TabIndex = 54;
+            this.label43.Text = "Total";
+            // 
+            // txtTotalGasto
+            // 
+            this.txtTotalGasto.BackColor = System.Drawing.SystemColors.Control;
+            this.txtTotalGasto.Location = new System.Drawing.Point(155, 76);
+            this.txtTotalGasto.Name = "txtTotalGasto";
+            this.txtTotalGasto.ReadOnly = true;
+            this.txtTotalGasto.Size = new System.Drawing.Size(100, 21);
+            this.txtTotalGasto.TabIndex = 55;
+            // 
+            // CmbGastosTransferencia
+            // 
+            this.CmbGastosTransferencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbGastosTransferencia.FormattingEnabled = true;
+            this.CmbGastosTransferencia.Location = new System.Drawing.Point(151, 20);
+            this.CmbGastosTransferencia.Name = "CmbGastosTransferencia";
+            this.CmbGastosTransferencia.Size = new System.Drawing.Size(215, 23);
+            this.CmbGastosTransferencia.TabIndex = 47;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(-3, 17);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(150, 16);
+            this.label39.TabIndex = 46;
+            this.label39.Text = "Gastos de transferencia";
+            // 
+            // bnAgegargastoTranasferencia
+            // 
+            this.bnAgegargastoTranasferencia.Image = global::Concesionaria.Properties.Resources.add;
+            this.bnAgegargastoTranasferencia.Location = new System.Drawing.Point(372, 54);
+            this.bnAgegargastoTranasferencia.Name = "bnAgegargastoTranasferencia";
+            this.bnAgegargastoTranasferencia.Size = new System.Drawing.Size(40, 28);
+            this.bnAgegargastoTranasferencia.TabIndex = 51;
+            this.bnAgegargastoTranasferencia.UseVisualStyleBackColor = true;
+            this.bnAgegargastoTranasferencia.Click += new System.EventHandler(this.bnAgegargastoTranasferencia_Click_1);
+            // 
+            // btnAgregarGastoTransferencia
+            // 
+            this.btnAgregarGastoTransferencia.Image = global::Concesionaria.Properties.Resources.page_add;
+            this.btnAgregarGastoTransferencia.Location = new System.Drawing.Point(372, 20);
+            this.btnAgregarGastoTransferencia.Name = "btnAgregarGastoTransferencia";
+            this.btnAgregarGastoTransferencia.Size = new System.Drawing.Size(40, 28);
+            this.btnAgregarGastoTransferencia.TabIndex = 48;
+            this.btnAgregarGastoTransferencia.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Silver;
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(8, -2);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(851, 25);
+            this.label8.TabIndex = 59;
+            this.label8.Text = "Información del Cliente";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.Silver;
+            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(8, 134);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(851, 25);
+            this.label9.TabIndex = 60;
+            this.label9.Text = "Información del Vehículo";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.Silver;
+            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(12, 327);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(851, 25);
+            this.label11.TabIndex = 61;
+            this.label11.Text = "Trámites";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Location = new System.Drawing.Point(389, 506);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 32);
+            this.btnGuardar.TabIndex = 62;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(470, 506);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 32);
+            this.btnCancelar.TabIndex = 63;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
             // FrmRegistrarGastosTransferencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(882, 480);
+            this.ClientSize = new System.Drawing.Size(879, 545);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmRegistrarGastosTransferencia";
@@ -721,6 +832,9 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaGastos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -746,7 +860,6 @@
         private System.Windows.Forms.Button btnPersonal;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox chkCuotaPatente;
         private System.Windows.Forms.TextBox txtCodVenta;
         private System.Windows.Forms.DateTimePicker dpFecha;
         private System.Windows.Forms.ComboBox cmbAnio;
@@ -756,10 +869,7 @@
         private System.Windows.Forms.Button btnBuscarAuto;
         private System.Windows.Forms.TextBox txtRutaAuto;
         private System.Windows.Forms.Button BtnVerFoto;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button btnAbrirPreVenta;
         private System.Windows.Forms.TextBox txtCodPreVenta;
-        private System.Windows.Forms.Button btnVerDetalleStock;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.TextBox txtExTitular;
         private System.Windows.Forms.Label label57;
@@ -767,11 +877,8 @@
         private System.Windows.Forms.TextBox txtMotor;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.Button BtnVerCostoAuto;
         private System.Windows.Forms.TextBox txtImporteCompra;
         private System.Windows.Forms.Label lblImporteCompra;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnAgregarCiudad;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtCodStock;
         private System.Windows.Forms.MaskedTextBox txtPrecioVenta;
@@ -789,5 +896,21 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtPatente;
         private System.Windows.Forms.Label lblPatente;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.DataGridView GrillaGastos;
+        private System.Windows.Forms.TextBox txtImporteGastoTransferencia;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox txtTotalGasto;
+        private System.Windows.Forms.ComboBox CmbGastosTransferencia;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Button bnAgegargastoTranasferencia;
+        private System.Windows.Forms.Button btnAgregarGastoTransferencia;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

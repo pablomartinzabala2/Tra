@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Concesionaria.Clases;
+using System.Data.SqlClient;
 
 namespace Concesionaria
 {
@@ -32,6 +33,7 @@ namespace Concesionaria
             fun.LlenarComboDatatable(cmbColor, tbColor, "Nombre", "CodColor");
             DataTable tbAnio = cDb.ExecuteDataTable("select * from anio Order by Nombre desc");
             fun.LlenarComboDatatable(cmbAnio, tbAnio, "Nombre", "CodAnio");
+            fun.LlenarCombo(CmbGastosTransferencia, "CategoriaGastoTransferencia", "Descripcion", "Codigo");
         }
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
@@ -54,15 +56,13 @@ namespace Concesionaria
             DataTable trdo = cliente.GetClientesxCodigo(CodCliente);
             if (trdo.Rows.Count > 0)
             {
+                txtCodCLiente.Text = CodCliente.ToString();
                 txtNroDoc.Text = trdo.Rows[0]["NroDocumento"].ToString();
                 txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
                 txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
                 txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
                 if (trdo.Rows[0]["CodTipoDoc"].ToString() != "")
                     cmbDocumento.SelectedValue = trdo.Rows[0]["CodTipoDoc"].ToString();
-                //aca
-             
-                //hsta aca
             }
             else
                 LimpiarCliente();
@@ -179,6 +179,168 @@ namespace Concesionaria
 
             }
 
+        }
+
+        private void chkNoIncluyeGastos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtImporteGastoTransferencia_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CmbGastosTransferencia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bnAgegargastoTranasferencia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregarGastoTransferencia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bnAgegargastoTranasferencia_Click_1(object sender, EventArgs e)
+        {
+            if (CmbGastosTransferencia.SelectedIndex < 1)
+            {
+                MessageBox.Show("Debe seleccionar una categoria de gasto de transferencia ", Clases.cMensaje.Mensaje());
+                return;
+            }
+
+            if (txtImporteGastoTransferencia.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un importe de gasto de transferencia ", Clases.cMensaje.Mensaje());
+                return;
+            }
+            Clases.cFunciones fun = new Clases.cFunciones();
+            Clases.cGasto gasto = new Clases.cGasto();
+            string Descripcion = gasto.GetNombreGastoTransferenciaxCodigo(Convert.ToInt32(CmbGastosTransferencia.SelectedValue));
+            AgregarGasto(CmbGastosTransferencia.SelectedValue.ToString(), Descripcion, txtImporteGastoTransferencia.Text, "Transferencia");
+        }
+
+        private void AgregarGasto(string Codigo, string Descripcion, string Importe, string Tipo)
+        {
+            for (int i = 0; i < GrillaGastos.Rows.Count - 1; i++)
+            {
+                if (GrillaGastos.Rows[i].Cells[0].Value.ToString() == Codigo.ToString() && GrillaGastos.Rows[i].Cells[2].Value.ToString() == Tipo)
+                {
+                    MessageBox.Show("Ya se ha ingresado el gasto", Clases.cMensaje.Mensaje());
+                    return;
+                }
+            }
+            DataTable tListado = new DataTable();
+            tListado.Columns.Add("Codigo");
+            tListado.Columns.Add("Descripcion");
+            tListado.Columns.Add("Tipo");
+            tListado.Columns.Add("Importe");
+            for (int i = 0; i < GrillaGastos.Rows.Count - 1; i++)
+            {
+                string sCodigo = GrillaGastos.Rows[i].Cells[0].Value.ToString();
+                string sDescripcion = GrillaGastos.Rows[i].Cells[1].Value.ToString();
+                string sTipo = GrillaGastos.Rows[i].Cells[2].Value.ToString();
+                string sImporte = GrillaGastos.Rows[i].Cells[3].Value.ToString();
+                DataRow r;
+                r = tListado.NewRow();
+                r[0] = sCodigo;
+                r[1] = sDescripcion;
+                r[2] = sTipo;
+                r[3] = sImporte;
+                tListado.Rows.Add(r);
+            }
+            DataRow r1;
+            r1 = tListado.NewRow();
+            r1[0] = Codigo;
+            r1[1] = Descripcion;
+            r1[2] = Tipo;
+            r1[3] = Importe;
+            tListado.Rows.Add(r1);
+            GrillaGastos.DataSource = tListado;
+            Clases.cFunciones fun = new Clases.cFunciones();
+            txtTotalGasto.Text = fun.CalcularTotalGrilla(GrillaGastos, "Importe").ToString();
+            if (txtTotalGasto.Text != "")
+            {
+
+                txtTotalGasto.Text = fun.FormatoEnteroMiles(txtTotalGasto.Text);
+            }
+            GrillaGastos.Columns[0].Visible = false;
+            GrillaGastos.Columns[2].Visible = false;
+            txtImporteGastoTransferencia.Text = "";
+           
+            GrillaGastos.Columns[1].Width = 260;
+            //CalcularSubTotal(); 
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            if (GrillaGastos.Rows.Count < 2)
+                return;
+            string Codigo = GrillaGastos.CurrentRow.Cells[0].Value.ToString();
+            string Tipo = GrillaGastos.CurrentRow.Cells[2].Value.ToString();
+            if (Codigo != "")
+            {
+                Clases.cGrilla.EliminarFilaxdosFiltros(GrillaGastos, "Codigo", Codigo, "Tipo", Tipo);
+            }
+            Clases.cFunciones fun = new Clases.cFunciones();
+            txtTotalGasto.Text = fun.CalcularTotalGrilla(GrillaGastos, "Importe").ToString();
+            
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (txtCodCLiente.Text =="")
+            {
+                MessageBox.Show("Debe seleccionar un cliente ");
+                return;
+            }
+
+            if (txtCodStock.Text =="")
+            {
+                MessageBox.Show("Debe seleccionar un vehículo ");
+                return;
+            }
+
+            if (GrillaGastos.Rows.Count <1)
+            {
+                MessageBox.Show("Debe ingresar un trámite  ");
+                return;
+            }
+            string sqlGastosPagar = "";
+            cFunciones fun = new cFunciones();
+            int b = 0;
+            //grabo los gatos de transferencia
+            for (int k = 0; k < GrillaGastos.Rows.Count - 1; k++)
+            {
+                string sDescripcion = GrillaGastos.Rows[k].Cells[1].Value.ToString();
+                string sImporte = GrillaGastos.Rows[k].Cells[3].Value.ToString();
+                Int32 CodStock = Convert.ToInt32(txtCodStock.Text);
+                sqlGastosPagar = "Insert into GastosPagar(CodAuto,Descripcion";
+                sqlGastosPagar = sqlGastosPagar + ",Fecha,Importe,CodCliente,CodStock,sinventa)";
+                sqlGastosPagar = sqlGastosPagar + "values (" + txtCodAuto.Text;
+                sqlGastosPagar = sqlGastosPagar + "," + "'" + sDescripcion + "'";
+                sqlGastosPagar = sqlGastosPagar + "," + "'" + dpFecha.Value.ToShortDateString() + "'";
+                sqlGastosPagar = sqlGastosPagar + "," + fun.ToDouble(sImporte);
+                sqlGastosPagar = sqlGastosPagar + "," + txtCodCLiente.Text;
+                sqlGastosPagar = sqlGastosPagar + "," + CodStock.ToString();
+                sqlGastosPagar = sqlGastosPagar + ",1)";
+                cDb.ExecutarNonQuery(sqlGastosPagar);
+                b = 1;
+            }
+            if (b ==1)
+            {
+                MessageBox.Show("Datos grabados correctamente ");
+            }
         }
     }
 }
