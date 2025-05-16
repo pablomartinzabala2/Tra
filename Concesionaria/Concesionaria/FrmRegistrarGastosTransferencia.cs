@@ -340,7 +340,56 @@ namespace Concesionaria
             if (b ==1)
             {
                 MessageBox.Show("Datos grabados correctamente ");
+                Limpiar();
             }
+        }
+
+        private void Limpiar()
+        {
+            txtCodCLiente.Text = "";
+            txtApellido.Text = "";
+            txtNombre.Text = "";
+            txtTelefono.Text = "";
+            txtCodAuto.Text = "";
+            txtCodStock.Text = "";
+            txtPatente.Text = "";
+            txtDescripcion.Text = "";
+            GrillaGastos.Rows.Clear();
+             
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void btnAgregarGastoTransferencia_Click_1(object sender, EventArgs e)
+        {
+            Principal.CampoIdSecundario = "Codigo";
+            Principal.CampoNombreSecundario = "Descripcion";
+            Principal.NombreTablaSecundario = "CategoriaGastoTransferencia";
+            Principal.CampoIdSecundarioGenerado = "";
+            FrmAltaBasica form = new FrmAltaBasica();
+            form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            form.ShowDialog();
+        }
+
+        private void form_FormClosing(object sender, FormClosingEventArgs e)
+        {   //
+
+            if (Principal.CampoIdSecundarioGenerado != "")
+            {
+                Clases.cFunciones fun = new Clases.cFunciones();
+                switch (Principal.NombreTablaSecundario)
+                {                               
+                    case "CategoriaGastoTransferencia":
+                        fun.LlenarCombo(CmbGastosTransferencia, "CategoriaGastoTransferencia", "Descripcion", "Codigo");
+                        CmbGastosTransferencia.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                        break;           
+
+                }
+            }
+
         }
     }
 }

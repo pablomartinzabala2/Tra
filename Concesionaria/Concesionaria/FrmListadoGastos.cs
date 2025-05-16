@@ -147,5 +147,11 @@ namespace Concesionaria
             frm.Show();
 
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarGastosTransferencia frm = new FrmRegistrarGastosTransferencia();
+            frm.Show();
+        }
     }
 }

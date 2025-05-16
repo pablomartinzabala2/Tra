@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.txtVencida = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -53,13 +54,14 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAgregar);
             this.groupBox1.Controls.Add(this.btnImprimir);
             this.groupBox1.Controls.Add(this.txtVencida);
             this.groupBox1.Controls.Add(this.txtCantidad);
@@ -92,6 +94,16 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Gastos";
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer1;
+            this.btnImprimir.Location = new System.Drawing.Point(1095, 27);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(34, 30);
+            this.btnImprimir.TabIndex = 77;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // txtVencida
             // 
@@ -127,7 +139,7 @@
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(883, 31);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(114, 24);
+            this.cmbCategoria.Size = new System.Drawing.Size(70, 24);
             this.cmbCategoria.TabIndex = 73;
             // 
             // dpFechaHasta
@@ -254,7 +266,7 @@
             // btnCobroCheque
             // 
             this.btnCobroCheque.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroCheque.Location = new System.Drawing.Point(1046, 27);
+            this.btnCobroCheque.Location = new System.Drawing.Point(1003, 28);
             this.btnCobroCheque.Name = "btnCobroCheque";
             this.btnCobroCheque.Size = new System.Drawing.Size(40, 28);
             this.btnCobroCheque.TabIndex = 47;
@@ -286,7 +298,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom;
-            this.btnBuscar.Location = new System.Drawing.Point(1003, 25);
+            this.btnBuscar.Location = new System.Drawing.Point(960, 26);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(37, 31);
             this.btnBuscar.TabIndex = 44;
@@ -311,15 +323,15 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Hasta";
             // 
-            // btnImprimir
+            // btnAgregar
             // 
-            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer1;
-            this.btnImprimir.Location = new System.Drawing.Point(1087, 24);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(34, 30);
-            this.btnImprimir.TabIndex = 77;
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            this.btnAgregar.Image = global::Concesionaria.Properties.Resources.add;
+            this.btnAgregar.Location = new System.Drawing.Point(1049, 27);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(40, 28);
+            this.btnAgregar.TabIndex = 78;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // FrmListadoGastos
             // 
@@ -369,5 +381,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtVencida;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnAgregar;
     }
 }
