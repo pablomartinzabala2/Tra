@@ -333,6 +333,7 @@ namespace Concesionaria
                 sqlGastosPagar = sqlGastosPagar + "," + fun.ToDouble(sImporte);
                 sqlGastosPagar = sqlGastosPagar + "," + txtCodCLiente.Text;
                 sqlGastosPagar = sqlGastosPagar + "," + CodStock.ToString();
+
                 sqlGastosPagar = sqlGastosPagar + ",1)";
                 cDb.ExecutarNonQuery(sqlGastosPagar);
                 b = 1;
@@ -354,7 +355,7 @@ namespace Concesionaria
             txtCodStock.Text = "";
             txtPatente.Text = "";
             txtDescripcion.Text = "";
-            GrillaGastos.Rows.Clear();
+           // GrillaGastos.Rows.Clear();
              
         }
 

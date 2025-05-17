@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace Concesionaria
 {
     public partial class FrmListadoGastos : Form
@@ -32,6 +33,11 @@ namespace Concesionaria
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            Buscar();
+        }
+
+        private void Buscar()
+        {
             Clases.cFunciones fun = new Clases.cFunciones();
             string Nombre = txtNombre.Text;
             string Apellido = txtApellido.Text;
@@ -47,7 +53,7 @@ namespace Concesionaria
             //Clases.cFunciones fun = new Clases.cFunciones();
             Clases.cGastosPagar gasto = new Clases.cGastosPagar();
             DataTable trdo = gasto.GetGastosPagarxFecha2(FechaDesde, FechaHasta, txtPatente.Text, Impagos, Nombre, Apellido, Categoria);
-         //   DataTable trdo = gasto.GetGastosPagarxFecha(FechaDesde, FechaHasta, txtPatente.Text, Impagos, Nombre, Apellido, Categoria);
+            //   DataTable trdo = gasto.GetGastosPagarxFecha(FechaDesde, FechaHasta, txtPatente.Text, Impagos, Nombre, Apellido, Categoria);
             Double TotalTransferencia = fun.TotalizarColumna(trdo, "Importe");
             Double TotalCosto = fun.TotalizarColumna(trdo, "importepagado");
             Double TotalGanancia = fun.TotalizarColumna(trdo, "Ganancia");
@@ -58,7 +64,7 @@ namespace Concesionaria
             txtTotalCosto.Text = fun.FormatoEnteroMiles(TotalCosto.ToString());
             txtTotalGanancia.Text = fun.FormatoEnteroMiles(TotalGanancia.ToString());
             Grilla.DataSource = trdo;
-            string  Col = "0;10;10;10;10;10;10;10;10;10;10;0";
+            string Col = "0;10;10;10;10;10;10;10;10;10;10;0";
             fun.AnchoColumnas(Grilla, Col);
             txtCantidad.Text = trdo.Rows.Count.ToString();
             Grilla.Columns[8].HeaderText = "F. Entrega";
@@ -152,6 +158,59 @@ namespace Concesionaria
         {
             FrmRegistrarGastosTransferencia frm = new FrmRegistrarGastosTransferencia();
             frm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminarGasto_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow ==null)
+            {
+                MessageBox.Show("Debe seleccion ar un fila para continuar ");
+                return;
+            }
+
+            string msj = "Confirma eliminar el registro ";
+            var result = MessageBox.Show(msj, "Información",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
+
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            int b = 0;
+            Int32 CodGasto = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
+            cGastosPagar Gasto = new cGastosPagar();
+            DataTable trdo = Gasto.GetGastoSinVenta(CodGasto);
+            if (trdo.Rows.Count >0)
+            {
+                if (trdo.Rows[0]["CodGasto"].ToString ()!="")
+                {
+                    if (trdo.Rows[0]["FechaPAGO"].ToString ()!="")
+                    {
+                        MessageBox.Show("El tramite no se puede eliminar");
+                        b = 1;
+                    }
+                    else
+                    {
+                        Gasto.Eliminar(CodGasto);
+                        MessageBox.Show("Registro Eliminado Correctamente");
+                        b = 1;
+                        Buscar();
+                    }
+                }
+            }
+            if (b ==0)
+            {
+                MessageBox.Show("El registro no se puede eliminar, tiene movimientos asociados");
+            }
+
         }
     }
 }

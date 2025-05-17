@@ -621,7 +621,7 @@
             // btnBuscarCliente
             // 
             this.btnBuscarCliente.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(369, 20);
+            this.btnBuscarCliente.Location = new System.Drawing.Point(369, 10);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(40, 27);
             this.btnBuscarCliente.TabIndex = 75;

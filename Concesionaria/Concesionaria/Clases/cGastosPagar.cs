@@ -270,5 +270,20 @@ namespace Concesionaria.Clases
             sql = sql + " where CodGasto=" + CodGasto.ToString();
             cDb.ExecutarNonQuery(sql);
         }
+
+        public DataTable GetGastoSinVenta(Int32 CodGasto)
+        {
+            string sql = "select * from gastospagar ";
+            sql = sql + " where CodGasto=" + CodGasto.ToString();
+            sql = sql + " and SinVenta=1";
+            return cDb.ExecuteDataTable(sql);
+        }
+
+        public void Eliminar(Int32 CodGasto)
+        {
+            string sql = "Delete from gastospagar ";
+            sql = sql + " where CodGasto=" + CodGasto.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
     }
 }

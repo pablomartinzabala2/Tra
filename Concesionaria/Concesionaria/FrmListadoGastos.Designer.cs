@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnEliminarGasto = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.txtVencida = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -54,15 +55,15 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnEliminarGasto);
             this.groupBox1.Controls.Add(this.btnAgregar);
-            this.groupBox1.Controls.Add(this.btnImprimir);
             this.groupBox1.Controls.Add(this.txtVencida);
             this.groupBox1.Controls.Add(this.txtCantidad);
             this.groupBox1.Controls.Add(this.label9);
@@ -90,20 +91,30 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1140, 551);
+            this.groupBox1.Size = new System.Drawing.Size(1152, 551);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Gastos";
             // 
-            // btnImprimir
+            // btnEliminarGasto
             // 
-            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer1;
-            this.btnImprimir.Location = new System.Drawing.Point(1095, 27);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(34, 30);
-            this.btnImprimir.TabIndex = 77;
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            this.btnEliminarGasto.Image = global::Concesionaria.Properties.Resources.cancel;
+            this.btnEliminarGasto.Location = new System.Drawing.Point(1095, 24);
+            this.btnEliminarGasto.Name = "btnEliminarGasto";
+            this.btnEliminarGasto.Size = new System.Drawing.Size(37, 31);
+            this.btnEliminarGasto.TabIndex = 79;
+            this.btnEliminarGasto.UseVisualStyleBackColor = true;
+            this.btnEliminarGasto.Click += new System.EventHandler(this.btnEliminarGasto_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Image = global::Concesionaria.Properties.Resources.add;
+            this.btnAgregar.Location = new System.Drawing.Point(1049, 27);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(40, 28);
+            this.btnAgregar.TabIndex = 78;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtVencida
             // 
@@ -292,7 +303,7 @@
             this.Grilla.Name = "Grilla";
             this.Grilla.ReadOnly = true;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(1104, 440);
+            this.Grilla.Size = new System.Drawing.Size(1115, 440);
             this.Grilla.TabIndex = 45;
             // 
             // btnBuscar
@@ -323,23 +334,24 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Hasta";
             // 
-            // btnAgregar
+            // btnImprimir
             // 
-            this.btnAgregar.Image = global::Concesionaria.Properties.Resources.add;
-            this.btnAgregar.Location = new System.Drawing.Point(1049, 27);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(40, 28);
-            this.btnAgregar.TabIndex = 78;
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer1;
+            this.btnImprimir.Location = new System.Drawing.Point(1130, 33);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(34, 30);
+            this.btnImprimir.TabIndex = 77;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // FrmListadoGastos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1164, 570);
+            this.ClientSize = new System.Drawing.Size(1156, 570);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnImprimir);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmListadoGastos";
@@ -382,5 +394,6 @@
         private System.Windows.Forms.TextBox txtVencida;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnEliminarGasto;
     }
 }
