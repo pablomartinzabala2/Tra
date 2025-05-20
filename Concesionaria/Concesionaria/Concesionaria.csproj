@@ -91,6 +91,7 @@
     <Compile Include="Clases\cDetallePrestamo.cs" />
     <Compile Include="Clases\cDeudaProveedor.cs" />
     <Compile Include="Clases\cDiferenciaTransferencia.cs" />
+    <Compile Include="Clases\cDistancia.cs" />
     <Compile Include="Clases\cEfectivoaPagar.cs" />
     <Compile Include="Clases\cEntidad.cs" />
     <Compile Include="Clases\cFunciones.cs" />
@@ -435,6 +436,12 @@
     <Compile Include="FrmConsultaCLiente.Designer.cs">
       <DependentUpon>FrmConsultaCLiente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConsultaDistancia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultaDistancia.Designer.cs">
+      <DependentUpon>FrmConsultaDistancia.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConsultaMarca.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -524,6 +531,12 @@
     </Compile>
     <Compile Include="FrmDeudaCobranzaGeneral.Designer.cs">
       <DependentUpon>FrmDeudaCobranzaGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDistanciaFletes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDistanciaFletes.Designer.cs">
+      <DependentUpon>FrmDistanciaFletes.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDocumentosAnteriores.cs">
       <SubType>Form</SubType>
@@ -1229,6 +1242,9 @@
     <EmbeddedResource Include="FrmConsultaCLiente.resx">
       <DependentUpon>FrmConsultaCLiente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaDistancia.resx">
+      <DependentUpon>FrmConsultaDistancia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaMarca.resx">
       <DependentUpon>FrmConsultaMarca.cs</DependentUpon>
     </EmbeddedResource>
@@ -1273,6 +1289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDeudaCobranzaGeneral.resx">
       <DependentUpon>FrmDeudaCobranzaGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDistanciaFletes.resx">
+      <DependentUpon>FrmDistanciaFletes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDocumentosAnteriores.resx">
       <DependentUpon>FrmDocumentosAnteriores.cs</DependentUpon>

@@ -63,6 +63,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnEliminarGasto);
+            this.groupBox1.Controls.Add(this.btnImprimir);
             this.groupBox1.Controls.Add(this.btnAgregar);
             this.groupBox1.Controls.Add(this.txtVencida);
             this.groupBox1.Controls.Add(this.txtCantidad);
@@ -91,7 +92,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1152, 551);
+            this.groupBox1.Size = new System.Drawing.Size(1178, 551);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Gastos";
@@ -148,7 +149,7 @@
             // 
             this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(883, 31);
+            this.cmbCategoria.Location = new System.Drawing.Point(884, 32);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(70, 24);
             this.cmbCategoria.TabIndex = 73;
@@ -156,7 +157,7 @@
             // dpFechaHasta
             // 
             this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaHasta.Location = new System.Drawing.Point(213, 30);
+            this.dpFechaHasta.Location = new System.Drawing.Point(199, 28);
             this.dpFechaHasta.Name = "dpFechaHasta";
             this.dpFechaHasta.Size = new System.Drawing.Size(87, 23);
             this.dpFechaHasta.TabIndex = 72;
@@ -164,7 +165,7 @@
             // dpFechaDesde
             // 
             this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaDesde.Location = new System.Drawing.Point(69, 32);
+            this.dpFechaDesde.Location = new System.Drawing.Point(55, 32);
             this.dpFechaDesde.Name = "dpFechaDesde";
             this.dpFechaDesde.Size = new System.Drawing.Size(87, 23);
             this.dpFechaDesde.TabIndex = 71;
@@ -289,7 +290,7 @@
             this.chkImpagos.AutoSize = true;
             this.chkImpagos.Checked = true;
             this.chkImpagos.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkImpagos.Location = new System.Drawing.Point(306, 33);
+            this.chkImpagos.Location = new System.Drawing.Point(292, 29);
             this.chkImpagos.Name = "chkImpagos";
             this.chkImpagos.Size = new System.Drawing.Size(91, 21);
             this.chkImpagos.TabIndex = 46;
@@ -299,11 +300,11 @@
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(17, 67);
+            this.Grilla.Location = new System.Drawing.Point(0, 63);
             this.Grilla.Name = "Grilla";
             this.Grilla.ReadOnly = true;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(1115, 440);
+            this.Grilla.Size = new System.Drawing.Size(1172, 440);
             this.Grilla.TabIndex = 45;
             // 
             // btnBuscar
@@ -319,7 +320,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 34);
+            this.label1.Location = new System.Drawing.Point(0, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 41;
@@ -328,7 +329,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(162, 32);
+            this.label2.Location = new System.Drawing.Point(148, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 17);
             this.label2.TabIndex = 40;
@@ -337,7 +338,7 @@
             // btnImprimir
             // 
             this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer1;
-            this.btnImprimir.Location = new System.Drawing.Point(1130, 33);
+            this.btnImprimir.Location = new System.Drawing.Point(1138, 24);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(34, 30);
             this.btnImprimir.TabIndex = 77;
@@ -349,9 +350,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1156, 570);
+            this.ClientSize = new System.Drawing.Size(1189, 570);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnImprimir);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmListadoGastos";

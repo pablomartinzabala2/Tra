@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data;
+
+namespace Concesionaria.Clases
+{
+    public  class cDistancia
+    {
+        public void Insertar(int CodOrigen, int CodDestino, int km)
+        {
+            string sql = "insert into Distancia(";
+            sql = sql + " CodOrigen,CodDestino,km)";
+            sql = sql + " values (" + CodOrigen.ToString();
+            sql = sql + "," + CodDestino.ToString();
+            sql = sql + "," + km.ToString();
+            sql = sql + ")";
+            cDb.ExecutarNonQuery(sql);
+        }
+
+        public DataTable GetDistancias()
+        {
+            string sql = "";
+            sql = "select D.CodOrigen ,";
+            sql = sql + "(select c.Nombre From Ciudad c where c.CodCiudad = D.CodOrigen) as Origen ";
+            sql = sql + " ,D.CodDestino ";
+            sql = sql + " ,(select c.Nombre From Ciudad c where c.CodCiudad = D.CodDestino) as Destino ";
+            sql = sql + ",km ";
+            sql = sql + " from Distancia d ";
+            sql = sql + " order by Origen,Destino ";
+            return cDb.ExecuteDataTable(sql);
+        }
+    }
+}
