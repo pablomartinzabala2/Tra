@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|d:\\programacion\\traut\\tra\\concesionaria\\concesionaria\\frmventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|d:\\programacion\\traut\\tra\\concesionaria\\concesionaria\\dsreportes.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
       "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\dsreportes.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmresumendeuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmresumendeuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\reportes\\boletotraut.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
@@ -182,23 +182,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FrmResumenDeuda.cs",
-              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmResumenDeuda.cs",
-              "RelativeDocumentMoniker": "Concesionaria\\FrmResumenDeuda.cs",
-              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmResumenDeuda.cs",
-              "RelativeToolTip": "Concesionaria\\FrmResumenDeuda.cs",
-              "ViewState": "AQIAAHQAAAAAAAAAAAAkwHgAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
-              "WhenOpened": "2024-06-29T16:59:44.13Z"
+              "DocumentIndex": 0,
+              "Title": "FrmVenta.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmVenta.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmVenta.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmVenta.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Concesionaria\\FrmVenta.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T01:29:46.277Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FrmResumenDeuda.cs [Dise\u00F1o]",
               "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmResumenDeuda.cs",
               "RelativeDocumentMoniker": "Concesionaria\\FrmResumenDeuda.cs",
@@ -220,18 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FrmVenta.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmVenta.cs",
-              "RelativeDocumentMoniker": "Concesionaria\\FrmVenta.cs",
-              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmVenta.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Concesionaria\\FrmVenta.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
-              "WhenOpened": "2024-04-27T14:21:47.108Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DsReportes.xsd",
               "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\DsReportes.xsd",
               "RelativeDocumentMoniker": "Concesionaria\\DsReportes.xsd",
@@ -240,6 +229,18 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
               "WhenOpened": "2024-01-02T15:08:26.706Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrmResumenDeuda.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmResumenDeuda.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmResumenDeuda.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmResumenDeuda.cs",
+              "RelativeToolTip": "Concesionaria\\FrmResumenDeuda.cs",
+              "ViewState": "AQIAAHQAAAAAAAAAAAAkwHgAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-06-29T16:59:44.13Z"
             },
             {
               "$type": "Document",
@@ -272,9 +273,10 @@
               "RelativeDocumentMoniker": "Concesionaria\\app.config",
               "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\app.config",
               "RelativeToolTip": "Concesionaria\\app.config",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAQwAwAAAAFAAAA",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAQwAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-01-03T23:01:05.156Z"
+              "WhenOpened": "2024-01-03T23:01:05.156Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -308,9 +310,10 @@
               "RelativeDocumentMoniker": "Concesionaria\\FrmVenta.cs",
               "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmVenta.cs",
               "RelativeToolTip": "Concesionaria\\FrmVenta.cs",
-              "ViewState": "AQIAALgIAAAAAAAAAAAswMMIAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
-              "WhenOpened": "2024-01-03T21:58:10.186Z"
+              "ViewState": "AgIAALgIAAAAAAAAAAAswMMIAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-03T21:58:10.186Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

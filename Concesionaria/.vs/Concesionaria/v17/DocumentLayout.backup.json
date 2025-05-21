@@ -1,0 +1,693 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|d:\\programacion\\traut\\tra\\concesionaria\\concesionaria\\dsreportes.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\dsreportes.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmresumendeuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmresumendeuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmresumendeuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmresumendeuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\reportes\\boletotraut.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\reportes\\boletotraut.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmlistadoventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmlistadoventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmlistadoventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmlistadoventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\clases\\cboletotraut.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\clases\\cboletotraut.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmreportelistaprecio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmreportelistaprecio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\clases\\cventaxauto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\clases\\cventaxauto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmreporterecibo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmreporterecibo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmreporterecibo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmreporterecibo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmreportelistaprecio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmreportelistaprecio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmstockauto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmstockauto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmstockauto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmstockauto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmreporteefectivopagar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmreporteefectivopagar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmreporteefectivopagar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmreporteefectivopagar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\reportes\\reporteefectivopagar.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\reportes\\reporteefectivopagar.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\dsreportes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\dsreportes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\dsreportes.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\dsreportes.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\dsreportes.xsc||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\dsreportes.xsc||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\dsreportes.xss||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\dsreportes.xss||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmlistadoefectivosapagar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmlistadoefectivosapagar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmlistadoefectivosapagar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmlistadoefectivosapagar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\reportes\\reportecaja.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\reportes\\reportecaja.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\clases\\creporteboleto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\clases\\creporteboleto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\clases\\cefectivoapagar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\clases\\cefectivoapagar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\clases\\cmovimientocaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\clases\\cmovimientocaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmingresocaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmingresocaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmingresocaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmingresocaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\reportes\\reportegastostransferencia.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\reportes\\reportegastostransferencia.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmlistadogastos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmlistadogastos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmresumencuentaproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmresumencuentaproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmlistadogastos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmlistadogastos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\clases\\cgastospagar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\clases\\cgastospagar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmmensajesgastostransferencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmmensajesgastostransferencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\clases\\cmensajesgastostransferencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\clases\\cmensajesgastostransferencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\reportes\\reportepresupuesto2.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\reportes\\reportepresupuesto2.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\frmboletotraut.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\frmboletotraut.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\concesionaria\\clases\\cventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\clases\\cventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrmResumenDeuda.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmResumenDeuda.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmResumenDeuda.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmResumenDeuda.cs",
+              "RelativeToolTip": "Concesionaria\\FrmResumenDeuda.cs",
+              "ViewState": "AQIAAHQAAAAAAAAAAAAkwHgAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-06-29T16:59:44.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrmResumenDeuda.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmResumenDeuda.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmResumenDeuda.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmResumenDeuda.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Concesionaria\\FrmResumenDeuda.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-06-29T16:59:41.553Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BoletoTraut.rdlc [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Reportes\\BoletoTraut.rdlc",
+              "RelativeDocumentMoniker": "Concesionaria\\Reportes\\BoletoTraut.rdlc",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Reportes\\BoletoTraut.rdlc [Dise\u00F1o]",
+              "RelativeToolTip": "Concesionaria\\Reportes\\BoletoTraut.rdlc [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2024-01-03T22:21:41.826Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FrmVenta.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmVenta.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmVenta.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmVenta.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Concesionaria\\FrmVenta.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-27T14:21:47.108Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DsReportes.xsd",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\DsReportes.xsd",
+              "RelativeDocumentMoniker": "Concesionaria\\DsReportes.xsd",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\DsReportes.xsd",
+              "RelativeToolTip": "Concesionaria\\DsReportes.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2024-01-02T15:08:26.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FrmListadoVentas.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmListadoVentas.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmListadoVentas.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmListadoVentas.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Concesionaria\\FrmListadoVentas.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-01-04T15:32:25.613Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FrmListadoVentas.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmListadoVentas.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmListadoVentas.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmListadoVentas.cs",
+              "RelativeToolTip": "Concesionaria\\FrmListadoVentas.cs",
+              "ViewState": "AQIAANYAAAAAAAAAAAAawNgAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-26T21:22:27.701Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "app.config",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\app.config",
+              "RelativeDocumentMoniker": "Concesionaria\\app.config",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\app.config",
+              "RelativeToolTip": "Concesionaria\\app.config",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAQwAwAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-01-03T23:01:05.156Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "cBoletoTraut.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Clases\\cBoletoTraut.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\Clases\\cBoletoTraut.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Clases\\cBoletoTraut.cs",
+              "RelativeToolTip": "Concesionaria\\Clases\\cBoletoTraut.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAWwA4AAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-04T15:44:35.735Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FrmReporteListaPrecio.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmReporteListaPrecio.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmReporteListaPrecio.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmReporteListaPrecio.cs",
+              "RelativeToolTip": "Concesionaria\\FrmReporteListaPrecio.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAowAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-23T03:18:59.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FrmVenta.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmVenta.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmVenta.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmVenta.cs",
+              "RelativeToolTip": "Concesionaria\\FrmVenta.cs",
+              "ViewState": "AQIAALgIAAAAAAAAAAAswMMIAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-01-03T21:58:10.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Program.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\Program.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Program.cs",
+              "RelativeToolTip": "Concesionaria\\Program.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAvwA4AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-03T21:32:47.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "cVentaxAuto.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Clases\\cVentaxAuto.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\Clases\\cVentaxAuto.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Clases\\cVentaxAuto.cs",
+              "RelativeToolTip": "Concesionaria\\Clases\\cVentaxAuto.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAvwA0AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T21:58:23.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "FrmReporteRecibo.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmReporteRecibo.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmReporteRecibo.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmReporteRecibo.cs",
+              "RelativeToolTip": "Concesionaria\\FrmReporteRecibo.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwBkAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-23T03:20:29.372Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "FrmReporteListaPrecio.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmReporteListaPrecio.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmReporteListaPrecio.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmReporteListaPrecio.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Concesionaria\\FrmReporteListaPrecio.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-23T03:18:57.63Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "FrmReporteRecibo.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmReporteRecibo.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmReporteRecibo.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmReporteRecibo.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Concesionaria\\FrmReporteRecibo.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-23T03:20:26.64Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "FrmReporteEfectivoPagar.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmReporteEfectivoPagar.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmReporteEfectivoPagar.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmReporteEfectivoPagar.cs",
+              "RelativeToolTip": "Concesionaria\\FrmReporteEfectivoPagar.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAA1wBQAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-23T03:17:44.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "FrmReporteEfectivoPagar.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmReporteEfectivoPagar.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmReporteEfectivoPagar.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmReporteEfectivoPagar.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Concesionaria\\FrmReporteEfectivoPagar.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-23T03:17:39.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "FrmStockAuto.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmStockAuto.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmStockAuto.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmStockAuto.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Concesionaria\\FrmStockAuto.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-03-23T22:03:20.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "FrmStockAuto.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmStockAuto.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmStockAuto.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmStockAuto.cs",
+              "RelativeToolTip": "Concesionaria\\FrmStockAuto.cs",
+              "ViewState": "AQIAAOEAAAAAAAAAAAAtwLgAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-03-23T22:03:27.371Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ReporteEfectivoPagar.rdlc [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Reportes\\ReporteEfectivoPagar.rdlc",
+              "RelativeDocumentMoniker": "Concesionaria\\Reportes\\ReporteEfectivoPagar.rdlc",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Reportes\\ReporteEfectivoPagar.rdlc [Dise\u00F1o]",
+              "RelativeToolTip": "Concesionaria\\Reportes\\ReporteEfectivoPagar.rdlc [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2024-04-23T02:30:32.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "DsReportes.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\DsReportes.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\DsReportes.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\DsReportes.cs",
+              "RelativeToolTip": "Concesionaria\\DsReportes.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
+              "WhenOpened": "2024-01-03T21:26:31.825Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "DsReportes.Designer.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\DsReportes.Designer.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\DsReportes.Designer.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\DsReportes.Designer.cs",
+              "RelativeToolTip": "Concesionaria\\DsReportes.Designer.cs",
+              "ViewState": "AQIAABAoAAAAAAAAAAAlwE8nAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
+              "WhenOpened": "2024-01-02T17:35:37.418Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "DsReportes.xsc",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\DsReportes.xsc",
+              "RelativeDocumentMoniker": "Concesionaria\\DsReportes.xsc",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\DsReportes.xsc",
+              "RelativeToolTip": "Concesionaria\\DsReportes.xsc",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
+              "WhenOpened": "2024-01-08T22:37:31.315Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "DsReportes.xss",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\DsReportes.xss",
+              "RelativeDocumentMoniker": "Concesionaria\\DsReportes.xss",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\DsReportes.xss",
+              "RelativeToolTip": "Concesionaria\\DsReportes.xss",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
+              "WhenOpened": "2024-01-08T22:37:34.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "FrmListadoEfectivosaPagar.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmListadoEfectivosaPagar.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmListadoEfectivosaPagar.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmListadoEfectivosaPagar.cs",
+              "RelativeToolTip": "Concesionaria\\FrmListadoEfectivosaPagar.cs",
+              "ViewState": "AQIAAJ0AAAAAAAAAAAAqwKUAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-22T21:06:30.414Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "FrmListadoEfectivosaPagar.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmListadoEfectivosaPagar.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmListadoEfectivosaPagar.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmListadoEfectivosaPagar.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Concesionaria\\FrmListadoEfectivosaPagar.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-22T21:06:22.466Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ReporteCaja.rdlc [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Reportes\\ReporteCaja.rdlc",
+              "RelativeDocumentMoniker": "Concesionaria\\Reportes\\ReporteCaja.rdlc",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Reportes\\ReporteCaja.rdlc [Dise\u00F1o]",
+              "RelativeToolTip": "Concesionaria\\Reportes\\ReporteCaja.rdlc [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2024-03-27T22:34:05.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "cReporteBoleto.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Clases\\cReporteBoleto.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\Clases\\cReporteBoleto.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Clases\\cReporteBoleto.cs",
+              "RelativeToolTip": "Concesionaria\\Clases\\cReporteBoleto.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAmwBAAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-03T21:55:07.901Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "cEfectivoaPagar.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Clases\\cEfectivoaPagar.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\Clases\\cEfectivoaPagar.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Clases\\cEfectivoaPagar.cs",
+              "RelativeToolTip": "Concesionaria\\Clases\\cEfectivoaPagar.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAIA4wCoAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T21:06:39.139Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "cMovimientoCaja.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Clases\\cMovimientoCaja.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\Clases\\cMovimientoCaja.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Clases\\cMovimientoCaja.cs",
+              "RelativeToolTip": "Concesionaria\\Clases\\cMovimientoCaja.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAIA8wDMAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-27T22:55:14.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "FrmIngresoCaja.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmIngresoCaja.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmIngresoCaja.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmIngresoCaja.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Concesionaria\\FrmIngresoCaja.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-03-27T22:05:05.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "FrmIngresoCaja.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmIngresoCaja.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmIngresoCaja.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmIngresoCaja.cs",
+              "RelativeToolTip": "Concesionaria\\FrmIngresoCaja.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAnwEMAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-03-27T23:02:01.407Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "FrmListadoGastos.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmListadoGastos.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmListadoGastos.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmListadoGastos.cs",
+              "RelativeToolTip": "Concesionaria\\FrmListadoGastos.cs",
+              "ViewState": "AQIAAH0AAAAAAAAAAAAWwIMAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-02-29T14:14:42.813Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "ReporteGastosTransferencia.rdlc [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Reportes\\ReporteGastosTransferencia.rdlc",
+              "RelativeDocumentMoniker": "Concesionaria\\Reportes\\ReporteGastosTransferencia.rdlc",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Reportes\\ReporteGastosTransferencia.rdlc [Dise\u00F1o]",
+              "RelativeToolTip": "Concesionaria\\Reportes\\ReporteGastosTransferencia.rdlc [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2024-03-23T22:32:45.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "FrmListadoGastos.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmListadoGastos.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmListadoGastos.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmListadoGastos.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Concesionaria\\FrmListadoGastos.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-02-29T14:09:13.981Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "FrmResumenCuentaProveedor.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmResumenCuentaProveedor.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmResumenCuentaProveedor.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmResumenCuentaProveedor.cs",
+              "RelativeToolTip": "Concesionaria\\FrmResumenCuentaProveedor.cs",
+              "ViewState": "AQIAAIkAAAAAAAAAAAApwJIAAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-03-23T22:23:20.903Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "cGastosPagar.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Clases\\cGastosPagar.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\Clases\\cGastosPagar.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Clases\\cGastosPagar.cs",
+              "RelativeToolTip": "Concesionaria\\Clases\\cGastosPagar.cs",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAUwEEAAABzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-29T14:16:56.516Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "FrmMensajesGastosTransferencia.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmMensajesGastosTransferencia.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmMensajesGastosTransferencia.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmMensajesGastosTransferencia.cs",
+              "RelativeToolTip": "Concesionaria\\FrmMensajesGastosTransferencia.cs",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAhwFgAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-03-09T14:02:58.073Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "cMensajesGastosTransferencia.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Clases\\cMensajesGastosTransferencia.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\Clases\\cMensajesGastosTransferencia.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Clases\\cMensajesGastosTransferencia.cs",
+              "RelativeToolTip": "Concesionaria\\Clases\\cMensajesGastosTransferencia.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAASwAcAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-09T13:51:13.062Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "ReportePresupuesto2.rdlc [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Reportes\\ReportePresupuesto2.rdlc",
+              "RelativeDocumentMoniker": "Concesionaria\\Reportes\\ReportePresupuesto2.rdlc",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Reportes\\ReportePresupuesto2.rdlc [Dise\u00F1o]",
+              "RelativeToolTip": "Concesionaria\\Reportes\\ReportePresupuesto2.rdlc [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2024-02-27T23:58:32.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "FrmBoletoTraut.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmBoletoTraut.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\FrmBoletoTraut.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\FrmBoletoTraut.cs",
+              "RelativeToolTip": "Concesionaria\\FrmBoletoTraut.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAkwBYAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-01-03T21:24:44.83Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "cVenta.cs",
+              "DocumentMoniker": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Clases\\cVenta.cs",
+              "RelativeDocumentMoniker": "Concesionaria\\Clases\\cVenta.cs",
+              "ToolTip": "D:\\PROGRAMACION\\TRAUT\\Tra\\Concesionaria\\Concesionaria\\Clases\\cVenta.cs",
+              "RelativeToolTip": "Concesionaria\\Clases\\cVenta.cs",
+              "ViewState": "AQIAAP0AAAAAAAAAAAAiwP4AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-04T15:27:30.022Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

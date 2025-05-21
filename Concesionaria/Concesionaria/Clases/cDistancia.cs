@@ -19,6 +19,14 @@ namespace Concesionaria.Clases
             cDb.ExecutarNonQuery(sql);
         }
 
+        public void Modificar(int CodDistancia, int Km)
+        {
+            string sql = "update Distancia ";
+            sql = sql + " set Km=" + Km.ToString();
+            sql = sql + " where CodDistancia=" + CodDistancia.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
+
         public DataTable GetDistancias()
         {
             string sql = "";
@@ -30,6 +38,13 @@ namespace Concesionaria.Clases
             sql = sql + " from Distancia d ";
             sql = sql + " order by Origen,Destino ";
             return cDb.ExecuteDataTable(sql);
+        }
+
+        public void Eliminar(int CodDistancia)
+        {
+            string sql = " delete from Distancia ";
+            sql = sql + " where CodDistancia =" + CodDistancia.ToString();
+            cDb.ExecutarNonQuery(sql);
         }
     }
 }

@@ -601,8 +601,10 @@ namespace Concesionaria
             cAuto auto = new cAuto();
             DataTable trdo = auto.GetAutoxCodigo(CodAuto);
             if (trdo.Rows.Count >0)
-            {   //NombreColor
-                Detalle = "Modelo: " + trdo.Rows[0]["Descripcion"].ToString(); 
+            {   //NombreColor NombreAnio
+                Detalle = "Modelo: " + trdo.Rows[0]["Descripcion"].ToString();
+                Detalle = Detalle + " Dominio: " + trdo.Rows[0]["Patente"].ToString();
+                Detalle = Detalle + " Año: " + trdo.Rows[0]["NombreAnio"].ToString();
                 Detalle = Detalle +  " Marca: " + trdo.Rows[0]["Marca"].ToString();
                 Detalle = Detalle + " Color: " + trdo.Rows[0]["NombreColor"].ToString();
                 Detalle = Detalle + " Chasis: " + trdo.Rows[0]["Chasis"].ToString();
