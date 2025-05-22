@@ -893,5 +893,17 @@ namespace Concesionaria
             FrmAbmVendedor frm = new FrmAbmVendedor();
             frm.Show();
         }
+
+        private void registrarDistanciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDistanciaFletes frm = new FrmDistanciaFletes();
+            frm.Show();
+        }
+
+        private void btnDistancia_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarPreciopFlete frm = new FrmRegistrarPreciopFlete();
+            frm.Show();
+        }
     }
 }

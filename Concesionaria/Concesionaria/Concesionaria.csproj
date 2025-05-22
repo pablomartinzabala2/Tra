@@ -778,6 +778,12 @@
     <Compile Include="FrmRegistrarGastosTransferencia.Designer.cs">
       <DependentUpon>FrmRegistrarGastosTransferencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRegistrarPreciopFlete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrarPreciopFlete.Designer.cs">
+      <DependentUpon>FrmRegistrarPreciopFlete.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReporteCaja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1413,6 +1419,9 @@
     <EmbeddedResource Include="FrmRegistrarGastosTransferencia.resx">
       <DependentUpon>FrmRegistrarGastosTransferencia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrarPreciopFlete.resx">
+      <DependentUpon>FrmRegistrarPreciopFlete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteCaja.resx">
       <DependentUpon>FrmReporteCaja.cs</DependentUpon>
     </EmbeddedResource>
@@ -1665,6 +1674,7 @@
     <Content Include="Iconos\Agenda.png" />
     <Content Include="Iconos\AUTO2.png" />
     <Content Include="Iconos\Borrar.ico" />
+    <Content Include="Iconos\Camion.jpg" />
     <Content Include="Iconos\Imagen\CUADRITOS.png" />
     <Content Include="Iconos\Imagen\CUERPO.png" />
     <Content Include="Iconos\Imagen\FIRMA.jpg" />
@@ -1714,6 +1724,7 @@
     <Content Include="Iconos\printer.ico" />
     <Content Include="Iconos\printer2.gif" />
     <Content Include="Iconos\Recibo.ico" />
+    <Content Include="Iconos\Ruta.jpg" />
     <Content Include="Iconos\statistics3.ico" />
     <Content Include="Iconos\table.ico" />
     <Content Include="Iconos\tv.ico" />

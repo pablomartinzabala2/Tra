@@ -84,6 +84,13 @@ namespace Concesionaria
                 MessageBox.Show("Debe seleccionar una ciudad de destino");
                 return false;
             }
+
+            if (txtKm.Text =="")
+            {
+                MessageBox.Show("Debe ingresar la cantidad de kilómetros ");
+                return false;
+            }
+
             return op;
         }
 
@@ -91,6 +98,13 @@ namespace Concesionaria
         {
             FrmConsultaDistancia frm = new FrmConsultaDistancia();
             frm.Show();
+        }
+
+        private void btnCCancelar_Click(object sender, EventArgs e)
+        {
+            txtKm.Text = "";
+            cmbCiudadOrigen.SelectedIndex = -1;
+            cmbCiudadDestino.SelectedIndex = -1; 
         }
     }
 }

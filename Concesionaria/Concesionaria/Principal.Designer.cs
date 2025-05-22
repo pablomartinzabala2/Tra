@@ -74,7 +74,6 @@
             this.documentosAnteriroesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.efectivosAPagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gastpsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gastosGeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.interesesPagadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,6 +83,7 @@
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.rentabilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.gastpsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.preVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasPorTarjetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,6 +108,12 @@
             this.resumenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.fletesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarDistanciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarServicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
@@ -124,9 +130,7 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.ButtonResumenDewuda = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnDistancia = new System.Windows.Forms.ToolStripButton();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -283,6 +287,7 @@
             this.crearAlertaToolStripMenuItem,
             this.mnuControlOperaciones,
             this.controlDeOperacionesGeneralesToolStripMenuItem,
+            this.fletesToolStripMenuItem,
             this.ingresoDeChequeToolStripMenuItem,
             this.cutToolStripMenuItem,
             this.toolStripSeparator7,
@@ -509,13 +514,6 @@
             this.efectivosAPagarToolStripMenuItem.Text = "Efectivos a pagar";
             this.efectivosAPagarToolStripMenuItem.Click += new System.EventHandler(this.efectivosAPagarToolStripMenuItem_Click);
             // 
-            // gastpsToolStripMenuItem
-            // 
-            this.gastpsToolStripMenuItem.Name = "gastpsToolStripMenuItem";
-            this.gastpsToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.gastpsToolStripMenuItem.Text = "Trámites";
-            this.gastpsToolStripMenuItem.Click += new System.EventHandler(this.gastpsToolStripMenuItem_Click);
-            // 
             // gastosGeneralesToolStripMenuItem
             // 
             this.gastosGeneralesToolStripMenuItem.Name = "gastosGeneralesToolStripMenuItem";
@@ -578,6 +576,13 @@
             this.toolStripMenuItem3.Size = new System.Drawing.Size(224, 22);
             this.toolStripMenuItem3.Text = "Stock";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // gastpsToolStripMenuItem
+            // 
+            this.gastpsToolStripMenuItem.Name = "gastpsToolStripMenuItem";
+            this.gastpsToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.gastpsToolStripMenuItem.Text = "Trámites";
+            this.gastpsToolStripMenuItem.Click += new System.EventHandler(this.gastpsToolStripMenuItem_Click);
             // 
             // ventasToolStripMenuItem1
             // 
@@ -778,13 +783,52 @@
             this.BtnBorrarTablas,
             this.toolStripButton4,
             this.toolStripButton6,
-            this.ButtonResumenDewuda});
+            this.ButtonResumenDewuda,
+            this.btnDistancia});
             this.toolStrip.Location = new System.Drawing.Point(0, 25);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(632, 39);
             this.toolStrip.Stretch = true;
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 431);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(632, 22);
+            this.statusStrip.TabIndex = 2;
+            this.statusStrip.Text = "StatusStrip";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
+            this.toolStripStatusLabel.Text = "Status";
+            // 
+            // fletesToolStripMenuItem
+            // 
+            this.fletesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarDistanciaToolStripMenuItem,
+            this.registrarServicioToolStripMenuItem});
+            this.fletesToolStripMenuItem.Name = "fletesToolStripMenuItem";
+            this.fletesToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
+            this.fletesToolStripMenuItem.Text = "Fletes";
+            // 
+            // registrarDistanciaToolStripMenuItem
+            // 
+            this.registrarDistanciaToolStripMenuItem.Name = "registrarDistanciaToolStripMenuItem";
+            this.registrarDistanciaToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.registrarDistanciaToolStripMenuItem.Text = "Registrar Distancia";
+            this.registrarDistanciaToolStripMenuItem.Click += new System.EventHandler(this.registrarDistanciaToolStripMenuItem_Click);
+            // 
+            // registrarServicioToolStripMenuItem
+            // 
+            this.registrarServicioToolStripMenuItem.Name = "registrarServicioToolStripMenuItem";
+            this.registrarServicioToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.registrarServicioToolStripMenuItem.Text = "Registrar Servicio";
             // 
             // newToolStripButton
             // 
@@ -951,21 +995,15 @@
             this.ButtonResumenDewuda.Text = "Deuda Clientes";
             this.ButtonResumenDewuda.Click += new System.EventHandler(this.ButtonResumenDewuda_Click);
             // 
-            // statusStrip
+            // btnDistancia
             // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 431);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(632, 22);
-            this.statusStrip.TabIndex = 2;
-            this.statusStrip.Text = "StatusStrip";
-            // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
-            this.toolStripStatusLabel.Text = "Status";
+            this.btnDistancia.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnDistancia.Image = ((System.Drawing.Image)(resources.GetObject("btnDistancia.Image")));
+            this.btnDistancia.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDistancia.Name = "btnDistancia";
+            this.btnDistancia.Size = new System.Drawing.Size(36, 36);
+            this.btnDistancia.Text = "toolStripButton7";
+            this.btnDistancia.Click += new System.EventHandler(this.btnDistancia_Click);
             // 
             // Principal
             // 
@@ -1091,6 +1129,10 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
         private System.Windows.Forms.ToolStripButton ButtonResumenDewuda;
         private System.Windows.Forms.ToolStripMenuItem vendedorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fletesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarDistanciaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarServicioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton btnDistancia;
     }
 }
 
