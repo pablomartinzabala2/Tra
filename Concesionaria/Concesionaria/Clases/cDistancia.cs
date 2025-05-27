@@ -30,7 +30,7 @@ namespace Concesionaria.Clases
         public DataTable GetDistancias()
         {
             string sql = "";
-            sql = "select D.CodOrigen ,";
+            sql = "select D.CodDistancia, D.CodOrigen ,";
             sql = sql + "(select c.Nombre From Ciudad c where c.CodCiudad = D.CodOrigen) as Origen ";
             sql = sql + " ,D.CodDestino ";
             sql = sql + " ,(select c.Nombre From Ciudad c where c.CodCiudad = D.CodDestino) as Destino ";
@@ -43,7 +43,7 @@ namespace Concesionaria.Clases
         public DataTable GetDistanciasDetallada()
         {
             string sql = "";
-            sql = "select D.CodOrigen ,";
+            sql = "select  D.CodOrigen ,";
             sql = sql + "(select c.Nombre From Ciudad c where c.CodCiudad = D.CodOrigen) as Origen ";
             sql = sql + " ,D.CodDestino ";
             sql = sql + " ,(select c.Nombre From Ciudad c where c.CodCiudad = D.CodDestino) as Destino ";

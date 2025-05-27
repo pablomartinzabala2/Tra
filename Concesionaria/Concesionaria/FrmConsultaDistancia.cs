@@ -28,7 +28,7 @@ namespace Concesionaria
             DataTable trdo = dis.GetDistancias();
             Grilla.DataSource = trdo;
             cFunciones fun = new cFunciones();
-            fun.AnchoColumnas(Grilla, "0;40;0;40;20");
+            fun.AnchoColumnas(Grilla, "0;0;40;0;40;20");
         }
 
         private void button3_Click(object sender, EventArgs e)
