@@ -1,0 +1,234 @@
+﻿namespace Concesionaria
+{
+    partial class FrmRegistrarViaje
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnAbrirVenta = new System.Windows.Forms.Button();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCodDistancia = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtAdelanto = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtGastos = new System.Windows.Forms.TextBox();
+            this.dpFecha = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtDestino = new System.Windows.Forms.TextBox();
+            this.txtOrigen = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnGuardar);
+            this.groupBox1.Controls.Add(this.btnAbrirVenta);
+            this.groupBox1.Controls.Add(this.txtDescripcion);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtCodDistancia);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtAdelanto);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtGastos);
+            this.groupBox1.Controls.Add(this.dpFecha);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtDestino);
+            this.groupBox1.Controls.Add(this.txtOrigen);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(494, 331);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Información del Viaje";
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(407, 292);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 79;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnAbrirVenta
+            // 
+            this.btnAbrirVenta.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnAbrirVenta.Location = new System.Drawing.Point(167, 25);
+            this.btnAbrirVenta.Name = "btnAbrirVenta";
+            this.btnAbrirVenta.Size = new System.Drawing.Size(40, 27);
+            this.btnAbrirVenta.TabIndex = 72;
+            this.btnAbrirVenta.UseVisualStyleBackColor = true;
+            this.btnAbrirVenta.Click += new System.EventHandler(this.btnAbrirVenta_Click);
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(11, 148);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(470, 128);
+            this.txtDescripcion.TabIndex = 78;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 129);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 16);
+            this.label6.TabIndex = 77;
+            this.label6.Text = "Descripción";
+            // 
+            // txtCodDistancia
+            // 
+            this.txtCodDistancia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.txtCodDistancia.Location = new System.Drawing.Point(292, 25);
+            this.txtCodDistancia.Name = "txtCodDistancia";
+            this.txtCodDistancia.Size = new System.Drawing.Size(48, 21);
+            this.txtCodDistancia.TabIndex = 76;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 95);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 16);
+            this.label5.TabIndex = 75;
+            this.label5.Text = "Adelanto";
+            // 
+            // txtAdelanto
+            // 
+            this.txtAdelanto.Location = new System.Drawing.Point(76, 90);
+            this.txtAdelanto.Name = "txtAdelanto";
+            this.txtAdelanto.Size = new System.Drawing.Size(172, 21);
+            this.txtAdelanto.TabIndex = 74;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(249, 95);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 16);
+            this.label4.TabIndex = 73;
+            this.label4.Text = "Gastos";
+            // 
+            // txtGastos
+            // 
+            this.txtGastos.Location = new System.Drawing.Point(309, 85);
+            this.txtGastos.Name = "txtGastos";
+            this.txtGastos.Size = new System.Drawing.Size(172, 21);
+            this.txtGastos.TabIndex = 72;
+            // 
+            // dpFecha
+            // 
+            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFecha.Location = new System.Drawing.Point(76, 28);
+            this.dpFecha.Name = "dpFecha";
+            this.dpFecha.Size = new System.Drawing.Size(85, 21);
+            this.dpFecha.TabIndex = 71;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 16);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Fecha";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(249, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 16);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Destino";
+            // 
+            // txtDestino
+            // 
+            this.txtDestino.Location = new System.Drawing.Point(309, 58);
+            this.txtDestino.Name = "txtDestino";
+            this.txtDestino.Size = new System.Drawing.Size(172, 21);
+            this.txtDestino.TabIndex = 2;
+            // 
+            // txtOrigen
+            // 
+            this.txtOrigen.Location = new System.Drawing.Point(76, 58);
+            this.txtOrigen.Name = "txtOrigen";
+            this.txtOrigen.Size = new System.Drawing.Size(172, 21);
+            this.txtOrigen.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 58);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Origen";
+            // 
+            // FrmRegistrarViaje
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(506, 355);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "FrmRegistrarViaje";
+            this.Text = "Registrar Viajes";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtDestino;
+        private System.Windows.Forms.TextBox txtOrigen;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dpFecha;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtAdelanto;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtGastos;
+        private System.Windows.Forms.Button btnAbrirVenta;
+        private System.Windows.Forms.TextBox txtCodDistancia;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Label label6;
+    }
+}

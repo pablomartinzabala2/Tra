@@ -154,6 +154,7 @@
     <Compile Include="Clases\cVenta.cs" />
     <Compile Include="Clases\cVentaxAuto.cs" />
     <Compile Include="Clases\cVentaxCliente.cs" />
+    <Compile Include="Clases\cViaje.cs" />
     <Compile Include="CONCESIONARIADataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -369,6 +370,12 @@
     </Compile>
     <Compile Include="FrmBuscarCheque.Designer.cs">
       <DependentUpon>FrmBuscarCheque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscarDistancias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarDistancias.Designer.cs">
+      <DependentUpon>FrmBuscarDistancias.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCambioClave.cs">
       <SubType>Form</SubType>
@@ -783,6 +790,12 @@
     </Compile>
     <Compile Include="FrmRegistrarPreciopFlete.Designer.cs">
       <DependentUpon>FrmRegistrarPreciopFlete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistrarViaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrarViaje.Designer.cs">
+      <DependentUpon>FrmRegistrarViaje.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmReporteCaja.cs">
       <SubType>Form</SubType>
@@ -1215,6 +1228,9 @@
     <EmbeddedResource Include="FrmBuscarCheque.resx">
       <DependentUpon>FrmBuscarCheque.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscarDistancias.resx">
+      <DependentUpon>FrmBuscarDistancias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCambioClave.resx">
       <DependentUpon>FrmCambioClave.cs</DependentUpon>
     </EmbeddedResource>
@@ -1421,6 +1437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarPreciopFlete.resx">
       <DependentUpon>FrmRegistrarPreciopFlete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrarViaje.resx">
+      <DependentUpon>FrmRegistrarViaje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteCaja.resx">
       <DependentUpon>FrmReporteCaja.cs</DependentUpon>

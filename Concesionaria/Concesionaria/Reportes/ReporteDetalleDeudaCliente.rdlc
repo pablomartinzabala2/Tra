@@ -487,12 +487,6 @@
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
-              <TextRun>
-                <Value>c</Value>
-                <Style>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
             </TextRuns>
             <Style>
               <TextAlign>Right</TextAlign>

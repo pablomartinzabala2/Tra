@@ -40,6 +40,20 @@ namespace Concesionaria.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
+        public DataTable GetDistanciasxId(Int32 CodDistancia)
+        {
+            string sql = "";
+            sql = "select D.CodDistancia, D.CodOrigen ,";
+            sql = sql + "(select c.Nombre From Ciudad c where c.CodCiudad = D.CodOrigen) as Origen ";
+            sql = sql + " ,D.CodDestino ";
+            sql = sql + " ,(select c.Nombre From Ciudad c where c.CodCiudad = D.CodDestino) as Destino ";
+            sql = sql + ",km ";
+            sql = sql + " from Distancia d ";
+            sql = sql + " where CodDistancia=" + CodDistancia.ToString();
+            sql = sql + " order by Origen,Destino ";
+            return cDb.ExecuteDataTable(sql);
+        }
+
         public DataTable GetDistanciasDetallada()
         {
             string sql = "";
