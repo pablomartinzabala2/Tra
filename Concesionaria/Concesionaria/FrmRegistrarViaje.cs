@@ -11,7 +11,9 @@ using Concesionaria.Clases;
 namespace Concesionaria
 {
     public partial class FrmRegistrarViaje : FrmBase
-    {
+    {  /// <summary>
+    ///  2 8 de
+    /// </summary>
         public FrmRegistrarViaje()
         {
             InitializeComponent();
