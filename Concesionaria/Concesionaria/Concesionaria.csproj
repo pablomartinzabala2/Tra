@@ -461,6 +461,12 @@
     <Compile Include="FrmConsultaMovimientoCaja.Designer.cs">
       <DependentUpon>FrmConsultaMovimientoCaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConsultarViajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultarViajes.Designer.cs">
+      <DependentUpon>FrmConsultarViajes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmControl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1272,6 +1278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaMovimientoCaja.resx">
       <DependentUpon>FrmConsultaMovimientoCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultarViajes.resx">
+      <DependentUpon>FrmConsultarViajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmControl.resx">
       <DependentUpon>FrmControl.cs</DependentUpon>

@@ -54,6 +54,8 @@ namespace Concesionaria
             Int32 CodDistancia = Convert.ToInt32 (txtCodDistancia.Text);
             Double Adelanto = 0;
             Double Gastos = 0;
+            int KmIda = 0;
+            int KmVuelta = 0;
             if (txtAdelanto.Text =="")
             {
                 Adelanto = Convert.ToDouble(txtAdelanto.Text);
@@ -63,12 +65,51 @@ namespace Concesionaria
             {  
                 Gastos = Convert.ToDouble(txtGastos.Text);
             }
+
+            if (txtKmIda.Text =="")
+            {
+                MessageBox.Show("Debe ingresar un km de ida ");
+                return; 
+            }
+              
+            if (txtKmVuelta.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un km de Vuelta ");
+                return;
+            }
+
+            KmIda = Convert.ToInt32(txtKmIda.Text);
+            KmVuelta = Convert.ToInt32(txtKmVuelta.Text);
             DateTime Fecha = dpFecha.Value;
             string Descripcion = txtDescripcion.Text;
             cViaje viaje = new Clases.cViaje();
-            viaje.Insertar(CodDistancia, Fecha, Adelanto, Gastos, Descripcion);
+            viaje.Insertar(CodDistancia, Fecha, Adelanto, Gastos, Descripcion, KmIda, KmVuelta);
             MessageBox.Show("Datos grabados correctamente ");
+            Limpair();
+        }
 
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            FrmConsultarViajes frm = new FrmConsultarViajes();
+            frm.Show();
+        }
+
+        private void Limpair()
+        {
+            txtCodDistancia.Text = "";
+            txtOrigen.Text = "";
+            txtDescripcion.Text = "";
+            txtDestino.Text = "";
+            txtKmIda.Text = "";
+            txtKmVuelta.Text = "";
+            txtAdelanto.Text = "";
+            txtGastos.Text = "";
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Limpair();
         }
     }
 }

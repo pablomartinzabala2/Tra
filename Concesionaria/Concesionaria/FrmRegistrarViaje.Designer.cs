@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtKmIda = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtKmVuelta = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnAbrirVenta = new System.Windows.Forms.Button();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -44,11 +49,18 @@
             this.txtDestino = new System.Windows.Forms.TextBox();
             this.txtOrigen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnCancelar);
+            this.groupBox1.Controls.Add(this.btnConsultar);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.txtKmIda);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.txtKmVuelta);
             this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Controls.Add(this.btnAbrirVenta);
             this.groupBox1.Controls.Add(this.txtDescripcion);
@@ -67,16 +79,58 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(494, 331);
+            this.groupBox1.Size = new System.Drawing.Size(508, 331);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del Viaje";
             // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(421, 291);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(75, 34);
+            this.btnConsultar.TabIndex = 84;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(8, 122);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 16);
+            this.label7.TabIndex = 83;
+            this.label7.Text = "Km Ida";
+            // 
+            // txtKmIda
+            // 
+            this.txtKmIda.Location = new System.Drawing.Point(76, 117);
+            this.txtKmIda.Name = "txtKmIda";
+            this.txtKmIda.Size = new System.Drawing.Size(172, 21);
+            this.txtKmIda.TabIndex = 82;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(249, 122);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(68, 16);
+            this.label8.TabIndex = 81;
+            this.label8.Text = "Km Vuelta";
+            // 
+            // txtKmVuelta
+            // 
+            this.txtKmVuelta.Location = new System.Drawing.Point(324, 117);
+            this.txtKmVuelta.Name = "txtKmVuelta";
+            this.txtKmVuelta.Size = new System.Drawing.Size(172, 21);
+            this.txtKmVuelta.TabIndex = 80;
+            // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(407, 292);
+            this.btnGuardar.Location = new System.Drawing.Point(259, 291);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(75, 34);
             this.btnGuardar.TabIndex = 79;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -94,16 +148,16 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(11, 148);
+            this.txtDescripcion.Location = new System.Drawing.Point(6, 172);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(470, 128);
+            this.txtDescripcion.Size = new System.Drawing.Size(490, 104);
             this.txtDescripcion.TabIndex = 78;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 129);
+            this.label6.Location = new System.Drawing.Point(6, 153);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 16);
             this.label6.TabIndex = 77;
@@ -112,10 +166,11 @@
             // txtCodDistancia
             // 
             this.txtCodDistancia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.txtCodDistancia.Location = new System.Drawing.Point(292, 25);
+            this.txtCodDistancia.Location = new System.Drawing.Point(324, 36);
             this.txtCodDistancia.Name = "txtCodDistancia";
             this.txtCodDistancia.Size = new System.Drawing.Size(48, 21);
             this.txtCodDistancia.TabIndex = 76;
+            this.txtCodDistancia.Visible = false;
             // 
             // label5
             // 
@@ -144,7 +199,7 @@
             // 
             // txtGastos
             // 
-            this.txtGastos.Location = new System.Drawing.Point(309, 85);
+            this.txtGastos.Location = new System.Drawing.Point(324, 90);
             this.txtGastos.Name = "txtGastos";
             this.txtGastos.Size = new System.Drawing.Size(172, 21);
             this.txtGastos.TabIndex = 72;
@@ -177,7 +232,7 @@
             // 
             // txtDestino
             // 
-            this.txtDestino.Location = new System.Drawing.Point(309, 58);
+            this.txtDestino.Location = new System.Drawing.Point(324, 63);
             this.txtDestino.Name = "txtDestino";
             this.txtDestino.Size = new System.Drawing.Size(172, 21);
             this.txtDestino.TabIndex = 2;
@@ -198,11 +253,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Origen";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(340, 291);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 34);
+            this.btnCancelar.TabIndex = 85;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // FrmRegistrarViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 355);
+            this.ClientSize = new System.Drawing.Size(520, 355);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmRegistrarViaje";
             this.Text = "Registrar Viajes";
@@ -230,5 +295,11 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtKmIda;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtKmVuelta;
+        private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

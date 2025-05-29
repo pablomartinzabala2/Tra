@@ -905,5 +905,11 @@ namespace Concesionaria
             FrmRegistrarPreciopFlete frm = new FrmRegistrarPreciopFlete();
             frm.Show();
         }
+
+        private void registrarViajesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarViaje frm = new FrmRegistrarViaje();
+            frm.Show();
+        }
     }
 }

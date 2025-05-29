@@ -55,7 +55,7 @@ namespace Concesionaria
 
         private void txtCliente_Click(object sender, EventArgs e)
         {
-
+            
             string msj = "Confirma eliminar el registro ";
             var result = MessageBox.Show(msj, "Información",
                                  MessageBoxButtons.YesNo,
@@ -77,9 +77,17 @@ namespace Concesionaria
 
             cDistancia Dis = new cDistancia();
             int CodDistancia = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
-            Dis.Eliminar(CodDistancia);
-            MessageBox.Show("Datos borrados correctamente ");
-            Buscar();
+           
+            try
+            {
+                Dis.Eliminar(CodDistancia);
+                MessageBox.Show("Datos borrados correctamente ");
+                Buscar();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("El reigstro no se puede borrar, asegure que no tiene viajes asociados ");
+            }
         }
     }
 }

@@ -54,6 +54,9 @@
             this.crearAlertaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuControlOperaciones = new System.Windows.Forms.ToolStripMenuItem();
             this.controlDeOperacionesGeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fletesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarDistanciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarServicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresoDeChequeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -108,12 +111,6 @@
             this.resumenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.fletesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registrarDistanciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registrarServicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
@@ -131,6 +128,10 @@
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.ButtonResumenDewuda = new System.Windows.Forms.ToolStripButton();
             this.btnDistancia = new System.Windows.Forms.ToolStripButton();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.registrarViajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -346,6 +347,29 @@
             this.controlDeOperacionesGeneralesToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
             this.controlDeOperacionesGeneralesToolStripMenuItem.Text = "Control de operaciones Generales";
             this.controlDeOperacionesGeneralesToolStripMenuItem.Click += new System.EventHandler(this.controlDeOperacionesGeneralesToolStripMenuItem_Click);
+            // 
+            // fletesToolStripMenuItem
+            // 
+            this.fletesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarDistanciaToolStripMenuItem,
+            this.registrarServicioToolStripMenuItem,
+            this.registrarViajesToolStripMenuItem});
+            this.fletesToolStripMenuItem.Name = "fletesToolStripMenuItem";
+            this.fletesToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
+            this.fletesToolStripMenuItem.Text = "Fletes";
+            // 
+            // registrarDistanciaToolStripMenuItem
+            // 
+            this.registrarDistanciaToolStripMenuItem.Name = "registrarDistanciaToolStripMenuItem";
+            this.registrarDistanciaToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.registrarDistanciaToolStripMenuItem.Text = "Registrar Distancia";
+            this.registrarDistanciaToolStripMenuItem.Click += new System.EventHandler(this.registrarDistanciaToolStripMenuItem_Click);
+            // 
+            // registrarServicioToolStripMenuItem
+            // 
+            this.registrarServicioToolStripMenuItem.Name = "registrarServicioToolStripMenuItem";
+            this.registrarServicioToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.registrarServicioToolStripMenuItem.Text = "Registrar Servicio";
             // 
             // ingresoDeChequeToolStripMenuItem
             // 
@@ -792,44 +816,6 @@
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
             // 
-            // statusStrip
-            // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 431);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(632, 22);
-            this.statusStrip.TabIndex = 2;
-            this.statusStrip.Text = "StatusStrip";
-            // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
-            this.toolStripStatusLabel.Text = "Status";
-            // 
-            // fletesToolStripMenuItem
-            // 
-            this.fletesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registrarDistanciaToolStripMenuItem,
-            this.registrarServicioToolStripMenuItem});
-            this.fletesToolStripMenuItem.Name = "fletesToolStripMenuItem";
-            this.fletesToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
-            this.fletesToolStripMenuItem.Text = "Fletes";
-            // 
-            // registrarDistanciaToolStripMenuItem
-            // 
-            this.registrarDistanciaToolStripMenuItem.Name = "registrarDistanciaToolStripMenuItem";
-            this.registrarDistanciaToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.registrarDistanciaToolStripMenuItem.Text = "Registrar Distancia";
-            this.registrarDistanciaToolStripMenuItem.Click += new System.EventHandler(this.registrarDistanciaToolStripMenuItem_Click);
-            // 
-            // registrarServicioToolStripMenuItem
-            // 
-            this.registrarServicioToolStripMenuItem.Name = "registrarServicioToolStripMenuItem";
-            this.registrarServicioToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.registrarServicioToolStripMenuItem.Text = "Registrar Servicio";
-            // 
             // newToolStripButton
             // 
             this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -1005,6 +991,29 @@
             this.btnDistancia.Text = "toolStripButton7";
             this.btnDistancia.Click += new System.EventHandler(this.btnDistancia_Click);
             // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 431);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(632, 22);
+            this.statusStrip.TabIndex = 2;
+            this.statusStrip.Text = "StatusStrip";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
+            this.toolStripStatusLabel.Text = "Status";
+            // 
+            // registrarViajesToolStripMenuItem
+            // 
+            this.registrarViajesToolStripMenuItem.Name = "registrarViajesToolStripMenuItem";
+            this.registrarViajesToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.registrarViajesToolStripMenuItem.Text = "Registrar Viajes";
+            this.registrarViajesToolStripMenuItem.Click += new System.EventHandler(this.registrarViajesToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1133,6 +1142,7 @@
         private System.Windows.Forms.ToolStripMenuItem registrarDistanciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarServicioToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnDistancia;
+        private System.Windows.Forms.ToolStripMenuItem registrarViajesToolStripMenuItem;
     }
 }
 
