@@ -67,7 +67,10 @@ namespace Concesionaria
             int Km = Convert.ToInt32(txtKm.Text);
             cDistancia dis = new Clases.cDistancia();
             dis.Insertar(CodCiudadOirigan, CodCiudadDestino, Km);
-            MessageBox.Show("Datos grabados correctamente"); 
+            MessageBox.Show("Datos grabados correctamente");
+            txtKm.Text = "";
+            cmbCiudadOrigen.SelectedIndex = -1;
+            cmbCiudadDestino.SelectedIndex = -1;
         }
 
         private Boolean Validar()

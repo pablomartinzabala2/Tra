@@ -67,7 +67,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(428, 337);
+            this.groupBox1.Size = new System.Drawing.Size(428, 304);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -75,7 +75,7 @@
             // 
             this.btnConsultar.Location = new System.Drawing.Point(258, 249);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
+            this.btnConsultar.Size = new System.Drawing.Size(75, 30);
             this.btnConsultar.TabIndex = 53;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
@@ -85,7 +85,7 @@
             // 
             this.btnCCancelar.Location = new System.Drawing.Point(177, 249);
             this.btnCCancelar.Name = "btnCCancelar";
-            this.btnCCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCCancelar.Size = new System.Drawing.Size(75, 30);
             this.btnCCancelar.TabIndex = 52;
             this.btnCCancelar.Text = "Cancelar";
             this.btnCCancelar.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@
             // 
             this.btnGuardar.Location = new System.Drawing.Point(96, 249);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(75, 30);
             this.btnGuardar.TabIndex = 51;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -213,7 +213,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 361);
+            this.ClientSize = new System.Drawing.Size(454, 319);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmDistanciaFletes";
             this.Text = "FrmDistanciaFletes";

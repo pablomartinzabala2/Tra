@@ -31,11 +31,11 @@
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.txtCliente = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -76,22 +76,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // dpFechaDesde
+            // btnBuscar
             // 
-            this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaDesde.Location = new System.Drawing.Point(61, 13);
-            this.dpFechaDesde.Name = "dpFechaDesde";
-            this.dpFechaDesde.Size = new System.Drawing.Size(85, 21);
-            this.dpFechaDesde.TabIndex = 72;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 16);
-            this.label3.TabIndex = 73;
-            this.label3.Text = "Desde";
+            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom1;
+            this.btnBuscar.Location = new System.Drawing.Point(303, 12);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(34, 24);
+            this.btnBuscar.TabIndex = 76;
+            this.btnBuscar.Text = "º";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label1
             // 
@@ -105,21 +99,27 @@
             // dpFechaHasta
             // 
             this.dpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaHasta.Location = new System.Drawing.Point(212, 13);
+            this.dpFechaHasta.Location = new System.Drawing.Point(202, 13);
             this.dpFechaHasta.Name = "dpFechaHasta";
             this.dpFechaHasta.Size = new System.Drawing.Size(85, 21);
             this.dpFechaHasta.TabIndex = 74;
             // 
-            // btnBuscar
+            // label3
             // 
-            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom1;
-            this.btnBuscar.Location = new System.Drawing.Point(303, 12);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(34, 24);
-            this.btnBuscar.TabIndex = 76;
-            this.btnBuscar.Text = "º";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 16);
+            this.label3.TabIndex = 73;
+            this.label3.Text = "Desde";
+            // 
+            // dpFechaDesde
+            // 
+            this.dpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaDesde.Location = new System.Drawing.Point(61, 13);
+            this.dpFechaDesde.Name = "dpFechaDesde";
+            this.dpFechaDesde.Size = new System.Drawing.Size(85, 21);
+            this.dpFechaDesde.TabIndex = 72;
             // 
             // FrmConsultarViajes
             // 

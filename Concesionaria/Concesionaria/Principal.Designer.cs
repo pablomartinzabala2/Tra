@@ -57,6 +57,7 @@
             this.fletesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarDistanciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarServicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarViajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresoDeChequeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -131,7 +132,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.registrarViajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -370,6 +370,14 @@
             this.registrarServicioToolStripMenuItem.Name = "registrarServicioToolStripMenuItem";
             this.registrarServicioToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.registrarServicioToolStripMenuItem.Text = "Registrar Servicio";
+            this.registrarServicioToolStripMenuItem.Click += new System.EventHandler(this.registrarServicioToolStripMenuItem_Click);
+            // 
+            // registrarViajesToolStripMenuItem
+            // 
+            this.registrarViajesToolStripMenuItem.Name = "registrarViajesToolStripMenuItem";
+            this.registrarViajesToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.registrarViajesToolStripMenuItem.Text = "Registrar Viajes";
+            this.registrarViajesToolStripMenuItem.Click += new System.EventHandler(this.registrarViajesToolStripMenuItem_Click);
             // 
             // ingresoDeChequeToolStripMenuItem
             // 
@@ -1006,13 +1014,6 @@
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // registrarViajesToolStripMenuItem
-            // 
-            this.registrarViajesToolStripMenuItem.Name = "registrarViajesToolStripMenuItem";
-            this.registrarViajesToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.registrarViajesToolStripMenuItem.Text = "Registrar Viajes";
-            this.registrarViajesToolStripMenuItem.Click += new System.EventHandler(this.registrarViajesToolStripMenuItem_Click);
             // 
             // Principal
             // 

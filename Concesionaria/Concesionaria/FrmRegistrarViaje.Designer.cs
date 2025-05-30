@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtKmIda = new System.Windows.Forms.TextBox();
@@ -49,7 +50,6 @@
             this.txtDestino = new System.Windows.Forms.TextBox();
             this.txtOrigen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,9 +84,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del Viaje";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(236, 291);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 34);
+            this.btnCancelar.TabIndex = 85;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(421, 291);
+            this.btnConsultar.Location = new System.Drawing.Point(317, 291);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(75, 34);
             this.btnConsultar.TabIndex = 84;
@@ -97,7 +107,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 122);
+            this.label7.Location = new System.Drawing.Point(8, 115);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 16);
             this.label7.TabIndex = 83;
@@ -105,7 +115,7 @@
             // 
             // txtKmIda
             // 
-            this.txtKmIda.Location = new System.Drawing.Point(76, 117);
+            this.txtKmIda.Location = new System.Drawing.Point(76, 112);
             this.txtKmIda.Name = "txtKmIda";
             this.txtKmIda.Size = new System.Drawing.Size(172, 21);
             this.txtKmIda.TabIndex = 82;
@@ -113,7 +123,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(249, 122);
+            this.label8.Location = new System.Drawing.Point(250, 117);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(68, 16);
             this.label8.TabIndex = 81;
@@ -121,14 +131,14 @@
             // 
             // txtKmVuelta
             // 
-            this.txtKmVuelta.Location = new System.Drawing.Point(324, 117);
+            this.txtKmVuelta.Location = new System.Drawing.Point(324, 112);
             this.txtKmVuelta.Name = "txtKmVuelta";
             this.txtKmVuelta.Size = new System.Drawing.Size(172, 21);
             this.txtKmVuelta.TabIndex = 80;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(259, 291);
+            this.btnGuardar.Location = new System.Drawing.Point(150, 291);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 34);
             this.btnGuardar.TabIndex = 79;
@@ -175,7 +185,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 95);
+            this.label5.Location = new System.Drawing.Point(8, 88);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 16);
             this.label5.TabIndex = 75;
@@ -183,7 +193,7 @@
             // 
             // txtAdelanto
             // 
-            this.txtAdelanto.Location = new System.Drawing.Point(76, 90);
+            this.txtAdelanto.Location = new System.Drawing.Point(76, 85);
             this.txtAdelanto.Name = "txtAdelanto";
             this.txtAdelanto.Size = new System.Drawing.Size(172, 21);
             this.txtAdelanto.TabIndex = 74;
@@ -191,7 +201,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(249, 95);
+            this.label4.Location = new System.Drawing.Point(249, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 16);
             this.label4.TabIndex = 73;
@@ -199,7 +209,7 @@
             // 
             // txtGastos
             // 
-            this.txtGastos.Location = new System.Drawing.Point(324, 90);
+            this.txtGastos.Location = new System.Drawing.Point(324, 85);
             this.txtGastos.Name = "txtGastos";
             this.txtGastos.Size = new System.Drawing.Size(172, 21);
             this.txtGastos.TabIndex = 72;
@@ -207,7 +217,7 @@
             // dpFecha
             // 
             this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFecha.Location = new System.Drawing.Point(76, 28);
+            this.dpFecha.Location = new System.Drawing.Point(76, 31);
             this.dpFecha.Name = "dpFecha";
             this.dpFecha.Size = new System.Drawing.Size(85, 21);
             this.dpFecha.TabIndex = 71;
@@ -215,7 +225,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 28);
+            this.label3.Location = new System.Drawing.Point(8, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 16);
             this.label3.TabIndex = 4;
@@ -232,7 +242,7 @@
             // 
             // txtDestino
             // 
-            this.txtDestino.Location = new System.Drawing.Point(324, 63);
+            this.txtDestino.Location = new System.Drawing.Point(324, 58);
             this.txtDestino.Name = "txtDestino";
             this.txtDestino.Size = new System.Drawing.Size(172, 21);
             this.txtDestino.TabIndex = 2;
@@ -252,16 +262,6 @@
             this.label1.Size = new System.Drawing.Size(48, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Origen";
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(340, 291);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 34);
-            this.btnCancelar.TabIndex = 85;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FrmRegistrarViaje
             // 

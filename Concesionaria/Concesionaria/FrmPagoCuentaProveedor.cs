@@ -22,9 +22,9 @@ namespace Concesionaria
         {
             Buscar();
             if (Principal.Codigo !=null)
-            {
-                Int32 CodPago = Convert.ToInt32(Principal.Codigo);
-                BuscarPago(CodPago);
+            {   //NO SE PORQUE BUSCA ACA
+              //  Int32 CodPago = Convert.ToInt32(Principal.Codigo);
+              //  BuscarPago(CodPago);
             }
         }
 

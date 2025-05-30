@@ -51,32 +51,35 @@ namespace Concesionaria
                 MessageBox.Show("Debe seleccionar un recorrido ");
                 return;
             }
-            Int32 CodDistancia = Convert.ToInt32 (txtCodDistancia.Text);
-            Double Adelanto = 0;
-            Double Gastos = 0;
-            int KmIda = 0;
-            int KmVuelta = 0;
-            if (txtAdelanto.Text =="")
-            {
-                Adelanto = Convert.ToDouble(txtAdelanto.Text);
-            }
-             
-            if (txtGastos.Text == "")
-            {  
-                Gastos = Convert.ToDouble(txtGastos.Text);
-            }
 
-            if (txtKmIda.Text =="")
+            if (txtKmIda.Text == "")
             {
                 MessageBox.Show("Debe ingresar un km de ida ");
-                return; 
+                return;
             }
-              
+
             if (txtKmVuelta.Text == "")
             {
                 MessageBox.Show("Debe ingresar un km de Vuelta ");
                 return;
             }
+
+            Int32 CodDistancia = Convert.ToInt32 (txtCodDistancia.Text);
+            Double Adelanto = 0;
+            Double Gastos = 0;
+            int KmIda = 0;
+            int KmVuelta = 0;
+            if (txtAdelanto.Text !="")
+            {
+                Adelanto = Convert.ToDouble(txtAdelanto.Text);
+            }
+             
+            if (txtGastos.Text != "")
+            {  
+                Gastos = Convert.ToDouble(txtGastos.Text);
+            }
+
+          
 
             KmIda = Convert.ToInt32(txtKmIda.Text);
             KmVuelta = Convert.ToInt32(txtKmVuelta.Text);
