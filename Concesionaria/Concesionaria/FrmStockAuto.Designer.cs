@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAplicarIncremento = new System.Windows.Forms.Button();
+            this.txtPorcentaje = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Grilla = new System.Windows.Forms.DataGridView();
+            this.Sel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.CmbEstado = new System.Windows.Forms.ComboBox();
             this.cmbOrden = new System.Windows.Forms.ComboBox();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,13 +51,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.CmbEstado = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.Grilla = new System.Windows.Forms.DataGridView();
-            this.Sel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.txtPorcentaje = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnAplicarIncremento = new System.Windows.Forms.Button();
+            this.reporteAutoTableAdapter1 = new Concesionaria.CONCESIONARIADataSetTableAdapters.ReporteAutoTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
@@ -85,6 +86,66 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Autos en Stock";
+            // 
+            // btnAplicarIncremento
+            // 
+            this.btnAplicarIncremento.Location = new System.Drawing.Point(358, 55);
+            this.btnAplicarIncremento.Name = "btnAplicarIncremento";
+            this.btnAplicarIncremento.Size = new System.Drawing.Size(85, 30);
+            this.btnAplicarIncremento.TabIndex = 77;
+            this.btnAplicarIncremento.Text = "Aplicar";
+            this.btnAplicarIncremento.UseVisualStyleBackColor = true;
+            this.btnAplicarIncremento.Click += new System.EventHandler(this.btnAplicarIncremento_Click);
+            // 
+            // txtPorcentaje
+            // 
+            this.txtPorcentaje.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPorcentaje.Location = new System.Drawing.Point(248, 59);
+            this.txtPorcentaje.Name = "txtPorcentaje";
+            this.txtPorcentaje.Size = new System.Drawing.Size(104, 23);
+            this.txtPorcentaje.TabIndex = 76;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 59);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(236, 17);
+            this.label7.TabIndex = 75;
+            this.label7.Text = "Porcentaje de aumento por Inflación";
+            // 
+            // Grilla
+            // 
+            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Sel});
+            this.Grilla.Location = new System.Drawing.Point(6, 88);
+            this.Grilla.Name = "Grilla";
+            this.Grilla.Size = new System.Drawing.Size(1125, 387);
+            this.Grilla.TabIndex = 74;
+            // 
+            // Sel
+            // 
+            this.Sel.HeaderText = "Sel";
+            this.Sel.Name = "Sel";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(588, 32);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 17);
+            this.label6.TabIndex = 60;
+            this.label6.Text = "Estado";
+            // 
+            // CmbEstado
+            // 
+            this.CmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbEstado.FormattingEnabled = true;
+            this.CmbEstado.Location = new System.Drawing.Point(646, 26);
+            this.CmbEstado.Name = "CmbEstado";
+            this.CmbEstado.Size = new System.Drawing.Size(199, 24);
+            this.CmbEstado.TabIndex = 59;
             // 
             // cmbOrden
             // 
@@ -227,65 +288,9 @@
             this.label1.TabIndex = 1;
             this.label1.Text = " Patente";
             // 
-            // CmbEstado
+            // reporteAutoTableAdapter1
             // 
-            this.CmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbEstado.FormattingEnabled = true;
-            this.CmbEstado.Location = new System.Drawing.Point(646, 26);
-            this.CmbEstado.Name = "CmbEstado";
-            this.CmbEstado.Size = new System.Drawing.Size(199, 24);
-            this.CmbEstado.TabIndex = 59;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(588, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 17);
-            this.label6.TabIndex = 60;
-            this.label6.Text = "Estado";
-            // 
-            // Grilla
-            // 
-            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Sel});
-            this.Grilla.Location = new System.Drawing.Point(6, 88);
-            this.Grilla.Name = "Grilla";
-            this.Grilla.Size = new System.Drawing.Size(1125, 387);
-            this.Grilla.TabIndex = 74;
-            // 
-            // Sel
-            // 
-            this.Sel.HeaderText = "Sel";
-            this.Sel.Name = "Sel";
-            // 
-            // txtPorcentaje
-            // 
-            this.txtPorcentaje.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPorcentaje.Location = new System.Drawing.Point(248, 59);
-            this.txtPorcentaje.Name = "txtPorcentaje";
-            this.txtPorcentaje.Size = new System.Drawing.Size(104, 23);
-            this.txtPorcentaje.TabIndex = 76;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 59);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(236, 17);
-            this.label7.TabIndex = 75;
-            this.label7.Text = "Porcentaje de aumento por Inflación";
-            // 
-            // btnAplicarIncremento
-            // 
-            this.btnAplicarIncremento.Location = new System.Drawing.Point(358, 55);
-            this.btnAplicarIncremento.Name = "btnAplicarIncremento";
-            this.btnAplicarIncremento.Size = new System.Drawing.Size(85, 30);
-            this.btnAplicarIncremento.TabIndex = 77;
-            this.btnAplicarIncremento.Text = "Aplicar";
-            this.btnAplicarIncremento.UseVisualStyleBackColor = true;
-            this.btnAplicarIncremento.Click += new System.EventHandler(this.btnAplicarIncremento_Click);
+            this.reporteAutoTableAdapter1.ClearBeforeFill = true;
             // 
             // FrmStockAuto
             // 
@@ -331,5 +336,6 @@
         private System.Windows.Forms.TextBox txtPorcentaje;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Sel;
+        private CONCESIONARIADataSetTableAdapters.ReporteAutoTableAdapter reporteAutoTableAdapter1;
     }
 }

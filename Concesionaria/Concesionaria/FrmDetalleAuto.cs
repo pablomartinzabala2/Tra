@@ -21,6 +21,7 @@ namespace Concesionaria
             if (Principal.CodigoPrincipalAbm != "")
             {
                 txtCodStock.Text = Principal.CodigoPrincipalAbm.ToString();
+                BuscarMensajes(Convert.ToInt32(txtCodStock.Text));
                 CargarEstados();
                 CargarAuto(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 CargarCostoxstock(Convert.ToInt32(Principal.CodigoPrincipalAbm));
@@ -28,7 +29,7 @@ namespace Concesionaria
                 CargarCheques(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 GetTelefonoCliente(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 CargarDeudaProveedor(Convert.ToInt32(Principal.CodigoPrincipalAbm));
-                
+                VerificarUusuario();
                 // GetEfectivoPagar(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 CargarPapeles();
                 if (txtCodCompra.Text !="")
@@ -576,6 +577,81 @@ namespace Concesionaria
 
             TotalGeneral = Importe + EfectivoPagar + Costos;
             txtTotalGeneral.Text = fun.FormatoEnteroMiles(TotalGeneral.ToString());
+        }
+
+        private void btnGuardarMensaje_Click(object sender, EventArgs e)
+        {
+            if (txtObservacion.Text =="")
+            {
+                MessageBox.Show("Debe ingresar una observación ");
+                return;
+            }
+            Int32 CodStock = Convert.ToInt32(txtCodStock.Text);
+            DateTime Fecha = DateTime.Now;
+            string Mensaje = txtObservacion.Text;
+            cMensajeStock msj = new cMensajeStock();
+            msj.Insertar(Mensaje, Fecha, CodStock);
+            MessageBox.Show("Datos grabados correctamente ");
+            BuscarMensajes(CodStock);
+            txtObservacion.Text = "";
+        }
+
+        private void BuscarMensajes(int CodStock)
+        {
+            cFunciones fun = new cFunciones();
+            cMensajeStock msj = new cMensajeStock();
+            DataTable trdo = msj.GetMensaje(CodStock);
+            GrillaMnesaje.DataSource = trdo;
+            fun.AnchoColumnas(GrillaMnesaje, "0;20;80");
+             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {  
+            if (GrillaMnesaje.CurrentRow ==null)
+            {
+                MessageBox.Show("Debe seleccionar un elemento ");
+                return;
+            }
+            string Mensaje = GrillaMnesaje.CurrentRow.Cells[2].Value.ToString();
+            txtObservacion.Text = Mensaje; 
+        }
+
+        private void btnEliminarMensaje_Click(object sender, EventArgs e)
+        {
+            if (GrillaMnesaje.CurrentRow == null)
+            {
+                MessageBox.Show("Debe seleccionar un elemento ");
+                return;
+            }
+
+            string msj2 = "Confirma eliminar el mensaje ";
+            var result = MessageBox.Show(msj2, "Información",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
+
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            cMensajeStock msj = new cMensajeStock();
+            Int32 CodStock = Convert.ToInt32(txtCodStock.Text);
+            Int32 CodMensaje = Convert.ToInt32(GrillaMnesaje.CurrentRow.Cells[0].Value.ToString());
+            msj.Eliminar(CodMensaje);
+            BuscarMensajes(CodStock); 
+
+        }
+
+        private void VerificarUusuario()
+        {
+            string Usuario = Principal.NombreUsuarioLogueado.ToUpper();
+            if (Usuario != "ADMIN")
+            {
+                btnEliminarMensaje.Enabled = false;
+            }
+
         }
     }
 }

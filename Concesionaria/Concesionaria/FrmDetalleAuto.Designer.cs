@@ -105,6 +105,13 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtObservacion = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnGuardarMensaje = new System.Windows.Forms.Button();
+            this.GrillaMnesaje = new System.Windows.Forms.DataGridView();
+            this.btnEliminarMensaje = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -118,6 +125,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.GrillaPapeles)).BeginInit();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaProveedor)).BeginInit();
+            this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaMnesaje)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -386,6 +395,7 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Location = new System.Drawing.Point(6, 258);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -870,6 +880,77 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Patente";
             // 
+            // tabPage7
+            // 
+            this.tabPage7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage7.Controls.Add(this.btnEliminarMensaje);
+            this.tabPage7.Controls.Add(this.GrillaMnesaje);
+            this.tabPage7.Controls.Add(this.button1);
+            this.tabPage7.Controls.Add(this.btnGuardarMensaje);
+            this.tabPage7.Controls.Add(this.txtObservacion);
+            this.tabPage7.Controls.Add(this.label24);
+            this.tabPage7.Location = new System.Drawing.Point(4, 25);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(764, 221);
+            this.tabPage7.TabIndex = 7;
+            this.tabPage7.Text = "Observación";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(10, 24);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(80, 16);
+            this.label24.TabIndex = 6;
+            this.label24.Text = "Descripcion";
+            // 
+            // txtObservacion
+            // 
+            this.txtObservacion.Location = new System.Drawing.Point(7, 53);
+            this.txtObservacion.Multiline = true;
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Size = new System.Drawing.Size(736, 47);
+            this.txtObservacion.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.Image = global::Concesionaria.Properties.Resources.zoom1;
+            this.button1.Location = new System.Drawing.Point(660, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 28);
+            this.button1.TabIndex = 63;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnGuardarMensaje
+            // 
+            this.btnGuardarMensaje.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarMensaje.Image")));
+            this.btnGuardarMensaje.Location = new System.Drawing.Point(614, 18);
+            this.btnGuardarMensaje.Name = "btnGuardarMensaje";
+            this.btnGuardarMensaje.Size = new System.Drawing.Size(40, 28);
+            this.btnGuardarMensaje.TabIndex = 62;
+            this.btnGuardarMensaje.UseVisualStyleBackColor = true;
+            this.btnGuardarMensaje.Click += new System.EventHandler(this.btnGuardarMensaje_Click);
+            // 
+            // GrillaMnesaje
+            // 
+            this.GrillaMnesaje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaMnesaje.Location = new System.Drawing.Point(9, 106);
+            this.GrillaMnesaje.Name = "GrillaMnesaje";
+            this.GrillaMnesaje.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GrillaMnesaje.Size = new System.Drawing.Size(734, 112);
+            this.GrillaMnesaje.TabIndex = 64;
+            // 
+            // btnEliminarMensaje
+            // 
+            this.btnEliminarMensaje.Image = global::Concesionaria.Properties.Resources.cancel;
+            this.btnEliminarMensaje.Location = new System.Drawing.Point(707, 18);
+            this.btnEliminarMensaje.Name = "btnEliminarMensaje";
+            this.btnEliminarMensaje.Size = new System.Drawing.Size(40, 28);
+            this.btnEliminarMensaje.TabIndex = 65;
+            this.btnEliminarMensaje.UseVisualStyleBackColor = true;
+            this.btnEliminarMensaje.Click += new System.EventHandler(this.btnEliminarMensaje_Click);
+            // 
             // FrmDetalleAuto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -900,6 +981,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.GrillaPapeles)).EndInit();
             this.tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GrillaProveedor)).EndInit();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaMnesaje)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -982,5 +1066,12 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtTotalGeneral;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGuardarMensaje;
+        private System.Windows.Forms.TextBox txtObservacion;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.DataGridView GrillaMnesaje;
+        private System.Windows.Forms.Button btnEliminarMensaje;
     }
 }

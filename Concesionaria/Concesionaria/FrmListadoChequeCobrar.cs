@@ -18,13 +18,24 @@ namespace Concesionaria
         }
 
         private void FrmListadoChequeCobrar_Load(object sender, EventArgs e)
-        {   
+        {
+            VerificarUusuario();   
             DateTime Fecha = DateTime.Now;
             daFechaCobro.Value = Fecha;
             dpFechaHasta.Value = Fecha;
             Fecha = Fecha.AddYears(-1);
             dpFechaDesde.Value = Fecha;
             Buscar();
+        }
+
+        private void VerificarUusuario()
+        {
+            string Usuario = Principal.NombreUsuarioLogueado.ToUpper();
+            if (Usuario != "ADMIN")
+            {
+                btnEliminar.Enabled = false;
+            }
+
         }
 
         private void Buscar()

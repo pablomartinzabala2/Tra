@@ -34,6 +34,17 @@ namespace Concesionaria
         {
             InicializarFechas();
             Buscar();
+            VerificarUusuario();
+        }
+
+        private void VerificarUusuario()
+        {
+            string Usuario = Principal.NombreUsuarioLogueado.ToUpper();
+            if (Usuario !="ADMIN")
+            {
+                btnAnular.Enabled = false;
+            }
+
         }
 
         private void btnBusca_Click(object sender, EventArgs e)
