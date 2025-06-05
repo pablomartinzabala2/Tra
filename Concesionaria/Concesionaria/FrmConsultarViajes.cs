@@ -28,16 +28,27 @@ namespace Concesionaria
             cFunciones fun = new cFunciones();
             DateTime Desde = dpFechaDesde.Value;
             DateTime Hasta = dpFechaHasta.Value;
+            Double Gastos = 0;
+            Double Diferencias = 0;
+            Double Adelantos = 0;
             cViaje viaje = new Clases.cViaje();
             DataTable trdo = viaje.GetViajes(Desde, Hasta);
             trdo = fun.TablaaMiles(trdo, "Gastos");
             trdo = fun.TablaaMiles(trdo, "Adelanto");
             trdo = fun.TablaaMiles(trdo, "KmIda");
             trdo = fun.TablaaMiles(trdo, "KmVuelta");
+            trdo = fun.TablaaMiles(trdo, "Diferencia");
+            trdo = fun.TablaaFechas(trdo, "Fecha");
+            Gastos = fun.TotalizarColumna(trdo, "Gastos");
+            Adelantos = fun.TotalizarColumna(trdo, "Adelanto");
+            Diferencias = fun.TotalizarColumna(trdo, "Diferencia");
             Grilla.DataSource = trdo;
-            string Col = "0;30;30;10;10;10;10";
+            string Col = "0;15;15;0;20;10;10;10;10;10";
             
             fun.AnchoColumnas(Grilla, Col);
+            txtGasto.Text = fun.FormatoEnteroMiles(Gastos.ToString());
+            txtDiferencia.Text = fun.FormatoEnteroMiles(Diferencias.ToString());
+            txtAdelanto.Text = fun.FormatoEnteroMiles(Adelantos.ToString());
         }
 
         private void InicializarFechas()

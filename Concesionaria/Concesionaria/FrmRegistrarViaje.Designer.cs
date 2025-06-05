@@ -50,11 +50,15 @@
             this.txtDestino = new System.Windows.Forms.TextBox();
             this.txtOrigen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbChofer = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbChofer);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.btnConsultar);
             this.groupBox1.Controls.Add(this.label7);
@@ -79,14 +83,14 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(508, 331);
+            this.groupBox1.Size = new System.Drawing.Size(508, 357);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del Viaje";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(236, 291);
+            this.btnCancelar.Location = new System.Drawing.Point(231, 317);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 34);
             this.btnCancelar.TabIndex = 85;
@@ -96,7 +100,7 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(317, 291);
+            this.btnConsultar.Location = new System.Drawing.Point(312, 317);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(75, 34);
             this.btnConsultar.TabIndex = 84;
@@ -138,7 +142,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(150, 291);
+            this.btnGuardar.Location = new System.Drawing.Point(145, 317);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 34);
             this.btnGuardar.TabIndex = 79;
@@ -158,7 +162,7 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(6, 172);
+            this.txtDescripcion.Location = new System.Drawing.Point(0, 207);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(490, 104);
@@ -167,7 +171,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 153);
+            this.label6.Location = new System.Drawing.Point(6, 178);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 16);
             this.label6.TabIndex = 77;
@@ -263,14 +267,33 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Origen";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(8, 145);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(47, 16);
+            this.label9.TabIndex = 86;
+            this.label9.Text = "Chofer";
+            // 
+            // cmbChofer
+            // 
+            this.cmbChofer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbChofer.FormattingEnabled = true;
+            this.cmbChofer.Location = new System.Drawing.Point(76, 145);
+            this.cmbChofer.Name = "cmbChofer";
+            this.cmbChofer.Size = new System.Drawing.Size(172, 23);
+            this.cmbChofer.TabIndex = 87;
+            // 
             // FrmRegistrarViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(520, 355);
+            this.ClientSize = new System.Drawing.Size(520, 381);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmRegistrarViaje";
             this.Text = "Registrar Viajes";
+            this.Load += new System.EventHandler(this.FrmRegistrarViaje_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -301,5 +324,7 @@
         private System.Windows.Forms.TextBox txtKmVuelta;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ComboBox cmbChofer;
+        private System.Windows.Forms.Label label9;
     }
 }

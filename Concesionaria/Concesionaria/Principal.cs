@@ -917,5 +917,11 @@ namespace Concesionaria
             FrmRegistrarPreciopFlete frm = new FrmRegistrarPreciopFlete();
             frm.Show();
         }
+
+        private void choferesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAbmChofer frm = new FrmAbmChofer();
+            frm.Show();
+        }
     }
 }

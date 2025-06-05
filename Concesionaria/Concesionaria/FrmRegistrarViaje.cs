@@ -64,11 +64,18 @@ namespace Concesionaria
                 return;
             }
 
+            if (cmbChofer.SelectedIndex<1)
+            {
+                MessageBox.Show("Debe seleccionar un chofer ");
+                return;
+            }
+
             Int32 CodDistancia = Convert.ToInt32 (txtCodDistancia.Text);
             Double Adelanto = 0;
             Double Gastos = 0;
             int KmIda = 0;
             int KmVuelta = 0;
+            int CodChofer = 0;
             if (txtAdelanto.Text !="")
             {
                 Adelanto = Convert.ToDouble(txtAdelanto.Text);
@@ -79,14 +86,13 @@ namespace Concesionaria
                 Gastos = Convert.ToDouble(txtGastos.Text);
             }
 
-          
-
+            CodChofer = Convert.ToInt32(cmbChofer.SelectedValue);    
             KmIda = Convert.ToInt32(txtKmIda.Text);
             KmVuelta = Convert.ToInt32(txtKmVuelta.Text);
             DateTime Fecha = dpFecha.Value;
             string Descripcion = txtDescripcion.Text;
             cViaje viaje = new Clases.cViaje();
-            viaje.Insertar(CodDistancia, Fecha, Adelanto, Gastos, Descripcion, KmIda, KmVuelta);
+            viaje.Insertar(CodDistancia, Fecha, Adelanto, Gastos, Descripcion, KmIda, KmVuelta, CodChofer);
             MessageBox.Show("Datos grabados correctamente ");
             Limpair();
         }
@@ -113,6 +119,14 @@ namespace Concesionaria
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Limpair();
+        }
+
+        private void FrmRegistrarViaje_Load(object sender, EventArgs e)
+        {
+            cChofer chofer = new cChofer();
+            DataTable trdo = chofer.GetChofer();
+            cFunciones fun = new cFunciones();
+            fun.LlenarComboDatatable(cmbChofer, trdo, "Nombre", "CodChofer");
         }
     }
 }

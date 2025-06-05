@@ -73,6 +73,7 @@
     <Compile Include="Clases\cCheque.cs" />
     <Compile Include="Clases\cChequeCobrar.cs" />
     <Compile Include="Clases\cChequesaPagar.cs" />
+    <Compile Include="Clases\cChofer.cs" />
     <Compile Include="Clases\cCiudad.cs" />
     <Compile Include="Clases\cCliente.cs" />
     <Compile Include="Clases\cCobranza.cs" />
@@ -221,6 +222,12 @@
     </Compile>
     <Compile Include="FrmAbmCategoriaGastoRecepcion.Designer.cs">
       <DependentUpon>FrmAbmCategoriaGastoRecepcion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAbmChofer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmChofer.Designer.cs">
+      <DependentUpon>FrmAbmChofer.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAbmCiudad.cs">
       <SubType>Form</SubType>
@@ -1159,6 +1166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmCategoriaGastoRecepcion.resx">
       <DependentUpon>FrmAbmCategoriaGastoRecepcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmChofer.resx">
+      <DependentUpon>FrmAbmChofer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmCiudad.resx">
       <DependentUpon>FrmAbmCiudad.cs</DependentUpon>

@@ -31,6 +31,12 @@
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.txtCliente = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtAdelanto = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtGasto = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtDiferencia = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
@@ -46,7 +52,7 @@
             this.Grilla.Location = new System.Drawing.Point(6, 40);
             this.Grilla.Name = "Grilla";
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(707, 363);
+            this.Grilla.Size = new System.Drawing.Size(831, 395);
             this.Grilla.TabIndex = 0;
             // 
             // txtCliente
@@ -62,6 +68,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtAdelanto);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtGasto);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtDiferencia);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dpFechaHasta);
@@ -72,9 +84,57 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(719, 409);
+            this.groupBox1.Size = new System.Drawing.Size(843, 489);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // txtAdelanto
+            // 
+            this.txtAdelanto.Location = new System.Drawing.Point(556, 459);
+            this.txtAdelanto.Name = "txtAdelanto";
+            this.txtAdelanto.Size = new System.Drawing.Size(100, 21);
+            this.txtAdelanto.TabIndex = 82;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(488, 462);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 16);
+            this.label5.TabIndex = 81;
+            this.label5.Text = "Adelanto";
+            // 
+            // txtGasto
+            // 
+            this.txtGasto.Location = new System.Drawing.Point(382, 459);
+            this.txtGasto.Name = "txtGasto";
+            this.txtGasto.Size = new System.Drawing.Size(100, 21);
+            this.txtGasto.TabIndex = 80;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(325, 462);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 16);
+            this.label4.TabIndex = 79;
+            this.label4.Text = "Gastos";
+            // 
+            // txtDiferencia
+            // 
+            this.txtDiferencia.Location = new System.Drawing.Point(737, 459);
+            this.txtDiferencia.Name = "txtDiferencia";
+            this.txtDiferencia.Size = new System.Drawing.Size(100, 21);
+            this.txtDiferencia.TabIndex = 78;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(662, 462);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 16);
+            this.label2.TabIndex = 77;
+            this.label2.Text = "Diferencia";
             // 
             // btnBuscar
             // 
@@ -125,7 +185,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 433);
+            this.ClientSize = new System.Drawing.Size(858, 513);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmConsultarViajes";
             this.Text = "Consulta de Viajes";
@@ -147,5 +207,11 @@
         private System.Windows.Forms.DateTimePicker dpFechaHasta;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.TextBox txtAdelanto;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtGasto;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtDiferencia;
+        private System.Windows.Forms.Label label2;
     }
 }

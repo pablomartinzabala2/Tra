@@ -9,10 +9,10 @@ namespace Concesionaria.Clases
     public class cViaje
     {
         public void Insertar (Int32 CodDistancia, DateTime Fecha ,Double Adelanto, 
-            Double Gastos ,String Descripcion, int KmIda, int KmVuelta)
+            Double Gastos ,String Descripcion, int KmIda, int KmVuelta, int CodChofer )
         {
             string sql = "";
-            sql = "insert into Viaje(CodDistancia,Fecha,Adelanto,Gastos,Descripcion,KmIda,KmVuelta)";
+            sql = "insert into Viaje(CodDistancia,Fecha,Adelanto,Gastos,Descripcion,KmIda,KmVuelta,CodChofer)";
             sql = sql + " values (" + CodDistancia.ToString();
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + Adelanto.ToString().Replace(",", ".");
@@ -20,6 +20,7 @@ namespace Concesionaria.Clases
             sql = sql + "," + "'" + Descripcion + "'";
             sql = sql + "," + KmIda.ToString();
             sql = sql + "," + KmVuelta.ToString();
+            sql = sql + "," + CodChofer.ToString();
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
         }
@@ -27,9 +28,12 @@ namespace Concesionaria.Clases
         public DataTable GetViajes(DateTime Desde, DateTime Hasta)
         {
             string sql = "";
-            sql = "select v.CodViaje, (select nombre from ciudad where codciudad =d.CodOrigen ) as origen ,";
+            sql = "select v.CodViaje,v.Fecha, ";
+            sql = sql + " (select (Nombre + ' ' + Apellido) from Chofer where CodChofer = v.CodChofer ) as Chofer ,";
+            sql = sql + " (select nombre from ciudad where codciudad =d.CodOrigen ) as origen ,";
             sql = sql + "(select nombre from ciudad where codciudad =d.CodDestino  ) as Destino ";
-            sql = sql + " ,v.Gastos ,v.Adelanto ,v.KmIda , v.KmVuelta";
+            sql = sql + " ,v.Gastos ,v.Adelanto ,v.KmIda , v.KmVuelta ";
+            sql = sql + ",( isnull(v.KmVuelta,0) - isnull(v.KmIda,0)) as Diferencia ";
             sql = sql + " from viaje v, Distancia d ";
             sql = sql + " where v.CodDistancia = d.CodDistancia  ";
             sql = sql + " and v.Fecha >=" + "'" + Desde + "'";
