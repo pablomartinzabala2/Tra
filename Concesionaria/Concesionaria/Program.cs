@@ -17,8 +17,8 @@ namespace Concesionaria
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
              Application.Run(new FrmLogin());
-          //   Application.Run(new FrmDistanciaFletes());
-           //   Application.Run(new FrmRegistrarViaje());
+             //  Application.Run(new FrmReporteViaje());
+            //   Application.Run(new FrmRegistrarViaje());
         }
     }
 }

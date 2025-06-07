@@ -42,6 +42,7 @@
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
+            this.btnImprimir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -68,6 +69,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnImprimir);
             this.groupBox1.Controls.Add(this.txtAdelanto);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtGasto);
@@ -87,6 +89,7 @@
             this.groupBox1.Size = new System.Drawing.Size(843, 489);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "v";
             // 
             // txtAdelanto
             // 
@@ -181,6 +184,17 @@
             this.dpFechaDesde.Size = new System.Drawing.Size(85, 21);
             this.dpFechaDesde.TabIndex = 72;
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.print;
+            this.btnImprimir.Location = new System.Drawing.Point(383, 10);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(34, 24);
+            this.btnImprimir.TabIndex = 83;
+            this.btnImprimir.Text = "º";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // FrmConsultarViajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,5 +227,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDiferencia;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

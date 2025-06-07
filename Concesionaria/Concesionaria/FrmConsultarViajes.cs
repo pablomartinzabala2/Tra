@@ -89,5 +89,45 @@ namespace Concesionaria
         {
             Buscar();
         }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            cReporte rep = new cReporte();
+            rep.Borrar();
+            DateTime FechaHoy = DateTime.Now;
+            string Fecha = "";
+            string Chofer = "";
+            string Destino ="";
+            string Gastos = "";
+            string Adelanto = "";
+            string KmIda = "";
+            string KmVuelta = "";
+            string Diferencia = "";
+            int b = 0;
+            for (int i = 0; i < Grilla.Rows.Count - 1 ; i++)
+            {
+                Fecha = Grilla.Rows[i].Cells[1].Value.ToString();
+                Chofer = Grilla.Rows[i].Cells[2].Value.ToString();
+                Destino = Grilla.Rows[i].Cells[4].Value.ToString();
+                Gastos = Grilla.Rows[i].Cells[5].Value.ToString();
+                Adelanto = Grilla.Rows[i].Cells[6].Value.ToString();
+                KmIda = Grilla.Rows[i].Cells[7].Value.ToString();
+                KmVuelta = Grilla.Rows[i].Cells[8].Value.ToString();
+                Diferencia = Grilla.Rows[i].Cells[9].Value.ToString();
+                rep.Insertar(i, Fecha, Chofer, Destino, Gastos, Adelanto, KmIda, KmVuelta, Diferencia, FechaHoy.ToShortDateString (), "");
+                b = 1;
+            }
+
+            if (b ==0)
+            {
+                MessageBox.Show("No Hay registros para imprimir ");
+                return;
+            }
+            else
+            {
+                FrmReporteViaje frm = new Concesionaria.FrmReporteViaje();
+                frm.Show();
+            }
+        }
     }
 }
