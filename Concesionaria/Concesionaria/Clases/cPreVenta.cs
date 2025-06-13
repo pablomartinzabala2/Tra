@@ -32,6 +32,7 @@ namespace Concesionaria.Clases
             sql = sql + ",'PreVenta' as TpoVenta";
             sql = sql + ",(0";
             sql = sql + ") As Saldo ";
+            sql = sql + ",'' as Archivo ";
             sql = sql + " from PreVenta v,cliente c,auto a,stockauto sa";
             sql = sql + " where v.CodCliente = c.CodCliente";
             sql = sql + " and v.CodAutoVendido=a.CodAuto";

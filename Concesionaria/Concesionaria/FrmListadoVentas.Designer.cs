@@ -28,41 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListadoVentas));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkOrden = new System.Windows.Forms.CheckBox();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
-            this.btnResponsabilidadCivil = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnReporte2 = new System.Windows.Forms.Button();
-            this.BtnVerGanancia = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtCantidadVentas = new System.Windows.Forms.TextBox();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnAbrirVenta = new System.Windows.Forms.Button();
             this.lblGanancia = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.txtPrenda = new System.Windows.Forms.TextBox();
             this.txtVehículo = new System.Windows.Forms.TextBox();
             this.txtDocumentos = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnResponsabilidadCivil = new System.Windows.Forms.Button();
+            this.btnReporte2 = new System.Windows.Forms.Button();
+            this.BtnVerGanancia = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnAbrirVenta = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.chkOrden);
             this.groupBox1.Controls.Add(this.txtModelo);
             this.groupBox1.Controls.Add(this.label7);
@@ -107,7 +110,7 @@
             this.chkOrden.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkOrden.Location = new System.Drawing.Point(215, 10);
             this.chkOrden.Name = "chkOrden";
-            this.chkOrden.Size = new System.Drawing.Size(107, 20);
+            this.chkOrden.Size = new System.Drawing.Size(108, 20);
             this.chkOrden.TabIndex = 78;
             this.chkOrden.Text = "Descendente";
             this.chkOrden.UseVisualStyleBackColor = true;
@@ -115,17 +118,17 @@
             // txtModelo
             // 
             this.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtModelo.Location = new System.Drawing.Point(895, 32);
+            this.txtModelo.Location = new System.Drawing.Point(883, 32);
             this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(101, 22);
+            this.txtModelo.Size = new System.Drawing.Size(65, 22);
             this.txtModelo.TabIndex = 77;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(835, 37);
+            this.label7.Location = new System.Drawing.Point(823, 37);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 16);
+            this.label7.Size = new System.Drawing.Size(54, 16);
             this.label7.TabIndex = 76;
             this.label7.Text = "Modelo";
             // 
@@ -137,18 +140,6 @@
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(121, 24);
             this.cmbMarca.TabIndex = 75;
-            // 
-            // btnResponsabilidadCivil
-            // 
-            this.btnResponsabilidadCivil.Image = global::Concesionaria.Properties.Resources.MOVIMIENTOS;
-            this.btnResponsabilidadCivil.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnResponsabilidadCivil.Location = new System.Drawing.Point(1213, 31);
-            this.btnResponsabilidadCivil.Name = "btnResponsabilidadCivil";
-            this.btnResponsabilidadCivil.Size = new System.Drawing.Size(43, 27);
-            this.btnResponsabilidadCivil.TabIndex = 74;
-            this.btnResponsabilidadCivil.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnResponsabilidadCivil.UseVisualStyleBackColor = true;
-            this.btnResponsabilidadCivil.Click += new System.EventHandler(this.btnResponsabilidadCivil_Click);
             // 
             // txtNombre
             // 
@@ -163,7 +154,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(318, 41);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 16);
+            this.label6.Size = new System.Drawing.Size(49, 16);
             this.label6.TabIndex = 72;
             this.label6.Text = "Cliente";
             // 
@@ -202,28 +193,6 @@
             this.label3.Text = "Marca";
             this.label3.UseCompatibleTextRendering = true;
             // 
-            // btnReporte2
-            // 
-            this.btnReporte2.Image = global::Concesionaria.Properties.Resources.MOVIMIENTOS;
-            this.btnReporte2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReporte2.Location = new System.Drawing.Point(1175, 31);
-            this.btnReporte2.Name = "btnReporte2";
-            this.btnReporte2.Size = new System.Drawing.Size(43, 27);
-            this.btnReporte2.TabIndex = 58;
-            this.btnReporte2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnReporte2.UseVisualStyleBackColor = true;
-            this.btnReporte2.Click += new System.EventHandler(this.btnReporte2_Click);
-            // 
-            // BtnVerGanancia
-            // 
-            this.BtnVerGanancia.Image = global::Concesionaria.Properties.Resources.Linterna;
-            this.BtnVerGanancia.Location = new System.Drawing.Point(1140, 31);
-            this.BtnVerGanancia.Name = "BtnVerGanancia";
-            this.BtnVerGanancia.Size = new System.Drawing.Size(40, 27);
-            this.BtnVerGanancia.TabIndex = 57;
-            this.BtnVerGanancia.UseVisualStyleBackColor = true;
-            this.BtnVerGanancia.Click += new System.EventHandler(this.BtnVerGanancia_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -242,19 +211,6 @@
             this.txtCantidadVentas.Size = new System.Drawing.Size(100, 22);
             this.txtCantidadVentas.TabIndex = 55;
             // 
-            // btnImprimir
-            // 
-            this.btnImprimir.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.COMPRA222;
-            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(1094, 31);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(40, 27);
-            this.btnImprimir.TabIndex = 54;
-            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
             // txtPatente
             // 
             this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -268,19 +224,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(512, 40);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 16);
+            this.label4.Size = new System.Drawing.Size(58, 16);
             this.label4.TabIndex = 52;
             this.label4.Text = "Dominio";
-            // 
-            // btnAbrirVenta
-            // 
-            this.btnAbrirVenta.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnAbrirVenta.Location = new System.Drawing.Point(1048, 32);
-            this.btnAbrirVenta.Name = "btnAbrirVenta";
-            this.btnAbrirVenta.Size = new System.Drawing.Size(40, 27);
-            this.btnAbrirVenta.TabIndex = 43;
-            this.btnAbrirVenta.UseVisualStyleBackColor = true;
-            this.btnAbrirVenta.Click += new System.EventHandler(this.btnAbrirVenta_Click);
             // 
             // lblGanancia
             // 
@@ -300,22 +246,12 @@
             this.txtTotal.Size = new System.Drawing.Size(100, 22);
             this.txtTotal.TabIndex = 41;
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom2;
-            this.btnBuscar.Location = new System.Drawing.Point(1002, 35);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(40, 27);
-            this.btnBuscar.TabIndex = 40;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(168, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 16);
+            this.label2.Size = new System.Drawing.Size(47, 16);
             this.label2.TabIndex = 39;
             this.label2.Text = " Hasta";
             // 
@@ -324,7 +260,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(22, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 16);
+            this.label1.Size = new System.Drawing.Size(49, 16);
             this.label1.TabIndex = 29;
             this.label1.Text = "Desde";
             // 
@@ -363,6 +299,83 @@
             this.txtDocumentos.ReadOnly = true;
             this.txtDocumentos.Size = new System.Drawing.Size(136, 22);
             this.txtDocumentos.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(956, 33);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 27);
+            this.button1.TabIndex = 79;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnResponsabilidadCivil
+            // 
+            this.btnResponsabilidadCivil.Image = global::Concesionaria.Properties.Resources.MOVIMIENTOS;
+            this.btnResponsabilidadCivil.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnResponsabilidadCivil.Location = new System.Drawing.Point(1213, 31);
+            this.btnResponsabilidadCivil.Name = "btnResponsabilidadCivil";
+            this.btnResponsabilidadCivil.Size = new System.Drawing.Size(43, 27);
+            this.btnResponsabilidadCivil.TabIndex = 74;
+            this.btnResponsabilidadCivil.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnResponsabilidadCivil.UseVisualStyleBackColor = true;
+            this.btnResponsabilidadCivil.Click += new System.EventHandler(this.btnResponsabilidadCivil_Click);
+            // 
+            // btnReporte2
+            // 
+            this.btnReporte2.Image = global::Concesionaria.Properties.Resources.MOVIMIENTOS;
+            this.btnReporte2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReporte2.Location = new System.Drawing.Point(1175, 31);
+            this.btnReporte2.Name = "btnReporte2";
+            this.btnReporte2.Size = new System.Drawing.Size(43, 27);
+            this.btnReporte2.TabIndex = 58;
+            this.btnReporte2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnReporte2.UseVisualStyleBackColor = true;
+            this.btnReporte2.Click += new System.EventHandler(this.btnReporte2_Click);
+            // 
+            // BtnVerGanancia
+            // 
+            this.BtnVerGanancia.Image = global::Concesionaria.Properties.Resources.Linterna;
+            this.BtnVerGanancia.Location = new System.Drawing.Point(1140, 31);
+            this.BtnVerGanancia.Name = "BtnVerGanancia";
+            this.BtnVerGanancia.Size = new System.Drawing.Size(40, 27);
+            this.BtnVerGanancia.TabIndex = 57;
+            this.BtnVerGanancia.UseVisualStyleBackColor = true;
+            this.BtnVerGanancia.Click += new System.EventHandler(this.BtnVerGanancia_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.COMPRA222;
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimir.Location = new System.Drawing.Point(1094, 31);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(40, 27);
+            this.btnImprimir.TabIndex = 54;
+            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // btnAbrirVenta
+            // 
+            this.btnAbrirVenta.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnAbrirVenta.Location = new System.Drawing.Point(1048, 32);
+            this.btnAbrirVenta.Name = "btnAbrirVenta";
+            this.btnAbrirVenta.Size = new System.Drawing.Size(40, 27);
+            this.btnAbrirVenta.TabIndex = 43;
+            this.btnAbrirVenta.UseVisualStyleBackColor = true;
+            this.btnAbrirVenta.Click += new System.EventHandler(this.btnAbrirVenta_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom2;
+            this.btnBuscar.Location = new System.Drawing.Point(1002, 35);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(40, 27);
+            this.btnBuscar.TabIndex = 40;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // FrmListadoVentas
             // 
@@ -415,5 +428,6 @@
         private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox chkOrden;
+        private System.Windows.Forms.Button button1;
     }
 }

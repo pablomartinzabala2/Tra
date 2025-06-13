@@ -154,7 +154,7 @@ namespace Concesionaria
             }
             string Col = "0;10;0;20;10;10;30";
             Col = Col + ";0;10;0;0;0;0;0";
-            Col = Col + ";0;0;0;0;10";
+            Col = Col + ";0;0;0;0;0;10";
             fun.AnchoColumnas(Grilla, Col);
 
             Grilla.Columns[3].HeaderText = "Cliente";
@@ -614,5 +614,23 @@ namespace Concesionaria
             return Detalle;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow ==null)
+            {
+                MessageBox.Show("Debe seleccionar un elemento para continuar ");
+                return;
+            }
+
+            Principal.Codigo = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value.ToString());
+            FrmAdjuntarArchivo frm = new FrmAdjuntarArchivo();
+            frm.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            frm.ShowDialog();
+        }
+
+        private void form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Buscar();
+        }
     }
 }

@@ -65,6 +65,7 @@
     <Compile Include="Clases\cAlarma.cs" />
     <Compile Include="Clases\cAnotacion.cs" />
     <Compile Include="Clases\cAperturaCaja.cs" />
+    <Compile Include="Clases\cArchivo.cs" />
     <Compile Include="Clases\cAuto.cs" />
     <Compile Include="Clases\cBanco.cs" />
     <Compile Include="Clases\cBarrio.cs" />
@@ -300,6 +301,12 @@
     </Compile>
     <Compile Include="FrmAbmVendedor.Designer.cs">
       <DependentUpon>FrmAbmVendedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAdjuntarArchivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAdjuntarArchivo.Designer.cs">
+      <DependentUpon>FrmAdjuntarArchivo.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAlertas.cs">
       <SubType>Form</SubType>
@@ -1212,6 +1219,9 @@
     <EmbeddedResource Include="FrmAbmVendedor.resx">
       <DependentUpon>FrmAbmVendedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAdjuntarArchivo.resx">
+      <DependentUpon>FrmAdjuntarArchivo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAlertas.resx">
       <DependentUpon>FrmAlertas.cs</DependentUpon>
     </EmbeddedResource>
@@ -1724,6 +1734,9 @@
     <Content Include="Iconos\AUTO2.png" />
     <Content Include="Iconos\Borrar.ico" />
     <Content Include="Iconos\Camion.jpg" />
+    <Content Include="Iconos\Descargar.png" />
+    <Content Include="Iconos\Descargar2.png" />
+    <Content Include="Iconos\Descargar3.png" />
     <Content Include="Iconos\Imagen\CUADRITOS.png" />
     <Content Include="Iconos\Imagen\CUERPO.png" />
     <Content Include="Iconos\Imagen\FIRMA.jpg" />
@@ -1768,6 +1781,8 @@
     <Content Include="Iconos\page_add.ico" />
     <None Include="Iconos\Reloj.ico" />
     <None Include="Iconos\RelojChico.bmp" />
+    <Content Include="Iconos\pdf.png" />
+    <Content Include="Iconos\PDF2.png" />
     <Content Include="Iconos\print.bmp" />
     <Content Include="Iconos\print.ico" />
     <Content Include="Iconos\printer.ico" />

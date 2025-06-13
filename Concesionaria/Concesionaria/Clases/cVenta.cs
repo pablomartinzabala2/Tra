@@ -88,6 +88,7 @@ namespace Concesionaria.Clases
             sql = sql + " + (select isnull(sum(Saldo),0) from Prenda where Prenda.codventa = v.CodVenta ) ";
             sql = sql + " + (select isnull(sum(Saldo),0) from Cobranza  where Cobranza.CodVenta = v.CodVenta)";
             sql = sql + ") As Saldo ";
+            sql = sql + ",v.Archivo";
             sql = sql + " from venta v,cliente c,auto a,stockauto sa";
             sql = sql + " where v.CodCliente = c.CodCliente";
             sql = sql + " and v.CodAutoVendido=a.CodAuto";
@@ -258,6 +259,13 @@ namespace Concesionaria.Clases
             sql = sql + " where v.CodCliente = cli.CodCliente ";
             sql = sql + " and v.CodVenta =" + CodVenta.ToString();
             return cDb.ExecuteDataTable(sql);
+        }
+
+        public void ActualizarArchivo (string Archivo ,Int32 CodVenta)
+        {
+            string sql = "update Venta set Archivo =" + "'" + Archivo + "'";
+            sql = sql + " where CodVenta =" + CodVenta.ToString();
+            cDb.ExecutarNonQuery(sql);
         }
 
 
