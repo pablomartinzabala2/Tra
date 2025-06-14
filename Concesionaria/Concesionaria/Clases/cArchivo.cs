@@ -10,7 +10,8 @@ namespace Concesionaria.Clases
     {
         public string GetRuta()
         {
-            string Ruta = "D:\\Pablo\\";
+            //string Ruta = "D:\\Pablo\\";
+            string Ruta = "C:\\Users\\SERVER\\Documents\\SERVER\\OneDrive\\Servidor\\RC\\";
             return Ruta;
         }
 

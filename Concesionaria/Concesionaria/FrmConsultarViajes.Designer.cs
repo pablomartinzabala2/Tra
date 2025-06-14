@@ -31,6 +31,7 @@
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.txtCliente = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.txtAdelanto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtGasto = new System.Windows.Forms.TextBox();
@@ -42,7 +43,11 @@
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
-            this.btnImprimir = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtValorKm = new System.Windows.Forms.TextBox();
+            this.btnCalcularTotalPagar = new System.Windows.Forms.Button();
+            this.txtTotalaPagar = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +74,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTotalaPagar);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.btnCalcularTotalPagar);
+            this.groupBox1.Controls.Add(this.txtValorKm);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.btnImprimir);
             this.groupBox1.Controls.Add(this.txtAdelanto);
             this.groupBox1.Controls.Add(this.label5);
@@ -91,17 +101,29 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "v";
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.print;
+            this.btnImprimir.Location = new System.Drawing.Point(383, 10);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(34, 24);
+            this.btnImprimir.TabIndex = 83;
+            this.btnImprimir.Text = "º";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // txtAdelanto
             // 
-            this.txtAdelanto.Location = new System.Drawing.Point(556, 459);
+            this.txtAdelanto.Location = new System.Drawing.Point(396, 457);
             this.txtAdelanto.Name = "txtAdelanto";
+            this.txtAdelanto.ReadOnly = true;
             this.txtAdelanto.Size = new System.Drawing.Size(100, 21);
             this.txtAdelanto.TabIndex = 82;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(488, 462);
+            this.label5.Location = new System.Drawing.Point(328, 460);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 16);
             this.label5.TabIndex = 81;
@@ -109,15 +131,16 @@
             // 
             // txtGasto
             // 
-            this.txtGasto.Location = new System.Drawing.Point(382, 459);
+            this.txtGasto.Location = new System.Drawing.Point(222, 457);
             this.txtGasto.Name = "txtGasto";
+            this.txtGasto.ReadOnly = true;
             this.txtGasto.Size = new System.Drawing.Size(100, 21);
             this.txtGasto.TabIndex = 80;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(325, 462);
+            this.label4.Location = new System.Drawing.Point(165, 460);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 16);
             this.label4.TabIndex = 79;
@@ -125,19 +148,20 @@
             // 
             // txtDiferencia
             // 
-            this.txtDiferencia.Location = new System.Drawing.Point(737, 459);
+            this.txtDiferencia.Location = new System.Drawing.Point(577, 457);
             this.txtDiferencia.Name = "txtDiferencia";
+            this.txtDiferencia.ReadOnly = true;
             this.txtDiferencia.Size = new System.Drawing.Size(100, 21);
             this.txtDiferencia.TabIndex = 78;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(662, 462);
+            this.label2.Location = new System.Drawing.Point(502, 460);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 16);
+            this.label2.Size = new System.Drawing.Size(71, 16);
             this.label2.TabIndex = 77;
-            this.label2.Text = "Diferencia";
+            this.label2.Text = "Kilómetros";
             // 
             // btnBuscar
             // 
@@ -184,16 +208,49 @@
             this.dpFechaDesde.Size = new System.Drawing.Size(85, 21);
             this.dpFechaDesde.TabIndex = 72;
             // 
-            // btnImprimir
+            // label6
             // 
-            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.print;
-            this.btnImprimir.Location = new System.Drawing.Point(383, 10);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(34, 24);
-            this.btnImprimir.TabIndex = 83;
-            this.btnImprimir.Text = "º";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(423, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(84, 16);
+            this.label6.TabIndex = 84;
+            this.label6.Text = "Valor del Km";
+            // 
+            // txtValorKm
+            // 
+            this.txtValorKm.Location = new System.Drawing.Point(514, 10);
+            this.txtValorKm.Name = "txtValorKm";
+            this.txtValorKm.Size = new System.Drawing.Size(100, 21);
+            this.txtValorKm.TabIndex = 85;
+            // 
+            // btnCalcularTotalPagar
+            // 
+            this.btnCalcularTotalPagar.Image = global::Concesionaria.Properties.Resources.disk;
+            this.btnCalcularTotalPagar.Location = new System.Drawing.Point(620, 7);
+            this.btnCalcularTotalPagar.Name = "btnCalcularTotalPagar";
+            this.btnCalcularTotalPagar.Size = new System.Drawing.Size(34, 24);
+            this.btnCalcularTotalPagar.TabIndex = 86;
+            this.btnCalcularTotalPagar.Text = "º";
+            this.btnCalcularTotalPagar.UseVisualStyleBackColor = true;
+            this.btnCalcularTotalPagar.Click += new System.EventHandler(this.btnCalcularTotalPagar_Click);
+            // 
+            // txtTotalaPagar
+            // 
+            this.txtTotalaPagar.Location = new System.Drawing.Point(737, 455);
+            this.txtTotalaPagar.Name = "txtTotalaPagar";
+            this.txtTotalaPagar.ReadOnly = true;
+            this.txtTotalaPagar.Size = new System.Drawing.Size(100, 21);
+            this.txtTotalaPagar.TabIndex = 88;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(680, 458);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 16);
+            this.label7.TabIndex = 87;
+            this.label7.Text = "A Pagar";
             // 
             // FrmConsultarViajes
             // 
@@ -228,5 +285,10 @@
         private System.Windows.Forms.TextBox txtDiferencia;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.TextBox txtTotalaPagar;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnCalcularTotalPagar;
+        private System.Windows.Forms.TextBox txtValorKm;
+        private System.Windows.Forms.Label label6;
     }
 }

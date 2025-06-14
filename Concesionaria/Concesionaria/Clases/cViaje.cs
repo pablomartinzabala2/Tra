@@ -33,7 +33,7 @@ namespace Concesionaria.Clases
             sql = sql + " (select nombre from ciudad where codciudad =d.CodOrigen ) as origen ,";
             sql = sql + "(select nombre from ciudad where codciudad =d.CodDestino  ) as Destino ";
             sql = sql + " ,v.Gastos ,v.Adelanto ,v.KmIda , v.KmVuelta ";
-            sql = sql + ",( isnull(v.KmVuelta,0) - isnull(v.KmIda,0)) as Diferencia ";
+            sql = sql + ",( isnull(v.KmVuelta,0) - isnull(v.KmIda,0)) as Km ";
             sql = sql + " from viaje v, Distancia d ";
             sql = sql + " where v.CodDistancia = d.CodDistancia  ";
             sql = sql + " and v.Fecha >=" + "'" + Desde + "'";

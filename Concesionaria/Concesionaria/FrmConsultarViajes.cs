@@ -37,18 +37,18 @@ namespace Concesionaria
             trdo = fun.TablaaMiles(trdo, "Adelanto");
             trdo = fun.TablaaMiles(trdo, "KmIda");
             trdo = fun.TablaaMiles(trdo, "KmVuelta");
-            trdo = fun.TablaaMiles(trdo, "Diferencia");
+            trdo = fun.TablaaMiles(trdo, "Km");
             trdo = fun.TablaaFechas(trdo, "Fecha");
             Gastos = fun.TotalizarColumna(trdo, "Gastos");
             Adelantos = fun.TotalizarColumna(trdo, "Adelanto");
-            Diferencias = fun.TotalizarColumna(trdo, "Diferencia");
+            Diferencias = fun.TotalizarColumna(trdo, "Km");
             Grilla.DataSource = trdo;
             string Col = "0;15;15;0;20;10;10;10;10;10";
-            
             fun.AnchoColumnas(Grilla, Col);
             txtGasto.Text = fun.FormatoEnteroMiles(Gastos.ToString());
             txtDiferencia.Text = fun.FormatoEnteroMiles(Diferencias.ToString());
             txtAdelanto.Text = fun.FormatoEnteroMiles(Adelantos.ToString());
+             
         }
 
         private void InicializarFechas()
@@ -103,6 +103,8 @@ namespace Concesionaria
             string KmIda = "";
             string KmVuelta = "";
             string Diferencia = "";
+            string TotalPagar = "";
+            TotalPagar = ArmarPieInforme();
             int b = 0;
             for (int i = 0; i < Grilla.Rows.Count - 1 ; i++)
             {
@@ -114,7 +116,7 @@ namespace Concesionaria
                 KmIda = Grilla.Rows[i].Cells[7].Value.ToString();
                 KmVuelta = Grilla.Rows[i].Cells[8].Value.ToString();
                 Diferencia = Grilla.Rows[i].Cells[9].Value.ToString();
-                rep.Insertar(i, Fecha, Chofer, Destino, Gastos, Adelanto, KmIda, KmVuelta, Diferencia, FechaHoy.ToShortDateString (), "");
+                rep.Insertar(i, Fecha, Chofer, Destino, Gastos, Adelanto, KmIda, KmVuelta, Diferencia, FechaHoy.ToShortDateString (), TotalPagar);
                 b = 1;
             }
 
@@ -128,6 +130,55 @@ namespace Concesionaria
                 FrmReporteViaje frm = new Concesionaria.FrmReporteViaje();
                 frm.Show();
             }
+        }
+
+        private string ArmarPieInforme()
+        {
+            cFunciones fun = new cFunciones();
+            string Lista = "";
+            Lista = "Kilómetos " + txtDiferencia.Text;
+            Lista = Lista + " Valor Km " + fun.FormatoEnteroMiles(txtValorKm.Text);
+            Lista = Lista + " Gastos " + txtGasto.Text;
+            Lista = Lista + " Adelanto " + txtAdelanto.Text;
+            Lista = Lista + " Total a Abonar " + txtTotalaPagar.Text;
+            return Lista; 
+        }
+        private void btnCalcularTotalPagar_Click(object sender, EventArgs e)
+        {
+            if (Grilla.Rows.Count <1)
+            {
+                MessageBox.Show("No hay información para procesar ");
+                return;
+            }
+
+            if (txtValorKm.Text =="")
+            {
+                MessageBox.Show("Debe ingresar un valor de km");
+                return;
+            }
+            cFunciones fun = new Clases.cFunciones();
+            Double ValorKm = Convert.ToDouble(txtValorKm.Text);
+            Double KmRecorridos = 0;
+            Double Adelanto = 0;
+            Double Gastos = 0;
+            Double TotalaPagar = 0;
+            if (txtDiferencia.Text !="")
+            {
+                KmRecorridos = fun.ToDouble (txtDiferencia.Text);
+            }
+            
+            if (txtAdelanto.Text != "")
+            {
+                Adelanto = fun.ToDouble(txtAdelanto.Text);
+            }
+            
+            if (txtGasto.Text != "")
+            {
+                Gastos = fun.ToDouble(txtGasto.Text);
+            }
+            
+            TotalaPagar = KmRecorridos * ValorKm + Gastos - Adelanto;
+            txtTotalaPagar.Text = fun.FormatoEnteroMiles(TotalaPagar.ToString());
         }
     }
 }
