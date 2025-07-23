@@ -163,7 +163,7 @@ namespace Concesionaria
                 Fecturado = Grilla.Rows[i].Cells[8].Value.ToString();
                 SaldoFacturado = Grilla.Rows[i].Cells[9].Value.ToString();
                 reporte.Insertar(Orden, Vencimiento, Apellido, Modelo, Total,
-                    Efectivo, SaldoEfectivo, Fecturado, SaldoFacturado, ResumenTotal, "");
+                    Efectivo, SaldoEfectivo, Fecturado, SaldoFacturado, ResumenTotal, "", "", "", "", "");
                 Orden++; 
             }
             FrmReporteEfectivoPagar frm = new FrmReporteEfectivoPagar();

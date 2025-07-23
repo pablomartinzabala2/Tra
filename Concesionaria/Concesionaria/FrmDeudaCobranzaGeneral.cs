@@ -185,7 +185,7 @@ namespace Concesionaria
                 if (Vencimiento.Length > 10)
                     Vencimiento = Vencimiento.Substring(0, 10);
                 Reporte.Insertar(Orden, Vencimiento, Cliente, Descripcion, Patente, Importe, Saldo,  "",
-                    "", "", "");
+                    "", "", "","", "", "", "");
             }
 
             FrmReporteControlOperaciones frm = new FrmReporteControlOperaciones();

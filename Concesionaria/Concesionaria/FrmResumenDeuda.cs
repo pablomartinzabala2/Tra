@@ -189,7 +189,7 @@ namespace Concesionaria
                 Dolares = Grilla.Rows[i].Cells[5].Value.ToString();
                 reporte.Insertar(Orden, Cliente, Telefono,
                     Pesos, Dolares, txtTotalPesos.Text, txtTotalDolares.Text, "",
-                    "", "", "");
+                    "", "", "", "", "", "", "");
             }
 
             FrmReporteDeudaCliente frm = new FrmReporteDeudaCliente();
@@ -239,7 +239,7 @@ namespace Concesionaria
                 Saldo = trdo.Rows[i]["Saldo"].ToString();
                 //parte 8 tiene la leyenda de los saldos
                 Moneda = trdo.Rows[i]["Moneda"].ToString();
-                reporte.Insertar(orden, Cliente, Vencimiento, Descripcion, Importe, Saldo, Moneda, TextoSaldos, "", "", "");
+                reporte.Insertar(orden, Cliente, Vencimiento, Descripcion, Importe, Saldo, Moneda, TextoSaldos, "", "", "", "", "", "", "");
                 orden++;
             }
             FrmDetalleDeudaxCliente frm = new FrmDetalleDeudaxCliente();

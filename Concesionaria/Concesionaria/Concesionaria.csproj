@@ -121,6 +121,7 @@
     <Compile Include="Clases\cMovimiento.cs" />
     <Compile Include="Clases\cMovimientoCaja.cs" />
     <Compile Include="Clases\cMovimientoProveedor.cs" />
+    <Compile Include="Clases\cPago.cs" />
     <Compile Include="Clases\cPagoCheque.cs" />
     <Compile Include="Clases\cPagoIntereses.cs" />
     <Compile Include="Clases\cPagoProveedor.cs" />
@@ -476,6 +477,12 @@
     <Compile Include="FrmConsultaMovimientoCaja.Designer.cs">
       <DependentUpon>FrmConsultaMovimientoCaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConsultarPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultarPago.Designer.cs">
+      <DependentUpon>FrmConsultarPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConsultarViajes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -806,6 +813,12 @@
     <Compile Include="FrmRegistrarGastosTransferencia.Designer.cs">
       <DependentUpon>FrmRegistrarGastosTransferencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRegistrarPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrarPago.Designer.cs">
+      <DependentUpon>FrmRegistrarPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRegistrarPreciopFlete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1112,6 +1125,12 @@
     <Compile Include="FrmTest.Designer.cs">
       <DependentUpon>FrmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTipoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTipoPago.Designer.cs">
+      <DependentUpon>FrmTipoPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVencimiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1306,6 +1325,9 @@
     <EmbeddedResource Include="FrmConsultaMovimientoCaja.resx">
       <DependentUpon>FrmConsultaMovimientoCaja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultarPago.resx">
+      <DependentUpon>FrmConsultarPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultarViajes.resx">
       <DependentUpon>FrmConsultarViajes.cs</DependentUpon>
     </EmbeddedResource>
@@ -1471,6 +1493,9 @@
     <EmbeddedResource Include="FrmRegistrarGastosTransferencia.resx">
       <DependentUpon>FrmRegistrarGastosTransferencia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrarPago.resx">
+      <DependentUpon>FrmRegistrarPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarPreciopFlete.resx">
       <DependentUpon>FrmRegistrarPreciopFlete.cs</DependentUpon>
     </EmbeddedResource>
@@ -1623,6 +1648,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTest.resx">
       <DependentUpon>FrmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTipoPago.resx">
+      <DependentUpon>FrmTipoPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVencimiento.resx">
       <DependentUpon>FrmVencimiento.cs</DependentUpon>

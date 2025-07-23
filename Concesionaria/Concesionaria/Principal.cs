@@ -923,5 +923,17 @@ namespace Concesionaria
             FrmAbmChofer frm = new FrmAbmChofer();
             frm.Show();
         }
+
+        private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarPago frm = new FrmRegistrarPago();
+            frm.Show();
+        }
+
+        private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConsultarPago frm = new FrmConsultarPago();
+            frm.Show();
+        }
     }
 }

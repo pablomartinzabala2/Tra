@@ -20,6 +20,7 @@ namespace Concesionaria
         private void FrmConsultarViajes_Load(object sender, EventArgs e)
         {
             InicializarFechas();
+            CargarChoferes();
             Buscar();
         }
 
@@ -31,8 +32,11 @@ namespace Concesionaria
             Double Gastos = 0;
             Double Diferencias = 0;
             Double Adelantos = 0;
+            Int32? CodChofer = null;
+            if (cmbChofer.SelectedIndex > 0)
+                CodChofer = Convert.ToInt32(cmbChofer.SelectedValue);
             cViaje viaje = new Clases.cViaje();
-            DataTable trdo = viaje.GetViajes(Desde, Hasta);
+            DataTable trdo = viaje.GetViajes(Desde, Hasta, CodChofer);
             trdo = fun.TablaaMiles(trdo, "Gastos");
             trdo = fun.TablaaMiles(trdo, "Adelanto");
             trdo = fun.TablaaMiles(trdo, "KmIda");
@@ -43,12 +47,20 @@ namespace Concesionaria
             Adelantos = fun.TotalizarColumna(trdo, "Adelanto");
             Diferencias = fun.TotalizarColumna(trdo, "Km");
             Grilla.DataSource = trdo;
-            string Col = "0;15;15;0;20;10;10;10;10;10";
+            string Col = "0;15;15;0;20;10;10;10;10;10;0";
             fun.AnchoColumnas(Grilla, Col);
             txtGasto.Text = fun.FormatoEnteroMiles(Gastos.ToString());
             txtDiferencia.Text = fun.FormatoEnteroMiles(Diferencias.ToString());
             txtAdelanto.Text = fun.FormatoEnteroMiles(Adelantos.ToString());
              
+        }
+
+        private void CargarChoferes()
+        {
+            cChofer chofer = new cChofer();
+            DataTable trdo = chofer.GetChofer();
+            cFunciones fun = new cFunciones();
+            fun.LlenarComboDatatable(cmbChofer, trdo, "Nombre", "CodChofer");
         }
 
         private void InicializarFechas()
@@ -104,19 +116,21 @@ namespace Concesionaria
             string KmVuelta = "";
             string Diferencia = "";
             string TotalPagar = "";
+            string Descripcion = "";
             TotalPagar = ArmarPieInforme();
             int b = 0;
             for (int i = 0; i < Grilla.Rows.Count - 1 ; i++)
             {
                 Fecha = Grilla.Rows[i].Cells[1].Value.ToString();
-                Chofer = Grilla.Rows[i].Cells[2].Value.ToString();
+                Chofer ="Chofer: " + Grilla.Rows[i].Cells[2].Value.ToString();
                 Destino = Grilla.Rows[i].Cells[4].Value.ToString();
                 Gastos = Grilla.Rows[i].Cells[5].Value.ToString();
                 Adelanto = Grilla.Rows[i].Cells[6].Value.ToString();
                 KmIda = Grilla.Rows[i].Cells[7].Value.ToString();
                 KmVuelta = Grilla.Rows[i].Cells[8].Value.ToString();
                 Diferencia = Grilla.Rows[i].Cells[9].Value.ToString();
-                rep.Insertar(i, Fecha, Chofer, Destino, Gastos, Adelanto, KmIda, KmVuelta, Diferencia, FechaHoy.ToShortDateString (), TotalPagar);
+                Descripcion = Grilla.Rows[i].Cells[10].Value.ToString();
+                rep.Insertar(i, Fecha, Chofer, Destino, Gastos, Adelanto, KmIda, KmVuelta, Diferencia, FechaHoy.ToShortDateString (), TotalPagar,"",Descripcion,"","");
                 b = 1;
             }
 
@@ -136,7 +150,7 @@ namespace Concesionaria
         {
             cFunciones fun = new cFunciones();
             string Lista = "";
-            Lista = "Kilómetos " + txtDiferencia.Text;
+            Lista = "Kilómetros " + txtDiferencia.Text;
             Lista = Lista + " Valor Km " + fun.FormatoEnteroMiles(txtValorKm.Text);
             Lista = Lista + " Gastos " + txtGasto.Text;
             Lista = Lista + " Adelanto " + txtAdelanto.Text;

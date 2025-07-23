@@ -106,7 +106,7 @@ namespace Concesionaria
                 Telefono = Grilla.Rows[i].Cells[2].Value.ToString();
                 Calle = Grilla.Rows[i].Cells[3].Value.ToString();
                 Numero = Grilla.Rows[i].Cells[4].Value.ToString();
-                report.Insertar(Orden, Nom, Telefono, Calle, Numero, "", "", "", "", "", "");       
+                report.Insertar(Orden, Nom, Telefono, Calle, Numero, "", "", "", "", "", "", "", "", "", "");       
             }
             FrmReporteClientes frm = new FrmReporteClientes();
             frm.Show();

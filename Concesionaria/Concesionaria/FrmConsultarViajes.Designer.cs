@@ -31,6 +31,11 @@
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.txtCliente = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTotalaPagar = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnCalcularTotalPagar = new System.Windows.Forms.Button();
+            this.txtValorKm = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.txtAdelanto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,11 +48,7 @@
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtValorKm = new System.Windows.Forms.TextBox();
-            this.btnCalcularTotalPagar = new System.Windows.Forms.Button();
-            this.txtTotalaPagar = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.cmbChofer = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +65,7 @@
             // txtCliente
             // 
             this.txtCliente.Image = global::Concesionaria.Properties.Resources.cancel;
-            this.txtCliente.Location = new System.Drawing.Point(343, 10);
+            this.txtCliente.Location = new System.Drawing.Point(526, 11);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(34, 24);
             this.txtCliente.TabIndex = 52;
@@ -74,6 +75,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbChofer);
             this.groupBox1.Controls.Add(this.txtTotalaPagar);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.btnCalcularTotalPagar);
@@ -99,12 +101,55 @@
             this.groupBox1.Size = new System.Drawing.Size(843, 489);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "v";
+            // 
+            // txtTotalaPagar
+            // 
+            this.txtTotalaPagar.Location = new System.Drawing.Point(737, 455);
+            this.txtTotalaPagar.Name = "txtTotalaPagar";
+            this.txtTotalaPagar.ReadOnly = true;
+            this.txtTotalaPagar.Size = new System.Drawing.Size(100, 21);
+            this.txtTotalaPagar.TabIndex = 88;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(680, 458);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 16);
+            this.label7.TabIndex = 87;
+            this.label7.Text = "A Pagar";
+            // 
+            // btnCalcularTotalPagar
+            // 
+            this.btnCalcularTotalPagar.Image = global::Concesionaria.Properties.Resources.disk;
+            this.btnCalcularTotalPagar.Location = new System.Drawing.Point(803, 8);
+            this.btnCalcularTotalPagar.Name = "btnCalcularTotalPagar";
+            this.btnCalcularTotalPagar.Size = new System.Drawing.Size(34, 24);
+            this.btnCalcularTotalPagar.TabIndex = 86;
+            this.btnCalcularTotalPagar.Text = "º";
+            this.btnCalcularTotalPagar.UseVisualStyleBackColor = true;
+            this.btnCalcularTotalPagar.Click += new System.EventHandler(this.btnCalcularTotalPagar_Click);
+            // 
+            // txtValorKm
+            // 
+            this.txtValorKm.Location = new System.Drawing.Point(697, 11);
+            this.txtValorKm.Name = "txtValorKm";
+            this.txtValorKm.Size = new System.Drawing.Size(100, 21);
+            this.txtValorKm.TabIndex = 85;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(606, 14);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(84, 16);
+            this.label6.TabIndex = 84;
+            this.label6.Text = "Valor del Km";
             // 
             // btnImprimir
             // 
             this.btnImprimir.Image = global::Concesionaria.Properties.Resources.print;
-            this.btnImprimir.Location = new System.Drawing.Point(383, 10);
+            this.btnImprimir.Location = new System.Drawing.Point(566, 11);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(34, 24);
             this.btnImprimir.TabIndex = 83;
@@ -166,7 +211,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom1;
-            this.btnBuscar.Location = new System.Drawing.Point(303, 12);
+            this.btnBuscar.Location = new System.Drawing.Point(486, 13);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(34, 24);
             this.btnBuscar.TabIndex = 76;
@@ -208,49 +253,14 @@
             this.dpFechaDesde.Size = new System.Drawing.Size(85, 21);
             this.dpFechaDesde.TabIndex = 72;
             // 
-            // label6
+            // cmbChofer
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(423, 13);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 16);
-            this.label6.TabIndex = 84;
-            this.label6.Text = "Valor del Km";
-            // 
-            // txtValorKm
-            // 
-            this.txtValorKm.Location = new System.Drawing.Point(514, 10);
-            this.txtValorKm.Name = "txtValorKm";
-            this.txtValorKm.Size = new System.Drawing.Size(100, 21);
-            this.txtValorKm.TabIndex = 85;
-            // 
-            // btnCalcularTotalPagar
-            // 
-            this.btnCalcularTotalPagar.Image = global::Concesionaria.Properties.Resources.disk;
-            this.btnCalcularTotalPagar.Location = new System.Drawing.Point(620, 7);
-            this.btnCalcularTotalPagar.Name = "btnCalcularTotalPagar";
-            this.btnCalcularTotalPagar.Size = new System.Drawing.Size(34, 24);
-            this.btnCalcularTotalPagar.TabIndex = 86;
-            this.btnCalcularTotalPagar.Text = "º";
-            this.btnCalcularTotalPagar.UseVisualStyleBackColor = true;
-            this.btnCalcularTotalPagar.Click += new System.EventHandler(this.btnCalcularTotalPagar_Click);
-            // 
-            // txtTotalaPagar
-            // 
-            this.txtTotalaPagar.Location = new System.Drawing.Point(737, 455);
-            this.txtTotalaPagar.Name = "txtTotalaPagar";
-            this.txtTotalaPagar.ReadOnly = true;
-            this.txtTotalaPagar.Size = new System.Drawing.Size(100, 21);
-            this.txtTotalaPagar.TabIndex = 88;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(680, 458);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 16);
-            this.label7.TabIndex = 87;
-            this.label7.Text = "A Pagar";
+            this.cmbChofer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbChofer.FormattingEnabled = true;
+            this.cmbChofer.Location = new System.Drawing.Point(293, 12);
+            this.cmbChofer.Name = "cmbChofer";
+            this.cmbChofer.Size = new System.Drawing.Size(121, 23);
+            this.cmbChofer.TabIndex = 89;
             // 
             // FrmConsultarViajes
             // 
@@ -290,5 +300,6 @@
         private System.Windows.Forms.Button btnCalcularTotalPagar;
         private System.Windows.Forms.TextBox txtValorKm;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbChofer;
     }
 }

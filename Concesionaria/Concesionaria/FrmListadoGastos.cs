@@ -146,7 +146,7 @@ namespace Concesionaria
                 Campo10 = Grilla.Rows[i].Cells[10].Value.ToString();
 
                 reporte.Insertar(Orden, Campo1, Campo2, Campo3, Campo4, Campo5,
-                    Campo6, Campo7, Campo8, Campo9, Campo10);
+                    Campo6, Campo7, Campo8, Campo9, Campo10, "", "", "", "");
             }
 
             FrmReporteGastosTransferencia frm = new FrmReporteGastosTransferencia();

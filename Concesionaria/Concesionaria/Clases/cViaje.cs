@@ -25,7 +25,7 @@ namespace Concesionaria.Clases
             cDb.ExecutarNonQuery(sql);
         }
 
-        public DataTable GetViajes(DateTime Desde, DateTime Hasta)
+        public DataTable GetViajes(DateTime Desde, DateTime Hasta, Int32? CodChofer )
         {
             string sql = "";
             sql = "select v.CodViaje,v.Fecha, ";
@@ -34,10 +34,15 @@ namespace Concesionaria.Clases
             sql = sql + "(select nombre from ciudad where codciudad =d.CodDestino  ) as Destino ";
             sql = sql + " ,v.Gastos ,v.Adelanto ,v.KmIda , v.KmVuelta ";
             sql = sql + ",( isnull(v.KmVuelta,0) - isnull(v.KmIda,0)) as Km ";
+            sql = sql + ", v.Descripcion ";
             sql = sql + " from viaje v, Distancia d ";
             sql = sql + " where v.CodDistancia = d.CodDistancia  ";
             sql = sql + " and v.Fecha >=" + "'" + Desde + "'";
             sql = sql + " and v.Fecha <=" + "'" + Hasta  + "'";
+            if (CodChofer !=null)
+            {
+                sql = sql + " and v.CodChofer=" + CodChofer.ToString();
+            }
             sql = sql + " order by v.CodViaje  desc  ";
             return cDb.ExecuteDataTable(sql);
         }

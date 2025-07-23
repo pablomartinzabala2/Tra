@@ -37,6 +37,7 @@
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriaDeGastosDeRecepciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.choferesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
@@ -115,6 +116,9 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
@@ -132,7 +136,6 @@
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.ButtonResumenDewuda = new System.Windows.Forms.ToolStripButton();
             this.btnDistancia = new System.Windows.Forms.ToolStripButton();
-            this.choferesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -215,6 +218,13 @@
             this.categoriaDeGastosDeRecepciónToolStripMenuItem.Text = "Categoria de Gastos de recepción";
             this.categoriaDeGastosDeRecepciónToolStripMenuItem.Click += new System.EventHandler(this.categoriaDeGastosDeRecepciónToolStripMenuItem_Click);
             // 
+            // choferesToolStripMenuItem
+            // 
+            this.choferesToolStripMenuItem.Name = "choferesToolStripMenuItem";
+            this.choferesToolStripMenuItem.Size = new System.Drawing.Size(292, 22);
+            this.choferesToolStripMenuItem.Text = "Choferes";
+            this.choferesToolStripMenuItem.Click += new System.EventHandler(this.choferesToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem10
             // 
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
@@ -294,6 +304,7 @@
             this.ingresoDeChequeToolStripMenuItem,
             this.cutToolStripMenuItem,
             this.toolStripSeparator7,
+            this.pagosToolStripMenuItem,
             this.MenuPrestamo,
             this.registrarDocumentosToolStripMenuItem,
             this.registrarCobranzasGeneralesToolStripMenuItem});
@@ -842,6 +853,29 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // pagosToolStripMenuItem
+            // 
+            this.pagosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consultarToolStripMenuItem,
+            this.registrarToolStripMenuItem});
+            this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
+            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
+            this.pagosToolStripMenuItem.Text = "Pagos";
+            // 
+            // consultarToolStripMenuItem
+            // 
+            this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consultarToolStripMenuItem.Text = "Consultar";
+            this.consultarToolStripMenuItem.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click);
+            // 
+            // registrarToolStripMenuItem
+            // 
+            this.registrarToolStripMenuItem.Name = "registrarToolStripMenuItem";
+            this.registrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.registrarToolStripMenuItem.Text = "Registrar";
+            this.registrarToolStripMenuItem.Click += new System.EventHandler(this.registrarToolStripMenuItem_Click);
+            // 
             // newToolStripButton
             // 
             this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -1017,13 +1051,6 @@
             this.btnDistancia.Text = "toolStripButton7";
             this.btnDistancia.Click += new System.EventHandler(this.btnDistancia_Click);
             // 
-            // choferesToolStripMenuItem
-            // 
-            this.choferesToolStripMenuItem.Name = "choferesToolStripMenuItem";
-            this.choferesToolStripMenuItem.Size = new System.Drawing.Size(292, 22);
-            this.choferesToolStripMenuItem.Text = "Choferes";
-            this.choferesToolStripMenuItem.Click += new System.EventHandler(this.choferesToolStripMenuItem_Click);
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1154,6 +1181,9 @@
         private System.Windows.Forms.ToolStripButton btnDistancia;
         private System.Windows.Forms.ToolStripMenuItem registrarViajesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem choferesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pagosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarToolStripMenuItem;
     }
 }
 
