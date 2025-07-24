@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsultarPago));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.dpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dpFechaDesde = new System.Windows.Forms.DateTimePicker();
-            this.btnAgregarAlerta = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnRegistrarPago = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +50,6 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dpFechaHasta);
             this.groupBox1.Controls.Add(this.dpFechaDesde);
-            this.groupBox1.Controls.Add(this.btnAgregarAlerta);
             this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Controls.Add(this.btnRegistrarPago);
             this.groupBox1.Controls.Add(this.button3);
@@ -64,6 +63,22 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Location = new System.Drawing.Point(682, 505);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(100, 23);
+            this.txtTotal.TabIndex = 74;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(506, 505);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(169, 17);
+            this.label1.TabIndex = 73;
+            this.label1.Text = "Total Vencimientos Diario";
             // 
             // dpFechaHasta
             // 
@@ -81,16 +96,6 @@
             this.dpFechaDesde.Size = new System.Drawing.Size(85, 23);
             this.dpFechaDesde.TabIndex = 71;
             // 
-            // btnAgregarAlerta
-            // 
-            this.btnAgregarAlerta.Image = global::Concesionaria.Properties.Resources.add;
-            this.btnAgregarAlerta.Location = new System.Drawing.Point(509, 22);
-            this.btnAgregarAlerta.Name = "btnAgregarAlerta";
-            this.btnAgregarAlerta.Size = new System.Drawing.Size(34, 24);
-            this.btnAgregarAlerta.TabIndex = 57;
-            this.btnAgregarAlerta.Text = "º";
-            this.btnAgregarAlerta.UseVisualStyleBackColor = true;
-            // 
             // btnEliminar
             // 
             this.btnEliminar.Image = global::Concesionaria.Properties.Resources.cancel;
@@ -104,7 +109,7 @@
             // 
             // btnRegistrarPago
             // 
-            this.btnRegistrarPago.Image = global::Concesionaria.Properties.Resources.money_euro;
+            this.btnRegistrarPago.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrarPago.Image")));
             this.btnRegistrarPago.Location = new System.Drawing.Point(429, 22);
             this.btnRegistrarPago.Name = "btnRegistrarPago";
             this.btnRegistrarPago.Size = new System.Drawing.Size(34, 24);
@@ -151,22 +156,6 @@
             this.Grilla.Size = new System.Drawing.Size(773, 437);
             this.Grilla.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(506, 505);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 17);
-            this.label1.TabIndex = 73;
-            this.label1.Text = "Total Vencimientos Diario";
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.Location = new System.Drawing.Point(682, 505);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(100, 23);
-            this.txtTotal.TabIndex = 74;
-            // 
             // FrmConsultarPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,7 +177,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker dpFechaHasta;
         private System.Windows.Forms.DateTimePicker dpFechaDesde;
-        private System.Windows.Forms.Button btnAgregarAlerta;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnRegistrarPago;
         private System.Windows.Forms.Button button3;

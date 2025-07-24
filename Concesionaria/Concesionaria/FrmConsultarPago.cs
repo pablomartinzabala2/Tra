@@ -33,8 +33,13 @@ namespace Concesionaria
             DateTime FechaHasta = dpFechaHasta.Value;
             DataTable trdo = Pago.Consultar(FechaDesde, FechaHasta);
             trdo = fun.TablaaMiles(trdo, "Importe");
+            trdo = fun.TablaaFechas(trdo, "Fecha");
+            trdo = fun.TablaaFechas(trdo, "FechaVencimiento");
             Grilla.DataSource = trdo;
+            fun.AnchoColumnas(Grilla, "0;25;15;15;15;15;15");
             ConsultarTotalVencimientoDiario();
+            Grilla.Columns[3].HeaderText = "Vencimiento";
+            Grilla.Columns[6].HeaderText = "Condición";
         }
 
         private void button3_Click(object sender, EventArgs e)

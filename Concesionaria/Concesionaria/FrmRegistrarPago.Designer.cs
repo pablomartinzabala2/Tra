@@ -181,7 +181,7 @@
             this.ClientSize = new System.Drawing.Size(422, 239);
             this.Controls.Add(this.Grupo);
             this.Name = "FrmRegistrarPago";
-            this.Text = "FrmRegistrarPago";
+            this.Text = "Registrar Pago";
             this.Load += new System.EventHandler(this.FrmRegistrarPago_Load);
             this.Grupo.ResumeLayout(false);
             this.Grupo.PerformLayout();

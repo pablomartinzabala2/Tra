@@ -117,4 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnRegistrarPago.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAEQSURBVDhPY6AEBFRckIcySQddK5701k5/eg3KJQ10r358CKj5f9eck4egQsSDKRue3YtqvwTS
+        fAeIraDCxIE521/+B/r7f1jZvv8OCRvI05zcuJ10zf2rH/8PaCCgeebGD5lQJhxMWPFBvhGoOaHjAX5n
+        z9jwoX3Bjg//p2/89B8qBNJs1b70w/+CGQ/+22RuAWkOgkqhApBCIP7fsACCG+c+/g/kp09e/RzMB2oE
+        4R6ockxQ1HsjyCYRbMP/BKA/QZoKJjwA2+yQceC/d+72t0A5/CkOqMAKiNcbBCz4H1BwABzaIM0GEWDb
+        iQ9xoOIgA48JYNdANXdCpYgHQE3ToYashwqRDoCa06FMWgMGBgDehbMpaX37igAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

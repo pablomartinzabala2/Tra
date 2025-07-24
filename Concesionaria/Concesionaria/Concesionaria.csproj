@@ -1819,6 +1819,7 @@
     <Content Include="Iconos\Ruta.jpg" />
     <Content Include="Iconos\statistics3.ico" />
     <Content Include="Iconos\table.ico" />
+    <Content Include="Iconos\tilde.png" />
     <Content Include="Iconos\tv.ico" />
     <Content Include="Iconos\Ventas.ico" />
     <Content Include="Iconos\zoom.ico" />
