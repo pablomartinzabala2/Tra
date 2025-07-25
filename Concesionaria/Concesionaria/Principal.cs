@@ -935,5 +935,11 @@ namespace Concesionaria
             FrmConsultarPago frm = new FrmConsultarPago();
             frm.Show();
         }
+
+        private void cONCEPTOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAbmConcepto frm = new FrmAbmConcepto();
+            frm.Show();
+        }
     }
 }

@@ -83,6 +83,7 @@
     <Compile Include="Clases\cComisionVendedor.cs" />
     <Compile Include="Clases\cCompra.cs" />
     <Compile Include="Clases\cCompraxCliente.cs" />
+    <Compile Include="Clases\cConcepto.cs" />
     <Compile Include="Clases\cConexion.cs" />
     <Compile Include="Clases\cConfiguracion.cs" />
     <Compile Include="Clases\cCosto.cs" />
@@ -248,6 +249,12 @@
     </Compile>
     <Compile Include="FrmAbmColor.Designer.cs">
       <DependentUpon>FrmAbmColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAbmConcepto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmConcepto.Designer.cs">
+      <DependentUpon>FrmAbmConcepto.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAbmEntidad prendaria.cs">
       <SubType>Form</SubType>
@@ -692,6 +699,12 @@
     </Compile>
     <Compile Include="FrmListadoCompra.Designer.cs">
       <DependentUpon>FrmListadoCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoConceptos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoConceptos.Designer.cs">
+      <DependentUpon>FrmListadoConceptos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListadoCuentasProveedor.cs">
       <SubType>Form</SubType>
@@ -1211,6 +1224,9 @@
     <EmbeddedResource Include="FrmAbmColor.resx">
       <DependentUpon>FrmAbmColor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmConcepto.resx">
+      <DependentUpon>FrmAbmConcepto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmEntidad prendaria.resx">
       <DependentUpon>FrmAbmEntidad prendaria.cs</DependentUpon>
     </EmbeddedResource>
@@ -1432,6 +1448,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoCompra.resx">
       <DependentUpon>FrmListadoCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoConceptos.resx">
+      <DependentUpon>FrmListadoConceptos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoCuentasProveedor.resx">
       <DependentUpon>FrmListadoCuentasProveedor.cs</DependentUpon>

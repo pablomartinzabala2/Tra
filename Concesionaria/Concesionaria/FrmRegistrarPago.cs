@@ -21,6 +21,7 @@ namespace Concesionaria
         {
             cFunciones fun = new Clases.cFunciones();
             fun.LlenarCombo(cmbTipoPago, "TipoPago","Nombre", "CodTipoPago");
+            BuscarConcepto();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -76,6 +77,18 @@ namespace Concesionaria
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             txtImporte.Text = "";
+        }
+
+        private void BuscarConcepto()
+        {
+            cConcepto concepto = new cConcepto();
+            if (Principal.Codigo !=null)
+            {
+                int CodConcepto = Convert.ToInt32(Principal.Codigo);
+                string Nombre = concepto.GetConceptoxCodigo(CodConcepto);
+                txtConcepto.Text = Nombre;
+                txtCodConcepto.Text = CodConcepto.ToString();
+            }
         }
     }
 }

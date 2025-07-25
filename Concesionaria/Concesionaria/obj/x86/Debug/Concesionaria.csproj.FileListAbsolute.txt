@@ -1200,3 +1200,5 @@ D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.c
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmTipoPago.resources
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmRegistrarPago.resources
 D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmConsultarPago.resources
+D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmAbmConcepto.resources
+D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmListadoConceptos.resources
