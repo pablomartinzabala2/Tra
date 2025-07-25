@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.txtCodConcepto = new System.Windows.Forms.TextBox();
+            this.txtConcepto = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.chkPbligatorio = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -41,14 +44,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.cmbTipoPago = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtConcepto = new System.Windows.Forms.TextBox();
-            this.txtCodConcepto = new System.Windows.Forms.TextBox();
+            this.chkCostoFijo = new System.Windows.Forms.CheckBox();
             this.Grupo.SuspendLayout();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.chkCostoFijo);
             this.Grupo.Controls.Add(this.txtCodConcepto);
             this.Grupo.Controls.Add(this.txtConcepto);
             this.Grupo.Controls.Add(this.label5);
@@ -67,15 +69,40 @@
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(12, 12);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(393, 259);
+            this.Grupo.Size = new System.Drawing.Size(393, 277);
             this.Grupo.TabIndex = 16;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del tipo de pago";
             // 
+            // txtCodConcepto
+            // 
+            this.txtCodConcepto.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.txtCodConcepto.Location = new System.Drawing.Point(326, 24);
+            this.txtCodConcepto.Name = "txtCodConcepto";
+            this.txtCodConcepto.Size = new System.Drawing.Size(42, 22);
+            this.txtCodConcepto.TabIndex = 82;
+            // 
+            // txtConcepto
+            // 
+            this.txtConcepto.Location = new System.Drawing.Point(102, 27);
+            this.txtConcepto.Name = "txtConcepto";
+            this.txtConcepto.ReadOnly = true;
+            this.txtConcepto.Size = new System.Drawing.Size(218, 22);
+            this.txtConcepto.TabIndex = 81;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 16);
+            this.label5.TabIndex = 80;
+            this.label5.Text = "Concepto";
+            // 
             // chkPbligatorio
             // 
             this.chkPbligatorio.AutoSize = true;
-            this.chkPbligatorio.Location = new System.Drawing.Point(109, 179);
+            this.chkPbligatorio.Location = new System.Drawing.Point(102, 170);
             this.chkPbligatorio.Name = "chkPbligatorio";
             this.chkPbligatorio.Size = new System.Drawing.Size(93, 20);
             this.chkPbligatorio.TabIndex = 79;
@@ -84,9 +111,9 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(183, 221);
+            this.btnCancelar.Location = new System.Drawing.Point(183, 239);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 32);
             this.btnCancelar.TabIndex = 78;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -94,9 +121,9 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(102, 221);
+            this.btnGuardar.Location = new System.Drawing.Point(102, 239);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(75, 32);
             this.btnGuardar.TabIndex = 77;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -180,36 +207,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tipo De Pago";
             // 
-            // label5
+            // chkCostoFijo
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 27);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 16);
-            this.label5.TabIndex = 80;
-            this.label5.Text = "Concepto";
-            // 
-            // txtConcepto
-            // 
-            this.txtConcepto.Location = new System.Drawing.Point(102, 27);
-            this.txtConcepto.Name = "txtConcepto";
-            this.txtConcepto.ReadOnly = true;
-            this.txtConcepto.Size = new System.Drawing.Size(218, 22);
-            this.txtConcepto.TabIndex = 81;
-            // 
-            // txtCodConcepto
-            // 
-            this.txtCodConcepto.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.txtCodConcepto.Location = new System.Drawing.Point(326, 24);
-            this.txtCodConcepto.Name = "txtCodConcepto";
-            this.txtCodConcepto.Size = new System.Drawing.Size(42, 22);
-            this.txtCodConcepto.TabIndex = 82;
+            this.chkCostoFijo.AutoSize = true;
+            this.chkCostoFijo.Location = new System.Drawing.Point(102, 196);
+            this.chkCostoFijo.Name = "chkCostoFijo";
+            this.chkCostoFijo.Size = new System.Drawing.Size(87, 20);
+            this.chkCostoFijo.TabIndex = 83;
+            this.chkCostoFijo.Text = "Costo Fijo";
+            this.chkCostoFijo.UseVisualStyleBackColor = true;
             // 
             // FrmRegistrarPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 283);
+            this.ClientSize = new System.Drawing.Size(444, 301);
             this.Controls.Add(this.Grupo);
             this.Name = "FrmRegistrarPago";
             this.Text = "Registrar Pago";
@@ -238,5 +250,6 @@
         private System.Windows.Forms.TextBox txtCodConcepto;
         private System.Windows.Forms.TextBox txtConcepto;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox chkCostoFijo;
     }
 }

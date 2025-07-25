@@ -9,11 +9,11 @@ namespace Concesionaria.Clases
     public class cPago
     {
         public void Insertar(DateTime Fecha , DateTime FechaVencimiento, Double Importe, int CodObligatorio
-            , string Obligatorio, int CodTipoPago)
+            , string Obligatorio, int CodTipoPago, int CodConcepto, int CodCosto, string Costo)
         {
             string sql = "";
             sql = "insert into Pago(";
-            sql = sql + "Fecha,FechaVencimiento,Importe,CodObligatorio,Obligatorio,CodTipoPago ";
+            sql = sql + "Fecha,FechaVencimiento,Importe,CodObligatorio,Obligatorio,CodTipoPago,CodConcepto,CodCosto,Costo ";
             sql = sql + ")";
             sql = sql + " values (";
             sql = sql + "'" + Fecha.ToShortDateString() + "'";
@@ -22,6 +22,9 @@ namespace Concesionaria.Clases
             sql = sql + "," + CodObligatorio.ToString();
             sql = sql + "," + "'" + Obligatorio + "'";
             sql = sql + "," + CodTipoPago.ToString();
+            sql = sql + "," + CodConcepto.ToString();
+            sql = sql + "," + CodCosto.ToString();
+            sql = sql + "," + "'" + Costo + "'";
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
 
@@ -71,6 +74,17 @@ namespace Concesionaria.Clases
             string sql = "update Pago set FechaPago=" + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + " where CodPago=" + CodPago.ToString();
             cDb.ExecutarNonQuery(sql);
+        }
+
+        public DataTable GetPagoxCodConcepto(Int32 CodConcepto)
+        {
+            string sql = "";
+            sql = "select p.CodPago, t.Nombre,p.Fecha ,p.FechaVencimiento ,p.Importe ,p.FechaPago,p.Obligatorio , p.Costo ";
+            sql = sql + " from Pago p , TipoPago t ";
+            sql = sql + " where p.CodTipoPago = t.CodTipoPago ";
+            sql = sql + " and p.CodConcepto =" + CodConcepto.ToString();
+            sql = sql + " and p.FechaPago is null ";
+            return cDb.ExecuteDataTable(sql);
         }
     }
 }

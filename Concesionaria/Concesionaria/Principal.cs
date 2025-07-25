@@ -925,15 +925,15 @@ namespace Concesionaria
         }
 
         private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmRegistrarPago frm = new FrmRegistrarPago();
+        {  
+            FrmListadoConceptos frm = new FrmListadoConceptos();
             frm.Show();
         }
 
         private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmConsultarPago frm = new FrmConsultarPago();
-            frm.Show();
+           // FrmConsultarPago frm = new FrmConsultarPago();
+           // frm.Show();
         }
 
         private void cONCEPTOSToolStripMenuItem_Click(object sender, EventArgs e)

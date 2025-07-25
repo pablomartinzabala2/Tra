@@ -55,7 +55,25 @@ namespace Concesionaria
                 return;
             }
 
+            if (txtCodConcepto.Text =="")
+            {
+                MessageBox.Show("Debe ingresar un concepto  ");
+                return;
+            }
+
+            //validar que no exista un pago pendiente
+
+            int CodConcepto = Convert.ToInt32(txtCodConcepto.Text);
+
+            if (Validar (CodConcepto)==false)
+            {
+                MessageBox.Show("El concepto tiene un pago pendiente ");
+                return;
+            }
+
             int CodTipoPago = 0;
+            int CodCosto = 0;
+            string Costo = "";
             int CodObligatorio = 0;
             string Obligatorio = "No Obligatorio";
             cPago pago = new cPago();
@@ -68,15 +86,52 @@ namespace Concesionaria
                 CodObligatorio = 1;
                 Obligatorio = "Obligatorio";
             }
+
+            if (chkCostoFijo.Checked ==true)
+            {
+                CodCosto = 1;
+                Costo = "Si";
+            }
+            else
+            {
+                CodCosto = 0;
+                Costo = "No";
+            }
+
             CodTipoPago = Convert.ToInt32(cmbTipoPago.SelectedValue);
-            pago.Insertar(Fecha, FechaVencimiento, Importe, CodObligatorio, Obligatorio, CodTipoPago);
+            pago.Insertar(Fecha, FechaVencimiento, Importe, CodObligatorio, Obligatorio, CodTipoPago, CodConcepto , CodCosto, Costo);
             MessageBox.Show("Datos grabados correctamente ");
             txtImporte.Text = "";
+            this.Close();
+        }
+
+        private bool Validar(Int32 CodConcepto)
+        {
+            int CodPago = 0;
+            cPago pago = new Clases.cPago();
+            DataTable trdo = pago.GetPagoxCodConcepto(CodConcepto);
+            if (trdo.Rows.Count >0)
+            {
+                if (trdo.Rows[0]["CodPago"].ToString ()!="")
+                {
+                    CodPago = 1;
+                }
+            }
+            if (CodPago ==0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             txtImporte.Text = "";
+            this.Close();
         }
 
         private void BuscarConcepto()

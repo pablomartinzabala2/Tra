@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Grilla = new System.Windows.Forms.DataGridView();
             this.btnAbrirVenta = new System.Windows.Forms.Button();
+            this.Grilla = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
@@ -42,34 +42,34 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(521, 356);
+            this.groupBox1.Size = new System.Drawing.Size(863, 468);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Conceptos";
             // 
-            // Grilla
-            // 
-            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(6, 36);
-            this.Grilla.Name = "Grilla";
-            this.Grilla.Size = new System.Drawing.Size(497, 252);
-            this.Grilla.TabIndex = 0;
-            // 
             // btnAbrirVenta
             // 
             this.btnAbrirVenta.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnAbrirVenta.Location = new System.Drawing.Point(463, 3);
+            this.btnAbrirVenta.Location = new System.Drawing.Point(799, 3);
             this.btnAbrirVenta.Name = "btnAbrirVenta";
             this.btnAbrirVenta.Size = new System.Drawing.Size(40, 27);
             this.btnAbrirVenta.TabIndex = 44;
             this.btnAbrirVenta.UseVisualStyleBackColor = true;
             this.btnAbrirVenta.Click += new System.EventHandler(this.btnAbrirVenta_Click);
             // 
+            // Grilla
+            // 
+            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla.Location = new System.Drawing.Point(6, 36);
+            this.Grilla.Name = "Grilla";
+            this.Grilla.Size = new System.Drawing.Size(833, 407);
+            this.Grilla.TabIndex = 0;
+            // 
             // FrmListadoConceptos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(545, 380);
+            this.ClientSize = new System.Drawing.Size(887, 492);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmListadoConceptos";
             this.Text = "Listado de conceptos";
