@@ -359,6 +359,8 @@ namespace Concesionaria
                     cheque.InsertarTransaccion(con, Transaccion, dpFecha.Value, Convert.ToDateTime(FechaVencimiento), fun.ToDouble(Importe), Convert.ToInt32(CodBanco), txtApellido.Text, txtNombre.Text, "","", NroCheque, CodRecibo);
                     
                 }
+
+               
             }
 
             if (Transferencia > 0)
@@ -382,6 +384,9 @@ namespace Concesionaria
                     Orden = Orden + 1;
                     Transfer.Insertar(con, Transaccion, null, Convert.ToInt32(CodBanco), Numero, Monto, Fecha, Convert.ToInt32(CodRecibo));
                 }
+               // Orden = Orden + 1;
+              //  recibo.InsertarDetalle(con, Transaccion, CodRecibo, "", "Total de ", "", sTotal , Orden);
+                //inserto el total al final
             }
 
             if (tbCobranza.Rows.Count >0)
@@ -397,6 +402,10 @@ namespace Concesionaria
                 recibo.InsertarDetalle(con, Transaccion, CodRecibo, "Saldo ", "", "", sSaldo , Orden);
                 Orden = Orden + 1;
             }
+
+            //guardo el totao general
+            Orden = Orden + 1;
+            recibo.InsertarDetalle(con, Transaccion, CodRecibo, "", "Total de ", "", sTotal, Orden);
 
             Principal.CodRecibo = CodRecibo;
 

@@ -122,6 +122,7 @@
             this.btnAbrir.Size = new System.Drawing.Size(34, 30);
             this.btnAbrir.TabIndex = 52;
             this.btnAbrir.UseVisualStyleBackColor = true;
+            this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
             // 
             // btnBusca
             // 
