@@ -285,6 +285,7 @@ namespace Concesionaria
             Double Cobranza = 0;
             Double Total = 0;
             string sTotal = "";
+            string TextoTotal = "";
 
             CodEmpleado = Convert.ToInt32(cmbEmpleado.SelectedValue);
 
@@ -323,13 +324,16 @@ namespace Concesionaria
             NroRecibo = recibo.GetNroRecibo(CodRecibo);
             recibo.ActualizarNroRecibo(con, Transaccion, CodRecibo, NroRecibo);
 
-            
+           // TextoTotal = "Total " + sTotal;
 
-           
+            TextoTotal = sTotal;
+
+
+
             if (Efectivo > 0)
             {
                 string sEfectivo = "$ " + txtEfectivo.Text;
-                recibo.InsertarDetalle(con, Transaccion, CodRecibo, "Efectivo", "", "", sEfectivo, Orden);
+                recibo.InsertarDetalle(con, Transaccion, CodRecibo, "Efectivo", "", "", sEfectivo, Orden, TextoTotal);
                 Orden = Orden + 1;
                 string Descripcion = "Recibo de " + txtNombre.Text + " " + txtApellido.Text;
                 cMovimiento mov = new cMovimiento();
@@ -340,7 +344,7 @@ namespace Concesionaria
             if (Cheque > 0)
             {
                 cChequeCobrar cheque = new cChequeCobrar();
-                recibo.InsertarDetalle(con, Transaccion, CodRecibo, "Detalle de Cheque", "", "", "", Orden);
+                recibo.InsertarDetalle(con, Transaccion, CodRecibo, "Detalle de Cheque", "", "", "", Orden, TextoTotal);
                 Orden = Orden + 1;
                 string sCheque = "";
                 
@@ -354,7 +358,7 @@ namespace Concesionaria
                     sCheque = "N° " + NroCheque + " " + sBanco;
                     sCheque = sCheque + " Vence " + FechaVencimiento;
                     string sImporte = "$ " + Importe;
-                    recibo.InsertarDetalle(con, Transaccion, CodRecibo, "", sCheque, "", sImporte, Orden);
+                    recibo.InsertarDetalle(con, Transaccion, CodRecibo, "", sCheque, "", sImporte, Orden, TextoTotal);
                     Orden = Orden + 1;
                     cheque.InsertarTransaccion(con, Transaccion, dpFecha.Value, Convert.ToDateTime(FechaVencimiento), fun.ToDouble(Importe), Convert.ToInt32(CodBanco), txtApellido.Text, txtNombre.Text, "","", NroCheque, CodRecibo);
                     
@@ -366,7 +370,7 @@ namespace Concesionaria
             if (Transferencia > 0)
             {
                 cTransferencia Transfer = new cTransferencia();
-                recibo.InsertarDetalle(con, Transaccion, CodRecibo, "Detalle de Transferencia", "", "", "", Orden);
+                recibo.InsertarDetalle(con, Transaccion, CodRecibo, "Detalle de Transferencia", "", "", "", Orden, TextoTotal);
                 Orden = Orden + 1;
                 Double Monto = 0;
                 string sTransfer = "";
@@ -380,7 +384,7 @@ namespace Concesionaria
                     string sBanco = GrillaTransferencia.Rows[i].Cells[1].Value.ToString();
                     sTransfer = "N° " + Numero + " " + FechaVencimiento + " " + sBanco;
                     string sImporte = "$ " + Importe;
-                    recibo.InsertarDetalle(con, Transaccion, CodRecibo, "", sTransfer, "", sImporte, Orden);
+                    recibo.InsertarDetalle(con, Transaccion, CodRecibo, "", sTransfer, "", sImporte, Orden, TextoTotal);
                     Orden = Orden + 1;
                     Transfer.Insertar(con, Transaccion, null, Convert.ToInt32(CodBanco), Numero, Monto, Fecha, Convert.ToInt32(CodRecibo));
                 }
@@ -393,19 +397,19 @@ namespace Concesionaria
             {
                 Double TotalCobranza = fun.TotalizarColumna(tbCobranza, "Importe");
                 string sImporte ="$ " + fun.FormatoEnteroMiles(TotalCobranza.ToString());
-                recibo.InsertarDetalle(con, Transaccion, CodRecibo, "A Pagar", "", "", sImporte, Orden);
+                recibo.InsertarDetalle(con, Transaccion, CodRecibo, "A Pagar", "", "", sImporte, Orden, TextoTotal);
                 Orden = Orden + 1;
             }
 
             if (Saldo >0)
             {
-                recibo.InsertarDetalle(con, Transaccion, CodRecibo, "Saldo ", "", "", sSaldo , Orden);
+                recibo.InsertarDetalle(con, Transaccion, CodRecibo, "Saldo ", "", "", sSaldo , Orden, TextoTotal);
                 Orden = Orden + 1;
             }
 
             //guardo el totao general
-            Orden = Orden + 1;
-            recibo.InsertarDetalle(con, Transaccion, CodRecibo, "", "Total de ", "", sTotal, Orden);
+           // Orden = Orden + 1;
+           // recibo.InsertarDetalle(con, Transaccion, CodRecibo, "", "Total de ", "", sTotal, Orden);
 
             Principal.CodRecibo = CodRecibo;
 

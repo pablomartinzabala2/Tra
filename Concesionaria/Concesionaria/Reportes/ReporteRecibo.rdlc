@@ -770,6 +770,70 @@
           </Border>
         </Style>
       </Line>
+      <Textbox Name="Campo5">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Campo5.Value, "DataSet1")</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Campo5</rd:DefaultName>
+        <Top>11.65669cm</Top>
+        <Left>14.89626cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.12958cm</Width>
+        <ZIndex>16</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox20">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Total</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>11.65669cm</Top>
+        <Left>12.83318cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.33144cm</Width>
+        <ZIndex>17</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>5.73958in</Height>
     <Style />
@@ -874,10 +938,30 @@
           <DataField>Fecha</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
+        <Field Name="Campo6">
+          <DataField>Campo6</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Campo7">
+          <DataField>Campo7</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Campo8">
+          <DataField>Campo8</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Campo9">
+          <DataField>Campo9</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Campo10">
+          <DataField>Campo10</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DsReportes</rd:DataSetName>
-        <rd:SchemaPath>F:\PROGRAMACION 2\TRAUT\Tra\Concesionaria\Concesionaria\DsReportes.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\PROGRAMACION\TRAUT\Tra\Concesionaria\Concesionaria\DsReportes.xsd</rd:SchemaPath>
         <rd:TableName>DataTable2</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

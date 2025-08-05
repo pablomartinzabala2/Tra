@@ -2,14 +2,15 @@
 <xs:schema id="DsReportes" targetNamespace="http://tempuri.org/DsReportes.xsd" xmlns:mstns="http://tempuri.org/DsReportes.xsd" xmlns="http://tempuri.org/DsReportes.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="CONCESIONARIAConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CONCESIONARIAConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Concesionaria.Properties.Settings.GlobalReference.Default.CONCESIONARIAConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="COPIATRAUTConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="COPIATRAUTConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Concesionaria.Properties.Settings.GlobalReference.Default.COPIATRAUTConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="CONCESIONARIAConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="CONCESIONARIAConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select p.*,a.*,rp.*,
@@ -85,7 +86,7 @@ order by rp.Orden</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="CONCESIONARIAConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="COPIATRAUTConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select c.Apellido ,c.Telefono, c.Nombre ,rr.* ,
@@ -97,7 +98,7 @@ and r.CodRecibo = rr.CodRecibo
 and r.CodRecibo = @p
 order by rr.Orden</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="p" ColumnName="CodRecibo" DataSourceName="TRAUT.dbo.Recibo" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@p" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="CodRecibo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="p" ColumnName="CodRecibo" DataSourceName="COPIATRAUT.dbo.Recibo" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@p" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="CodRecibo" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -122,6 +123,11 @@ order by rr.Orden</CommandText>
               <Mapping SourceColumn="Total" DataSetColumn="Total" />
               <Mapping SourceColumn="sTotal" DataSetColumn="sTotal" />
               <Mapping SourceColumn="Fecha" DataSetColumn="Fecha" />
+              <Mapping SourceColumn="Campo6" DataSetColumn="Campo6" />
+              <Mapping SourceColumn="Campo7" DataSetColumn="Campo7" />
+              <Mapping SourceColumn="Campo8" DataSetColumn="Campo8" />
+              <Mapping SourceColumn="Campo9" DataSetColumn="Campo9" />
+              <Mapping SourceColumn="Campo10" DataSetColumn="Campo10" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -265,7 +271,7 @@ order by rr.Orden</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ClienteTableAdapter" GeneratorDataComponentClassName="ClienteTableAdapter" Name="Cliente" UserDataComponentName="ClienteTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="CONCESIONARIAConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="CONCESIONARIAConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select  (c.Nombre + ' ' + c.Apellido) as NombreCli ,
@@ -356,7 +362,7 @@ where CodStock = @p</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DtMovimientoCajaTableAdapter" GeneratorDataComponentClassName="DtMovimientoCajaTableAdapter" Name="DtMovimientoCaja" UserDataComponentName="DtMovimientoCajaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="CONCESIONARIAConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="CONCESIONARIAConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select m.CodMovimiento,m.Fecha,m.sImporteIngreso , m.sImporteEgreso,
@@ -755,6 +761,41 @@ and m.Fecha &gt;=@p1 and m.Fecha&lt;= @p1</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_UserColumnName="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Campo6" msprop:Generator_ColumnPropNameInRow="Campo6" msprop:Generator_ColumnPropNameInTable="Campo6Column" msprop:Generator_ColumnVarNameInTable="columnCampo6" msprop:Generator_UserColumnName="Campo6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Campo7" msprop:Generator_ColumnPropNameInRow="Campo7" msprop:Generator_ColumnPropNameInTable="Campo7Column" msprop:Generator_ColumnVarNameInTable="columnCampo7" msprop:Generator_UserColumnName="Campo7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Campo8" msprop:Generator_ColumnPropNameInRow="Campo8" msprop:Generator_ColumnPropNameInTable="Campo8Column" msprop:Generator_ColumnVarNameInTable="columnCampo8" msprop:Generator_UserColumnName="Campo8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Campo9" msprop:Generator_ColumnPropNameInRow="Campo9" msprop:Generator_ColumnPropNameInTable="Campo9Column" msprop:Generator_ColumnVarNameInTable="columnCampo9" msprop:Generator_UserColumnName="Campo9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Campo10" msprop:Generator_ColumnPropNameInRow="Campo10" msprop:Generator_ColumnPropNameInTable="Campo10Column" msprop:Generator_ColumnVarNameInTable="columnCampo10" msprop:Generator_UserColumnName="Campo10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -832,28 +873,28 @@ and m.Fecha &gt;=@p1 and m.Fecha&lt;= @p1</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARTE11" msprop:Generator_ColumnPropNameInRow="PARTE11" msprop:Generator_ColumnPropNameInTable="PARTE11Column" msprop:Generator_ColumnVarNameInTable="columnPARTE11" msprop:Generator_UserColumnName="PARTE11" minOccurs="0">
+              <xs:element name="PARTE11" msprop:Generator_UserColumnName="PARTE11" msprop:Generator_ColumnPropNameInTable="PARTE11Column" msprop:Generator_ColumnPropNameInRow="PARTE11" msprop:Generator_ColumnVarNameInTable="columnPARTE11" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARTE12" msprop:Generator_ColumnPropNameInRow="PARTE12" msprop:Generator_ColumnPropNameInTable="PARTE12Column" msprop:Generator_ColumnVarNameInTable="columnPARTE12" msprop:Generator_UserColumnName="PARTE12" minOccurs="0">
+              <xs:element name="PARTE12" msprop:Generator_UserColumnName="PARTE12" msprop:Generator_ColumnPropNameInTable="PARTE12Column" msprop:Generator_ColumnPropNameInRow="PARTE12" msprop:Generator_ColumnVarNameInTable="columnPARTE12" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARTE13" msprop:Generator_ColumnPropNameInRow="PARTE13" msprop:Generator_ColumnPropNameInTable="PARTE13Column" msprop:Generator_ColumnVarNameInTable="columnPARTE13" msprop:Generator_UserColumnName="PARTE13" minOccurs="0">
+              <xs:element name="PARTE13" msprop:Generator_UserColumnName="PARTE13" msprop:Generator_ColumnPropNameInTable="PARTE13Column" msprop:Generator_ColumnPropNameInRow="PARTE13" msprop:Generator_ColumnVarNameInTable="columnPARTE13" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARTE14" msprop:Generator_ColumnPropNameInRow="PARTE14" msprop:Generator_ColumnPropNameInTable="PARTE14Column" msprop:Generator_ColumnVarNameInTable="columnPARTE14" msprop:Generator_UserColumnName="PARTE14" minOccurs="0">
+              <xs:element name="PARTE14" msprop:Generator_UserColumnName="PARTE14" msprop:Generator_ColumnPropNameInTable="PARTE14Column" msprop:Generator_ColumnPropNameInRow="PARTE14" msprop:Generator_ColumnVarNameInTable="columnPARTE14" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5000" />
@@ -929,8 +970,8 @@ and m.Fecha &gt;=@p1 and m.Fecha&lt;= @p1</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Orden" msprop:Generator_UserColumnName="Orden" msprop:Generator_ColumnPropNameInTable="OrdenColumn" msprop:Generator_ColumnPropNameInRow="Orden" msprop:Generator_ColumnVarNameInTable="columnOrden" type="xs:int" minOccurs="0" />
-              <xs:element name="PARTE5" msprop:Generator_UserColumnName="PARTE5" msprop:Generator_ColumnPropNameInTable="PARTE5Column" msprop:Generator_ColumnPropNameInRow="PARTE5" msprop:Generator_ColumnVarNameInTable="columnPARTE5" minOccurs="0">
+              <xs:element name="Orden" msprop:Generator_ColumnPropNameInTable="OrdenColumn" msprop:Generator_ColumnPropNameInRow="Orden" msprop:Generator_UserColumnName="Orden" msprop:Generator_ColumnVarNameInTable="columnOrden" type="xs:int" minOccurs="0" />
+              <xs:element name="PARTE5" msprop:Generator_ColumnPropNameInTable="PARTE5Column" msprop:Generator_ColumnPropNameInRow="PARTE5" msprop:Generator_UserColumnName="PARTE5" msprop:Generator_ColumnVarNameInTable="columnPARTE5" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5000" />
@@ -1358,74 +1399,74 @@ and m.Fecha &gt;=@p1 and m.Fecha&lt;= @p1</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ReporteEfectivoPagar" msprop:Generator_RowClassName="ReporteEfectivoPagarRow" msprop:Generator_RowEvHandlerName="ReporteEfectivoPagarRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteEfectivoPagarRowDeleted" msprop:Generator_RowDeletingName="ReporteEfectivoPagarRowDeleting" msprop:Generator_RowEvArgName="ReporteEfectivoPagarRowChangeEvent" msprop:Generator_TablePropName="ReporteEfectivoPagar" msprop:Generator_RowChangedName="ReporteEfectivoPagarRowChanged" msprop:Generator_UserTableName="ReporteEfectivoPagar" msprop:Generator_RowChangingName="ReporteEfectivoPagarRowChanging" msprop:Generator_TableClassName="ReporteEfectivoPagarDataTable" msprop:Generator_TableVarName="tableReporteEfectivoPagar">
+        <xs:element name="ReporteEfectivoPagar" msprop:Generator_RowEvHandlerName="ReporteEfectivoPagarRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteEfectivoPagarRowDeleted" msprop:Generator_RowDeletingName="ReporteEfectivoPagarRowDeleting" msprop:Generator_RowEvArgName="ReporteEfectivoPagarRowChangeEvent" msprop:Generator_TablePropName="ReporteEfectivoPagar" msprop:Generator_RowChangedName="ReporteEfectivoPagarRowChanged" msprop:Generator_UserTableName="ReporteEfectivoPagar" msprop:Generator_RowChangingName="ReporteEfectivoPagarRowChanging" msprop:Generator_RowClassName="ReporteEfectivoPagarRow" msprop:Generator_TableClassName="ReporteEfectivoPagarDataTable" msprop:Generator_TableVarName="tableReporteEfectivoPagar">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="PARTE1" msprop:Generator_UserColumnName="PARTE1" msprop:Generator_ColumnPropNameInTable="PARTE1Column" msprop:Generator_ColumnPropNameInRow="PARTE1" msprop:Generator_ColumnVarNameInTable="columnPARTE1" minOccurs="0">
+              <xs:element name="PARTE1" msprop:Generator_ColumnPropNameInTable="PARTE1Column" msprop:Generator_ColumnPropNameInRow="PARTE1" msprop:Generator_UserColumnName="PARTE1" msprop:Generator_ColumnVarNameInTable="columnPARTE1" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARTE2" msprop:Generator_UserColumnName="PARTE2" msprop:Generator_ColumnPropNameInTable="PARTE2Column" msprop:Generator_ColumnPropNameInRow="PARTE2" msprop:Generator_ColumnVarNameInTable="columnPARTE2" minOccurs="0">
+              <xs:element name="PARTE2" msprop:Generator_ColumnPropNameInTable="PARTE2Column" msprop:Generator_ColumnPropNameInRow="PARTE2" msprop:Generator_UserColumnName="PARTE2" msprop:Generator_ColumnVarNameInTable="columnPARTE2" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARTE3" msprop:Generator_UserColumnName="PARTE3" msprop:Generator_ColumnPropNameInTable="PARTE3Column" msprop:Generator_ColumnPropNameInRow="PARTE3" msprop:Generator_ColumnVarNameInTable="columnPARTE3" minOccurs="0">
+              <xs:element name="PARTE3" msprop:Generator_ColumnPropNameInTable="PARTE3Column" msprop:Generator_ColumnPropNameInRow="PARTE3" msprop:Generator_UserColumnName="PARTE3" msprop:Generator_ColumnVarNameInTable="columnPARTE3" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARTE4" msprop:Generator_UserColumnName="PARTE4" msprop:Generator_ColumnPropNameInTable="PARTE4Column" msprop:Generator_ColumnPropNameInRow="PARTE4" msprop:Generator_ColumnVarNameInTable="columnPARTE4" minOccurs="0">
+              <xs:element name="PARTE4" msprop:Generator_ColumnPropNameInTable="PARTE4Column" msprop:Generator_ColumnPropNameInRow="PARTE4" msprop:Generator_UserColumnName="PARTE4" msprop:Generator_ColumnVarNameInTable="columnPARTE4" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARTE6" msprop:Generator_UserColumnName="PARTE6" msprop:Generator_ColumnPropNameInTable="PARTE6Column" msprop:Generator_ColumnPropNameInRow="PARTE6" msprop:Generator_ColumnVarNameInTable="columnPARTE6" minOccurs="0">
+              <xs:element name="PARTE6" msprop:Generator_ColumnPropNameInTable="PARTE6Column" msprop:Generator_ColumnPropNameInRow="PARTE6" msprop:Generator_UserColumnName="PARTE6" msprop:Generator_ColumnVarNameInTable="columnPARTE6" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARTE7" msprop:Generator_UserColumnName="PARTE7" msprop:Generator_ColumnPropNameInTable="PARTE7Column" msprop:Generator_ColumnPropNameInRow="PARTE7" msprop:Generator_ColumnVarNameInTable="columnPARTE7" minOccurs="0">
+              <xs:element name="PARTE7" msprop:Generator_ColumnPropNameInTable="PARTE7Column" msprop:Generator_ColumnPropNameInRow="PARTE7" msprop:Generator_UserColumnName="PARTE7" msprop:Generator_ColumnVarNameInTable="columnPARTE7" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARTE8" msprop:Generator_UserColumnName="PARTE8" msprop:Generator_ColumnPropNameInTable="PARTE8Column" msprop:Generator_ColumnPropNameInRow="PARTE8" msprop:Generator_ColumnVarNameInTable="columnPARTE8" minOccurs="0">
+              <xs:element name="PARTE8" msprop:Generator_ColumnPropNameInTable="PARTE8Column" msprop:Generator_ColumnPropNameInRow="PARTE8" msprop:Generator_UserColumnName="PARTE8" msprop:Generator_ColumnVarNameInTable="columnPARTE8" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARTE9" msprop:Generator_UserColumnName="PARTE9" msprop:Generator_ColumnPropNameInTable="PARTE9Column" msprop:Generator_ColumnPropNameInRow="PARTE9" msprop:Generator_ColumnVarNameInTable="columnPARTE9" minOccurs="0">
+              <xs:element name="PARTE9" msprop:Generator_ColumnPropNameInTable="PARTE9Column" msprop:Generator_ColumnPropNameInRow="PARTE9" msprop:Generator_UserColumnName="PARTE9" msprop:Generator_ColumnVarNameInTable="columnPARTE9" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARTE10" msprop:Generator_UserColumnName="PARTE10" msprop:Generator_ColumnPropNameInTable="PARTE10Column" msprop:Generator_ColumnPropNameInRow="PARTE10" msprop:Generator_ColumnVarNameInTable="columnPARTE10" minOccurs="0">
+              <xs:element name="PARTE10" msprop:Generator_ColumnPropNameInTable="PARTE10Column" msprop:Generator_ColumnPropNameInRow="PARTE10" msprop:Generator_UserColumnName="PARTE10" msprop:Generator_ColumnVarNameInTable="columnPARTE10" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Orden" msprop:Generator_UserColumnName="Orden" msprop:Generator_ColumnPropNameInTable="OrdenColumn" msprop:Generator_ColumnPropNameInRow="Orden" msprop:Generator_ColumnVarNameInTable="columnOrden" type="xs:int" minOccurs="0" />
-              <xs:element name="PARTE5" msprop:Generator_UserColumnName="PARTE5" msprop:Generator_ColumnPropNameInTable="PARTE5Column" msprop:Generator_ColumnPropNameInRow="PARTE5" msprop:Generator_ColumnVarNameInTable="columnPARTE5" minOccurs="0">
+              <xs:element name="Orden" msprop:Generator_ColumnPropNameInTable="OrdenColumn" msprop:Generator_ColumnPropNameInRow="Orden" msprop:Generator_UserColumnName="Orden" msprop:Generator_ColumnVarNameInTable="columnOrden" type="xs:int" minOccurs="0" />
+              <xs:element name="PARTE5" msprop:Generator_ColumnPropNameInTable="PARTE5Column" msprop:Generator_ColumnPropNameInRow="PARTE5" msprop:Generator_UserColumnName="PARTE5" msprop:Generator_ColumnVarNameInTable="columnPARTE5" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5000" />

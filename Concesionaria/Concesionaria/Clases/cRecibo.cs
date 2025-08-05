@@ -9,16 +9,17 @@ namespace Concesionaria.Clases
     public class cRecibo
     {
         public void InsertarDetalle(SqlConnection con, SqlTransaction Transaccion, Int32 CodRecibo, string Campo1,
-           string Campo2, string Campo3, string Campo4, int Orden)
+           string Campo2, string Campo3, string Campo4, int Orden , string Campo5)
         {
             string sql = "insert into ReporteRecibo(";
-            sql = sql + "CodRecibo,Campo1,Campo2,Campo3,Campo4,Orden)";
+            sql = sql + "CodRecibo,Campo1,Campo2,Campo3,Campo4,Orden, Campo5)";
             sql = sql + " Values (" + CodRecibo.ToString();
             sql = sql + "," + "'" + Campo1 + "'";
             sql = sql + "," + "'" + Campo2 + "'";
             sql = sql + "," + "'" + Campo3 + "'";
             sql = sql + "," + "'" + Campo4 + "'";
             sql = sql + "," + Orden.ToString();
+            sql = sql + "," + "'" + Campo5 + "'";
             sql = sql + ")";
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
