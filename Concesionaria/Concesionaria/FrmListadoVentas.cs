@@ -152,14 +152,15 @@ namespace Concesionaria
 
                 }
             }
-            string Col = "0;10;0;20;10;10;30";
+            string Col = "0;10;0;20;10;30;10";
             Col = Col + ";0;10;0;0;0;0;0";
             Col = Col + ";0;0;0;0;0;10";
             fun.AnchoColumnas(Grilla, Col);
 
             Grilla.Columns[3].HeaderText = "Cliente";
-            Grilla.Columns[4].HeaderText = "Dominio";
-            Grilla.Columns[6].HeaderText = "Modelo";
+            Grilla.Columns[4].HeaderText = "Marca";
+            Grilla.Columns[5].HeaderText = "Modelo";
+            Grilla.Columns[6].HeaderText = "Dominio";
             Grilla.Columns[18].HeaderText = "Deuda";
 
 

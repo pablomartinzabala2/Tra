@@ -841,10 +841,8 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Total</Value>
-                <Style>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
+                <Value>Saldo</Value>
+                <Style />
               </TextRun>
             </TextRuns>
             <Style />
@@ -874,9 +872,7 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!Campo6.Value, "DataSet1")</Value>
-                <Style>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
+                <Style />
               </TextRun>
             </TextRuns>
             <Style />
