@@ -1320,7 +1320,7 @@ namespace Concesionaria
             {
                 string Descripcion = "Recibo de " + txtNombre.Text + " " + txtApellido.Text;
                 string sEfectivo = "$ " + txtEfectivo.Text;
-                recibo.InsertarDetalle(con, Transaccion, CodRecibo, "Efectivo", "", "", sEfectivo, Orden,"");
+                recibo.InsertarDetalle(con, Transaccion, CodRecibo, "Efectivo", "", "", sEfectivo, Orden,"","");
                 cMovimiento mov = new cMovimiento();
                 mov.RegistrarMovimientoDescripcionTransaccion(con, Transaccion,
                     Principal.CodUsuarioLogueado,0, Efectivo, 0, 0, 0, 0, Fecha, Descripcion, 0);
@@ -1328,7 +1328,7 @@ namespace Concesionaria
 
             if (Cheque >0)
             {
-                recibo.InsertarDetalle(con, Transaccion, CodRecibo, "Detalle de Cheque", "", "", "", Orden,"");
+                recibo.InsertarDetalle(con, Transaccion, CodRecibo, "Detalle de Cheque", "", "", "", Orden,"","");
                 Orden = Orden + 1;
                 string sCheque = "";
                 for (int i = 0; i < GrillaCheques.Rows.Count - 1; i++)
@@ -1341,14 +1341,14 @@ namespace Concesionaria
                     sCheque = "N° " + NroCheque + " " + sBanco; 
                     sCheque = sCheque + " Vence " + FechaVencimiento;
                     string sImporte = "$ " + Importe;
-                    recibo.InsertarDetalle(con, Transaccion, CodRecibo, "", sCheque, "", sImporte, Orden,"");
+                    recibo.InsertarDetalle(con, Transaccion, CodRecibo, "", sCheque, "", sImporte, Orden,"","");
                     Orden = Orden + 1; 
                 }
             }
 
             if (Vehiculo >0)
             {
-                recibo.InsertarDetalle(con, Transaccion, CodRecibo, "Detalle de entrega Auto", "", "", "", Orden,"");
+                recibo.InsertarDetalle(con, Transaccion, CodRecibo, "Detalle de entrega Auto", "", "", "", Orden,"","");
                 Orden = Orden + 1;
                 string sImporteAuto = "";
                 string Auto = "";
@@ -1359,7 +1359,7 @@ namespace Concesionaria
                     Auto = Auto + " " + GrillaVehiculos.Rows[i].Cells["Marca"].Value.ToString();
                     sImporteAuto = "$ " + GrillaVehiculos.Rows[i].Cells["Importe"].Value.ToString();
 
-                    recibo.InsertarDetalle(con, Transaccion, CodRecibo, Auto, "", "", sImporteAuto, Orden,"");
+                    recibo.InsertarDetalle(con, Transaccion, CodRecibo, Auto, "", "", sImporteAuto, Orden,"","");
                     Orden = Orden + 1;
                 }
             }
