@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtConcepto = new System.Windows.Forms.TextBox();
+            this.CmbMoneda = new System.Windows.Forms.ComboBox();
+            this.btnBuscarVehiculo = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.cmbDocumento = new System.Windows.Forms.ComboBox();
             this.txtCodCLiente = new System.Windows.Forms.TextBox();
@@ -54,15 +58,22 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtEfectivo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnBuscarVehiculo = new System.Windows.Forms.Button();
-            this.CmbMoneda = new System.Windows.Forms.ComboBox();
-            this.txtConcepto = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtCuotas = new System.Windows.Forms.TextBox();
+            this.btnCuotas = new System.Windows.Forms.Button();
+            this.Grilla = new System.Windows.Forms.DataGridView();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnCancelar);
+            this.groupBox1.Controls.Add(this.Grilla);
+            this.groupBox1.Controls.Add(this.btnCuotas);
+            this.groupBox1.Controls.Add(this.txtCuotas);
+            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtConcepto);
             this.groupBox1.Controls.Add(this.CmbMoneda);
@@ -95,10 +106,46 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(448, 504);
+            this.groupBox1.Size = new System.Drawing.Size(543, 578);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registrar cobranzas generales";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(48, 268);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 17);
+            this.label11.TabIndex = 96;
+            this.label11.Text = "Concepto";
+            // 
+            // txtConcepto
+            // 
+            this.txtConcepto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtConcepto.Location = new System.Drawing.Point(119, 268);
+            this.txtConcepto.Name = "txtConcepto";
+            this.txtConcepto.Size = new System.Drawing.Size(418, 23);
+            this.txtConcepto.TabIndex = 95;
+            // 
+            // CmbMoneda
+            // 
+            this.CmbMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbMoneda.FormattingEnabled = true;
+            this.CmbMoneda.Location = new System.Drawing.Point(119, 67);
+            this.CmbMoneda.Name = "CmbMoneda";
+            this.CmbMoneda.Size = new System.Drawing.Size(83, 24);
+            this.CmbMoneda.TabIndex = 94;
+            // 
+            // btnBuscarVehiculo
+            // 
+            this.btnBuscarVehiculo.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnBuscarVehiculo.Location = new System.Drawing.Point(292, 236);
+            this.btnBuscarVehiculo.Name = "btnBuscarVehiculo";
+            this.btnBuscarVehiculo.Size = new System.Drawing.Size(43, 29);
+            this.btnBuscarVehiculo.TabIndex = 93;
+            this.btnBuscarVehiculo.UseVisualStyleBackColor = true;
+            this.btnBuscarVehiculo.Click += new System.EventHandler(this.btnBuscarVehiculo_Click);
             // 
             // button1
             // 
@@ -124,7 +171,7 @@
             // 
             this.txtCodCLiente.BackColor = System.Drawing.Color.Red;
             this.txtCodCLiente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodCLiente.Location = new System.Drawing.Point(306, 34);
+            this.txtCodCLiente.Location = new System.Drawing.Point(276, 34);
             this.txtCodCLiente.Name = "txtCodCLiente";
             this.txtCodCLiente.Size = new System.Drawing.Size(71, 23);
             this.txtCodCLiente.TabIndex = 79;
@@ -154,7 +201,7 @@
             this.txtApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtApellido.Location = new System.Drawing.Point(119, 152);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(305, 23);
+            this.txtApellido.Size = new System.Drawing.Size(418, 23);
             this.txtApellido.TabIndex = 76;
             // 
             // label9
@@ -186,7 +233,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(43, 305);
+            this.label8.Location = new System.Drawing.Point(49, 305);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 17);
             this.label8.TabIndex = 72;
@@ -240,7 +287,7 @@
             this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDireccion.Location = new System.Drawing.Point(119, 210);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(305, 23);
+            this.txtDireccion.Size = new System.Drawing.Size(418, 23);
             this.txtDireccion.TabIndex = 4;
             // 
             // txtTelefono
@@ -248,7 +295,7 @@
             this.txtTelefono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtTelefono.Location = new System.Drawing.Point(119, 181);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(305, 23);
+            this.txtTelefono.Size = new System.Drawing.Size(418, 23);
             this.txtTelefono.TabIndex = 3;
             // 
             // label4
@@ -265,26 +312,26 @@
             this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Location = new System.Drawing.Point(119, 123);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(305, 23);
+            this.txtNombre.Size = new System.Drawing.Size(424, 23);
             this.txtNombre.TabIndex = 2;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescripcion.Location = new System.Drawing.Point(117, 340);
+            this.txtDescripcion.Location = new System.Drawing.Point(115, 334);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(305, 103);
+            this.txtDescripcion.Size = new System.Drawing.Size(422, 69);
             this.txtDescripcion.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 331);
+            this.label3.Location = new System.Drawing.Point(49, 331);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 17);
+            this.label3.Size = new System.Drawing.Size(60, 17);
             this.label3.TabIndex = 23;
-            this.label3.Text = "Descripción";
+            this.label3.Text = "Descrip.";
             // 
             // label2
             // 
@@ -297,7 +344,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(117, 449);
+            this.btnGuardar.Location = new System.Drawing.Point(115, 535);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 37);
             this.btnGuardar.TabIndex = 6;
@@ -324,48 +371,55 @@
             this.label1.Text = " Monto";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // btnBuscarVehiculo
+            // label12
             // 
-            this.btnBuscarVehiculo.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnBuscarVehiculo.Location = new System.Drawing.Point(292, 236);
-            this.btnBuscarVehiculo.Name = "btnBuscarVehiculo";
-            this.btnBuscarVehiculo.Size = new System.Drawing.Size(43, 29);
-            this.btnBuscarVehiculo.TabIndex = 93;
-            this.btnBuscarVehiculo.UseVisualStyleBackColor = true;
-            this.btnBuscarVehiculo.Click += new System.EventHandler(this.btnBuscarVehiculo_Click);
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(58, 412);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(52, 17);
+            this.label12.TabIndex = 97;
+            this.label12.Text = "Cuotas";
             // 
-            // CmbMoneda
+            // txtCuotas
             // 
-            this.CmbMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbMoneda.FormattingEnabled = true;
-            this.CmbMoneda.Location = new System.Drawing.Point(119, 67);
-            this.CmbMoneda.Name = "CmbMoneda";
-            this.CmbMoneda.Size = new System.Drawing.Size(83, 24);
-            this.CmbMoneda.TabIndex = 94;
+            this.txtCuotas.Location = new System.Drawing.Point(115, 412);
+            this.txtCuotas.Name = "txtCuotas";
+            this.txtCuotas.Size = new System.Drawing.Size(116, 23);
+            this.txtCuotas.TabIndex = 98;
             // 
-            // txtConcepto
+            // btnCuotas
             // 
-            this.txtConcepto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtConcepto.Location = new System.Drawing.Point(119, 268);
-            this.txtConcepto.Name = "txtConcepto";
-            this.txtConcepto.Size = new System.Drawing.Size(303, 23);
-            this.txtConcepto.TabIndex = 95;
+            this.btnCuotas.Location = new System.Drawing.Point(233, 405);
+            this.btnCuotas.Name = "btnCuotas";
+            this.btnCuotas.Size = new System.Drawing.Size(75, 37);
+            this.btnCuotas.TabIndex = 99;
+            this.btnCuotas.Text = "Generar";
+            this.btnCuotas.UseVisualStyleBackColor = true;
+            this.btnCuotas.Click += new System.EventHandler(this.btnCuotas_Click);
             // 
-            // label11
+            // Grilla
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(48, 268);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(68, 17);
-            this.label11.TabIndex = 96;
-            this.label11.Text = "Concepto";
+            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla.Location = new System.Drawing.Point(115, 442);
+            this.Grilla.Name = "Grilla";
+            this.Grilla.Size = new System.Drawing.Size(422, 87);
+            this.Grilla.TabIndex = 100;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(208, 535);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 37);
+            this.btnCancelar.TabIndex = 101;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // FrmRegistrarCobranzaGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(468, 528);
+            this.ClientSize = new System.Drawing.Size(567, 592);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -375,6 +429,7 @@
             this.Load += new System.EventHandler(this.FrmRegistrarCobranzaGeneral_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -411,5 +466,10 @@
         private System.Windows.Forms.ComboBox CmbMoneda;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtConcepto;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridView Grilla;
+        private System.Windows.Forms.Button btnCuotas;
+        private System.Windows.Forms.TextBox txtCuotas;
+        private System.Windows.Forms.Label label12;
     }
 }

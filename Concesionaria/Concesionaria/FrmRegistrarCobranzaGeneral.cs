@@ -275,5 +275,40 @@ namespace Concesionaria
 
         }
 
+        private void btnCuotas_Click(object sender, EventArgs e)
+        {
+            if (txtEfectivo.Text =="")
+            {
+                MessageBox.Show("Debe ingresar un mento para continuar ");
+                return;
+            }
+
+            if (txtCuotas.Text =="")
+            {
+                MessageBox.Show("Debe ingresar una cantidad de cuotas para continuar");
+                return;
+
+            }
+
+            Double Importe = Convert.ToDouble(txtEfectivo.Text);
+            int Cuotas = Convert.ToInt32(txtCuotas.Text);
+            DateTime Vencimiento = dpFechaVencimiento.Value;
+            Double ImporteCuotta = 0;
+            ImporteCuotta = Importe / Cuotas;
+            cFunciones fun = new cFunciones();
+            DataTable tbCuota = fun.CrearTabla("Vencimiento;Cuota;Importe");
+            string val = "";
+            for (int i = 0; i < Cuotas ; i++)
+            {
+                val = Vencimiento.ToShortDateString();
+                val = val + ";" + (i + 1).ToString();
+                val = val + ";" + ImporteCuotta.ToString();
+                tbCuota = fun.AgregarFilas(tbCuota, val);
+                Vencimiento = Vencimiento.AddMonths(1);
+            }
+            tbCuota = fun.TablaaMiles(tbCuota, "Importe");
+            Grilla.DataSource = tbCuota;
+            fun.AnchoColumnas(Grilla, "30;30;40");
+        }
     }
 }
