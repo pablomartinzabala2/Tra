@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.Grilla = new System.Windows.Forms.DataGridView();
+            this.btnCuotas = new System.Windows.Forms.Button();
+            this.txtCuotas = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtConcepto = new System.Windows.Forms.TextBox();
             this.CmbMoneda = new System.Windows.Forms.ComboBox();
@@ -58,11 +63,6 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtEfectivo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtCuotas = new System.Windows.Forms.TextBox();
-            this.btnCuotas = new System.Windows.Forms.Button();
-            this.Grilla = new System.Windows.Forms.DataGridView();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
@@ -110,6 +110,50 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registrar cobranzas generales";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(292, 535);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 37);
+            this.btnCancelar.TabIndex = 101;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // Grilla
+            // 
+            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla.Location = new System.Drawing.Point(115, 442);
+            this.Grilla.Name = "Grilla";
+            this.Grilla.Size = new System.Drawing.Size(422, 87);
+            this.Grilla.TabIndex = 100;
+            // 
+            // btnCuotas
+            // 
+            this.btnCuotas.Location = new System.Drawing.Point(233, 405);
+            this.btnCuotas.Name = "btnCuotas";
+            this.btnCuotas.Size = new System.Drawing.Size(75, 37);
+            this.btnCuotas.TabIndex = 99;
+            this.btnCuotas.Text = "Generar";
+            this.btnCuotas.UseVisualStyleBackColor = true;
+            this.btnCuotas.Click += new System.EventHandler(this.btnCuotas_Click);
+            // 
+            // txtCuotas
+            // 
+            this.txtCuotas.Location = new System.Drawing.Point(115, 412);
+            this.txtCuotas.Name = "txtCuotas";
+            this.txtCuotas.Size = new System.Drawing.Size(116, 23);
+            this.txtCuotas.TabIndex = 98;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(58, 412);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(52, 17);
+            this.label12.TabIndex = 97;
+            this.label12.Text = "Cuotas";
             // 
             // label11
             // 
@@ -344,7 +388,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(115, 535);
+            this.btnGuardar.Location = new System.Drawing.Point(199, 535);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 37);
             this.btnGuardar.TabIndex = 6;
@@ -370,49 +414,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = " Monto";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(58, 412);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(52, 17);
-            this.label12.TabIndex = 97;
-            this.label12.Text = "Cuotas";
-            // 
-            // txtCuotas
-            // 
-            this.txtCuotas.Location = new System.Drawing.Point(115, 412);
-            this.txtCuotas.Name = "txtCuotas";
-            this.txtCuotas.Size = new System.Drawing.Size(116, 23);
-            this.txtCuotas.TabIndex = 98;
-            // 
-            // btnCuotas
-            // 
-            this.btnCuotas.Location = new System.Drawing.Point(233, 405);
-            this.btnCuotas.Name = "btnCuotas";
-            this.btnCuotas.Size = new System.Drawing.Size(75, 37);
-            this.btnCuotas.TabIndex = 99;
-            this.btnCuotas.Text = "Generar";
-            this.btnCuotas.UseVisualStyleBackColor = true;
-            this.btnCuotas.Click += new System.EventHandler(this.btnCuotas_Click);
-            // 
-            // Grilla
-            // 
-            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(115, 442);
-            this.Grilla.Name = "Grilla";
-            this.Grilla.Size = new System.Drawing.Size(422, 87);
-            this.Grilla.TabIndex = 100;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(208, 535);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 37);
-            this.btnCancelar.TabIndex = 101;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // FrmRegistrarCobranzaGeneral
             // 

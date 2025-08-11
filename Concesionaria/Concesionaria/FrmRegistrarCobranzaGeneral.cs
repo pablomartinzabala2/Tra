@@ -9,8 +9,10 @@ using System.Windows.Forms;
 using Concesionaria.Clases; 
 namespace Concesionaria
 {
+   
     public partial class FrmRegistrarCobranzaGeneral : Form
     {
+        DataTable tbCuota;
         public FrmRegistrarCobranzaGeneral()
         {
             InitializeComponent();
@@ -20,6 +22,7 @@ namespace Concesionaria
         {
             CargarMonedas();
             cFunciones fun = new cFunciones();
+            tbCuota = fun.CrearTabla("Vencimiento;Cuota;Importe");
             string sqlDoc = "select * from TipoDocumento order by CodTipoDoc";
             DataTable tbDoc = cDb.ExecuteDataTable(sqlDoc);
             fun.LlenarComboDatatable(cmbDocumento, tbDoc, "Nombre", "CodTipoDoc");
@@ -85,15 +88,77 @@ namespace Concesionaria
             {
                 CodCLi = Convert.ToInt32(txtCodCLiente.Text);
             }
+            if (Grilla.Rows.Count ==0)
+            {
+                cob.InsertarCobranza(Fecha, Descripcion, Importe, Nombrecliente, Telefono, Direccion, Patente, FechaVencimiento, CodCLi, CodMoneda);
+                Mensaje("Datos grabados correctamente");
+                txtDescripcion.Text = "";
+                txtEfectivo.Text = "";
+                txtNombre.Text = "";
+                txtTelefono.Text = "";
+                txtDireccion.Text = "";
+                txtCodCLiente.Text = "";
+            }
+            else
+            {
+                GuardarCuotas();
+            }
+           
 
-            cob.InsertarCobranza(Fecha, Descripcion, Importe, Nombrecliente, Telefono, Direccion, Patente, FechaVencimiento,CodCLi, CodMoneda);
+        }
+
+        private void GuardarCuotas()
+        {
+            cFunciones fun = new cFunciones();
+            Int32? CodMoneda = null;
+            Int32? CodCLi = 0;
+            cCliente cli = new cCliente();
+            DateTime Fecha = dpFecha.Value;
+            DateTime FechaVencimiento = dpFechaVencimiento.Value;
+            string Descripcion = txtDescripcion.Text;
+            double Importe = fun.ToDouble(txtEfectivo.Text); ;
+            string Nombre = txtNombre.Text;
+            string Apellido = txtApellido.Text;
+            string NroDoc = txtNroDoc.Text;
+            string Telefono = txtTelefono.Text;
+            string Patente = txtPatente.Text;
+            string Direccion = txtDireccion.Text;
+            string Nombrecliente = txtNombre.Text + " " + txtApellido.Text;
+            int Grupo = 0;
+            int Cuota = 0;
+            if (CmbMoneda.SelectedIndex > 0)
+                CodMoneda = Convert.ToInt32(CmbMoneda.SelectedValue);
+
+            cCobranzaGeneral cob = new cCobranzaGeneral();
+            Grupo = cob.GetMaxGrupo();
+            Grupo = Grupo + 1;
+            if (txtCodCLiente.Text == "")
+            {
+                CodCLi = cli.InserterClienteId2(null, NroDoc, Nombre, Apellido, Telefono);
+            }
+            else
+            {
+                CodCLi = Convert.ToInt32(txtCodCLiente.Text);
+            }
+
+            for (int i = 0; i < Grilla.Rows.Count -1 ; i++)
+            {
+                FechaVencimiento = Convert.ToDateTime(Grilla.Rows[i].Cells[0].Value.ToString());
+                Importe = fun.ToDouble(Grilla.Rows[i].Cells[2].Value.ToString());
+                Cuota = Convert.ToInt32(Grilla.Rows[i].Cells[1].Value.ToString());
+                cob.InsertarCobranzaCuota(Fecha, Descripcion, Importe, Nombrecliente, Telefono, Direccion, Patente, FechaVencimiento, CodCLi, CodMoneda, Cuota ,Grupo);
+            }
+
+           
             Mensaje("Datos grabados correctamente");
             txtDescripcion.Text = "";
             txtEfectivo.Text = "";
             txtNombre.Text = "";
             txtTelefono.Text = "";
             txtDireccion.Text = "";
-
+            tbCuota.Rows.Clear();
+            txtCodCLiente.Text = "";
+            Grilla.DataSource = tbCuota;
         }
 
         private void txtEfectivo_Leave(object sender, EventArgs e)
@@ -296,7 +361,7 @@ namespace Concesionaria
             Double ImporteCuotta = 0;
             ImporteCuotta = Importe / Cuotas;
             cFunciones fun = new cFunciones();
-            DataTable tbCuota = fun.CrearTabla("Vencimiento;Cuota;Importe");
+           // DataTable tbCuota = fun.CrearTabla("Vencimiento;Cuota;Importe");
             string val = "";
             for (int i = 0; i < Cuotas ; i++)
             {
@@ -309,6 +374,18 @@ namespace Concesionaria
             tbCuota = fun.TablaaMiles(tbCuota, "Importe");
             Grilla.DataSource = tbCuota;
             fun.AnchoColumnas(Grilla, "30;30;40");
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            txtDescripcion.Text = "";
+            txtEfectivo.Text = "";
+            txtNombre.Text = "";
+            txtTelefono.Text = "";
+            txtDireccion.Text = "";
+            tbCuota.Rows.Clear();
+            txtCodCLiente.Text = "";
+            Grilla.DataSource = tbCuota;
         }
     }
 }

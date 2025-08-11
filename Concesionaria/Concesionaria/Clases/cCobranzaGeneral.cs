@@ -368,5 +368,45 @@ namespace Concesionaria.Clases
             return sFecha;
 
         }
+
+        public Int32 GetMaxGrupo()
+        {
+            int Grupo = 0;
+            string sql = "select isnull(max(grupo),0) as Grupo from CobranzaGeneral ";
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count >0)
+            {
+                Grupo = Convert.ToInt32(trdo.Rows[0]["Grupo"].ToString ());
+            }
+            return Grupo;
+        }
+
+        public void InsertarCobranzaCuota(DateTime Fecha, string Descripcion, double Importe,
+          string Nombre, string Telefono, string Direccion, string Patente, DateTime FechaCompromiso, Int32? CodCliente, Int32? CodMoneda, int Cuota, int Grupo)
+        {
+            string sql = "Insert into CobranzaGeneral(Fecha,Importe,Descripcion,Saldo,Cliente,Telefono,Direccion,Patente,FechaCompromiso,CodCliente,CodMoneda, Cuota, Grupo)";
+            sql = sql + "values(" + "'" + Fecha.ToShortDateString() + "'";
+            sql = sql + "," + Importe.ToString().Replace(",", ".");
+            sql = sql + "," + "'" + Descripcion + "'";
+            sql = sql + "," + Importe.ToString().Replace(",", ".");
+            sql = sql + "," + "'" + Nombre + "'";
+            sql = sql + "," + "'" + Telefono + "'";
+            sql = sql + "," + "'" + Direccion + "'";
+            sql = sql + "," + "'" + Patente + "'";
+            sql = sql + "," + "'" + FechaCompromiso.ToShortDateString() + "'";
+            if (CodCliente != null)
+                sql = sql + "," + CodCliente.ToString();
+            else
+                sql = sql + ",null";
+
+            if (CodMoneda != null)
+                sql = sql + "," + CodMoneda.ToString();
+            else
+                sql = sql + ",null";
+            sql = sql + "," + Cuota.ToString();
+            sql = sql + "," + Grupo.ToString();
+            sql = sql + ")";
+            cDb.ExecutarNonQuery(sql);
+        }
     }
 }
