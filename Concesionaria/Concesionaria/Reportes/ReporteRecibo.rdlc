@@ -378,7 +378,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Campo4</rd:DefaultName>
@@ -759,7 +761,7 @@
         </Style>
       </Textbox>
       <Line Name="Line1">
-        <Top>14.12558cm</Top>
+        <Top>14.50658cm</Top>
         <Left>11.36438cm</Left>
         <Height>0cm</Height>
         <Width>4.30807cm</Width>
@@ -783,14 +785,16 @@
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Campo5</rd:DefaultName>
         <Top>11.65669cm</Top>
-        <Left>14.89626cm</Left>
+        <Left>13.57901cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.12958cm</Width>
+        <Width>3.44683cm</Width>
         <ZIndex>16</ZIndex>
         <Style>
           <Border>
@@ -820,7 +824,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>11.65669cm</Top>
-        <Left>12.83318cm</Left>
+        <Left>12.07118cm</Left>
         <Height>0.6cm</Height>
         <Width>1.33144cm</Width>
         <ZIndex>17</ZIndex>
@@ -882,7 +886,7 @@
         <Top>11.69197cm</Top>
         <Left>2.13075cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
+        <Width>3.74354cm</Width>
         <ZIndex>19</ZIndex>
         <Style>
           <Border>

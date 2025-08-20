@@ -27,9 +27,10 @@ namespace Concesionaria
             if (txtApellido.Text != "")
                 Apellido = txtApellido.Text;
             Int32? CodVendedor = null;
+            DateTime FechaHoy = DateTime.Now;
             if (CmbVendedor.SelectedIndex > 0)
                 CodVendedor = Convert.ToInt32(CmbVendedor.SelectedValue);
-            DataTable trdo = cob.GetDeudaCliente(Apellido, CodMoneda , CodVendedor);
+            DataTable trdo = cob.GetDeudaCliente(Apellido, CodMoneda , CodVendedor,FechaHoy);
             ArmarTabla(trdo);
         }
 
@@ -226,12 +227,18 @@ namespace Concesionaria
             string Saldo = "";
             string Moneda = "";
             string Importe = "";
+            string Cuota = "";
             trdo = fun.TablaaMiles(trdo, "Importe");
             trdo = fun.TablaaMiles(trdo, "Saldo");
             for (int i = 0; i < trdo.Rows.Count ; i++)
             {
                 Cliente = trdo.Rows[i]["Cliente"].ToString();
+                Cuota = trdo.Rows[i]["Cuota"].ToString();
                 Descripcion = trdo.Rows[i]["Descripcion"].ToString();
+                if (Cuota !="")
+                {
+                    Descripcion = Descripcion + " Cuota " + Cuota; 
+                }
                 Vencimiento = trdo.Rows[i]["FechaCompromiso"].ToString();
                 if (Vencimiento.Length > 8)
                     Vencimiento = Vencimiento.Substring(0, 10);

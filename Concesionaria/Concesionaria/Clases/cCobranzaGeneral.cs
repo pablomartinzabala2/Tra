@@ -235,7 +235,7 @@ namespace Concesionaria.Clases
 
         }
 
-        public DataTable GetDeudaCliente(string Apellido, int? CodMoneda, Int32? CodVendedor)
+        public DataTable GetDeudaCliente(string Apellido, int? CodMoneda, Int32? CodVendedor, DateTime FechaCompromiso)
         {
             string sql = "select Cli.CodCliente,c.Cliente ,cli.Apellido,cli.Telefono ";
             sql = sql + " , sum(c.Saldo) as Saldo ,m.Nombre as Moneda";
@@ -243,6 +243,7 @@ namespace Concesionaria.Clases
             sql = sql + " where c.CodCliente = cli.CodCliente ";
             sql = sql + " and c.CodMoneda = m.CodMoneda ";
             sql = sql + " and c.Saldo > 0 ";
+            sql = sql + " and c.FechaCompromiso <=" + "'" + FechaCompromiso.ToShortDateString() + "'";
             if (Apellido !="")
             {
                 sql = sql + " and c.Cliente like " + "'%" + Apellido + "%'";
@@ -279,6 +280,7 @@ namespace Concesionaria.Clases
             sql = sql + "  , c.Telefono  ";
 
             sql = sql + " ,(select m.Nombre from Moneda m where m.CodMoneda = c.CodMoneda) as Moneda ";
+            sql = sql + ", c.Cuota ";
             sql = sql + " from CobranzaGeneral c  ";
             sql = sql + " where Saldo >0 and FechaCompromiso is not null  ";
             //  sql = sql + " and FechaCompromiso <" + "'" + FechaVencimiento.ToShortDateString() + "'";
