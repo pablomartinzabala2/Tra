@@ -9,9 +9,9 @@ namespace Concesionaria.Clases
     public class cCobranzaGeneral
     {
         public void InsertarCobranza(DateTime Fecha, string Descripcion, double Importe,
-            string Nombre,string Telefono,string Direccion,string Patente,DateTime FechaCompromiso,Int32? CodCliente, Int32? CodMoneda)
+            string Nombre,string Telefono,string Direccion,string Patente,DateTime FechaCompromiso,Int32? CodCliente, Int32? CodMoneda, string Tipo)
         {
-            string sql = "Insert into CobranzaGeneral(Fecha,Importe,Descripcion,Saldo,Cliente,Telefono,Direccion,Patente,FechaCompromiso,CodCliente,CodMoneda)";
+            string sql = "Insert into CobranzaGeneral(Fecha,Importe,Descripcion,Saldo,Cliente,Telefono,Direccion,Patente,FechaCompromiso,CodCliente,CodMoneda,Tipo)";
             sql = sql + "values(" + "'" + Fecha.ToShortDateString () +"'";
             sql = sql + "," + Importe.ToString().Replace(",", ".");
             sql = sql + "," + "'" + Descripcion + "'";
@@ -30,6 +30,7 @@ namespace Concesionaria.Clases
                 sql = sql + "," + CodMoneda.ToString();
             else
                 sql = sql + ",null";
+            sql = sql + "," + "'" + Tipo + "'";
             sql = sql + ")";
              cDb.ExecutarNonQuery(sql);
         }
@@ -243,7 +244,7 @@ namespace Concesionaria.Clases
             sql = sql + " where c.CodCliente = cli.CodCliente ";
             sql = sql + " and c.CodMoneda = m.CodMoneda ";
             sql = sql + " and c.Saldo > 0 ";
-            sql = sql + " and c.FechaCompromiso <=" + "'" + FechaCompromiso.ToShortDateString() + "'";
+           // sql = sql + " and c.FechaCompromiso <=" + "'" + FechaCompromiso.ToShortDateString() + "'";
             if (Apellido !="")
             {
                 sql = sql + " and c.Cliente like " + "'%" + Apellido + "%'";
@@ -384,9 +385,9 @@ namespace Concesionaria.Clases
         }
 
         public void InsertarCobranzaCuota(DateTime Fecha, string Descripcion, double Importe,
-          string Nombre, string Telefono, string Direccion, string Patente, DateTime FechaCompromiso, Int32? CodCliente, Int32? CodMoneda, int Cuota, int Grupo)
+          string Nombre, string Telefono, string Direccion, string Patente, DateTime FechaCompromiso, Int32? CodCliente, Int32? CodMoneda, int Cuota, int Grupo, string Tipo)
         {
-            string sql = "Insert into CobranzaGeneral(Fecha,Importe,Descripcion,Saldo,Cliente,Telefono,Direccion,Patente,FechaCompromiso,CodCliente,CodMoneda, Cuota, Grupo)";
+            string sql = "Insert into CobranzaGeneral(Fecha,Importe,Descripcion,Saldo,Cliente,Telefono,Direccion,Patente,FechaCompromiso,CodCliente,CodMoneda, Cuota, Grupo, Tipo)";
             sql = sql + "values(" + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + Importe.ToString().Replace(",", ".");
             sql = sql + "," + "'" + Descripcion + "'";
@@ -407,8 +408,32 @@ namespace Concesionaria.Clases
                 sql = sql + ",null";
             sql = sql + "," + Cuota.ToString();
             sql = sql + "," + Grupo.ToString();
+            sql = sql + "," + "'" + Tipo + "'";
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
+        }
+
+        public string GetTipo (Int32 CodCliente)
+        {
+            string Tipo = "";
+            string d = "";
+            string sql = " select distinct tipo  ";
+            sql = sql + " from CobranzaGeneral ";
+            sql = sql + " where CodCliente=" + CodCliente.ToString();
+            sql = sql + " and tipo is not null ";
+            DataTable trdo = cDb.ExecuteDataTable(sql);
+            if (trdo.Rows.Count >0)
+            {
+                for (int i = 0; i < trdo.Rows.Count; i++)
+                {
+                    d = trdo.Rows[i]["Tipo"].ToString();
+                    if (i == 0)
+                        Tipo = d;
+                    else 
+                        Tipo = Tipo + "," + d;
+                }
+            }
+            return Tipo;
         }
     }
 }

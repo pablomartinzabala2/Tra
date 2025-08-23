@@ -75,7 +75,7 @@ namespace Concesionaria
             string Patente = txtPatente.Text;
             string Direccion = txtDireccion.Text;
             string Nombrecliente = txtNombre.Text + " " + txtApellido.Text;
-
+            string Tipo = "";
             if (CmbMoneda.SelectedIndex > 0)
                 CodMoneda = Convert.ToInt32(CmbMoneda.SelectedValue);
 
@@ -90,7 +90,8 @@ namespace Concesionaria
             }
             if (Grilla.Rows.Count ==0)
             {
-                cob.InsertarCobranza(Fecha, Descripcion, Importe, Nombrecliente, Telefono, Direccion, Patente, FechaVencimiento, CodCLi, CodMoneda);
+                Tipo = "E";
+                cob.InsertarCobranza(Fecha, Descripcion, Importe, Nombrecliente, Telefono, Direccion, Patente, FechaVencimiento, CodCLi, CodMoneda,Tipo);
                 Mensaje("Datos grabados correctamente");
                 txtDescripcion.Text = "";
                 txtEfectivo.Text = "";
@@ -129,6 +130,7 @@ namespace Concesionaria
             if (CmbMoneda.SelectedIndex > 0)
                 CodMoneda = Convert.ToInt32(CmbMoneda.SelectedValue);
 
+            string Tipo = "C";
             cCobranzaGeneral cob = new cCobranzaGeneral();
             Grupo = cob.GetMaxGrupo();
             Grupo = Grupo + 1;
@@ -146,7 +148,7 @@ namespace Concesionaria
                 FechaVencimiento = Convert.ToDateTime(Grilla.Rows[i].Cells[0].Value.ToString());
                 Importe = fun.ToDouble(Grilla.Rows[i].Cells[2].Value.ToString());
                 Cuota = Convert.ToInt32(Grilla.Rows[i].Cells[1].Value.ToString());
-                cob.InsertarCobranzaCuota(Fecha, Descripcion, Importe, Nombrecliente, Telefono, Direccion, Patente, FechaVencimiento, CodCLi, CodMoneda, Cuota ,Grupo);
+                cob.InsertarCobranzaCuota(Fecha, Descripcion, Importe, Nombrecliente, Telefono, Direccion, Patente, FechaVencimiento, CodCLi, CodMoneda, Cuota ,Grupo, Tipo);
             }
 
            

@@ -47,12 +47,15 @@ namespace Concesionaria
             string Responsable = "";
             string FechaVto = "";
             string UltimaFecha = "";
+            string Tipo = "";
+            cCobranzaGeneral cob = new cCobranzaGeneral();
             //ultima fecha es para sacar la ulitam fecha del contacto
-            string Col = "CodCliente;Cliente;Apellido;Telefono;Pesos;Dolares;Responsable;FechaVto;UltimaFecha";
+            string Col = "CodCliente;Cliente;Apellido;Telefono;Pesos;Dolares;Responsable;FechaVto;UltimaFecha;Tipo";
             DataTable tbDeudores = fun.CrearTabla(Col);
             for (int i = 0; i < trdo.Rows.Count ; i++)
             {
                 CodCliente = Convert.ToInt32(trdo.Rows[i]["CodCliente"]);
+                Tipo = cob.GetTipo(CodCliente);
                 FechaVto = GetFechaCompromiso(CodCliente);
                 Responsable = cli.GetVendedorxCodCliente(CodCliente);
                 SaldoPesos = GetSaldo(CodCliente, "Pesos", trdo);
@@ -69,6 +72,7 @@ namespace Concesionaria
                     Val = Val + ";" + Responsable.ToString();
                     Val = Val + ";" + FechaVto;
                     Val = Val + ";" + UltimaFecha;
+                    Val = Val + ";" + Tipo;
                     tbDeudores = fun.AgregarFilas(tbDeudores, Val);
                 }
                         
@@ -79,7 +83,7 @@ namespace Concesionaria
             txtTotalDolares.Text = fun.FormatoEnteroMiles(Dolares.ToString());
             tbDeudores = fun.TablaaMiles(tbDeudores, "Pesos");
             tbDeudores = fun.TablaaMiles(tbDeudores, "Dolares");
-            string AnchoCol = "0;25;0;15;10;15;15;10;10";
+            string AnchoCol = "0;20;0;15;10;15;15;10;10;5";
             Grilla.DataSource = tbDeudores;
             fun.AnchoColumnas(Grilla, AnchoCol);
             Grilla.Columns[8].HeaderText = "Contacto ";
