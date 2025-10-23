@@ -94,11 +94,14 @@ namespace Concesionaria
             Clases.cStockAuto stock = new Clases.cStockAuto();
             DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio, Concesion);
             txtTotalVehiculos.Text = trdo.Rows.Count.ToString();
-            // trdo = fun.TablaaMiles(trdo, "Costo");
+            trdo = fun.TablaaMiles(trdo, "Costo");
+            trdo = fun.TablaaMiles(trdo, "PrecioRevista");
             trdo = fun.TablaaMiles(trdo, "PrecioVenta");
             Grilla.DataSource = trdo;
           
-            Grilla.Columns[2].HeaderText = "Marca";
+            Grilla.Columns[2].HeaderText = "Dominio";
+            Grilla.Columns[3].HeaderText = "Marca";
+            Grilla.Columns[5].HeaderText = "C";
             Double Total = fun.TotalizarColumna(trdo, "PrecioVenta");
             txtMontoTotal.Text = Total.ToString();
 
@@ -111,7 +114,8 @@ namespace Concesionaria
                 txtMontoTotal.Text = fun.FormatoEnteroMiles(txtMontoTotal.Text);
             }
            
-            fun.AnchoColumnas(Grilla, "5;0;8;10;23;8;10;8;8;10;0;10;0");
+           // fun.AnchoColumnas(Grilla, "5;0;8;10;23;8;10;8;8;10;0;10;0");
+            fun.AnchoColumnas(Grilla, "5;0;8;10;14;3;10;8;8;10;0;8;8;8;0");
             PintarEstados();
         }
 

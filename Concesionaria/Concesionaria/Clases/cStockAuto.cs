@@ -78,12 +78,16 @@ namespace Concesionaria.Clases
             sql = "select sa.CodStock,a.Patente";
             sql = sql + ",m.Nombre";
             sql = sql + ",Descripcion as Modelo";
-            sql = sql + ",(select tc.Nombre from TipoCombustible tc where tc.Codigo=a.CodTipoCombustible) as Combustible ";
+            sql = sql + ",(select SUBSTRING(tc.Nombre,1,1) from TipoCombustible tc where tc.Codigo=a.CodTipoCombustible) as Combustible ";
             sql = sql + ",(select cc.Nombre from Color cc where cc.CodColor=a.CodColor) as Color";
             sql = sql + ",(select aa.Nombre from Anio aa where aa.CodAnio=a.CodAnio) as Año";
             sql = sql + ",a.Kilometros as km ";
             sql = sql + ",(select tu.Nombre from TipoUtilitario tu where tu.CodTipo=a.CodTipoUtilitario) as Tipo ";
             sql = sql + ",a.Concesion";
+            sql = sql + ",sa.PrecioRevista as Revista ";
+            sql = sql + ", (ImporteCompra + ";
+            sql = sql + " (select isnull(sum(Importe),0) from Costo cos where cos.CodStock = sa.CodStock) ";
+            sql = sql + " ) as Cs ";
             /*
             sql = sql + ",(Importe + (select isnull(sum(Importe),0) from Costo cos where "; 
             sql = sql + " cos.CodStock = sa.CodStock ) ";
@@ -95,6 +99,7 @@ namespace Concesionaria.Clases
             */
             sql = sql + ",sa.PrecioVenta";
             sql = sql + ",sa.CodEstado";
+            
 
             sql = sql + " from auto a, StockAuto sa,marca m";
             sql = sql + " where a.Codauto =sa.CodAuto ";
@@ -362,6 +367,14 @@ namespace Concesionaria.Clases
             ImporteInflacion = Costo.GetTotalInflacion(CodStock);
             Importe = ImporteCompra + ImporteInflacion;
             return Importe;
+        }
+
+        public void ActualizarPrecioRevistaVenta(Int32 CodStock, double Importe)
+        {
+            string sql = "Update StockAuto ";
+            sql = sql + " set PrecioRevista =" + Importe.ToString().Replace(",", ".");
+            sql = sql + " where CodStock =" + CodStock.ToString();
+            cDb.ExecutarNonQuery(sql);
         }
     }
 }

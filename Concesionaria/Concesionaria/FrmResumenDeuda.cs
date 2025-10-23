@@ -83,7 +83,7 @@ namespace Concesionaria
             txtTotalDolares.Text = fun.FormatoEnteroMiles(Dolares.ToString());
             tbDeudores = fun.TablaaMiles(tbDeudores, "Pesos");
             tbDeudores = fun.TablaaMiles(tbDeudores, "Dolares");
-            string AnchoCol = "0;20;0;15;10;15;15;10;10;5";
+            string AnchoCol = "0;15;0;15;10;15;15;10;10;10";
             Grilla.DataSource = tbDeudores;
             fun.AnchoColumnas(Grilla, AnchoCol);
             Grilla.Columns[8].HeaderText = "Contacto ";

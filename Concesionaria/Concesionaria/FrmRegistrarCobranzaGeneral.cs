@@ -90,7 +90,7 @@ namespace Concesionaria
             }
             if (Grilla.Rows.Count ==0)
             {
-                Tipo = "E";
+                Tipo = "CONT";
                 cob.InsertarCobranza(Fecha, Descripcion, Importe, Nombrecliente, Telefono, Direccion, Patente, FechaVencimiento, CodCLi, CodMoneda,Tipo);
                 Mensaje("Datos grabados correctamente");
                 txtDescripcion.Text = "";
@@ -130,7 +130,7 @@ namespace Concesionaria
             if (CmbMoneda.SelectedIndex > 0)
                 CodMoneda = Convert.ToInt32(CmbMoneda.SelectedValue);
 
-            string Tipo = "C";
+            string Tipo = "FINAN";
             cCobranzaGeneral cob = new cCobranzaGeneral();
             Grupo = cob.GetMaxGrupo();
             Grupo = Grupo + 1;

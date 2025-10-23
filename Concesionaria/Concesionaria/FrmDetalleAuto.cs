@@ -23,6 +23,7 @@ namespace Concesionaria
                 txtCodStock.Text = Principal.CodigoPrincipalAbm.ToString();
                 BuscarMensajes(Convert.ToInt32(txtCodStock.Text));
                 CargarEstados();
+                CargarAnios();
                 CargarAuto(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 CargarCostoxstock(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 CargarGastosGeneralesxCodStoxk(Convert.ToInt32(Principal.CodigoPrincipalAbm));
@@ -48,6 +49,14 @@ namespace Concesionaria
             }
         }
 
+        private void CargarAnios ()
+        {
+            cFunciones fun = new cFunciones();
+            string sql = "select * from Anio order by Nombre Desc";
+            DataTable tbAnio = cDb.ExecuteDataTable(sql);
+            fun.LlenarComboDatatable(cmbAnio, tbAnio, "Nombre", "CodAnio");
+        }
+
         private void CargarEstados()
         {
             cFunciones fun = new cFunciones();
@@ -69,14 +78,15 @@ namespace Concesionaria
                 txtPatente.Text = trdoAuto.Rows[0]["Patente"].ToString();
                 txtDescripcion.Text = trdoAuto.Rows[0]["Descripcion"].ToString();
                 txtkms.Text = trdoAuto.Rows[0]["Kilometros"].ToString();
-                txtanio.Text = trdoAuto.Rows[0]["Anio"].ToString();
-                txtCiudad.Text = trdoAuto.Rows[0]["Motor"].ToString();
+                //txtanio.Text = trdoAuto.Rows[0]["Anio"].ToString();
+              //  txtCiudad.Text = trdoAuto.Rows[0]["Motor"].ToString();
                 txtChasis.Text = trdoAuto.Rows[0]["Chasis"].ToString();
                 txtMotor.Text = trdoAuto.Rows[0]["Motor"].ToString();
-                txtCiudad.Text = trdoAuto.Rows[0]["Ciudad"].ToString();
+               // txtCiudad.Text = trdoAuto.Rows[0]["Ciudad"].ToString();
                 txtImporte.Text = trdoAuto.Rows[0]["ImporteCompra"].ToString();
                 txtPrecioVenta.Text = trdoAuto.Rows[0]["PrecioVenta"].ToString();
                 txtCodCompra.Text = trdoAuto.Rows[0]["CodCompra"].ToString();
+                txtValorRevista.Text = trdoAuto.Rows[0]["PrecioRevista"].ToString();
                 if (txtImporte.Text != "")
                 {
                     txtImporte.Text = txtImporte.Text.Replace(",", ".");
@@ -92,6 +102,15 @@ namespace Concesionaria
                     Clases.cFunciones fun = new Clases.cFunciones();
                     txtPrecioVenta.Text = fun.FormatoEnteroMiles(vec[0]);
                 }
+                 
+                if (txtValorRevista.Text != "")
+                {
+                    txtValorRevista.Text = txtValorRevista.Text.Replace(",", ".");
+                    string[] vec = txtValorRevista.Text.Split('.');
+                    Clases.cFunciones fun = new Clases.cFunciones();
+                    txtValorRevista.Text = fun.FormatoEnteroMiles(vec[0]);
+                }
+
                 txtExTitular.Text = trdoAuto.Rows[0]["ApeNom"].ToString();
                 txtAutoPartePago.Text = trdoAuto.Rows[0]["DescripcionAutoPartePago"].ToString();
 
@@ -99,6 +118,12 @@ namespace Concesionaria
                 {
                     string CodEstado = trdoAuto.Rows[0]["CodEstado"].ToString();
                     cmbEstadoVehiculo.SelectedValue = CodEstado;
+                }
+
+                //aca cargo el anio
+                if (trdoAuto.Rows[0]["CodAnio"].ToString()!="")
+                {
+                    cmbAnio.SelectedValue = trdoAuto.Rows[0]["CodAnio"].ToString();
                 }
             }
 
@@ -163,8 +188,8 @@ namespace Concesionaria
         }
 
         private void FrmDetalleAuto_Load(object sender, EventArgs e)
-        {
-
+        {   
+            
         }
 
         private void CargarCheques(Int32 CodStock)
@@ -652,6 +677,21 @@ namespace Concesionaria
                 btnEliminarMensaje.Enabled = false;
             }
 
+        }
+
+        private void btnGrabarValorRevista_Click(object sender, EventArgs e)
+        {  
+            if (txtValorRevista.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un precio para continuar", Clases.cMensaje.Mensaje());
+                return;
+            }
+            Clases.cFunciones fun = new Clases.cFunciones();
+            double Importe = fun.ToDouble(txtValorRevista.Text);
+            Int32 CodStock = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            Clases.cStockAuto stock = new Clases.cStockAuto();
+            stock.ActualizarPrecioRevistaVenta(CodStock, Importe);
+            MessageBox.Show("Datos grabados correctamente", Clases.cMensaje.Mensaje());
         }
     }
 }

@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetalleAuto));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbAnio = new System.Windows.Forms.ComboBox();
+            this.btnGrabarValorRevista = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtValorRevista = new System.Windows.Forms.TextBox();
             this.btnGrabarEstado = new System.Windows.Forms.Button();
             this.cmbEstadoVehiculo = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -85,6 +89,13 @@
             this.BtnGraparPapel = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.GrillaProveedor = new System.Windows.Forms.DataGridView();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.btnEliminarMensaje = new System.Windows.Forms.Button();
+            this.GrillaMnesaje = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnGuardarMensaje = new System.Windows.Forms.Button();
+            this.txtObservacion = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.txtAutoPartePago = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtExTitular = new System.Windows.Forms.TextBox();
@@ -92,11 +103,8 @@
             this.txtMotor = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtImporte = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtChasis = new System.Windows.Forms.TextBox();
-            this.txtCiudad = new System.Windows.Forms.TextBox();
             this.txtkms = new System.Windows.Forms.TextBox();
-            this.txtanio = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -105,13 +113,6 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.label24 = new System.Windows.Forms.Label();
-            this.txtObservacion = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnGuardarMensaje = new System.Windows.Forms.Button();
-            this.GrillaMnesaje = new System.Windows.Forms.DataGridView();
-            this.btnEliminarMensaje = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -131,6 +132,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbAnio);
+            this.groupBox1.Controls.Add(this.btnGrabarValorRevista);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.txtValorRevista);
             this.groupBox1.Controls.Add(this.btnGrabarEstado);
             this.groupBox1.Controls.Add(this.cmbEstadoVehiculo);
             this.groupBox1.Controls.Add(this.label11);
@@ -162,11 +167,8 @@
             this.groupBox1.Controls.Add(this.txtMotor);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtImporte);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtChasis);
-            this.groupBox1.Controls.Add(this.txtCiudad);
             this.groupBox1.Controls.Add(this.txtkms);
-            this.groupBox1.Controls.Add(this.txtanio);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -183,10 +185,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle vehículo";
             // 
+            // cmbAnio
+            // 
+            this.cmbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAnio.FormattingEnabled = true;
+            this.cmbAnio.Location = new System.Drawing.Point(600, 231);
+            this.cmbAnio.Name = "cmbAnio";
+            this.cmbAnio.Size = new System.Drawing.Size(146, 24);
+            this.cmbAnio.TabIndex = 69;
+            // 
+            // btnGrabarValorRevista
+            // 
+            this.btnGrabarValorRevista.Image = ((System.Drawing.Image)(resources.GetObject("btnGrabarValorRevista.Image")));
+            this.btnGrabarValorRevista.Location = new System.Drawing.Point(660, 59);
+            this.btnGrabarValorRevista.Name = "btnGrabarValorRevista";
+            this.btnGrabarValorRevista.Size = new System.Drawing.Size(40, 28);
+            this.btnGrabarValorRevista.TabIndex = 68;
+            this.btnGrabarValorRevista.UseVisualStyleBackColor = true;
+            this.btnGrabarValorRevista.Click += new System.EventHandler(this.btnGrabarValorRevista_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(380, 64);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 16);
+            this.label7.TabIndex = 67;
+            this.label7.Text = "Revista";
+            // 
+            // txtValorRevista
+            // 
+            this.txtValorRevista.Location = new System.Drawing.Point(454, 61);
+            this.txtValorRevista.Name = "txtValorRevista";
+            this.txtValorRevista.Size = new System.Drawing.Size(200, 22);
+            this.txtValorRevista.TabIndex = 66;
+            // 
             // btnGrabarEstado
             // 
             this.btnGrabarEstado.Image = ((System.Drawing.Image)(resources.GetObject("btnGrabarEstado.Image")));
-            this.btnGrabarEstado.Location = new System.Drawing.Point(716, 65);
+            this.btnGrabarEstado.Location = new System.Drawing.Point(716, 84);
             this.btnGrabarEstado.Name = "btnGrabarEstado";
             this.btnGrabarEstado.Size = new System.Drawing.Size(40, 28);
             this.btnGrabarEstado.TabIndex = 65;
@@ -197,7 +234,7 @@
             // 
             this.cmbEstadoVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstadoVehiculo.FormattingEnabled = true;
-            this.cmbEstadoVehiculo.Location = new System.Drawing.Point(605, 66);
+            this.cmbEstadoVehiculo.Location = new System.Drawing.Point(605, 87);
             this.cmbEstadoVehiculo.Name = "cmbEstadoVehiculo";
             this.cmbEstadoVehiculo.Size = new System.Drawing.Size(109, 24);
             this.cmbEstadoVehiculo.TabIndex = 64;
@@ -205,7 +242,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(548, 71);
+            this.label11.Location = new System.Drawing.Point(548, 87);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(51, 16);
             this.label11.TabIndex = 63;
@@ -710,6 +747,77 @@
             this.GrillaProveedor.Size = new System.Drawing.Size(729, 166);
             this.GrillaProveedor.TabIndex = 3;
             // 
+            // tabPage7
+            // 
+            this.tabPage7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage7.Controls.Add(this.btnEliminarMensaje);
+            this.tabPage7.Controls.Add(this.GrillaMnesaje);
+            this.tabPage7.Controls.Add(this.button1);
+            this.tabPage7.Controls.Add(this.btnGuardarMensaje);
+            this.tabPage7.Controls.Add(this.txtObservacion);
+            this.tabPage7.Controls.Add(this.label24);
+            this.tabPage7.Location = new System.Drawing.Point(4, 25);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(764, 221);
+            this.tabPage7.TabIndex = 7;
+            this.tabPage7.Text = "Observación";
+            // 
+            // btnEliminarMensaje
+            // 
+            this.btnEliminarMensaje.Image = global::Concesionaria.Properties.Resources.cancel;
+            this.btnEliminarMensaje.Location = new System.Drawing.Point(707, 18);
+            this.btnEliminarMensaje.Name = "btnEliminarMensaje";
+            this.btnEliminarMensaje.Size = new System.Drawing.Size(40, 28);
+            this.btnEliminarMensaje.TabIndex = 65;
+            this.btnEliminarMensaje.UseVisualStyleBackColor = true;
+            this.btnEliminarMensaje.Click += new System.EventHandler(this.btnEliminarMensaje_Click);
+            // 
+            // GrillaMnesaje
+            // 
+            this.GrillaMnesaje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaMnesaje.Location = new System.Drawing.Point(9, 106);
+            this.GrillaMnesaje.Name = "GrillaMnesaje";
+            this.GrillaMnesaje.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GrillaMnesaje.Size = new System.Drawing.Size(734, 112);
+            this.GrillaMnesaje.TabIndex = 64;
+            // 
+            // button1
+            // 
+            this.button1.Image = global::Concesionaria.Properties.Resources.zoom1;
+            this.button1.Location = new System.Drawing.Point(660, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 28);
+            this.button1.TabIndex = 63;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnGuardarMensaje
+            // 
+            this.btnGuardarMensaje.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarMensaje.Image")));
+            this.btnGuardarMensaje.Location = new System.Drawing.Point(614, 18);
+            this.btnGuardarMensaje.Name = "btnGuardarMensaje";
+            this.btnGuardarMensaje.Size = new System.Drawing.Size(40, 28);
+            this.btnGuardarMensaje.TabIndex = 62;
+            this.btnGuardarMensaje.UseVisualStyleBackColor = true;
+            this.btnGuardarMensaje.Click += new System.EventHandler(this.btnGuardarMensaje_Click);
+            // 
+            // txtObservacion
+            // 
+            this.txtObservacion.Location = new System.Drawing.Point(7, 53);
+            this.txtObservacion.Multiline = true;
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Size = new System.Drawing.Size(736, 47);
+            this.txtObservacion.TabIndex = 7;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(10, 24);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(80, 16);
+            this.label24.TabIndex = 6;
+            this.label24.Text = "Descripcion";
+            // 
             // txtAutoPartePago
             // 
             this.txtAutoPartePago.Location = new System.Drawing.Point(97, 174);
@@ -746,7 +854,7 @@
             // 
             // txtMotor
             // 
-            this.txtMotor.Location = new System.Drawing.Point(454, 68);
+            this.txtMotor.Location = new System.Drawing.Point(454, 90);
             this.txtMotor.Name = "txtMotor";
             this.txtMotor.ReadOnly = true;
             this.txtMotor.Size = new System.Drawing.Size(88, 22);
@@ -769,15 +877,6 @@
             this.txtImporte.Size = new System.Drawing.Size(268, 22);
             this.txtImporte.TabIndex = 13;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(380, 93);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 16);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Ciudad";
-            // 
             // txtChasis
             // 
             this.txtChasis.Location = new System.Drawing.Point(97, 118);
@@ -786,14 +885,6 @@
             this.txtChasis.Size = new System.Drawing.Size(268, 22);
             this.txtChasis.TabIndex = 11;
             // 
-            // txtCiudad
-            // 
-            this.txtCiudad.Location = new System.Drawing.Point(454, 96);
-            this.txtCiudad.Name = "txtCiudad";
-            this.txtCiudad.ReadOnly = true;
-            this.txtCiudad.Size = new System.Drawing.Size(293, 22);
-            this.txtCiudad.TabIndex = 10;
-            // 
             // txtkms
             // 
             this.txtkms.Location = new System.Drawing.Point(97, 90);
@@ -801,14 +892,6 @@
             this.txtkms.ReadOnly = true;
             this.txtkms.Size = new System.Drawing.Size(268, 22);
             this.txtkms.TabIndex = 9;
-            // 
-            // txtanio
-            // 
-            this.txtanio.Location = new System.Drawing.Point(601, 239);
-            this.txtanio.Name = "txtanio";
-            this.txtanio.ReadOnly = true;
-            this.txtanio.Size = new System.Drawing.Size(146, 22);
-            this.txtanio.TabIndex = 8;
             // 
             // label6
             // 
@@ -822,7 +905,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(381, 64);
+            this.label5.Location = new System.Drawing.Point(380, 90);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 16);
             this.label5.TabIndex = 6;
@@ -880,77 +963,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Patente";
             // 
-            // tabPage7
-            // 
-            this.tabPage7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.tabPage7.Controls.Add(this.btnEliminarMensaje);
-            this.tabPage7.Controls.Add(this.GrillaMnesaje);
-            this.tabPage7.Controls.Add(this.button1);
-            this.tabPage7.Controls.Add(this.btnGuardarMensaje);
-            this.tabPage7.Controls.Add(this.txtObservacion);
-            this.tabPage7.Controls.Add(this.label24);
-            this.tabPage7.Location = new System.Drawing.Point(4, 25);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(764, 221);
-            this.tabPage7.TabIndex = 7;
-            this.tabPage7.Text = "Observación";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(10, 24);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(80, 16);
-            this.label24.TabIndex = 6;
-            this.label24.Text = "Descripcion";
-            // 
-            // txtObservacion
-            // 
-            this.txtObservacion.Location = new System.Drawing.Point(7, 53);
-            this.txtObservacion.Multiline = true;
-            this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(736, 47);
-            this.txtObservacion.TabIndex = 7;
-            // 
-            // button1
-            // 
-            this.button1.Image = global::Concesionaria.Properties.Resources.zoom1;
-            this.button1.Location = new System.Drawing.Point(660, 18);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 28);
-            this.button1.TabIndex = 63;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnGuardarMensaje
-            // 
-            this.btnGuardarMensaje.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarMensaje.Image")));
-            this.btnGuardarMensaje.Location = new System.Drawing.Point(614, 18);
-            this.btnGuardarMensaje.Name = "btnGuardarMensaje";
-            this.btnGuardarMensaje.Size = new System.Drawing.Size(40, 28);
-            this.btnGuardarMensaje.TabIndex = 62;
-            this.btnGuardarMensaje.UseVisualStyleBackColor = true;
-            this.btnGuardarMensaje.Click += new System.EventHandler(this.btnGuardarMensaje_Click);
-            // 
-            // GrillaMnesaje
-            // 
-            this.GrillaMnesaje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GrillaMnesaje.Location = new System.Drawing.Point(9, 106);
-            this.GrillaMnesaje.Name = "GrillaMnesaje";
-            this.GrillaMnesaje.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GrillaMnesaje.Size = new System.Drawing.Size(734, 112);
-            this.GrillaMnesaje.TabIndex = 64;
-            // 
-            // btnEliminarMensaje
-            // 
-            this.btnEliminarMensaje.Image = global::Concesionaria.Properties.Resources.cancel;
-            this.btnEliminarMensaje.Location = new System.Drawing.Point(707, 18);
-            this.btnEliminarMensaje.Name = "btnEliminarMensaje";
-            this.btnEliminarMensaje.Size = new System.Drawing.Size(40, 28);
-            this.btnEliminarMensaje.TabIndex = 65;
-            this.btnEliminarMensaje.UseVisualStyleBackColor = true;
-            this.btnEliminarMensaje.Click += new System.EventHandler(this.btnEliminarMensaje_Click);
-            // 
             // FrmDetalleAuto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -992,9 +1004,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtChasis;
-        private System.Windows.Forms.TextBox txtCiudad;
         private System.Windows.Forms.TextBox txtkms;
-        private System.Windows.Forms.TextBox txtanio;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -1004,7 +1014,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtImporte;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtMotor;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtExTitular;
@@ -1073,5 +1082,9 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.DataGridView GrillaMnesaje;
         private System.Windows.Forms.Button btnEliminarMensaje;
+        private System.Windows.Forms.Button btnGrabarValorRevista;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtValorRevista;
+        private System.Windows.Forms.ComboBox cmbAnio;
     }
 }
