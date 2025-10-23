@@ -52,12 +52,14 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.reporteAutoTableAdapter1 = new Concesionaria.CONCESIONARIADataSetTableAdapters.ReporteAutoTableAdapter();
+            this.BtnVerGanancia = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.BtnVerGanancia);
             this.groupBox1.Controls.Add(this.btnAplicarIncremento);
             this.groupBox1.Controls.Add(this.txtPorcentaje);
             this.groupBox1.Controls.Add(this.label7);
@@ -144,14 +146,14 @@
             this.CmbEstado.FormattingEnabled = true;
             this.CmbEstado.Location = new System.Drawing.Point(646, 26);
             this.CmbEstado.Name = "CmbEstado";
-            this.CmbEstado.Size = new System.Drawing.Size(199, 24);
+            this.CmbEstado.Size = new System.Drawing.Size(142, 24);
             this.CmbEstado.TabIndex = 59;
             // 
             // cmbOrden
             // 
             this.cmbOrden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOrden.FormattingEnabled = true;
-            this.cmbOrden.Location = new System.Drawing.Point(851, 26);
+            this.cmbOrden.Location = new System.Drawing.Point(794, 23);
             this.cmbOrden.Name = "cmbOrden";
             this.cmbOrden.Size = new System.Drawing.Size(72, 24);
             this.cmbOrden.TabIndex = 58;
@@ -176,7 +178,7 @@
             // btnImprimir
             // 
             this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer1;
-            this.btnImprimir.Location = new System.Drawing.Point(1009, 20);
+            this.btnImprimir.Location = new System.Drawing.Point(952, 15);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(34, 30);
             this.btnImprimir.TabIndex = 55;
@@ -185,7 +187,7 @@
             // 
             // btnBajaStock
             // 
-            this.btnBajaStock.Location = new System.Drawing.Point(1049, 20);
+            this.btnBajaStock.Location = new System.Drawing.Point(1046, 15);
             this.btnBajaStock.Name = "btnBajaStock";
             this.btnBajaStock.Size = new System.Drawing.Size(85, 30);
             this.btnBajaStock.TabIndex = 29;
@@ -226,7 +228,7 @@
             // button1
             // 
             this.button1.Image = global::Concesionaria.Properties.Resources.CAR3;
-            this.button1.Location = new System.Drawing.Point(969, 20);
+            this.button1.Location = new System.Drawing.Point(912, 17);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(34, 30);
             this.button1.TabIndex = 26;
@@ -264,7 +266,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom;
-            this.btnBuscar.Location = new System.Drawing.Point(929, 21);
+            this.btnBuscar.Location = new System.Drawing.Point(872, 15);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(34, 30);
             this.btnBuscar.TabIndex = 23;
@@ -291,6 +293,16 @@
             // reporteAutoTableAdapter1
             // 
             this.reporteAutoTableAdapter1.ClearBeforeFill = true;
+            // 
+            // BtnVerGanancia
+            // 
+            this.BtnVerGanancia.Image = global::Concesionaria.Properties.Resources.Linterna;
+            this.BtnVerGanancia.Location = new System.Drawing.Point(992, 20);
+            this.BtnVerGanancia.Name = "BtnVerGanancia";
+            this.BtnVerGanancia.Size = new System.Drawing.Size(40, 27);
+            this.BtnVerGanancia.TabIndex = 78;
+            this.BtnVerGanancia.UseVisualStyleBackColor = true;
+            this.BtnVerGanancia.Click += new System.EventHandler(this.BtnVerGanancia_Click);
             // 
             // FrmStockAuto
             // 
@@ -337,5 +349,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Sel;
         private CONCESIONARIADataSetTableAdapters.ReporteAutoTableAdapter reporteAutoTableAdapter1;
+        private System.Windows.Forms.Button BtnVerGanancia;
     }
 }

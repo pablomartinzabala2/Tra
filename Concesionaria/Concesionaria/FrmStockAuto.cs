@@ -31,6 +31,12 @@ namespace Concesionaria
             fun.LlenarComboDatatable(cmbOrden, tbOrden, "Nombre", "Codigo");
             Buscar();
             PintarEstados();
+            Grilla.Columns[12].Visible = false;
+            //costo visible
+            fun.AnchoColumnas(Grilla, "5;0;8;10;14;3;10;8;8;10;0;8;8;8;0");
+            //costo invisible
+            //  fun.AnchoColumnas(Grilla, "5;0;8;10;22;3;10;8;8;10;0;8;0;8;0");
+            fun.AnchoColumnas(Grilla, "5;0;8;10;22;3;10;5;8;5;0;12;0;12;0");
         }
 
         private void BuscarAutosdeStock(string Patente, Int32? CodMarca, string Modelo)
@@ -94,8 +100,8 @@ namespace Concesionaria
             Clases.cStockAuto stock = new Clases.cStockAuto();
             DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio, Concesion);
             txtTotalVehiculos.Text = trdo.Rows.Count.ToString();
-            trdo = fun.TablaaMiles(trdo, "Costo");
-            trdo = fun.TablaaMiles(trdo, "PrecioRevista");
+            trdo = fun.TablaaMiles(trdo, "Cs");
+            trdo = fun.TablaaMiles(trdo, "Revista");
             trdo = fun.TablaaMiles(trdo, "PrecioVenta");
             Grilla.DataSource = trdo;
           
@@ -113,9 +119,11 @@ namespace Concesionaria
                 txtMontoTotal.Text = fun.SepararDecimales(txtMontoTotal.Text);
                 txtMontoTotal.Text = fun.FormatoEnteroMiles(txtMontoTotal.Text);
             }
-           
-           // fun.AnchoColumnas(Grilla, "5;0;8;10;23;8;10;8;8;10;0;10;0");
-            fun.AnchoColumnas(Grilla, "5;0;8;10;14;3;10;8;8;10;0;8;8;8;0");
+
+            // fun.AnchoColumnas(Grilla, "5;0;8;10;23;8;10;8;8;10;0;10;0");
+            // fun.AnchoColumnas(Grilla, "5;0;8;10;14;3;10;8;8;10;0;8;8;8;0");
+          //  cFunciones fun = new cFunciones();
+         
             PintarEstados();
         }
 
@@ -417,6 +425,24 @@ namespace Concesionaria
             }
 
             Costo.InsertarCosto(CodAuto, Patente, ImporteAplicado, Fecha.ToShortDateString() , Descripcion, CodStock, null, null, Inflacion);
+        }
+
+        private void BtnVerGanancia_Click(object sender, EventArgs e)
+        {
+            cFunciones fun = new cFunciones();
+            if (Grilla.Columns[12].Visible == false)
+            {
+                Grilla.Columns[12].Visible = true;
+               // fun.AnchoColumnas(Grilla, "5;0;8;10;14;3;10;8;8;10;0;8;8;8;0");
+                fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;12;12;12;0");
+
+            }
+            else
+            {
+                Grilla.Columns[12].Visible = false;
+                //fun.AnchoColumnas(Grilla, "5;0;8;10;22;3;10;8;8;10;0;8;0;8;0");
+                fun.AnchoColumnas(Grilla, "5;0;8;10;22;3;10;5;8;5;0;12;0;12;0");
+            }
         }
     }
 }
