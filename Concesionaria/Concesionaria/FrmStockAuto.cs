@@ -103,6 +103,7 @@ namespace Concesionaria
             trdo = fun.TablaaMiles(trdo, "Cs");
             trdo = fun.TablaaMiles(trdo, "Revista");
             trdo = fun.TablaaMiles(trdo, "PrecioVenta");
+            trdo = fun.TablaaMiles(trdo, "km");
             Grilla.DataSource = trdo;
           
             Grilla.Columns[2].HeaderText = "Dominio";

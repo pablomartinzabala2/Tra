@@ -302,7 +302,7 @@ namespace Concesionaria
                         string NomApe = Nombre + " " + Apellido;
                         txtCliente.Text = NomApe;
                         string Celular = tbCliente.Rows[0]["Celular"].ToString();
-                        txtCelular.Text = Celular;
+                        //txtCelular.Text = Celular;
                         txtNroDoc.Text = NroDoc;
                     }
                 }

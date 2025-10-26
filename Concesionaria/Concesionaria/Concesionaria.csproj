@@ -308,6 +308,12 @@
     <Compile Include="FrmAbmTipoFinanciacion.Designer.cs">
       <DependentUpon>FrmAbmTipoFinanciacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAbmTipoUtilitario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmTipoUtilitario.Designer.cs">
+      <DependentUpon>FrmAbmTipoUtilitario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAbmVendedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1260,6 +1266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmTipoFinanciacion.resx">
       <DependentUpon>FrmAbmTipoFinanciacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmTipoUtilitario.resx">
+      <DependentUpon>FrmAbmTipoUtilitario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmVendedor.resx">
       <DependentUpon>FrmAbmVendedor.cs</DependentUpon>

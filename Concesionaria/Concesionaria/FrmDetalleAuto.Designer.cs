@@ -48,7 +48,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.txtNroDoc = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.txtCelular = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.txtCliente = new System.Windows.Forms.TextBox();
@@ -150,7 +149,6 @@
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.txtNroDoc);
             this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Controls.Add(this.txtCelular);
             this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.txtCliente);
@@ -348,20 +346,12 @@
             this.label21.TabIndex = 35;
             this.label21.Text = "Nro Doc.";
             // 
-            // txtCelular
-            // 
-            this.txtCelular.Location = new System.Drawing.Point(600, 208);
-            this.txtCelular.Name = "txtCelular";
-            this.txtCelular.ReadOnly = true;
-            this.txtCelular.Size = new System.Drawing.Size(147, 22);
-            this.txtCelular.TabIndex = 34;
-            // 
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(454, 208);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.ReadOnly = true;
-            this.txtTelefono.Size = new System.Drawing.Size(110, 22);
+            this.txtTelefono.Size = new System.Drawing.Size(77, 22);
             this.txtTelefono.TabIndex = 32;
             // 
             // label19
@@ -1044,7 +1034,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox txtCelular;
         private System.Windows.Forms.TextBox txtNroDoc;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtFechaIngreso;

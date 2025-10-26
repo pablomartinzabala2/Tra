@@ -941,5 +941,11 @@ namespace Concesionaria
             FrmAbmConcepto frm = new FrmAbmConcepto();
             frm.Show();
         }
+
+        private void tipoUtilitarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAbmTipoUtilitario frm = new FrmAbmTipoUtilitario();
+            frm.Show();
+        }
     }
 }

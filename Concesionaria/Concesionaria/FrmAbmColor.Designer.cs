@@ -155,7 +155,7 @@
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(12, 51);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(433, 142);
+            this.Grupo.Size = new System.Drawing.Size(433, 100);
             this.Grupo.TabIndex = 17;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Colores de Vehìculos";
@@ -189,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(445, 216);
+            this.ClientSize = new System.Drawing.Size(445, 165);
             this.Controls.Add(this.Grupo);
             this.Controls.Add(this.BarraBotones);
             this.Name = "FrmAbmColor";
