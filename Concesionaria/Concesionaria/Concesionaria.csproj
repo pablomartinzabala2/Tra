@@ -38,6 +38,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.16.0.18925.20022\lib\net40\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.Common\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -603,6 +607,12 @@
     </Compile>
     <Compile Include="FrmGestoria.Designer.cs">
       <DependentUpon>FrmGestoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImportarPrecioAutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImportarPrecioAutos.Designer.cs">
+      <DependentUpon>FrmImportarPrecioAutos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmInformeCuentas.cs">
       <SubType>Form</SubType>
@@ -1401,6 +1411,9 @@
     <EmbeddedResource Include="FrmGestoria.resx">
       <DependentUpon>FrmGestoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmImportarPrecioAutos.resx">
+      <DependentUpon>FrmImportarPrecioAutos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmInformeCuentas.resx">
       <DependentUpon>FrmInformeCuentas.cs</DependentUpon>
     </EmbeddedResource>
@@ -1762,6 +1775,7 @@
     <None Include="DsReportes.xss">
       <DependentUpon>DsReportes.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
