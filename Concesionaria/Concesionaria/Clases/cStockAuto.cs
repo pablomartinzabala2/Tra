@@ -98,6 +98,7 @@ namespace Concesionaria.Clases
             sql = sql + ") as Costo";
             */
             sql = sql + ",sa.PrecioVenta";
+            sql = sql + ",sa.PrecioMercado ";
             sql = sql + ",sa.CodEstado";
             
 
@@ -373,6 +374,14 @@ namespace Concesionaria.Clases
         {
             string sql = "Update StockAuto ";
             sql = sql + " set PrecioRevista =" + Importe.ToString().Replace(",", ".");
+            sql = sql + " where CodStock =" + CodStock.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
+
+        public void ActualizarPrecioMercado(Int32 CodStock, double Importe)
+        {
+            string sql = "Update StockAuto ";
+            sql = sql + " set PrecioMercado =" + Importe.ToString().Replace(",", ".");
             sql = sql + " where CodStock =" + CodStock.ToString();
             cDb.ExecutarNonQuery(sql);
         }

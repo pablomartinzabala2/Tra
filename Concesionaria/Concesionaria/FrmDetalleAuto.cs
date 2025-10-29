@@ -87,6 +87,7 @@ namespace Concesionaria
                 txtPrecioVenta.Text = trdoAuto.Rows[0]["PrecioVenta"].ToString();
                 txtCodCompra.Text = trdoAuto.Rows[0]["CodCompra"].ToString();
                 txtValorRevista.Text = trdoAuto.Rows[0]["PrecioRevista"].ToString();
+                txtPrecioMercado.Text = trdoAuto.Rows[0]["PrecioMercado"].ToString();
                 if (txtImporte.Text != "")
                 {
                     txtImporte.Text = txtImporte.Text.Replace(",", ".");
@@ -102,7 +103,15 @@ namespace Concesionaria
                     Clases.cFunciones fun = new Clases.cFunciones();
                     txtPrecioVenta.Text = fun.FormatoEnteroMiles(vec[0]);
                 }
-                 
+                  
+                if (txtPrecioMercado.Text != "")
+                {
+                    txtPrecioMercado.Text = txtPrecioMercado.Text.Replace(",", ".");
+                    string[] vec = txtPrecioMercado.Text.Split('.');
+                    Clases.cFunciones fun = new Clases.cFunciones();
+                    txtPrecioMercado.Text = fun.FormatoEnteroMiles(vec[0]);
+                }
+
                 if (txtValorRevista.Text != "")
                 {
                     txtValorRevista.Text = txtValorRevista.Text.Replace(",", ".");
@@ -691,6 +700,21 @@ namespace Concesionaria
             Int32 CodStock = Convert.ToInt32(Principal.CodigoPrincipalAbm);
             Clases.cStockAuto stock = new Clases.cStockAuto();
             stock.ActualizarPrecioRevistaVenta(CodStock, Importe);
+            MessageBox.Show("Datos grabados correctamente", Clases.cMensaje.Mensaje());
+        }
+
+        private void btnGrabarPrecioMercado_Click(object sender, EventArgs e)
+        {   
+            if (txtPrecioMercado.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un precio de mercado para continuar", Clases.cMensaje.Mensaje());
+                return;
+            }
+            Clases.cFunciones fun = new Clases.cFunciones();
+            double Importe = fun.ToDouble(txtPrecioMercado.Text);
+            Int32 CodStock = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            Clases.cStockAuto stock = new Clases.cStockAuto();
+            stock.ActualizarPrecioMercado(CodStock, Importe);
             MessageBox.Show("Datos grabados correctamente", Clases.cMensaje.Mensaje());
         }
     }

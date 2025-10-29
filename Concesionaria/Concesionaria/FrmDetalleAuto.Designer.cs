@@ -112,6 +112,9 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtPrecioMercado = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.btnGrabarPrecioMercado = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -131,6 +134,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnGrabarPrecioMercado);
+            this.groupBox1.Controls.Add(this.label25);
+            this.groupBox1.Controls.Add(this.txtPrecioMercado);
             this.groupBox1.Controls.Add(this.cmbAnio);
             this.groupBox1.Controls.Add(this.btnGrabarValorRevista);
             this.groupBox1.Controls.Add(this.label7);
@@ -221,7 +227,7 @@
             // btnGrabarEstado
             // 
             this.btnGrabarEstado.Image = ((System.Drawing.Image)(resources.GetObject("btnGrabarEstado.Image")));
-            this.btnGrabarEstado.Location = new System.Drawing.Point(716, 84);
+            this.btnGrabarEstado.Location = new System.Drawing.Point(707, 115);
             this.btnGrabarEstado.Name = "btnGrabarEstado";
             this.btnGrabarEstado.Size = new System.Drawing.Size(40, 28);
             this.btnGrabarEstado.TabIndex = 65;
@@ -232,7 +238,7 @@
             // 
             this.cmbEstadoVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstadoVehiculo.FormattingEnabled = true;
-            this.cmbEstadoVehiculo.Location = new System.Drawing.Point(605, 87);
+            this.cmbEstadoVehiculo.Location = new System.Drawing.Point(600, 122);
             this.cmbEstadoVehiculo.Name = "cmbEstadoVehiculo";
             this.cmbEstadoVehiculo.Size = new System.Drawing.Size(109, 24);
             this.cmbEstadoVehiculo.TabIndex = 64;
@@ -240,7 +246,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(548, 87);
+            this.label11.Location = new System.Drawing.Point(548, 125);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(51, 16);
             this.label11.TabIndex = 63;
@@ -827,16 +833,16 @@
             // 
             // txtExTitular
             // 
-            this.txtExTitular.Location = new System.Drawing.Point(454, 124);
+            this.txtExTitular.Location = new System.Drawing.Point(600, 208);
             this.txtExTitular.Name = "txtExTitular";
             this.txtExTitular.ReadOnly = true;
-            this.txtExTitular.Size = new System.Drawing.Size(293, 22);
+            this.txtExTitular.Size = new System.Drawing.Size(146, 22);
             this.txtExTitular.TabIndex = 17;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(380, 124);
+            this.label9.Location = new System.Drawing.Point(542, 208);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(57, 16);
             this.label9.TabIndex = 16;
@@ -844,7 +850,7 @@
             // 
             // txtMotor
             // 
-            this.txtMotor.Location = new System.Drawing.Point(454, 90);
+            this.txtMotor.Location = new System.Drawing.Point(454, 124);
             this.txtMotor.Name = "txtMotor";
             this.txtMotor.ReadOnly = true;
             this.txtMotor.Size = new System.Drawing.Size(88, 22);
@@ -895,7 +901,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(380, 90);
+            this.label5.Location = new System.Drawing.Point(381, 121);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 16);
             this.label5.TabIndex = 6;
@@ -952,6 +958,32 @@
             this.label1.Size = new System.Drawing.Size(54, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Patente";
+            // 
+            // txtPrecioMercado
+            // 
+            this.txtPrecioMercado.Location = new System.Drawing.Point(454, 89);
+            this.txtPrecioMercado.Name = "txtPrecioMercado";
+            this.txtPrecioMercado.Size = new System.Drawing.Size(200, 22);
+            this.txtPrecioMercado.TabIndex = 70;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(383, 89);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(62, 16);
+            this.label25.TabIndex = 71;
+            this.label25.Text = "Mercado";
+            // 
+            // btnGrabarPrecioMercado
+            // 
+            this.btnGrabarPrecioMercado.Image = ((System.Drawing.Image)(resources.GetObject("btnGrabarPrecioMercado.Image")));
+            this.btnGrabarPrecioMercado.Location = new System.Drawing.Point(660, 86);
+            this.btnGrabarPrecioMercado.Name = "btnGrabarPrecioMercado";
+            this.btnGrabarPrecioMercado.Size = new System.Drawing.Size(40, 28);
+            this.btnGrabarPrecioMercado.TabIndex = 72;
+            this.btnGrabarPrecioMercado.UseVisualStyleBackColor = true;
+            this.btnGrabarPrecioMercado.Click += new System.EventHandler(this.btnGrabarPrecioMercado_Click);
             // 
             // FrmDetalleAuto
             // 
@@ -1075,5 +1107,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtValorRevista;
         private System.Windows.Forms.ComboBox cmbAnio;
+        private System.Windows.Forms.Button btnGrabarPrecioMercado;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox txtPrecioMercado;
     }
 }
