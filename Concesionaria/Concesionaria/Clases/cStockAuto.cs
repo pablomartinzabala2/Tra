@@ -84,10 +84,11 @@ namespace Concesionaria.Clases
             sql = sql + ",a.Kilometros as km ";
             sql = sql + ",(select tu.Nombre from TipoUtilitario tu where tu.CodTipo=a.CodTipoUtilitario) as Tipo ";
             sql = sql + ",a.Concesion";
-            sql = sql + ",sa.PrecioRevista as Revista ";
+           
             sql = sql + ", (ImporteCompra + ";
             sql = sql + " (select isnull(sum(Importe),0) from Costo cos where cos.CodStock = sa.CodStock) ";
             sql = sql + " ) as Cs ";
+            sql = sql + ",sa.PrecioRevista as Revista ";
             /*
             sql = sql + ",(Importe + (select isnull(sum(Importe),0) from Costo cos where "; 
             sql = sql + " cos.CodStock = sa.CodStock ) ";
@@ -97,8 +98,9 @@ namespace Concesionaria.Clases
             sql = sql + " where gap.CodGasto=dif.CodGasto  and gap.CodStock = sa.CodStock)";
             sql = sql + ") as Costo";
             */
-            sql = sql + ",sa.PrecioVenta";
             sql = sql + ",sa.PrecioMercado ";
+            sql = sql + ",sa.PrecioVenta";
+           
             sql = sql + ",sa.CodEstado";
             
 

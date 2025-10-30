@@ -31,12 +31,13 @@ namespace Concesionaria
             fun.LlenarComboDatatable(cmbOrden, tbOrden, "Nombre", "Codigo");
             Buscar();
             PintarEstados();
-            Grilla.Columns[12].Visible = false;
+           // Grilla.Columns[12].Visible = false;
             //costo visible
            // fun.AnchoColumnas(Grilla, "5;0;8;10;14;3;10;8;8;10;0;8;8;8;0");
             //costo invisible
-            //  fun.AnchoColumnas(Grilla, "5;0;8;10;22;3;10;8;8;10;0;8;0;8;0");
-            fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;12;0;12;12;0");
+         // fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;12;0;12;12;0");
+            fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;0;12;12;12;0");
+
         }
 
         private void BuscarAutosdeStock(string Patente, Int32? CodMarca, string Modelo)
@@ -112,7 +113,7 @@ namespace Concesionaria
             Grilla.Columns[5].HeaderText = "C";
             Double Total = fun.TotalizarColumna(trdo, "PrecioVenta");
             txtMontoTotal.Text = Total.ToString();
-            Grilla.Columns[14].HeaderText = "Mercado";
+            Grilla.Columns[13].HeaderText = "Mercado";
 
 
             txtMontoTotal.Text = Total.ToString();
@@ -433,21 +434,21 @@ namespace Concesionaria
         private void BtnVerGanancia_Click(object sender, EventArgs e)
         {
             cFunciones fun = new cFunciones();
-            if (Grilla.Columns[12].Visible == false)
+            if (Grilla.Columns[11].Visible == false)
             {
-                Grilla.Columns[12].Visible = true;
-               // fun.AnchoColumnas(Grilla, "5;0;8;10;14;3;10;8;8;10;0;8;8;8;0");
-             //   fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;12;12;12;0");
+                Grilla.Columns[11].Visible = true;
+               // fun.AnchoColumnas(Grilla, "5;0;8;10;14;3;10;8;8;10;0;8;8;8;0");  //   fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;12;12;12;0");
+               // fun.AnchoColumnas(Grilla, "5;0;8;2;10;3;10;5;8;5;0;12;11;11;10;0");
                 fun.AnchoColumnas(Grilla, "5;0;8;2;10;3;10;5;8;5;0;12;11;11;10;0");
 
             }
             else
             {
-                Grilla.Columns[12].Visible = false;
+                Grilla.Columns[11].Visible = false;
                 //fun.AnchoColumnas(Grilla, "5;0;8;10;22;3;10;8;8;10;0;8;0;8;0");
                 //  fun.AnchoColumnas(Grilla, "5;0;8;10;22;3;10;5;8;5;0;12;0;12;0");
-                fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;12;0;12;12;0");
-              //fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;12;0;12;12;0");
+               // fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;12;0;12;12;0");
+                fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;0;12;12;12;0");
             }
         }
     }
