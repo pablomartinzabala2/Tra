@@ -78,9 +78,9 @@ namespace Concesionaria.Clases
             sql = "select sa.CodStock,a.Patente";
             sql = sql + ",m.Nombre";
             sql = sql + ",Descripcion as Modelo";
+            sql = sql + ",(select aa.Nombre from Anio aa where aa.CodAnio=a.CodAnio) as Año";
             sql = sql + ",(select SUBSTRING(tc.Nombre,1,1) from TipoCombustible tc where tc.Codigo=a.CodTipoCombustible) as Combustible ";
             sql = sql + ",(select cc.Nombre from Color cc where cc.CodColor=a.CodColor) as Color";
-            sql = sql + ",(select aa.Nombre from Anio aa where aa.CodAnio=a.CodAnio) as Año";
             sql = sql + ",a.Kilometros as km ";
             sql = sql + ",(select tu.Nombre from TipoUtilitario tu where tu.CodTipo=a.CodTipoUtilitario) as Tipo ";
             sql = sql + ",a.Concesion";

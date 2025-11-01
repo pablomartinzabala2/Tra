@@ -35,8 +35,8 @@ namespace Concesionaria
             //costo visible
            // fun.AnchoColumnas(Grilla, "5;0;8;10;14;3;10;8;8;10;0;8;8;8;0");
             //costo invisible
-         // fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;12;0;12;12;0");
-            fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;0;12;12;12;0");
+            // fun.AnchoColumnas(Grilla, "3;0;7;7;26;3;8;4;6;6;0;0;10;10;10;0");
+            fun.AnchoColumnas(Grilla, "3;0;7;7;26;4;3;8;6;6;0;0;10;10;10;0");
 
         }
 
@@ -110,7 +110,7 @@ namespace Concesionaria
           
             Grilla.Columns[2].HeaderText = "Dominio";
             Grilla.Columns[3].HeaderText = "Marca";
-            Grilla.Columns[5].HeaderText = "C";
+            Grilla.Columns[6].HeaderText = "C";
             Double Total = fun.TotalizarColumna(trdo, "PrecioVenta");
             txtMontoTotal.Text = Total.ToString();
             Grilla.Columns[13].HeaderText = "Mercado";
@@ -437,18 +437,21 @@ namespace Concesionaria
             if (Grilla.Columns[11].Visible == false)
             {
                 Grilla.Columns[11].Visible = true;
-               // fun.AnchoColumnas(Grilla, "5;0;8;10;14;3;10;8;8;10;0;8;8;8;0");  //   fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;12;12;12;0");
-               // fun.AnchoColumnas(Grilla, "5;0;8;2;10;3;10;5;8;5;0;12;11;11;10;0");
-                fun.AnchoColumnas(Grilla, "5;0;8;2;10;3;10;5;8;5;0;12;11;11;10;0");
-
+                // fun.AnchoColumnas(Grilla, "5;0;8;10;14;3;10;8;8;10;0;8;8;8;0");  //   fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;12;12;12;0");
+                // fun.AnchoColumnas(Grilla, "5;0;8;2;10;3;10;5;8;5;0;12;11;11;10;0");
+                //  fun.AnchoColumnas(Grilla, "5;0;8;2;10;3;10;5;8;5;0;12;11;11;10;0");
+                //invisible
+                //    fun.AnchoColumnas(Grilla, "3;0;7;7;16;3;8;4;6;6;0;10;10;10;10;0");
+                fun.AnchoColumnas(Grilla, "3;0;7;7;16;4;3;8;6;6;0;10;10;10;10;0");
             }
             else
             {
                 Grilla.Columns[11].Visible = false;
                 //fun.AnchoColumnas(Grilla, "5;0;8;10;22;3;10;8;8;10;0;8;0;8;0");
-                //  fun.AnchoColumnas(Grilla, "5;0;8;10;22;3;10;5;8;5;0;12;0;12;0");
-               // fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;12;0;12;12;0");
-                fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;0;12;12;12;0");
+                
+               // fun.AnchoColumnas(Grilla, "3;0;7;7;26;3;8;4;6;6;0;0;10;10;10;0");
+
+                fun.AnchoColumnas(Grilla, "3;0;7;7;26;4;3;8;6;6;0;0;10;10;10;0");
             }
         }
     }
