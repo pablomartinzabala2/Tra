@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStockAuto));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAplicarIncremento = new System.Windows.Forms.Button();
             this.txtPorcentaje = new System.Windows.Forms.TextBox();
@@ -39,26 +40,28 @@
             this.cmbOrden = new System.Windows.Forms.ComboBox();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.btnBajaStock = new System.Windows.Forms.Button();
             this.txtMontoTotal = new System.Windows.Forms.TextBox();
             this.txtTotalVehiculos = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.reporteAutoTableAdapter1 = new Concesionaria.CONCESIONARIADataSetTableAdapters.ReporteAutoTableAdapter();
+            this.btnExcel = new System.Windows.Forms.Button();
             this.BtnVerGanancia = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnExcel);
             this.groupBox1.Controls.Add(this.BtnVerGanancia);
             this.groupBox1.Controls.Add(this.btnAplicarIncremento);
             this.groupBox1.Controls.Add(this.txtPorcentaje);
@@ -144,7 +147,7 @@
             // 
             this.CmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbEstado.FormattingEnabled = true;
-            this.CmbEstado.Location = new System.Drawing.Point(646, 26);
+            this.CmbEstado.Location = new System.Drawing.Point(644, 27);
             this.CmbEstado.Name = "CmbEstado";
             this.CmbEstado.Size = new System.Drawing.Size(142, 24);
             this.CmbEstado.TabIndex = 59;
@@ -153,7 +156,7 @@
             // 
             this.cmbOrden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOrden.FormattingEnabled = true;
-            this.cmbOrden.Location = new System.Drawing.Point(794, 23);
+            this.cmbOrden.Location = new System.Drawing.Point(792, 27);
             this.cmbOrden.Name = "cmbOrden";
             this.cmbOrden.Size = new System.Drawing.Size(72, 24);
             this.cmbOrden.TabIndex = 58;
@@ -175,21 +178,11 @@
             this.label5.TabIndex = 56;
             this.label5.Text = "Modelo";
             // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer1;
-            this.btnImprimir.Location = new System.Drawing.Point(952, 15);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(34, 30);
-            this.btnImprimir.TabIndex = 55;
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
             // btnBajaStock
             // 
-            this.btnBajaStock.Location = new System.Drawing.Point(1046, 15);
+            this.btnBajaStock.Location = new System.Drawing.Point(1082, 21);
             this.btnBajaStock.Name = "btnBajaStock";
-            this.btnBajaStock.Size = new System.Drawing.Size(85, 30);
+            this.btnBajaStock.Size = new System.Drawing.Size(47, 30);
             this.btnBajaStock.TabIndex = 29;
             this.btnBajaStock.Text = "Baja stock";
             this.btnBajaStock.UseVisualStyleBackColor = true;
@@ -225,16 +218,6 @@
             this.label4.Tag = "Total de vehículos";
             this.label4.Text = "Importe Total";
             // 
-            // button1
-            // 
-            this.button1.Image = global::Concesionaria.Properties.Resources.CAR3;
-            this.button1.Location = new System.Drawing.Point(912, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 30);
-            this.button1.TabIndex = 26;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -263,16 +246,6 @@
             this.cmbMarca.Size = new System.Drawing.Size(143, 24);
             this.cmbMarca.TabIndex = 24;
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom;
-            this.btnBuscar.Location = new System.Drawing.Point(872, 15);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(34, 30);
-            this.btnBuscar.TabIndex = 23;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // txtPatente
             // 
             this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -294,15 +267,55 @@
             // 
             this.reporteAutoTableAdapter1.ClearBeforeFill = true;
             // 
+            // btnExcel
+            // 
+            this.btnExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.Image")));
+            this.btnExcel.Location = new System.Drawing.Point(1036, 22);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(40, 27);
+            this.btnExcel.TabIndex = 79;
+            this.btnExcel.UseVisualStyleBackColor = true;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
             // BtnVerGanancia
             // 
             this.BtnVerGanancia.Image = global::Concesionaria.Properties.Resources.Linterna;
-            this.BtnVerGanancia.Location = new System.Drawing.Point(992, 20);
+            this.BtnVerGanancia.Location = new System.Drawing.Point(990, 22);
             this.BtnVerGanancia.Name = "BtnVerGanancia";
             this.BtnVerGanancia.Size = new System.Drawing.Size(40, 27);
             this.BtnVerGanancia.TabIndex = 78;
             this.BtnVerGanancia.UseVisualStyleBackColor = true;
             this.BtnVerGanancia.Click += new System.EventHandler(this.BtnVerGanancia_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Image = global::Concesionaria.Properties.Resources.printer1;
+            this.btnImprimir.Location = new System.Drawing.Point(950, 22);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(34, 30);
+            this.btnImprimir.TabIndex = 55;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // button1
+            // 
+            this.button1.Image = global::Concesionaria.Properties.Resources.CAR3;
+            this.button1.Location = new System.Drawing.Point(910, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 30);
+            this.button1.TabIndex = 26;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::Concesionaria.Properties.Resources.zoom;
+            this.btnBuscar.Location = new System.Drawing.Point(870, 22);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(34, 30);
+            this.btnBuscar.TabIndex = 23;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // FrmStockAuto
             // 
@@ -350,5 +363,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Sel;
         private CONCESIONARIADataSetTableAdapters.ReporteAutoTableAdapter reporteAutoTableAdapter1;
         private System.Windows.Forms.Button BtnVerGanancia;
+        private System.Windows.Forms.Button btnExcel;
     }
 }

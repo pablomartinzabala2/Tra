@@ -903,6 +903,12 @@
     <Compile Include="FrmReporteEfectivoPagar.Designer.cs">
       <DependentUpon>FrmReporteEfectivoPagar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReporteExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteExcel.Designer.cs">
+      <DependentUpon>FrmReporteExcel.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReporteGastosTransferencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1565,6 +1571,9 @@
     <EmbeddedResource Include="FrmReporteEfectivoPagar.resx">
       <DependentUpon>FrmReporteEfectivoPagar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteExcel.resx">
+      <DependentUpon>FrmReporteExcel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteGastosTransferencia.resx">
       <DependentUpon>FrmReporteGastosTransferencia.cs</DependentUpon>
     </EmbeddedResource>
@@ -1735,6 +1744,7 @@
     <EmbeddedResource Include="Reportes\ReporteDetalleDeudaCliente.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteDeudaCliente.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteEfectivoPagar.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteExcelStock.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteGastosTransferencia.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteListadoCliente.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePresupuesto.rdlc" />
@@ -1808,6 +1818,8 @@
     <Content Include="Iconos\Descargar.png" />
     <Content Include="Iconos\Descargar2.png" />
     <Content Include="Iconos\Descargar3.png" />
+    <Content Include="Iconos\Excel.png" />
+    <Content Include="Iconos\Excel2.png" />
     <Content Include="Iconos\Imagen\CUADRITOS.png" />
     <Content Include="Iconos\Imagen\CUERPO.png" />
     <Content Include="Iconos\Imagen\FIRMA.jpg" />

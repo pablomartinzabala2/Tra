@@ -454,5 +454,41 @@ namespace Concesionaria
                 fun.AnchoColumnas(Grilla, "3;0;7;7;26;4;3;8;6;6;0;0;10;10;10;0");
             }
         }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            if (Grilla.Rows.Count <1)
+            {
+                MessageBox.Show("No hay registros para exportar");
+                return;
+            }
+
+            string CodStok = "";
+            string Patente = "";
+            string Marca = "";
+            string Modelo = "";
+            string Costo = "";
+            string Revista ="";
+            string Mercado = "";
+            string PrecioVenta = "";
+            cReporte reporte = new cReporte();
+            reporte.Borrar();
+            for (int i = 0; i < Grilla.Rows.Count - 1 ; i++)
+            {
+                CodStok = Grilla.Rows[i].Cells[1].Value.ToString();
+                Patente = Grilla.Rows[i].Cells[2].Value.ToString();
+                Marca = Grilla.Rows[i].Cells[3].Value.ToString();
+                Modelo = Grilla.Rows[i].Cells[4].Value.ToString();
+                Costo = Grilla.Rows[i].Cells[11].Value.ToString();
+                Revista = Grilla.Rows[i].Cells[12].Value.ToString();
+                Mercado = Grilla.Rows[i].Cells[13].Value.ToString();
+                PrecioVenta = Grilla.Rows[i].Cells[14].Value.ToString();
+                reporte.Insertar((i + 1), CodStok,Patente ,Marca ,Modelo ,Costo ,Revista ,Mercado ,PrecioVenta ,"","","","","","");
+            }
+
+            FrmReporteExcel frm = new FrmReporteExcel();
+            frm.Show();
+           
+        }
     }
 }
