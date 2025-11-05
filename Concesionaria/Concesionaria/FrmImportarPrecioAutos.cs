@@ -63,9 +63,10 @@ namespace Concesionaria
             rw = range.Rows.Count;
             cl = range.Columns.Count;
             string Codigo = "";
-            Int32? Id = 0;
+            string  CodStock = "";
             int Stock = 0;
             Double PrecioVenta = 0;
+            Double? Revista = null;
             string Nombre = "";
             
                   
@@ -76,10 +77,13 @@ namespace Concesionaria
                     txtProceso.Text = rCnt.ToString();
                     switch (cCnt)
                     {
+                        
                         case 1:
+                            
                             if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
-                                Id = (Int32)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                                CodStock = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
                             break;
+                            
                         case 2:
                             if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
                                 Nombre = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
@@ -103,7 +107,14 @@ namespace Concesionaria
                             }
                             */
                             break;
-                        case 6:
+                        case 7:
+                            if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
+                                Revista = (Double)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                            else
+                                Revista = null;
+                            break;
+                            
+                        case 8:
                             /*
                             if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
                                 Stock = (Int32)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;

@@ -118,6 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnExportarExcel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAALNJREFUSEvtlEEKwjAUBXPB1iLYqwixKhXSjadRatuFvZBuumjX1ciPRIhSqi8q
+        /IFZ5EEyu4i/IpSH3pZmPDq2LZubHIbCYZrxcJhmPBymGQ88HMh8rh92aYfd5mt6ZhzRskxm6bFTu9M9
+        9sxsf+7jTd1OV5Wi6+8xJP7xqOFVHBY1uOLwqMGOe4saQlmoOK3ba7SbLIqMZj9ESaW0dGSG4f55cFL2
+        8e9F+zthn1L2GwhxAcvLmptvpjoJAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="btnExcel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO

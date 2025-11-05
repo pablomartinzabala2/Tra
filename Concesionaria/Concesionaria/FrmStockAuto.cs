@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Concesionaria.Clases;
+
 namespace Concesionaria
 {
     public partial class FrmStockAuto : Form
@@ -24,7 +25,7 @@ namespace Concesionaria
             CargarEstado();
             txtTotalVehiculos.BackColor = cColor.CajaTexto();
             txtMontoTotal.BackColor = cColor.CajaTexto();
-            DataTable tbOrden = new DataTable();
+            System.Data.DataTable tbOrden = new System.Data.DataTable();
             tbOrden = fun.CrearTabla("Codigo;Nombre");
             tbOrden = fun.AgregarFilas(tbOrden, "1;Asc");
             tbOrden = fun.AgregarFilas(tbOrden, "2;Desc");
@@ -52,7 +53,7 @@ namespace Concesionaria
             double Total = 0;
             Clases.cFunciones fun = new Clases.cFunciones();
             Clases.cStockAuto stock = new Clases.cStockAuto();
-            DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio, Concesion);
+            System.Data.DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio, Concesion);
             trdo = fun.TablaaMiles(trdo, "Costo");
             Total = fun.TotalizarColumna(trdo, "Costo");
             txtTotalVehiculos.Text = trdo.Rows.Count.ToString();
@@ -99,7 +100,7 @@ namespace Concesionaria
                 Concesion = Convert.ToInt32(CmbEstado.SelectedValue);
 
             Clases.cStockAuto stock = new Clases.cStockAuto();
-            DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio, Concesion);
+            System.Data.DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio, Concesion);
             txtTotalVehiculos.Text = trdo.Rows.Count.ToString();
             trdo = fun.TablaaMiles(trdo, "Cs");
             trdo = fun.TablaaMiles(trdo, "Revista");
@@ -471,6 +472,8 @@ namespace Concesionaria
             string Revista ="";
             string Mercado = "";
             string PrecioVenta = "";
+            string Km = "";
+            string Anio = "";
             cReporte reporte = new cReporte();
             reporte.Borrar();
             for (int i = 0; i < Grilla.Rows.Count - 1 ; i++)
@@ -483,12 +486,22 @@ namespace Concesionaria
                 Revista = Grilla.Rows[i].Cells[12].Value.ToString();
                 Mercado = Grilla.Rows[i].Cells[13].Value.ToString();
                 PrecioVenta = Grilla.Rows[i].Cells[14].Value.ToString();
-                reporte.Insertar((i + 1), CodStok,Patente ,Marca ,Modelo ,Costo ,Revista ,Mercado ,PrecioVenta ,"","","","","","");
+                Km = Grilla.Rows[i].Cells[8].Value.ToString();
+                Anio = Grilla.Rows[i].Cells[5].Value.ToString();
+                reporte.Insertar((i + 1), CodStok,Patente ,Marca ,Modelo ,Anio  ,Revista ,Mercado ,PrecioVenta ,Km,"","","","","");
             }
 
             FrmReporteExcel frm = new FrmReporteExcel();
             frm.Show();
            
         }
+
+        private void btnExportarExcel_Click(object sender, EventArgs e)
+        {
+            FrmImportarPrecioAutos frm = new FrmImportarPrecioAutos();
+            frm.ShowDialog();
+        }
+
+       
     }
 }
