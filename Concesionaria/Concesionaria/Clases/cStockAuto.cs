@@ -387,5 +387,24 @@ namespace Concesionaria.Clases
             sql = sql + " where CodStock =" + CodStock.ToString();
             cDb.ExecutarNonQuery(sql);
         }
+
+        public void ActualizarPreciosVariios(Int32 CodStock, Double PrecioRevista,Double PrecioMercado,Double PrecioVenta)
+        {
+            string sql = "update stockauto ";
+            sql = sql + " set PrecioRevista=" + PrecioRevista.ToString().Replace(",", ".");
+            sql = sql + ", PrecioMercado=" + PrecioMercado.ToString().Replace(",", ".");
+            sql = sql + ", PrecioVenta=" + PrecioVenta.ToString().Replace(",", ".");
+            sql = sql + " where CodStock=" + CodStock.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
+
+        public void GrabarEstadoFc(int CodStock, Double ValorFc,string EstadoFc)
+        {
+            string sql = "update stockauto ";
+            sql = sql + " set ValorFc=" + ValorFc.ToString().Replace(",", ".");
+            sql = sql + ", EstadoFc=" + "'" + EstadoFc + "'";
+            sql = sql + " where Codstock =" + CodStock.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
     }
 }

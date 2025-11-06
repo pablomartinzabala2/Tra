@@ -134,6 +134,18 @@ namespace Concesionaria
                 {
                     cmbAnio.SelectedValue = trdoAuto.Rows[0]["CodAnio"].ToString();
                 }
+
+                if (trdoAuto.Rows[0]["EstadoFc"].ToString()=="FC")
+                {
+                    chkFacturacion.Checked = true;
+                    txtValorFc.Text = trdoAuto.Rows[0]["ValorFc"].ToString();
+                    txtValorFc.Text = txtValorFc.Text.Replace(",", ".");
+                    string[] vec = txtValorFc.Text.Split('.');
+                    Clases.cFunciones fun = new Clases.cFunciones();
+                    txtValorFc.Text = fun.FormatoEnteroMiles(vec[0]);
+                }
+                
+
             }
 
         }
@@ -716,6 +728,35 @@ namespace Concesionaria
             Clases.cStockAuto stock = new Clases.cStockAuto();
             stock.ActualizarPrecioMercado(CodStock, Importe);
             MessageBox.Show("Datos grabados correctamente", Clases.cMensaje.Mensaje());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            cStockAuto stock = new cStockAuto();
+            Int32 CodStock = Convert.ToInt32(txtCodStock.Text);
+            string EstadoFc = "SF";
+            Double ValorFc =0;
+            cFunciones fun = new Clases.cFunciones();
+            if (chkFacturacion.Checked == true)
+            {
+                if (txtValorFc.Text =="")
+                {
+                    MessageBox.Show("Debe ingresar un valor de facturación ");
+                    return;
+                }
+                EstadoFc = "FC";
+                ValorFc = fun.ToDouble(txtValorFc.Text);
+                stock.GrabarEstadoFc(CodStock, ValorFc, EstadoFc);
+            }
+            else
+            {
+                EstadoFc = "SF";
+                ValorFc = 0;
+                ValorFc = fun.ToDouble(txtValorFc.Text);
+                stock.GrabarEstadoFc(CodStock, ValorFc, EstadoFc);
+            }
+            MessageBox.Show("Datos grabados correctamente");
+            
         }
     }
 }

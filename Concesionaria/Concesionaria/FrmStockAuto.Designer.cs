@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStockAuto));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnExportarExcel = new System.Windows.Forms.Button();
             this.btnExcel = new System.Windows.Forms.Button();
             this.BtnVerGanancia = new System.Windows.Forms.Button();
             this.btnAplicarIncremento = new System.Windows.Forms.Button();
@@ -55,15 +56,12 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.reporteAutoTableAdapter1 = new Concesionaria.CONCESIONARIADataSetTableAdapters.ReporteAutoTableAdapter();
-            this.btnExportarExcel = new System.Windows.Forms.Button();
-            this.txtRuta = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtRuta);
             this.groupBox1.Controls.Add(this.btnExportarExcel);
             this.groupBox1.Controls.Add(this.btnExcel);
             this.groupBox1.Controls.Add(this.BtnVerGanancia);
@@ -95,6 +93,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Autos en Stock";
+            // 
+            // btnExportarExcel
+            // 
+            this.btnExportarExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportarExcel.Image")));
+            this.btnExportarExcel.Location = new System.Drawing.Point(449, 55);
+            this.btnExportarExcel.Name = "btnExportarExcel";
+            this.btnExportarExcel.Size = new System.Drawing.Size(40, 27);
+            this.btnExportarExcel.TabIndex = 80;
+            this.btnExportarExcel.UseVisualStyleBackColor = true;
+            this.btnExportarExcel.Click += new System.EventHandler(this.btnExportarExcel_Click);
             // 
             // btnExcel
             // 
@@ -321,23 +329,6 @@
             // 
             this.reporteAutoTableAdapter1.ClearBeforeFill = true;
             // 
-            // btnExportarExcel
-            // 
-            this.btnExportarExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportarExcel.Image")));
-            this.btnExportarExcel.Location = new System.Drawing.Point(449, 55);
-            this.btnExportarExcel.Name = "btnExportarExcel";
-            this.btnExportarExcel.Size = new System.Drawing.Size(40, 27);
-            this.btnExportarExcel.TabIndex = 80;
-            this.btnExportarExcel.UseVisualStyleBackColor = true;
-            this.btnExportarExcel.Click += new System.EventHandler(this.btnExportarExcel_Click);
-            // 
-            // txtRuta
-            // 
-            this.txtRuta.Location = new System.Drawing.Point(523, 62);
-            this.txtRuta.Name = "txtRuta";
-            this.txtRuta.Size = new System.Drawing.Size(100, 23);
-            this.txtRuta.TabIndex = 81;
-            // 
             // FrmStockAuto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,6 +377,5 @@
         private System.Windows.Forms.Button BtnVerGanancia;
         private System.Windows.Forms.Button btnExcel;
         private System.Windows.Forms.Button btnExportarExcel;
-        private System.Windows.Forms.TextBox txtRuta;
     }
 }

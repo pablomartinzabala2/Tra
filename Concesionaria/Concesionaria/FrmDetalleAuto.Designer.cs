@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetalleAuto));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnGrabarPrecioMercado = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txtPrecioMercado = new System.Windows.Forms.TextBox();
             this.cmbAnio = new System.Windows.Forms.ComboBox();
             this.btnGrabarValorRevista = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -112,9 +115,9 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPrecioMercado = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.btnGrabarPrecioMercado = new System.Windows.Forms.Button();
+            this.txtValorFc = new System.Windows.Forms.TextBox();
+            this.chkFacturacion = new System.Windows.Forms.CheckBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -134,6 +137,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.chkFacturacion);
+            this.groupBox1.Controls.Add(this.txtValorFc);
             this.groupBox1.Controls.Add(this.btnGrabarPrecioMercado);
             this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.txtPrecioMercado);
@@ -189,6 +195,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle vehículo";
             // 
+            // btnGrabarPrecioMercado
+            // 
+            this.btnGrabarPrecioMercado.Image = ((System.Drawing.Image)(resources.GetObject("btnGrabarPrecioMercado.Image")));
+            this.btnGrabarPrecioMercado.Location = new System.Drawing.Point(660, 86);
+            this.btnGrabarPrecioMercado.Name = "btnGrabarPrecioMercado";
+            this.btnGrabarPrecioMercado.Size = new System.Drawing.Size(40, 28);
+            this.btnGrabarPrecioMercado.TabIndex = 72;
+            this.btnGrabarPrecioMercado.UseVisualStyleBackColor = true;
+            this.btnGrabarPrecioMercado.Click += new System.EventHandler(this.btnGrabarPrecioMercado_Click);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(391, 89);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(62, 16);
+            this.label25.TabIndex = 71;
+            this.label25.Text = "Mercado";
+            // 
+            // txtPrecioMercado
+            // 
+            this.txtPrecioMercado.Location = new System.Drawing.Point(454, 89);
+            this.txtPrecioMercado.Name = "txtPrecioMercado";
+            this.txtPrecioMercado.Size = new System.Drawing.Size(200, 22);
+            this.txtPrecioMercado.TabIndex = 70;
+            // 
             // cmbAnio
             // 
             this.cmbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -211,7 +243,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(380, 64);
+            this.label7.Location = new System.Drawing.Point(389, 64);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 16);
             this.label7.TabIndex = 67;
@@ -227,9 +259,9 @@
             // btnGrabarEstado
             // 
             this.btnGrabarEstado.Image = ((System.Drawing.Image)(resources.GetObject("btnGrabarEstado.Image")));
-            this.btnGrabarEstado.Location = new System.Drawing.Point(707, 115);
+            this.btnGrabarEstado.Location = new System.Drawing.Point(351, 86);
             this.btnGrabarEstado.Name = "btnGrabarEstado";
-            this.btnGrabarEstado.Size = new System.Drawing.Size(40, 28);
+            this.btnGrabarEstado.Size = new System.Drawing.Size(32, 28);
             this.btnGrabarEstado.TabIndex = 65;
             this.btnGrabarEstado.UseVisualStyleBackColor = true;
             this.btnGrabarEstado.Click += new System.EventHandler(this.btnGrabarEstado_Click);
@@ -238,15 +270,15 @@
             // 
             this.cmbEstadoVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstadoVehiculo.FormattingEnabled = true;
-            this.cmbEstadoVehiculo.Location = new System.Drawing.Point(600, 122);
+            this.cmbEstadoVehiculo.Location = new System.Drawing.Point(260, 89);
             this.cmbEstadoVehiculo.Name = "cmbEstadoVehiculo";
-            this.cmbEstadoVehiculo.Size = new System.Drawing.Size(109, 24);
+            this.cmbEstadoVehiculo.Size = new System.Drawing.Size(85, 24);
             this.cmbEstadoVehiculo.TabIndex = 64;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(548, 125);
+            this.label11.Location = new System.Drawing.Point(203, 97);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(51, 16);
             this.label11.TabIndex = 63;
@@ -312,7 +344,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(380, 37);
+            this.label23.Location = new System.Drawing.Point(389, 37);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(40, 16);
             this.label23.TabIndex = 40;
@@ -329,7 +361,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(381, 239);
+            this.label22.Location = new System.Drawing.Point(385, 230);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(72, 16);
             this.label22.TabIndex = 37;
@@ -346,7 +378,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(20, 233);
+            this.label21.Location = new System.Drawing.Point(10, 233);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(61, 16);
             this.label21.TabIndex = 35;
@@ -363,7 +395,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(381, 205);
+            this.label19.Location = new System.Drawing.Point(391, 202);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(62, 16);
             this.label19.TabIndex = 31;
@@ -380,7 +412,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(20, 205);
+            this.label18.Location = new System.Drawing.Point(10, 205);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(49, 16);
             this.label18.TabIndex = 29;
@@ -406,7 +438,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(381, 155);
+            this.label13.Location = new System.Drawing.Point(391, 155);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(56, 16);
             this.label13.TabIndex = 26;
@@ -825,7 +857,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(14, 177);
+            this.label12.Location = new System.Drawing.Point(7, 177);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 16);
             this.label12.TabIndex = 22;
@@ -850,7 +882,7 @@
             // 
             // txtMotor
             // 
-            this.txtMotor.Location = new System.Drawing.Point(454, 124);
+            this.txtMotor.Location = new System.Drawing.Point(262, 118);
             this.txtMotor.Name = "txtMotor";
             this.txtMotor.ReadOnly = true;
             this.txtMotor.Size = new System.Drawing.Size(88, 22);
@@ -859,7 +891,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 149);
+            this.label8.Location = new System.Drawing.Point(7, 152);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 16);
             this.label8.TabIndex = 14;
@@ -878,7 +910,7 @@
             this.txtChasis.Location = new System.Drawing.Point(97, 118);
             this.txtChasis.Name = "txtChasis";
             this.txtChasis.ReadOnly = true;
-            this.txtChasis.Size = new System.Drawing.Size(268, 22);
+            this.txtChasis.Size = new System.Drawing.Size(100, 22);
             this.txtChasis.TabIndex = 11;
             // 
             // txtkms
@@ -886,13 +918,13 @@
             this.txtkms.Location = new System.Drawing.Point(97, 90);
             this.txtkms.Name = "txtkms";
             this.txtkms.ReadOnly = true;
-            this.txtkms.Size = new System.Drawing.Size(268, 22);
+            this.txtkms.Size = new System.Drawing.Size(100, 22);
             this.txtkms.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 121);
+            this.label6.Location = new System.Drawing.Point(10, 121);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 16);
             this.label6.TabIndex = 7;
@@ -901,7 +933,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(381, 121);
+            this.label5.Location = new System.Drawing.Point(206, 121);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 16);
             this.label5.TabIndex = 6;
@@ -959,31 +991,32 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Patente";
             // 
-            // txtPrecioMercado
+            // txtValorFc
             // 
-            this.txtPrecioMercado.Location = new System.Drawing.Point(454, 89);
-            this.txtPrecioMercado.Name = "txtPrecioMercado";
-            this.txtPrecioMercado.Size = new System.Drawing.Size(200, 22);
-            this.txtPrecioMercado.TabIndex = 70;
+            this.txtValorFc.Location = new System.Drawing.Point(454, 119);
+            this.txtValorFc.Name = "txtValorFc";
+            this.txtValorFc.Size = new System.Drawing.Size(200, 22);
+            this.txtValorFc.TabIndex = 73;
             // 
-            // label25
+            // chkFacturacion
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(383, 89);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(62, 16);
-            this.label25.TabIndex = 71;
-            this.label25.Text = "Mercado";
+            this.chkFacturacion.AutoSize = true;
+            this.chkFacturacion.Location = new System.Drawing.Point(356, 121);
+            this.chkFacturacion.Name = "chkFacturacion";
+            this.chkFacturacion.Size = new System.Drawing.Size(97, 20);
+            this.chkFacturacion.TabIndex = 74;
+            this.chkFacturacion.Text = "Facturación";
+            this.chkFacturacion.UseVisualStyleBackColor = true;
             // 
-            // btnGrabarPrecioMercado
+            // button2
             // 
-            this.btnGrabarPrecioMercado.Image = ((System.Drawing.Image)(resources.GetObject("btnGrabarPrecioMercado.Image")));
-            this.btnGrabarPrecioMercado.Location = new System.Drawing.Point(660, 86);
-            this.btnGrabarPrecioMercado.Name = "btnGrabarPrecioMercado";
-            this.btnGrabarPrecioMercado.Size = new System.Drawing.Size(40, 28);
-            this.btnGrabarPrecioMercado.TabIndex = 72;
-            this.btnGrabarPrecioMercado.UseVisualStyleBackColor = true;
-            this.btnGrabarPrecioMercado.Click += new System.EventHandler(this.btnGrabarPrecioMercado_Click);
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(660, 116);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(40, 26);
+            this.button2.TabIndex = 75;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FrmDetalleAuto
             // 
@@ -1110,5 +1143,8 @@
         private System.Windows.Forms.Button btnGrabarPrecioMercado;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox txtPrecioMercado;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox chkFacturacion;
+        private System.Windows.Forms.TextBox txtValorFc;
     }
 }

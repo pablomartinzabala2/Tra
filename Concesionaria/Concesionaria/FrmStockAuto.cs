@@ -499,9 +499,15 @@ namespace Concesionaria
         private void btnExportarExcel_Click(object sender, EventArgs e)
         {
             FrmImportarPrecioAutos frm = new FrmImportarPrecioAutos();
+            frm.FormClosing += new FormClosingEventHandler(form_FormClosing);
             frm.ShowDialog();
         }
 
-       
-    }
+        private void form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Buscar();
+        }
+
+
+        }
 }
