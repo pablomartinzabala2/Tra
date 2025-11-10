@@ -56,12 +56,16 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.reporteAutoTableAdapter1 = new Concesionaria.CONCESIONARIADataSetTableAdapters.ReporteAutoTableAdapter();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbEstadoFacturacion = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbEstadoFacturacion);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.btnExportarExcel);
             this.groupBox1.Controls.Add(this.btnExcel);
             this.groupBox1.Controls.Add(this.BtnVerGanancia);
@@ -329,6 +333,24 @@
             // 
             this.reporteAutoTableAdapter1.ClearBeforeFill = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(495, 59);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(82, 17);
+            this.label8.TabIndex = 81;
+            this.label8.Text = "Facturación";
+            // 
+            // cmbEstadoFacturacion
+            // 
+            this.cmbEstadoFacturacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstadoFacturacion.FormattingEnabled = true;
+            this.cmbEstadoFacturacion.Location = new System.Drawing.Point(583, 57);
+            this.cmbEstadoFacturacion.Name = "cmbEstadoFacturacion";
+            this.cmbEstadoFacturacion.Size = new System.Drawing.Size(89, 24);
+            this.cmbEstadoFacturacion.TabIndex = 82;
+            // 
             // FrmStockAuto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,5 +399,7 @@
         private System.Windows.Forms.Button BtnVerGanancia;
         private System.Windows.Forms.Button btnExcel;
         private System.Windows.Forms.Button btnExportarExcel;
+        private System.Windows.Forms.ComboBox cmbEstadoFacturacion;
+        private System.Windows.Forms.Label label8;
     }
 }

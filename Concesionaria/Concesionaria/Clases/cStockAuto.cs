@@ -72,7 +72,7 @@ namespace Concesionaria.Clases
 
         }
 
-        public DataTable GetStockDetalladosVigente(string Patente,Int32? CodMarca, string Modelo, int? OrdenarPrecio ,Int32? Concesion )
+        public DataTable GetStockDetalladosVigente(string Patente,Int32? CodMarca, string Modelo, int? OrdenarPrecio ,Int32? Concesion , string Facturacion )
         {
             string sql = "";
             sql = "select sa.CodStock,a.Patente";
@@ -84,7 +84,7 @@ namespace Concesionaria.Clases
             sql = sql + ",a.Kilometros as km ";
             sql = sql + ",(select tu.Nombre from TipoUtilitario tu where tu.CodTipo=a.CodTipoUtilitario) as Tipo ";
             sql = sql + ",a.Concesion";
-           
+            sql = sql + ",sa.EstadoFc ";
             sql = sql + ", (ImporteCompra + ";
             sql = sql + " (select isnull(sum(Importe),0) from Costo cos where cos.CodStock = sa.CodStock) ";
             sql = sql + " ) as Cs ";
@@ -129,6 +129,11 @@ namespace Concesionaria.Clases
                 }
             }
 
+            if (Facturacion != "")
+            {
+                sql = sql + " and sa.EstadoFc=" + "'" + Facturacion + "'";
+            }
+
             if (OrdenarPrecio !=null)
             {
                 if (OrdenarPrecio ==1)
@@ -141,6 +146,8 @@ namespace Concesionaria.Clases
             {
                 sql = sql + " order by m.Nombre,a.Descripcion, a.Anio desc";
             }
+
+            
                     
             return cDb.ExecuteDataTable(sql);
         }

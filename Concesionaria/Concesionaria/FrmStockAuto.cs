@@ -26,22 +26,23 @@ namespace Concesionaria
             txtTotalVehiculos.BackColor = cColor.CajaTexto();
             txtMontoTotal.BackColor = cColor.CajaTexto();
             System.Data.DataTable tbOrden = new System.Data.DataTable();
+            CargarEstadoFacturacion();
             tbOrden = fun.CrearTabla("Codigo;Nombre");
             tbOrden = fun.AgregarFilas(tbOrden, "1;Asc");
             tbOrden = fun.AgregarFilas(tbOrden, "2;Desc");
             fun.LlenarComboDatatable(cmbOrden, tbOrden, "Nombre", "Codigo");
             Buscar();
             PintarEstados();
-           // Grilla.Columns[12].Visible = false;
+            // Grilla.Columns[12].Visible = false;
             //costo visible
-           // fun.AnchoColumnas(Grilla, "5;0;8;10;14;3;10;8;8;10;0;8;8;8;0");
+            // fun.AnchoColumnas(Grilla, "5;0;8;10;14;3;10;8;8;10;0;8;8;8;0");
             //costo invisible
-            // fun.AnchoColumnas(Grilla, "3;0;7;7;26;3;8;4;6;6;0;0;10;10;10;0");
-            fun.AnchoColumnas(Grilla, "3;0;7;7;26;4;3;8;6;6;0;0;10;10;10;0");
+            //fun.AnchoColumnas(Grilla, "3;0;7;7;26;4;3;8;6;6;0;0;10;10;10;0");
+            fun.AnchoColumnas(Grilla, "3;0;7;7;22;4;3;8;6;6;0;4;0;10;10;10;0");
 
         }
 
-        private void BuscarAutosdeStock(string Patente, Int32? CodMarca, string Modelo)
+        private void BuscarAutosdeStock(string Patente, Int32? CodMarca, string Modelo, string Facturacion)
         {
             int? OrdenaPrecio = null;
             if (cmbOrden.SelectedIndex > 0)
@@ -53,7 +54,7 @@ namespace Concesionaria
             double Total = 0;
             Clases.cFunciones fun = new Clases.cFunciones();
             Clases.cStockAuto stock = new Clases.cStockAuto();
-            System.Data.DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio, Concesion);
+            System.Data.DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio, Concesion, Facturacion );
             trdo = fun.TablaaMiles(trdo, "Costo");
             Total = fun.TotalizarColumna(trdo, "Costo");
             txtTotalVehiculos.Text = trdo.Rows.Count.ToString();
@@ -74,6 +75,19 @@ namespace Concesionaria
             }
 
 
+        }
+
+        private void CargarEstadoFacturacion()
+        {
+            cFunciones fun = new Clases.cFunciones();
+            string col = "CodEstado;Nombre";
+            DataTable trdo = fun.CrearTabla(col);
+            string Val = "";
+            Val = "1;FC";
+            fun.AgregarFilas(trdo, Val);
+            Val = "2;SF";
+            fun.AgregarFilas(trdo, Val);
+            fun.LlenarComboDatatable(cmbEstadoFacturacion, trdo, "Nombre", "CodEstado");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -98,9 +112,13 @@ namespace Concesionaria
             Int32? Concesion = null;
             if (CmbEstado.SelectedIndex > 0)
                 Concesion = Convert.ToInt32(CmbEstado.SelectedValue);
-
+            string Facturacion = "";
+            if (cmbEstadoFacturacion.SelectedIndex >0)
+            {
+                Facturacion = cmbEstadoFacturacion.Text;
+            } 
             Clases.cStockAuto stock = new Clases.cStockAuto();
-            System.Data.DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio, Concesion);
+            System.Data.DataTable trdo = stock.GetStockDetalladosVigente(Patente, CodMarca, Modelo, OrdenaPrecio, Concesion , Facturacion );
             txtTotalVehiculos.Text = trdo.Rows.Count.ToString();
             trdo = fun.TablaaMiles(trdo, "Cs");
             trdo = fun.TablaaMiles(trdo, "Revista");
@@ -114,7 +132,8 @@ namespace Concesionaria
             Grilla.Columns[6].HeaderText = "C";
             Double Total = fun.TotalizarColumna(trdo, "PrecioVenta");
             txtMontoTotal.Text = Total.ToString();
-            Grilla.Columns[13].HeaderText = "Mercado";
+            Grilla.Columns[11].HeaderText = "Fc";
+            Grilla.Columns[14].HeaderText = "Mercado";
 
 
             txtMontoTotal.Text = Total.ToString();
@@ -435,24 +454,23 @@ namespace Concesionaria
         private void BtnVerGanancia_Click(object sender, EventArgs e)
         {
             cFunciones fun = new cFunciones();
-            if (Grilla.Columns[11].Visible == false)
+            if (Grilla.Columns[12].Visible == false)
             {
-                Grilla.Columns[11].Visible = true;
+                Grilla.Columns[12].Visible = true;
                 // fun.AnchoColumnas(Grilla, "5;0;8;10;14;3;10;8;8;10;0;8;8;8;0");  //   fun.AnchoColumnas(Grilla, "5;0;8;10;10;3;10;5;8;5;0;12;12;12;0");
                 // fun.AnchoColumnas(Grilla, "5;0;8;2;10;3;10;5;8;5;0;12;11;11;10;0");
                 //  fun.AnchoColumnas(Grilla, "5;0;8;2;10;3;10;5;8;5;0;12;11;11;10;0");
                 //invisible
                 //    fun.AnchoColumnas(Grilla, "3;0;7;7;16;3;8;4;6;6;0;10;10;10;10;0");
-                fun.AnchoColumnas(Grilla, "3;0;7;7;16;4;3;8;6;6;0;10;10;10;10;0");
+               // fun.AnchoColumnas(Grilla, "3;0;7;7;16;4;3;8;6;6;0;10;10;10;10;0");
+                fun.AnchoColumnas(Grilla, "3;0;7;7;12;4;3;8;6;6;0;4;10;10;10;10;0");
             }
             else
             {
-                Grilla.Columns[11].Visible = false;
+                Grilla.Columns[12].Visible = false;
                 //fun.AnchoColumnas(Grilla, "5;0;8;10;22;3;10;8;8;10;0;8;0;8;0");
-                
-               // fun.AnchoColumnas(Grilla, "3;0;7;7;26;3;8;4;6;6;0;0;10;10;10;0");
-
-                fun.AnchoColumnas(Grilla, "3;0;7;7;26;4;3;8;6;6;0;0;10;10;10;0");
+               // fun.AnchoColumnas(Grilla, "3;0;7;7;26;4;3;8;6;6;0;0;10;10;10;0");
+                fun.AnchoColumnas(Grilla, "3;0;7;7;22;4;3;8;6;6;0;4;0;10;10;10;0");
             }
         }
 
